@@ -2,26 +2,31 @@
   .app
     Hero
     Features
+    ScheduleDemo
+    Footer
 </template>
 
 <script>
 
 import Hero from '@/blocks/Hero'
 import Features from '@/blocks/Features'
+import ScheduleDemo from '@/blocks/ScheduleDemo'
+import Footer from '@/blocks/Footer'
+
 export default {
   name: 'App',
   components: {
     Hero,
-    Features
+    Features,
+    ScheduleDemo,
+    Footer
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '@/assets/fonts.scss';
-// @import '@/assets/global.scss';
 .app {
 
 }
-
 </style>

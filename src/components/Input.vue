@@ -6,7 +6,6 @@
     :placeholder="placeholder"
     :value="value"
     :name="name"
-    :maxlength="maxLength || max"
     @input="$emit('input', $event.target.value)"
     @blur="$emit('blur', $event)"
     @focus="$emit('focus', $event)"
@@ -37,6 +36,7 @@ export default {
     border-radius: 4px;
     border: 1px solid $color-grey-light;
     padding: 14px 16px;
+    padding-bottom: 15px;
     resize: none;
     transition: border-color 0.3s;
     outline: 0;
