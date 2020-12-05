@@ -4,7 +4,7 @@
       h1.title Schedule demo
       h2.subtitle Automate campaign performance management.
       form.form(@submit.prevent="onSubmit")
-        Input.form__input
+        Input.form__input(placeholder="Email")
         Button(submit) Request a demo
 
     img.person(src="@/assets/images/sitting.svg")
@@ -49,7 +49,7 @@ export default {
   .person {
     position: absolute;
     bottom: -160px;
-    right: 0;
+    right: 68px;
   }
 
 }
