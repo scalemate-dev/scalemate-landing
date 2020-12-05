@@ -18,6 +18,12 @@ export default {
   components: {
     Button,
     Input
+  },
+
+  methods: {
+    onSubmit() {
+      this.$emit('togglePopup')
+    }
   }
 }
 </script>

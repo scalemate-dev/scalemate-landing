@@ -19,7 +19,7 @@ export default {
 
   methods: {
     onSubmit() {
-      console.log('SUBMIT')
+      this.$emit('togglePopup')
     }
   }
 }

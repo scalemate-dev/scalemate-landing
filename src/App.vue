@@ -1,8 +1,9 @@
 <template lang="pug">
   .app
-    Hero
+    SuccessPopup(v-if="isPopupOpen" @togglePopup="togglePopup")
+    Hero(@togglePopup="togglePopup")
     Features
-    ScheduleDemo
+    ScheduleDemo(@togglePopup="togglePopup")
     Footer
 </template>
 
@@ -12,6 +13,7 @@ import Hero from '@/blocks/Hero'
 import Features from '@/blocks/Features'
 import ScheduleDemo from '@/blocks/ScheduleDemo'
 import Footer from '@/blocks/Footer'
+import SuccessPopup from '@/blocks/SuccessPopup'
 
 export default {
   name: 'App',
@@ -19,7 +21,20 @@ export default {
     Hero,
     Features,
     ScheduleDemo,
+    SuccessPopup,
     Footer
+  },
+
+  data () {
+    return {
+      isPopupOpen: false
+    }
+  },
+
+  methods: {
+    togglePopup () {
+      this.isPopupOpen = !this.isPopupOpen
+    },
   }
 }
 </script>
