@@ -23,7 +23,8 @@ export default {
         },
         {
           title: 'Creative analysis',
-          subtitle: 'Choose any paradigm to analyze your creatives perfomance.',
+          // subtitle: 'Choose any paradigm to analyze your creatives perfomance.',
+          subtitle: 'Analyze your audiences and creatives across all your campaigns.',
           src: ''
         },
         {
