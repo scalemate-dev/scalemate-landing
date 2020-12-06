@@ -12,7 +12,14 @@
   <title>Scalemate - automation</title>
   <!-- Facebook Pixel Code -->
   <script>
+    const HOST_NAME = window.location.hostname;
+    const PROTOCOL = window.location.protocol;
+
     !function (f, b, e, v, n, t, s) {
+      if (HOST_NAME !== 'scalemate' || PROTOCOL !== 'http:') {
+        return () => console.log('local env')
+      };
+      console.log('fb pixel installed')
       if (f.fbq) return; n = f.fbq = function () {
         n.callMethod ?
           n.callMethod.apply(n, arguments) : n.queue.push(arguments)
