@@ -36,6 +36,7 @@ export default {
   padding-top: 80px;
   padding-bottom: 116px;
   position: relative;
+
   .subtitle {
     margin-bottom: 32px;
   }
@@ -60,4 +61,21 @@ export default {
 
 }
 
+@media (max-width: 960px) {
+  .schedule-demo .person {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .schedule-demo .title {
+    line-height: 40px;
+    margin-bottom: 8px;
+  }
+
+  .schedule-demo .subtitle {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
 </style>

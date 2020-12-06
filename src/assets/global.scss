@@ -40,9 +40,9 @@ $color-black: #333333;
 }
 
 @mixin container {
-  max-width: 1366px;
+  max-width: 1174px;
   margin: 0 auto;
-  padding: 0 120px
+  padding: 0 24px;
 }
 
 h1 {
