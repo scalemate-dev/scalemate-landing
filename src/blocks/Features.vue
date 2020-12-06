@@ -3,14 +3,15 @@
     .wrapper
       h1.title Scalemate is your #[span.accent mate] who would never abandon
       h2.subtitle Looks after your campaigns 24/7 and helps you with routine.
-      .list 
+      .list
         .list__item(v-for="item in items")
-          .img
+          img.img(:src="item.src")
           .list__title {{item.title}}
           .list__subtitle {{item.subtitle}}
 </template>
 
 <script>
+
 export default {
   name: 'Features',
   data () {
@@ -19,27 +20,42 @@ export default {
         {
           title: 'Custom automations',
           subtitle: 'Looks after key metrics and triggers UA actions smatrly.',
-          src: ''
+          src: '/img/custom-automations.png'
         },
         {
-          title: 'Creative analysis',
+          // title: 'Creative analysis',
+          title: 'Creative insigts',
           // subtitle: 'Choose any paradigm to analyze your creatives perfomance.',
-          subtitle: 'Analyze your audiences and creatives across all your campaigns.',
-          src: ''
+          // subtitle: 'Analyze your audiences and creatives across all your campaigns.',
+          subtitle: 'Get insigts about your audiences and creatives across all your campaigns.',
+          // subtitle: 'Get agregate data output of your audiences and creatives across all your campaigns.',
+          src: '/img/analyze.png'
         },
         {
           title: 'Notificatioins',
           subtitle: 'Stay in touch with your campaigns state triggered actions or errors.',
-          src: ''
+          src: '/img/notifications.png'
         },
         {
           title: 'Automated daily reports',
           subtitle: 'Build and schedule custom reports as frequently as you want.',
-          src: ''
+          src: '/img/automated-reports.png'
         },
       ]
     }
   },
+  
+  methods: {
+    // getImgUrl(src) {
+      
+    //   const images = require.context('@/assets/images', false, /\.png$/)
+    //   return images('./' + src + ".png")
+    // }
+
+    // getImgUrl(pic) {
+      // return require('../assets/'+pic)
+    // }
+  }
 }
 </script>
 
@@ -75,7 +91,7 @@ export default {
 
     &__title,
     &__subtitle {
-      max-width: 280px;
+      max-width: 328px;
     }
 
     &__title {
