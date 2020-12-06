@@ -27,8 +27,11 @@ export default {
 
 <style lang="scss" scoped>
 .hero {
+  height: 400px;
   @include container;
   display: flex;
+  position: relative;
+
   .text {
     margin-right: 150px;
     align-self: center;
@@ -39,8 +42,15 @@ export default {
     color: $color-accent;
   }
 
+  .title {
+    line-height: 40px;
+    margin-bottom: 8px;
+  }
+
   .subtitle {
     margin-bottom: 32px;
+    font-size: 18px;
+    line-height: 24px;
   }
 
   .accent {
@@ -56,9 +66,34 @@ export default {
   }
 
   .person {
-    height: 400px;
     width: auto;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
   }
 }
 
+@media (max-width: 960px) {
+  .hero .text {
+    width: 60%;
+    margin-right: initial;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero .person {
+    right: -15%;
+  }
+}
+
+@media (max-width: 550px) {
+  .hero .text {
+    width: 100%;
+  }
+
+  .hero .person {
+    display: none;
+  }
+}
 </style>

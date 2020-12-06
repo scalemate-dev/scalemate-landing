@@ -81,6 +81,7 @@ export default {
     flex-flow: row wrap;
     justify-content: space-between;
     align-content: flex-start;
+    font-size: 18px;
 
     &__item {
       flex: calc(50% - 8px) 0 0;
@@ -102,12 +103,37 @@ export default {
 
 
   .img {
-    min-height: 240px;
     width: 100%;
     margin-bottom: 16px;
-    background: $color-black;
-    border-radius: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .features {
+    padding-top: 64px;
+    padding-bottom: 32px;
   }
 
+  .features .list {
+    display: block;
+  }
+
+  .features .list__item {
+    min-height: initial;
+  }
+
+  .features .title {
+    line-height: 40px;
+    margin-bottom: 8px;
+  }
+
+  .features .subtitle {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .features .img {
+    border-radius: 22px;
+  }
 }
 </style>

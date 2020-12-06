@@ -14,4 +14,10 @@ export default {
     width: 100%;
     background: $color-accent;
   }
+
+  @media (max-width: 960px) {
+    .footer {
+      display: none;
+    }
+  }
 </style>
