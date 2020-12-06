@@ -24,10 +24,10 @@ export default {
         },
         {
           // title: 'Creative analysis',
-          title: 'Creative insigts',
+          title: 'Creative insights',
           // subtitle: 'Choose any paradigm to analyze your creatives perfomance.',
           // subtitle: 'Analyze your audiences and creatives across all your campaigns.',
-          subtitle: 'Get insigts about your audiences and creatives across all your campaigns.',
+          subtitle: 'Get insights about your audiences and creatives across all your campaigns.',
           // subtitle: 'Get agregate data output of your audiences and creatives across all your campaigns.',
           src: '/img/analyze.png'
         },
