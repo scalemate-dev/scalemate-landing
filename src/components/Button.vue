@@ -55,6 +55,7 @@ $outline-size: 10px;
   border-radius: 4px;
   border: none;
   outline: none;
+  cursor: pointer;
 
 
   &__waves {

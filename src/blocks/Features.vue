@@ -2,7 +2,7 @@
   .features
     .wrapper
       h1.title Scalemate is your #[span.accent mate] who would never abandon
-      h2.subtitle Looks after your campaigns 24/7 and helps you with routine.
+      h2.subtitle Looks after your campaigns 24/7 and doing the routine for you.
       .list
         .list__item(v-for="item in items")
           img.img(:src="item.src")
