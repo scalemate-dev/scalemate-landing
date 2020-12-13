@@ -19,7 +19,8 @@ export default {
       items: [
         {
           title: 'Custom automations',
-          subtitle: 'Looks after key metrics and triggers UA actions smatrly.',
+          // subtitle: 'Looks after key metrics and triggers UA actions smatrly.',
+          subtitle: 'Looks after key metrics and execute the given rules actions.',
           src: '/img/custom-automations.png'
         },
         {
@@ -33,11 +34,12 @@ export default {
         },
         {
           title: 'Notificatioins',
-          subtitle: 'Stay in touch with your campaigns state triggered actions or errors.',
+          subtitle: 'Stay in touch with your campaign\'s state, triggered actions or errors.',
           src: '/img/notifications.png'
         },
         {
-          title: 'Automated daily reports',
+          // title: 'Automated daily reports',
+          title: 'Automated custom reports',
           subtitle: 'Build and schedule custom reports as frequently as you want.',
           src: '/img/automated-reports.png'
         },
@@ -88,7 +90,7 @@ export default {
 
     &__title,
     &__subtitle {
-      max-width: 328px;
+      max-width: 376px;
     }
 
     &__title {
