@@ -125,11 +125,6 @@ export default {
     margin-bottom: 8px;
   }
 
-  .features .subtitle {
-    font-size: 18px;
-    line-height: 24px;
-  }
-
   .features .img {
     border-radius: 22px;
   }

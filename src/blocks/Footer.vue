@@ -28,7 +28,8 @@ export default {
 
   @media (max-width: 960px) {
     .footer {
-      display: none;
+      // display: none;
+      height: 128px;
     }
   }
 </style>
