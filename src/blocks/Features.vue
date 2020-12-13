@@ -63,13 +63,9 @@ export default {
 .features {
   padding-top: 80px;
   padding-bottom: 100px;
-  background: $color-grey;
 
   .wrapper {
     @include container;
-  }
-  .accent {
-    color: $color-accent;
   }
 
   .subtitle {
@@ -105,6 +101,8 @@ export default {
   .img {
     width: 100%;
     margin-bottom: 16px;
+    box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 2px 4px;
+    border-radius: 17px;
   }
 }
 

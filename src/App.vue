@@ -2,6 +2,7 @@
   .app
     SuccessPopup(v-if="isPopupOpen" @togglePopup="togglePopup")
     Hero(@togglePopup="togglePopup")
+    Pricing
     Features
     ScheduleDemo(@togglePopup="togglePopup")
     Footer
@@ -10,6 +11,7 @@
 <script>
 
 import Hero from '@/blocks/Hero'
+import Pricing from '@/blocks/Pricing'
 import Features from '@/blocks/Features'
 import ScheduleDemo from '@/blocks/ScheduleDemo'
 import Footer from '@/blocks/Footer'
@@ -20,6 +22,7 @@ export default {
   components: {
     Hero,
     Features,
+    Pricing,
     ScheduleDemo,
     SuccessPopup,
     Footer

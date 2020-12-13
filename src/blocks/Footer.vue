@@ -12,7 +12,7 @@ export default {
 <style lang="scss" scoped>
   .footer {
     padding: 40px 32px;
-    height: 362px;
+    height: 216px;
     width: 100%;
     background: $color-accent;
 
