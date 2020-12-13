@@ -1,13 +1,14 @@
 <template lang="pug">
   .schedule-demo
-    .text
-      h1.title Schedule demo
-      h2.subtitle Automate campaign performance management.
-      form.form(@submit.prevent="onSubmit")
-        Input.form__input(placeholder="Email" type="email" required)
-        Button(submit) Request a demo
+    .wrapper
+      .text
+        h1.title Still in doubt?
+        h2.subtitle Let's schedule a time to show you how #[span.accent Scalemate] works!
+        form.form(@submit.prevent="onSubmit")
+          Input.form__input(placeholder="Email" type="email" required)
+          Button(submit) Request a demo
 
-    img.person(src="@/assets/images/sitting.svg")
+      img.person(src="@/assets/images/sitting.svg")
 </template>
 
 <script>
@@ -30,15 +31,22 @@ export default {
 
 <style lang="scss" scoped>
 .schedule-demo {
-  @include container;
-  display: flex;
 
-  padding-top: 80px;
-  padding-bottom: 116px;
-  position: relative;
+  .wrapper {
+    @include container;
+    display: flex;
+    padding-top: 80px;
+    padding-bottom: 116px;
+    position: relative;
+  }
+  background: $color-grey;
 
   .subtitle {
     margin-bottom: 32px;
+  }
+
+  .accent {
+    font-weight: 900;
   }
 
   .text {
