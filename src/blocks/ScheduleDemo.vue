@@ -4,7 +4,7 @@
       h1.title Schedule demo
       h2.subtitle Automate campaign performance management.
       form.form(@submit.prevent="onSubmit")
-        Input.form__input(placeholder="Email")
+        Input.form__input(placeholder="Email" type="email" required)
         Button(submit) Request a demo
 
     img.person(src="@/assets/images/sitting.svg")

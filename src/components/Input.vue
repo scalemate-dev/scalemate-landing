@@ -2,8 +2,9 @@
 .text-input
   input.text-input__input(
     ref="input"
-    type="text"
+    :type="type"
     :placeholder="placeholder"
+    :required="required"
     :value="value"
     :name="name"
     @input="$emit('input', $event.target.value)"
@@ -20,6 +21,11 @@ export default {
   props: {
     name: String,
     value: [String, Number],
+    type: {
+      type: String,
+      default: 'text'
+    },
+    required: [Boolean],
     title: [String],
     placeholder: [String],
     disabled: [Boolean],
