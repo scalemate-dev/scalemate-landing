@@ -3,7 +3,7 @@
   .text
     .logo Scalemate.
     h1.title Your best friend #[span.accent TikTok] Ads assistant
-    h3.subtitle Let automation do the heavy lifting and save your time.
+    h2.subtitle Let automation do the heavy lifting and save your time.
     //- form.form(@submit.prevent="onSubmit")
       Input.form__input(placeholder="Email" type="email" required)
       Button(submit) Request a demo
@@ -49,7 +49,7 @@ export default {
 
   .subtitle {
     margin-bottom: 32px;
-    font-size: 18px;
+    // font-size: 18px;
     line-height: 24px;
   }
 
