@@ -2,8 +2,8 @@
   .pricing
     .wrapper
       h1.title Fixed price for #[span.accent unlimited] spend! Only 139$ a month.
-      form.form(@submit.prevent="onSubmit" name="request-access" netlify)
-        Input.form__input(placeholder="Email" type="email" required)
+      form.form(@submit.prevent="onSubmit" name="request_access" method="POST" data-netlify="true")
+        Input.form__input(placeholder="Email" type="email" name="email" required)
         Button(submit) Request access
 </template>
 
@@ -16,6 +16,12 @@ export default {
     Button,
     Input
   },
+
+  methods: {
+    onSubmit() {
+      this.$emit('togglePopup')
+    }
+  }
 }
 </script>
 

@@ -4,8 +4,8 @@
       .text
         h1.title Still in doubt?
         h2.subtitle Let's schedule a time to show you how #[span.accent Scalemate] works!
-        form.form(@submit.prevent="onSubmit" name="request-demo" netlify)
-          Input.form__input(placeholder="Email" type="email" required)
+        form.form(@submit.prevent="onSubmit" name="request-demo" method="POST" data-netlify="true")
+          Input.form__input(placeholder="Email" type="email" name="email" required)
           Button(submit) Request a demo
 
       img.person(src="@/assets/images/sitting.svg")
