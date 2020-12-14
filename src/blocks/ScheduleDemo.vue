@@ -4,8 +4,8 @@
       .text
         h1.title Still in doubt?
         h2.subtitle Let's schedule a time to show you how #[span.accent Scalemate] works!
-        form.form(@submit.prevent="onSubmit" name="request-demo" method="POST" data-netlify="true")
-          <input type="hidden" name="request-demo" value="contact">
+        form.form(@submit.prevent="onSubmit" name="request-demo" method="POST" data-netlify="true" data-netlify-honeypot="bot-field")
+          input(type="hidden" name="request-demo" value="ask-demo")
           Input.form__input(placeholder="Email" type="email" name="email" required)
           Button(submit) Request a demo
 
@@ -23,25 +23,8 @@ export default {
   },
 
   methods: {
-    handleSubmit (e) {
-      e.preventDefault()
-      let myForm = document.getElementById('request-access-form');
-      let formData = new FormData(myForm)
-      fetch('/', {
-        method: 'POST',
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString()
-      }).then(() => console.log('Form successfully submitted')).catch((error) =>
-        alert(error))
-    },
-
-    async onSubmit(e) {
-      try {
-        await this.handleSubmit(e)
-        this.$emit('togglePopup')
-      } catch (e) {
-        console.error(e)
-      }
+    onSubmit() {
+      this.$emit('togglePopup')
     }
   }
 }
