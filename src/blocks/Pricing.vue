@@ -2,7 +2,7 @@
   .pricing
     .wrapper
       h1.title Fixed price for #[span.accent unlimited] spend! Only 139$ a month.
-      form.form(@submit.prevent="onSubmit" name="request-access" method="POST" data-netlify="true")
+      form.form(@submit.prevent="onSubmit" id="request-access-form" name="request-access" method="POST" data-netlify="true")
         <input type="hidden" name="request-access" value="contact">
         Input.form__input(placeholder="Email" type="email" name="email" required)
         Button(submit) Request access
@@ -19,8 +19,24 @@ export default {
   },
 
   methods: {
-    onSubmit() {
-      this.$emit('togglePopup')
+    handleSubmit (e) {
+      e.preventDefault()
+      let myForm = document.getElementById('request-access-form');
+      let formData = new FormData(myForm)
+      fetch('/', {
+        method: 'POST',
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString()
+      }).then(() => console.log('Form successfully submitted')).catch((error) =>
+        alert(error))
+    },
+    async onSubmit(e) {
+      try {
+        await this.handleSubmit(e)
+        this.$emit('togglePopup')
+      } catch (e) {
+        console.error(e)
+      }
     }
   }
 }

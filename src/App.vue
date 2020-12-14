@@ -1,8 +1,8 @@
 <template lang="pug">
   .app
     SuccessPopup(v-if="isPopupOpen" @togglePopup="togglePopup")
-    Hero(@togglePopup="togglePopup")
-    Pricing
+    Hero
+    Pricing(@togglePopup="togglePopup")
     Features
     ScheduleDemo(@togglePopup="togglePopup")
     Footer
