@@ -2,7 +2,7 @@
   .pricing
     .wrapper
       h1.title Fixed price for #[span.accent unlimited] spend! Only 139$ a month.
-      form.form(@submit.prevent="onSubmit")
+      form.form(@submit.prevent="onSubmit" name="request-access" netlify)
         Input.form__input(placeholder="Email" type="email" required)
         Button(submit) Request access
 </template>
