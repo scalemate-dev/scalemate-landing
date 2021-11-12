@@ -1,99 +1,92 @@
-<template lang="pug">
-.hero
-  .text
-    .logo Scalemate.
-    h1.title Your best friend #[span.accent TikTok] Ads assistant
-    h3.subtitle Let automation do the heavy lifting and save your time.
-    form.form(@submit.prevent="onSubmit")
-      Input.form__input(placeholder="Email")
-      Button(submit) Request a demo
-  img.person(src="@/assets/images/bust.svg")
+<template>
+  <div class="hero">
+    <div class="container">
+      <div class="hero-title">
+        Your data-driven <span>performance marketing</span> assistant.
+      </div>
+      <div class="hero-subtitle">
+        Cross-team out-of-the-box solution for companies that care about every unit effectiveness.
+      </div>
+      <div class="hero-form">
+        <Input placeholder="Enter your email" v-model="email" />
+        <Button color="blue" @click="handleRequest">
+          Request a demo
+        </Button>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import Input from '@/components/Input'
 import Button from '@/components/Button'
+import Input from '@/components/Input'
+
 export default {
   name: 'Hero',
-  components: { Input, Button },
-
-  methods: {
-    onSubmit() {
-      this.$emit('togglePopup')
+  components: {
+    Button,
+    Input,
+  },
+  data() {
+    return {
+      email: '',
     }
-  }
+  },
+  methods: {
+    handleRequest() {
+      console.log('handle request a demo', this.email)
+      this.email = ''
+    }
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 .hero {
-  height: 400px;
-  @include container;
+  min-height: 700px;
+  background: #111827;
   display: flex;
-  position: relative;
+  flex-flow: column nowrap;
+  justify-content: center;
 
-  .text {
-    margin-right: 150px;
-    align-self: center;
+  .hero-title {
+    max-width: 700px;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 60px;
+    letter-spacing: -0.025em;
+    color: #FFFFFF;
+    margin-bottom: 20px;
   }
 
-  .logo {
-    @include title('3');
-    color: $color-accent;
+  .hero-title span {
+    color: #818CF8;
   }
 
-  .title {
-    line-height: 40px;
-    margin-bottom: 8px;
+  .hero-subtitle {
+    max-width: 674px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 28px;
+    color: #D1D5DB;
+    margin-bottom: 48px;
   }
 
-  .subtitle {
-    margin-bottom: 32px;
-    font-size: 18px;
-    line-height: 24px;
-  }
-
-  .accent {
-    color: $color-accent;
-  }
-
-  .form {
+  .hero-form {
+    max-width: 576px;
     display: flex;
-    &__input {
-      margin-right: 8px;
-      flex: 1;
-    }
-  }
-
-  .person {
-    width: auto;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-  }
-}
-
-@media (max-width: 960px) {
-  .hero .text {
-    width: 60%;
-    margin-right: initial;
+    gap: 12px;
   }
 }
 
 @media (max-width: 768px) {
-  .hero .person {
-    right: -15%;
-  }
-}
-
-@media (max-width: 550px) {
-  .hero .text {
-    width: 100%;
-  }
-
-  .hero .person {
-    display: none;
+  .hero {
+    .hero-title {
+      font-size: 48px;
+      line-height: 48px;
+    }
   }
 }
 </style>

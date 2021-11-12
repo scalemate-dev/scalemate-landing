@@ -1,100 +1,44 @@
-<template lang="pug">
-  button.button(
-    :type="submit ? 'submit' : 'button'"
-    @click="onClick"
-  )
-
-    .button__waves
-      transition-group(tag="div" name="wave")
-        .button__wave(v-for="wave in waves", :key="wave")
-    slot
+<template>
+  <div class="button" :class="[color]" @click="handleClick">
+    Request a demo
+  </div>
 </template>
 
 <script>
 export default {
-  props: {
-    submit: Boolean
-  },
-
-  data () {
-    return {
-      waves: []
-    }
-  },
-
+  props: ['color'],
   methods: {
-    onClick (event) {
-      if (this.disabled || this.loading) {
-        event.preventDefault();
-        return;
-      }
-
-      this.createWave();
-    },
-
-    createWave () {
-      this.waves.push(this.counter++);
-
-      this.$nextTick(() => {
-        this.waves.shift();
-      });
-    },
+    handleClick() {
+      this.$emit('click');
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-$outline-size: 10px;
 .button {
-  position: relative;
-  color: $color-white;
-  padding: 14px 16px;
-  padding-bottom: 15px;
-  text-align: center;
-  background: $color-accent;
-  border-radius: 4px;
-  border: none;
-  outline: none;
+  cursor: pointer;
+  padding: 9px 17px;
+  background: #4B5563;
+  border-radius: 6px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #FFFFFF;
+  user-select: none;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  flex-shrink: 0;
 
-
-  &__waves {
-    z-index: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
+  &.gray {
+    background: #4B5563;
   }
 
-  &__wave {
-    position: absolute;
-    top: -$outline-size;
-    right: -$outline-size;
-    bottom: -$outline-size;
-    left: -$outline-size;
-    margin: auto;
-    width: 100%;
-    height: 100%;
-    border-radius: 4px;
-    transform-origin: center;
-
-    background-color: rgba($color-accent, 0.4);
-    }
+  &.blue {
+    background: #6366F1;
   }
-
-  .wave-leave-to {
-    width: calc(100% + #{$outline-size * 2});
-    height: calc(100% + #{$outline-size * 2});
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  .wave-leave-active {
-    transition-property: width, height, opacity, visibility;
-    transition-duration: 1.5s, 1.5s, 1.2s, 1.2s;
-    transition-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
-  }
-
-
+}
 </style>

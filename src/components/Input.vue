@@ -1,70 +1,80 @@
-<template lang="pug">
-.text-input
-  input.text-input__input(
-    ref="input"
-    type="text"
-    :placeholder="placeholder"
-    :value="value"
-    :name="name"
-    @input="$emit('input', $event.target.value)"
-    @blur="$emit('blur', $event)"
-    @focus="$emit('focus', $event)"
-  )
-
+<template>
+  <div class="input">
+    <div v-if="label" class="input-label">
+      {{ label }}
+    </div>
+    <input
+      class="input-field"
+      :class="{ 'left-padding': leftPadding, disabled: disabled }"
+      :type="type ? type : 'text'"
+      v-model="formValue"
+      :placeholder="placeholder"
+      :disabled="disabled"
+      :autocomplete="autocomplete"
+    />
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'TextInput',
-
-  props: {
-    name: String,
-    value: [String, Number],
-    title: [String],
-    placeholder: [String],
-    disabled: [Boolean],
-  }
+  name: "Input",
+  props: ["modelValue", "placeholder", "leftPadding", "type", "disabled", "autocomplete", "label"],
+  computed: {
+    formValue: {
+      get() {
+        return this.modelValue;
+      },
+      set(value) {
+        this.$emit("update:modelValue", value);
+      },
+    },
+  },
 };
 </script>
 
-<style scoped lang="scss">
-.text-input {
+<style lang="scss" scoped>
+.input {
+  width: 100%;
 
-  &__input {
+  .input-field {
     width: 100%;
+    font-style: normal;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
     font-size: 16px;
-    border-radius: 4px;
-    border: 1px solid $color-grey-light;
-    padding: 14px 16px;
-    padding-bottom: 15px;
-    resize: none;
-    transition: border-color 0.3s;
-    outline: 0;
-    color: $color-black;
+    line-height: 24px;
+    color: #000;
+    border: 1px solid rgba(166, 170, 180, 0.5);
+    border-radius: 6px;
+    padding: 11px 20px;
+    outline: none;
+    transition: border-color 0.2s ease;
+    will-change: border-color;
+  }
 
-    // ios shadow remove
+  &::placeholder {
+    color: #6B7280;
+  }
+
+  .input-label {
+    margin-bottom: 12px;
+    color: #878d93;
+    font-size: 14px;
+  }
+
+  .left-padding {
+    padding-left: 40px;
+  }
+
+  .disabled {
+    pointer-events: none;
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
     -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-
-    &::-webkit-input-placeholder,
-    &:-moz-placeholder,
-    &::-moz-placeholder,
-    &:-ms-input-placeholder,
-    &::placeholder {
-      color: $color-black;
-      opacity: 0.5;
-    }
-
-    &:focus {
-      border-color: $color-grey;
-      box-shadow: 0 0 0 2px rgba(#ced3dc, 0.5);
-    }
-
-    &:disabled {
-      color: $color-grey;
-      background-color: $color-white;
-    }
+    margin: 0;
   }
 }
 </style>
