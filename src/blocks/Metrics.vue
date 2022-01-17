@@ -2,16 +2,17 @@
   <div class="metrics">
     <div class="container">
       <div class="metrics-container">
-        <div class="metrics-eyebrow">Valuable metrics</div>
-        <div class="metics-title">Get actionable data that will help grow your budgets</div>
-        <div class="metrics-description">
-          We are about the effectiveness, argumentation of the hypotheses put forward, forecasting and diversification of the risks of your investment in advertising
+        <!-- <div class="metrics-eyebrow">Valuable metrics</div> -->
+        <div class="metrics-wrapper">
+          <div class="metics-title">Make the things <span>done on time</span></div>
+          <div class="metrics-description">
+            Track your campaigns and rotate creatives properly to keep performance on top.
+            <!-- We are about the effectiveness, argumentation of the hypotheses put forward, forecasting and diversification of the risks of your investment in advertising -->
+          </div>
         </div>
         <div class="metrics-list">
           <div class="metric" v-for="(metric, index) in metrics" :key="index">
-            <div class="metric-title">
-              {{ metric.title }}
-            </div>
+            <div class="metric-title" v-html="metric.title" />
             <div class="metric-description">
               {{ metric.description }}
             </div>
@@ -29,10 +30,10 @@ export default {
   data() {
     return {
       metrics: [
-        { title: 'up to 63 hr/mo', description: 'Per employee saving with Cloud sync' },
+        { title: 'up to 63 hr/mo', description: 'Savings per employee' },
         { title: '3 times faster', description: 'Launch, test and validate your creatives and hypotises' },
         { title: 'up to 90%', description: 'Budget leak prevention with Smart Insights' },
-        { title: '∞ times', description: 'More productive with Scalemate' },
+        { title: '<span class="accent">∞</span> times', description: 'More productive with Scalemate' },
       ]
     }
   },
@@ -42,10 +43,14 @@ export default {
 <style lang="scss" scoped>
 .metrics {
   padding: 96px 0;
-  background: url('~@/assets/images/features.jpg') no-repeat center / cover;
+  // background: url('~@/assets/images/features.jpg') no-repeat center / cover;
+
+  .metrics-wrapper {
+    max-width: 868px;
+  }
 
   .metrics-container {
-    max-width: 592px;
+    max-width: 1084px;
   }
 
   .metrics-eyebrow {
@@ -60,12 +65,16 @@ export default {
   }
 
   .metics-title {
+    font-weight: bold;
+    font-size: 60px;
+    line-height: 72px;
+    letter-spacing: -0.02em;;
     margin-bottom: 20px;
-    font-style: normal;
-    font-weight: 800;
-    font-size: 30px;
-    line-height: 36px;
-    color: #FFFFFF;
+    color: $color-text-800;
+
+    span {
+      color: $color-accent-500;
+    }
   }
 
   .metrics-description {
@@ -74,17 +83,23 @@ export default {
     font-weight: normal;
     font-size: 18px;
     line-height: 28px;
-    color: #D1D5DB;
+    color: $color-text-600;
   }
 
   .metrics-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
+    display: flex;
+    justify-content: space-between;
+    // grid-template-columns: 1fr 1fr 1fr 1fr;
+    // gap: 48px;
   }
 
   .metric {
-    margin-bottom: 48px;
+    max-width: 234px;
+    // margin-bottom: 48px;
+  }
+
+  /deep/ .accent {
+    color: $color-accent-500;
   }
 
   .metric-title {
@@ -93,7 +108,8 @@ export default {
     font-weight: bold;
     font-size: 24px;
     line-height: 32px;
-    color: #FFFFFF;
+    color: $color-text-800;
+
   }
 
   .metric-description {
@@ -101,7 +117,7 @@ export default {
     font-weight: normal;
     font-size: 16px;
     line-height: 24px;
-    color: #FFFFFF;
+    color: $color-text-600;
   }
 }
 

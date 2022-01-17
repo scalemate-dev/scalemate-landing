@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <div class="container">
-      © 2020 Scalemate, Inc. All rights reserved.
+      © 2022 Scalemate, LLC. All rights reserved.
     </div>
   </div>
 </template>

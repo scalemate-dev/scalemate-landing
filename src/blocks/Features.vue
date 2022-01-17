@@ -3,74 +3,88 @@
     <div class="container">
       <div class="feature">
         <div class="feature-info">
-          <div class="feature-icon">
+          <!-- <div class="feature-icon">
             <inline-svg :src="require('@/assets/icons/feature-1.svg')" />
-          </div>
+          </div> -->
           <div class="feature-title">
-            Creative Rotation
+            Setup adsets from <span>Creative Library</span>
           </div>
           <div class="feature-description">
-            Make your designing and user acquisition teams work as a single engine.
-            <br /><br />
-            Find and multiply creative winners with solid testing methodology and transparent cross-team communication.
+            Find and multiply creative winners with solid testing methodology and transparent cross-team communication. 
           </div>
         </div>
         <div class="feature-image">
-          <img src="@/assets/images/feature-1.png" />
+          <img src="@/assets/images/creative-lib.png" />
         </div>
       </div>
 
       <div class="feature">
         <div class="feature-info">
-          <div class="feature-icon">
-            <inline-svg :src="require('@/assets/icons/feature-2.svg')" />
-          </div>
+          <!-- <div class="feature-icon">
+            <inline-svg :src="require('@/assets/icons/feature-3.svg')" />
+          </div> -->
           <div class="feature-title">
-            BI Technologies
+            Cloud <span>sync</span>
+          </div>
+          <div class="feature-description">
+            One-click uploading your creative assets to different platforms. Two clicks adding them to any campaign or some of them.
+          </div>
+        </div>
+        <div class="feature-image">
+          <img src="@/assets/images/cloud-sync.png" />
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-info">
+          <!-- <div class="feature-icon">
+            <inline-svg :src="require('@/assets/icons/feature-2.svg')" />
+          </div> -->
+          <div class="feature-title">
+            <span>BI</span> Technologies
           </div>
           <div class="feature-description">
             The significant point of great user acquisition comes down to data and measurement. Scalemate allows you to slice and dice any data by any segment imaginable.
           </div>
         </div>
         <div class="feature-image">
-          <img src="@/assets/images/feature-2.png" />
+          <img src="@/assets/images/report.png" />
         </div>
       </div>
 
       <div class="feature">
         <div class="feature-info">
-          <div class="feature-icon">
-            <inline-svg :src="require('@/assets/icons/feature-3.svg')" />
-          </div>
+          <!-- <div class="feature-icon">
+            <inline-svg :src="require('@/assets/icons/feature-2.svg')" />
+          </div> -->
           <div class="feature-title">
-            Cloud sync
+            Get <span>notified</span> about results
           </div>
           <div class="feature-description">
-            One click assets uploading
+            The significant point of great user acquisition comes down to data and measurement. Scalemate allows you to slice and dice any data by any segment imaginable.
           </div>
         </div>
         <div class="feature-image">
-          <img src="@/assets/images/feature-3.png" />
+          <img src="@/assets/images/notifications.png" />
         </div>
       </div>
+
     </div>
   </div>
 </template>
 
 <script>
-import InlineSvg from 'vue-inline-svg'
+// import InlineSvg from 'vue-inline-svg'
 
 export default {
   name: 'Features',
-  components: {
-    InlineSvg,
-  },
 }
 </script>
 
 <style lang="scss" scoped>
 .features {
   padding: 96px 0;
+  position: relative;
 
   .feature {
     margin-bottom: 96px;
@@ -80,6 +94,22 @@ export default {
     align-items: center;
     gap: 96px;
   }
+
+  // .feature-image {
+  //   position: absolute;
+  // }
+
+  // .feature:nth-child(odd) {
+  //   .feature-image {
+  //     right: 0;
+  //   }
+  // }
+
+  // .feature:nth-child(even) {
+  //   .feature-image {
+  //     left: 0;
+  //   }
+  // }
 
   .feature:nth-child(even) {
     .feature-info {
@@ -91,8 +121,17 @@ export default {
     }
   }
 
+  .feature-image {
+    flex: 0.5;
+  }
+
+  .feature-image img {
+    width: 100%;
+    height: auto;
+  }
+
   .feature-info {
-    flex: 1;
+    flex: 0.5 0 0;
   }
 
   .feature-icon {
@@ -103,10 +142,14 @@ export default {
     margin-bottom: 16px;
     font-style: normal;
     font-weight: 800;
-    font-size: 30px;
-    line-height: 36px;
+    font-size: 48px;
+    line-height: 60px;
     letter-spacing: -0.025em;
     color: #111827;
+
+    span {
+      color: $color-accent-500;
+    }
   }
 
   .feature-description {

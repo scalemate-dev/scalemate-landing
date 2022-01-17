@@ -3,7 +3,7 @@
     <div class="container">
       <div class="header-navigation">
         <div class="header-logo">
-          <inline-svg :src="require('@/assets/icons/logo.svg')" />
+          <inline-svg class="logo" :src="require('@/assets/icons/logo-black.svg')" />
         </div>
         <!-- <div class="header-link">
           Features
@@ -12,7 +12,7 @@
           Company
         </div> -->
       </div>
-      <Button @click="handleRequest">
+      <Button @click="handleRequest" color="accent">
         Request a demo
       </Button>
     </div>
@@ -42,12 +42,17 @@ export default {
   padding: 24px 0;
   width: 100%;
   position: fixed;
-  background: #111827;
 
   .container {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
+  }
+
+  .logo {
+    *  > {
+      fill: #1D2939;
+    }
   }
 
   .header-navigation {

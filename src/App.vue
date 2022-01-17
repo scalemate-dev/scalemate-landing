@@ -2,8 +2,10 @@
   <div class="home">
     <Header />
     <Hero />
+    <HowCanHelp />
     <Features />
     <Metrics />
+    <WaitList />
     <Footer />
   </div>
 </template>
@@ -11,8 +13,10 @@
 <script>
 import Header from '@/blocks/Header'
 import Hero from '@/blocks/Hero'
+import HowCanHelp from '@/blocks/HowCanHelp'
 import Features from '@/blocks/Features'
 import Metrics from '@/blocks/Metrics'
+import WaitList from '@/blocks/WaitList'
 import Footer from '@/blocks/Footer'
 
 export default {
@@ -20,8 +24,10 @@ export default {
   components: {
     Header,
     Hero,
+    HowCanHelp,
     Features,
     Metrics,
+    WaitList,
     Footer,
   },
 }

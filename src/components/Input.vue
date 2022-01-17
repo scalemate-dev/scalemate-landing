@@ -10,6 +10,7 @@
       v-model="formValue"
       :placeholder="placeholder"
       :disabled="disabled"
+      :required="required"
       :autocomplete="autocomplete"
     />
   </div>
@@ -18,7 +19,7 @@
 <script>
 export default {
   name: "Input",
-  props: ["modelValue", "placeholder", "leftPadding", "type", "disabled", "autocomplete", "label"],
+  props: ["modelValue", "placeholder", "leftPadding", "type", "disabled", "autocomplete", "label", "required"],
   computed: {
     formValue: {
       get() {
@@ -46,8 +47,8 @@ export default {
     line-height: 24px;
     color: #000;
     border: 1px solid rgba(166, 170, 180, 0.5);
-    border-radius: 6px;
-    padding: 11px 20px;
+    border-radius: 10px;
+    padding: 16px 18px;
     outline: none;
     transition: border-color 0.2s ease;
     will-change: border-color;

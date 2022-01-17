@@ -1,15 +1,19 @@
 <template>
-  <div class="button" :class="[color]" @click="handleClick">
-    Request a demo
+  <div class="button" :class="[color]" @click="handleClick" :submit="submit">
+    <slot />
+    <!-- <span v-if="!$slots.defaultSlot">Request a demo</span> -->
   </div>
 </template>
 
 <script>
 export default {
-  props: ['color'],
+  props: ['color', 'submit'],
   methods: {
     handleClick() {
       this.$emit('click');
+    },
+    mounted () {
+      console.log('!!!!!!!!! hwllo world !!!!!!!!!! ')
     }
   }
 }
@@ -18,9 +22,9 @@ export default {
 <style lang="scss" scoped>
 .button {
   cursor: pointer;
-  padding: 9px 17px;
-  background: #4B5563;
-  border-radius: 6px;
+  padding: 16px 32px;
+  background: $color-bg-grey;
+  border-radius: 10px;
   font-family: Inter;
   font-style: normal;
   font-weight: 500;
@@ -34,11 +38,11 @@ export default {
   flex-shrink: 0;
 
   &.gray {
-    background: #4B5563;
+    background: $color-bg-grey;
   }
 
-  &.blue {
-    background: #6366F1;
+  &.accent {
+    background: $color-accent-500;
   }
 }
 </style>
