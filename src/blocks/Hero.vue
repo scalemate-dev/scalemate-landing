@@ -11,7 +11,8 @@
           input(type="hidden" name="request-demo" value="ask-demo")
           Input.form__input(placeholder="Email" type="email" name="email" required)
           Button(submit) Request a demo -->
-      <form class="hero-form" @submit.prevent="handleRequest">
+      <form class="hero-form" @submit.prevent="handleRequest" name="request-demo" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+        <input type="hidden" name="request-demo" value="ask-demo" />
         <Input placeholder="Enter your email" :required="true" type="email" v-model="email" />
         <Button color="accent" :submit="true">
           Request a demo
@@ -49,7 +50,8 @@ export default {
     Input,
     InlineSvg,
   },
-  data() {
+  
+    Inputdata() {
     return {
       email: '',
     }

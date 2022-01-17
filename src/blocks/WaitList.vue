@@ -4,7 +4,8 @@
       <inline-svg class="wait-list-angles" :src="require('@/assets/icons/bottom-angles.svg')"/>
       <div class="wait-list-title">Join <span>waitlist</span> and get 2 month free trial!</div>
       <div class="wait-list-subtitle">Cross-team out-of-the-box solution for companies that care about every unit effectiveness.</div>
-      <form class="wait-list-form" @submit.prevent="handleRequest">
+      <form class="wait-list-form" @submit.prevent="handleRequest" name="request-demo" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+        <input type="hidden" name="request-waitlist" value="ask-2mo-trial" />
         <Input
           required
           v-model="email"
