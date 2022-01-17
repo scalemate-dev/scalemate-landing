@@ -55,6 +55,7 @@ export default {
 
 <style lang="scss" scoped>
 .help {
+  margin-bottom: 56px;
 
   .title {
     max-width: 700px;

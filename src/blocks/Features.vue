@@ -1,75 +1,82 @@
 <template>
   <div class="features">
-    <div class="container">
+
       <div class="feature">
-        <div class="feature-info">
-          <!-- <div class="feature-icon">
-            <inline-svg :src="require('@/assets/icons/feature-1.svg')" />
-          </div> -->
-          <div class="feature-title">
-            Setup adsets from <span>Creative Library</span>
+        <div class="container">
+          <div class="feature-info">
+            <!-- <div class="feature-icon">
+              <inline-svg :src="require('@/assets/icons/feature-1.svg')" />
+            </div> -->
+            <div class="feature-title">
+              Setup adsets from <span>Creative Library</span>
+            </div>
+            <div class="feature-description">
+              Find and multiply creative winners with solid testing methodology and transparent cross-team communication. 
+            </div>
           </div>
-          <div class="feature-description">
-            Find and multiply creative winners with solid testing methodology and transparent cross-team communication. 
+          <div class="feature-image">
+            <img src="@/assets/images/creative-lib.png" />
           </div>
-        </div>
-        <div class="feature-image">
-          <img src="@/assets/images/creative-lib.png" />
         </div>
       </div>
 
       <div class="feature">
-        <div class="feature-info">
-          <!-- <div class="feature-icon">
-            <inline-svg :src="require('@/assets/icons/feature-3.svg')" />
-          </div> -->
-          <div class="feature-title">
-            Cloud <span>sync</span>
+        <div class="container">
+          <div class="feature-info">
+            <!-- <div class="feature-icon">
+              <inline-svg :src="require('@/assets/icons/feature-3.svg')" />
+            </div> -->
+            <div class="feature-title">
+              Cloud <span>sync</span>
+            </div>
+            <div class="feature-description">
+              One-click uploading your creative assets to different platforms. Two clicks adding them to any campaign or some of them.
+            </div>
           </div>
-          <div class="feature-description">
-            One-click uploading your creative assets to different platforms. Two clicks adding them to any campaign or some of them.
+          <div class="feature-image">
+            <img src="@/assets/images/cloud-sync.png" />
           </div>
-        </div>
-        <div class="feature-image">
-          <img src="@/assets/images/cloud-sync.png" />
         </div>
       </div>
 
       <div class="feature">
-        <div class="feature-info">
-          <!-- <div class="feature-icon">
-            <inline-svg :src="require('@/assets/icons/feature-2.svg')" />
-          </div> -->
-          <div class="feature-title">
-            <span>BI</span> Technologies
+        <div class="container">
+          <div class="feature-info">
+            <!-- <div class="feature-icon">
+              <inline-svg :src="require('@/assets/icons/feature-2.svg')" />
+            </div> -->
+            <div class="feature-title">
+              <span>BI</span> Technologies
+            </div>
+            <div class="feature-description">
+              The significant point of great user acquisition comes down to data and measurement. Scalemate allows you to slice and dice any data by any segment imaginable.
+            </div>
           </div>
-          <div class="feature-description">
-            The significant point of great user acquisition comes down to data and measurement. Scalemate allows you to slice and dice any data by any segment imaginable.
+          <div class="feature-image">
+            <img src="@/assets/images/report.png" />
           </div>
-        </div>
-        <div class="feature-image">
-          <img src="@/assets/images/report.png" />
         </div>
       </div>
 
       <div class="feature">
-        <div class="feature-info">
-          <!-- <div class="feature-icon">
-            <inline-svg :src="require('@/assets/icons/feature-2.svg')" />
-          </div> -->
-          <div class="feature-title">
-            Get <span>notified</span> about results
+        <div class="container">
+          <div class="feature-info">
+            <!-- <div class="feature-icon">
+              <inline-svg :src="require('@/assets/icons/feature-2.svg')" />
+            </div> -->
+            <div class="feature-title">
+              Get <span>notified</span> about results
+            </div>
+            <div class="feature-description">
+              The significant point of great user acquisition comes down to data and measurement. Scalemate allows you to slice and dice any data by any segment imaginable.
+            </div>
           </div>
-          <div class="feature-description">
-            The significant point of great user acquisition comes down to data and measurement. Scalemate allows you to slice and dice any data by any segment imaginable.
+          <div class="feature-image">
+            <img src="@/assets/images/notifications.png" />
           </div>
-        </div>
-        <div class="feature-image">
-          <img src="@/assets/images/notifications.png" />
         </div>
       </div>
 
-    </div>
   </div>
 </template>
 
@@ -85,14 +92,26 @@ export default {
 .features {
   padding: 96px 0;
   position: relative;
+  
 
-  .feature {
-    margin-bottom: 96px;
+  .container {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
     gap: 96px;
+  }
+
+
+  .feature {
+    // margin-bottom: 96px;
+    padding: 192px 0;
+
+    background: $color-bg-grey-50;
+
+    &:nth-child(even) {
+      background: #ffffff;
+    }
   }
 
   // .feature-image {

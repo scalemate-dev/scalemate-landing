@@ -3,14 +3,20 @@
     <div class="container">
       <div class="wait-list-title">Join <span>waitlist</span> and get 2 month free trial!</div>
       <div class="wait-list-subtitle">Cross-team out-of-the-box solution for companies that care about every unit effectiveness.</div>
-      <form class="wait-list-form" :submit="handleRequest">
+
+        <!-- form.form(@submit.prevent="onSubmit" name="request-demo" method="POST" data-netlify="true" data-netlify-honeypot="bot-field")
+          input(type="hidden" name="request-demo" value="ask-demo")
+          Input.form__input(placeholder="Email" type="email" name="email" required)
+          Button(submit) Request a demo -->
+      <form class="wait-list-form" @submit.prevent="handleRequest">
         <Input
           required
           v-model="email"
           class="wait-list-input"
+          type="email"
           placeholder="Enter your email"
         />
-        <Button color="accent" submit>
+        <Button color="accent" :submit="true">
           Join waitlist
         </Button>
       </form>

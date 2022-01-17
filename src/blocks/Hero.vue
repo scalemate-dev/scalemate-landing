@@ -25,6 +25,10 @@
           Not enough? <span>Ask for on-demand integration -> </span> 
         </div>
       </div>
+
+      <div class="hero-bg">
+        <inline-svg :src="require('@/assets/icons/hero-bg.svg')" />
+      </div>
     </div>
   </div>
 </template>
@@ -32,12 +36,14 @@
 <script>
 import Button from '@/components/Button'
 import Input from '@/components/Input'
+import InlineSvg from 'vue-inline-svg'
 
 export default {
   name: 'Hero',
   components: {
     Button,
     Input,
+    InlineSvg,
   },
   data() {
     return {
@@ -63,6 +69,10 @@ export default {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
+
+  .container {
+    position: relative;
+  }
 
   .hero-title {
     max-width: 700px;
@@ -110,7 +120,12 @@ export default {
 
   .hero-ask span {
     color: #FD6F8E;
+  }
 
+  .hero-bg {
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 }
 

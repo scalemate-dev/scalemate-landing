@@ -1,8 +1,12 @@
 <template>
-  <div class="button" :class="[color]" @click="handleClick" :submit="submit">
+  <button
+    class="button"
+    :class="[color]"
+    @click="handleClick"
+    :type="submit ? 'submit' : 'button'"
+  >
     <slot />
-    <!-- <span v-if="!$slots.defaultSlot">Request a demo</span> -->
-  </div>
+  </button>
 </template>
 
 <script>
@@ -11,9 +15,6 @@ export default {
   methods: {
     handleClick() {
       this.$emit('click');
-    },
-    mounted () {
-      console.log('!!!!!!!!! hwllo world !!!!!!!!!! ')
     }
   }
 }
@@ -36,6 +37,9 @@ export default {
   flex-flow: column nowrap;
   justify-content: center;
   flex-shrink: 0;
+
+  outline: none;
+  border: none;
 
   &.gray {
     background: $color-bg-grey;
