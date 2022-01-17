@@ -48,5 +48,6 @@ export default {
   &.accent {
     background: $color-accent-500;
   }
+
 }
 </style>

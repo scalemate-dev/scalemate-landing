@@ -36,6 +36,14 @@ export default {
 <style lang="scss">
 @import '@/assets/fonts.scss';
 
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  
+}
+
 .container {
   width: 100%;
   max-width: 1440px;

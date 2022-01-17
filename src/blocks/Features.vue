@@ -4,18 +4,18 @@
       <div class="feature">
         <div class="container">
           <div class="feature-info">
-            <!-- <div class="feature-icon">
-              <inline-svg :src="require('@/assets/icons/feature-1.svg')" />
-            </div> -->
+            <inline-svg class="feature-triangle feature-triangle-one" :src="require('@/assets/icons/triangle-1.svg')" />
             <div class="feature-title">
               Setup adsets from <span>Creative Library</span>
             </div>
             <div class="feature-description">
-              Find and multiply creative winners with solid testing methodology and transparent cross-team communication. 
+              Make creative production and user acquisition teams work as a single-engine.
+              <br/><br/>
+              Find and multiply creative winners with solid testing methodology and transparent cross-team communication.
             </div>
           </div>
           <div class="feature-image">
-            <img src="@/assets/images/creative-lib.png" />
+            <img src="@/assets/images/creative-lib.png" :style="{height: '512px'}"/>
           </div>
         </div>
       </div>
@@ -23,9 +23,7 @@
       <div class="feature">
         <div class="container">
           <div class="feature-info">
-            <!-- <div class="feature-icon">
-              <inline-svg :src="require('@/assets/icons/feature-3.svg')" />
-            </div> -->
+            <inline-svg class="feature-triangle feature-triangle-two" :src="require('@/assets/icons/triangle-2.svg')" />
             <div class="feature-title">
               Cloud <span>sync</span>
             </div>
@@ -34,7 +32,7 @@
             </div>
           </div>
           <div class="feature-image">
-            <img src="@/assets/images/cloud-sync.png" />
+            <img src="@/assets/images/cloud-sync.png" :style="{height: '206px'}"/>
           </div>
         </div>
       </div>
@@ -42,9 +40,7 @@
       <div class="feature">
         <div class="container">
           <div class="feature-info">
-            <!-- <div class="feature-icon">
-              <inline-svg :src="require('@/assets/icons/feature-2.svg')" />
-            </div> -->
+            <inline-svg class="feature-triangle feature-triangle-three" :src="require('@/assets/icons/triangle-3.svg')" />
             <div class="feature-title">
               <span>BI</span> Technologies
             </div>
@@ -53,7 +49,7 @@
             </div>
           </div>
           <div class="feature-image">
-            <img src="@/assets/images/report.png" />
+            <img src="@/assets/images/report.png" :style="{height: '512px'}"/>
           </div>
         </div>
       </div>
@@ -61,9 +57,7 @@
       <div class="feature">
         <div class="container">
           <div class="feature-info">
-            <!-- <div class="feature-icon">
-              <inline-svg :src="require('@/assets/icons/feature-2.svg')" />
-            </div> -->
+            <inline-svg class="feature-triangle feature-triangle-four" :src="require('@/assets/icons/triangle-4.svg')" />
             <div class="feature-title">
               Get <span>notified</span> about results
             </div>
@@ -72,7 +66,7 @@
             </div>
           </div>
           <div class="feature-image">
-            <img src="@/assets/images/notifications.png" />
+            <img src="@/assets/images/notifications.png" :style="{height: '263px'}"/>
           </div>
         </div>
       </div>
@@ -81,18 +75,18 @@
 </template>
 
 <script>
-// import InlineSvg from 'vue-inline-svg'
+import InlineSvg from 'vue-inline-svg'
 
 export default {
   name: 'Features',
+  components: { InlineSvg }
 }
 </script>
 
 <style lang="scss" scoped>
 .features {
   padding: 96px 0;
-  position: relative;
-  
+  // position: relative;
 
   .container {
     display: flex;
@@ -105,7 +99,9 @@ export default {
 
   .feature {
     // margin-bottom: 96px;
+    position: relative;
     padding: 192px 0;
+
 
     background: $color-bg-grey-50;
 
@@ -113,10 +109,38 @@ export default {
       background: #ffffff;
     }
   }
+  
+  .feature-triangle {
+    position: absolute;
+  }
 
-  // .feature-image {
-  //   position: absolute;
-  // }
+  .feature-triangle-one {
+    top: 109%;
+    right: 0;
+  }
+
+  .feature-triangle-two {
+    top: 150%;
+    right: 0;
+  }
+
+  .feature-triangle-three {
+    top: 128%;
+    left: -86px;
+  }
+
+  .feature-triangle-four {
+    top: 115%;
+    right: 0;
+  }
+
+  .feature-image {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0%, -50%);
+    width: auto;
+  }
 
   // .feature:nth-child(odd) {
   //   .feature-image {
@@ -131,12 +155,14 @@ export default {
   // }
 
   .feature:nth-child(even) {
-    .feature-info {
-      order: 1;
+    .container {
+      justify-content: flex-end;
+      position: relative;
     }
 
     .feature-image {
-      order: 0;
+      right: initial;
+      left: 112px;
     }
   }
 
@@ -150,6 +176,7 @@ export default {
   }
 
   .feature-info {
+    position: relative;
     flex: 0.5 0 0;
   }
 

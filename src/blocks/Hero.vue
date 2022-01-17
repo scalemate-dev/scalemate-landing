@@ -7,12 +7,16 @@
       <div class="hero-subtitle">
         Cross-team out-of-the-box solution for companies that care about every unit effectiveness.
       </div>
-      <div class="hero-form">
-        <Input placeholder="Enter your email" v-model="email" />
-        <Button color="accent" @click="handleRequest">
+              <!-- form.form(@submit.prevent="onSubmit" name="request-demo" method="POST" data-netlify="true" data-netlify-honeypot="bot-field")
+          input(type="hidden" name="request-demo" value="ask-demo")
+          Input.form__input(placeholder="Email" type="email" name="email" required)
+          Button(submit) Request a demo -->
+      <form class="hero-form" @submit.prevent="handleRequest">
+        <Input placeholder="Enter your email" :required="true" type="email" v-model="email" />
+        <Button color="accent" :submit="true">
           Request a demo
         </Button>
-      </div>
+      </form>
 
       <div class="hero-integrations">
         <div class="hero-wework">
@@ -22,7 +26,7 @@
           </div>
         </div>
         <div class="hero-ask">
-          Not enough? <span>Ask for on-demand integration -> </span> 
+          Not enough? <a href="mailto:info@scalemate.co?subject=Hi, I'm interested in custom integration."><span>Ask for on-demand integration -></span> </a> 
         </div>
       </div>
 
@@ -62,7 +66,7 @@ export default {
 <style lang="scss" scoped>
 .hero {
   min-height: 700px;
-  padding-top: 172px;
+  padding-top: 104px;
   padding-bottom: 172px;
 
   // background: #111827;

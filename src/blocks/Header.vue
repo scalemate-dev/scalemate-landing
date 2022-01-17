@@ -12,21 +12,21 @@
           Company
         </div> -->
       </div>
-      <Button @click="handleRequest" color="accent">
+      <!-- <Button @click="handleRequest" color="accent">
         Request a demo
-      </Button>
+      </Button> -->
     </div>
   </div>
 </template>
 
 <script>
-import Button from '@/components/Button'
+// import Button from '@/components/Button'
 import InlineSvg from 'vue-inline-svg'
 
 export default {
   name: 'Header',
   components: {
-    Button,
+    // Button,
     InlineSvg,
   },
   methods: {
@@ -39,9 +39,9 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-  padding: 24px 0;
+  padding: 48px 0;
   width: 100%;
-  position: fixed;
+  // position: fixed;
 
   .container {
     display: flex;

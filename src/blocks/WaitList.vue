@@ -1,13 +1,9 @@
 <template>
   <div class="wait-list">
     <div class="container">
+      <inline-svg class="wait-list-angles" :src="require('@/assets/icons/bottom-angles.svg')"/>
       <div class="wait-list-title">Join <span>waitlist</span> and get 2 month free trial!</div>
       <div class="wait-list-subtitle">Cross-team out-of-the-box solution for companies that care about every unit effectiveness.</div>
-
-        <!-- form.form(@submit.prevent="onSubmit" name="request-demo" method="POST" data-netlify="true" data-netlify-honeypot="bot-field")
-          input(type="hidden" name="request-demo" value="ask-demo")
-          Input.form__input(placeholder="Email" type="email" name="email" required)
-          Button(submit) Request a demo -->
       <form class="wait-list-form" @submit.prevent="handleRequest">
         <Input
           required
@@ -27,12 +23,14 @@
 <script>
 import Button from '@/components/Button'
 import Input from '@/components/Input'
+import InlineSvg from 'vue-inline-svg'
 
 export default {
   name: 'BottomCTA',
   components: {
     Button,
-    Input
+    Input,
+    InlineSvg,
   },
 
   data() {
@@ -53,6 +51,16 @@ export default {
 <style lang="scss" scoped>
 .wait-list {
   padding: 172px 0;
+
+  position: relative;
+
+  &-angles {
+    position: absolute;
+    z-index: -1;
+    transform: translate(-50%, -50%) scale(1.2);
+    top: 43%;
+    left: 50%;
+  }
 
   &-title {
     font-style: normal;

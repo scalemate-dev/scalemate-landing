@@ -26,25 +26,28 @@ export default {
         {
           position: 'UA manager',
           options: [
-            {label: 'All your data is here', text: 'We combine data from your channels, BI, and the measurement platform'},
-            {label: 'All your data is here', text: 'We combine data from your channels, BI, and the measurement platform'},
-            {label: 'All your data is here', text: 'We combine data from your channels, BI, and the measurement platform'}
+            {label: 'Reduce Repetitive, Manual Tasks up to 45%'},
+            {label: 'All Data in one Dashboard. Slice and dice data as you want.'},
+            {label: 'Keep eye on metrics changes with Charts'},
+            {label: 'Dig deeper into how your assets perform. Remember your history.'},
           ]
         },
         {
-          position: 'CMO',
+          position: 'CMO / Head of Marketing',
           options: [
-            {label: 'All your data is here', text: 'We combine data from your channels, BI, and the measurement platform'},
-            {label: 'All your data is here', text: 'We combine data from your channels, BI, and the measurement platform'},
-            {label: 'All your data is here', text: 'We combine data from your channels, BI, and the measurement platform'}
+            {label: 'Control team effectiveness fast and transparently'},
+            {label: 'Understand how each creative asset perform on different channels'},
+            {label: 'Release your team from routine and keep them focused on high-value work'},
+            {label: 'Increase employment lifetime and save budgets on hiring'},
           ]
         },
         {
           position: 'Creative Producer',
           options: [
-            {label: 'All your data is here', text: 'We combine data from your channels, BI, and the measurement platform'},
-            {label: 'All your data is here', text: 'We combine data from your channels, BI, and the measurement platform'},
-            {label: 'All your data is here', text: 'We combine data from your channels, BI, and the measurement platform'}
+            {label: 'No more communication gap to get insights'},
+            {label: 'Stay away from digging in analytics numbers'},
+            {label: 'Cross-channel testing results of creative assets in One Place'},
+            {label: 'Your best-performing concepts in a few clicks away from you'},
           ]
         },
       ]
@@ -106,14 +109,14 @@ export default {
   &-descr-heading {
     margin-bottom: 8px;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 400;
     color: $color-text-600;
   }
 
   &-descr-text {
     margin-bottom: 8px;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 400;
     color: $color-text-500;
   }
 }
