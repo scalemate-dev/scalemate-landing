@@ -7,6 +7,7 @@
       class="input-field"
       :class="{ 'left-padding': leftPadding, disabled: disabled }"
       :type="type ? type : 'text'"
+      :name="name"
       v-model="formValue"
       :placeholder="placeholder"
       :disabled="disabled"
@@ -19,7 +20,7 @@
 <script>
 export default {
   name: "Input",
-  props: ["modelValue", "placeholder", "leftPadding", "type", "disabled", "autocomplete", "label", "required"],
+  props: ["modelValue", "placeholder", "leftPadding", "type", "disabled", "autocomplete", "label", "required", "name"],
   computed: {
     formValue: {
       get() {
