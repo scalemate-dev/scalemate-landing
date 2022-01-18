@@ -23,7 +23,7 @@
         <div class="hero-wework">
           <span>We work with</span>
           <div class="hero-logos">
-            <div class="hero-logo-item" v-for="el of 4" :key="el">{{el}}</div>
+            <inline-svg class="hero-logo-item" v-for="(el, i) of integrations" :key="i" :src="el"/>
           </div>
         </div>
         <div class="hero-ask">
@@ -50,12 +50,18 @@ export default {
     Input,
     InlineSvg,
   },
-  
-    Inputdata() {
+
+  data() {
     return {
       email: '',
+      integrations: [
+        require('@/assets/icons/tiktok-logo.svg'),
+        require('@/assets/icons/fb.svg'),
+        require('@/assets/icons/appsflyer.svg'),
+      ]
     }
   },
+
   methods: {
     handleRequest() {
       console.log('handle request a demo', this.email)
@@ -114,6 +120,7 @@ export default {
 
   .hero-wework {
     display: flex;
+    align-items: center;
     font-size: 20px;
     line-height: 30px;
     margin-bottom: 8px;
@@ -122,6 +129,12 @@ export default {
   .hero-logos {
     display: flex;
     margin-left: 12px;
+  }
+
+  .hero-logo-item {
+    height: 21px;
+    width: auto;
+    margin-right: 8px;
   }
 
   .hero-ask span {
