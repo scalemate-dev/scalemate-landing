@@ -4,12 +4,19 @@
       <inline-svg class="wait-list-angles" :src="require('@/assets/icons/bottom-angles.svg')"/>
       <div class="wait-list-title">Join <span>waitlist</span> and get 2 month free trial!</div>
       <div class="wait-list-subtitle">Cross-team out-of-the-box solution for companies that care about every unit effectiveness.</div>
-      <form class="wait-list-form" @submit.prevent="handleRequest" name="request-demo" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-        <input type="hidden" name="request-waitlist" value="ask-2mo-trial" />
+      <form
+        class="wait-list-form"
+        name="join-wait-list"
+        method="post"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+      >
+        <input type="hidden" name="join-wait-list" value="join-wait-list" />
         <Input
           required
           v-model="email"
           class="wait-list-input"
+          name="email"
           type="email"
           placeholder="Enter your email"
         />
@@ -42,7 +49,6 @@ export default {
 
   methods: {
     handleRequest() {
-      console.log('handle request a demo', this.email, this.$slots)
       this.email = ''
     }
   },
