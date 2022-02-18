@@ -26,28 +26,26 @@ export default {
         {
           position: 'UA manager',
           options: [
-            {label: 'Reduce Repetitive, Manual Tasks up to 45%'},
-            {label: 'All Data in one Dashboard. Slice and dice data as you want.'},
-            {label: 'Keep eye on metrics changes with Charts'},
-            {label: 'Dig deeper into how your assets perform. Remember your history.'},
+            {label: 'Boost productivity and efficiency', text: 'Launch new ads in a few clicks from our Creative Dashboard.'},
+            {label: 'All Data in one Dashboard', text: 'Deep predictive insights into profitable future growth'},
+            {label: 'Own Creative Library with test results', text: 'Find and compare how creatives perform on different platforms.'}
           ]
         },
         {
           position: 'CMO / Head of Marketing',
           options: [
-            {label: 'Control team effectiveness fast and transparently'},
-            {label: 'Understand how each creative asset perform on different channels'},
-            {label: 'Release your team from routine and keep them focused on high-value work'},
-            {label: 'Increase employment lifetime and save budgets on hiring'},
+            {label: 'Make transparency at work', text: 'Enhance processes by standardization workflow of Creative and UA Teams.'},
+            {label: 'Performance Analysis', text: 'Aggregated data from MMP and Ad Network in One Dashboard.'},
+            {label: 'Unlock employees\' potential', text: 'Release your team from routine and keep them focused on high-value work.'},
           ]
         },
         {
           position: 'Creative Producer',
           options: [
-            {label: 'No more communication gap to get insights'},
-            {label: 'Stay away from digging in analytics numbers'},
-            {label: 'Cross-channel testing results of creative assets in One Place'},
-            {label: 'Your best-performing concepts in a few clicks away from you'},
+            {label: 'Best creatives in a few clicks', text: 'Cross-channel testing results of creative assets in one place.'},
+            {label: 'Discover what works, what doesn’t', text: 'Attribute Creatives\' success by any option: from concepts to author.'},
+            {label: 'Stay away from digging in analytics numbers', text: 'See results in short statuses and interpreted comments.'},
+            // {label: 'Your best-performing concepts in a few clicks away from you'},
           ]
         },
       ]
@@ -109,7 +107,7 @@ export default {
   &-descr-heading {
     margin-bottom: 8px;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 500;
     color: $color-text-600;
   }
 
