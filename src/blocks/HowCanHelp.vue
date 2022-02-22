@@ -84,6 +84,7 @@ export default {
     max-width: 350px;
     background: rgba($color-bg-grey, 0.7);
     border-radius: 10px;
+    margin-right: 8px;
     box-shadow: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
   }
 
@@ -125,7 +126,7 @@ export default {
 
    &-card {
      max-width: 100%;
-     margin-bottom: 16px;
+     margin-bottom: 32px;
    }
  }
 
