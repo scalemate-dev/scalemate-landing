@@ -2,7 +2,7 @@
   <div class="hero">
     <div class="container">
       <div class="hero-title">
-        Your data-driven <span>performance marketing</span> assistant.
+        Your data-driven <br/> <span>performance marketing</span><br/> assistant.
       </div>
       <div class="hero-subtitle">
         Cross-team out-of-the-box solution for companies that care about every unit effectiveness.
@@ -146,15 +146,39 @@ export default {
     position: absolute;
     right: 0;
     top: 0;
-  }
-}
 
-@media (max-width: 768px) {
-  .hero {
-    .hero-title {
-      font-size: 48px;
-      line-height: 48px;
+    svg {
+      width: 100%;
     }
   }
 }
+
+@include desktop-s {
+  .hero-bg {
+    top: -20%;
+    max-width: 30%;
+  }
+}
+
+@include tablet-horizontal {
+  .hero-bg {
+    display: none;
+  }
+}
+
+@include tablet-vertical {
+  .hero {
+    .hero-title {
+      font-size: 42px;
+      line-height: 42px;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      line-height: 18px;
+    }
+  }
+}
+
+
 </style>

@@ -121,15 +121,25 @@ export default {
   }
 }
 
+@include tablet-horizontal {
+  .metrics {
+    padding-top: 16px;
 
-@media (max-width: 450px) {
+    .metics-title {
+      font-size: 42px;
+      line-height: 42px;
+    }
+  }
+}
+
+@include tablet-vertical {
   .metrics {
     .metrics-list {
-      grid-template-columns: 1fr;
+      flex-flow: row wrap;
     }
 
     .metric {
-      margin-bottom: 0;
+      margin-bottom: 24px;
     }
   }
 }

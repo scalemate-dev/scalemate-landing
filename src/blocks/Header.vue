@@ -74,7 +74,7 @@ export default {
 
 @media (max-width: 768px) {
   .header {
-    padding: 16px 0;
+    padding: 24px 0;
   }
 }
 </style>

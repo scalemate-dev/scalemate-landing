@@ -2,7 +2,7 @@
   <div class="wait-list">
     <div class="container">
       <inline-svg class="wait-list-angles" :src="require('@/assets/icons/bottom-angles.svg')"/>
-      <div class="wait-list-title">Join <span>waitlist</span> and get 2 month free trial!</div>
+      <div class="wait-list-title">Join waitlist and get <span>3 month</span> free trial!</div>
       <div class="wait-list-subtitle">Cross-team out-of-the-box solution for companies that care about every unit effectiveness.</div>
       <form
         class="wait-list-form"
@@ -105,6 +105,47 @@ export default {
 
   &-input {
     margin-right: 16px;
+  }
+}
+
+@include desktop-s {
+  .wait-list {
+    padding: 32px 0;
+    &-angles {
+      display: none;
+    }
+  }
+}
+
+@include tablet-horizontal {
+  .wait-list {
+    &-title {
+      font-size: 42px;
+      line-height: 42px;
+    }
+  }
+}
+
+@include tablet-vertical {
+  .wait-list {
+    &-title {
+      font-size: 32px;
+      line-height: 32px;
+    }
+    &-subtitle {
+      font-size: 18px;
+      line-height: 20px;
+    }
+
+    &-form {
+      flex-flow: column nowrap;
+      // align-items: center;
+    }
+
+    &-input {
+      margin: 0;
+      margin-bottom: 8px;
+    }
   }
 }
 </style>

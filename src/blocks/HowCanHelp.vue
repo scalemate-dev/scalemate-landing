@@ -116,7 +116,28 @@ export default {
     font-size: 16px;
     font-weight: 400;
     color: $color-text-500;
+ }
+
+ @include tablet-horizontal {
+   &-wrapper {
+     display: block;
+   }
+
+   &-card {
+     max-width: 100%;
+     margin-bottom: 16px;
+   }
+ }
+
+  @include tablet-vertical {
+    .title {
+      // text-align: center;
+      font-size: 42px;
+      line-height: 42px;
+    }
   }
 }
+
+
 
 </style>

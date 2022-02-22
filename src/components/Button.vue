@@ -36,10 +36,12 @@ export default {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
+  align-items: center;
   flex-shrink: 0;
 
   outline: none;
   border: none;
+  text-align: center;
 
   &.gray {
     background: $color-bg-grey;

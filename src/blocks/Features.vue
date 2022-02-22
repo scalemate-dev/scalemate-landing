@@ -6,7 +6,7 @@
           <div class="feature-info">
             <inline-svg class="feature-triangle feature-triangle-one" :src="require('@/assets/icons/triangle-1.svg')" />
             <div class="feature-title">
-              Setup adsets from <span>Creative Library</span>
+              Setup campaigns from <span>Creative Library</span>
             </div>
             <div class="feature-description">
               Make creative production and user acquisition teams work as a single-engine.
@@ -15,7 +15,7 @@
             </div>
           </div>
           <div class="feature-image">
-            <img src="@/assets/images/creative-lib.png" :style="{height: '512px'}"/>
+            <img src="@/assets/images/creative-lib.png" />
           </div>
         </div>
       </div>
@@ -32,7 +32,7 @@
             </div>
           </div>
           <div class="feature-image">
-            <img src="@/assets/images/cloud-sync.png" :style="{height: '206px'}"/>
+            <img src="@/assets/images/cloud-sync.png" />
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@
             </div>
           </div>
           <div class="feature-image">
-            <img src="@/assets/images/report.png" :style="{height: '512px'}"/>
+            <img src="@/assets/images/report.png"/>
           </div>
         </div>
       </div>
@@ -108,8 +108,19 @@ export default {
     &:nth-child(even) {
       background: #ffffff;
     }
+
+
+    &:first-child .container .feature-image img {
+      height: 512px;
+    }
+    &:nth-child(2) .container .feature-image img {
+      height: 206px;
+    }
+    &:last-child .container .feature-image img {
+      height: 512px;
+    }
   }
-  
+
   .feature-triangle {
     position: absolute;
   }
@@ -208,6 +219,62 @@ export default {
   }
 }
 
+@include desktop-s {
+  .features {
+    .feature-image {
+      max-width: 440px;
+      // position: initial;
+      // transform: none;
+    }
+
+    img {
+      height: auto !important;
+    }
+
+    .feature-triangle {
+      display: none;
+    }
+  }
+}
+
+@include tablet-horizontal {
+  .features {
+    .feature {
+      padding: 0;
+      padding-top: 32px;
+      padding-bottom: 332px;
+    }
+
+    .feature .container {
+      flex-flow: column nowrap;
+      align-items: flex-start;
+
+      .feature-image {
+        // position: initial;
+        transform: none;
+        top: initial;
+        bottom: 0;
+      }
+
+      .feature-image img {
+        max-height: 320px;
+      }
+    }
+
+    .feature:nth-child(even) .feature-image {
+      left: initial;
+      right: 0;
+      top: calc(100% + 32px);
+    }
+
+    .feature-title {
+      font-size: 32px;
+      line-height: 32px;
+    }
+  }
+
+}
+
 @media (max-width: 768px) {
   .features {
     .feature {
@@ -215,12 +282,14 @@ export default {
     }
 
     .feature-image {
-      margin-top: 32px;
-      width: 100%;
+      // position: initial;
+      // transform: none;
+      // margin-top: 32px;
+      // width: 100%;
 
-      img {
-        width: 100%;
-      }
+      // img {
+      //   width: 100%;
+      // }
     }
   }
 }
