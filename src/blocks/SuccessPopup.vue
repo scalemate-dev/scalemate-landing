@@ -3,9 +3,8 @@
     .background(@click="$emit('togglePopup')")
     .popup
       .cross(@click="$emit('togglePopup')") +
-      h1.title Thank you!
-      h3.subtitle Looking forward to talk with you!
-      img.person(src="@/assets/images/laptop.svg")
+      h1.title Thank you,
+      h3.subtitle Our manager contact you soon!
 </template>
 
 <script>
@@ -20,6 +19,8 @@ export default {
   height: 100vh;
   position: fixed;
   z-index: 2;
+  top: 0;
+  left: 0;
 }
 
 .background {
@@ -31,6 +32,7 @@ export default {
   left: 0;
   z-index: 1;
 }
+
 .popup {
   max-width: 448px;
   min-width: 400px;
@@ -46,8 +48,9 @@ export default {
   background: #ffffff;
   padding: 32px 40px;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
-  padding-bottom: 288px;
+  // padding-bottom: 288px;
   overflow: hidden;
+  border-radius: 10px;
 
   .cross {
     position: absolute;
@@ -55,6 +58,7 @@ export default {
     right: 8px;
     font-size: 56px;
     transform: rotate(45deg);
+    font-weight: 100;
     user-select: none;
     cursor: pointer;
   }
@@ -63,6 +67,14 @@ export default {
     position: absolute;
     bottom: -40px;
     left: 0;
+  }
+
+  .title {
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    font-weight: 400;
   }
 }
 </style>
