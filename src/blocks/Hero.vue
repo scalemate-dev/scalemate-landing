@@ -10,13 +10,11 @@
       <form
         class="hero-form"
         name="request-demo"
-        method="post"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
+        @submit="(e) => handleRequest(e)"
       >
-        <input type="hidden" name="request-demo" value="ask-demo" />
+        <input type="hidden" name="type" value="request-a-demo" />
         <Input placeholder="Enter your email" :required="true" type="email" name="email" v-model="email" />
-        <Button color="accent" :submit="true">
+        <Button color="accent" :submit="true" >
           Request a demo
         </Button>
       </form>
@@ -36,14 +34,18 @@
       <div class="hero-bg">
         <inline-svg :src="require('@/assets/icons/hero-bg.svg')" />
       </div>
+      <SuccessPopup @togglePopup="togglePopup" v-if="showPopup" />
     </div>
   </div>
 </template>
 
 <script>
+import InlineSvg from 'vue-inline-svg'
+import { sendForm } from '@/formspree.js'
+
 import Button from '@/components/Button'
 import Input from '@/components/Input'
-import InlineSvg from 'vue-inline-svg'
+import SuccessPopup from '@/blocks/SuccessPopup'
 
 export default {
   name: 'Hero',
@@ -51,10 +53,12 @@ export default {
     Button,
     Input,
     InlineSvg,
+    SuccessPopup
   },
 
   data() {
     return {
+      showPopup: false,
       email: '',
       integrations: [
         require('@/assets/icons/tiktok-logo.svg'),
@@ -65,8 +69,19 @@ export default {
   },
 
   methods: {
-    handleRequest() {
-      this.email = ''
+    togglePopup () {
+      this.showPopup = !this.showPopup
+    },
+
+    async handleRequest(event) {
+      event.preventDefault();
+      try {
+        await sendForm(event)
+        this.email = ''
+        this.showPopup = true
+      } catch (error) {
+        console.error('formspree error: ', error)
+      }
     }
   },
 }

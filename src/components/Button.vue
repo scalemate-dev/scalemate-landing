@@ -14,7 +14,7 @@ export default {
   props: ['color', 'submit'],
   methods: {
     handleClick() {
-      this.$emit('click');
+      this.$emit('click', this.$event);
     }
   }
 }

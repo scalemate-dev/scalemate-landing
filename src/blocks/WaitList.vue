@@ -7,11 +7,9 @@
       <form
         class="wait-list-form"
         name="join-wait-list"
-        method="post"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
+        @submit="(e) => handleRequest(e)"
       >
-        <input type="hidden" name="join-wait-list" value="join-wait-list" />
+        <input type="hidden" name="type" value="join-wait-list" />
         <Input
           required
           v-model="email"
@@ -25,13 +23,18 @@
         </Button>
       </form>
     </div>
+    <SuccessPopup @togglePopup="togglePopup" v-if="showPopup" />
   </div>
 </template>
 
 <script>
+import InlineSvg from 'vue-inline-svg'
+
+import { sendForm } from '@/formspree.js'
+
 import Button from '@/components/Button'
 import Input from '@/components/Input'
-import InlineSvg from 'vue-inline-svg'
+import SuccessPopup from '@/blocks/SuccessPopup'
 
 export default {
   name: 'BottomCTA',
@@ -39,17 +42,30 @@ export default {
     Button,
     Input,
     InlineSvg,
+    SuccessPopup
   },
 
   data() {
     return {
-      email: ''
+      email: '',
+      showPopup: false
     }
   },
 
   methods: {
-    handleRequest() {
-      this.email = ''
+    togglePopup () {
+      this.showPopup = !this.showPopup
+    },
+
+    async handleRequest(event) {
+      event.preventDefault();
+      try {
+        await sendForm(event)
+        this.email = ''
+        this.showPopup = true
+      } catch (error) {
+        console.error('formspree error: ', error)
+      }
     }
   },
 }
