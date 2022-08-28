@@ -5,9 +5,10 @@
         Run winning ads <br /> to <span>triple-scale</span> your app
       </h1>
       <div class="hero-subtitle">
-        Creative testing automation assistant for mobile-first agencies and busy app marketers. Born to erase performance marketing routine and save you 3 hours daily.
+        Creative testing automation assistant for mobile-first agencies and busy app marketers. Born to erase
+        performance marketing routine and save you 3 hours daily.
       </div>
-      <form class="hero-form" name="request-demo" @submit="(e) => handleRequest(e)">
+      <form class="hero-form" name="request-demo" @submit.prevent="(e) => handleRequest(e)">
         <input type="hidden" name="type" value="request-a-demo" />
         <Input placeholder="Enter your email" :required="true" type="email" name="email" v-model="email" />
         <Button color="accent" :submit="true">
@@ -71,7 +72,6 @@ export default {
     },
 
     async handleRequest(event) {
-      event.preventDefault();
       try {
         await sendForm(event)
         this.email = ''
