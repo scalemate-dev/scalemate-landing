@@ -5,10 +5,9 @@
         Run winning ads <br /> to <span>triple-scale</span> your app
       </h1>
       <div class="hero-subtitle">
-        Creative testing automation assistant for mobile-first agencies and busy app marketers. Born to erase
-        performance marketing routine and save you 3 hours daily.
+        Creative testing automation assistant for mobile-first agencies and busy app marketers. Born to erase performance marketing routine and save you 3 hours daily.
       </div>
-      <form action="https://formspree.io/f/mzbwblen" class="hero-form" name="request-demo" method="POST">
+      <form class="hero-form" name="request-demo" @submit="(e) => handleRequest(e)">
         <input type="hidden" name="type" value="request-a-demo" />
         <Input placeholder="Enter your email" :required="true" type="email" name="email" v-model="email" />
         <Button color="accent" :submit="true">
@@ -24,8 +23,8 @@
           </div>
         </div>
         <div class="hero-ask">
-          Not enough? <a href="mailto:info@scalemate.co?subject=Hi, I'm interested in custom integration.">
-          <span>Ask for on-demand integration -></span> </a>
+          Not enough? <a href="mailto:info@scalemate.co?subject=Hi, I'm interested in custom integration."><span>Ask for
+              on-demand integration -></span> </a>
         </div>
       </div>
 
@@ -39,7 +38,7 @@
 
 <script>
 import InlineSvg from 'vue-inline-svg'
-// import { sendForm } from '@/formspree.js'
+import { sendForm } from '@/formspree.js'
 
 import Button from '@/components/Button'
 import Input from '@/components/Input'
@@ -71,16 +70,16 @@ export default {
       this.showPopup = !this.showPopup
     },
 
-    // async handleRequest(event) {
-    //   event.preventDefault();
-    //   try {
-    //     await sendForm(event)
-    //     this.email = ''
-    //     this.showPopup = true
-    //   } catch (error) {
-    //     console.error('formspree error: ', error)
-    //   }
-    // }
+    async handleRequest(event) {
+      event.preventDefault();
+      try {
+        await sendForm(event)
+        this.email = ''
+        this.showPopup = true
+      } catch (error) {
+        console.error('formspree error: ', error)
+      }
+    }
   },
 }
 </script>
