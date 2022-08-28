@@ -3,7 +3,7 @@
     <div class="container">
       <div class="header-navigation">
         <div class="header-logo">
-          <inline-svg class="logo" :src="require('@/assets/icons/logo-black.svg')" />
+          <inline-svg class="logo" alt="Scalemate logo" :src="require('@/assets/icons/logo-black.svg')" />
         </div>
         <!-- <div class="header-link">
           Features

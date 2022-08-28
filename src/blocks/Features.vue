@@ -1,60 +1,66 @@
 <template>
   <div class="features">
 
-      <div class="feature">
-        <div class="container">
-          <div class="feature-info">
-            <inline-svg class="feature-triangle feature-triangle-one" :src="require('@/assets/icons/triangle-1.svg')" />
-            <div class="feature-title">
-              Setup campaigns from <span>Creative Library</span>
-            </div>
-            <div class="feature-description">
-              Make creative production and user acquisition teams work as a single-engine.
-              <br/><br/>
-              Find and multiply creative winners with solid testing methodology and transparent cross-team communication.
-            </div>
+    <div class="feature">
+      <div class="container">
+        <div class="feature-info">
+          <inline-svg class="feature-triangle feature-triangle-one" :src="require('@/assets/icons/triangle-1.svg')" />
+          <div class="feature-title">
+            Unified <span>creative library</span>
           </div>
-          <div class="feature-image">
-            <img src="@/assets/images/creative-lib.png" />
+          <div class="feature-description">
+            Keep all your creatives in one place and instantly reach the asset you need. Filter files by tags, sizes,
+            colors, and more.
+            <br /><br />
+            Access historical data about launched campaigns so you would never repeat them.
           </div>
         </div>
-      </div>
-
-      <div class="feature">
-        <div class="container">
-          <div class="feature-info">
-            <inline-svg class="feature-triangle feature-triangle-two" :src="require('@/assets/icons/triangle-2.svg')" />
-            <div class="feature-title">
-              Cloud <span>sync</span>
-            </div>
-            <div class="feature-description">
-              One-click uploading your creative assets to different platforms. Two clicks adding them to any campaign or some of them.
-            </div>
-          </div>
-          <div class="feature-image">
-            <img src="@/assets/images/cloud-sync.png" />
-          </div>
+        <div class="feature-image">
+          <img src="@/assets/images/creative-lib.png" />
         </div>
       </div>
+    </div>
 
-      <div class="feature">
-        <div class="container">
-          <div class="feature-info">
-            <inline-svg class="feature-triangle feature-triangle-three" :src="require('@/assets/icons/triangle-3.svg')" />
-            <div class="feature-title">
-              <span>BI</span> Technologies
-            </div>
-            <div class="feature-description">
-              The significant point of great user acquisition comes down to data and measurement. Scalemate allows you to slice and dice any data by any segment imaginable.
-            </div>
+    <div class="feature">
+      <div class="container">
+        <div class="feature-info">
+          <inline-svg class="feature-triangle feature-triangle-two" :src="require('@/assets/icons/triangle-2.svg')" />
+          <div class="feature-title">
+            Instant <span>asset upload</span>
           </div>
-          <div class="feature-image">
-            <img src="@/assets/images/report.png"/>
+          <div class="feature-description">
+            Forget about manual drag & drop routine — upload files in bulk via cloud sync.
+            <br /><br />
+            Transfer whole folders from Google Drive with zero effort on your side.
           </div>
         </div>
+        <div class="feature-image">
+          <img src="@/assets/images/cloud-sync.png" />
+        </div>
       </div>
+    </div>
 
-      <!-- <div class="feature">
+    <div class="feature">
+      <div class="container">
+        <div class="feature-info">
+          <inline-svg class="feature-triangle feature-triangle-three" :src="require('@/assets/icons/triangle-3.svg')" />
+          <div class="feature-title">
+            BI-powered <span>analytics</span>
+          </div>
+          <div class="feature-description">
+            Ditch spreadsheets and measure testing performance automatically. Integrate your ad platform with app
+            attribution tools.
+            <br /><br />
+            Once your report is ready, slice & dice essential metrics to make wiser decisions.
+          </div>
+        </div>
+        <div class="feature-image">
+          <img src="@/assets/images/report.png" />
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="feature">
         <div class="container">
           <div class="feature-info">
             <inline-svg class="feature-triangle feature-triangle-four" :src="require('@/assets/icons/triangle-4.svg')" />

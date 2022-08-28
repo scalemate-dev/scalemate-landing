@@ -1,25 +1,16 @@
 <template>
   <div class="wait-list">
     <div class="container">
-      <inline-svg class="wait-list-angles" :src="require('@/assets/icons/bottom-angles.svg')"/>
-      <div class="wait-list-title">Join waitlist and get <span>3 month</span> free trial!</div>
-      <div class="wait-list-subtitle">Cross-team out-of-the-box solution for companies that care about every unit effectiveness.</div>
-      <form
-        class="wait-list-form"
-        name="join-wait-list"
-        @submit="(e) => handleRequest(e)"
-      >
+      <inline-svg class="wait-list-angles" :src="require('@/assets/icons/bottom-angles.svg')" />
+      <h2 class="wait-list-title">
+        Deal with creative testing routine <span>260% faster</span>
+      </h2>
+      <div class="wait-list-subtitle">1-month free trial | Dedicated onboarding | Custom integrations</div>
+      <form class="wait-list-form" name="join-wait-list" @submit="(e) => handleRequest(e)">
         <input type="hidden" name="type" value="join-wait-list" />
-        <Input
-          required
-          v-model="email"
-          class="wait-list-input"
-          name="email"
-          type="email"
-          placeholder="Enter your email"
-        />
+        <Input required v-model="email" class="wait-list-input" name="email" type="email" placeholder="Enter your email" />
         <Button color="accent" :submit="true">
-          Join waitlist
+          Test Me Out
         </Button>
       </form>
     </div>
@@ -110,7 +101,7 @@ export default {
 
     margin: 0 auto;
     margin-bottom: 40px;
-    max-width: 688px;
+    max-width: 758px;
   }
 
   &-form {

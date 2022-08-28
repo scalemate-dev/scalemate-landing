@@ -1,33 +1,30 @@
 <template>
   <div class="hero">
     <div class="container">
-      <div class="hero-title">
-        Your data-driven <br/> <span>performance marketing</span><br/> assistant.
-      </div>
+      <h1 class="hero-title">
+        Run winning ads <br /> to <span>triple-scale</span> your app
+      </h1>
       <div class="hero-subtitle">
-        Cross-team out-of-the-box solution for companies that care about every unit effectiveness.
+        Creative testing automation assistant for mobile-first agencies and busy app marketers. Born to erase performance marketing routine and save you 3 hours daily.
       </div>
-      <form
-        class="hero-form"
-        name="request-demo"
-        @submit="(e) => handleRequest(e)"
-      >
+      <form class="hero-form" name="request-demo" @submit="(e) => handleRequest(e)">
         <input type="hidden" name="type" value="request-a-demo" />
         <Input placeholder="Enter your email" :required="true" type="email" name="email" v-model="email" />
-        <Button color="accent" :submit="true" >
-          Request a demo
+        <Button color="accent" :submit="true">
+          Test Me Out
         </Button>
       </form>
 
       <div class="hero-integrations">
         <div class="hero-wework">
-          <span>We work with</span>
+          <span>I work with</span>
           <div class="hero-logos">
-            <inline-svg class="hero-logo-item" v-for="(el, i) of integrations" :key="i" :src="el"/>
+            <inline-svg class="hero-logo-item" v-for="(el, i) of integrations" :key="i" :src="el" />
           </div>
         </div>
         <div class="hero-ask">
-          Not enough? <a href="mailto:info@scalemate.co?subject=Hi, I'm interested in custom integration."><span>Ask for on-demand integration -></span> </a> 
+          Not enough? <a href="mailto:info@scalemate.co?subject=Hi, I'm interested in custom integration."><span>Ask for
+              on-demand integration -></span> </a>
         </div>
       </div>
 
@@ -118,7 +115,7 @@ export default {
   }
 
   .hero-subtitle {
-    max-width: 674px;
+    max-width: 720px;
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
