@@ -1,7 +1,13 @@
 <template>
   <div class="footer">
     <div class="container">
-      © 2022 Scalemate, LLC. All rights reserved.
+      <div class="col">
+        <a target="_blank" href="/terms-and-conditions.pdf">Terms and Conditions</a>
+        <a target="_blank" href="/privacy-policy.pdf">Privacy Policy</a>
+      </div>
+      <div class="col">
+        © 2022 Scalemate, LLC. All rights reserved.
+      </div>
     </div>
   </div>
 </template>
@@ -22,5 +28,21 @@ export default {
   line-height: 24px;
   text-align: center;
   color: #9CA3AF;
+
+  .container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .col {
+    display: flex;
+    gap: 16px;
+  }
+
+  .col a {
+    color: #9CA3AF;
+  }
 }
 </style>
