@@ -44,5 +44,16 @@ export default {
   .col a {
     color: #9CA3AF;
   }
+
+  @media (max-width: 768px) {
+    .col:first-child {
+      margin-bottom: 8px;
+    }
+
+    .container {
+      display: block;
+    }
+  }
 }
+
 </style>

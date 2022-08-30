@@ -106,7 +106,7 @@ export default {
   .feature {
     // margin-bottom: 96px;
     position: relative;
-    padding: 192px 0;
+    padding: 250px 0;
 
 
     background: $color-bg-grey-50;

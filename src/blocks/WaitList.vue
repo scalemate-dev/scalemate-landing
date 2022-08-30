@@ -140,8 +140,8 @@ export default {
       line-height: 32px;
     }
     &-subtitle {
-      font-size: 18px;
-      line-height: 20px;
+      font-size: 12px;
+      line-height: 18px;
     }
 
     &-form {

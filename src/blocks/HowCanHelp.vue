@@ -9,13 +9,27 @@
         your role in performance marketing.
       </div>
       <div class="help-wrapper">
-        <div class="help-card" v-for="el in cases" :key="el.position">
-          <h3 class="help-title">{{ el.position }}</h3>
-          <div class="help-subtitle">{{ el.description }}</div>
+        <div class="help-navigation">
+          <h3
+            class="help-navigation-item"
+            :class="{ active: active === item.id}"
+            v-for="item in cases"
+            :key="item.position"
+            @click="setActive(item.id)"
+          >
+            {{ item.position }}
+          </h3>
+        </div>
+
+        <div class="help-card">
+          <div class="help-subtitle">{{ activeItem.description }}</div>
           <div class="help-descr-wrapper">
-            <div class="help-descr" v-for="(opt, i) in el.options" :key="i">
-              <div class="help-descr-heading">{{opt.label}}</div>
-              <div class="help-descr-text" v-html="opt.text" />
+            <div class="help-descr" v-for="(opt, i) in activeItem.options" :key="i">
+              <div class="help-descr-round" />
+              <div>
+                <div class="help-descr-heading">{{opt.label}}</div>
+                <div class="help-descr-text" v-html="opt.text" />
+              </div>
             </div>
           </div>
         </div>
@@ -29,8 +43,10 @@ export default {
   name: 'HowCanHelp',
   data () {
     return {
+      active: 0,
       cases: [
         {
+          id: 0,
           position: 'User Acquisition Manager',
           description: 'Start doing what your brain capacity deserves.',
           options: [
@@ -41,6 +57,7 @@ export default {
           ]
         },
         {
+          id: 1,
           position: 'Marketing Executive',
           description: 'Maximize ROI and unblock your productivity chakra.',
           options: [
@@ -51,6 +68,7 @@ export default {
           ]
         },
         {
+          id: 2,
           position: 'Creative Designer',
           description: 'Enter the creative flow with data - backed ideas in mind.',
           options: [
@@ -61,6 +79,16 @@ export default {
           ]
         },
       ]
+    }
+  },
+  methods: {
+    setActive(id) {
+      this.active = id
+    }
+  },
+  computed: {
+    activeItem() {
+      return this.cases.find(item => item.id === this.active)
     }
   }
 }
@@ -96,20 +124,40 @@ export default {
     text-align: center;
     max-width: 700px;
     margin: 0 auto;
-    margin-bottom: 64px;
+    margin-bottom: 48px;
+  }
+
+  &-navigation {
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+  }
+
+  &-navigation-item {
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 8px;
+    transition: border-color 0.2s ease;
+    will-change: border-color;
+    &.active {
+      border-color: $color-accent-500;
+    }
   }
 
   &-wrapper {
-    display: flex;
-    justify-content: space-between;
-
+    /* display: flex; */
+    /* justify-content: space-between; */
   }
 
   &-card {
-    max-width: 380px;
+    max-width: 960px;
+    margin: 0 auto;
     background: rgba($color-bg-grey, 0.7);
-    border-radius: 10px;
-    margin-right: 8px;
+    border-radius: 8px;
     box-shadow: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
   }
 
@@ -121,13 +169,46 @@ export default {
   }
 
   &-subtitle {
-    padding: 0px 24px 16px;
-    border-bottom: 1px solid #fff;
-    color: $color-text-500;
+    padding: 48px 48px 16px;
+    /* border-bottom: 1px solid #fff; */
+    color: $color-accent-500;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
   }
 
   &-descr-wrapper {
-    padding: 32px 24px;
+    padding: 32px 24px 48px;
+    max-width: max-content;
+    margin: 0 auto;
+  }
+
+  &-descr-round {
+    width: 22px;
+    height: 22px;
+    flex: 0 0 22px;
+    border-radius: 100px;
+    border: 2px solid $color-accent-500;
+    margin-right: 16px;
+    margin-top: 2px;
+    position: relative;
+
+    &:before {
+      content: '';
+      background: $color-accent-500;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 14px;
+      height: 14px;
+      border-radius: 100px;
+    }
+  }
+
+  &-descr {
+    display: flex;
+    /* align-items: center; */
   }
 
   &-descr:not(:last-child) {
@@ -135,20 +216,20 @@ export default {
   }
 
   &-descr-heading {
-    margin-bottom: 8px;
-    font-size: 16px;
+    margin-bottom: 4px;
+    font-size: 18px;
     font-weight: 500;
-    color: $color-text-600;
+    color: $color-text-800;
   }
 
   &-descr-text {
     margin-bottom: 8px;
     font-size: 16px;
     font-weight: 400;
-    color: $color-text-500;
+    color: $color-text-600;
 
     /deep/ b {
-      color: $color-text-500;
+      color: $color-text-600;
     }
   }
 
@@ -166,8 +247,44 @@ export default {
   @include tablet-vertical {
     .title {
       // text-align: center;
-      font-size: 42px;
-      line-height: 42px;
+      font-size: 32px;
+      line-height: 40px;
+    }
+
+    .subtitle {
+      font-size: 17px;
+    }
+
+    .help-navigation {
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .help-navigation-item {
+      font-size: 16px;
+      /* text-transform: uppercase; */
+      border-bottom: none;
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 100%;
+        background: transparent;
+        width: 16px;
+        height: 16px;
+        border-radius: 100px;
+      }
+
+      &.active:before {
+        background: $color-accent-500;
+      }
+    }
+
+    .help-subtitle {
+      font-size: 22px;
+      line-height: 28px;
+      padding: 32px 24px 8px;
     }
   }
 }
