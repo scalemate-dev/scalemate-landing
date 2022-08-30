@@ -3,6 +3,15 @@ import App from './App.vue'
 
 Vue.config.productionTip = false
 
-new Vue({
-  render: h => h(App),
-}).$mount('#app')
+const root = new Vue({
+  render: h => h(App)
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (document.getElementById('app') != null) {
+    root.$mount('#app');
+  } else {
+    // <div id="app"> was removed due to prerendering
+    root.$mount('body > div');
+  }
+});
