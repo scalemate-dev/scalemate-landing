@@ -4,7 +4,7 @@
     <Hero />
     <HowCanHelp />
     <Features />
-    <Metrics />
+    <!-- <Metrics /> -->
     <WaitList />
     <Footer />
   </div>
@@ -15,7 +15,7 @@ import Header from '@/blocks/Header'
 import Hero from '@/blocks/Hero'
 import HowCanHelp from '@/blocks/HowCanHelp'
 import Features from '@/blocks/Features'
-import Metrics from '@/blocks/Metrics'
+// import Metrics from '@/blocks/Metrics'
 import WaitList from '@/blocks/WaitList'
 import Footer from '@/blocks/Footer'
 
@@ -26,7 +26,7 @@ export default {
     Hero,
     HowCanHelp,
     Features,
-    Metrics,
+    // Metrics,
     WaitList,
     Footer,
   },
