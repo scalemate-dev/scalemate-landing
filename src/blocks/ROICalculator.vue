@@ -97,6 +97,8 @@ export default {
       if (this.niche === 'Gaming Hyper Casual') {
         return 38
       }
+
+      return 0
     },
     isNotGamingHyperCasual() {
       return this.niche !== 'Gaming Hyper Casual'
