@@ -21,18 +21,20 @@
           </h3>
         </div>
 
-        <div class="help-card">
-          <div class="help-subtitle">{{ activeItem.description }}</div>
-          <div class="help-descr-wrapper">
-            <div class="help-descr" v-for="(opt, i) in activeItem.options" :key="i">
-              <div class="help-descr-round" />
-              <div>
-                <div class="help-descr-heading">{{opt.label}}</div>
-                <div class="help-descr-text" v-html="opt.text" />
+        <transition name="fade-in" mode="out-in">
+          <div class="help-card" :key="activeItem.id">
+            <div class="help-subtitle">{{ activeItem.description }}</div>
+            <div class="help-descr-wrapper">
+              <div class="help-descr" v-for="(opt, i) in activeItem.options" :key="i">
+                <div class="help-descr-round" />
+                <div>
+                  <div class="help-descr-heading">{{opt.label}}</div>
+                  <div class="help-descr-text" v-html="opt.text" />
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </transition>
       </div>
     </div>
   </div>
@@ -97,6 +99,18 @@ export default {
 <style lang="scss" scoped>
 .help {
   margin-bottom: 56px;
+
+  .fade-in-enter-active,
+  .fade-in-leave-active {
+    transform: scale(1);
+    transition: transform 0.1s ease, opacity 0.1s ease;
+  }
+
+  .fade-in-enter-from,
+  .fade-in-leave-to {
+    /* opacity: 0.7; */
+    transform: scale(0.98);
+  }
 
   .title {
     max-width: 800px;

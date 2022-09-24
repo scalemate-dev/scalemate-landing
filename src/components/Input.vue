@@ -20,15 +20,15 @@
 <script>
 export default {
   name: "Input",
-  props: ["modelValue", "placeholder", "leftPadding", "type", "disabled", "autocomplete", "label", "required", "name"],
+  props: ["placeholder", "leftPadding", "type", "disabled", "autocomplete", "label", "required", "name"],
   computed: {
     formValue: {
       get() {
-        return this.modelValue;
+        return this.value
       },
       set(value) {
-        this.$emit("update:modelValue", value);
-      },
+        this.$emit('input', value)
+      }
     },
   },
 };
