@@ -52,10 +52,10 @@
             Saved with Scalemate<span>*</span>
           </div>
           <div class="result-spent">
-            Time spent yearly <b>{{ saved.time }} hours</b>
+            Time saved yearly <b>{{ saved.time }} hours</b>
           </div>
           <div class="result-spent">
-            Money spent yearly <b>{{ saved.money }}%</b>
+            Money saved yearly <b>{{ saved.money }}%</b>
           </div>
         </div>
       </div>
