@@ -2,11 +2,10 @@
   <div class="hero">
     <div class="container">
       <h1 class="hero-title">
-        Run winning ads <br /> to <span>triple-scale</span> your app
+        <span>One click</span><br /> to launch them all
       </h1>
       <div class="hero-subtitle">
-        Creative testing automation assistant for mobile-first agencies and busy app marketers. Born to erase
-        performance marketing routine and save you 3 hours daily.
+        Scalemate automates creative testing across platforms. One click – I upload your creatives to the library. Two clicks – I launch your campaign on all ad platforms you work with.
       </div>
       <form class="hero-form" name="request-demo" @submit.prevent="(e) => handleRequest(e)">
         <input type="hidden" name="type" value="request-a-demo" />
@@ -29,9 +28,9 @@
         </div>
       </div>
 
-      <div class="hero-bg">
+      <!-- <div class="hero-bg">
         <inline-svg :src="require('@/assets/icons/hero-bg.svg')" />
-      </div>
+      </div> -->
       <SuccessPopup @togglePopup="togglePopup" v-if="showPopup" />
     </div>
   </div>
@@ -43,7 +42,7 @@ import { sendForm } from '@/formspree.js'
 
 import Button from '@/components/Button'
 import Input from '@/components/Input'
-import SuccessPopup from '@/blocks/SuccessPopup'
+import SuccessPopup from '@/components/index/SuccessPopup'
 
 export default {
   name: 'Hero',
@@ -97,6 +96,9 @@ export default {
 
   .container {
     position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
   }
 
   .hero-title {
@@ -108,6 +110,7 @@ export default {
     letter-spacing: -0.025em;
     color: #1D2939;
     margin-bottom: 32px;
+    text-align: center;
   }
 
   .hero-title span {
@@ -115,16 +118,18 @@ export default {
   }
 
   .hero-subtitle {
-    max-width: 720px;
+    max-width: 900px;
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
     line-height: 32px;
     color: #475467;
     margin-bottom: 48px;
+    text-align: center;
   }
 
   .hero-form {
+    width: 100%;
     max-width: 576px;
     display: flex;
     gap: 12px;
@@ -133,6 +138,7 @@ export default {
 
   .hero-wework {
     display: flex;
+    justify-content: center;
     align-items: center;
     font-size: 20px;
     line-height: 30px;
@@ -191,6 +197,4 @@ export default {
     }
   }
 }
-
-
 </style>

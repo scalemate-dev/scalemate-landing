@@ -1,5 +1,6 @@
 const path = require('path')
 const PrerenderSPAPlugin = require('prerender-spa-plugin')
+import { routes } from './src/routes'
 
 module.exports = {
   runtimeCompiler: true,
@@ -12,7 +13,7 @@ module.exports = {
           // Absolute path to compiled SPA
           path.resolve(__dirname, 'dist'),
           // List of routes to prerender
-          ['/'],
+          routes.map(route => route.path),
           {
             // options
           }

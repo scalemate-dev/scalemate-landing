@@ -1,12 +1,29 @@
 <template>
-  <div class="app">
-    <router-view />
+  <div class="home">
+    <Header />
+    <Hero />
+    <Rules />
+    <WaitList />
+    <Footer />
   </div>
 </template>
 
 <script>
+import Header from '@/components/Header'
+import Hero from '@/components/Launch/Hero'
+import WaitList from '@/components/Launch/WaitList'
+import Rules from '@/components/Launch/Rules'
+import Footer from '@/components/Footer'
+
 export default {
   name: 'App',
+  components: {
+    Header,
+    Hero,
+    Rules,
+    WaitList,
+    Footer,
+  },
 }
 </script>
 
@@ -17,9 +34,7 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  
-}
+a:hover {}
 
 .container {
   width: 100%;
