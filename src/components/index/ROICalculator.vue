@@ -40,18 +40,15 @@
         <div class="results">
           <ResultItem
             title="No automation"
-            :firstLabel="`${noAutomation.time} hours`"
-            :secondLabel="`$${noAutomation.money} yearly`"
+            :text="`${noAutomation.time} hours, $${noAutomation.money} yearly`"
           />
           <ResultItem
             title="With automation"
-            :firstLabel="`${withAutomation.time} hours`"
-            :secondLabel="`$${withAutomation.money} yearly`"
+            :text="`${withAutomation.time} hours, $${withAutomation.money} yearly`"
           />
           <ResultItem
             title="Saved with Scalemate<span>*</span>"
-            :firstLabel="`${saved.time} hours`"
-            :secondLabel="`$${saved.money} yearly`"
+            :text="`${saved.time} hours, $${saved.money} yearly`"
           />
         </div>
       </div>
@@ -203,6 +200,7 @@ export default {
   }
 
   .results {
+    flex: 0 0 35%;
     display: flex;
     flex-flow: column nowrap;
     gap: 48px;
