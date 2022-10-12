@@ -9,63 +9,61 @@
         automate
         your creative testing process.
       </div>
-      <div class="form">
-        <div class="select-wrapper">
-          <div class="select-label">
-            Your app niche
-          </div>
-          <select v-model="niche" placeholder="Please select one">
-            <option>Gaming Casual</option>
-            <option>Gaming Hyper Casual</option>
-            <option>Non-gaming</option>
-          </select>
-        </div>
-        <Input v-model="creatives" type="number" label="Number of creatives per month" placeholder="10" />
-        <Input v-model="CPA" type="number" label="CPA" placeholder="600" v-if="isNotGamingHyperCasual" />
-        <Input v-model="CPI" type="number" label="CPI" placeholder="3" v-else />
-      </div>
-      <div class="results">
-        <div class="result-item">
-          <div class="result-title">
-            No automation
-          </div>
-          <div class="result-spent">
-            Time spent yearly <b>{{ noAutomation.time }} hours</b>
-          </div>
-          <div class="result-spent">
-            Money spent yearly <b>${{ noAutomation.money }}</b>
-          </div>
-        </div>
-        <div class="result-item">
-          <div class="result-title">
-            With automation
-          </div>
-          <div class="result-spent">
-            Time spent yearly <b>{{ withAutomation.time }} hours</b>
-          </div>
-          <div class="result-spent">
-            Money spent yearly <b>${{ withAutomation.money }}</b>
-          </div>
-        </div>
-        <div class="result-item">
-          <div class="result-title">
-            Saved with Scalemate<span>*</span>
-          </div>
-          <div class="result-spent">
-            Time saved yearly <b>{{ saved.time }} hours</b>
-          </div>
-          <div class="result-spent">
-            Money saved yearly <b>{{ saved.money }}%</b>
-          </div>
-        </div>
-      </div>
 
+      <div class="row">
+        <div class="form">
+          <div class="select-wrapper">
+            <div class="select-label">
+              Your app niche
+            </div>
+            <Select v-model="niche" :options="nicheOptions" />
+          </div>
+          <div class="select-wrapper">
+            <div class="select-label">
+              Number of creatives per month
+            </div>
+            <vue-range-slider ref="slider" v-model="creatives" :min="1" :max="500"/>
+          </div>
+          <div class="select-wrapper" v-if="isNotGamingHyperCasual">
+            <div class="select-label">
+              CPA
+            </div>
+            <vue-range-slider ref="slider" v-model="CPA" :step="0.5" :min="1" :max="10" />
+          </div>
+          <div class="select-wrapper" v-else>
+            <div class="select-label">
+              CPI
+            </div>
+            <vue-range-slider ref="slider" v-model="CPI" :step="0.5" :min="1" :max="10" />
+          </div>
+        </div>
+        <div class="results">
+          <ResultItem
+            title="No automation"
+            :firstLabel="`${noAutomation.time} hours`"
+            :secondLabel="`$${noAutomation.money} yearly`"
+          />
+          <ResultItem
+            title="With automation"
+            :firstLabel="`${withAutomation.time} hours`"
+            :secondLabel="`$${withAutomation.money} yearly`"
+          />
+          <ResultItem
+            title="Saved with Scalemate<span>*</span>"
+            :firstLabel="`${saved.time} hours`"
+            :secondLabel="`$${saved.money} yearly`"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import Input from '@/components/Input'
+import Select from '@/components/Select'
+import ResultItem from '@/components/index/ROICalculator/ResultItem'
+import 'vue-range-component/dist/vue-range-slider.css'
+import VueRangeSlider from 'vue-range-component'
 
 const NO_AUTOMATION_TIME_YEARLY = 8
 const WITH_AUTOMATION_TIME_YEARLY = 3
@@ -76,14 +74,21 @@ const UAM_HOUR_PRICE = 20
 export default {
   name: 'ROICalculator',
   components: {
-    Input
+    Select,
+    ResultItem,
+    VueRangeSlider
   },
   data() {
     return {
       niche: 'Gaming Casual',
-      CPA: null,
-      CPI: null,
-      creatives: null
+      CPA: 2.5,
+      CPI: 1.5,
+      creatives: 30,
+      nicheOptions: [
+        'Gaming Casual',
+        'Gaming Hyper Casual',
+        'Non-gaming',
+      ]
     }
   },
   computed: {
@@ -123,9 +128,10 @@ export default {
       }
     },
     saved() {
-      const money = (this.noAutomation.money - this.withAutomation.money) / (this.noAutomation.money) * 100
+      // const money = (this.noAutomation.money - this.withAutomation.money) / (this.noAutomation.money) * 100
+      const money = (this.noAutomation.money - this.withAutomation.money)
       return {
-        time: this.noAutomation.time - this.withAutomation.time,
+        time: Math.round(this.noAutomation.time - this.withAutomation.time),
         money: isNaN(money) ? 0 : Math.floor(money * 10) / 10
       }
     }
@@ -166,68 +172,85 @@ export default {
     margin-bottom: 48px;
   }
 
-  .form {
+  .row {
     display: flex;
-    gap: 24px;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 72px;
+    border-radius: 16px;
+  }
+
+  .form {
+    padding: 48px 32px;
+    background: #F2F4F7;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 48px;
+    flex: 0 0 40%;
+    border-radius: 16px;
+    border: 1px solid #E5E7EB;
   }
 
   .select-wrapper {
     width: 100%;
   }
 
-  select {
-    width: 100%;
-    font-style: normal;
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 24px;
-    color: #000;
-    border: 1px solid rgba(166, 170, 180, 0.5);
-    border-radius: 10px;
-    padding: 16px 18px;
-    outline: none;
-    transition: border-color 0.2s ease;
-    will-change: border-color;
-  }
-
   .select-label {
     margin-bottom: 12px;
-    color: #878d93;
+    color: #2B2C39;
     font-size: 14px;
   }
 
   .results {
-    margin-top: 48px;
     display: flex;
-    gap: 24px;
+    flex-flow: column nowrap;
+    gap: 48px;
   }
 
-  .result-item {
-    flex: 1;
+  :deep(.vue-range-slider) {
+    padding: 0 !important;
+    margin-top: 40px;
   }
 
-  .result-title {
-    margin-bottom: 8px;
-    font-size: 24px;
-    font-weight: 600;
+  :deep(.slider-process) {
+    background: #f78a9e !important;
+  }
 
-    span {
-      color: $color-accent-500;
+  :deep(.slider-dot) {
+    background: #F74972 !important;
+    box-shadow: none !important;
+    width: 24px !important;
+    height: 24px !important;
+    top: -9px !important;
+  }
+
+  :deep(.slider) {
+    background: #E5E7EB !important;
+  }
+
+  :deep(.slider-tooltip-wrap) {
+    top: -4px !important;
+  }
+
+  :deep(.slider-tooltip) {
+    background: none !important;
+    border: none !important;
+    color: #7d7d7e !important;
+    padding: 0 !important;
+
+    &:before {
+      content: none !important;
     }
   }
 
-  .result-spent {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 24px;
-    color: #6B7280;
+  @media (max-width: 768px) {
+    .row {
+      display: block;
+    }
 
-    b {
-      font-weight: 600;
-      color: #6B7280;
+    .results {
+      margin-top: 48px;
     }
   }
 }
