@@ -28,13 +28,14 @@
             <div class="select-label">
               CPA
             </div>
-            <vue-range-slider ref="slider" v-model="CPA" :step="0.5" :min="1" :max="10" />
+            <vue-range-slider ref="slider" v-model="CPA" :step="0.5" :min="1" :max="2500" v-if="isGamingCasual" />
+            <vue-range-slider ref="slider" v-model="CPA" :step="0.5" :min="1" :max="1000" v-else />
           </div>
           <div class="select-wrapper" v-else>
             <div class="select-label">
               CPI
             </div>
-            <vue-range-slider ref="slider" v-model="CPI" :step="0.5" :min="1" :max="10" />
+            <vue-range-slider ref="slider" v-model="CPI" :step="0.5" :min="1" :max="100" />
           </div>
         </div>
         <div class="results">
@@ -101,6 +102,9 @@ export default {
       }
 
       return 0
+    },
+    isGamingCasual() {
+      return this.niche === 'Gaming Casual'
     },
     isNotGamingHyperCasual() {
       return this.niche !== 'Gaming Hyper Casual'
