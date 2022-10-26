@@ -95,14 +95,29 @@ export default {
         return 10
       }
       if (this.niche === 'Gaming Casual') {
-        return 2.5
+        return 1.5
       }
       if (this.niche === 'Gaming Hyper Casual') {
         return 38
       }
 
-      return 0
+      return 1
     },
+
+    multiplier () {
+      if (this.niche === 'Non-gaming') {
+        return 1.15
+      }
+      if (this.niche === 'Gaming Casual') {
+        return 1.15
+      }
+      if (this.niche === 'Gaming Hyper Casual') {
+        return 1.33
+      }
+
+      return 1
+    },
+
     isGamingCasual() {
       return this.niche === 'Gaming Casual'
     },
@@ -114,7 +129,7 @@ export default {
     },
     noAutomation() {
       const time = (NO_AUTOMATION_TIME_YEARLY * this.creatives * MONTHS) / MINUTES_IN_HOUR
-      const money = (this.eventsAmount * this.CPIorCPA * this.creatives * MONTHS) * (1.15) + (UAM_HOUR_PRICE * time)
+      const money = (this.eventsAmount * this.CPIorCPA * this.creatives * MONTHS) * this.multiplier + (UAM_HOUR_PRICE * time)
       return {
         time,
         money: Math.round(money)
@@ -122,7 +137,7 @@ export default {
     },
     withAutomation() {
       const time = (WITH_AUTOMATION_TIME_YEARLY * this.creatives * MONTHS) / MINUTES_IN_HOUR
-      const money = (this.eventsAmount * this.CPIorCPA * this.creatives * MONTHS) * (1.04) + (UAM_HOUR_PRICE * time)
+      const money = (this.eventsAmount * this.CPIorCPA * this.creatives * MONTHS) + (UAM_HOUR_PRICE * time)
       return {
         time,
         money: Math.round(money)
