@@ -51,9 +51,29 @@
             title="Saved with Scalemate<span>*</span>"
             :text="`${saved.time} hours, $${saved.money} yearly`"
           />
+          <div>
+            <div class="result-title">
+              Did you like the result? Test me now
+            </div>
+            <form class="wait-list-form" name="roi" @submit="(e) => handleRequest(e)">
+              <input type="hidden" name="type" value="roi" />
+              <input type="hidden" name="cpi" :value="CPI" />
+              <input type="hidden" name="cpa" :value="CPA" />
+              <input type="hidden" name="creatives" :value="creatives" />
+              <input type="hidden" name="niche" :value="niche" />
+              <input type="hidden" name="no-automation" :value="`${noAutomation.time} hours, $${noAutomation.money} yearly`" />
+              <input type="hidden" name="with-automation" :value="`${withAutomation.time} hours, $${withAutomation.money} yearly`" />
+              <input type="hidden" name="saved-with-scalemate" :value="`${saved.time} hours, $${saved.money} yearly`" />
+              <Input required v-model="email" class="wait-list-input" name="email" type="email" placeholder="Enter your email" />
+              <Button color="accent" :submit="true">
+                Test Me Out
+              </Button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
+    <SuccessPopup @togglePopup="togglePopup" v-if="showPopup" />
   </div>
 </template>
 
@@ -62,6 +82,10 @@ import Select from '@/components/Select'
 import ResultItem from '@/components/index/ROICalculator/ResultItem'
 import 'vue-range-component/dist/vue-range-slider.css'
 import VueRangeSlider from 'vue-range-component'
+import { sendForm } from '@/formspree.js'
+import SuccessPopup from '@/components/index/SuccessPopup'
+import Button from '@/components/Button'
+import Input from '@/components/Input'
 
 const NO_AUTOMATION_TIME_YEARLY = 8
 const WITH_AUTOMATION_TIME_YEARLY = 3
@@ -74,10 +98,15 @@ export default {
   components: {
     Select,
     ResultItem,
-    VueRangeSlider
+    VueRangeSlider,
+    SuccessPopup,
+    Input,
+    Button
   },
   data() {
     return {
+      email: '',
+      showPopup: false,
       niche: 'Gaming Casual',
       CPA: 2.5,
       CPI: 1.5,
@@ -136,6 +165,27 @@ export default {
         money: isNaN(money) ? 0 : Math.floor(money * 10) / 10
       }
     }
+  },
+  methods: {
+    togglePopup() {
+      this.showPopup = !this.showPopup
+    },
+
+    async handleRequest(event) {
+      event.preventDefault();
+      console.log(event)
+      try {
+        await sendForm(event)
+        this.email = ''
+        this.showPopup = true
+      } catch (error) {
+        console.error('formspree error: ', error)
+      }
+    }
+  },
+  created: function() {
+    VueRangeSlider.methods.handleKeyup = () => console.log;
+    VueRangeSlider.methods.handleKeydown = () => console.log;
   }
 }
 </script>
@@ -255,5 +305,27 @@ export default {
       margin-top: 48px;
     }
   }
+}
+
+.wait-list {
+  padding: 0;
+  position: relative;
+
+  &-form {
+    display: flex;
+    max-width: 528px;
+  }
+
+  &-input {
+    margin-right: 16px;
+  }
+}
+.result-title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+  color: #667085;
+  margin-bottom: 16px;
 }
 </style>

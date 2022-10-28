@@ -3,32 +3,24 @@
     <div v-if="label" class="input-label">
       {{ label }}
     </div>
-    <input
-      class="input-field"
-      :class="{ 'left-padding': leftPadding, disabled: disabled }"
-      :type="type ? type : 'text'"
-      :name="name"
-      v-model="formValue"
-      :placeholder="placeholder"
-      :disabled="disabled"
-      :required="required"
-      :autocomplete="autocomplete"
-    />
+    <input class="input-field" :class="{ 'left-padding': leftPadding, disabled: disabled }" :type="type ? type : 'text'"
+      :name="name" v-model="formValue" :placeholder="placeholder" :disabled="disabled" :required="required"
+      :autocomplete="autocomplete" />
   </div>
 </template>
 
 <script>
 export default {
   name: "Input",
-  props: ["placeholder", "leftPadding", "type", "disabled", "autocomplete", "label", "required", "name"],
+  props: ["modelValue", "placeholder", "leftPadding", "type", "disabled", "autocomplete", "label", "required", "name"],
   computed: {
     formValue: {
       get() {
-        return this.value
+        return this.modelValue;
       },
       set(value) {
-        this.$emit('input', value)
-      }
+        this.$emit("update:modelValue", value);
+      },
     },
   },
 };

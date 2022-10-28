@@ -33,10 +33,6 @@ export default {
     font-size: 24px;
     line-height: 24px;
     color: #1D2939;
-
-    :deep(span) {
-      color: $color-accent-500;
-    }
   }
 
   .result-spent {
@@ -46,11 +42,9 @@ export default {
     line-height: 18px;
     color: #667085;
     margin-bottom: 12px;
-
-    /* :deep(b) {
-      font-weight: 400;
-      color: #1D2939;
-    } */
+    :deep(span) {
+      color: $color-accent-500;
+    }
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {
