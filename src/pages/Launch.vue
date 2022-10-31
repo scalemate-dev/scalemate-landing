@@ -2,7 +2,10 @@
   <div class="home">
     <Header />
     <Hero />
+    <LighterPath />
+    <Features :entries="features" />
     <Rules />
+    <Align />
     <WaitList />
     <Footer />
   </div>
@@ -11,7 +14,10 @@
 <script>
 import Header from '@/components/Header'
 import Hero from '@/components/Launch/Hero'
+import LighterPath from '@/components/Launch/LighterPath'
 import WaitList from '@/components/Launch/WaitList'
+import Features from '@/components/Launch/Features'
+import Align from '@/components/Launch/Align'
 import Rules from '@/components/Launch/Rules'
 import Footer from '@/components/Footer'
 
@@ -21,9 +27,38 @@ export default {
     Header,
     Hero,
     Rules,
+    Features,
+    Align,
+    LighterPath,
     WaitList,
     Footer,
   },
+  data() {
+    return {
+      features: [
+        {
+          title: "One minute to <span>upload</span>",
+          description: `
+            <span>You:</span> connect your Google Drive and instantly copy chosen files to your library.
+            <br /><br />
+            <span>Scalemate:</span> checks and updates the library each time designers add a new creative to Google Drive.
+          `,
+          image: "cloud-sync",
+          triangle: "triangle-1"
+        },
+        {
+          title: "One minute to <span>integrate</span>",
+          description: `
+            <span>You:</span> connect your Google Drive and instantly copy chosen files to your library.
+            <br /><br />
+            <span>Scalemate:</span> checks and updates the library each time designers add a new creative to Google Drive.
+          `,
+          image: "integrate",
+          triangle: "triangle-2"
+        }
+      ],
+    }
+  }
 }
 </script>
 
