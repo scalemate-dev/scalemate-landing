@@ -3,17 +3,9 @@
     <div v-if="label" class="input-label">
       {{ label }}
     </div>
-    <input
-      class="input-field"
-      :class="{ 'left-padding': leftPadding, disabled: disabled }"
-      :type="type ? type : 'text'"
-      :name="name"
-      v-model="formValue"
-      :placeholder="placeholder"
-      :disabled="disabled"
-      :required="required"
-      :autocomplete="autocomplete"
-    />
+    <input class="input-field" :class="{ 'left-padding': leftPadding, disabled: disabled }" :type="type ? type : 'text'"
+      :name="name" v-model="formValue" :placeholder="placeholder" :disabled="disabled" :required="required"
+      :autocomplete="autocomplete" />
   </div>
 </template>
 

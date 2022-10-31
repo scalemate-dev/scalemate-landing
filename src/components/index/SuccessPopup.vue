@@ -4,7 +4,7 @@
     .popup
       .cross(@click="$emit('togglePopup')") +
       h1.title Thank you,
-      h3.subtitle Our manager contact you soon!
+      h3.subtitle Our manager will contact you soon!
 </template>
 
 <script>

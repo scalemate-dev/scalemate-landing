@@ -3,7 +3,7 @@
     <div class="container">
       <inline-svg class="wait-list-angles" :src="require('@/assets/icons/bottom-angles.svg')" />
       <h2 class="wait-list-title">
-        Deal with creative testing routine <span>260% faster</span>
+        Save <span>13 hours</span> per hundred tested creatives
       </h2>
       <div class="wait-list-subtitle">1-month free trial | Dedicated onboarding | Custom integrations</div>
       <form class="wait-list-form" name="join-wait-list" @submit="(e) => handleRequest(e)">
@@ -25,7 +25,7 @@ import { sendForm } from '@/formspree.js'
 
 import Button from '@/components/Button'
 import Input from '@/components/Input'
-import SuccessPopup from '@/blocks/SuccessPopup'
+import SuccessPopup from '@/components/index/SuccessPopup'
 
 export default {
   name: 'BottomCTA',

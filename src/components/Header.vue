@@ -2,9 +2,9 @@
   <div class="header">
     <div class="container">
       <div class="header-navigation">
-        <div class="header-logo">
+        <router-link to="/" class="header-logo">
           <inline-svg class="logo" alt="Scalemate logo" :src="require('@/assets/icons/logo-black.svg')" />
-        </div>
+        </router-link>
         <!-- <div class="header-link">
           Features
         </div>
@@ -12,6 +12,9 @@
           Company
         </div> -->
       </div>
+      <!-- <router-link class="header-link" to="/launch">
+        Launch
+      </router-link> -->
       <!-- <Button @click="handleRequest" color="accent">
         Request a demo
       </Button> -->
@@ -68,7 +71,7 @@ export default {
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
-    color: #FFFFFF;
+    color: #2f2f2f;
   }
 }
 
