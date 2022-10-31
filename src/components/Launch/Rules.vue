@@ -1,23 +1,32 @@
 <template>
   <div class="rules">
     <div class="container">
-      <div class="rules-container">
-        <!-- <div class="rules-eyebrow">Valuable rules</div> -->
-        <div class="rules-wrapper">
-          <h2 class="metics-title">
-            <span>Accelerate</span> with <br />automated testing workflow
-          </h2>
-          <div class="rules-description">
-            Define your rules. Get simple reports for your testing approaches. Identify winning ads and their cost. Head on to the next goal!
-          </div>
-        </div>
+      <div class="rules-title">
+        <span>Accelerate</span> rotation<br />with automated testing workflow
+      </div>
+      <div class="rules-subtitle">
+        Automate creative testing workflows. Get simple reports. Find out what works and what doesn't. Rotate winning ads and
+        head on to the next testing round!
+      </div>
+
+      <div class="rules-row">
         <div class="rules-list">
-          <div class="rules-feature" v-for="(entry, index) in entries" :key="index">
-            <div class="rules-feature-title" v-html="entry.title" />
-            <div class="rules-feature-description">
-              {{ entry.description }}
+          <div class="rules-item" v-for="(item, index) in entries" :key="index">
+            <div class="rules-item-icon" :style="{backgroundColor: item.color, borderColor: item.borderColor}">
+              <inline-svg :src="require(`@/assets/icons/${item.icon}.svg`)" />
+            </div>
+            <div class="rules-item-info">
+              <div class="rules-item-title">
+                {{ item.title }}
+              </div>
+              <div class="rules-item-description">
+                {{ item.description }}
+              </div>
             </div>
           </div>
+        </div>
+        <div class="rules-flow">
+          <img src="@/assets/images/flow.png" />
         </div>
       </div>
     </div>
@@ -25,31 +34,50 @@
 </template>
 
 <script>
+import InlineSvg from 'vue-inline-svg'
 
 export default {
   name: 'Rules',
+  components: {
+    InlineSvg,
+  },
   data() {
     return {
       entries: [
         {
-          title: 'Set up custom workflows',
-          description: 'and define each creative path from upload & testing to going live'
+          icon: "workflows",
+          color: "#A6F4C5",
+          borderColor: "#6CE9A6",
+          title: 'Create automation workflows',
+          description: 'and define each creative path from testing to going live.'
         },
         {
-          title: 'Use campaign templates',
-          description: 'and save time on setting'
-        },
-        {
-          title: 'Set automated rules at every level',
-          description: 'and stop, scale, or change bids while sleeping at night.'
-        },
-        {
+          icon: "kpi",
+          color: "#FECDC9",
+          borderColor: "#FDA19B",
           title: 'Add KPIs for creative assets',
-          description: 'define CPI, IPM, or spend to make sure it’s your winner.'
+          description: 'and qualify CPI, IPM, or ad spend to ensure it’s your winner. '
         },
         {
-          title: 'Streamline creative rotation',
-          description: 'add winners to live campaigns automatically'
+          icon: "templates",
+          color: "#C7CCE5",
+          borderColor: "#9EA5D1",
+          title: 'Use campaign templates',
+          description: 'and instantly run new testing campaigns with saved defaults.'
+        },
+        {
+          icon: "streamline",
+          color: "#FEDF89",
+          borderColor: "#FEC84B",
+          title: 'Streamline ad rotation',
+          description: 'and launch creatives in live campaigns automatically.'
+        },
+        {
+          icon: "rules",
+          color: "#B9E6FE",
+          borderColor: "#7CD4FD",
+          title: 'Set testing workflow rules',
+          description: 'and stop, scale, or change bids based on your conditions.'
         },
       ]
     }
@@ -59,106 +87,132 @@ export default {
 
 <style lang="scss" scoped>
 .rules {
-  padding: 96px 0;
-  // background: url('~@/assets/images/features.jpg') no-repeat center / cover;
-
-  .rules-wrapper {
-    max-width: 868px;
-  }
-
-  .rules-container {
-    max-width: 1084px;
-  }
-
-  .rules-eyebrow {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0.025em;
-    text-transform: uppercase;
-    color: #A5B4FC;
-    margin-bottom: 12px;
-  }
-
-  .metics-title {
-    font-weight: bold;
-    font-size: 60px;
-    line-height: 72px;
-    letter-spacing: -0.02em;
-    ;
-    margin-bottom: 20px;
-    color: $color-text-800;
-
-    span {
-      color: $color-accent-500;
-    }
-  }
-
-  .rules-description {
-    margin-bottom: 48px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 28px;
-    color: $color-text-600;
-  }
-
-  .rules-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
-  }
-
-  .rules-feature {
-    /* max-width: 234px; */
-    flex: 1;
-    // margin-bottom: 48px;
-  }
-
-  /deep/ .accent {
-    color: $color-accent-500;
-  }
-
-  .rules-feature-title {
-    margin-bottom: 4px;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 24px;
-    color: $color-text-600;
-
-  }
-
-  .rules-feature-description {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 24px;
-    color: $color-text-600;
-  }
+  padding: 150px 0 200px;
 }
 
-@include tablet-horizontal {
-  .rules {
-    padding-top: 16px;
+.rules-title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 60px;
+  letter-spacing: -0.025em;
+  color: #1D2939;
+  margin-bottom: 32px;
+  text-align: center;
+}
 
-    .metics-title {
-      font-size: 42px;
-      line-height: 42px;
-    }
-  }
+.rules-title span {
+  color: $color-accent-500;
+}
+
+.rules-subtitle {
+  margin: 0 auto;
+  max-width: 1024px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 32px;
+  color: #475467;
+  margin-bottom: 70px;
+  text-align: center;
+}
+
+.rules-row {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 32px;
+}
+
+.rules-list {
+  flex: 0 0 400px;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 24px;
+}
+
+.rules-item {
+  padding: 24px;
+  background: #F9FAFB;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 20px;
+}
+
+.rules-item-icon {
+  width: 72px;
+  flex: 0 0 72px;
+  height: 72px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.rules-item-title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+}
+
+.rules-item-description {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+}
+
+.rules-flow {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 24px 70px;
+  background: #F9FAFB;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+}
+
+.rules-flow img {
+  width: 100%;
 }
 
 @include tablet-vertical {
   .rules {
-    .rules-list {
-      flex-flow: row wrap;
-    }
+    background: linear-gradient(180deg, #FFFFFF 0%, #EEE 51.04%, rgba(217, 217, 217, 0) 100%);
+    padding: 96px 0 140px;
+  }
 
-    .rules-feature {
-      margin-bottom: 24px;
-    }
+  .rules-title {
+    font-size: 32px;
+    line-height: 40px;
+    margin-bottom: 16px;
+    text-align: left;
+  }
+
+  .rules-subtitle {
+    font-size: 18px;
+    text-align: left;
+    line-height: 24px;
+    margin-bottom: 48px;
+  }
+
+  .rules-row {
+    display: block;
+  }
+
+  .rules-flow {
+    display: none;
   }
 }
 </style>

@@ -46,6 +46,8 @@ export default {
   }
 
   @media (max-width: 768px) {
+    font-size: 14px;
+
     .col:first-child {
       margin-bottom: 8px;
     }

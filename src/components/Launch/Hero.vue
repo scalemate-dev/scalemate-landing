@@ -2,7 +2,7 @@
   <div class="hero">
     <div class="container">
       <h1 class="hero-title">
-        <span>One click</span><br /> to launch them all
+        <span>One click</span> to launch them all
       </h1>
       <div class="hero-subtitle">
         Scalemate automates creative testing across platforms. One click – I upload your creatives to the library. Two clicks – I launch your campaign on all ad platforms you work with.
@@ -102,7 +102,7 @@ export default {
   }
 
   .hero-title {
-    max-width: 700px;
+    max-width: 800px;
     font-style: normal;
     font-weight: 700;
     font-size: 60px;
@@ -118,7 +118,7 @@ export default {
   }
 
   .hero-subtitle {
-    max-width: 900px;
+    max-width: 1024px;
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
@@ -186,14 +186,16 @@ export default {
 
 @include tablet-vertical {
   .hero {
+    background: linear-gradient(180deg, #FFFFFF 0%, #EEE 51.04%, rgba(217, 217, 217, 0) 100%);
     .hero-title {
-      font-size: 42px;
-      line-height: 42px;
+      font-size: 32px;
+      line-height: 40px;
+      margin-bottom: 8px;
     }
 
     .hero-subtitle {
       font-size: 18px;
-      line-height: 18px;
+      line-height: 24px;
     }
   }
 }

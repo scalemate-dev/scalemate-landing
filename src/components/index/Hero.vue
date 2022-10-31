@@ -182,12 +182,12 @@ export default {
   .hero {
     .hero-title {
       font-size: 42px;
-      line-height: 42px;
+      line-height: 48px;
     }
 
     .hero-subtitle {
       font-size: 18px;
-      line-height: 18px;
+      line-height: 24px;
     }
   }
 }
