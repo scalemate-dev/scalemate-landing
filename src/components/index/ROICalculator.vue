@@ -319,6 +319,17 @@ export default {
     .results {
       margin-top: 48px;
     }
+
+    .title {
+      font-size: 32px;
+      line-height: 40px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      line-height: 24px;
+    }
   }
 }
 

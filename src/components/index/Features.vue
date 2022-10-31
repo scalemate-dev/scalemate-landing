@@ -204,7 +204,7 @@ export default {
   .feature-title {
     margin-bottom: 16px;
     font-style: normal;
-    font-weight: 800;
+    font-weight: 700;
     font-size: 48px;
     line-height: 60px;
     letter-spacing: -0.025em;
