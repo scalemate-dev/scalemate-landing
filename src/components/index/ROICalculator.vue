@@ -285,11 +285,14 @@ export default {
   }
 
   :deep(.slider-dot) {
-    background: #F74972 !important;
-    box-shadow: none !important;
     width: 24px !important;
     height: 24px !important;
     top: -9px !important;
+  }
+
+  :deep(.slider-dot-handle) {
+    background: #F74972 !important;
+    box-shadow: none !important;
   }
 
   :deep(.slider) {
