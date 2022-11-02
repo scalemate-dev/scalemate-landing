@@ -5,7 +5,7 @@
     <LighterPath />
     <Features :entries="features" />
     <Rules />
-    <Align />
+    <!-- <Align /> -->
     <WaitList />
     <Footer />
   </div>
@@ -17,7 +17,7 @@ import Hero from '@/components/Launch/Hero'
 import LighterPath from '@/components/Launch/LighterPath'
 import WaitList from '@/components/Launch/WaitList'
 import Features from '@/components/Launch/Features'
-import Align from '@/components/Launch/Align'
+// import Align from '@/components/Launch/Align'
 import Rules from '@/components/Launch/Rules'
 import Footer from '@/components/Footer'
 
@@ -28,7 +28,7 @@ export default {
     Hero,
     Rules,
     Features,
-    Align,
+    // Align,
     LighterPath,
     WaitList,
     Footer,
