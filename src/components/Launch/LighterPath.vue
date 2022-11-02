@@ -5,8 +5,8 @@
         Step on a <span>Lighter Path</span> to Find a Winner
       </h2>
       <div class="path-subtitle">
-        Shorten your creative rotation cycle and save more than 13 hours per 100 creatives. Release your team from the monkey
-        job and streamline the process of finding the winning ad.
+        Shorten your creative rotation cycle and save more than 13 hours per 100 creatives.
+        <br/>Release your team from the manual job and find the winning ad faster
       </div>
       <div class="path-image">
         <img src="@/assets/images/lighter-path.png" />

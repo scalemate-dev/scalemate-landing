@@ -38,3 +38,13 @@ $mobile-width: 480px;
     @content;
   }
 }
+
+// MISC
+@mixin backgroundBlur ($size, $reserveColor) {
+  backdrop-filter: blur(2px);
+
+  /* if no backdrop support: very transparent and blurred */
+  @supports not (backdrop-filter: blur(2px)) {
+    background-color: $reserveColor;
+  }
+}

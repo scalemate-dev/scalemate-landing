@@ -87,7 +87,7 @@ export default {
 <style lang="scss" scoped>
 .hero {
   min-height: 700px;
-  padding-top: 104px;
+  padding-top: 200px;
   padding-bottom: 172px;
 
   // background: #111827;
