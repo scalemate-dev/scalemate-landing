@@ -93,8 +93,8 @@ export default {
 .rules-title {
   font-style: normal;
   font-weight: 700;
-  font-size: 60px;
-  line-height: 60px;
+  font-size: 48px;
+  line-height: 56px;
   letter-spacing: -0.025em;
   color: #1D2939;
   margin-bottom: 32px;
