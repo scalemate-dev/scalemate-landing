@@ -1,16 +1,19 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import VueMeta from 'vue-meta'
+
 import App from './App'
 import Home from './pages/index'
 import Launch from './pages/Launch'
 
+Vue.use(VueMeta)
 Vue.use(VueRouter);
 Vue.config.productionTip = false
 
 
 const routes = [
   { path: '/', component: Home },
-  { path: '/launch', component: Launch },
+  { path: '/automate', component: Launch },
 ]
 
 const router = new VueRouter({

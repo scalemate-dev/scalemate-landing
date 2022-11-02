@@ -3,7 +3,7 @@ import Launch from './pages/Launch'
 
 export const routes = [
   { path: '/', component: Home },
-  { path: '/launch', component: Launch },
+  { path: '/automate', component: Launch },
 ]
 
 export default routes

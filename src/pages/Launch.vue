@@ -33,6 +33,47 @@ export default {
     WaitList,
     Footer,
   },
+  metaInfo: {
+    title: "Scalemate | I automate creative testing workflows across platforms.",
+    meta: [
+      {
+        name: "description",
+        content: "Launch Facebook, Tik-Tok, and Snapchat campaigns in 1 click. Speed up creative upload and set automated workflows."
+      },
+      {
+        name: "keywords",
+        content: "automated testing workflows, automated creative launch, cross-platform creative testing, automate creative rotation, automated campaign launch, automated creative upload"
+      },
+      {
+        property: "og:title",
+        content: "Scalemate automated creative launch page"
+      },
+      {
+        property: "og:description",
+        content: "Launch Facebook, Tik-Tok, and Snapchat campaigns in 1 click. Speed up creative upload and set automated workflows."
+      },
+      {
+        property: "og:image",
+        content: "/og-image-automate.png"
+      },
+      {
+        name: "twitter:card",
+        content: "summary_large_image"
+      },
+      {
+        name: "twitter:title",
+        content: "Scalemate automated creative launch page"
+      },
+      {
+        name: "twitter:description",
+        content: "Automate your creative testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
+      },
+      {
+        name: "twitter:image",
+        content: "/og-image-automate.png"
+      }
+    ]
+  },
   data() {
     return {
       features: [

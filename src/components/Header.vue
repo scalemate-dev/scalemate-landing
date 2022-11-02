@@ -12,8 +12,8 @@
           Company
         </div> -->
       </div>
-      <router-link class="header-link" to="/launch">
-        Launch
+      <router-link class="header-link" to="/automate">
+        Automate
       </router-link>
       <!-- <Button @click="handleRequest" color="accent">
         Request a demo

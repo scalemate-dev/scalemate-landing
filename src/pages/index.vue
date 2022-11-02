@@ -30,6 +30,47 @@ export default {
     WaitList,
     Footer,
   },
+  metaInfo: {
+    title: "Scalemate | Creative Testing Automation Assistant",
+    meta: [
+      {
+        name: "description",
+        content: "Automate your creative testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
+      },
+      {
+        name: "keywords",
+        content: "Creative testing automation, Optimize creative management, creative testing platform, facebook creative testing, facebook creative testing tool, tiktok creative testing tool, facebook ad testing tool"
+      },
+      {
+        property: "og:title",
+        content: "Scalemate creative testing automation main page"
+      },
+      {
+        property: "og:description",
+        content: "Automate your creative testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
+      },
+      {
+        property: "og:image",
+        content: "/og-image.png"
+      },
+      {
+        name: "twitter:card",
+        content: "summary_large_image"
+      },
+      {
+        name: "twitter:title",
+        content: "Scalemate creative testing automation main page"
+      },
+      {
+        name: "twitter:description",
+        content: "Automate your creative testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
+      },
+      {
+        name: "twitter:image",
+        content: "/og-image.png"
+      }
+    ]
+  }
 }
 </script>
 
