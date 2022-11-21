@@ -5,7 +5,7 @@
         <span>Align</span> user acquisition & design teams
       </h2>
       <div class="align-subtitle">
-        Close the feedback gap between designers and UA managers. Minimize hassle with numbers and instantly share one-word testing resolutions with your team.
+        Find out which creatives passed the testing round. In Scalemate unified ad library, you get simple creative statuses based on your KPIs - good, bad, okay, or winner.
       </div>
     </div>
     <Features :entries="align" />
