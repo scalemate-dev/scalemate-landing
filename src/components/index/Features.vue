@@ -61,6 +61,25 @@
     </div>
 
     <!-- <div class="feature">
+      <div class="container">
+        <div class="feature-info">
+          <inline-svg class="feature-triangle feature-triangle-three" :src="require('@/assets/icons/triangle-3.svg')" />
+          <div class="feature-title">
+            Cross-platform <span>testing launch</span>
+          </div>
+          <div class="feature-description">
+            Launch creative tests in one click, on different platforms, at once.
+            <br /><br />
+            Sleep at night while Scalemate pauses campaigns that are done.
+          </div>
+        </div>
+        <div class="feature-image">
+          <img src="@/assets/images/flow.png" />
+        </div>
+      </div>
+    </div> -->
+
+    <!-- <div class="feature">
         <div class="container">
           <div class="feature-info">
             <inline-svg class="feature-triangle feature-triangle-four" :src="require('@/assets/icons/triangle-4.svg')" />
@@ -122,8 +141,12 @@ export default {
     &:nth-child(2) .container .feature-image img {
       height: 206px;
     }
-    &:last-child .container .feature-image img {
+    &:nth-child(3) .container .feature-image img {
       height: 512px;
+    }
+
+    &:nth-child(4) .container .feature-image img {
+      height: 350px;
     }
   }
 
