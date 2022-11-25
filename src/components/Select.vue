@@ -5,7 +5,13 @@
         <path d="M0.5 1L7 7.5L13.5 1" stroke="black" />
       </svg>
     </div>
-    <select class="select-element" v-model="formValue" placeholder="Please select one">
+    <select
+      :class="{'select-element': true, 'placeholder': isPlaceholder, 'as-input': asInput}"
+      v-model="formValue"
+    >
+      <option v-if="placeholder" value="" disabled selected>
+        {{ placeholder }}
+      </option>
       <option v-for="(option, index) in options" :key="index">
         {{ option }}
       </option>
@@ -23,6 +29,14 @@ export default {
     value: {
       type: String,
       default: ''
+    },
+    placeholder: {
+      type: String,
+      default: 'Choose option'
+    },
+    asInput: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -34,6 +48,9 @@ export default {
         this.$emit('input', value)
       }
     },
+    isPlaceholder() {
+      return this.formValue === ''
+    }
   },
 }
 </script>
@@ -41,6 +58,8 @@ export default {
 <style lang="scss" scoped>
 .select {
   position: relative;
+  width: 100%;
+
   .select-icon {
     position: absolute;
     top: 50%;
@@ -68,6 +87,15 @@ export default {
     -moz-appearance: none;
     text-indent: 1px;
     text-overflow: '';
+
+    &.placeholder {
+      color: #6B7280;
+    }
+
+    &.as-input {
+      border: 1px solid rgba(166, 170, 180, 0.5);
+      background: #FFF;
+    }
   }
 }
 </style>

@@ -5,6 +5,7 @@ import VueMeta from 'vue-meta'
 import App from './App'
 import Home from './pages/index'
 import Launch from './pages/Launch'
+import BookDemo from './pages/BookDemo'
 
 Vue.use(VueMeta)
 Vue.use(VueRouter);
@@ -14,6 +15,7 @@ Vue.config.productionTip = false
 const routes = [
   { path: '/', component: Home },
   { path: '/automate', component: Launch },
+  { path: '/book-a-demo', component: BookDemo },
 ]
 
 const router = new VueRouter({
@@ -22,7 +24,6 @@ const router = new VueRouter({
   scrollBehavior () {
     return {x: 0, y: 0}
   }
-  
 })
 
 const root = new Vue({
