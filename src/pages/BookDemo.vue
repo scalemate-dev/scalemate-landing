@@ -273,21 +273,13 @@ a {
   }
 }
 
-@include desktop-s {
-  .hero-bg {
-    top: -20%;
-    max-width: 30%;
-  }
-}
-
-@include tablet-horizontal {
-  .hero-bg {
-    display: none;
-  }
-}
-
 @include tablet-vertical {
   .hero {
+    .container {
+      display: flex;
+      flex-flow: column nowrap;
+    }
+
     .hero-title {
       font-size: 42px;
       line-height: 48px;
