@@ -15,8 +15,8 @@
     "vue": "^2.6.11",
     "vue-inline-svg": "^2.1.0",
     "vue-meta": "^2.4.0",
-    "vue-range-component": "xwpongithub/vue-range-slider",
-    "vue-router": "^3.6.5"
+    "vue-router": "^3.6.5",
+    "vue-slider-component": "^3.2.23"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
