@@ -91,14 +91,14 @@ export default {
       //   property: "og:description",
       //   content: "Launch Facebook, Tik-Tok, and Snapchat campaigns in 1 click. Speed up creative upload and set automated workflows."
       // },
-      // {
-      //   property: "og:image",
-      //   content: "/og-image-automate.png"
-      // },
-      // {
-      //   name: "twitter:card",
-      //   content: "summary_large_image"
-      // },
+      {
+        property: "og:image",
+        content: "/og-image-book-a-demo.png"
+      },
+      {
+        name: "twitter:card",
+        content: "summary_large_image"
+      },
       // {
       //   name: "twitter:title",
       //   content: "Scalemate automated creative launch page"
@@ -107,10 +107,10 @@ export default {
       //   name: "twitter:description",
       //   content: "Automate your creative testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
       // },
-      // {
-      //   name: "twitter:image",
-      //   content: "/og-image-automate.png"
-      // }
+      {
+        name: "twitter:image",
+        content: "/og-image-book-a-demo.png"
+      }
     ]
   },
   data() {
