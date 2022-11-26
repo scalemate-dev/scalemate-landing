@@ -6,6 +6,7 @@
       </svg>
     </div>
     <select
+      :required="required"
       :class="{'select-element': true, 'placeholder': isPlaceholder, 'as-input': asInput}"
       v-model="formValue"
     >
@@ -22,6 +23,10 @@
 <script>
 export default {
   props: {
+    required: {
+      type: Boolean,
+      default: false
+    },
     options: {
       type: Array,
       default: () => [],

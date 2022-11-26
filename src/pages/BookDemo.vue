@@ -36,7 +36,7 @@
           <div class="hero-input-label">
             Monthly ad budget <span>*</span>
           </div>
-          <Select v-model="budget" :options="budgetOptions" asInput />
+          <Select :required="true" v-model="budget" :options="budgetOptions" asInput />
           <input type="hidden" name="budget" :value="budget" />
           <div class="hero-button-spacer" />
           <Button color="accent" :submit="true">
@@ -183,111 +183,112 @@ a {
   min-height: 100vh;
   display: flex;
   flex-flow: column nowrap;
-}
-.hero {
-  flex: 1;
-  padding-top: 100px;
-  padding-bottom: 100px;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
 
-  .container {
-    position: relative;
-    display: grid;
-    align-items: center;
-    grid-template-columns: 1fr 1fr;
-    gap: 72px;
-  }
-
-  .hero-title {
-    max-width: 700px;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 60px;
-    line-height: 60px;
-    letter-spacing: -0.025em;
-    color: #1D2939;
-    margin-bottom: 32px;
-  }
-
-  .hero-title span {
-    color: $color-accent-500;
-  }
-
-  .hero-subtitle {
-    max-width: 500px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 32px;
-    color: #475467;
-    margin-bottom: 48px;
-  }
-
-  .hero-form {
-    width: 100%;
-    max-width: 576px;
+  .hero {
+    flex: 1;
+    padding-top: 100px;
+    padding-bottom: 100px;
     display: flex;
     flex-flow: column nowrap;
-    gap: 16px;
-  }
+    justify-content: center;
 
-  .hero-input-label {
-    margin-top: 12px;
-    color: #2B2C39;
-    font-size: 14px;
-
-    &:first-of-type {
-      margin-top: 0;
-    }
-
-    span {
-      color: #F74972;
-    }
-  }
-
-  .hero-button-spacer {}
-
-  .hero-wework {
-    display: flex;
-    align-items: center;
-    font-size: 20px;
-    line-height: 30px;
-    margin-bottom: 8px;
-  }
-
-  .hero-logos {
-    display: flex;
-    margin-left: 12px;
-  }
-
-  .hero-logo-item {
-    height: 21px;
-    width: auto;
-    margin-right: 8px;
-  }
-
-  .hero-ask span {
-    color: #FD6F8E;
-  }
-}
-
-@include tablet-vertical {
-  .hero {
     .container {
-      display: flex;
-      flex-flow: column nowrap;
+      position: relative;
+      display: grid;
+      align-items: center;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
     }
 
     .hero-title {
-      font-size: 42px;
-      line-height: 48px;
+      max-width: 700px;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 60px;
+      line-height: 60px;
+      letter-spacing: -0.025em;
+      color: #1D2939;
+      margin-bottom: 32px;
+    }
+
+    .hero-title span {
+      color: $color-accent-500;
     }
 
     .hero-subtitle {
-      font-size: 18px;
-      line-height: 24px;
+      max-width: 500px;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 32px;
+      color: #475467;
+      margin-bottom: 48px;
+    }
+
+    .hero-form {
+      width: 100%;
+      max-width: 576px;
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 16px;
+    }
+
+    .hero-input-label {
+      margin-top: 12px;
+      color: #2B2C39;
+      font-size: 14px;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+
+      span {
+        color: #F74972;
+      }
+    }
+
+    .hero-button-spacer {}
+
+    .hero-wework {
+      display: flex;
+      align-items: center;
+      font-size: 20px;
+      line-height: 30px;
+      margin-bottom: 8px;
+    }
+
+    .hero-logos {
+      display: flex;
+      margin-left: 12px;
+    }
+
+    .hero-logo-item {
+      height: 21px;
+      width: auto;
+      margin-right: 8px;
+    }
+
+    .hero-ask span {
+      color: #FD6F8E;
+    }
+  }
+
+  @include tablet-vertical {
+    .hero {
+      .container {
+        display: flex;
+        flex-flow: column nowrap;
+      }
+
+      .hero-title {
+        font-size: 42px;
+        line-height: 48px;
+      }
+
+      .hero-subtitle {
+        font-size: 18px;
+        line-height: 24px;
+      }
     }
   }
 }
