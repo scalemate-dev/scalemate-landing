@@ -24,7 +24,7 @@
           </div>
         </div>
         <form class="hero-form" name="request-demo" @submit.prevent="(e) => handleRequest(e)">
-          <input type="hidden" name="type" value="request-a-demo" />
+          <input type="hidden" name="type" value="book-a-demo-page" />
           <div class="hero-input-label">
             Enter your name <span>*</span>
           </div>
