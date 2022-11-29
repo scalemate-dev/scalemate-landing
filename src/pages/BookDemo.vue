@@ -8,7 +8,7 @@
             Book a <span>demo</span>
           </h1>
           <div class="hero-subtitle">
-            Join the community of advertisers all over the world and learn how you can optimize your marketing with Scalemate.
+            Schedule a call and learn how to automate your creative testing flow with Scalemate and achive your KPIs faster
           </div>
           <div class="hero-integrations">
             <div class="hero-wework">
@@ -75,22 +75,22 @@ export default {
   metaInfo: {
     title: "Scalemate | Book a Demo",
     meta: [
-      // {
-      //   name: "description",
-      //   content: "Launch Facebook, Tik-Tok, and Snapchat campaigns in 1 click. Speed up creative upload and set automated workflows."
-      // },
+      {
+        name: "description",
+        content: "Schedule a call and learn how to automate your creative testing flow with Scalemate and achive your KPIs faster"
+      },
       // {
       //   name: "keywords",
       //   content: "automated testing workflows, automated creative launch, cross-platform creative testing, automate creative rotation, automated campaign launch, automated creative upload"
       // },
-      // {
-      //   property: "og:title",
-      //   content: "Scalemate automated creative launch page"
-      // },
-      // {
-      //   property: "og:description",
-      //   content: "Launch Facebook, Tik-Tok, and Snapchat campaigns in 1 click. Speed up creative upload and set automated workflows."
-      // },
+      {
+        property: "og:title",
+        content: "Scalemate book a demo page"
+      },
+      {
+        property: "og:description",
+        content: "Schedule a call and learn how to automate your creative testing flow with Scalemate and achive your KPIs faster"
+      },
       {
         property: "og:image",
         content: "/og-image-book-a-demo.png"
@@ -99,14 +99,14 @@ export default {
         name: "twitter:card",
         content: "summary_large_image"
       },
-      // {
-      //   name: "twitter:title",
-      //   content: "Scalemate automated creative launch page"
-      // },
-      // {
-      //   name: "twitter:description",
-      //   content: "Automate your creative testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
-      // },
+      {
+        name: "twitter:title",
+        content: "Scalemate book a demo page"
+      },
+      {
+        name: "twitter:description",
+        content: "Schedule a call and learn how to automate your creative testing flow with Scalemate and achive your KPIs faster"
+      },
       {
         name: "twitter:image",
         content: "/og-image-book-a-demo.png"

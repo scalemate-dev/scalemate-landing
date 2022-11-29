@@ -66,7 +66,7 @@ export default {
       },
       {
         name: "twitter:description",
-        content: "Automate your creative testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
+        content: "Launch Facebook, Tik-Tok, and Snapchat campaigns in 1 click. Speed up creative upload and set automated workflows."
       },
       {
         name: "twitter:image",
