@@ -22,20 +22,28 @@
             <div class="select-label">
               Number of creatives per month
             </div>
-            <vue-range-slider ref="slider" v-model="creatives" :min="1" :max="500"/>
+            <div class="select-range">
+              <vue-slider :tooltip="'always'" v-model="creatives" :marks="marksCreatives" :min="1" :max="500"/>
+            </div>
           </div>
           <div class="select-wrapper" v-if="isNotGamingHyperCasual">
             <div class="select-label">
               CPA
             </div>
-            <vue-range-slider ref="slider" v-model="CPA" :step="0.5" :min="1" :max="2500" v-if="isGamingCasual" />
-            <vue-range-slider ref="slider" v-model="CPA" :step="0.5" :min="1" :max="1000" v-else />
+            <div class="select-range"  v-if="isGamingCasual">
+              <vue-slider :tooltip="'always'" v-model="CPA" :marks="marksGamingCasualCPA" :min="1" :max="2500" />
+            </div>
+            <div class="select-range" v-else>
+              <vue-slider :tooltip="'always'" v-model="CPA" :marks="marksGamingCPA" :min="1" :max="1000" />
+            </div>
           </div>
           <div class="select-wrapper" v-else>
             <div class="select-label">
               CPI
             </div>
-            <vue-range-slider ref="slider" v-model="CPI" :step="0.5" :min="1" :max="100" />
+            <div class="select-range">
+              <vue-slider :tooltip="'always'" v-model="CPI" :marks="marksCPI" :min="1" :max="100" />
+            </div>
           </div>
         </div>
         <div class="results">
@@ -80,12 +88,13 @@
 <script>
 import Select from '@/components/Select'
 import ResultItem from '@/components/index/ROICalculator/ResultItem'
-import 'vue-range-component/dist/vue-range-slider.css'
-import VueRangeSlider from 'vue-range-component'
 import { sendForm } from '@/formspree.js'
 import SuccessPopup from '@/components/index/SuccessPopup'
 import Button from '@/components/Button'
 import Input from '@/components/Input'
+
+import VueSlider from 'vue-slider-component'
+import 'vue-slider-component/theme/default.css'
 
 const NO_AUTOMATION_TIME_YEARLY = 8
 const WITH_AUTOMATION_TIME_YEARLY = 3
@@ -98,13 +107,17 @@ export default {
   components: {
     Select,
     ResultItem,
-    VueRangeSlider,
+    VueSlider,
     SuccessPopup,
     Input,
     Button
   },
   data() {
     return {
+      marksCreatives: [1, 100, 200, 300, 400, 500],
+      marksGamingCasualCPA: [1, 500, 1000, 1500, 2000, 2500],
+      marksGamingCPA: [1, 200, 400, 600, 800, 1000],
+      marksCPI: [1, 20, 40, 60, 80, 100],
       email: '',
       showPopup: false,
       niche: 'Gaming Casual',
@@ -198,10 +211,6 @@ export default {
       }
     }
   },
-  created: function() {
-    VueRangeSlider.methods.handleKeyup = () => console.log;
-    VueRangeSlider.methods.handleKeydown = () => console.log;
-  }
 }
 </script>
 
@@ -252,7 +261,7 @@ export default {
     background: #F2F4F7;
     display: flex;
     flex-flow: column nowrap;
-    gap: 48px;
+    gap: 32px;
     flex: 0 0 40%;
     border-radius: 16px;
     border: 1px solid #E5E7EB;
@@ -263,9 +272,21 @@ export default {
   }
 
   .select-label {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     color: #2B2C39;
     font-size: 14px;
+  }
+
+  .select-range {
+    background: #FAFAFA;
+    height: 80px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    border-radius: 10px;
+    border: 1px solid #E5E7EB;
+    padding: 16px 24px;
+    width: 100%;
   }
 
   .results {
@@ -275,43 +296,53 @@ export default {
     gap: 48px;
   }
 
-  :deep(.vue-range-slider) {
-    padding: 0 !important;
-    margin-top: 40px;
+  :deep(.vue-slider-rail) {
+    height: 6px;
+    background: #e5e7eb;
   }
 
-  :deep(.slider-process) {
-    background: #f78a9e !important;
+  :deep(.vue-slider-process) {
+    /* background: #F63D68; */
+    background: #f78a9e;
+    opacity: 1;
   }
 
-  :deep(.slider-dot) {
-    width: 24px !important;
-    height: 24px !important;
-    top: -9px !important;
+  :deep(.vue-slider-mark-step) {
+    opacity: 0;
   }
 
-  :deep(.slider-dot-handle) {
-    background: #F74972 !important;
+  :deep(.vue-slider-dot-handle) {
+    background: #F74972;
+    box-shadow: 0.5px 0.5px 2px 1px rgba(151, 151, 151, 0.32);
+  }
+
+  :deep(.vue-slider-dot) {
+    height: 21px !important;
+    width: 21px !important;
+    /* outline: none !important; */
+  }
+
+  :deep(.vue-slider-dot-handle-focus) {
     box-shadow: none !important;
   }
 
-  :deep(.slider) {
-    background: #E5E7EB !important;
+  :deep(.vue-slider-dot-tooltip-inner) {
+    color: #6a6a6b;
+    background: none;
+    border: none;
+
+    &:after {
+      content: none;
+    }
   }
 
-  :deep(.slider-tooltip-wrap) {
+  :deep(.vue-slider-dot-tooltip-top) {
     top: -4px !important;
   }
 
-  :deep(.slider-tooltip) {
-    background: none !important;
-    border: none !important;
-    color: #7d7d7e !important;
-    padding: 0 !important;
-
-    &:before {
-      content: none !important;
-    }
+  :deep(.vue-slider-mark-label) {
+    color: #a2a2a2;
+    font-size: 12px;
   }
 
   @media (max-width: 768px) {
