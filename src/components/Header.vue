@@ -40,8 +40,8 @@ export default {
     soulutions () {
       return [
         {label: 'Automate', path: '/automate'},
+        {label: 'Creative library', path: '/unite', disabled: false},
         {label: 'Analytics', path: '/analytics', disabled: true},
-        {label: 'Creative library', path: '/creative-library', disabled: true}
       ]
     }
   },

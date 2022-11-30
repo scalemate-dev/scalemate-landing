@@ -4,7 +4,8 @@
     <Hero />
     <ROICalculator />
     <HowCanHelp />
-    <Features />
+    <!-- <Features /> -->
+    <FeaturesLegacy />
     <WaitList />
     <Footer />
   </div>
@@ -14,7 +15,8 @@
 import Header from '@/components/Header'
 import Hero from '@/components/index/Hero'
 import HowCanHelp from '@/components/index/HowCanHelp'
-import Features from '@/components/index/Features'
+// import Features from '@/components/index/Features'
+import FeaturesLegacy from '@/components/index/FeaturesLegacy'
 import ROICalculator from '@/components/index/ROICalculator'
 import WaitList from '@/components/index/WaitList'
 import Footer from '@/components/Footer'
@@ -25,7 +27,8 @@ export default {
     Header,
     Hero,
     HowCanHelp,
-    Features,
+    // Features,
+    FeaturesLegacy,
     ROICalculator,
     WaitList,
     Footer,

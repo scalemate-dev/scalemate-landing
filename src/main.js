@@ -5,6 +5,7 @@ import VueMeta from 'vue-meta'
 import App from './App'
 import Home from './pages/index'
 import Launch from './pages/Launch'
+import Unite from './pages/Unite'
 
 Vue.use(VueMeta)
 Vue.use(VueRouter);
@@ -14,6 +15,7 @@ Vue.config.productionTip = false
 const routes = [
   { path: '/', component: Home },
   { path: '/automate', component: Launch },
+  { path: '/unite', component: Unite },
 ]
 
 const router = new VueRouter({
@@ -22,7 +24,6 @@ const router = new VueRouter({
   scrollBehavior () {
     return {x: 0, y: 0}
   }
-  
 })
 
 const root = new Vue({

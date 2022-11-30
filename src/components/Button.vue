@@ -1,5 +1,9 @@
 <template>
+  <router-link :to="to" class="button link" :class="[color]" v-if="to">
+    <slot />
+  </router-link>
   <button
+    v-else
     class="button"
     :class="[color]"
     @click="handleClick"
@@ -11,7 +15,7 @@
 
 <script>
 export default {
-  props: ['color', 'submit'],
+  props: ['color', 'submit', 'to'],
   methods: {
     handleClick() {
       this.$emit('click', this.$event);
@@ -49,6 +53,12 @@ export default {
 
   &.accent {
     background: $color-accent-500;
+  }
+
+  &.round {
+    border-radius: 100px;
+    font-size: 20px;
+    padding: 20px 32px;
   }
 
 }

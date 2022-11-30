@@ -1,7 +1,7 @@
 <template>
   <div class="features">
     <div class="features-item" v-for="(item, index) in entries" :key="index">
-      <div class="container">
+      <div :class="['container', `container-${item.imageSize}`]">
         <div class="features-item__info">
           <inline-svg
             :class="['features-item__triangle', `features-item__triangle-${index}`]"
@@ -22,16 +22,59 @@
 import InlineSvg from 'vue-inline-svg'
 
 export default {
-  name: 'Features',
+  name: 'FeaturesLegacy',
   components: {
     InlineSvg
   },
-  props: {
-    entries: {
-      type: Array,
-      default: () => {}
+  data() {
+    return {
+      entries: [
+        {
+          triangle: 'triangle-1',
+          title: 'Unified <span>creative library</span>',
+          image: 'quick',
+          description: `
+            Keep all your creatives in one place and instantly reach the asset you need. Filter files by tags, sizes,
+            colors, and more.
+            <br /><br />
+            Access historical data about launched campaigns so you would never repeat them.
+          `,
+        },
+        {
+          triangle: 'triangle-1',
+          title: 'Instant <span>asset upload</span>',
+          image: 'connected-folders',
+          description: `
+            Forget about manual drag & drop routine — upload files in bulk via cloud sync.
+            <br /><br />
+            Transfer whole folders from Google Drive with zero effort on your side.
+          `,
+        },
+        {
+          triangle: 'triangle-1',
+          title: 'Cross-platform <span>testing launch</span>',
+          image: 'flow-with-background',
+          imageSize: 'big',
+          description: `
+            Launch creative tests in one click, on different platforms, at once.
+            <br /><br />
+            Sleep at night while Scalemate pauses campaigns that are done.
+          `,
+        },
+        {
+          triangle: 'triangle-1',
+          title: 'BI-powered <span>analytics</span>',
+          image: 'instant',
+          description: `
+            Ditch spreadsheets and measure testing performance automatically. Integrate your ad platform with app
+            attribution tools.
+            <br /><br />
+            Once your report is ready, slice & dice essential metrics to make wiser decisions.
+          `,
+        },
+      ]
     }
-  },
+  }
 }
 </script>
 
@@ -67,6 +110,21 @@ export default {
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 96px;
+
+    &-big {
+      gap: 96px;
+
+      .features-item__image {
+        img {
+          height: 500px;
+          width: initial;
+        }
+      }
+
+      .features-item__description {
+        max-width: initial;
+      }
+    }
   }
 
   .features-item__info {
@@ -123,7 +181,18 @@ export default {
     padding: 96px 0;
     gap: 260px;
     background: linear-gradient(180deg, #FFFFFF 0%, #EEE 51.04%, rgba(217, 217, 217, 0) 100%);
+    .container {
+      &-big {
+      gap: 96px;
 
+        .features-item__image {
+          img {
+            height: initial;
+            width: 100%;
+          }
+        }
+      }
+    }
     .features-item__info {
       width: 100%;
       padding: 0 24px;
