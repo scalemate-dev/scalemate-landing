@@ -6,6 +6,7 @@ import App from './App'
 import Home from './pages/index'
 import Launch from './pages/Launch'
 import BookDemo from './pages/BookDemo'
+import Unite from './pages/Unite'
 
 Vue.use(VueMeta)
 Vue.use(VueRouter);
@@ -16,6 +17,7 @@ const routes = [
   { path: '/', component: Home },
   { path: '/automate', component: Launch },
   { path: '/book-a-demo', component: BookDemo },
+  { path: '/unite', component: Unite },
 ]
 
 const router = new VueRouter({

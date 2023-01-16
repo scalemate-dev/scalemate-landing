@@ -25,7 +25,7 @@
 import InlineSvg from 'vue-inline-svg'
 
 export default {
-  name: 'Navigation Dropdown',
+  name: 'NavigationDropdown',
   props: ['label', 'items'],
   components: { InlineSvg },
 }
