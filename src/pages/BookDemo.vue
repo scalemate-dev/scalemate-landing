@@ -81,7 +81,7 @@ export default {
       },
       // {
       //   name: "keywords",
-      //   content: "automated testing workflows, automated creative launch, cross-platform creative testing, automate creative rotation, automated campaign launch, automated creative upload"
+      //   content: "automated testing workflows, automate creative rotation, automated campaign launch"
       // },
       {
         property: "og:title",
