@@ -61,17 +61,17 @@ export default {
             Sleep at night while Scalemate pauses campaigns that are done.
           `,
         },
-        {
-          triangle: 'triangle-1',
-          title: 'BI-powered <span>analytics</span>',
-          image: 'instant',
-          description: `
-            Ditch spreadsheets and measure testing performance automatically. Integrate your ad platform with app
-            attribution tools.
-            <br /><br />
-            Once your report is ready, slice & dice essential metrics to make wiser decisions.
-          `,
-        },
+        // {
+        //   triangle: 'triangle-1',
+        //   title: 'BI-powered <span>analytics</span>',
+        //   image: 'instant',
+        //   description: `
+        //     Ditch spreadsheets and measure testing performance automatically. Integrate your ad platform with app
+        //     attribution tools.
+        //     <br /><br />
+        //     Once your report is ready, slice & dice essential metrics to make wiser decisions.
+        //   `,
+        // },
       ]
     }
   }
