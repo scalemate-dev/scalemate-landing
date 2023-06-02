@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import VueMeta from 'vue-meta'
 
 import App from './App'
-import Home from './pages/index'
+import Index from './pages/index'
 import Launch from './pages/Launch'
 import Unite from './pages/Unite'
 
@@ -13,7 +13,7 @@ Vue.config.productionTip = false
 
 
 const routes = [
-  { path: '/', component: Home },
+  { path: '/', component: Index },
   { path: '/automate', component: Launch },
   { path: '/unite', component: Unite },
 ]

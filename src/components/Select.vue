@@ -59,7 +59,7 @@ export default {
     color: #000;
     background: #FAFAFA;
     border: 1px solid #E5E7EB;
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 16px 18px;
     outline: none;
     transition: border-color 0.2s ease;

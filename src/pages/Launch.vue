@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="launch">
     <Header />
     <Hero />
     <LighterPath />
