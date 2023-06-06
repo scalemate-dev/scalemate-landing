@@ -6,7 +6,7 @@
           Deal with creative testing routine <span>260% faster</span>
         </h2>
         <div class="wait-list-subtitle">1-month free trial | Dedicated onboarding | Custom integrations</div>
-        <Button color="accent">
+        <Button color="accent" to="/book-a-demo" class="wait-list-submit">
           Book a demo
         </Button>
       </div>
@@ -98,6 +98,10 @@ export default {
       line-height: 30px;
       margin-bottom: 32px;
     }
+  }
+
+  .wait-list-submit {
+    width: 100%;
   }
 }
 </style>

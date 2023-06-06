@@ -17,7 +17,7 @@ const routes = [
   { path: '/', component: Index },
   { path: '/automate', component: Launch },
   { path: '/unite', component: Unite },
-  { path: '/book-a-demo', component: BookADemo },
+  { path: '/book-a-demo', name: 'demo', component: BookADemo },
 ]
 
 const router = new VueRouter({

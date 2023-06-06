@@ -10,7 +10,7 @@
         </svg>
       </div>
       <select class="select-element" :class="[formValue.length > 0 ? 'hasValue' : '']" v-model="formValue">
-        {{ placeholder && <option value="" disabled selected>{{placeholder}}</option> }}
+        <option value="" disabled selected v-if="placeholder">{{placeholder}}</option>
         <option v-for="(option, index) in options" :key="index">
           {{ option }}
         </option>
@@ -23,8 +23,8 @@
 export default {
   props: {
     label: {
-      type: Boolean,
-      default: false
+      type: String,
+      default: 'Label'
     },
     required: {
       type: Boolean,

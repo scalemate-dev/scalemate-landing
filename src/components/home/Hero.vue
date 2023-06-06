@@ -9,7 +9,7 @@
       <div class="hero-description">
         Creative testing automation assistant for mobile-first agencies and busy app marketers. Born to erase performance marketing routine and save you 3 hours daily.
       </div>
-      <Button color="accent" class="hero-submit">
+      <Button color="accent" to="/book-a-demo" class="hero-submit">
         Request a demo
       </Button>
     </div>

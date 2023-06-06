@@ -7,7 +7,7 @@ export const routes = [
   { path: '/', component: Home },
   { path: '/automate', component: Launch },
   { path: '/unite', component: Unite },
-  { path: '/book-a-demo', component: BookADemo },
+  { path: '/book-a-demo', name: 'demo', component: BookADemo },
 ]
 
 export default routes

@@ -12,13 +12,19 @@
       </div>
       <form class="demo-container" name="demo-form" @submit="(e) => handleRequest(e)">
         <input type="hidden" name="type" value="demo-form" />
-        <input type="hidden" name="name" :value="name" />
-        <input type="hidden" name="email" :value="email" />
         <input type="hidden" name="jobPosition" :value="jobPosition" />
-        <input type="hidden" name="companyName" :value="companyName" />
         <input type="hidden" name="monthlyBudget" :value="monthlyBudget" />
-        <input type="hidden" name="message" :value="message" />
+        <template v-if="params">
+          <input type="hidden" name="cpi" :value="params.CPI" />
+          <input type="hidden" name="cpa" :value="params.CPA" />
+          <input type="hidden" name="creatives" :value="params.creatives" />
+          <input type="hidden" name="niche" :value="params.niche" />
+          <input type="hidden" name="no-automation" :value="params.noAutomation" />
+          <input type="hidden" name="with-automation" :value="params.withAutomation" />
+          <input type="hidden" name="saved-with-scalemate" :value="params.saved" />
+        </template>
         <Input
+          ref="name"
           :required="true"
           v-model="name"
           label="Name"
@@ -56,7 +62,6 @@
           :options="monthlyBudgetOptions"
         />
         <Input
-          :required="true"
           :textarea="true"
           v-model="message"
           label="Message"
@@ -92,6 +97,7 @@ export default {
   data() {
     return {
       showPopup: false,
+      dataParams: null,
       name: "",
       email: "",
       jobPosition: "",
@@ -130,6 +136,14 @@ export default {
         console.error('formspree error: ', error)
       }
     }
+  },
+  computed: {
+    params: function () {
+      return this.$route.params.data;
+    },
+  },
+  mounted() {
+    this.$refs.name.$el.focus();
   }
 };
 </script>

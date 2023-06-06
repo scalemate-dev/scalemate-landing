@@ -18,7 +18,7 @@ export default {
   props: ['textarea', "value", "placeholder", "leftPadding", "type", "disabled", "autocomplete", "label", "required", "name"],
   computed: {
     formValue: {
-      model() {
+      get() {
         return this.value;
       },
       set(value) {
