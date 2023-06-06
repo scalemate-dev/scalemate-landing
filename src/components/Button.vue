@@ -1,11 +1,11 @@
 <template>
-  <router-link :to="to" class="button link" :class="[color]" v-if="to">
+  <router-link :to="to" class="button link" :class="[color, wide ? 'wide' : '']" v-if="to">
     <slot />
   </router-link>
   <button
     v-else
     class="button"
-    :class="[color]"
+    :class="[color, wide ? 'wide' : '']"
     @click="handleClick"
     :type="submit ? 'submit' : 'button'"
   >
@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  props: ['color', 'submit', 'to'],
+  props: ['color', 'submit', 'to', 'wide'],
   methods: {
     handleClick() {
       this.$emit('click', this.$event);
@@ -47,6 +47,10 @@ export default {
   outline: none;
   border: none;
   text-align: center;
+
+  &.wide {
+    width: 100%;
+  }
 
   &.gray {
     background: $color-bg-grey;

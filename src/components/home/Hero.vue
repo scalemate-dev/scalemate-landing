@@ -9,7 +9,7 @@
       <div class="hero-description">
         Creative testing automation assistant for mobile-first agencies and busy app marketers. Born to erase performance marketing routine and save you 3 hours daily.
       </div>
-      <Button color="accent">
+      <Button color="accent" class="hero-submit">
         Request a demo
       </Button>
     </div>
@@ -104,6 +104,10 @@ export default {
   .hero {
     height: initial;
     min-height: 683px;
+  }
+
+  .hero-submit {
+    width: 100%;
   }
 
   .hero-title {
