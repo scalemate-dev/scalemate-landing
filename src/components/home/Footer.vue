@@ -5,7 +5,7 @@
         <div class="footer-logo">
           <inline-svg :src="require(`@/assets/icons/logo-poppins.svg`)" />
         </div>
-        <div class="footer-title">Run winning ads <br /> to triple-scale your app</div>
+        <div class="footer-title">Find winning ads <br /> to triple-scale your app</div>
         <div class="footer-buttons">
           <a class="footer-button" href="google.com">
             Facebook

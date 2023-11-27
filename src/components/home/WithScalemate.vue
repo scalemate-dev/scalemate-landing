@@ -74,12 +74,17 @@ export default {
           background: '#F0DCFF',
         },
         {
-          value: '+9%',
-          label: 'ROAS for<br />your campaigns',
+          value: '-32%',
+          label: 'cost per winner',
           background: '#FFBF99',
         },
+        // {
+        //   value: '+9%',
+        //   label: 'ROAS for<br />your campaigns',
+        //   background: '#FFBF99',
+        // },
         {
-          value: '+12%',
+          value: '+11%',
           label: 'increase in winner<br />rate',
           background: '#E0F8DE',
         },

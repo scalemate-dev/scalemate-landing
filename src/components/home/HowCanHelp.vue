@@ -57,12 +57,14 @@ export default {
             {
               icon: 'clock',
               label: 'Erase testing routine',
-              text: 'Spend <b>62%</b> less time on creative testing and automate asset upload. '
+              text: 'Spend <b>3x</b> less time on creative testing and automate asset upload. '
             },
             {
               icon: 'ship',
-              label: 'Test on all platforms at once',
-              text: 'Use a <b>single “launch” button</b> for your Facebook, Tiktok & custom campaigns.'
+              // label: 'Test on all platforms at once',
+              label: 'Lower cost per winner',
+              // text: 'Use a <b>single “launch” button</b> for your Facebook, Tiktok & custom campaigns.'
+              text: 'Discover your most cost-effective path to find <b>creative winners.</b>'
             },
             {
               icon: 'squares',
@@ -72,34 +74,42 @@ export default {
             {
               icon: 'puzzle',
               label: 'Communicate success',
-              text: 'Auto-generate <b>BI-powered reports,</b> then show results to your lead & team. '
+              text: 'Auto-generate <b>ad reports,</b> and show results to your lead & team. '
             },
           ]
         },
         {
           id: 1,
           position: 'Marketing Executive',
-          description: 'Maximize ROI and unblock your productivity chakra.',
+          description: 'Maximize ROAS and unblock your productivity chakra.',
           options: [
             {
+              icon: 'circles',
+              label: 'Maximize ROAS',
+              text: 'Raise your <b>creative winners</b> and cut testing costs in the quest to find them.'
+            },
+            {
               icon: 'database',
-              label: 'Maximize ROI',
-              text: 'Own a <b>unified creative library</b> and harmonize your ad testing process.'
+              label: 'Unite core teams',
+              // label: 'Maximize ROI',
+              // text: 'Own a <b>unified creative library</b> and harmonize your ad testing process.'
+              text: 'Enhance <b>collaboration</b> between creative and user acquisition teams.'
             },
             {
               icon: 'bar-chart',
               label: 'Prevent budget leakage',
               text: 'Never launch potentially non-performing creatives and save <b>15%.</b>'
             },
-            {
-              icon: 'circles',
-              label: 'Excel at strategic results',
-              text: 'Combine <b>MMP + ad network data</b>, measure ROI & grow your app with confidence.'
-            },
+            // {
+            //   icon: 'circles',
+            //   label: 'Excel at strategic results',
+            //   text: 'Combine <b>MMP + ad network data</b>, measure ROI & grow your app with confidence.'
+            // },
             {
               icon: 'arrows',
-              label: 'Be on the same page',
-              text: 'Reduce your team workload by <b>62%</b> and keep them focused on high-value tasks.'
+              // label: 'Be on the same page',
+              label: 'Optimize team performance',
+              text: 'Reduce your team routine workload by <b>3 times</b> and keep them focused on high-value tasks.'
             },
           ]
         },
