@@ -63,6 +63,7 @@
             </div>
           </div>
         </div>
+
         <div class="results">
           <ResultItem
             title="No automation"
@@ -116,6 +117,10 @@
             </form> -->
           </div>
         </div>
+      </div>
+
+      <div class="row">
+        <span class="disclamer">* Estimated savings using Scalemate, actual numbers may vary.</span>
       </div>
     </div>
     <!-- <SuccessPopup @togglePopup="togglePopup" v-if="showPopup" /> -->
@@ -262,6 +267,16 @@ export default {
 <style lang="scss" scoped>
 .roi-calculator {
   padding: 140px 0 196px;
+
+  .disclamer {
+    display: block;
+    color: #bcc2d2;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    margin: 24px 0;
+    text-align: left;
+  }
 
   .title {
     max-width: 768px;
