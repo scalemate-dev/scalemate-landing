@@ -42,6 +42,21 @@ export default {
   position: relative;
 }
 
+.hero-submit {
+  animation: float 2s ease-in-out infinite;
+  transition: all 1s ease-in-out;
+
+  &:hover {
+    // -webkit-animation: 0;
+    box-shadow: 0 5px 8px 0px rgba(0,0,0, 0.2) !important;
+		transform: translatey(0px) !important;
+  }
+
+  &:active {
+    background: grey;
+  }
+}
+
 .linear-background-1 {
   position: absolute;
   left: 0;
@@ -130,5 +145,20 @@ export default {
   .linear-background-2 {
     transform: translate(65%, 25%);
   }
+}
+
+@keyframes float {
+	0% {
+		box-shadow: 0 5px 8px 0px rgba(0,0,0, 0.3);
+		transform: translatey(0px);
+	}
+	50% {
+		box-shadow: 0 10px 8px 0px rgba(0,0,0,0.1);
+		transform: translatey(-2px);
+	}
+	100% {
+		box-shadow: 0 5px 8px 0px rgba(0,0,0,0.3);
+		transform: translatey(0px);
+	}
 }
 </style>
