@@ -1,5 +1,5 @@
 <template>
-  <div class="home" :style="{ paddingBottom: height + 'px' }">
+  <div class="home" >
     <Header />
     <div class="main">
       <Hero />
@@ -50,7 +50,7 @@ export default {
       },
       {
         property: "og:title",
-        content: "Scalemate creative testing automation main page"
+        content: "Find winning ads to triple-scale your app"
       },
       {
         property: "og:description",
@@ -105,9 +105,11 @@ export default {
 }
 
 .fixed {
-  position: fixed;
+  position: sticky;
   bottom: 0;
   z-index: 0;
+  -webkit-transform: translate3d(0,0,0);
+  // opacity: 0.99;
   width: 100%;
 }
 
@@ -115,7 +117,8 @@ export default {
   position: relative;
   width: 100%;
   z-index: 1;
-  background: #FFF;
+  
+  background: #f8f8f8;
 }
 
 a {
@@ -140,6 +143,12 @@ a:hover {}
 @media (max-width: 768px) {
   .container {
     padding: 0 24px;
+  }
+
+  .fixed {
+    z-index: initial;
+    position: static;
+    bottom: initial;
   }
 }
 </style>
