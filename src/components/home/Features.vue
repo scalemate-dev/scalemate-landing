@@ -43,32 +43,38 @@ export default {
           `,
         },
         {
-          image: 'instant',
+          image: 'cloud-sync',
+          // image: 'instant',
           badge: {
             label: 'Cloud Sync',
             background: '#ECFDF3',
             color: '#027A48',
           },
-          title: 'Instant asset upload',
+          title: 'One touch assets upload',
           description: `
             Forget about manual drag & drop routine — upload files in bulk via cloud sync.
             <br /><br />
-            Transfer whole folders from Google Drive with zero effort on your side.
+            Transfer videos & images from cloud storage to advertisement platform with zero effort on your side.
           `,
         },
         {
-          image: 'testing-launch',
+          image: 'smart-flow',
+          // image: 'testing-launch',
           badge: {
-            label: 'Testing Launch',
+            label: 'Smart Flows',
             background: '#F4F3FF',
             color: '#5925DC',
           },
-          title: 'Cross-platform testing launch',
+          // title: 'Cross-platform testing launch',
+          title: 'Efortless launch to Win',
           description: `
-            Launch creative tests simultaneously on various platforms with just one click.
+            Test multiple ads with ease using dynamic flows.
             <br /><br />
-            Have the peace of mind knowing that Scalemate will pause completed campaigns while you sleep.
+            Launch with a click and Scalemate pick the top performers using your success criteria.
           `,
+            // Launch creative tests simultaneously on various platforms with just one click.
+            // <br /><br />
+            // Have the peace of mind knowing that Scalemate will pause completed campaigns while you sleep.
         },
       ]
     }
