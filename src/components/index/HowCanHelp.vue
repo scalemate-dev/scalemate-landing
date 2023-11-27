@@ -55,7 +55,7 @@ export default {
             {label: 'Erase testing routine', text: 'Spend <b>62%</b> less time on creative testing and automate asset upload. '},
             {label: 'Test on all platforms at once', text: 'Use a <b>single “launch” button</b> for your Facebook, Tiktok & custom campaigns.'},
             {label: 'Get insights in one dashboard', text: 'Define <b>clear performance trends</b> across platforms and run winning creatives. '},
-            {label: 'Communicate success', text: 'Auto-generate <b>BI-powered reports,</b> then show results to your lead & team. '}
+            {label: 'Communicate success', text: 'Auto-generate BI-powered reports, then show results to your lead & team. '}
           ]
         },
         {

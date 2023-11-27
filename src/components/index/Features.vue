@@ -40,7 +40,7 @@
       </div>
     </div>
 
-    <div class="feature">
+    <!-- <div class="feature">
       <div class="container">
         <div class="feature-info">
           <inline-svg class="feature-triangle feature-triangle-three" :src="require('@/assets/icons/triangle-3.svg')" />
@@ -58,7 +58,7 @@
           <img src="@/assets/images/report.png" />
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- <div class="feature">
       <div class="container">
