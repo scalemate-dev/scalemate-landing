@@ -1,9 +1,9 @@
 <template>
-  <div class="book-a-demo" :style="{ paddingBottom: height + 'px' }">
+  <div class="book-a-demo">
     <Header />
     <div class="main">
       <DemoForm />
-      <WaitList />
+      <WaitList :noButton="true"/>
     </div>
     <div class="fixed">
       <Footer ref="myElement" />
@@ -93,9 +93,10 @@ export default {
 }
 
 .fixed {
-  position: fixed;
+  position: sticky;
   bottom: 0;
   z-index: 0;
+  -webkit-transform: translate3d(0,0,0);
   width: 100%;
 }
 
@@ -128,6 +129,11 @@ a:hover {}
 @media (max-width: 768px) {
   .container {
     padding: 0 24px;
+  }
+  .fixed {
+    z-index: initial;
+    position: static;
+    bottom: initial;
   }
 }
 </style>

@@ -6,7 +6,7 @@
           Deal with creative testing <span>260% faster</span>
         </h2>
         <div class="wait-list-subtitle">1-month free trial | Dedicated onboarding | Custom integrations</div>
-        <Button color="accent" to="/book-a-demo" class="wait-list-submit">
+        <Button color="accent" to="/book-a-demo" class="wait-list-submit" v-if="!noButton">
           Book a demo
         </Button>
       </div>
@@ -19,6 +19,7 @@ import Button from '@/components/Button'
 
 export default {
   name: 'BottomCTA',
+  props: ['noButton'],
   components: {
     Button,
   },

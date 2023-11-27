@@ -109,7 +109,6 @@ export default {
   bottom: 0;
   z-index: 0;
   -webkit-transform: translate3d(0,0,0);
-  // opacity: 0.99;
   width: 100%;
 }
 

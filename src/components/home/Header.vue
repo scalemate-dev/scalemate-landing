@@ -5,10 +5,10 @@
         <router-link to="/" class="header-logo">
           <inline-svg class="logo" alt="Scalemate logo" :src="require('@/assets/icons/logo-poppins.svg')" />
         </router-link>
-        <NavDropdown :items="soulutions" label="Product"/>
+        <!-- <NavDropdown :items="soulutions" label="Product"/> -->
       </div>
-      <Button color="no-background">Log in</Button>
-      <Button color="outline">Get Started</Button>
+      <!-- <Button color="no-background">Log in</Button> -->
+      <Button color="outline" to="/book-a-demo">Get Started</Button>
     </div>
   </header>
 </template>
@@ -16,13 +16,13 @@
 <script>
 import Button from '@/components/Button'
 import InlineSvg from 'vue-inline-svg'
-import NavDropdown from '@/components/NavDropdown'
+// import NavDropdown from '@/components/NavDropdown'
 
 export default {
   name: 'Header',
   components: {
     Button,
-    NavDropdown,
+    // NavDropdown,
     InlineSvg,
   },
 

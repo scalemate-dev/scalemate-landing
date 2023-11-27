@@ -9,9 +9,11 @@
       <div class="hero-description">
         Creative testing automation assistant for mobile-first agencies and busy app marketers. Born to erase performance marketing routine and save you 3 hours daily.
       </div>
-      <Button color="accent" to="/book-a-demo" class="hero-submit">
-        Request a demo
-      </Button>
+      <a href="https://cal.com/scalemate/30min" target="_blank">
+        <Button color="accent" class="hero-submit">
+          Schedule a call <span :style="{marginLeft: '4px'}">🗓️</span>
+        </Button>
+      </a>
     </div>
   </div>
 </template>
@@ -68,10 +70,10 @@ export default {
   margin-bottom: 24px;
 
   span {
-    background: url('~@/assets/images/home/hero-text.png');
+    background: url('~@/assets/images/home/hero-text.jpg');
     background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: 0% 60%;
+    background-size: 137%;
+    background-position: 40% 56%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -84,7 +86,7 @@ export default {
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  z-index: 1;
+  z-index: 2;
   padding: 0 24px;
 }
 

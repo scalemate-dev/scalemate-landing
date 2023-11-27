@@ -9,7 +9,12 @@
           <path d="M0.5 1L7 7.5L13.5 1" stroke="black" />
         </svg>
       </div>
-      <select class="select-element" :class="[formValue.length > 0 ? 'hasValue' : '']" v-model="formValue">
+      <select
+        tabindex="0"
+        class="select-element"
+        :class="[formValue.length > 0 ? 'hasValue' : '']"
+        v-model="formValue"
+      >
         <option value="" disabled selected v-if="placeholder">{{placeholder}}</option>
         <option v-for="(option, index) in options" :key="index">
           {{ option }}
@@ -42,6 +47,7 @@ export default {
       default: 'Select'
     }
   },
+
   computed: {
     formValue: {
       get() {

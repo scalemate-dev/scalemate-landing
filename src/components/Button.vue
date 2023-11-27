@@ -6,18 +6,28 @@
     v-else
     class="button"
     :class="[color, wide ? 'wide' : '']"
+    :disabled="disabled"
     @click="handleClick"
     :type="submit ? 'submit' : 'button'"
   >
+
+    <Spinner v-if="loading"/>
     <slot />
   </button>
 </template>
 
 <script>
+import Spinner from './Spinner'
+// import Success from './Success'
 export default {
-  props: ['color', 'submit', 'to', 'wide'],
+  components: {
+    Spinner,
+  },
+  props: ['color', 'submit', 'to', 'wide', 'loading', 'disabled'],
   methods: {
     handleClick() {
+      if (this.props.disabled) return
+
       this.$emit('click', this.$event);
     }
   }
@@ -48,6 +58,9 @@ export default {
   border: none;
   text-align: center;
 
+  transition: background .3s ease-in-out;
+
+
   &.wide {
     width: 100%;
   }
@@ -57,7 +70,11 @@ export default {
   }
 
   &.accent {
-    background: #121718;
+    background: #1a1a1a;
+
+    &:hover {
+      background: #2a2a2a;
+    }
   }
 
   &.round {
@@ -66,10 +83,17 @@ export default {
     padding: 20px 32px;
   }
 
+  &[disabled="disabled"] {
+    // opacity: 0.5;
+    color: #1A1A1A;
+    background: rgb(236, 253, 243);
+    pointer-events: none;
+  }
+
   &.outline {
     padding: 10px 18px;
     background: transparent;
-    border: 1px solid #121718;
+    border: 1px solid #1a1a1a;
     border-radius: 8px;
     font-family: 'Inter';
     font-style: normal;

@@ -68,9 +68,14 @@ export default {
             },
             {
               icon: 'squares',
-              label: 'Get insights in one dashboard',
-              text: 'Define <b>clear performance trends</b> across platforms and run winning creatives. '
+              label: 'Store creative data',
+              text: 'Organize all creatives and results in unified <b>creative library.</b>'
             },
+            // {
+            //   icon: 'squares',
+            //   label: 'Get insights in one dashboard',
+            //   text: 'Define <b>clear performance trends</b> across platforms and run winning creatives. '
+            // },
             {
               icon: 'puzzle',
               label: 'Communicate success',
@@ -217,6 +222,7 @@ export default {
     flex: 0 0 40%;
 
     img {
+      border-radius: 24px;
       width: 100%;
     }
   }

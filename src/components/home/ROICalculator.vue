@@ -66,15 +66,15 @@
         <div class="results">
           <ResultItem
             title="No automation"
-            :text="`${noAutomation.time} hours, $${noAutomation.money} yearly`"
+            :text="`${noAutomation.time} hr/mo, $${noAutomation.money} yearly`"
           />
           <ResultItem
             title="With automation"
-            :text="`${withAutomation.time} hours, $${withAutomation.money} yearly`"
+            :text="`${withAutomation.time} hr/mo, $${withAutomation.money} yearly`"
           />
           <ResultItem
             title="Saved with Scalemate<span>*</span>"
-            :text="`${saved.time} hours, $${saved.money} yearly`"
+            :text="`${saved.time} hr/mo, $${saved.money} yearly`"
           />
           <div class="result">
             <div class="result-title">
@@ -89,9 +89,9 @@
                   CPA,
                   creatives,
                   niche,
-                  noAutomation: `${noAutomation.time} hours, $${noAutomation.money} yearly`,
-                  withAutomation: `${withAutomation.time} hours, $${withAutomation.money} yearly`,
-                  withAutomation: `${withAutomation.time} hours, $${withAutomation.money} yearly`,
+                  noAutomation: `${noAutomation.time} hours/mo, $${noAutomation.money} yearly`,
+                  withAutomation: `${withAutomation.time} hours/mo, $${withAutomation.money} yearly`,
+                  withAutomation: `${withAutomation.time} hours/mo, $${withAutomation.money} yearly`,
                   saved: `${saved.time} hours, $${saved.money} yearly`
                 }
               } }"
@@ -125,7 +125,7 @@
 <script>
 import Select from "@/components/Select";
 import ResultItem from "@/components/home/ROICalculator/ResultItem";
-import { sendForm } from "@/formspree.js";
+import { sendForm } from "@/forms.js";
 // import SuccessPopup from '@/components/index/SuccessPopup'
 import Button from "@/components/Button";
 // import Input from '@/components/Input'
@@ -432,7 +432,7 @@ export default {
 .result-title {
   font-family: "Inter";
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 18px;
   line-height: 52px;
   letter-spacing: -0.02em;

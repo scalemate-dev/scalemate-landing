@@ -46,17 +46,17 @@
           placeholder="Select your position"
           :options="jobPositionOptions"
         />
+        <!-- :required="true" -->
         <Input
-          :required="true"
           v-model="companyName"
           label="Company Name"
           name="company-name"
           type="text"
           placeholder="Scalemate"
         />
+        <!-- :required="true" -->
         <Select
           label="Monthly ad budget"
-          :required="true"
           v-model="monthlyBudget"
           placeholder="Select your ad monthly budget"
           :options="monthlyBudgetOptions"
@@ -69,17 +69,19 @@
           type="text"
           placeholder="Your message here.."
         />
-        <Button color="accent" :wide="true" :submit="true"> Book a demo </Button>
+        <Button color='accent' :outline="formSent" :wide="true" :submit="true" :loading="loading" :disabled="formSent"> 
+          {{ formSent ? 'All Set! We\'ll Reach Out Soon 👍'  : 'Book a demo'}}
+        </Button>
       </form>
     </div>
-    <SuccessPopup @togglePopup="togglePopup" v-if="showPopup" />
+    <!-- <SuccessPopup @togglePopup="togglePopup" v-if="showPopup" /> -->
   </div>
 </template>
 
 <script>
 import InlineSvg from 'vue-inline-svg'
-import { sendForm } from '@/formspree.js'
-import SuccessPopup from '@/components/index/SuccessPopup'
+import { sendForm } from '@/forms.js'
+// import SuccessPopup from '@/components/index/SuccessPopup'
 import Input from "@/components/Input";
 import Select from "@/components/Select";
 import Button from "@/components/Button";
@@ -89,13 +91,15 @@ export default {
   name: "App",
   components: {
     InlineSvg,
-    SuccessPopup,
+    // SuccessPopup,
     Input,
     Select,
     Button,
   },
   data() {
     return {
+      loading: false,
+      formSent: false,
       showPopup: false,
       dataParams: null,
       name: "",
@@ -127,20 +131,37 @@ export default {
     },
     async handleRequest(event) {
       event.preventDefault();
-      console.log(event)
+      console.log(this.formValues)
       try {
-        await sendForm(event)
-        this.email = ''
-        this.showPopup = true
+        this.loading = true
+        await sendForm(this.formValues)
+
+        this.formSent = true
+        this.loading = false
+
       } catch (error) {
+        this.loading = false
         console.error('formspree error: ', error)
       }
     }
   },
   computed: {
     params: function () {
+      console.log('this.$route.params.data', this.$route.params.data)
       return this.$route.params.data;
     },
+
+    formValues () {
+      return {
+        dataParams: this.params,
+        name: this.name,
+        email: this.email,
+        jobPosition: this.jobPosition,
+        companyName: this.companyName,
+        monthlyBudget: this.monthlyBudget,
+        message: this.message
+      }
+    }
   },
   mounted() {
     this.$refs.name.$el.focus();
