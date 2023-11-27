@@ -6,7 +6,7 @@
         <a target="_blank" href="/privacy-policy.pdf">Privacy Policy</a>
       </div>
       <div class="col">
-        © 2022 Scalemate, LLC. All rights reserved.
+        © 2023 Scalemate
       </div>
     </div>
   </div>

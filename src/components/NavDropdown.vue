@@ -46,7 +46,7 @@ export default {
     background-color: #fff;
     position: absolute;
     top: 24px;
-    right: 12px;
+    right: 0px;
     box-shadow: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
     width: 224px;
     // transition: ease-in-out all .4s;

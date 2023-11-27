@@ -41,10 +41,10 @@ $mobile-width: 480px;
 
 // MISC
 @mixin backgroundBlur ($size, $reserveColor) {
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur($size);
 
   /* if no backdrop support: very transparent and blurred */
-  @supports not (backdrop-filter: blur(2px)) {
+  @supports not (backdrop-filter: blur($size)) {
     background-color: $reserveColor;
   }
 }

@@ -2,7 +2,7 @@
   <div class="hero">
     <div class="container">
       <h1 class="hero-title">
-        Run winning ads <br /> to <span>triple-scale</span> your app
+        Find winning ads <br /> to <span>triple-scale</span> your app
       </h1>
       <div class="hero-subtitle">
         Creative testing automation assistant for mobile-first agencies and busy app marketers. Born to erase
@@ -39,7 +39,7 @@
 
 <script>
 import InlineSvg from 'vue-inline-svg'
-import { sendForm } from '@/formspree.js'
+import { sendForm } from '@/forms.js'
 
 import Button from '@/components/Button'
 import Input from '@/components/Input'

@@ -3,9 +3,10 @@ import VueRouter from 'vue-router'
 import VueMeta from 'vue-meta'
 
 import App from './App'
-import Home from './pages/index'
+import Index from './pages/index'
 import Launch from './pages/Launch'
 import Unite from './pages/Unite'
+import BookADemo from './pages/BookADemo'
 
 Vue.use(VueMeta)
 Vue.use(VueRouter);
@@ -13,9 +14,10 @@ Vue.config.productionTip = false
 
 
 const routes = [
-  { path: '/', component: Home },
+  { path: '/', component: Index },
   { path: '/automate', component: Launch },
   { path: '/unite', component: Unite },
+  { path: '/book-a-demo', name: 'demo', component: BookADemo },
 ]
 
 const router = new VueRouter({

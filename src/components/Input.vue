@@ -1,9 +1,12 @@
 <template>
   <div class="input">
     <div v-if="label" class="input-label">
-      {{ label }}
+      <span>{{ label }}</span>{{ required ? '*' : ''}}
     </div>
-    <input class="input-field" :class="{ 'left-padding': leftPadding, disabled: disabled }" :type="type ? type : 'text'"
+    <textarea v-if="textarea" class="input-field textarea" :class="{ 'left-padding': leftPadding, disabled: disabled }" :type="type ? type : 'text'"
+      :name="name" v-model="formValue" :placeholder="placeholder" :disabled="disabled" :required="required"
+      :autocomplete="autocomplete" />
+    <input v-else class="input-field" :class="{ 'left-padding': leftPadding, disabled: disabled }" :type="type ? type : 'text'"
       :name="name" v-model="formValue" :placeholder="placeholder" :disabled="disabled" :required="required"
       :autocomplete="autocomplete" />
   </div>
@@ -12,14 +15,14 @@
 <script>
 export default {
   name: "Input",
-  props: ["modelValue", "placeholder", "leftPadding", "type", "disabled", "autocomplete", "label", "required", "name"],
+  props: ['textarea', "value", "placeholder", "leftPadding", "type", "disabled", "autocomplete", "label", "required", "name"],
   computed: {
     formValue: {
       get() {
-        return this.modelValue;
+        return this.value;
       },
       set(value) {
-        this.$emit("update:modelValue", value);
+        this.$emit("input", value);
       },
     },
   },
@@ -39,22 +42,32 @@ export default {
     font-size: 16px;
     line-height: 24px;
     color: #000;
-    border: 1px solid rgba(166, 170, 180, 0.5);
-    border-radius: 10px;
-    padding: 16px 18px;
+    background: #FFFFFF;
+    border: 1px solid #D0D5DD;
+    box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+    border-radius: 6px;
+    padding: 12px 14px;
     outline: none;
     transition: border-color 0.2s ease;
     will-change: border-color;
-  }
 
-  &::placeholder {
-    color: #6B7280;
+    &::placeholder {
+      color: #98A2B3;
+    }
   }
 
   .input-label {
-    margin-bottom: 12px;
-    color: #878d93;
+    margin-bottom: 4px;
+    color: #D92D20;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
     font-size: 14px;
+    line-height: 20px;
+
+    span {
+      color: #1D2939;
+    }
   }
 
   .left-padding {
@@ -63,6 +76,11 @@ export default {
 
   .disabled {
     pointer-events: none;
+  }
+
+  .textarea {
+    min-height: 130px;
+    resize: vertical;
   }
 
   &::-webkit-outer-spin-button,

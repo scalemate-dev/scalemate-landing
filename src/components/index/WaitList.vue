@@ -3,7 +3,7 @@
     <div class="container">
       <inline-svg class="wait-list-angles" :src="require('@/assets/icons/bottom-angles.svg')" />
       <h2 class="wait-list-title">
-        Deal with creative testing routine <span>260% faster</span>
+        Deal with creative testing <span>260% faster</span>
       </h2>
       <div class="wait-list-subtitle">1-month free trial | Dedicated onboarding | Custom integrations</div>
       <form class="wait-list-form" name="join-wait-list" @submit="(e) => handleRequest(e)">
@@ -21,7 +21,7 @@
 <script>
 import InlineSvg from 'vue-inline-svg'
 
-import { sendForm } from '@/formspree.js'
+import { sendForm } from '@/forms.js'
 
 import Button from '@/components/Button'
 import Input from '@/components/Input'

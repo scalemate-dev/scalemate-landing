@@ -1,25 +1,29 @@
 <template>
-  <div class="home">
+  <div class="home" >
     <Header />
-    <Hero />
-    <ROICalculator />
-    <HowCanHelp />
-    <!-- <Features /> -->
-    <FeaturesLegacy />
-    <WaitList />
-    <Footer />
+    <div class="main">
+      <Hero />
+      <WithScalemate />
+      <ROICalculator />
+      <HowCanHelp />
+      <Features />
+      <WaitList />
+    </div>
+    <div class="fixed">
+      <Footer ref="myElement" />
+    </div>
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header'
-import Hero from '@/components/index/Hero'
-import HowCanHelp from '@/components/index/HowCanHelp'
-// import Features from '@/components/index/Features'
-import FeaturesLegacy from '@/components/index/FeaturesLegacy'
-import ROICalculator from '@/components/index/ROICalculator'
-import WaitList from '@/components/index/WaitList'
-import Footer from '@/components/Footer'
+import Header from '@/components/home/Header'
+import Hero from '@/components/home/Hero'
+import HowCanHelp from '@/components/home/HowCanHelp'
+import Features from '@/components/home/Features'
+import WithScalemate from '@/components/home/WithScalemate'
+import ROICalculator from '@/components/home/ROICalculator'
+import WaitList from '@/components/home/WaitList'
+import Footer from '@/components/home/Footer'
 
 export default {
   name: 'App',
@@ -27,8 +31,8 @@ export default {
     Header,
     Hero,
     HowCanHelp,
-    // Features,
-    FeaturesLegacy,
+    Features,
+    WithScalemate,
     ROICalculator,
     WaitList,
     Footer,
@@ -46,7 +50,7 @@ export default {
       },
       {
         property: "og:title",
-        content: "Scalemate creative testing automation main page"
+        content: "Find winning ads to triple-scale your app"
       },
       {
         property: "og:description",
@@ -73,12 +77,48 @@ export default {
         content: "/og-image.png"
       }
     ]
+  },
+  data() {
+    return {
+      height: '',
+    }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      const element = this.$refs.myElement
+      const height = element.$el.offsetHeight
+      this.height = height
+    })
   }
 }
 </script>
 
 <style lang="scss">
 @import '@/assets/fonts.scss';
+
+.main {
+  overflow: hidden;
+}
+
+.home {
+  background: #1A1A1A;
+}
+
+.fixed {
+  position: sticky;
+  bottom: 0;
+  z-index: 0;
+  -webkit-transform: translate3d(0,0,0);
+  width: 100%;
+}
+
+.main {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  
+  background: #f8f8f8;
+}
 
 a {
   text-decoration: none;
@@ -102,6 +142,12 @@ a:hover {}
 @media (max-width: 768px) {
   .container {
     padding: 0 24px;
+  }
+
+  .fixed {
+    z-index: initial;
+    position: static;
+    bottom: initial;
   }
 }
 </style>

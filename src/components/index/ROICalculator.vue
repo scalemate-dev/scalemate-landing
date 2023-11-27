@@ -49,15 +49,15 @@
         <div class="results">
           <ResultItem
             title="No automation"
-            :text="`${noAutomation.time} hours, $${noAutomation.money} yearly`"
+            :text="`${noAutomation.time} hours/mo, $${noAutomation.money} yearly`"
           />
           <ResultItem
             title="With automation"
-            :text="`${withAutomation.time} hours, $${withAutomation.money} yearly`"
+            :text="`${withAutomation.time} hours/mo, $${withAutomation.money} yearly`"
           />
           <ResultItem
             title="Saved with Scalemate<span>*</span>"
-            :text="`${saved.time} hours, $${saved.money} yearly`"
+            :text="`${saved.time} hours/mo, $${saved.money} yearly`"
           />
           <div>
             <div class="result-title">
@@ -88,7 +88,7 @@
 <script>
 import Select from '@/components/Select'
 import ResultItem from '@/components/index/ROICalculator/ResultItem'
-import { sendForm } from '@/formspree.js'
+import { sendForm } from '@/forms.js'
 import SuccessPopup from '@/components/index/SuccessPopup'
 import Button from '@/components/Button'
 import Input from '@/components/Input'
