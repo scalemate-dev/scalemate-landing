@@ -3,9 +3,9 @@
     <inline-svg class="linear-background-1" :src="require(`@/assets/icons/hero-linear-background.svg`)" />
     <inline-svg class="linear-background-2" :src="require(`@/assets/icons/hero-linear-background-2.svg`)" />
     <div class="hero-container">
-      <div class="hero-title">
+      <h1 class="hero-title">
         Find winning ads<br/> to <span>triple-scale</span> your app
-      </div>
+      </h1>
       <div class="hero-description">
         Creative testing automation assistant for mobile-first agencies and busy app marketers. Born to erase performance marketing routine and save you 3 hours daily.
       </div>

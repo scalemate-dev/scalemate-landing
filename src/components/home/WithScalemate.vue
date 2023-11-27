@@ -3,9 +3,9 @@
     <inline-svg class="with-scalemate-background" :src="require(`@/assets/icons/with-scalemate-background.svg`)" />
     <div class="container">
       <div class="with-scalemate-navigation">
-        <div class="with-scalemate-title">
+        <h2 class="with-scalemate-title">
           With Scalemate, UAMs shorten the testing path and reduce time by 62%.
-        </div>
+        </h2>
         <div class="with-scalemate-navigation-buttons">
           <div class="with-scalemate-navigation-button prev">
             <inline-svg :src="require(`@/assets/icons/chevron-left.svg`)" />
