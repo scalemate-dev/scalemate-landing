@@ -42,6 +42,7 @@ export default {
   }
 
   .result-value {
+    font-variant-numeric: slashed-zero;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;

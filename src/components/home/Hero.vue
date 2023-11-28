@@ -7,7 +7,7 @@
         Find winning ads<br/> to <span>triple-scale</span> your app
       </h1>
       <div class="hero-description">
-        Creative testing automation assistant for mobile-first agencies and busy app marketers. Born to erase performance marketing routine and save you 3 hours daily.
+        Creative testing automation assistant for mobile app publishers and marketing agencies. Born to erase performance marketing routine and save you 3 hours daily.
       </div>
       <a href="https://cal.com/scalemate/30min" target="_blank">
         <Button color="accent" class="hero-submit">

@@ -37,7 +37,7 @@
                 v-model="CPA"
                 :marks="marksGamingCasualCPA"
                 :min="1"
-                :max="2500"
+                :max="1000"
               />
             </div>
             <div class="select-range" v-else>
@@ -158,15 +158,15 @@ export default {
   data() {
     return {
       marksCreatives: [1, 100, 200, 300, 400, 500],
-      marksGamingCasualCPA: [1, 500, 1000, 1500, 2000, 2500],
+      marksGamingCasualCPA: [1, 200, 400, 600, 800, 1000],
       marksGamingCPA: [1, 200, 400, 600, 800, 1000],
       marksCPI: [1, 20, 40, 60, 80, 100],
       email: "",
       showPopup: false,
       niche: "Gaming Casual",
-      CPA: 2.5,
+      CPA: 94,
       CPI: 1.5,
-      creatives: 30,
+      creatives: 78,
       nicheOptions: ["Gaming Casual", "Gaming Hyper Casual", "Non-gaming"],
     };
   },
