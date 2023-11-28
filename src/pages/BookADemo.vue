@@ -42,7 +42,7 @@ export default {
       },
       {
         property: "og:description",
-        content: "Get a personalized demonstration of Scalemate and learn how our tool can triple your ad testing speed on Facebook and beyond. Book now."
+        content: "Get a personalized demonstration of Scalemate and learn how our tool can triple your ad testing speed on Facebook and beyond."
       },
       // Keep the og:image the same unless you have a specific image for the demo page.
       {
@@ -59,7 +59,7 @@ export default {
       },
       {
         name: "twitter:description",
-        content: "Get a personalized demonstration of Scalemate and learn how our tool can triple your ad testing speed on Facebook and beyond. Book now."
+        content: "Get a personalized demonstration of Scalemate and learn how our tool can triple your ad testing speed on Facebook and beyond."
       },
       {
         name: "twitter:image",
