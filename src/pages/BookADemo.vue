@@ -26,27 +26,28 @@ export default {
     Footer,
   },
   metaInfo: {
-    title: "Scalemate | Creative Testing Automation Assistant",
+    title: "Scalemate | Book a Demo",
     meta: [
       {
         name: "description",
-        content: "Automate your creative testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
+        content: "Experience the power of automation for creative testing. Book a demo with Scalemate to see how you can validate your ads 3x faster."
       },
       {
         name: "keywords",
-        content: "Creative testing automation, Optimize creative management, creative testing platform, facebook creative testing, facebook creative testing tool, tiktok creative testing tool, facebook ad testing tool"
+        content: "Book demo creative testing, Scalemate demo, ad testing automation tool, cross-platform creative testing, schedule Scalemate demo, ad validation acceleration"
       },
       {
         property: "og:title",
-        content: "Scalemate creative testing automation main page"
+        content: "Book Your Scalemate Demo Today | Creative Testing Automation"
       },
       {
         property: "og:description",
-        content: "Automate your creative testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
+        content: "Get a personalized demonstration of Scalemate and learn how our tool can triple your ad testing speed on Facebook and beyond. Book now."
       },
+      // Keep the og:image the same unless you have a specific image for the demo page.
       {
         property: "og:image",
-        content: "/og-image.png"
+        content: "/og-image-demo.png"
       },
       {
         name: "twitter:card",
@@ -54,15 +55,15 @@ export default {
       },
       {
         name: "twitter:title",
-        content: "Scalemate creative testing automation main page"
+        content: "Book Your Scalemate Demo Today | Creative Testing Automation"
       },
       {
         name: "twitter:description",
-        content: "Automate your creative testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
+        content: "Get a personalized demonstration of Scalemate and learn how our tool can triple your ad testing speed on Facebook and beyond. Book now."
       },
       {
         name: "twitter:image",
-        content: "/og-image.png"
+        content: "/og-image-demo.png"
       }
     ]
   },
