@@ -42,7 +42,8 @@ export default {
     meta: [
       {
         name: "description",
-        content: "Automate your creative testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
+        // content: "Automate your creative testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
+        content: "Maximize ad performance with our Facebook creative testing automation tool — validate your ads 3x faster."
       },
       {
         name: "keywords",
@@ -54,7 +55,8 @@ export default {
       },
       {
         property: "og:description",
-        content: "Automate your creative testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
+        // content: "Automate your creative testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
+        content: "Maximize ad performance with our Facebook creative testing automation tool — validate your ads 3x faster."
       },
       {
         property: "og:image",
@@ -70,7 +72,8 @@ export default {
       },
       {
         name: "twitter:description",
-        content: "Automate your creative testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
+        content: "Maximize ad performance with our Facebook creative testing automation tool — validate your ads 3x faster."
+        // content: "Automate your creative testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
       },
       {
         name: "twitter:image",
