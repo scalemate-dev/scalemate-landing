@@ -38,7 +38,7 @@ export default {
       },
       {
         property: "og:title",
-        content: "Book Your Scalemate Demo Today | Creative Testing Automation"
+        content: "Creative Testing Automation - Book a Demo"
       },
       {
         property: "og:description",
@@ -55,7 +55,7 @@ export default {
       },
       {
         name: "twitter:title",
-        content: "Book Your Scalemate Demo Today | Creative Testing Automation"
+        content: "Creative Testing Automation - Book a Demo"
       },
       {
         name: "twitter:description",
