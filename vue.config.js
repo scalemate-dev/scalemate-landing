@@ -12,7 +12,7 @@ module.exports = {
           // Absolute path to compiled SPA
           path.resolve(__dirname, 'dist'),
           // List of routes to prerender
-          ['/', '/automate', '/unite'],
+          ['/', '/book-a-demo', '/automate', '/unite'],
           {
             // options
           }
