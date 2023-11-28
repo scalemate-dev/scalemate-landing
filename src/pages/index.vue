@@ -51,7 +51,7 @@ export default {
       },
       {
         property: "og:title",
-        content: "Scalemate – Creative testing automation"
+        content: "Creative testing automation tool – Scalemate"
       },
       {
         property: "og:description",
@@ -68,7 +68,7 @@ export default {
       },
       {
         name: "twitter:title",
-        content: "Scalemate – Creative testing automation"
+        content: "Creative testing automation tool – Scalemate"
       },
       {
         name: "twitter:description",
