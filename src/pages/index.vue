@@ -51,7 +51,7 @@ export default {
       },
       {
         property: "og:title",
-        content: "Find winning ads to triple-scale your app"
+        content: "Scalemate – Creative testing automation"
       },
       {
         property: "og:description",
@@ -68,7 +68,7 @@ export default {
       },
       {
         name: "twitter:title",
-        content: "Scalemate creative testing automation main page"
+        content: "Scalemate – Creative testing automation"
       },
       {
         name: "twitter:description",
