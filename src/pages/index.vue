@@ -77,7 +77,7 @@ export default {
       },
       {
         name: "twitter:image",
-        content: "https://www.scalemate.co/og-image.png"
+        content: "https://www.scalemate.co/twitter-og-image.png"
       }
     ]
   },
