@@ -30,11 +30,11 @@ export default {
     meta: [
       {
         name: "description",
-        content: "Experience the power of automation for creative testing. Book a demo with Scalemate to see how you can validate your ads 3x faster."
+        content: "Experience the power of automation for creatives testing. Book a demo with Scalemate to see how you can validate your ads 3x faster."
       },
       {
         name: "keywords",
-        content: "Book demo creative testing, Scalemate demo, ad testing automation tool, cross-platform creative testing, schedule Scalemate demo, ad validation acceleration"
+        content: "Book demo creatives testing, Scalemate demo, ad testing automation tool, cross-platform creatives testing, schedule Scalemate demo, ad validation acceleration"
       },
       {
         property: "og:title",

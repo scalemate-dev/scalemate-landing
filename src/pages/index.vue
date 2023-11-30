@@ -42,21 +42,21 @@ export default {
     meta: [
       {
         name: "description",
-        // content: "Automate your creative testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
-        content: "Maximize ad performance with our Facebook creative testing automation tool — validate your ads 3x faster."
+        // content: "Automate your creatives testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
+        content: "Maximize ad performance with our Facebook creatives testing automation tool — validate your ads 3x faster."
       },
       {
         name: "keywords",
-        content: "Creative testing automation, Optimize creative management, creative testing platform, facebook creative testing, facebook creative testing tool, tiktok creative testing tool, facebook ad testing tool"
+        content: "Creatives testing automation, Optimize creative management, creatives testing platform, facebook creatives testing, facebook creatives testing tool, tiktok creatives testing tool, facebook ad testing tool"
       },
       {
         property: "og:title",
-        content: "Creative testing automation tool – Scalemate"
+        content: "Creatives testing automation tool – Scalemate"
       },
       {
         property: "og:description",
-        // content: "Automate your creative testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
-        content: "Maximize ad performance with our Facebook creative testing automation tool — validate your ads 3x faster."
+        // content: "Automate your creatives testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
+        content: "Maximize ad performance with our Facebook creatives testing automation tool — validate your ads 3x faster."
       },
       {
         property: "og:image",
@@ -68,12 +68,12 @@ export default {
       },
       {
         name: "twitter:title",
-        content: "Creative testing automation tool – Scalemate"
+        content: "Creatives testing automation tool – Scalemate"
       },
       {
         name: "twitter:description",
-        content: "Maximize ad performance with our Facebook creative testing automation tool — validate your ads 3x faster."
-        // content: "Automate your creative testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
+        content: "Maximize ad performance with our Facebook creatives testing automation tool — validate your ads 3x faster."
+        // content: "Automate your creatives testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
       },
       {
         name: "twitter:image",

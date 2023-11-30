@@ -38,7 +38,7 @@ export default {
           description: `
             <span>You:</span> pick a sharing method: direct library link or Google Drive file.
             <br /><br />
-            <span>Scalemate:</span> pulls creative testing data into Google Spreadsheets or PDFs.
+            <span>Scalemate:</span> pulls creatives testing data into Google Spreadsheets or PDFs.
           `,
           image: "export",
           triangle: "triangle-2"

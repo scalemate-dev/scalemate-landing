@@ -38,19 +38,19 @@ export default {
     meta: [
       {
         name: "description",
-        content: "Automate your creative testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
+        content: "Automate your creatives testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
       },
       {
         name: "keywords",
-        content: "Creative testing automation, Optimize creative management, creative testing platform, facebook creative testing, facebook creative testing tool, tiktok creative testing tool, facebook ad testing tool"
+        content: "Creatives testing automation, Optimize creative management, creatives testing platform, facebook creatives testing, facebook creatives testing tool, tiktok creatives testing tool, facebook ad testing tool"
       },
       {
         property: "og:title",
-        content: "Scalemate creative testing automation main page"
+        content: "Scalemate creatives testing automation main page"
       },
       {
         property: "og:description",
-        content: "Automate your creative testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
+        content: "Automate your creatives testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
       },
       {
         property: "og:image",
@@ -62,11 +62,11 @@ export default {
       },
       {
         name: "twitter:title",
-        content: "Scalemate creative testing automation main page"
+        content: "Scalemate creatives testing automation main page"
       },
       {
         name: "twitter:description",
-        content: "Automate your creative testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
+        content: "Automate your creatives testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
       },
       {
         name: "twitter:image",

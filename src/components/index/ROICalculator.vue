@@ -7,7 +7,7 @@
       <div class="subtitle">
         Let’s measure your user acquisition performance before you hop in. Estimate time and money savings after you
         automate
-        your creative testing process.
+        your creatives testing process.
       </div>
 
       <div class="row">

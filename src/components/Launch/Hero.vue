@@ -5,7 +5,7 @@
         <span>One click</span> to launch them all
       </h1>
       <div class="hero-subtitle">
-        Scalemate automates creative testing across platforms. One click – I upload your creatives to the library. Two clicks – I launch your campaign on all ad platforms you work with.
+        Scalemate automates creatives testing across platforms. One click – I upload your creatives to the library. Two clicks – I launch your campaign on all ad platforms you work with.
       </div>
       <form class="hero-form" name="request-demo" @submit.prevent="(e) => handleRequest(e)">
         <input type="hidden" name="type" value="request-a-demo" />

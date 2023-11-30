@@ -3,7 +3,7 @@
     <div class="wait-list">
       <div class="container">
         <h2 class="wait-list-title">
-          Deal with creative testing <span>260% faster</span>
+          Deal with creatives testing <span>260% faster</span>
         </h2>
         <div class="wait-list-subtitle">1-month free trial | Dedicated onboarding | Custom integrations</div>
         <Button color="accent" to="/book-a-demo" class="wait-list-submit" v-if="!noButton">

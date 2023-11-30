@@ -39,7 +39,7 @@ export default {
       },
       {
         name: "keywords",
-        content: "facebook ad creative library, facebook ad library, ad creative library, creative testing library, ad asset library, all assets in one place, creative assets library, facebook ad archive, FB ad library, facebook creative library,"
+        content: "facebook ad creative library, facebook ad library, ad creative library, creatives testing library, ad asset library, all assets in one place, creative assets library, facebook ad archive, FB ad library, facebook creative library,"
       },
       {
         property: "og:title",

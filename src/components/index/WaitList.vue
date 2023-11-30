@@ -3,7 +3,7 @@
     <div class="container">
       <inline-svg class="wait-list-angles" :src="require('@/assets/icons/bottom-angles.svg')" />
       <h2 class="wait-list-title">
-        Deal with creative testing <span>260% faster</span>
+        Deal with creatives testing <span>260% faster</span>
       </h2>
       <div class="wait-list-subtitle">1-month free trial | Dedicated onboarding | Custom integrations</div>
       <form class="wait-list-form" name="join-wait-list" @submit="(e) => handleRequest(e)">

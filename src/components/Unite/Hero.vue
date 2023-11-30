@@ -5,7 +5,7 @@
         <span>One library</span> to store them all
       </h1>
       <div class="hero-subtitle">
-        Scalemate unites all your ad assets in a single ad creative library. I gather creative testing results from different ad platforms in one place. 
+        Scalemate unites all your ad assets in a single ad creative library. I gather creatives testing results from different ad platforms in one place. 
       </div>
       <form class="hero-form" name="request-demo" @submit.prevent="(e) => handleRequest(e)">
         <input type="hidden" name="type" value="request-a-demo" />

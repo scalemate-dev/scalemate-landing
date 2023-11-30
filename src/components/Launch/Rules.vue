@@ -5,7 +5,7 @@
         <span>Accelerate</span> rotation<br />with automated testing workflow
       </div>
       <div class="rules-subtitle">
-        Automate creative testing workflows. Get simple reports. Find out what works and what doesn't. Rotate winning ads and
+        Automate creatives testing workflows. Get simple reports. Find out what works and what doesn't. Rotate winning ads and
         head on to the next testing round!
       </div>
 

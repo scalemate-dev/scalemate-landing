@@ -34,7 +34,7 @@ export default {
     Footer,
   },
   metaInfo: {
-    title: "Scalemate | I automate creative testing workflows across platforms.",
+    title: "Scalemate | I automate creatives testing workflows across platforms.",
     meta: [
       {
         name: "description",
@@ -42,7 +42,7 @@ export default {
       },
       {
         name: "keywords",
-        content: "automated testing workflows, automated creative launch, cross-platform creative testing, automate creative rotation, automated campaign launch, automated creative upload"
+        content: "automated testing workflows, automated creative launch, cross-platform creatives testing, automate creative rotation, automated campaign launch, automated creative upload"
       },
       {
         property: "og:title",
@@ -66,7 +66,7 @@ export default {
       },
       {
         name: "twitter:description",
-        content: "Automate your creative testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
+        content: "Automate your creatives testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool."
       },
       {
         name: "twitter:image",

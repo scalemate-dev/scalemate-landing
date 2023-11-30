@@ -5,7 +5,7 @@
         I help busy marketing people get things done <span>on time</span>
       </h2>
       <div class="subtitle">
-        Speed up creative testing, receive cross-platform insights, and streamline your mobile app growth regardless of
+        Speed up creatives testing, receive cross-platform insights, and streamline your mobile app growth regardless of
         your role in performance marketing.
       </div>
       <div class="help-wrapper">
@@ -52,7 +52,7 @@ export default {
           position: 'User Acquisition Manager',
           description: 'Start doing what your brain capacity deserves.',
           options: [
-            {label: 'Erase testing routine', text: 'Spend <b>62%</b> less time on creative testing and automate asset upload. '},
+            {label: 'Erase testing routine', text: 'Spend <b>62%</b> less time on creatives testing and automate asset upload. '},
             {label: 'Test on all platforms at once', text: 'Use a <b>single “launch” button</b> for your Facebook, Tiktok & custom campaigns.'},
             {label: 'Get insights in one dashboard', text: 'Define <b>clear performance trends</b> across platforms and run winning creatives. '},
             {label: 'Communicate success', text: 'Auto-generate BI-powered reports, then show results to your lead & team. '}

@@ -57,7 +57,7 @@ export default {
             {
               icon: 'clock',
               label: 'Erase testing routine',
-              text: 'Spend <b>3x</b> less time on creative testing and automate asset upload. '
+              text: 'Spend <b>3x</b> less time on creatives testing and automate asset upload. '
             },
             {
               icon: 'ship',
