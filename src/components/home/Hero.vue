@@ -9,11 +9,14 @@
       <div class="hero-description">
         Creatives testing automation assistant for mobile app publishers and marketing agencies. Born to erase performance marketing routine and save you 3 hours daily.
       </div>
-      <a href="https://cal.com/scalemate/30min" target="_blank">
+      <Button color="accent" class="hero-submit" to="/book-a-demo">
+        Schedule a call <span :style="{marginLeft: '4px'}">🗓️</span>
+      </Button>
+      <!-- <a href="https://cal.com/scalemate/30min" target="_blank">
         <Button color="accent" class="hero-submit">
           Schedule a call <span :style="{marginLeft: '4px'}">🗓️</span>
         </Button>
-      </a>
+      </a> -->
     </div>
   </div>
 </template>
