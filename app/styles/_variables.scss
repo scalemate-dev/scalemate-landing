@@ -1,0 +1,49 @@
+// Colors
+$color-accent-500: #F63D68;
+$color-accent-400: #F63D68;
+
+$color-text-800: #1D2939;
+$color-text-600: #475467;
+$color-text-500: #667085;
+
+$color-bg-grey: #E4E7EC;
+$color-bg-grey-50: #F9FAFB;
+
+// Breakpoints
+$desktop-width: 1280px;
+$tablet-horizontal-width: 1024px;
+$tablet-vertical-width: 768px;
+$mobile-width: 480px;
+
+// Mixins
+@mixin desktop-s {
+  @media (max-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin tablet-horizontal {
+  @media (max-width: #{$tablet-horizontal-width}) {
+    @content;
+  }
+}
+
+@mixin tablet-vertical {
+  @media (max-width: #{$tablet-vertical-width}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$mobile-width}) {
+    @content;
+  }
+}
+
+@mixin backgroundBlur ($size, $reserveColor) {
+  backdrop-filter: blur($size);
+
+  @supports not (backdrop-filter: blur($size)) {
+    background-color: $reserveColor;
+  }
+} 

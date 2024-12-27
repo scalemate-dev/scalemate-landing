@@ -1,0 +1,129 @@
+.features {
+  padding: 236px 0;
+
+  .container {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 162px;
+  }
+
+  .feature {
+    gap: 96px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    &:nth-child(even) {
+      .featureImage {
+        order: 1;
+      }
+
+      .featureContent {
+        order: 2;
+      }
+    }
+  }
+
+  .featureImage,
+  .featureContent {
+    position: relative;
+    z-index: 1;
+  }
+
+  .featureImage1 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(-50%, -70%);
+    z-index: 0;
+  }
+
+  .featureImage2 {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(50%, -40%);
+    z-index: 0;
+  }
+
+  .featureImage {
+    flex: 0 0 49%;
+
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .featureBadge {
+    display: inline-block;
+    background: #FFF1F3;
+    border: 1px solid #121718;
+    border-radius: 16px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    padding: 4px 12px;
+  }
+
+  .featureTitle {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 47px;
+    color: #101828;
+    margin-bottom: 32px;
+  }
+
+  .featureDescription {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    color: #121718;
+  }
+}
+
+@media (max-width: 1080px) {
+  .features {
+    padding: 96px 0 64px;
+
+    .feature {
+      flex-flow: column nowrap;
+      gap: 48px;
+
+      &:nth-child(even) {
+        .featureImage {
+          order: 2;
+        }
+
+        .featureContent {
+          order: 1;
+        }
+      }
+    }
+
+    .featureBadge {
+      margin-bottom: 12px;
+    }
+
+    .featureTitle {
+      font-size: 30px;
+      line-height: 47px;
+      margin-bottom: 16px;
+    }
+
+    .featureDescription {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+} 

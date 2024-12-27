@@ -1,0 +1,135 @@
+.withScalemate {
+  position: relative;
+  z-index: 1;
+}
+
+.withScalemateBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-25%, -20%);
+  z-index: 0;
+}
+
+.withScalemateNavigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 128px;
+  margin-bottom: 48px;
+}
+
+.withScalemateTitle {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 52px;
+  letter-spacing: -0.02em;
+  color: #121718;
+  position: relative;
+  z-index: 1;
+}
+
+.withScalemateNavigationButtons {
+  display: flex;
+  gap: 24px;
+}
+
+.withScalemateNavigationButton {
+  cursor: pointer;
+  width: 64px;
+  height: 64px;
+  border: 1px solid #121718;
+  background: #FFF;
+  border-radius: 100px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  &.active {
+    background: #121718;
+  }
+}
+
+.withScalemateCards {
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 112px;
+  margin: 0 auto;
+  overflow: initial;
+}
+
+.withScalemateCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 20px;
+  border: 2px solid #121718;
+  border-radius: 20px;
+  flex: 0 0 300px;
+  height: 300px;
+}
+
+.withScalemateCardValue {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 72px;
+  color: #1A1A1A;
+
+  :global(span) {
+    color: var(--color-accent-500);
+  }
+}
+
+.withScalemateCardLabel {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: #1A1A1A;
+}
+
+.mobile {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .withScalemateCards {
+    padding: 0 24px;
+  }
+
+  .withScalemateNavigationButtons {
+    display: none;
+  }
+
+  .withScalemateTitle {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .mobile {
+    display: block;
+
+    .withScalemateNavigationButtons {
+      display: flex;
+      position: relative;
+      margin-top: 32px;
+      gap: 16px;
+    }
+  }
+
+  .withScalemateNavigationButton {
+    height: 48px;
+    width: 48px;
+
+    img {
+      height: 18px;
+      width: 18px;
+    }
+  }
+} 

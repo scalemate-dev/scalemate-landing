@@ -1,0 +1,241 @@
+.roiCalculator {
+  padding: 140px 0 196px;
+
+  .disclamer {
+    display: block;
+    color: #bcc2d2;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    margin: 24px 0;
+    text-align: left;
+  }
+
+  .title {
+    max-width: 768px;
+    margin: 0 auto;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 44px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: #121718;
+    margin-bottom: 20px;
+  }
+
+  .subtitle {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    color: #121718;
+    max-width: 768px;
+    margin: 0 auto;
+    margin-bottom: 64px;
+  }
+
+  .row {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 72px;
+    border-radius: 16px;
+  }
+
+  .form {
+    padding: 36px;
+    background: linear-gradient(
+      124.28deg,
+      rgba(246, 61, 104, 0.4) 18.79%,
+      rgba(251, 214, 119, 0.4) 77.96%
+    );
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 32px;
+    flex: 0 0 40%;
+    border-radius: 24px;
+    border: 1px solid #1a1a1a;
+  }
+
+  .selectWrapper {
+    width: 100%;
+  }
+
+  .selectLabel {
+    margin-bottom: 8px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16.1643px;
+    line-height: 23px;
+    color: #121718;
+  }
+
+  .selectRange {
+    background: #fafafa;
+    height: 80px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    padding: 50px 24px;
+    width: 100%;
+  }
+
+  .results {
+    flex: 0 0 35%;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 48px;
+  }
+
+  .result {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  // Slider styles
+  .slider {
+    height: 6px;
+    width: 100%;
+    
+    .track {
+      height: 6px;
+      background: #e5e7eb;
+
+      &-0 {
+        background: #f63d68;
+      }
+    }
+
+    .thumb {
+      height: 21px;
+      width: 21px;
+      background: #fcfcfd;
+      border: 1.15459px solid #eaecf0;
+      box-shadow: 0px 1.15459px 3.46377px rgba(16, 24, 40, 0.1),
+        0px 1.15459px 2.30918px rgba(16, 24, 40, 0.06);
+      border-radius: 50%;
+      cursor: pointer;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .mark {
+      width: 1px;
+      height: 8px;
+      background: #e5e7eb;
+      cursor: pointer;
+      margin-top: -1px;
+
+      &-text {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13.8551px;
+        line-height: 21px;
+        color: #747576;
+        margin-top: 8px;
+      }
+    }
+  }
+}
+
+// ResultItem styles
+.resultItem {
+  flex: 1;
+
+  .resultLabel {
+    margin-bottom: 12px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #747576;
+
+    :global(span) {
+      color: var(--color-accent-500);
+    }
+  }
+
+  .resultValue {
+    font-variant-numeric: slashed-zero;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    letter-spacing: -0.02em;
+    color: #121718;
+  }
+}
+
+.resultTitle {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 52px;
+  letter-spacing: -0.02em;
+  color: #747576;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 1024px) {
+  .roiCalculator {
+    padding: 64px 0;
+
+    .resultSubmit {
+      width: 100%;
+    }
+
+    .title {
+      margin-bottom: 16px;
+      font-size: 30px;
+      line-height: 44px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      line-height: 30px;
+      margin-bottom: 48px;
+    }
+
+    .row {
+      flex-flow: column nowrap;
+      gap: 48px;
+    }
+
+    .form {
+      width: 100%;
+    }
+
+    .results {
+      width: 100%;
+      gap: 32px;
+    }
+  }
+
+  .resultItem {
+    .resultLabel {
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+    .resultValue {
+      font-size: 24px;
+      line-height: 36px;
+    }
+  }
+} 

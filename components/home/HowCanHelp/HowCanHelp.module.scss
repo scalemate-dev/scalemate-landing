@@ -1,0 +1,172 @@
+@import "@/app/styles/variables";
+
+.help {
+  margin-bottom: 56px;
+  position: relative;
+  z-index: 2;
+
+  .container {
+    background: #1A1A1A;
+    border-radius: 80px;
+    padding: 112px;
+  }
+
+  .title {
+    max-width: 900px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 44px;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+    text-align: left;
+    margin-bottom: 64px;
+  }
+}
+
+.helpNavigation {
+  margin-bottom: 24px;
+  display: flex;
+  gap: 16px;
+}
+
+.helpNavigationItem {
+  border: 1px solid #FFFFFF;
+  border-radius: 28px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #FFFFFF;
+  cursor: pointer;
+  padding: 16px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  will-change: border-color, background-color;
+
+  &.active {
+    background: #F63D68;
+    border-color: #F63D68;
+  }
+}
+
+.helpList {
+  display: flex;
+  gap: 96px;
+  align-items: center;
+}
+
+.helpImage {
+  flex: 0 0 40%;
+
+  img {
+    border-radius: 24px;
+    width: 100%;
+  }
+}
+
+.helpTitle {
+  margin-bottom: 54px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 38px;
+  color: #FFFFFF;
+}
+
+.helpDescrWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 36px;
+}
+
+.helpDescrHeading {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.helpDescrText {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  color: #DFE0E2;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+
+  b {
+    color: #F63D68;
+    font-weight: 600;
+  }
+}
+
+@include tablet-horizontal {
+  .help {
+    .container {
+      padding: 64px 0px;
+      border-radius: 30px;
+    }
+
+    .title {
+      padding: 0 24px;
+      font-size: 30px;
+      line-height: 44px;
+      margin-bottom: 48px;
+    }
+  }
+
+  .helpNavigation {
+    padding: 0 24px;
+    overflow-x: scroll;
+    white-space: nowrap;
+    display: block;
+  }
+
+  .helpNavigationItem {
+    display: inline-block;
+    margin-right: 16px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .helpList {
+    padding: 0 24px;
+    flex-flow: column nowrap;
+    gap: 48px;
+  }
+
+  .helpCard {
+    order: 2;
+  }
+
+  .helpImage {
+    order: 1;
+  }
+
+  .helpTitle {
+    font-size: 24px;
+    line-height: 38px;
+  }
+
+  .helpDescrWrapper {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+} 

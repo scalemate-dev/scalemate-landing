@@ -1,0 +1,51 @@
+.header {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  top: 10px;
+
+  .container {
+    padding: 8px 16px;
+    border-radius: 8px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    max-width: 772px;
+    margin: 0 auto;
+    @include backgroundBlur(24px, rgba(255, 194, 194, 0.95));
+    background-color: rgba(#fff, 0.5);
+  }
+
+  .logo {
+    * {
+      fill: $color-text-800;
+    }
+  }
+
+  .headerNavigation {
+    flex: 1;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .headerLink {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: $color-text-600;
+  }
+}
+
+@include tablet-horizontal {
+  .header {
+    top: 0;
+
+    .container {
+      border-radius: 0px 0px 10px 10px;
+      padding: 24px 16px;
+    }
+  }
+}

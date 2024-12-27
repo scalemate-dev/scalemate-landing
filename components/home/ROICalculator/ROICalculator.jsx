@@ -1,0 +1,234 @@
+"use client"
+import Container from "@/components/shared/Container/Container"
+import ship from "@/assets/icons/help/ship.svg"
+import { useState } from "react"
+import Image from "next/image"
+import Select from "@/components/shared/Select/Select"
+import Button from "@/components/shared/Button/Button"
+// import ReactSlider from "react-slider";
+import styles from "./ROICalculator.module.scss"
+
+// Constants
+const NO_AUTOMATION_TIME_YEARLY = 8
+const WITH_AUTOMATION_TIME_YEARLY = 3
+const MONTHS = 12
+const MINUTES_IN_HOUR = 60
+const UAM_HOUR_PRICE = 20
+
+// ResultItem Sub-component
+const ResultItem = ({ title, text }) => (
+  <div className={styles.resultItem}>
+    <div
+      className={styles.resultLabel}
+      dangerouslySetInnerHTML={{ __html: title }}
+    />
+    <div>
+      <span
+        className={styles.resultValue}
+        dangerouslySetInnerHTML={{ __html: text }}
+      />
+    </div>
+  </div>
+)
+
+const ROICalculator = () => {
+  const [niche, setNiche] = useState("Gaming Casual")
+  const [CPA, setCPA] = useState(94)
+  const [CPI, setCPI] = useState(1.5)
+  const [creatives, setCreatives] = useState(78)
+
+  const nicheOptions = ["Gaming Casual", "Gaming Hyper Casual", "Non-gaming"]
+  const marksCreatives = [1, 100, 200, 300, 400, 500]
+  const marksGamingCasualCPA = [1, 200, 400, 600, 800, 1000]
+  const marksGamingCPA = [1, 200, 400, 600, 800, 1000]
+  const marksCPI = [1, 20, 40, 60, 80, 100]
+
+  // Computed values
+  const eventsAmount = (() => {
+    switch (niche) {
+      case "Non-gaming":
+        return 10
+      case "Gaming Casual":
+        return 1.5
+      case "Gaming Hyper Casual":
+        return 38
+      default:
+        return 1
+    }
+  })()
+
+  const multiplier = (() => {
+    switch (niche) {
+      case "Non-gaming":
+        return 1.15
+      case "Gaming Casual":
+        return 1.15
+      case "Gaming Hyper Casual":
+        return 1.33
+      default:
+        return 1
+    }
+  })()
+
+  const isGamingCasual = niche === "Gaming Casual"
+  const isNotGamingHyperCasual = niche !== "Gaming Hyper Casual"
+  const CPIorCPA = !isNotGamingHyperCasual ? CPI : CPA
+
+  const noAutomation = (() => {
+    const time =
+      (NO_AUTOMATION_TIME_YEARLY * creatives * MONTHS) / MINUTES_IN_HOUR
+    const money =
+      eventsAmount * CPIorCPA * creatives * MONTHS * multiplier +
+      UAM_HOUR_PRICE * time
+    return {
+      time,
+      money: Math.round(money),
+    }
+  })()
+
+  const withAutomation = (() => {
+    const time =
+      (WITH_AUTOMATION_TIME_YEARLY * creatives * MONTHS) / MINUTES_IN_HOUR
+    const money =
+      eventsAmount * CPIorCPA * creatives * MONTHS + UAM_HOUR_PRICE * time
+    return {
+      time,
+      money: Math.round(money),
+    }
+  })()
+
+  const saved = (() => {
+    const money = noAutomation.money - withAutomation.money
+    return {
+      time: Math.round(noAutomation.time - withAutomation.time),
+      money: isNaN(money) ? 0 : Math.floor(money * 10) / 10,
+    }
+  })()
+
+  return (
+    <div className={styles.roiCalculator}>
+      <Container>
+        <h2 className={styles.title}>
+          Calculate how much you save <br />
+          with automation
+        </h2>
+        <div className={styles.subtitle}>
+          Let's measure your user acquisition performance before you hop in.
+          Estimate time and money savings after you automate your creatives
+          testing process.
+        </div>
+
+        <div className={styles.row}>
+          <div className={styles.form}>
+            <div className={styles.selectWrapper}>
+              <div className={styles.selectLabel}>Your app niche</div>
+              <Select
+                value={niche}
+                onChange={(value) => setNiche(value)}
+                options={nicheOptions}
+              />
+            </div>
+            <div className={styles.selectWrapper}>
+              <div className={styles.selectLabel}>
+                Number of creatives per month
+              </div>
+              <div className={styles.selectRange}>
+                {/* <ReactSlider
+                  className={styles.slider}
+                  thumbClassName={styles.thumb}
+                  trackClassName={styles.track}
+                  value={creatives}
+                  onChange={(value) => setCreatives(value)}
+                  marks={marksCreatives}
+                  min={1}
+                  max={500}
+                /> */}
+              </div>
+            </div>
+            {isNotGamingHyperCasual ? (
+              <div className={styles.selectWrapper}>
+                <div className={styles.selectLabel}>CPA</div>
+                <div className={styles.selectRange}>
+                  {/* <ReactSlider
+                    className={styles.slider}
+                    thumbClassName={styles.thumb}
+                    trackClassName={styles.track}
+                    value={CPA}
+                    onChange={(value) => setCPA(value)}
+                    marks={
+                      isGamingCasual ? marksGamingCasualCPA : marksGamingCPA
+                    }
+                    min={1}
+                    max={1000}
+                  /> */}
+                </div>
+              </div>
+            ) : (
+              <div className={styles.selectWrapper}>
+                <div className={styles.selectLabel}>CPI</div>
+                <div className={styles.selectRange}>
+                  {/* <ReactSlider
+                    className={styles.slider}
+                    thumbClassName={styles.thumb}
+                    trackClassName={styles.track}
+                    value={CPI}
+                    onChange={(value) => setCPI(value)}
+                    marks={marksCPI}
+                    min={1}
+                    max={100}
+                  /> */}
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div className={styles.results}>
+            <ResultItem
+              title="No automation"
+              text={`${noAutomation.time} hr/mo, $${noAutomation.money} yearly`}
+            />
+            <ResultItem
+              title="With automation"
+              text={`${withAutomation.time} hr/mo, $${withAutomation.money} yearly`}
+            />
+            <ResultItem
+              title="Saved with Scalemate<span>*</span>"
+              text={`${saved.time} hr/mo, $${saved.money} yearly`}
+            />
+            <div className={styles.result}>
+              <div className={styles.resultTitle}>
+                Unify your app's marketing data today
+              </div>
+              <Button
+                color="accent"
+                className={styles.resultSubmit}
+                href={`/book-a-demo?data=${encodeURIComponent(
+                  JSON.stringify({
+                    CPI,
+                    CPA,
+                    creatives,
+                    niche,
+                    noAutomation: `${noAutomation.time} hours/mo, $${noAutomation.money} yearly`,
+                    withAutomation: `${withAutomation.time} hours/mo, $${withAutomation.money} yearly`,
+                    saved: `${saved.time} hours, $${saved.money} yearly`,
+                  }),
+                )}`}
+              >
+                <Image src={ship} alt="" width={24} height={24} />
+                Get a demo
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.row}>
+          <span className={styles.disclamer}>
+            * Estimated savings using Scalemate, actual numbers may vary.
+          </span>
+        </div>
+      </Container>
+    </div>
+  )
+}
+
+export default ROICalculator
