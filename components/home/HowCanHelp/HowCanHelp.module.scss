@@ -48,8 +48,8 @@
   will-change: border-color, background-color;
 
   &.active {
-    background: #F63D68;
-    border-color: #F63D68;
+    background: $color-accent-500;
+    border-color: $color-accent-500;
   }
 }
 
@@ -112,7 +112,7 @@
   flex-grow: 0;
 
   b {
-    color: #F63D68;
+    color: $color-accent-500;
     font-weight: 600;
   }
 }

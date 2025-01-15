@@ -22,16 +22,13 @@ export default function Home() {
   // }, [])
 
   return (
-    <div className={styles.home}>
-      <Header />
-      <div className={styles.main}>
-        <Hero />
-        <WithScalemate />
-        <ROICalculator />
-        <HowCanHelp />
-        <Features />
-        <WaitList />
-      </div>
+    <div className={styles.main}>
+      <Hero />
+      <WithScalemate />
+      <ROICalculator />
+      <HowCanHelp />
+      <Features />
+      <WaitList />
     </div>
   )
 }

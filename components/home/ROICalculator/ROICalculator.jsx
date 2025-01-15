@@ -143,6 +143,11 @@ const ROICalculator = () => {
                   max={500}
                   marks={marksCreatives}
                   markClassName="mark"
+                  renderThumb={(props, state) => (
+                    <div {...props}>
+                      <span>{state.valueNow}</span>
+                    </div>
+                  )}
                   renderMark={(props) => {
                     return (
                       <div {...props} key={props.key}>
@@ -169,6 +174,11 @@ const ROICalculator = () => {
                     marks={
                       isGamingCasual ? marksGamingCasualCPA : marksGamingCPA
                     }
+                    renderThumb={(props, state) => (
+                      <div {...props}>
+                        <span>{state.valueNow}</span>
+                      </div>
+                    )}
                     renderMark={(props) => (
                       <div {...props} key={props.key}>
                         <div className="mark-label">{props.key}</div>
@@ -188,6 +198,11 @@ const ROICalculator = () => {
                     value={CPI}
                     onChange={(value) => setCPI(value)}
                     marks={marksCPI}
+                    renderThumb={(props, state) => (
+                      <div {...props}>
+                        <span>{state.valueNow}</span>
+                      </div>
+                    )}
                     renderMark={(props) => (
                       <div {...props} key={props.key}>
                         <div className="mark-label">{props.key}</div>
