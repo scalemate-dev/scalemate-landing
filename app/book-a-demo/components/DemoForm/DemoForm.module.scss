@@ -1,5 +1,6 @@
 .demo {
   position: relative;
+  border-radius: 0px 0px 60px 60px;
 
   .linearBackground1 {
     position: absolute;
@@ -28,7 +29,7 @@
   }
 
   .demoForm {
-    padding: 192px 24px 167px;
+    padding: 156px 24px 167px;
     position: relative;
     z-index: 1;
   }

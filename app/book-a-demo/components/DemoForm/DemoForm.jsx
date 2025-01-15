@@ -1,4 +1,5 @@
 "use client"
+import WaitList from "@/components/home/WaitList/WaitList"
 
 import { useState } from "react"
 import Image from "next/image"
@@ -50,6 +51,18 @@ const DemoForm = () => {
     } finally {
       setLoading(false)
     }
+  }
+
+  const sendForm = (data) => {
+    return fetch("https://submit-form.com/S3mkBrhnv", {
+      // info@scalemate.co oauth
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
   }
 
   const handleChange = (field) => (value) => {
@@ -147,6 +160,7 @@ const DemoForm = () => {
           </Button>
         </form>
       </div>
+      <WaitList noButton />
     </div>
   )
 }

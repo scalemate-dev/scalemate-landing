@@ -144,9 +144,8 @@ const ROICalculator = () => {
                   marks={marksCreatives}
                   markClassName="mark"
                   renderMark={(props) => {
-                    console.log("props ::: mark", props)
                     return (
-                      <div {...props}>
+                      <div {...props} key={props.key}>
                         <div className="mark-label">{props.key}</div>
                       </div>
                     )
@@ -171,7 +170,7 @@ const ROICalculator = () => {
                       isGamingCasual ? marksGamingCasualCPA : marksGamingCPA
                     }
                     renderMark={(props) => (
-                      <div {...props}>
+                      <div {...props} key={props.key}>
                         <div className="mark-label">{props.key}</div>
                       </div>
                     )}
@@ -190,7 +189,7 @@ const ROICalculator = () => {
                     onChange={(value) => setCPI(value)}
                     marks={marksCPI}
                     renderMark={(props) => (
-                      <div {...props}>
+                      <div {...props} key={props.key}>
                         <div className="mark-label">{props.key}</div>
                       </div>
                     )}

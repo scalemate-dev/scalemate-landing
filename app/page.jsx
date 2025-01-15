@@ -32,9 +32,6 @@ export default function Home() {
         <Features />
         <WaitList />
       </div>
-      <div className={styles.fixed}>
-        <Footer />
-      </div>
     </div>
   )
 }
