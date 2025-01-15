@@ -1,7 +1,3 @@
-"use client"
-
-import { useEffect, useRef, useState } from "react"
-import Header from "@/components/shared/Header/Header"
 import Hero from "../components/home/Hero/Hero"
 import HowCanHelp from "../components/home/HowCanHelp/HowCanHelp"
 import Features from "../components/home/Features/Features"
@@ -10,17 +6,11 @@ import ROICalculator from "../components/home/ROICalculator/ROICalculator"
 import WaitList from "../components/home/WaitList/WaitList"
 import Footer from "@/components/shared/Footer/Footer"
 import styles from "./page.module.scss"
+import { pageMetadata } from "./metadata"
+
+export const metadata = pageMetadata.home
 
 export default function Home() {
-  // const footerRef = useRef(null)
-  // const [footerHeight, setFooterHeight] = useState("")
-
-  // useEffect(() => {
-  //   if (footerRef.current) {
-  //     setFooterHeight(footerRef.current.offsetHeight)
-  //   }
-  // }, [])
-
   return (
     <div className={styles.main}>
       <Hero />
