@@ -23,6 +23,10 @@ body {
   z-index: 1;
 }
 
+img {
+  user-select: none;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
