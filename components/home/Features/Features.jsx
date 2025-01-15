@@ -13,6 +13,19 @@ import styles from "./Features.module.scss"
 const Features = () => {
   const features = [
     {
+      image: smartFlow,
+      badge: {
+        label: "Smart Launches",
+        background: "#F4F3FF",
+        color: "#5925DC",
+      },
+      title: "Efortless launch to Win",
+      description: `Run multiple ads with ease using smart launches.
+        <br /><br />
+        With Scalemate, launching ads is as simple as a click. No hassle, just
+        results.`,
+    },
+    {
       image: creativeLibrary,
       badge: {
         label: "Creative Library",
@@ -35,18 +48,6 @@ const Features = () => {
       description: `Forget about manual drag & drop routine — upload files in bulk via cloud sync.
         <br /><br />
         Transfer videos & images from cloud storage to advertisement platform with zero effort on your side.`,
-    },
-    {
-      image: smartFlow,
-      badge: {
-        label: "Smart Flows",
-        background: "#F4F3FF",
-        color: "#5925DC",
-      },
-      title: "Efortless launch to Win",
-      description: `Test multiple ads with ease using dynamic flows.
-        <br /><br />
-        Launch with a click and Scalemate pick the top performers using your success criteria.`,
     },
   ]
 

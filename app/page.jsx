@@ -15,9 +15,9 @@ export default function Home() {
     <div className={styles.main}>
       <Hero />
       <WithScalemate />
-      <ROICalculator />
-      <HowCanHelp />
       <Features />
+      <HowCanHelp />
+      <ROICalculator />
       <WaitList />
     </div>
   )

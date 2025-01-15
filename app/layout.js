@@ -21,22 +21,23 @@ const poppins = Poppins({
 
 export const metadata = {
   metadataBase: new URL("https://www.scalemate.co"),
-  title: "Scalemate | Creative Testing Automation Assistant",
+  title: "Scalemate | Smarter Way to Automate Ads Management",
   description:
-    "Maximize ad performance with our Facebook creatives testing automation tool — validate your ads 3x faster.",
+    "Launch dozens of Facebook ads in minutes, scale campaigns faster and save hours of marketing routine daily.",
+  // "Maximize ad performance with our Facebook creatives testing automation tool — validate your ads 3x faster.",
   keywords:
-    "Creatives testing automation, Optimize creative management, creatives testing platform, facebook creatives testing, facebook creatives testing tool, tiktok creatives testing tool, facebook ad testing tool",
+    "Creatives testing automation, Optimize ads management, creatives testing platform, facebook creatives testing, facebook creatives testing tool, tiktok creatives testing tool, facebook ad testing tool",
   openGraph: {
-    title: "Creatives testing automation tool – Scalemate",
+    title: "Smart Way to Automate Ads Management – Scalemate",
     description:
-      "Maximize ad performance with our Facebook creatives testing automation tool — validate your ads 3x faster.",
+      "Launch dozens of Facebook ads in minutes, scale campaigns faster and save hours of marketing routine daily.",
     images: ["/og-image.png"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Creatives testing automation tool – Scalemate",
+    title: "Smart Way to Automate Ads Management – Scalemate",
     description:
-      "Maximize ad performance with our Facebook creatives testing automation tool — validate your ads 3x faster.",
+      "Launch dozens of Facebook ads in minutes, scale campaigns faster and save hours of marketing routine daily.",
     images: ["https://www.scalemate.co/twitter-og-image.png"],
   },
 }

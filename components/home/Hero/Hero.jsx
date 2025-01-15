@@ -23,13 +23,16 @@ const Hero = () => {
       />
       <div className={styles.heroContainer}>
         <h1 className={styles.heroTitle}>
-          Find winning ads
+          Launch Ads Faster
           <br /> to <span>triple-scale</span> your app
         </h1>
         <div className={styles.heroDescription}>
-          Creatives testing automation assistant for mobile app publishers and
+          Scalemate let you launch dozens ads in minutes, scaling campaigns
+          faster and smarter. Born to erase marketing routine and save you 3
+          hours daily.
+          {/* Creatives testing automation assistant for mobile app publishers and
           marketing agencies. Born to erase performance marketing routine and
-          save you 3 hours daily.
+          save you 3 hours daily. */}
         </div>
         <Button
           color="accent"

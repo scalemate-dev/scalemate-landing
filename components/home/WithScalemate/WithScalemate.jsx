@@ -29,13 +29,13 @@ const WithScalemate = () => {
       background: "#FFBF99",
     },
     {
-      value: "+11%",
-      label: "increase in winner<br />rate",
+      value: "+30%",
+      label: "employee satisfaction",
       background: "#E0F8DE",
     },
     {
-      value: "35%",
-      label: "increase in total<br/>advertising spend",
+      value: "-90%",
+      label: "cost per ad created",
       background: "#FFE8D3",
     },
     {
@@ -57,8 +57,10 @@ const WithScalemate = () => {
       <Container>
         <div className={styles.withScalemateNavigation}>
           <h2 className={styles.withScalemateTitle}>
-            With Scalemate, UAMs shorten the testing path and reduce time by
-            62%.
+            With Scalemate, ad management becomes effortless cutting time by
+            over 62%.
+            {/* With Scalemate, UAMs shorten the testing path and reduce time by
+            62%. */}
           </h2>
           <div className={styles.withScalemateNavigationButtons}>
             <div className={`${styles.withScalemateNavigationButton} prev`}>
