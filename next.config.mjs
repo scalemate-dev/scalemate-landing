@@ -11,13 +11,10 @@ const nextConfig = {
     prependData: `@import "_variables.scss";`,
   },
   webpack(config) {
-    // Exclude SVGs from default file loader
     config.module.rules.push({
-      test: /\.svg$/i,
-      issuer: /\.[jt]sx?$/,
-      use: ["@svgr/webpack"],
+      test: /\.svg$/,
+      use: ["@svgr/webpack", "url-loader"],
     })
-
     return config
   },
 }

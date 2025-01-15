@@ -20,6 +20,7 @@ const poppins = Poppins({
 })
 
 export const metadata = {
+  metadataBase: new URL("https://www.scalemate.co"),
   title: "Scalemate | Creative Testing Automation Assistant",
   description:
     "Maximize ad performance with our Facebook creatives testing automation tool — validate your ads 3x faster.",

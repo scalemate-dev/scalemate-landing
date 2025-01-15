@@ -1,7 +1,5 @@
-"use client"
 import bubble from "@/assets/icons/hero-linear-background.svg"
 import bubble2 from "@/assets/icons/hero-linear-background-2.svg"
-
 import Image from "next/image"
 import Button from "@/components/shared/Button/Button"
 import styles from "./Hero.module.scss"
