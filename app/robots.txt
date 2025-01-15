@@ -1,0 +1,44 @@
+# Global rules
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /*?*  # Block URLs with query parameters
+Disallow: /*.json$
+Disallow: /*_buildManifest.js$
+Disallow: /*_middlewareManifest.js$
+Disallow: /*_ssgManifest.js$
+Disallow: /*.js$
+Disallow: /*.css$
+
+# Block specific bots known for aggressive crawling
+User-agent: AhrefsBot
+Request-rate: 1/10  # 1 request per 10 seconds
+Crawl-delay: 10
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: SemrushBot
+Request-rate: 1/10
+Crawl-delay: 10
+
+# Allow Google Ads bot to access JS and CSS
+User-agent: Mediapartners-Google
+Allow: /*.js$
+Allow: /*.css$
+
+# Allow Google Mobile Ads bot
+User-agent: AdsBot-Google-Mobile
+Allow: /
+
+# Allow Google AdSense bot
+User-agent: Mediapartners-Google
+Allow: /
+
+# Sitemap
+Sitemap: https://www.scalemate.co/sitemap.xml
+
+# Host
+Host: https://www.scalemate.co
