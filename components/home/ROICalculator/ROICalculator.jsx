@@ -5,7 +5,7 @@ import { useState } from "react"
 import Image from "next/image"
 import Select from "@/components/shared/Select/Select"
 import Button from "@/components/shared/Button/Button"
-// import ReactSlider from "react-slider";
+import ReactSlider from "react-slider"
 import styles from "./ROICalculator.module.scss"
 
 // Constants
@@ -38,9 +38,9 @@ const ROICalculator = () => {
   const [creatives, setCreatives] = useState(78)
 
   const nicheOptions = ["Gaming Casual", "Gaming Hyper Casual", "Non-gaming"]
-  const marksCreatives = [1, 100, 200, 300, 400, 500]
-  const marksGamingCasualCPA = [1, 200, 400, 600, 800, 1000]
-  const marksGamingCPA = [1, 200, 400, 600, 800, 1000]
+  const marksCreatives = [10, 100, 200, 300, 400, 500]
+  const marksGamingCasualCPA = [10, 200, 400, 600, 800, 1000]
+  const marksGamingCPA = [10, 200, 400, 600, 800, 1000]
   const marksCPI = [1, 20, 40, 60, 80, 100]
 
   // Computed values
@@ -133,50 +133,70 @@ const ROICalculator = () => {
                 Number of creatives per month
               </div>
               <div className={styles.selectRange}>
-                {/* <ReactSlider
+                <ReactSlider
                   className={styles.slider}
                   thumbClassName={styles.thumb}
                   trackClassName={styles.track}
                   value={creatives}
                   onChange={(value) => setCreatives(value)}
-                  marks={marksCreatives}
-                  min={1}
+                  min={10}
                   max={500}
-                /> */}
+                  marks={marksCreatives}
+                  markClassName="mark"
+                  renderMark={(props) => {
+                    console.log("props ::: mark", props)
+                    return (
+                      <div {...props}>
+                        <div className="mark-label">{props.key}</div>
+                      </div>
+                    )
+                  }}
+                />
               </div>
             </div>
             {isNotGamingHyperCasual ? (
               <div className={styles.selectWrapper}>
                 <div className={styles.selectLabel}>CPA</div>
                 <div className={styles.selectRange}>
-                  {/* <ReactSlider
+                  <ReactSlider
+                    key={isGamingCasual}
                     className={styles.slider}
                     thumbClassName={styles.thumb}
                     trackClassName={styles.track}
                     value={CPA}
                     onChange={(value) => setCPA(value)}
+                    min={10}
+                    max={1000}
                     marks={
                       isGamingCasual ? marksGamingCasualCPA : marksGamingCPA
                     }
-                    min={1}
-                    max={1000}
-                  /> */}
+                    renderMark={(props) => (
+                      <div {...props}>
+                        <div className="mark-label">{props.key}</div>
+                      </div>
+                    )}
+                  />
                 </div>
               </div>
             ) : (
               <div className={styles.selectWrapper}>
                 <div className={styles.selectLabel}>CPI</div>
                 <div className={styles.selectRange}>
-                  {/* <ReactSlider
+                  <ReactSlider
                     className={styles.slider}
                     thumbClassName={styles.thumb}
                     trackClassName={styles.track}
                     value={CPI}
                     onChange={(value) => setCPI(value)}
                     marks={marksCPI}
+                    renderMark={(props) => (
+                      <div {...props}>
+                        <div className="mark-label">{props.key}</div>
+                      </div>
+                    )}
                     min={1}
                     max={100}
-                  /> */}
+                  />
                 </div>
               </div>
             )}

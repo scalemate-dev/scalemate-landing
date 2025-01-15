@@ -4,10 +4,10 @@ import background from "@/assets/icons/with-scalemate-background.svg"
 import Image from "next/image"
 import chevronLeft from "@/assets/icons/chevron-left.svg"
 import chevronRight from "@/assets/icons/chevron-right.svg"
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import { Navigation } from "swiper/modules";
-// import "swiper/css";
-// import "swiper/css/navigation";
+import { Swiper, SwiperSlide } from "swiper/react"
+import { Navigation } from "swiper/modules"
+import "swiper/css"
+import "swiper/css/navigation"
 import Container from "@/components/shared/Container/Container"
 import styles from "./WithScalemate.module.scss"
 
@@ -72,10 +72,10 @@ const WithScalemate = () => {
           </div>
         </div>
       </Container>
-      {/* <Swiper
+      <Swiper
         className={styles.withScalemateCards}
         modules={[Navigation]}
-        slidesPerView={2}
+        slidesPerView={4}
         spaceBetween={24}
         navigation={{
           nextEl: ".next",
@@ -98,7 +98,7 @@ const WithScalemate = () => {
             />
           </SwiperSlide>
         ))}
-      </Swiper> */}
+      </Swiper>
       <Container className={styles.mobile}>
         <div className={styles.withScalemateNavigationButtons}>
           <div className={`${styles.withScalemateNavigationButton} prev`}>

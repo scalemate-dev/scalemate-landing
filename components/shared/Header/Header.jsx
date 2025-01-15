@@ -22,7 +22,7 @@ const Header = () => {
           {/* <NavDropdown items={solutions} label="Product" /> */}
         </div>
         {/* <Button color="no-background">Log in</Button> */}
-        <Button color="outline" href="/book-a-demo">
+        <Button outline href="/book-a-demo">
           Get Started
         </Button>
       </Container>

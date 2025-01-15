@@ -106,10 +106,12 @@
   .slider {
     height: 6px;
     width: 100%;
+    margin-top: 24px;
     
     .track {
       height: 6px;
       background: #e5e7eb;
+      border-radius: 3px;
 
       &-0 {
         background: #f63d68;
@@ -125,28 +127,31 @@
         0px 1.15459px 2.30918px rgba(16, 24, 40, 0.06);
       border-radius: 50%;
       cursor: pointer;
+      top: -8px;
 
       &:focus {
         outline: none;
       }
     }
 
-    .mark {
+    :global(.mark) {
       width: 1px;
       height: 8px;
       background: #e5e7eb;
       cursor: pointer;
-      margin-top: -1px;
+      top: 6px;
+    }
 
-      &-text {
-        font-family: "Poppins";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 13.8551px;
-        line-height: 21px;
-        color: #747576;
-        margin-top: 8px;
-      }
+    :global(.mark-label) {
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 13.8551px;
+      line-height: 21px;
+      color: #747576;
+      position: absolute;
+      top: 5px;
+      transform: translateX(-50%);
     }
   }
 }

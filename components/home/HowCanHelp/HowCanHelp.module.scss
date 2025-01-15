@@ -6,9 +6,11 @@
   z-index: 2;
 
   .container {
-    background: #1A1A1A;
+    // background: #1A1A1A;
     border-radius: 80px;
     padding: 112px;
+    @include backgroundBlur(10px, #1A1A1A);
+    background-color: rgba(#1A1A1A, 1);
   }
 
   .title {
