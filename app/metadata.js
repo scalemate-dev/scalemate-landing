@@ -1,13 +1,13 @@
 export const defaultMetadata = {
-  title: "Scalemate | Creative Testing Automation Assistant",
+  title: "Scalemate | Smarter Way to Automate Ads Management",
   description:
-    "Maximize ad performance with our Facebook creatives testing automation tool — validate your ads 3x faster.",
+    "Launch dozens of Facebook ads in minutes, scale campaigns faster and save hours of marketing routine daily.",
   keywords:
-    "Creatives testing automation, Optimize creative management, creatives testing platform, facebook creatives testing, facebook creatives testing tool, tiktok creatives testing tool, facebook ad testing tool",
+    "Facebook ads automation software, Scale ad campaigns smarter, Bulk Facebook ads launch, Automate ad creatives upload, Save time with Facebook ad automation, Cut ad launch costs by 90%,260% faster ad launches, Marketing automation software for facebook ads, Ad management tools for marketers, How to launch multiple Facebook ads quickly, Best Facebook ads automation tools for marketers",
   openGraph: {
-    title: "Creatives testing automation tool – Scalemate",
+    title: "Smart Way to Automate Ads Management – Scalemate",
     description:
-      "Maximize ad performance with our Facebook creatives testing automation tool — validate your ads 3x faster.",
+      "Launch dozens of Facebook ads in minutes, scale campaigns faster and save hours of marketing routine daily.",
     images: [
       {
         url: "/og-image.png",
@@ -18,9 +18,9 @@ export const defaultMetadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Creatives testing automation tool – Scalemate",
+    title: "Smart Way to Automate Ads Management – Scalemate",
     description:
-      "Maximize ad performance with our Facebook creatives testing automation tool — validate your ads 3x faster.",
+      "Launch dozens of Facebook ads in minutes, scale campaigns faster and save hours of marketing routine daily.",
     images: ["https://www.scalemate.co/twitter-og-image.png"],
   },
 }
@@ -51,7 +51,7 @@ export const pageMetadata = {
   bookDemo: {
     title: "Scalemate | Book a Demo",
     description:
-      "Experience the power of automation for creatives testing. Book a demo with Scalemate to see how you can validate your ads 3x faster.",
+      "Experience the power of automation for launch ads. Book a demo with Scalemate to see how you launch your ads 3x faster.",
     keywords:
       "Book demo creatives testing, Scalemate demo, ad testing automation tool, cross-platform creatives testing, schedule Scalemate demo, ad validation acceleration",
     openGraph: {
