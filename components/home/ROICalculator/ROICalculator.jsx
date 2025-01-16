@@ -114,8 +114,7 @@ const ROICalculator = () => {
         </h2>
         <div className={styles.subtitle}>
           Let's measure your user acquisition performance before you hop in.
-          Estimate time and money savings after you automate your creatives
-          testing process.
+          Estimate time and money savings after you automate your ad campaigns.
         </div>
 
         <div className={styles.row}>
