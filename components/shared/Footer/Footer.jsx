@@ -13,7 +13,8 @@ const Footer = () => {
             <Logo />
           </div>
           <div className={styles.footerTitle}>
-            Find winning ads <br /> to triple-scale your app
+            Launch Ads Faster
+            <br /> and triple-scale your app
           </div>
           <div className={styles.footerButtons}>
             <a
