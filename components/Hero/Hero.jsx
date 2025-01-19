@@ -34,17 +34,26 @@ const Hero = ({ title, description, type = "primary", image }) => {
         >
           Try for free <span style={{ marginLeft: "4px" }}>🚀</span>
         </Button>
-        <div className={styles.heroImageContainer}>
-          {image && (
-            <Image className={styles.heroImage} src={image} alt="Launch" />
-          )}
-        </div>
       </div>
     </div>
   )
 
   const renderSecondaryHero = () => (
     <div className={cn(styles.hero, type === "secondary" && styles.secondary)}>
+      <Image
+        className={styles.linearBackground1}
+        src={bubble}
+        alt=""
+        width={800}
+        height={800}
+      />
+      <Image
+        className={styles.linearBackground2}
+        src={bubble2}
+        alt=""
+        width={800}
+        height={800}
+      />
       <Container>
         <div className={styles.contentWrapper}>
           <div className={styles.heroContent}>
@@ -61,7 +70,11 @@ const Hero = ({ title, description, type = "primary", image }) => {
           </div>
           <div className={styles.heroImageContainer}>
             {image && (
-              <Image className={styles.heroImage} src={image} alt="Launch" />
+              <Image
+                className={styles.heroImage}
+                src={image}
+                alt="Scalemate automated workflow "
+              />
             )}
           </div>
         </div>
