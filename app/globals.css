@@ -41,6 +41,70 @@ body {
   margin: 0;
 }
 
+h1 {
+  font-family: var(--font-poppins);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 80px;
+  line-height: 96px;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: #121718;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-family: var(--font-poppins);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 44px;
+  color: #121718;
+  margin-bottom: 20px;
+}
+
+h1 span, h2 span {
+  background: url('/hero-text.jpg');
+  background-repeat: no-repeat;
+  background-size: 137%;
+  background-position: 40% 56%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes float {
+  0% {
+    box-shadow: 0 3px 5px 0px rgba(0,0,0, 0.3);
+    transform: translatey(0px);
+  }
+  50% {
+    box-shadow: 0 6px 5px 0px rgba(0,0,0,0.1);
+    transform: translatey(-2px);
+  }
+  100% {
+    box-shadow: 0 3px 5px 0px rgba(0,0,0,0.3);
+    transform: translatey(0px);
+  }
+} 
+
+.float {
+  animation: float 2s ease-in-out infinite;
+  transition: all 1s ease-in-out;
+}
+
+.float:hover {
+  box-shadow: 0 3px 5px 0px rgba(0,0,0,0.3);
+  transform: translatey(0px) !important;
+}
+
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -51,5 +115,6 @@ a {
     color-scheme: dark;
   }
 }
+
 
 

@@ -1,7 +1,7 @@
 "use client"
-import Container from "@/components/shared/Container/Container"
+import Container from "@/components/elements/Container/Container"
 
-import Button from "@/components/shared/Button/Button"
+import Button from "@/components/elements/Button/Button"
 import styles from "./WaitList.module.scss"
 
 const WaitList = ({ noButton }) => {

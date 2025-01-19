@@ -3,7 +3,7 @@ export const defaultMetadata = {
   description:
     "Launch dozens of Facebook ads in minutes, scale campaigns faster and save hours of marketing routine daily.",
   keywords:
-    "Facebook ads automation software, Scale ad campaigns smarter, Bulk Facebook ads launch, Automate ad creatives upload, Save time with Facebook ad automation, Cut ad launch costs by 90%,260% faster ad launches, Marketing automation software for facebook ads, Ad management tools for marketers, How to launch multiple Facebook ads quickly, Best Facebook ads automation tools for marketers",
+    "Facebook ads automation software, Scale ad campaigns smarter, Bulk Facebook ads launch, Automate ad creatives upload, Save time with Facebook ad automation, Cut ad launch costs by 90%, Marketing automation software for facebook ads, Ad management tools for marketers, Launch ads",
   openGraph: {
     title: "Smart Way to Automate Ads Management – Scalemate",
     description:

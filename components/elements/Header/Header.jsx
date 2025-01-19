@@ -1,8 +1,8 @@
 import Container from "../Container/Container"
 
 import Link from "next/link"
-import Logo from "@/components/shared/Logo"
-import Button from "@/components/shared/Button/Button"
+import Logo from "@/components/elements/Logo"
+import Button from "@/components/elements/Button/Button"
 import styles from "./Header.module.scss"
 
 const Header = () => {

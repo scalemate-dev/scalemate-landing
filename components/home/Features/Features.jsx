@@ -7,7 +7,7 @@ import features1 from "@/assets/images/home/features-1.png"
 import features2 from "@/assets/images/home/features-2.png"
 
 import Image from "next/image"
-import Container from "@/components/shared/Container/Container"
+import Container from "@/components/elements/Container/Container"
 import styles from "./Features.module.scss"
 
 const Features = () => {
@@ -84,7 +84,7 @@ const Features = () => {
               >
                 {feature.badge.label}
               </div>
-              <div className={styles.featureTitle}>{feature.title}</div>
+              <h3 className={styles.featureTitle}>{feature.title}</h3>
               <div
                 className={styles.featureDescription}
                 dangerouslySetInnerHTML={{ __html: feature.description }}

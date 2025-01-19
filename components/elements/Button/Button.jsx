@@ -1,9 +1,9 @@
-"use client";
+"use client"
 
-import cn from "classnames";
-import Link from "next/link";
-import Spinner from "../Spinner/Spinner";
-import styles from "./Button.module.scss";
+import cn from "classnames"
+import Link from "next/link"
+import Spinner from "../Spinner/Spinner"
+import styles from "./Button.module.scss"
 
 const Button = ({
   color,
@@ -15,6 +15,7 @@ const Button = ({
   children,
   onClick,
   outline,
+  float,
   ...props
 }) => {
   const className = cn(styles.button, {
@@ -22,19 +23,20 @@ const Button = ({
     [styles.wide]: wide,
     [styles.disabled]: disabled,
     [styles.outline]: outline,
-  });
+    float: float,
+  })
 
   const handleClick = (e) => {
-    if (disabled) return;
-    onClick?.(e);
-  };
+    if (disabled) return
+    onClick?.(e)
+  }
 
   if (href) {
     return (
       <Link href={href} className={className}>
         {children}
       </Link>
-    );
+    )
   }
 
   return (
@@ -48,7 +50,7 @@ const Button = ({
       {loading && <Spinner />}
       {children}
     </button>
-  );
-};
+  )
+}
 
-export default Button;
+export default Button

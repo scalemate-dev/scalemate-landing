@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation } from "swiper/modules"
 import "swiper/css"
 import "swiper/css/navigation"
-import Container from "@/components/shared/Container/Container"
+import Container from "@/components/elements/Container/Container"
 import styles from "./WithScalemate.module.scss"
 
 const WithScalemate = () => {
@@ -77,7 +77,7 @@ const WithScalemate = () => {
       <Swiper
         className={styles.withScalemateCards}
         modules={[Navigation]}
-        slidesPerView={4}
+        slidesPerView={3}
         spaceBetween={24}
         navigation={{
           nextEl: ".next",

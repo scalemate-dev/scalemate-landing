@@ -1,9 +1,9 @@
 "use client"
 
 import Image from "next/image"
-import Container from "../../shared/Container/Container"
+import Container from "@/components/elements/Container/Container"
 import styles from "./Footer.module.scss"
-import Logo from "@/components/shared/Logo"
+import Logo from "@/components/elements/Logo"
 const Footer = () => {
   return (
     <div className={styles.footer}>
