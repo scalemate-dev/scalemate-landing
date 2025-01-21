@@ -3,14 +3,14 @@ export default function sitemap() {
     {
       url: "https://scalemate.co",
       lastModified: new Date(),
-      changeFrequency: "yearly",
+      changeFrequency: "monthly",
       priority: 1,
     },
     {
       url: "https://scalemate.co/book-a-demo",
       lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
+      changeFrequency: "monthly",
+      priority: 0.9,
     },
   ]
 }
