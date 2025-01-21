@@ -1,6 +1,7 @@
 import Hero from "../../components/Hero/Hero"
 import Features from "../../components/home/Features/Features"
 
+import Metrics from "@/components/Metrics/Metrics"
 import WaitList from "../../components/home/WaitList/WaitList"
 import styles from "@/assets/styles/shared.module.scss"
 import { pageMetadata } from "../metadata"
@@ -27,6 +28,7 @@ export default function Launch() {
         description={description}
         image={SmartFlowImg}
       />
+      <Metrics />
       <Advantages />
       <Features />
       <Slider />

@@ -7,6 +7,25 @@ import styles from "./Hero.module.scss"
 import cn from "classnames"
 
 const Hero = ({ title, description, type = "primary", image }) => {
+  const renderButton = () => {
+    return (
+      <>
+        <Button
+          color="accent"
+          className={styles.heroSubmit}
+          float
+          href="/book-a-demo"
+        >
+          Try for free <span style={{ marginLeft: "4px" }}>🚀</span>
+        </Button>
+        <div className={styles.heroTrial}>
+          <span>✓ 1-month free trial</span>
+          <span>✓ No credit card required</span>
+          <span>✓ Custom integrations</span>
+        </div>
+      </>
+    )
+  }
   const renderPrimaryHero = () => (
     <div className={cn(styles.hero, styles.primary)}>
       <Image
@@ -23,18 +42,11 @@ const Hero = ({ title, description, type = "primary", image }) => {
         width={800}
         height={800}
       />
-      <div className={styles.heroContainer}>
+      <Container className={styles.hero}>
         <h1>{title}</h1>
         <div className={styles.heroDescription}>{description}</div>
-        <Button
-          color="accent"
-          className={styles.heroSubmit}
-          float
-          href="/book-a-demo"
-        >
-          Try for free <span style={{ marginLeft: "4px" }}>🚀</span>
-        </Button>
-      </div>
+        {renderButton()}
+      </Container>
     </div>
   )
 
@@ -59,14 +71,7 @@ const Hero = ({ title, description, type = "primary", image }) => {
           <div className={styles.heroContent}>
             <h1>{title}</h1>
             <div className={styles.heroDescription}>{description}</div>
-            <Button
-              color="accent"
-              className={styles.heroSubmit}
-              float
-              href="/book-a-demo"
-            >
-              Try for free <span style={{ marginLeft: "4px" }}>🚀</span>
-            </Button>
+            {renderButton()}
           </div>
           <div className={styles.heroImageContainer}>
             {image && (

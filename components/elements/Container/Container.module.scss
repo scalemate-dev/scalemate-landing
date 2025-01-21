@@ -5,13 +5,13 @@
   margin: 0 auto;
 }
 
-@media (max-width: 1080px) {
+@include tablet-horizontal {
   .container {
     padding: 0 64px;
   }
 }
 
-@media (max-width: 768px) {
+@include tablet-vertical {
   .container {
     padding: 0 24px;
   }

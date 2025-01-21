@@ -88,9 +88,9 @@
   background: #FFFFFF;
 }
 
-@media (max-width: 1080px) {
+@include tablet-horizontal {
   .wrapper {
-    padding: 64px 24px;
+    padding: 64px 0;
   }
 
   .tilesGrid {

@@ -1,3 +1,9 @@
 .advantages {
   padding-top: 112px;
 }
+
+@include tablet-horizontal {
+  .advantages {
+    padding-top: 0;
+  }
+}
