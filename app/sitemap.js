@@ -1,15 +1,15 @@
 export default function sitemap() {
   return [
     {
-      url: "https://www.scalemate.co",
+      url: "https://scalemate.co",
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 1,
     },
     {
-      url: "https://www.scalemate.co/book-a-demo",
+      url: "https://scalemate.co/book-a-demo",
       lastModified: new Date(),
-      changeFrequency: "monthly",
+      changeFrequency: "weekly",
       priority: 0.8,
     },
   ]
