@@ -8,7 +8,12 @@ import Footer from "@/components/shared/Footer/Footer"
 import styles from "./page.module.scss"
 import { pageMetadata } from "./metadata"
 
-export const metadata = pageMetadata.home
+export const metadata = {
+  ...pageMetadata.home,
+  alternates: {
+    canonical: "https://www.scalemate.co",
+  },
+}
 
 export default function Home() {
   return (

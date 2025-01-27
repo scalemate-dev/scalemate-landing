@@ -21,26 +21,6 @@ const poppins = Poppins({
 
 export const metadata = {
   metadataBase: new URL("https://www.scalemate.co"),
-  title: "Scalemate | Smarter Way to Automate Ads Management",
-  description:
-    "Launch dozens of Facebook ads in minutes, scale campaigns faster and save hours of marketing routine daily.",
-  // "Maximize ad performance with our Facebook creatives testing automation tool — validate your ads 3x faster.",
-  keywords:
-    "Facebook ads automation software, Scale ad campaigns smarter, Bulk Facebook ads launch, Automate ad creatives upload, Save time with Facebook ad automation, Cut ad launch costs by 90%,260% faster ad launches, Marketing automation software for facebook ads, Ad management tools for marketers, How to launch multiple Facebook ads quickly, Best Facebook ads automation tools for marketers",
-  // "Facebook ads automation software, optimize ads management, facebook bulk ads launch, benefits of facebook ads automation, marketing automation software, creatives upload to facebook",
-  openGraph: {
-    title: "Smart Way to Automate Ads Management – Scalemate",
-    description:
-      "Launch dozens of Facebook ads in minutes, scale campaigns faster and save hours of marketing routine daily.",
-    images: ["/og-image.png"],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Smart Way to Automate Ads Management – Scalemate",
-    description:
-      "Launch dozens of Facebook ads in minutes, scale campaigns faster and save hours of marketing routine daily.",
-    images: ["https://www.scalemate.co/twitter-og-image.png"],
-  },
 }
 
 export default function RootLayout({ children }) {
