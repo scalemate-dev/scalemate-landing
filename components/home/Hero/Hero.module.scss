@@ -14,7 +14,7 @@
 
   &:hover {
     box-shadow: 0 5px 8px 0px rgba(0,0,0, 0.2) !important;
-    transform: translatey(0px) !important;
+    transform: translateY(0px) !important;
   }
 
   &:active {
@@ -111,6 +111,16 @@
   .linearBackground2 {
     transform: translate(65%, 25%);
   }
+}
+
+.notFound {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #f8f8f8;
+  padding: 24px;
 }
 
 @keyframes float {

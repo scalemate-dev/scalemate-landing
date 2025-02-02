@@ -1,0 +1,53 @@
+.notFound {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #f8f8f8;
+  padding: 24px;
+
+  h1 {
+    font-family: var(--font-poppins);
+    font-size: 120px;
+    font-weight: 700;
+    color: #121718;
+    margin-bottom: 16px;
+    line-height: 1;
+  }
+
+  h2 {
+    font-family: var(--font-poppins);
+    font-size: 36px;
+    font-weight: 700;
+    color: #121718;
+    margin-bottom: 16px;
+  }
+
+  p {
+    font-family: var(--font-inter);
+    font-size: 18px;
+    color: #475467;
+    margin-bottom: 32px;
+  }
+
+  .homeLink {
+    display: inline-block;
+  }
+}
+
+@media (max-width: 768px) {
+  .notFound {
+    h1 {
+      font-size: 80px;
+    }
+
+    h2 {
+      font-size: 24px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+}
