@@ -10,6 +10,17 @@ const nextConfig = {
     includePaths: [path.join(__dirname, "app/styles")],
     prependData: `@import "_variables.scss";`,
   },
+  experimental: {
+    turbo: {
+      rules: {
+        // Handle .inline.svg files as React components
+        "*.inline.svg": {
+          loaders: ["@svgr/webpack"],
+          as: "*.js",
+        },
+      },
+    },
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,

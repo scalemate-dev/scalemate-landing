@@ -1,27 +1,52 @@
-"use client";
+"use client"
+import Chevron from "@/assets/icons/chevron.svg"
 
-import { useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import cn from "classnames";
-import styles from "./NavDropdown.module.scss";
+import { useState, useRef, useEffect } from "react"
+import Link from "next/link"
+import Image from "next/image"
+import cn from "classnames"
+import styles from "./NavDropdown.module.scss"
 
 const NavDropdown = ({ label, items = [] }) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
+  const dropdownRef = useRef(null)
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false)
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [])
+
+  const renderNavItem = (item) => {
+    return (
+      <>
+        {item.icon ? item.icon : null}
+        <div>
+          <p className={styles.itemLabel}>{item.label}</p>
+          <p className={styles.itemDescription}>{item.description}</p>
+        </div>
+      </>
+    )
+  }
 
   return (
     <div
+      ref={dropdownRef}
       className={styles.navDropdown}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={() => setIsOpen(true)}
     >
-      <div className={styles.label}>
+      <div className={styles.label} onClick={() => setIsOpen(!isOpen)}>
         {label}
         <Image
           className={cn(styles.arrow, {
-            [styles.rotated]: isHovered,
+            [styles.rotated]: isOpen,
           })}
-          src="/icons/chevron.svg"
+          src={Chevron}
           alt="Dropdown arrow"
           width={16}
           height={16}
@@ -29,30 +54,36 @@ const NavDropdown = ({ label, items = [] }) => {
       </div>
       <div
         className={cn(styles.list, {
-          [styles.visible]: isHovered,
+          [styles.visible]: isOpen,
         })}
       >
-        {items.map((item) =>
-          item.disabled ? (
-            <span
+        {items.map((item) => {
+          if (item.disabled) {
+            return (
+              <span
+                key={item.path}
+                className={styles.item}
+                data-disabled="true"
+              >
+                {renderNavItem(item)}
+              </span>
+            )
+          }
+          return (
+            <Link
               key={item.path}
+              href={item.path}
               className={styles.item}
-              data-disabled={item.disabled}
+              data-disabled={item.disabled ? "true" : "false"}
+              onClick={() => setIsOpen(false)}
             >
-              {item.label}
-              {item.disabled && (
-                <span className={styles.upcomingNote}>Coming soon</span>
-              )}
-            </span>
-          ) : (
-            <Link key={item.path} href={item.path} className={styles.item}>
-              {item.label}
+              {renderNavItem(item)}
             </Link>
           )
-        )}
+        })}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default NavDropdown;
+export default NavDropdown
