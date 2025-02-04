@@ -13,7 +13,6 @@ const nextConfig = {
   experimental: {
     turbo: {
       rules: {
-        // Handle .inline.svg files as React components
         "*.inline.svg": {
           loaders: ["@svgr/webpack"],
           as: "*.js",
@@ -23,8 +22,13 @@ const nextConfig = {
   },
   webpack(config) {
     config.module.rules.push({
+      test: /\.inline\.svg$/,
+      use: ["@svgr/webpack"],
+    })
+    config.module.rules.push({
       test: /\.svg$/,
-      use: ["@svgr/webpack", "url-loader"],
+      exclude: /\.inline\.svg$/,
+      use: ["url-loader"],
     })
     return config
   },
