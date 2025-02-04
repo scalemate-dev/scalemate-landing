@@ -10,6 +10,58 @@ import Image from "next/image"
 import Container from "@/components/elements/Container/Container"
 import styles from "./Features.module.scss"
 
+/**
+ * FeatureItem Component
+ *
+ * A pure component to render a single feature block.
+ * Accepts the `feature` object and its `index` as props.
+ */
+export const FeatureItem = ({ feature, index }) => {
+  return (
+    <div className={styles.feature}>
+      {index === 0 && (
+        <Image
+          className={styles.featureImage1}
+          src={features1}
+          alt=""
+          width={500}
+          height={500}
+        />
+      )}
+      {index === 1 && (
+        <Image
+          className={styles.featureImage2}
+          src={features2}
+          alt=""
+          width={500}
+          height={500}
+        />
+      )}
+      <div className={styles.featureContent}>
+        {feature.badge && (
+          <div
+            className={styles.featureBadge}
+            style={{
+              color: feature.badge.color,
+              background: feature.badge.background,
+            }}
+          >
+            {feature.badge.label}
+          </div>
+        )}
+        <h3 className={styles.featureTitle}>{feature.title}</h3>
+        <div
+          className={styles.featureDescription}
+          dangerouslySetInnerHTML={{ __html: feature.description }}
+        />
+      </div>
+      <div className={styles.featureImage}>
+        <Image src={feature.image} alt={feature.title} height={500} />
+      </div>
+    </div>
+  )
+}
+
 const Features = () => {
   const features = [
     {
@@ -55,45 +107,7 @@ const Features = () => {
     <div className={styles.features}>
       <Container className={styles.container}>
         {features.map((feature, index) => (
-          <div key={index} className={styles.feature}>
-            {index === 0 && (
-              <Image
-                className={styles.featureImage1}
-                src={features1}
-                alt=""
-                width={500}
-                height={500}
-              />
-            )}
-            {index === 1 && (
-              <Image
-                className={styles.featureImage2}
-                src={features2}
-                alt=""
-                width={500}
-                height={500}
-              />
-            )}
-            <div className={styles.featureContent}>
-              <div
-                className={styles.featureBadge}
-                style={{
-                  color: feature.badge.color,
-                  background: feature.badge.background,
-                }}
-              >
-                {feature.badge.label}
-              </div>
-              <h3 className={styles.featureTitle}>{feature.title}</h3>
-              <div
-                className={styles.featureDescription}
-                dangerouslySetInnerHTML={{ __html: feature.description }}
-              />
-            </div>
-            <div className={styles.featureImage}>
-              <Image src={feature.image} alt={feature.title} height={500} />
-            </div>
-          </div>
+          <FeatureItem key={index} feature={feature} index={index} />
         ))}
       </Container>
     </div>

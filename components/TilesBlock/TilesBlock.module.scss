@@ -1,5 +1,5 @@
 .wrapper {
-  padding: 120px 0;
+  padding-bottom: 120px;
   max-width: 1440px;
 }
 
@@ -90,7 +90,7 @@
 
 @include tablet-horizontal {
   .wrapper {
-    padding: 64px 0;
+    padding-bottom: 64px;
   }
 
   .tilesGrid {
