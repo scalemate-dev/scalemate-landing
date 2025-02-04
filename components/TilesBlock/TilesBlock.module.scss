@@ -41,11 +41,15 @@
   padding: 32px;
   border-radius: 24px;
   display: flex;
-  flex-direction: column;
+  align-items: flex-end;
   min-height: 320px;
   position: relative;
   overflow: hidden;
   border: 2px solid #121718;
+}
+
+.tileContent {
+  height: 100%;
 }
 
 .tileTitle {
@@ -58,17 +62,16 @@
 
 .tileDescription {
   font-size: 24px;
+  max-width: 347px;
   font-weight: 500;
   color: #121718;
-  max-width: 80%;
+  // max-width: 80%;
 }
 
 .tileImage {
-  position: absolute;
-  bottom: 24px;
-  right: 24px;
-  width: 180px;
-  height: 180px;
+  // position: absolute;
+  // bottom: 24px;
+  // right: 16px;
 }
 
 // Theme variations

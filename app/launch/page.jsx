@@ -9,11 +9,10 @@ import { pageMetadata } from "../metadata"
 import Advantages from "@/components/Launch/Advantages/Advantages"
 // import Slider from "@/components/elements/Slider/Slider"
 import creativeLibrary from "@/assets/images/home/creative-library.png"
+import campaignStructure from "@/assets/images/launch/campaign-structure.png"
 import cloudSync from "@/assets/images/home/cloud-sync.png"
 import smartFlow from "@/assets/images/home/smart-flow.png"
 import SmartFlowImg from "@/assets/images/home/smart-flow.png"
-
-export const metadata = pageMetadata.home
 
 const features = [
   {
@@ -26,7 +25,7 @@ const features = [
 
 const advantages = [
   {
-    image: creativeLibrary,
+    image: campaignStructure,
     title: "Keep your campaign scheme",
     description:
       "Continue using your preferred setup, like launching with 1 ad set and 1 ad to maintain control over every ad’s spending.",
@@ -45,6 +44,7 @@ const advantages = [
   },
 ]
 
+export const metadata = pageMetadata.launch
 export default function Launch() {
   const renderTitle = () => {
     return (

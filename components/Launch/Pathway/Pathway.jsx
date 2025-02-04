@@ -19,8 +19,8 @@ export default function Pathway() {
         </h2>
         <p className={styles.description}>
           Shorten your creative rotation cycle and save more than 13 hours per
-          100 creatives.Release your team from the manual job and find the
-          winning ad faster
+          100 creatives. <br /> Release your team from the manual job and find
+          the winning ad faster
         </p>
         <div className={styles.wrapper}>
           <div className={styles.pathway}>
