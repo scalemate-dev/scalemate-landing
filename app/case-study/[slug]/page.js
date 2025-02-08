@@ -1,4 +1,5 @@
 import { createClient } from "contentful"
+
 import RichTextElements from "@/components/contentful/RichText/RichTextElements"
 import Hero from "@/components/CaseStudy/Hero/Hero"
 import WaitList from "@/components/home/WaitList/WaitList"
@@ -36,7 +37,7 @@ async function AppPage({ params }) {
   console.log("caseStudy", caseStudy.fields.content)
 
   return (
-    <main style={{ width: "100%" }}>
+    <main>
       <Hero title={caseStudy.fields.title} label="Case Study" />
       <Overview
         industry={caseStudy.fields.industry}

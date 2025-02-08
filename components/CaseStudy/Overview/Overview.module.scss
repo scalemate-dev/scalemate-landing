@@ -6,15 +6,23 @@
 }
 
 .card {
-  background: linear-gradient(135deg,#9483f8,#5b58fb);
+  background: linear-gradient(
+    124.28deg,
+    rgba(246, 61, 104, 0.4) 18.79%,
+    rgba(251, 214, 119, 0.4) 77.96%
+  );
   border-radius: 8px;
   padding: 32px;
   width: 312px;
-  color: white;
+  color: #121718;
 }
 
 .logo {
   margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  padding: 16px;
+  width: 100%;
   object-fit: contain;
 }
 
@@ -27,7 +35,7 @@
 .infoGroup {
   .label {
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.7);
+    color: #121718;
     margin-bottom: 0.25rem;
   }
 

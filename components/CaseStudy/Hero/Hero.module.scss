@@ -18,3 +18,20 @@
   text-decoration: none;
   color: #9CA3AF;
 }
+
+
+.linearBackground1 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-0%, 0%);
+  z-index: -1;
+}
+
+.linearBackground2 {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(25%, 5%);
+  z-index: -1;
+}
