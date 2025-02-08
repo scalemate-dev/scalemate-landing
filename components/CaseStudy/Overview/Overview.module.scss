@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+  align-content: center;
+  padding: 64px 0;
+  gap: 8px;
+}
+
+.card {
+  background: linear-gradient(135deg,#9483f8,#5b58fb);
+  border-radius: 8px;
+  padding: 32px;
+  width: 312px;
+  color: white;
+}
+
+.logo {
+  margin-bottom: 16px;
+  object-fit: contain;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.infoGroup {
+  .label {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.25rem;
+  }
+
+  .value {
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 88px 48px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #fff, #f3f4f7);
+}
+
+.heading p {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #121718;
+}
+
+.overviewText {
+  color: #9CA3AF; // Gray-400 equivalent
+} 
