@@ -53,7 +53,7 @@ const Header = () => {
             <Logo className={styles.logo} />
           </Link>
           <NavDropdown items={solutions} label="Product" />
-          <NavDropdown items={solutions} label="Integrations" />
+          {/* <NavDropdown items={solutions} label="Integrations" /> */}
         </div>
         <Button outline href="/book-a-demo">
           Get Started

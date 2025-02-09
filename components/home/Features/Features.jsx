@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link"
 import creativeLibrary from "@/assets/images/home/creative-library.png"
 import cloudSync from "@/assets/images/home/cloud-sync.png"
 import smartFlow from "@/assets/images/home/smart-flow.png"
@@ -54,6 +55,15 @@ export const FeatureItem = ({ feature, index }) => {
           className={styles.featureDescription}
           dangerouslySetInnerHTML={{ __html: feature.description }}
         />
+
+        {feature.callToAction && (
+          <Link
+            href={feature.callToAction.href}
+            className={styles.callToAction}
+          >
+            {feature.callToAction.label} →
+          </Link>
+        )}
       </div>
       <div className={styles.featureImage}>
         <Image src={feature.image} alt={feature.title} height={500} />

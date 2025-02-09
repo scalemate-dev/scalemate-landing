@@ -1,5 +1,10 @@
 .navDropdown {
   position: relative;
+
+  .labelWrapper {
+    position: relative;
+  }
+  
   .label {
     display: flex;
     justify-content: space-between;

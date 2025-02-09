@@ -40,7 +40,7 @@ const NavDropdown = ({ label, items = [] }) => {
       className={styles.navDropdown}
       onMouseEnter={() => setIsOpen(true)}
     >
-      <div className={styles.label} onClick={() => setIsOpen(!isOpen)}>
+      <div className={styles.label}>
         {label}
         <Image
           className={cn(styles.arrow, {
@@ -53,6 +53,7 @@ const NavDropdown = ({ label, items = [] }) => {
         />
       </div>
       <div
+        onMouseLeave={() => setIsOpen(false)}
         className={cn(styles.list, {
           [styles.visible]: isOpen,
         })}

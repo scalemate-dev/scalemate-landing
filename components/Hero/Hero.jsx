@@ -73,15 +73,16 @@ const Hero = ({ title, description, type = "primary", image }) => {
             <div className={styles.heroDescription}>{description}</div>
             {renderButton()}
           </div>
-          <div className={styles.heroImageContainer}>
-            {image && (
-              <Image
-                className={styles.heroImage}
-                src={image}
-                alt="Scalemate automated workflow "
-              />
-            )}
-          </div>
+          {/* <div className={styles.heroImageContainer}> */}
+          {image && (
+            <Image
+              className={styles.heroImage}
+              src={image}
+              objectFit="contain"
+              alt="Scalemate automated workflow"
+            />
+          )}
+          {/* </div> */}
         </div>
       </Container>
     </div>

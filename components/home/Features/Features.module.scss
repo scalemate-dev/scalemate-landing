@@ -1,5 +1,5 @@
 .features {
-  padding: 236px 0;
+  padding: 64px 0;
 
   .container {
     display: flex;
@@ -23,6 +23,25 @@
         order: 2;
       }
     }
+  }
+
+  .heading {
+    position: relative;
+    z-index: 1;
+  }
+
+  .title {
+    font-size: 52px;
+    text-align: center;
+    margin-bottom: 24px;
+    span {
+      @include text-gradient;
+    }
+  }
+  
+  .description {
+    font-size: 20px;
+    text-align: center;
   }
 
   .featureImage,
@@ -90,6 +109,15 @@
     line-height: 28px;
     color: #121718;
   }
+}
+
+.callToAction {
+  display: inline-block;
+  font-size: 20px;
+  font-family: 'Inter';
+  font-weight: 500;
+  color: #4450f2;
+  margin-top: 32px;
 }
 
 @media (max-width: 1080px) {

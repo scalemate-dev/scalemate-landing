@@ -15,12 +15,16 @@ export default function Pathway() {
     <Container>
       <div className={styles.content}>
         <h2 className={styles.title}>
-          <span>Lighter Path</span> to Launch campaigns
+          <span>Easy way</span> to Launch campaigns
         </h2>
         <p className={styles.description}>
-          Shorten your creative rotation cycle and save more than 13 hours per
-          100 creatives. <br /> Release your team from the manual job and find
-          the winning ad faster
+          Save over 13 hours per 100 creatives by automating manual tasks
+          <br />
+          Scalemate streamlines your ad management, so you can focus on what
+          matters.
+          {/* Shorten your creative rotation cycle and save more than 13 hours per
+          100 ads. <br /> Release your team from the manual job and find the
+          winning ad faster */}
         </p>
         <div className={styles.wrapper}>
           <div className={styles.pathway}>
