@@ -19,7 +19,7 @@ export default function Home() {
       </>
     )
   }
-  const description = `Scalemate let you launch dozens ads in minutes, scaling campaigns
+  const description = `Scalemate let you launch hundreds of ads in minutes, scaling campaigns
           faster and smarter. Born to erase marketing routine and save you 3
           hours daily.`
   return (

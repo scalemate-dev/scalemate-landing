@@ -61,14 +61,13 @@ const TilesBlock = () => {
             className={styles.tile}
             style={{ backgroundColor: tile.bg }}
           >
+            <h3 className={styles.tileTitle}>{tile.title}</h3>
             <div className={styles.tileContent}>
-              <h3 className={styles.tileTitle}>{tile.title}</h3>
               <p className={styles.tileDescription}>{tile.description}</p>
-            </div>
-            <div className={styles.tileImage}>
               <Image
                 src={tile.image.src}
                 alt={tile.image.alt}
+                className={styles.tileImage}
                 width={tile.image.width}
               />
             </div>

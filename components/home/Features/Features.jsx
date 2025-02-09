@@ -2,10 +2,11 @@
 import Link from "next/link"
 import creativeLibrary from "@/assets/images/home/creative-library.png"
 import cloudSync from "@/assets/images/home/cloud-sync.png"
-import smartFlow from "@/assets/images/home/smart-flow.png"
+import rulesImage from "@/assets/images/launch/rules-dashboard.png"
 
 import features1 from "@/assets/images/home/features-1.png"
 import features2 from "@/assets/images/home/features-2.png"
+import launchSchema from "@/assets/images/launch/launch-schema.png"
 
 import Image from "next/image"
 import Container from "@/components/elements/Container/Container"
@@ -75,29 +76,28 @@ export const FeatureItem = ({ feature, index }) => {
 const Features = () => {
   const features = [
     {
-      image: smartFlow,
+      image: launchSchema,
       badge: {
         label: "Smart Launches",
         background: "#F4F3FF",
         color: "#5925DC",
       },
-      title: "Efortless launch to Win",
+      title: "Easy launch to Win",
       description: `Run multiple ads with ease using smart launches.
         <br /><br />
         With Scalemate, launching ads is as simple as a click. No hassle, just
         results.`,
     },
     {
-      image: creativeLibrary,
+      image: rulesImage,
+      title: "Scale on Autopilot",
       badge: {
-        label: "Creative Library",
-        background: "#FFF1F3",
-        color: "#C01048",
+        label: "Rules",
+        background: "#F4F3FF",
+        color: "#5925DC",
       },
-      title: "Unified creative library",
-      description: `Keep all your creatives in one place and instantly reach the asset you need. Filter files by tags, sizes, colors, and more.
-        <br /><br />
-        Access historical data about launched campaigns so you would never repeat them.`,
+      description:
+        "Optimize ad performance effortlessly. <br/> <br/> Automate scaling, pausing, and bid adjustments to maximize ROAS and reduce manual work.",
     },
     {
       image: cloudSync,
@@ -110,6 +110,18 @@ const Features = () => {
       description: `Forget about manual drag & drop routine — upload files in bulk via cloud sync.
         <br /><br />
         Transfer videos & images from cloud storage to advertisement platform with zero effort on your side.`,
+    },
+    {
+      image: creativeLibrary,
+      badge: {
+        label: "Creative Library",
+        background: "#FFF1F3",
+        color: "#C01048",
+      },
+      title: "Unified creative library",
+      description: `Keep all your creatives in one place and instantly reach the asset you need. Filter files by tags, sizes, colors, and more.
+        <br /><br />
+        Access historical data about launched campaigns so you would never repeat them.`,
     },
   ]
 

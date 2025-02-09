@@ -172,3 +172,9 @@
     flex-flow: column nowrap;
   }
 } 
+
+@include mobile {
+  .helpImage {
+    display: none;
+  }
+}

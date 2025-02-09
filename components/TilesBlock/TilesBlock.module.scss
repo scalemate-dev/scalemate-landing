@@ -40,8 +40,8 @@
 .tile {
   padding: 32px;
   border-radius: 24px;
-  display: flex;
-  align-items: flex-end;
+  // display: flex;
+  // align-items: flex-end;
   min-height: 320px;
   position: relative;
   overflow: hidden;
@@ -49,7 +49,8 @@
 }
 
 .tileContent {
-  height: 100%;
+  display: flex;
+  height: 80%;
 }
 
 .tileTitle {
@@ -57,7 +58,8 @@
   font-weight: 700;
   font-size: 32px;
   color: #1A1A1A;
-  margin-bottom: 12px;
+  line-height: 32px;
+  margin-bottom: 32px;
 }
 
 .tileDescription {
@@ -69,6 +71,7 @@
 }
 
 .tileImage {
+  align-self: flex-end;
   // position: absolute;
   // bottom: 24px;
   // right: 16px;
@@ -91,6 +94,17 @@
   background: #FFFFFF;
 }
 
+@include desktop-s {
+  .tileContent {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tileImage {
+    align-self: center;
+  }
+}
+
 @include tablet-horizontal {
   .wrapper {
     padding-bottom: 64px;
@@ -98,6 +112,16 @@
 
   .tilesGrid {
     grid-template-columns: 1fr;
+  }
+
+  .tileContent {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .tileImage {
+    align-self: flex-end;
   }
 
   .title {
@@ -110,3 +134,14 @@
     line-height: 28px;
   }
 } 
+
+@include mobile {
+  .tileContent {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tileImage {
+    align-self: center;
+  }
+}

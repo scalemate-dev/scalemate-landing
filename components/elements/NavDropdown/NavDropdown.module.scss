@@ -105,6 +105,18 @@
     }
   }
 
+  @include mobile {
+    .list {
+      position: fixed;
+      left: 0;
+      top: 78px;
+      width: 100%;
+      min-width: 100%;
+      z-index: 100;
+      border-radius: 0;
+      @include backgroundBlur(24px, rgba(255, 194, 194, 0.95));
+    }
+  }
   @keyframes fadeIn {
     0% {
       opacity: 0;

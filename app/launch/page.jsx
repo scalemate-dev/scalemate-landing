@@ -8,15 +8,11 @@ import WaitList from "../../components/home/WaitList/WaitList"
 import styles from "@/assets/styles/shared.module.scss"
 import { pageMetadata } from "../metadata"
 import Advantages from "@/components/Launch/Advantages/Advantages"
-// import Slider from "@/components/elements/Slider/Slider"
-// import creativeLibrary from "@/assets/images/home/creative-library.png"
 import rulesImage from "@/assets/images/launch/rules-dashboard.png"
 import campaignStructure from "@/assets/images/launch/campaign-structure-v1.png"
-import cloudSync from "@/assets/images/home/cloud-sync.png"
-import smartFlow from "@/assets/images/home/smart-flow.png"
+
 import pacImg from "@/assets/images/launch/pac.png"
 import launchHeroImg from "@/assets/images/launch/launch-hero.png"
-import SmartFlowImg from "@/assets/images/home/smart-flow.png"
 
 const features = [
   {
@@ -51,7 +47,7 @@ const advantages = [
       color: "#5925DC",
     },
     description:
-      "Define rules to pause, scale, or adjust bids for ads based on performance",
+      "Define rules to pause, scale, or adjust bids for ads based on performance.",
   },
   {
     image: pacImg,
@@ -62,7 +58,7 @@ const advantages = [
     },
     title: "Use Placement Asset Customization",
     description:
-      "Scalemate automatically detects and groups unique assets with different resolutions into one ad using AI.",
+      "Scalemate uses AI to automatically detect and group ad creatives of different dimensions into a single ad.",
   },
 ]
 

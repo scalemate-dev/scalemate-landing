@@ -1,6 +1,7 @@
 .withScalemate {
   position: relative;
   z-index: 1;
+  margin-bottom: 128px;
 }
 
 .withScalemateBackground {
@@ -100,6 +101,10 @@
 }
 
 @media (max-width: 1024px) {
+
+  .withScalemate {
+    margin-bottom: 32px;
+  }
   .withScalemateCards {
     padding: 0 24px;
   }

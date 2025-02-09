@@ -14,12 +14,12 @@ import styles from "./WithScalemate.module.scss"
 const WithScalemate = () => {
   const cards = [
     {
-      value: "10k",
-      label: "creatives launched",
+      value: "100k",
+      label: "Ad creatives launched",
       background: "#FFE8D3",
     },
     {
-      value: "1300",
+      value: "13k",
       label: "hours saved",
       background: "#F0DCFF",
     },
@@ -57,8 +57,8 @@ const WithScalemate = () => {
       <Container>
         <div className={styles.withScalemateNavigation}>
           <h2 className={styles.withScalemateTitle}>
-            With Scalemate, ad management becomes effortless cutting time by
-            over 62%.
+            With Scalemate, ad management becomes easy, cutting time by over
+            62%.
             {/* With Scalemate, UAMs shorten the testing path and reduce time by
             62%. */}
           </h2>
@@ -77,7 +77,8 @@ const WithScalemate = () => {
       <Swiper
         className={styles.withScalemateCards}
         modules={[Navigation]}
-        slidesPerView={3}
+        allowTouchMove={true}
+        slidesPerView={2}
         spaceBetween={24}
         navigation={{
           nextEl: ".next",

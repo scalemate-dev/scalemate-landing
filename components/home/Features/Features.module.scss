@@ -14,6 +14,8 @@
     align-items: center;
     position: relative;
 
+    // margin-bottom: 32px;
+
     &:nth-child(even) {
       .featureImage {
         order: 1;
@@ -28,6 +30,7 @@
   .heading {
     position: relative;
     z-index: 1;
+    margin-bottom: 80px;
   }
 
   .title {
@@ -71,6 +74,7 @@
 
     img {
       width: 100%;
+      height: auto;
       object-fit: contain;
     }
   }
@@ -121,12 +125,17 @@
 }
 
 @media (max-width: 1080px) {
+
   .features {
     padding: 96px 0 64px;
 
     .feature {
       flex-flow: column nowrap;
+      align-items: flex-start;
       gap: 48px;
+      margin-bottom: 96px;
+      width: 100%;
+
 
       &:nth-child(even) {
         .featureImage {
@@ -137,6 +146,9 @@
           order: 1;
         }
       }
+    }
+    .featureContent {
+      width: 100%;
     }
 
     .featureBadge {
@@ -155,3 +167,11 @@
     }
   }
 } 
+
+@include mobile {
+  .features {
+    .container {
+      gap: 32px;
+    }
+  }
+}
