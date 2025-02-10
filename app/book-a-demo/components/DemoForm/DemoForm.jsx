@@ -120,6 +120,14 @@ const DemoForm = () => {
             value={formData.email}
             onChange={handleChange("email")}
           />
+          <Input
+            label="Company name"
+            name="company-name"
+            type="text"
+            placeholder="Your company name"
+            value={formData.companyName}
+            onChange={handleChange("companyName")}
+          />
           <Select
             label="Job position"
             value={formData.jobPosition}
@@ -127,14 +135,7 @@ const DemoForm = () => {
             placeholder="Your job position"
             options={jobPositionOptions}
           />
-          <Input
-            label="Company Name"
-            name="company-name"
-            type="text"
-            placeholder="Your company name"
-            value={formData.companyName}
-            onChange={handleChange("companyName")}
-          />
+
           <Select
             label="Monthly ad budget"
             value={formData.monthlyBudget}
