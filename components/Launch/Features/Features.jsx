@@ -7,16 +7,18 @@ import styles from "@/components/home/Features/Features.module.scss"
 
 export default function Features({ features, title, description }) {
   return (
-    <Container>
-      <div className={styles.features}>
+    <div className={styles.features}>
+      <Container>
         <div className={styles.heading}>
           <h2 className={styles.title}>{title}</h2>
           <p className={styles.description}>{description}</p>
         </div>
+      </Container>
+      <Container className={styles.container}>
         {features.map((feature, index) => (
           <FeatureItem key={index} feature={feature} index={index} />
         ))}
-      </div>
-    </Container>
+      </Container>
+    </div>
   )
 }

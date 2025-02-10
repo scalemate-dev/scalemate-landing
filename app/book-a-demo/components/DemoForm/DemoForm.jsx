@@ -55,15 +55,15 @@ const DemoForm = () => {
   }
 
   const sendForm = async (data) => {
-    // await fetch("https://submit-form.com/S3mkBrhnv", {
-    //   // info@scalemate.co oauth
-    //   method: "POST",
-    //   body: JSON.stringify(data),
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //   },
-    // })
+    await fetch("https://submit-form.com/S3mkBrhnv", {
+      // info@scalemate.co oauth
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
     trackDemoFormSubmit(data)
   }
 

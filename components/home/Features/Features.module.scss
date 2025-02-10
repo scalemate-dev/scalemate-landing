@@ -129,6 +129,10 @@
   .features {
     padding: 96px 0 64px;
 
+    .container {
+      gap: 48px;
+    }
+
     .feature {
       flex-flow: column nowrap;
       align-items: flex-start;
