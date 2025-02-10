@@ -1,5 +1,5 @@
 "use client"
-import Container from "@/components/shared/Container/Container"
+import Container from "@/components/elements/Container/Container"
 
 import { useState } from "react"
 import Image from "next/image"
@@ -44,25 +44,25 @@ const HowCanHelp = () => {
       options: [
         {
           icon: "clock",
-          label: "Erase testing routine",
-          text: "Spend <b>3x</b> less time on creatives testing and automate asset upload. ",
+          label: "Launch Ads in bulk",
+          text: "Spend <b>3x</b> less time on campaign launches and automate asset upload. ",
         },
         {
           icon: "ship",
-          label: "Lower cost per winner",
-          text: "Discover your most cost-effective path to find <b>creative winners.</b>",
+          label: "No hussle creatives uploads",
+          text: "Seemles delivery your assets to the ad platforms in a <b>single click.</b>",
           // label: 'Test on all platforms at once',
           // text: 'Use a <b>single “launch” button</b> for your Facebook, Tiktok & custom campaigns.'
         },
         {
           icon: "squares",
-          label: "Store creative data",
-          text: "Organize all creatives and results in unified <b>creative library.</b>",
+          label: "Automated Creative Tests",
+          text: "Set simple rules to test new creatives, and automatically identify <b>winning ads.</b>",
         },
         {
           icon: "puzzle",
-          label: "Communicate success",
-          text: "Auto-generate <b>ad reports,</b> and show results to your lead & team. ",
+          label: "Streamline your workflow",
+          text: "Scalemate automates <b>80% of campaign launches</b> and ad rotations. ",
         },
       ],
     },

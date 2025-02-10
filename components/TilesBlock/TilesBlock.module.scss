@@ -1,0 +1,147 @@
+.wrapper {
+  padding-bottom: 120px;
+  max-width: 1440px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+// .title {
+//   font-family: 'Poppins';
+//   font-weight: 700;
+//   font-size: 42px;
+//   line-height: 44px;
+//   letter-spacing: -0.02em;
+//   color: #121718;
+//   margin-bottom: 20px;
+
+//   span {
+//     color: #F63D68;
+//   }
+// }
+
+.description {
+  font-family: 'Inter';
+  font-size: 20px;
+  line-height: 30px;
+  color: #121718;
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.tilesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.tile {
+  padding: 32px;
+  border-radius: 24px;
+  // display: flex;
+  // align-items: flex-end;
+  min-height: 320px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #121718;
+}
+
+.tileContent {
+  display: flex;
+  height: 80%;
+}
+
+.tileTitle {
+  font-family: 'Poppins';
+  font-weight: 700;
+  font-size: 32px;
+  color: #1A1A1A;
+  line-height: 32px;
+  margin-bottom: 32px;
+}
+
+.tileDescription {
+  font-size: 24px;
+  max-width: 347px;
+  font-weight: 500;
+  color: #121718;
+  // max-width: 80%;
+}
+
+.tileImage {
+  align-self: flex-end;
+  // position: absolute;
+  // bottom: 24px;
+  // right: 16px;
+}
+
+// Theme variations
+.peach {
+  background: #FFE8D3;
+}
+
+.purple {
+  background: #F4F3FF;
+}
+
+.mint {
+  background: #ECFDF3;
+}
+
+.white {
+  background: #FFFFFF;
+}
+
+@include desktop-s {
+  .tileContent {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tileImage {
+    align-self: center;
+  }
+}
+
+@include tablet-horizontal {
+  .wrapper {
+    padding-bottom: 64px;
+  }
+
+  .tilesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .tileContent {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .tileImage {
+    align-self: flex-end;
+  }
+
+  .title {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .description {
+    font-size: 18px;
+    line-height: 28px;
+  }
+} 
+
+@include mobile {
+  .tileContent {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tileImage {
+    align-self: center;
+  }
+}
