@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
-import cn from "classnames";
-import styles from "./Select.module.scss";
+import cn from "classnames"
+import styles from "./Select.module.scss"
 
 const Select = ({
   label,
@@ -12,11 +12,11 @@ const Select = ({
   onChange,
 }) => {
   const handleChange = (e) => {
-    onChange?.(e.target.value);
-  };
+    onChange?.(e.target.value)
+  }
 
   return (
-    <div className={styles.selectContainer}>
+    <div className={styles.selectContainer} tabIndex={-1}>
       {label && (
         <div className={styles.selectLabel}>
           <span>{label}</span>
@@ -56,7 +56,7 @@ const Select = ({
         </select>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Select;
+export default Select

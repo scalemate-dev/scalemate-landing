@@ -107,7 +107,7 @@ const DemoForm = () => {
             label="Name"
             name="name"
             type="text"
-            placeholder="Jack Divinson"
+            placeholder="Full name"
             value={formData.name}
             onChange={handleChange("name")}
           />
@@ -124,14 +124,14 @@ const DemoForm = () => {
             label="Job position"
             value={formData.jobPosition}
             onChange={handleChange("jobPosition")}
-            placeholder="Select your position"
+            placeholder="Your job position"
             options={jobPositionOptions}
           />
           <Input
             label="Company Name"
             name="company-name"
             type="text"
-            placeholder="Scalemate"
+            placeholder="Your company name"
             value={formData.companyName}
             onChange={handleChange("companyName")}
           />
@@ -139,14 +139,14 @@ const DemoForm = () => {
             label="Monthly ad budget"
             value={formData.monthlyBudget}
             onChange={handleChange("monthlyBudget")}
-            placeholder="Select your ad monthly budget"
+            placeholder="Your avarage ad spend"
             options={monthlyBudgetOptions}
           />
           <Input
             textarea
             label="Message"
             name="message"
-            placeholder="Your message here.."
+            placeholder="Anything you'd like to add?"
             value={formData.message}
             onChange={handleChange("message")}
           />
@@ -158,7 +158,9 @@ const DemoForm = () => {
             loading={loading}
             disabled={formSent}
           >
-            {formSent ? "All Set! We'll Reach Out Soon 👍" : "Book a demo"}
+            {formSent
+              ? "Success! Await access details on your email 👍"
+              : "Try for free 🚀"}
           </Button>
         </form>
       </div>
