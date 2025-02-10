@@ -15,16 +15,21 @@ const Button = ({
   children,
   onClick,
   outline,
+  className,
   float,
   ...props
 }) => {
-  const className = cn(styles.button, {
-    [styles[color]]: color,
-    [styles.wide]: wide,
-    [styles.disabled]: disabled,
-    [styles.outline]: outline,
-    float: float,
-  })
+  const classNames = cn(
+    styles.button,
+    {
+      [styles[color]]: color,
+      [styles.wide]: wide,
+      [styles.disabled]: disabled,
+      [styles.outline]: outline,
+      float: float,
+    },
+    className,
+  )
 
   const handleClick = (e) => {
     if (disabled) return
@@ -33,7 +38,7 @@ const Button = ({
 
   if (href) {
     return (
-      <Link href={href} className={className}>
+      <Link href={href} className={classNames}>
         {children}
       </Link>
     )
@@ -41,7 +46,7 @@ const Button = ({
 
   return (
     <button
-      className={className}
+      className={classNames}
       disabled={disabled}
       onClick={handleClick}
       type={submit ? "submit" : "button"}

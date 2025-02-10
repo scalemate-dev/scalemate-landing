@@ -33,7 +33,7 @@
 
   &:hover {
     box-shadow: 0 5px 8px 0px rgba(0,0,0, 0.2) !important;
-    transform: translatey(0px) !important;
+    transform: translateY(0px) !important;
   }
 
   &:active {
@@ -162,6 +162,16 @@
   gap: 24px;
 }
 
+.notFound {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #f8f8f8;
+  padding: 24px;
+}
+
 @include desktop-s {
   .contentWrapper {
     flex-direction: column;
@@ -212,8 +222,16 @@
   }
 }
 
+
 @include mobile {
   .heroTrial {
-    font-size: 14px;;
+    font-size: 14px;
+  }
+}
+
+@keyframes float {
+  0% {
+    box-shadow: 0 5px 8px 0px rgba(0,0,0, 0.3);
+    transform: translatey(0px);
   }
 }

@@ -50,20 +50,20 @@ export const pageMetadata = {
   bookDemo: {
     title: "Scalemate | Book a Demo",
     description:
-      "Experience the power of automation for launch ads. Book a demo with Scalemate to see how you launch your ads 3x faster.",
+      "Experience the power of automation for ads management. Book a demo with Scalemate to see how you launch your ads 3x faster.",
     keywords:
-      "Book demo creatives testing, Scalemate demo, ad testing automation tool, cross-platform creatives testing, schedule Scalemate demo, ad validation acceleration",
+      "Book demo facebook ads automation, Scalemate demo, facebook ads automation, cross-platform creatives launch, schedule Scalemate demo, ads management automation demo",
     openGraph: {
       title: "Creative Testing Automation - Book a Demo",
       description:
-        "Get a personalized demonstration of Scalemate and learn how our tool can triple your ad testing speed on Facebook and beyond.",
+        "Get a personalized demonstration of Scalemate and learn how our tool can triple your ads management speed on Facebook and beyond.",
       images: [{ url: "/og-image-demo.png" }],
     },
     twitter: {
       card: "summary_large_image",
       title: "Creative Testing Automation - Book a Demo",
       description:
-        "Get a personalized demonstration of Scalemate and learn how our tool can triple your ad testing speed on Facebook and beyond.",
+        "Get a personalized demonstration of Scalemate and learn how our tool can triple your ads management speed on Facebook and beyond.",
       images: ["/og-image-demo.png"],
     },
   },
