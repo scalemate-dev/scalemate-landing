@@ -1,13 +1,13 @@
 export const defaultMetadata = {
   title: "Smarter Way to Automate Ads Management | Scalemate",
   description:
-    "Launch dozens of Facebook ads in minutes, scale campaigns faster and save hours of marketing routine daily.",
+    "Launch hundreds of Facebook ads in minutes, scale campaigns faster and save hours of marketing routine daily.",
   keywords:
     "Facebook ads automation software, Scale ad campaigns smarter, Bulk Facebook ads launch, Automate ad creatives upload, Save time with Facebook ad automation, Cut ad launch costs by 90%, Marketing automation software for facebook ads, Ad management tools for marketers, Launch ads",
   openGraph: {
     title: "Smart Way to Automate Ads Management – Scalemate",
     description:
-      "Launch dozens of Facebook ads in minutes, scale campaigns faster and save hours of marketing routine daily.",
+      "Launch hundreds of Facebook ads in minutes, scale campaigns faster and save hours of marketing routine daily.",
     images: [
       {
         url: "/og-image.png",
@@ -20,7 +20,7 @@ export const defaultMetadata = {
     card: "summary_large_image",
     title: "Smart Way to Automate Ads Management – Scalemate",
     description:
-      "Launch dozens of Facebook ads in minutes, scale campaigns faster and save hours of marketing routine daily.",
+      "Launch hundreds of Facebook ads in minutes, scale campaigns faster and save hours of marketing routine daily.",
     images: ["https://www.scalemate.co/twitter-og-image.png"],
   },
 }
@@ -30,20 +30,20 @@ export const pageMetadata = {
   launch: {
     title: "Automate Ad Launching | Scalemate",
     description:
-      "Launch dozens of Ads in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
+      "Launch hundreds of Ads in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
     keywords:
       "Launch facebook campaigns, automated ads launch, launch ads from google drive, ad templates, automated campaign launch, automated creative upload, automated rules",
     openGraph: {
       title: "Automate Ad Launching | Scalemate",
       description:
-        "Launch dozens of Ads in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
+        "Launch hundreds of Ads in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
       images: [{ url: "/og-image-automate.png" }],
     },
     twitter: {
       card: "summary_large_image",
       title: "Automate Ad Launching | Scalemate",
       description:
-        "Launch dozens of Ads in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
+        "Launch hundreds of Ads in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
       images: ["/og-image-automate.png"],
     },
   },
