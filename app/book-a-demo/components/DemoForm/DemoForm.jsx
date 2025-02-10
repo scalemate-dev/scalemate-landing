@@ -9,6 +9,7 @@ import Button from "@/components/elements/Button/Button"
 import styles from "./DemoForm.module.scss"
 import demoLinearBackground from "@/assets/icons/demo-linear-background.svg"
 import demoLinearBackground2 from "@/assets/icons/demo-linear-background-2.svg"
+import { trackDemoFormSubmit } from "@/helpers/trackGTM"
 
 const DemoForm = () => {
   const [formData, setFormData] = useState({
@@ -53,16 +54,17 @@ const DemoForm = () => {
     }
   }
 
-  const sendForm = (data) => {
-    return fetch("https://submit-form.com/S3mkBrhnv", {
-      // info@scalemate.co oauth
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
+  const sendForm = async (data) => {
+    // await fetch("https://submit-form.com/S3mkBrhnv", {
+    //   // info@scalemate.co oauth
+    //   method: "POST",
+    //   body: JSON.stringify(data),
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //   },
+    // })
+    trackDemoFormSubmit(data)
   }
 
   const handleChange = (field) => (value) => {
