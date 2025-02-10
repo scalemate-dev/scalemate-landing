@@ -1,13 +1,13 @@
 export const defaultMetadata = {
-  title: "Scalemate | Smarter Way to Automate Ads Management",
+  title: "Smarter Way to Automate Ads Management | Scalemate",
   description:
-    "Launch dozens of Facebook ads in minutes, scale campaigns faster and save hours of marketing routine daily.",
+    "Launch hundreds of Facebook ads in minutes, scale campaigns faster and save hours of marketing routine daily.",
   keywords:
-    "Facebook ads automation software, Scale ad campaigns smarter, Bulk Facebook ads launch, Automate ad creatives upload, Save time with Facebook ad automation, Cut ad launch costs by 90%,260% faster ad launches, Marketing automation software for facebook ads, Ad management tools for marketers, How to launch multiple Facebook ads quickly, Best Facebook ads automation tools for marketers",
+    "Facebook ads automation software, Scale ad campaigns smarter, Bulk Facebook ads launch, Automate ad creatives upload, Save time with Facebook ad automation, Cut ad launch costs by 90%, Marketing automation software for facebook ads, Ad management tools for marketers, Launch ads",
   openGraph: {
     title: "Smart Way to Automate Ads Management – Scalemate",
     description:
-      "Launch dozens of Facebook ads in minutes, scale campaigns faster and save hours of marketing routine daily.",
+      "Launch hundreds of Facebook ads in minutes, scale campaigns faster and save hours of marketing routine daily.",
     images: [
       {
         url: "/og-image.png",
@@ -20,31 +20,30 @@ export const defaultMetadata = {
     card: "summary_large_image",
     title: "Smart Way to Automate Ads Management – Scalemate",
     description:
-      "Launch dozens of Facebook ads in minutes, scale campaigns faster and save hours of marketing routine daily.",
-    images: ["/twitter-og-image.png"],
+      "Launch hundreds of Facebook ads in minutes, scale campaigns faster and save hours of marketing routine daily.",
+    images: ["https://www.scalemate.co/twitter-og-image.png"],
   },
 }
 
 export const pageMetadata = {
   home: defaultMetadata,
   launch: {
-    title:
-      "Scalemate | I automate creatives testing workflows across platforms.",
+    title: "Automate Ad Launching | Scalemate",
     description:
-      "Launch Facebook, Tik-Tok, and Snapchat campaigns in 1 click. Speed up creative upload and set automated workflows.",
+      "Launch hundreds of Ads in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
     keywords:
-      "automated testing workflows, automated creative launch, cross-platform creatives testing, automate creative rotation, automated campaign launch, automated creative upload",
+      "Launch facebook campaigns, automated ads launch, launch ads from google drive, ad templates, automated campaign launch, automated creative upload, automated rules",
     openGraph: {
-      title: "Scalemate automated creative launch page",
+      title: "Automate Ad Launching | Scalemate",
       description:
-        "Launch Facebook, Tik-Tok, and Snapchat campaigns in 1 click. Speed up creative upload and set automated workflows.",
+        "Launch hundreds of Ads in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
       images: [{ url: "/og-image-automate.png" }],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Scalemate automated creative launch page",
+      title: "Automate Ad Launching | Scalemate",
       description:
-        "Automate your creatives testing across Facebook, Tiktok, & more to validate your units 3 times faster with a cross-platform ad testing tool.",
+        "Launch hundreds of Ads in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
       images: ["/og-image-automate.png"],
     },
   },

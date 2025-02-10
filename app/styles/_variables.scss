@@ -46,4 +46,14 @@ $mobile-width: 480px;
   @supports not (backdrop-filter: blur($size)) {
     background-color: $reserveColor;
   }
-} 
+}
+
+@mixin text-gradient {
+  background: url('/hero-text.jpg');
+  background-repeat: no-repeat;
+  background-size: 137%;
+  background-position: 40% 56%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

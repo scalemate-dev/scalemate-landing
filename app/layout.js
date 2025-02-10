@@ -1,8 +1,8 @@
 import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google"
 import { Inter, Poppins } from "next/font/google"
 import styles from "./page.module.scss"
-import Footer from "@/components/shared/Footer/Footer"
-import Header from "@/components/shared/Header/Header"
+import Footer from "@/components/elements/Footer/Footer"
+import Header from "@/components/elements/Header/Header"
 import "./globals.css"
 import FacebookPixel from "@/components/FacebookPixel"
 

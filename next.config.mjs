@@ -10,10 +10,25 @@ const nextConfig = {
     includePaths: [path.join(__dirname, "app/styles")],
     prependData: `@import "_variables.scss";`,
   },
+  experimental: {
+    turbo: {
+      rules: {
+        "*.inline.svg": {
+          loaders: ["@svgr/webpack"],
+          as: "*.js",
+        },
+      },
+    },
+  },
   webpack(config) {
     config.module.rules.push({
+      test: /\.inline\.svg$/,
+      use: ["@svgr/webpack"],
+    })
+    config.module.rules.push({
       test: /\.svg$/,
-      use: ["@svgr/webpack", "url-loader"],
+      exclude: /\.inline\.svg$/,
+      use: ["url-loader"],
     })
     return config
   },

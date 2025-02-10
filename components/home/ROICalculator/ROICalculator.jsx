@@ -1,10 +1,10 @@
 "use client"
-import Container from "@/components/shared/Container/Container"
+import Container from "@/components/elements/Container/Container"
 import ship from "@/assets/icons/help/ship.svg"
 import { useState } from "react"
 import Image from "next/image"
-import Select from "@/components/shared/Select/Select"
-import Button from "@/components/shared/Button/Button"
+import Select from "@/components/elements/Select/Select"
+import Button from "@/components/elements/Button/Button"
 import ReactSlider from "react-slider"
 import styles from "./ROICalculator.module.scss"
 

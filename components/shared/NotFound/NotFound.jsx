@@ -1,7 +1,7 @@
-import Button from "@/components/shared/Button/Button"
+import Button from "@/components/elements/Button/Button"
 import Head from "next/head"
 import styles from "./NotFound.module.scss"
-import Container from "@/components/shared/Container/Container"
+import Container from "@/components/elements/Container/Container"
 
 export default function NotFound() {
   return (

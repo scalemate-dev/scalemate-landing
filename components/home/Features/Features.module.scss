@@ -1,5 +1,5 @@
 .features {
-  padding: 236px 0;
+  padding: 64px 0;
 
   .container {
     display: flex;
@@ -14,6 +14,8 @@
     align-items: center;
     position: relative;
 
+    // margin-bottom: 32px;
+
     &:nth-child(even) {
       .featureImage {
         order: 1;
@@ -23,6 +25,26 @@
         order: 2;
       }
     }
+  }
+
+  .heading {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 80px;
+  }
+
+  .title {
+    font-size: 52px;
+    text-align: center;
+    margin-bottom: 24px;
+    span {
+      @include text-gradient;
+    }
+  }
+  
+  .description {
+    font-size: 20px;
+    text-align: center;
   }
 
   .featureImage,
@@ -52,6 +74,7 @@
 
     img {
       width: 100%;
+      height: auto;
       object-fit: contain;
     }
   }
@@ -92,13 +115,31 @@
   }
 }
 
+.callToAction {
+  display: inline-block;
+  font-size: 20px;
+  font-family: 'Inter';
+  font-weight: 500;
+  color: #4450f2;
+  margin-top: 32px;
+}
+
 @media (max-width: 1080px) {
+
   .features {
     padding: 96px 0 64px;
 
+    .container {
+      gap: 48px;
+    }
+
     .feature {
       flex-flow: column nowrap;
+      align-items: flex-start;
       gap: 48px;
+      margin-bottom: 96px;
+      width: 100%;
+
 
       &:nth-child(even) {
         .featureImage {
@@ -109,6 +150,9 @@
           order: 1;
         }
       }
+    }
+    .featureContent {
+      width: 100%;
     }
 
     .featureBadge {
@@ -127,3 +171,11 @@
     }
   }
 } 
+
+@include mobile {
+  .features {
+    .container {
+      gap: 32px;
+    }
+  }
+}

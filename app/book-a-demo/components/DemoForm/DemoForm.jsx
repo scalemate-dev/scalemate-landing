@@ -3,12 +3,13 @@ import WaitList from "@/components/home/WaitList/WaitList"
 
 import { useState } from "react"
 import Image from "next/image"
-import Input from "@/components/shared/Input/Input"
-import Select from "@/components/shared/Select/Select"
-import Button from "@/components/shared/Button/Button"
+import Input from "@/components/elements/Input/Input"
+import Select from "@/components/elements/Select/Select"
+import Button from "@/components/elements/Button/Button"
 import styles from "./DemoForm.module.scss"
 import demoLinearBackground from "@/assets/icons/demo-linear-background.svg"
 import demoLinearBackground2 from "@/assets/icons/demo-linear-background-2.svg"
+import { trackDemoFormSubmit } from "@/helpers/trackGTM"
 
 const DemoForm = () => {
   const [formData, setFormData] = useState({
@@ -53,8 +54,8 @@ const DemoForm = () => {
     }
   }
 
-  const sendForm = (data) => {
-    return fetch("https://submit-form.com/S3mkBrhnv", {
+  const sendForm = async (data) => {
+    await fetch("https://submit-form.com/S3mkBrhnv", {
       // info@scalemate.co oauth
       method: "POST",
       body: JSON.stringify(data),
@@ -63,6 +64,7 @@ const DemoForm = () => {
         "Content-Type": "application/json",
       },
     })
+    trackDemoFormSubmit(data)
   }
 
   const handleChange = (field) => (value) => {
