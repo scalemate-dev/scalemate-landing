@@ -4,7 +4,7 @@ import styles from "./Layout.module.scss"
 
 export default function Layout({ side, children }) {
   return (
-    <Container>
+    <Container className={styles.container}>
       <div className={styles.root}>
         <div className={styles.side}>{side}</div>
         <div className={styles.content}>{children}</div>

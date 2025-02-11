@@ -35,7 +35,8 @@ async function AppPage({ params }) {
 
   const caseStudy = entries.items[0]
 
-  const { challenge, solution, results } = caseStudy.fields
+  console.log("caseStudy", caseStudy)
+  const { challenge, solution, results, metrics } = caseStudy.fields
 
   return (
     <main>
@@ -54,6 +55,7 @@ async function AppPage({ params }) {
           useCase={caseStudy.fields.useCase}
           logo={caseStudy.fields.clientLogo.fields.file.url}
           companyInfo={caseStudy.fields.companyInformation}
+          metrics={metrics}
         />
         {[challenge, solution, results].map((item, index) => (
           <RichTextElements key={index} document={item} />

@@ -2,6 +2,11 @@
   font-family: "Inter", Helvetica, Arial, sans-serif;
   color: #121718;
   line-height: 1.6;
+  // padding-top: 48px;
+
+  &:not(:first-of-type) {
+    padding-top: 32px;
+  }
 
   // Global element resets or enhancements can go here
   p {
@@ -11,7 +16,7 @@
 
 .heading1 {
   font-family: 'Poppins';
-  font-size: 40px;
+  font-size: 52px;
   margin-bottom: 16px;
   font-weight: 700;
   color: #101828;
@@ -19,8 +24,8 @@
 
 .heading2 {
   font-family: 'Poppins';
-  font-size: 32px;
-  margin-bottom: 12px;
+  font-size: 42px;
+  margin-bottom: 18px;
   font-weight: 600;
   color: #101828;
 }
@@ -36,7 +41,7 @@
 .paragraph {
   font-size: 18px;
   margin-bottom: 16px;
-  line-height: 1.8;
+  line-height: 1.5;
   color: #121718;
 }
 
@@ -56,6 +61,10 @@
 
 .listItem {
   margin-bottom: 8px;
+
+  p {
+    margin-bottom: 0;
+  }
 }
 
 .blockquote {
@@ -86,10 +95,10 @@
 .contentImage {
   border-radius: 12px;
   padding: 16px;
-  background: linear-gradient(
-    124.28deg,
-    rgba(246, 61, 104, 0.2) 18.79%,
-    rgba(251, 214, 119, 0.2) 77.96%
-  );
+  background: #F5F4EE;
   overflow: hidden;
+  img {
+    border-radius: 12px;
+    overflow: hidden;
+  }
 }

@@ -1,21 +1,55 @@
 .container {
-  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 70px;
 }
 
 .content {
+  flex: 1;
+  border-radius: 8px;
+  // background: linear-gradient(180deg, #fff, #f3f4f7);
+}
+
+.metrics {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.metric {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex: 1;
-  padding: 88px 48px;
-  border-radius: 8px;
-  background: linear-gradient(180deg, #fff, #f3f4f7);
-  height: 322px;
+  align-items: flex-start;
+  flex-direction: column;
+  max-width: 200px;
+  // width: calc(100% / 3);
+  gap: 4px;
+  // border: 1px solid #1A1A1A;
+
+  background-color: #F5F4EE;
+  padding: 18px;
+  border-radius: 18px;
+  box-shadow: 0 16px 32px #0000001f;
+}
+
+.metricValue {
+  font-family: "Poppins", sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2em;
+}
+
+.metricLabel {
+  font-size: 12px;
+  font-weight: 400;
 }
 
 .heading p {
-  font-size: 28px;
-  font-weight: 500;
+  font-size: 30px;
+  font-weight: 600;
   line-height: 1.2;
   color: #121718;
 }
@@ -23,3 +57,21 @@
 .overviewText {
   color: #9CA3AF;
 } 
+
+@include tablet-horizontal {
+  .heading p {
+    font-size: 24px;
+  }
+}
+
+@include tablet-vertical {
+  .metrics {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .metric {
+    max-width: 100%;
+    width: 100%;
+  }
+}

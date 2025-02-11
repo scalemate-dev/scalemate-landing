@@ -1,13 +1,19 @@
+.container {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
 .root {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 32px;
 }
 
 .side {
   position: sticky;
   top: 96px;
-  width: 312px;
+  max-width: 312px;
+  width: 100%;
   height: 322px;
   flex-shrink: 0;
   margin-bottom: 24px;
@@ -16,4 +22,30 @@
 
 .content {
   flex: 1;
+}
+
+@include tablet-horizontal {
+  .root {
+    gap: 16px;
+  }
+
+  .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .side {
+    max-width: 256px;
+  }
+}
+
+@include tablet-vertical {
+  .root {
+    flex-direction: column;
+  }
+
+  .side {
+    position: static;
+    max-width: 100%;
+  }
 }
