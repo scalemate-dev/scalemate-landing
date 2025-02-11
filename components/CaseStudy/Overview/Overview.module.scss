@@ -9,7 +9,6 @@
 .content {
   flex: 1;
   border-radius: 8px;
-  // background: linear-gradient(180deg, #fff, #f3f4f7);
 }
 
 .metrics {
@@ -25,14 +24,12 @@
   align-items: flex-start;
   flex-direction: column;
   max-width: 200px;
-  // width: calc(100% / 3);
   gap: 4px;
-  // border: 1px solid #1A1A1A;
 
   background-color: #F5F4EE;
   padding: 18px;
   border-radius: 18px;
-  box-shadow: 0 16px 32px #0000001f;
+  box-shadow: 0 2px 20px #0000001f
 }
 
 .metricValue {
