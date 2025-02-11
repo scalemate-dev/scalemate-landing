@@ -78,7 +78,7 @@ const WithScalemate = () => {
         className={styles.withScalemateCards}
         modules={[Navigation]}
         allowTouchMove={true}
-        slidesPerView={2}
+        slidesPerView={3}
         spaceBetween={24}
         navigation={{
           nextEl: ".next",

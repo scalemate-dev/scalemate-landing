@@ -1,6 +1,19 @@
+
 .container {
   padding-top: 160px;
+  overflow: hidden;
 }
+
+.bubbleContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
 .title {
   font-family: 'Poppins';
   font-style: normal;

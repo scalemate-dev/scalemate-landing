@@ -1,9 +1,10 @@
 import { createClient } from "contentful"
+import Layout from "@/components/CaseStudy/Layout/Layout"
 
 import RichTextElements from "@/components/contentful/RichText/RichTextElements"
 import Hero from "@/components/CaseStudy/Hero/Hero"
 import WaitList from "@/components/home/WaitList/WaitList"
-import Container from "@/components/shared/Container/Container"
+import CompanyCard from "@/components/CaseStudy/CompanyCard/CompanyCard"
 import Overview from "@/components/CaseStudy/Overview/Overview"
 import { notFound } from "next/navigation"
 
@@ -34,20 +35,30 @@ async function AppPage({ params }) {
 
   const caseStudy = entries.items[0]
 
-  console.log("caseStudy", caseStudy.fields.content)
+  const { challenge, solution, results } = caseStudy.fields
 
   return (
     <main>
       <Hero title={caseStudy.fields.title} label="Case Study" />
-      <Overview
-        industry={caseStudy.fields.industry}
-        useCase={caseStudy.fields.useCase}
-        logo={caseStudy.fields.clientLogo.fields.file.url}
-        companyInfo={caseStudy.fields.companyInformation}
-      />
-      <Container>
-        <RichTextElements document={caseStudy.fields.content} />
-      </Container>
+      <Layout
+        side={
+          <CompanyCard
+            industry={caseStudy.fields.industry}
+            useCase={caseStudy.fields.useCase}
+            logo={caseStudy.fields.clientLogo.fields.file.url}
+          />
+        }
+      >
+        <Overview
+          industry={caseStudy.fields.industry}
+          useCase={caseStudy.fields.useCase}
+          logo={caseStudy.fields.clientLogo.fields.file.url}
+          companyInfo={caseStudy.fields.companyInformation}
+        />
+        {[challenge, solution, results].map((item, index) => (
+          <RichTextElements key={index} document={item} />
+        ))}
+      </Layout>
       <WaitList />
     </main>
   )
