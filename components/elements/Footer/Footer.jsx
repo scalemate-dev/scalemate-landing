@@ -1,6 +1,6 @@
 "use client"
+import Link from "next/link"
 
-import Image from "next/image"
 import Container from "@/components/elements/Container/Container"
 import styles from "./Footer.module.scss"
 import Logo from "@/components/elements/Logo"
@@ -29,7 +29,13 @@ const Footer = () => {
         </div>
         <div className={styles.footerRight}>
           <div className={styles.footerCol}>
-            {/* Product section commented out as in original */}
+            <div className={styles.footerColTitle}>Product</div>
+            <Link className={styles.footerColLink} href="/launch">
+              Launch
+            </Link>
+            <Link className={styles.footerColLink} href="/book-a-demo">
+              Book a Demo
+            </Link>
           </div>
           <div className={styles.footerCol}>
             <div className={styles.footerColTitle}>Legal</div>
