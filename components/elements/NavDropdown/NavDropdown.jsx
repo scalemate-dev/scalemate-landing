@@ -35,7 +35,7 @@ const NavDropdown = ({ label, items = [] }) => {
   }
 
   return (
-    <div
+    <nav
       ref={dropdownRef}
       className={styles.navDropdown}
       onMouseEnter={() => setIsOpen(true)}
@@ -83,7 +83,7 @@ const NavDropdown = ({ label, items = [] }) => {
           )
         })}
       </div>
-    </div>
+    </nav>
   )
 }
 
