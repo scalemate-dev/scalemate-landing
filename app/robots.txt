@@ -1,4 +1,7 @@
 User-Agent: *
 Allow: /
+Disallow: /*.pdf$
+Disallow: /terms-and-conditions.pdf
+Disallow: /privacy-policy.pdf
 
 Sitemap: https://www.scalemate.co/sitemap.xml

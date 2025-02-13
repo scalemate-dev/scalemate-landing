@@ -43,7 +43,7 @@ const Footer = () => {
               className={styles.footerColLink}
               href="/terms-and-conditions.pdf"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer noindex"
             >
               Terms and Conditions
             </a>
@@ -51,7 +51,7 @@ const Footer = () => {
               className={styles.footerColLink}
               href="/privacy-policy.pdf"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer noindex"
             >
               Privacy Policy
             </a>
