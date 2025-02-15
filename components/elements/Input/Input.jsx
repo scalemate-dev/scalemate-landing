@@ -15,6 +15,7 @@ const Input = ({
   required,
   name,
   onChange,
+  error,
 }) => {
   const handleChange = (e) => {
     onChange?.(e.target.value)
@@ -24,6 +25,7 @@ const Input = ({
     [styles.leftPadding]: leftPadding,
     [styles.disabled]: disabled,
     [styles.textarea]: textarea,
+    [styles.inputError]: error,
   })
 
   return (
@@ -58,6 +60,7 @@ const Input = ({
           onChange={handleChange}
         />
       )}
+      {error && <p className={styles.error}>{error}</p>}
     </div>
   )
 }

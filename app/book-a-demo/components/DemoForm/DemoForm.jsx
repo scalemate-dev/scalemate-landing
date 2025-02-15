@@ -1,4 +1,5 @@
 "use client"
+import EmailValidator from "company-email-validator"
 import WaitList from "@/components/home/WaitList/WaitList"
 
 import { useState } from "react"
@@ -19,7 +20,9 @@ const DemoForm = () => {
     companyName: "",
     monthlyBudget: "",
     message: "",
+    error: "",
   })
+  const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const [formSent, setFormSent] = useState(false)
 
@@ -44,19 +47,27 @@ const DemoForm = () => {
     e.preventDefault()
     try {
       setLoading(true)
-      // Implement your form submission logic here
+      await validateEmail(formData.email)
       await sendForm(formData)
       setFormSent(true)
     } catch (error) {
-      console.error("Form submission error:", error)
+      setError(error.message)
     } finally {
       setLoading(false)
     }
   }
 
+  const validateEmail = async (email) => {
+    const isValid = await EmailValidator.isCompanyEmail(email)
+    if (!isValid) {
+      throw new Error("Please enter a valid business email")
+    }
+
+    return isValid
+  }
+
   const sendForm = async (data) => {
     await fetch("https://submit-form.com/S3mkBrhnv", {
-      // info@scalemate.co oauth
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -68,6 +79,7 @@ const DemoForm = () => {
   }
 
   const handleChange = (field) => (value) => {
+    setError("")
     setFormData((prev) => ({
       ...prev,
       [field]: value,
@@ -107,16 +119,17 @@ const DemoForm = () => {
             label="Name"
             name="name"
             type="text"
-            placeholder="Full name"
+            placeholder="Enter youe name"
             value={formData.name}
             onChange={handleChange("name")}
           />
           <Input
             required
-            label="Email"
+            error={error}
+            label="Work Email"
             name="email"
             type="email"
-            placeholder="Enter your email"
+            placeholder="Enter your business email"
             value={formData.email}
             onChange={handleChange("email")}
           />
@@ -163,6 +176,7 @@ const DemoForm = () => {
               ? "Success! Await access details on your email 👍"
               : "Try for free 🚀"}
           </Button>
+          <p className={styles.error}>{error}</p>
         </form>
       </div>
       <WaitList noButton />
