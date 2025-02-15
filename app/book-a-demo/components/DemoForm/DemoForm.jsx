@@ -1,5 +1,6 @@
 "use client"
-import EmailValidator from "company-email-validator"
+
+import { validateEmail } from "@/helpers/emails"
 import WaitList from "@/components/home/WaitList/WaitList"
 
 import { useState } from "react"
@@ -55,15 +56,6 @@ const DemoForm = () => {
     } finally {
       setLoading(false)
     }
-  }
-
-  const validateEmail = async (email) => {
-    const isValid = await EmailValidator.isCompanyEmail(email)
-    if (!isValid) {
-      throw new Error("Please enter a valid business email")
-    }
-
-    return isValid
   }
 
   const sendForm = async (data) => {
