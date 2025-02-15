@@ -51,3 +51,11 @@
     }
   }
 }
+
+@include mobile {
+  .header {
+    .headerNavigation {
+      gap: 16px;
+    }
+  }
+}
