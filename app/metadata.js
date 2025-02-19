@@ -29,7 +29,6 @@ export const pageMetadata = {
   home: defaultMetadata,
   launch: {
     title: "Automate Ad Launching | Scalemate",
-    alternates: { canonical: "https://www.scalemate.co/launch" },
     description:
       "Launch hundreds of Ads in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
     keywords:
