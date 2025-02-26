@@ -10,7 +10,6 @@
   font-size: 42px;
   font-weight: 700;
   margin-bottom: 32px;
-  color: $color-text-800;
   text-align: center;
   font-family: var(--font-poppins);
 }
@@ -33,7 +32,7 @@
 
 .item {
   margin-bottom: 16px;
-  border-bottom: 2px solid #121718;
+  border-bottom: 2px solid $color-ash;
 }
 
 .question {
@@ -47,7 +46,6 @@
   border: none;
   font-size: 18px;
   cursor: pointer;
-  color: $color-text-800;
   transition: all 0.2s ease;
   font-family: var(--font-inter);
   font-weight: 600;
@@ -65,7 +63,6 @@
 
 .answer {
   line-height: 1.6;
-  color: $color-text-600;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
   

@@ -24,7 +24,7 @@ const FAQ = ({
         const actualIndex = startIndex + index
         return (
           <div key={actualIndex} className={styles.item}>
-            <button
+            <div
               className={`${styles.question} ${
                 openIndex === actualIndex ? styles.active : ""
               }`}
@@ -36,7 +36,7 @@ const FAQ = ({
               <span className={styles.icon} aria-hidden="true">
                 {openIndex === actualIndex ? "−" : "+"}
               </span>
-            </button>
+            </div>
             <div
               id={`faq-answer-${actualIndex}`}
               className={`${styles.answer} ${

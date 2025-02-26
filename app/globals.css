@@ -1,15 +1,27 @@
 :root {
-  --background: #171717;
-  --foreground: #ffffff;
+  /* Light theme (default) */
+  --background: #f8f8f8;
+  --foreground: #1D2939;
+  --text-primary: #1D2939;
+  --text-secondary: #475467;
+  --text-tertiary: #667085;
+  --accent: #F63D68;
+  --border: #E4E7EC;
+  --card-bg: #F9FAFB;
   --font-inter: var(--font-inter);
   --font-poppins: var(--font-poppins);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #ffffff;
-    --foreground: #0a0a0a;
-  }
+[data-theme='dark'] {
+  /* Using your dark palette variables directly */
+  --background: #1A1A1A;        /* $color-jet-black */
+  --foreground: #E0E0E0;        /* $color-platinum */
+  --text-primary: #E0E0E0;      /* $color-platinum */
+  --text-secondary: #BFBFBF;    /* $color-ash */
+  --text-tertiary: #BFBFBF;     /* $color-ash */
+  --accent: #F63D68;            /* keeping your accent color */
+  --border: #353A3E;            /* $color-graphite */
+  --card-bg: #222526;           /* $color-onyx */
 }
 
 html,
@@ -28,17 +40,25 @@ img {
 }
 
 body {
-  color: var(--foreground);
+  color: var(--text-primary);
   background: var(--background);
   font-family: var(--font-inter);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+main {
+  background: var(--background);
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+h1, h2 {
+  color: var(--text-primary);
 }
 
 h1 {
@@ -49,7 +69,6 @@ h1 {
   line-height: 96px;
   text-align: center;
   letter-spacing: -0.02em;
-  color: #121718;
   margin-bottom: 24px;
 }
 
@@ -59,7 +78,6 @@ h2 {
   font-weight: 700;
   font-size: 42px;
   line-height: 44px;
-  color: #121718;
   margin-bottom: 20px;
 }
 

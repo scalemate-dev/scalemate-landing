@@ -1,7 +1,44 @@
+@import '../styles/_variables.scss';
+
 .main {
   overflow: hidden;
   position: relative;
   width: 100%;
   z-index: 1;
-  background: #f8f8f8;
 }
+
+.darkTheme {
+  /* Using your SCSS variables */
+  --background: #{$color-jet-black};
+  --foreground: #{$color-platinum};
+  --text-primary: #{$color-platinum};
+  --text-secondary: #{$color-ash};
+  --border: #{$color-graphite};
+  --card-bg: #{$color-onyx};
+  
+  & ~ main, &.main {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+  
+  /* Make sure all child elements inherit these variables */
+  & h1, & h2, & h3, & p, & div {
+    color: var(--text-primary);
+  }
+  
+  & a {
+    color: var(--text-primary);
+  }
+  
+  & button, & a {
+    position: relative;
+    z-index: 1;
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    border: 1px solid transparent;
+    // background-clip: padding-box;
+    filter: drop-shadow(0 0 4px rgba(255, 147, 15, 0.2)) 
+            drop-shadow(0 0 4px rgba(255, 249, 91, 0.2));
+  
+  }
+} 

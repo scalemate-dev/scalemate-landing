@@ -73,7 +73,7 @@ export default function Launch() {
   }
   const description = `Easily create multiple ad sets and variations. Bulk upload your images and videos for seamless automated launches. `
   return (
-    <div className={styles.main}>
+    <>
       <Hero
         type="secondary"
         title={renderTitle()}
@@ -91,6 +91,6 @@ export default function Launch() {
       />
       {/* <Slider /> */}
       <WaitList />
-    </div>
+    </>
   )
 }

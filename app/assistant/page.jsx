@@ -1,4 +1,5 @@
 import WaitList from "@/components/home/WaitList/WaitList"
+import cn from "classnames"
 import FAQ from "@/components/FAQ/FAQ"
 import Container from "@/components/elements/Container/Container"
 import Hero from "@/components/Hero/Hero"
@@ -7,8 +8,9 @@ import styles from "./page.module.scss"
 
 export default function AssistantPage() {
   return (
-    <div className={styles.main}>
+    <div className={cn(styles.main, styles.darkTheme)}>
       <Hero
+        type="secondary"
         title={
           <>
             Supercharge Your <span>Campaigns</span> with AI Precision
@@ -26,7 +28,7 @@ export default function AssistantPage() {
       <Container>
         <FAQ />
       </Container>
-      <WaitList />
+      <WaitList theme="dark" />
     </div>
   )
 }

@@ -26,13 +26,13 @@ export default function Home() {
           faster and smarter. Born to erase marketing routine and save you 3
           hours daily.`
   return (
-    <div className={styles.main}>
+    <>
       <Hero title={renderTitle()} description={description} fullHeight />
       <WithScalemate title="With Scalemate, ad management becomes easy, cutting time by over 62%." />
       <Features />
       <HowCanHelp />
       <ROICalculator />
       <WaitList />
-    </div>
+    </>
   )
 }
