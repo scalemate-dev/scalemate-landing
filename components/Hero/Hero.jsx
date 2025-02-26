@@ -11,6 +11,7 @@ const Hero = ({
   title,
   description,
   type = "primary",
+  fullHeight,
   image,
   CTALink,
   CTAButtonText,
@@ -38,7 +39,11 @@ const Hero = ({
     )
   }
   const renderPrimaryHero = () => (
-    <div className={cn(styles.hero, styles.primary)}>
+    <div
+      className={cn(styles.hero, styles.primary, {
+        [styles.fullHeight]: fullHeight,
+      })}
+    >
       <Image
         className={styles.linearBackground1}
         src={bubble}

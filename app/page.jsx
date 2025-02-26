@@ -27,7 +27,7 @@ export default function Home() {
           hours daily.`
   return (
     <div className={styles.main}>
-      <Hero title={renderTitle()} description={description} />
+      <Hero title={renderTitle()} description={description} fullHeight />
       <WithScalemate title="With Scalemate, ad management becomes easy, cutting time by over 62%." />
       <Features />
       <HowCanHelp />
