@@ -11,40 +11,40 @@ import "swiper/css/navigation"
 import Container from "@/components/elements/Container/Container"
 import styles from "./WithScalemate.module.scss"
 
-const WithScalemate = () => {
-  const cards = [
-    {
-      value: "100k",
-      label: "Ad creatives launched",
-      background: "#FFE8D3",
-    },
-    {
-      value: "13k",
-      label: "hours saved",
-      background: "#F0DCFF",
-    },
-    {
-      value: "-32%",
-      label: "cost per winner",
-      background: "#FFBF99",
-    },
-    {
-      value: "+30%",
-      label: "employee satisfaction",
-      background: "#E0F8DE",
-    },
-    {
-      value: "-90%",
-      label: "cost per ad created",
-      background: "#FFE8D3",
-    },
-    {
-      value: "<span>∞</span> times",
-      label: "more productive with<br/>Scalemate",
-      background: "#F5F4EE",
-    },
-  ]
+const DEFAULT_CARDS = [
+  {
+    value: "100k",
+    label: "Ad creatives launched",
+    background: "#FFE8D3",
+  },
+  {
+    value: "13k",
+    label: "hours saved",
+    background: "#F0DCFF",
+  },
+  {
+    value: "-32%",
+    label: "cost per winner",
+    background: "#FFBF99",
+  },
+  {
+    value: "+30%",
+    label: "employee satisfaction",
+    background: "#E0F8DE",
+  },
+  {
+    value: "-90%",
+    label: "cost per ad created",
+    background: "#FFE8D3",
+  },
+  {
+    value: "<span>∞</span> times",
+    label: "more productive with<br/>Scalemate",
+    background: "#F5F4EE",
+  },
+]
 
+const WithScalemate = ({ cards = DEFAULT_CARDS, title }) => {
   return (
     <div className={styles.withScalemate}>
       <Image
@@ -56,12 +56,7 @@ const WithScalemate = () => {
       />
       <Container>
         <div className={styles.withScalemateNavigation}>
-          <h2 className={styles.withScalemateTitle}>
-            With Scalemate, ad management becomes easy, cutting time by over
-            62%.
-            {/* With Scalemate, UAMs shorten the testing path and reduce time by
-            62%. */}
-          </h2>
+          <h2 className={styles.withScalemateTitle}>{title}</h2>
           <div className={styles.withScalemateNavigationButtons}>
             <div className={`${styles.withScalemateNavigationButton} prev`}>
               <Image src={chevronLeft} alt="Previous" width={24} height={24} />

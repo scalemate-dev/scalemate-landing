@@ -25,11 +25,20 @@
   &.primary {
     height: 100vh;
   }
+
+  &.fullHeight {
+    height: 100vh;
+  }
+}
+
+.heroSubmitContainer {
+  display: flex;
+  gap: 8px;
 }
 
 .heroSubmit {
-  animation: float 2s ease-in-out infinite;
-  transition: all 1s ease-in-out;
+  // animation: float 2s ease-in-out infinite;
+  transition: all .3s ease-in-out;
 
   &:hover {
     box-shadow: 0 5px 8px 0px rgba(0,0,0, 0.2) !important;

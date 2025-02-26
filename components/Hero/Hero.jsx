@@ -1,4 +1,5 @@
 import bubble from "@/assets/icons/hero-linear-background.svg"
+import Input from "@/components/elements/Input/Input"
 import bubble2 from "@/assets/icons/hero-linear-background-2.svg"
 import Image from "next/image"
 import Button from "@/components/elements/Button/Button"
@@ -6,23 +7,33 @@ import Container from "@/components/elements/Container/Container"
 import styles from "./Hero.module.scss"
 import cn from "classnames"
 
-const Hero = ({ title, description, type = "primary", image }) => {
+const Hero = ({
+  title,
+  description,
+  type = "primary",
+  image,
+  CTALink,
+  CTAButtonText,
+  showTrial = true,
+}) => {
   const renderButton = () => {
     return (
       <>
         <Button
           color="accent"
           className={styles.heroSubmit}
-          float
-          href="/book-a-demo"
+          href={CTALink ?? "/book-a-demo"}
         >
-          Try for free <span style={{ marginLeft: "4px" }}>🚀</span>
+          {CTAButtonText ?? "Try for free"}
+          <span style={{ marginLeft: "4px" }}>🚀</span>
         </Button>
-        <div className={styles.heroTrial}>
-          <span>✓ 1-month free trial</span>
-          <span>✓ No credit card required</span>
-          <span>✓ Custom integrations</span>
-        </div>
+        {showTrial && (
+          <div className={styles.heroTrial}>
+            <span>✓ 1-month free trial</span>
+            <span>✓ No credit card required</span>
+            <span>✓ Custom integrations</span>
+          </div>
+        )}
       </>
     )
   }

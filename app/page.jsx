@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <div className={styles.main}>
       <Hero title={renderTitle()} description={description} />
-      <WithScalemate />
+      <WithScalemate title="With Scalemate, ad management becomes easy, cutting time by over 62%." />
       <Features />
       <HowCanHelp />
       <ROICalculator />

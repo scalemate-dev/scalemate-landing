@@ -1,6 +1,7 @@
 import Container from "../Container/Container"
 import Bolt from "@/assets/icons/bolt.inline.svg"
 import Cloud from "@/assets/icons/cloud.inline.svg"
+import Sparkles from "@/assets/icons/sparkles.inline.svg"
 import Fork from "@/assets/icons/fork.inline.svg"
 import NavDropdown from "../NavDropdown/NavDropdown"
 import Link from "next/link"
@@ -12,6 +13,16 @@ import Icon from "@/components/elements/Icon/Icon"
 const Header = () => {
   const solutions = [
     {
+      label: "Performance AI Agent",
+      description: "Scale campaigns with AI",
+      icon: (
+        <Icon style={{ backgroundColor: "#fae6ff" }}>
+          <Sparkles stroke="#9f4bfe" height={16} width={16} />
+        </Icon>
+      ),
+      path: "/assistant",
+    },
+    {
       label: "Launch",
       description: "Quickly set up multiple ad sets and ads.",
       icon: (
@@ -21,6 +32,7 @@ const Header = () => {
       ),
       path: "/launch",
     },
+
     {
       label: "Cloud sync",
       description: "Upload your ad creatives in one click.",

@@ -11,7 +11,6 @@ const WaitList = ({ noButton }) => {
         <Container className={styles.container}>
           <h2 className={styles.waitListTitle}>
             Deal with Ad Launches <span>260% faster</span>
-            {/* Deal with creatives testing <span>260% faster</span> */}
           </h2>
           <div className={styles.waitListSubtitle}>
             1-month free trial | Dedicated onboarding | Custom integrations

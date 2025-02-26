@@ -26,7 +26,7 @@ const Button = ({
       [styles.wide]: wide,
       [styles.disabled]: disabled,
       [styles.outline]: outline,
-      float: float,
+      ["float"]: float,
     },
     className,
   )
