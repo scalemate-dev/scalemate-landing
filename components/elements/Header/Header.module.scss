@@ -41,6 +41,23 @@
   }
 }
 
+.darkTheme {
+
+  .container {
+    background-color: rgba($color-onyx, 0.5);
+  }
+
+  .headerLink {
+    color: $color-platinum;
+  }
+
+  .headerLogo {
+    * {
+      fill: #fff;
+    }
+  }
+}
+
 @include tablet-horizontal {
   .header {
     top: 0;

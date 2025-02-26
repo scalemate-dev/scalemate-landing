@@ -17,6 +17,7 @@ const Button = ({
   outline,
   className,
   float,
+  darkTheme,
   ...props
 }) => {
   const classNames = cn(
@@ -27,6 +28,7 @@ const Button = ({
       [styles.disabled]: disabled,
       [styles.outline]: outline,
       ["float"]: float,
+      [styles.darkTheme]: darkTheme,
     },
     className,
   )

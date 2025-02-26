@@ -1,13 +1,12 @@
 "use client"
-import Chevron from "@/assets/icons/chevron.svg"
+import { IconChevronDown } from "@tabler/icons-react"
 
 import { useState, useRef, useEffect } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import cn from "classnames"
 import styles from "./NavDropdown.module.scss"
 
-const NavDropdown = ({ label, items = [] }) => {
+const NavDropdown = ({ label, items = [], darkTheme }) => {
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef(null)
 
@@ -30,6 +29,7 @@ const NavDropdown = ({ label, items = [] }) => {
           <p className={styles.itemLabel}>{item.label}</p>
           <p className={styles.itemDescription}>{item.description}</p>
         </div>
+        {item.new ? <div className={styles.new}>New</div> : null}
       </>
     )
   }
@@ -37,20 +37,12 @@ const NavDropdown = ({ label, items = [] }) => {
   return (
     <nav
       ref={dropdownRef}
-      className={styles.navDropdown}
+      className={cn(styles.navDropdown, { [styles.darkTheme]: darkTheme })}
       onMouseEnter={() => setIsOpen(true)}
     >
       <div className={styles.label}>
         {label}
-        <Image
-          className={cn(styles.arrow, {
-            [styles.rotated]: isOpen,
-          })}
-          src={Chevron}
-          alt="Dropdown arrow"
-          width={16}
-          height={16}
-        />
+        <IconChevronDown size={16} />
       </div>
       <div
         onMouseLeave={() => setIsOpen(false)}

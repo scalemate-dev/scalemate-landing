@@ -10,25 +10,35 @@ const FEATURES = [
   {
     title: "Text-to-Report",
     description: "Create reports based on Insights shared by your source",
-    icon: <IconMessageFilled color="#000" className={styles.icon} />,
+    icon: (
+      <IconMessageFilled color="var(--background)" className={styles.icon} />
+    ),
     background: "linear-gradient(45deg, #F63D68 0%, #F75A6B 50%, #FBD677 100%)",
   },
   {
     title: "Bulk Actions",
     description: "Make data prooven actions on your campaigns",
-    icon: <IconBoltFilled color="#000" className={styles.icon} />,
+    icon: <IconBoltFilled color="var(--background)" className={styles.icon} />,
     background: "linear-gradient(45deg, #FF930F 0%, #FFF95B 100%)",
   },
   {
     title: "Scheduled Tasks",
     description: "Schedule reports, launches or rules to run automatically",
-    icon: <IconClockHour3Filled color="#000" className={styles.icon} />,
+    icon: (
+      <IconClockHour3Filled color="var(--background)" className={styles.icon} />
+    ),
     background: "linear-gradient(45deg, #696EFF 0%, #F8ACFF 100%)",
   },
   {
     title: "Text-to-Report",
     description: "Create reports based on Insights shared by your source",
-    icon: <IconMessageFilled color="#000" stroke={2} className={styles.icon} />,
+    icon: (
+      <IconMessageFilled
+        color="var(--background)"
+        stroke={2}
+        className={styles.icon}
+      />
+    ),
     background: "linear-gradient(45deg, #00FF87 0%, #0061FF 100%)",
   },
 ]
