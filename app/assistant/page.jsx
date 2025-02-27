@@ -6,17 +6,20 @@ import Hero from "@/components/Hero/Hero"
 import Features from "./components/Features"
 import styles from "./page.module.scss"
 
+import heroImage from "@/assets/images/assistant/chat.png"
 export default function AssistantPage() {
   return (
     <div className={cn(styles.main, styles.darkTheme)}>
       <Hero
         type="secondary"
+        image={heroImage}
         title={
           <>
-            Supercharge Your <span>Campaigns</span> with AI Precision
+            Scale Smarter <br />
+            with your <span>AI Agent</span>
           </>
         }
-        description="Unlock insights, automate optimizations, and supercharge your campaigns on Facebook, Google, TikTok, and more. Join our waitlist for early access to the ultimate AI toolkit for performance marketers"
+        description="Experience the next generation of ad management. Get insights, recommendations, and automation for your campaigns at your fingertips. <br/ >Apply for early access!"
         CTAButtonText="Get early access"
         CTALink="/get-early-access"
         showTrial={false}

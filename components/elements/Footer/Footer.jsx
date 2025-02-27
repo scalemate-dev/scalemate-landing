@@ -26,6 +26,9 @@ const Footer = () => {
               LinkedIn
             </a>
           </div>
+          <div className={styles.footerColLink} style={{ paddingTop: 16 }}>
+            © Scalemate 2025
+          </div>
         </div>
         <div className={styles.footerRight}>
           <div className={styles.footerCol}>

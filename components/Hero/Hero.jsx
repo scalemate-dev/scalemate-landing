@@ -60,7 +60,9 @@ const Hero = ({
       />
       <Container className={styles.hero}>
         <h1>{title}</h1>
-        <div className={styles.heroDescription}>{description}</div>
+        <div className={styles.heroDescription}>
+          <div dangerouslySetInnerHTML={{ __html: description }} />
+        </div>
         {renderButton()}
       </Container>
     </div>
@@ -86,7 +88,9 @@ const Hero = ({
         <div className={styles.contentWrapper}>
           <div className={styles.heroContent}>
             <h1>{title}</h1>
-            <div className={styles.heroDescription}>{description}</div>
+            <div className={styles.heroDescription}>
+              <div dangerouslySetInnerHTML={{ __html: description }} />
+            </div>
             {renderButton()}
           </div>
           {/* <div className={styles.heroImageContainer}> */}

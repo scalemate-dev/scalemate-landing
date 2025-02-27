@@ -3,6 +3,7 @@ import {
   IconMessageFilled,
   IconBoltFilled,
   IconClockHour3Filled,
+  IconBubbleTextFilled,
 } from "@tabler/icons-react"
 import styles from "./Features.module.scss"
 
@@ -16,8 +17,21 @@ const FEATURES = [
     background: "linear-gradient(45deg, #F63D68 0%, #F75A6B 50%, #FBD677 100%)",
   },
   {
+    title: "Suggestions",
+    description: "Get smart recommendations to optimize your campaigns.",
+    icon: (
+      <IconBubbleTextFilled
+        color="var(--background)"
+        stroke={2}
+        className={styles.icon}
+      />
+    ),
+    background: "linear-gradient(45deg, #00FF87 0%, #0061FF 100%)",
+  },
+  {
     title: "Bulk Actions",
-    description: "Make data prooven actions on your campaigns",
+    description:
+      "Make data prooven actions with your campaigns: Upload, Launch, Optimize",
     icon: <IconBoltFilled color="var(--background)" className={styles.icon} />,
     background: "linear-gradient(45deg, #FF930F 0%, #FFF95B 100%)",
   },
@@ -28,18 +42,6 @@ const FEATURES = [
       <IconClockHour3Filled color="var(--background)" className={styles.icon} />
     ),
     background: "linear-gradient(45deg, #696EFF 0%, #F8ACFF 100%)",
-  },
-  {
-    title: "Text-to-Report",
-    description: "Create reports based on Insights shared by your source",
-    icon: (
-      <IconMessageFilled
-        color="var(--background)"
-        stroke={2}
-        className={styles.icon}
-      />
-    ),
-    background: "linear-gradient(45deg, #00FF87 0%, #0061FF 100%)",
   },
 ]
 export default function Features() {
