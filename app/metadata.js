@@ -29,14 +29,15 @@ export const pageMetadata = {
   home: defaultMetadata,
   launch: {
     title: "Automate Ad Launching | Scalemate",
+    alternates: { canonical: "https://www.scalemate.co/launch" },
     description:
-      "Launch hundreds of Ads in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
+      "Bulk ads launches in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
     keywords:
-      "Launch facebook campaigns, automated ads launch, launch ads from google drive, ad templates, automated campaign launch, automated creative upload, automated rules",
+      "Bulk ads launches, automated ads launch, launch ads from google drive, ad templates, campaign tempaltes, automated campaign launch, automated creative upload, automated rules",
     openGraph: {
       title: "Automate Ad Launching | Scalemate",
       description:
-        "Launch hundreds of Ads in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
+        "Bulk ads launches in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
       images: [{ url: "/og-image.png" }],
     },
     twitter: {
