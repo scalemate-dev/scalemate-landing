@@ -7,6 +7,7 @@ import Features from "./components/Features"
 import styles from "./page.module.scss"
 
 import heroImage from "@/assets/images/assistant/chat.png"
+
 export default function AssistantPage() {
   return (
     <div className={cn(styles.main, styles.darkTheme)}>
