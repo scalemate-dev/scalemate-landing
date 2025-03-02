@@ -111,8 +111,20 @@ const Header = () => {
         className={`${styles.mobileDrawer} ${
           mobileMenuOpen ? styles.open : ""
         }`}
+        onClick={() => setMobileMenuOpen(false)}
       >
-        <div className={styles.mobileDrawerContent}>
+        <div
+          className={styles.mobileDrawerContent}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button
+            className={styles.closeButton}
+            onClick={() => setMobileMenuOpen(false)}
+            aria-label="Close mobile menu"
+          >
+            <span></span>
+            <span></span>
+          </button>
           <div className={styles.mobileLinks}>
             <NavDropdown
               items={solutions}
