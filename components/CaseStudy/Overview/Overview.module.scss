@@ -1,0 +1,75 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 70px;
+}
+
+.content {
+  flex: 1;
+  border-radius: 8px;
+}
+
+.metrics {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.metric {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  max-width: 200px;
+  min-width: 182px;
+  gap: 4px;
+
+  background-color: #F5F4EE;
+  padding: 18px;
+  border-radius: 18px;
+  box-shadow: 0 2px 20px #0000001f
+}
+
+.metricValue {
+  font-family: "Poppins", sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2em;
+}
+
+.metricLabel {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.heading p {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #121718;
+}
+
+.overviewText {
+  color: #9CA3AF;
+} 
+
+@include tablet-horizontal {
+  .heading p {
+    font-size: 24px;
+  }
+}
+
+@include tablet-vertical {
+  .metrics {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .metric {
+    max-width: 100%;
+    width: 100%;
+  }
+}

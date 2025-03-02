@@ -7,7 +7,7 @@ import Image from "next/image"
 import cn from "classnames"
 import styles from "./NavDropdown.module.scss"
 
-const NavDropdown = ({ label, items = [] }) => {
+const NavDropdown = ({ label, items = [], inline = false, onLinkClick }) => {
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef(null)
 
@@ -34,13 +34,41 @@ const NavDropdown = ({ label, items = [] }) => {
     )
   }
 
+  // Handle dropdown toggle on click
+  const handleToggleClick = () => {
+    setIsOpen(!isOpen)
+  }
+
+  // Handle mouse enter for desktop dropdown
+  const handleMouseEnter = () => {
+    if (!inline) {
+      setIsOpen(true)
+    }
+  }
+
+  // Handle mouse leave for desktop dropdown
+  const handleMouseLeave = () => {
+    if (!inline) {
+      setIsOpen(false)
+    }
+  }
+
+  const handleLinkClick = () => {
+    setIsOpen(false)
+    if (onLinkClick) {
+      onLinkClick()
+    }
+  }
+
   return (
     <nav
       ref={dropdownRef}
-      className={styles.navDropdown}
-      onMouseEnter={() => setIsOpen(true)}
+      className={cn(styles.navDropdown, {
+        [styles.inlineDropdown]: inline,
+      })}
+      onMouseEnter={handleMouseEnter}
     >
-      <div className={styles.label}>
+      <div className={styles.label} onClick={handleToggleClick}>
         {label}
         <Image
           className={cn(styles.arrow, {
@@ -53,9 +81,10 @@ const NavDropdown = ({ label, items = [] }) => {
         />
       </div>
       <div
-        onMouseLeave={() => setIsOpen(false)}
+        onMouseLeave={handleMouseLeave}
         className={cn(styles.list, {
           [styles.visible]: isOpen,
+          [styles.inlineList]: inline,
         })}
       >
         {items.map((item) => {
@@ -76,7 +105,7 @@ const NavDropdown = ({ label, items = [] }) => {
               href={item.path}
               className={styles.item}
               data-disabled={item.disabled ? "true" : "false"}
-              onClick={() => setIsOpen(false)}
+              onClick={handleLinkClick}
             >
               {renderNavItem(item)}
             </Link>
