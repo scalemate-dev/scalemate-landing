@@ -23,7 +23,6 @@ export default async function CaseStudies() {
 
   // Map Contentful data to the format needed by our components
   const caseStudies = response.items.map((item) => {
-    console.log("item", item)
     return {
       id: item.sys.id,
       title: item.fields.title,
@@ -39,7 +38,6 @@ export default async function CaseStudies() {
       slug: item.fields.slug,
     }
   })
-  console.log("caseStudies", caseStudies)
 
   return (
     <div className={styles.container}>
