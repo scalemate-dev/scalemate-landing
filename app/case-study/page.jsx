@@ -70,9 +70,11 @@ function CaseStudyCard({ caseStudy }) {
   return (
     <div className={styles.card}>
       <div className={styles.cardContent}>
-        <div className={styles.cardHeader}>
+        <div className={styles.cardInnerLeft}>
           <div className={styles.clientName}>{clientName}</div>
-          <h2 className={styles.cardTitle}>{title}</h2>
+          <Link href={`/case-study/${slug}`}>
+            <h2 className={styles.cardTitle}>{title}</h2>
+          </Link>
           {/* <p className={styles.cardDescription}>{description}</p> */}
 
           <div className={styles.metricsGrid}>
@@ -88,7 +90,11 @@ function CaseStudyCard({ caseStudy }) {
           </div>
         </div>
 
-        <Button color="accent" href={`/case-study/${slug}`}>
+        <Button
+          color="accent"
+          href={`/case-study/${slug}`}
+          className={styles.button}
+        >
           Read full story
         </Button>
       </div>
