@@ -13,7 +13,6 @@ const CompanyCard = ({ logo, useCase, industry }) => {
         className={styles.logo}
         height={128}
         width={128}
-        objectFit="cover"
       />
 
       <div className={styles.info}>

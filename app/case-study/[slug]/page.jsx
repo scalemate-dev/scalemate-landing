@@ -27,10 +27,11 @@ const previewClient = createClient({
 })
 
 async function AppPage({ params, searchParams }) {
-  const { slug } = params
+  const { slug } = await params
+  const { preview } = await searchParams
   const locale = "en-US"
 
-  const isPreview = searchParams?.preview === previewAccessToken
+  const isPreview = preview === previewAccessToken
   const currentClient = isPreview ? previewClient : client
 
   const entries = await currentClient.getEntries({
