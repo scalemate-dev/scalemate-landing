@@ -9,6 +9,7 @@ import Overview from "@/components/CaseStudy/Overview/Overview"
 import { notFound } from "next/navigation"
 
 const accessToken = process.env.CONTENTFUL_DELIVERY_ACCESS_TOKEN
+const previewAccessToken = process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
 const space = process.env.CONTENTFUL_SPACE_ID
 const environment = process.env.CONTENTFUL_ENVIRONMENT
 
@@ -18,11 +19,21 @@ const client = createClient({
   accessToken,
 })
 
-async function AppPage({ params }) {
-  const { slug } = await params
+const previewClient = createClient({
+  space,
+  environment,
+  accessToken: previewAccessToken,
+  host: "preview.contentful.com",
+})
+
+async function AppPage({ params, searchParams }) {
+  const { slug } = params
   const locale = "en-US"
 
-  const entries = await client.getEntries({
+  const isPreview = searchParams?.preview === previewAccessToken
+  const currentClient = isPreview ? previewClient : client
+
+  const entries = await currentClient.getEntries({
     content_type: "caseStudy",
     "fields.slug": slug,
     locale,
