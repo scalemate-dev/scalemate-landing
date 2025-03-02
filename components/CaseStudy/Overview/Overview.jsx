@@ -1,6 +1,5 @@
 import React from "react"
-import Image from "next/image"
-import Container from "@/components/elements/Container/Container"
+import CounterAnimation from "@/components/elements/CounterAnimation/CounterAnimation"
 import styles from "./Overview.module.scss"
 import RichTextElements from "@/components/contentful/RichText/RichTextElements"
 
@@ -20,7 +19,10 @@ const Overview = ({ companyInfo, metrics, logo }) => {
       <div className={styles.metrics}>
         {metrics.map((metric) => (
           <div className={styles.metric} key={metric.fields.description}>
-            <div className={styles.metricValue}>{metric.fields.value}</div>
+            <CounterAnimation
+              value={metric.fields.value}
+              className={styles.metricValue}
+            />
             <div className={styles.metricLabel}>
               {metric.fields.description}
             </div>

@@ -52,7 +52,12 @@ const Header = () => {
           <Link href="/" className={styles.headerLogo}>
             <Logo className={styles.logo} />
           </Link>
-          <NavDropdown items={solutions} label="Product" />
+          <div className={styles.linksWrapper}>
+            <NavDropdown items={solutions} label="Product" />
+            <Link href="/case-study" className={styles.navLink}>
+              Case Study
+            </Link>
+          </div>
           {/* <NavDropdown items={solutions} label="Integrations" /> */}
         </div>
         <Button outline href="/book-a-demo">

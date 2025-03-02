@@ -24,6 +24,24 @@
     }
   }
 
+  .linksWrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .navLink {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #2f2f2f;
+
+    &:hover {
+      color: $color-text-800;
+    }
+  }
+
   .headerNavigation {
     flex: 1;
     display: flex;
@@ -48,6 +66,18 @@
     .container {
       border-radius: 0px;
       padding: 16px;
+    }
+  }
+}
+
+@include tablet-vertical {
+  .header {
+    .linksWrapper {
+      gap: 8px;
+    }
+  
+    .headerNavigation {
+      gap: 16px;
     }
   }
 }

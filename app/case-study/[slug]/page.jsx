@@ -35,7 +35,6 @@ async function AppPage({ params }) {
 
   const caseStudy = entries.items[0]
 
-  console.log("caseStudy", caseStudy)
   const { challenge, solution, results, metrics } = caseStudy.fields
 
   return (
