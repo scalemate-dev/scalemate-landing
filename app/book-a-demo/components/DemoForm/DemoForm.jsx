@@ -1,4 +1,6 @@
 "use client"
+
+import { validateEmail } from "@/helpers/emails"
 import WaitList from "@/components/home/WaitList/WaitList"
 
 import { useState } from "react"
@@ -19,7 +21,9 @@ const DemoForm = () => {
     companyName: "",
     monthlyBudget: "",
     message: "",
+    error: "",
   })
+  const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const [formSent, setFormSent] = useState(false)
 
@@ -44,11 +48,11 @@ const DemoForm = () => {
     e.preventDefault()
     try {
       setLoading(true)
-      // Implement your form submission logic here
+      await validateEmail(formData.email)
       await sendForm(formData)
       setFormSent(true)
     } catch (error) {
-      console.error("Form submission error:", error)
+      setError(error.message)
     } finally {
       setLoading(false)
     }
@@ -56,7 +60,6 @@ const DemoForm = () => {
 
   const sendForm = async (data) => {
     await fetch("https://submit-form.com/S3mkBrhnv", {
-      // info@scalemate.co oauth
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -68,6 +71,7 @@ const DemoForm = () => {
   }
 
   const handleChange = (field) => (value) => {
+    setError("")
     setFormData((prev) => ({
       ...prev,
       [field]: value,
@@ -107,46 +111,48 @@ const DemoForm = () => {
             label="Name"
             name="name"
             type="text"
-            placeholder="Jack Divinson"
+            placeholder="Enter youe name"
             value={formData.name}
             onChange={handleChange("name")}
           />
           <Input
             required
-            label="Email"
+            error={error}
+            label="Work Email"
             name="email"
             type="email"
-            placeholder="Enter your email"
+            placeholder="Enter your business email"
             value={formData.email}
             onChange={handleChange("email")}
+          />
+          <Input
+            label="Company name"
+            name="company-name"
+            type="text"
+            placeholder="Your company name"
+            value={formData.companyName}
+            onChange={handleChange("companyName")}
           />
           <Select
             label="Job position"
             value={formData.jobPosition}
             onChange={handleChange("jobPosition")}
-            placeholder="Select your position"
+            placeholder="Your job position"
             options={jobPositionOptions}
           />
-          <Input
-            label="Company Name"
-            name="company-name"
-            type="text"
-            placeholder="Scalemate"
-            value={formData.companyName}
-            onChange={handleChange("companyName")}
-          />
+
           <Select
             label="Monthly ad budget"
             value={formData.monthlyBudget}
             onChange={handleChange("monthlyBudget")}
-            placeholder="Select your ad monthly budget"
+            placeholder="Your avarage ad spend"
             options={monthlyBudgetOptions}
           />
           <Input
             textarea
             label="Message"
             name="message"
-            placeholder="Your message here.."
+            placeholder="Anything you'd like to add?"
             value={formData.message}
             onChange={handleChange("message")}
           />
@@ -158,8 +164,11 @@ const DemoForm = () => {
             loading={loading}
             disabled={formSent}
           >
-            {formSent ? "All Set! We'll Reach Out Soon 👍" : "Book a demo"}
+            {formSent
+              ? "Success! Await access details on your email 👍"
+              : "Try for free 🚀"}
           </Button>
+          <p className={styles.error}>{error}</p>
         </form>
       </div>
       <WaitList noButton />

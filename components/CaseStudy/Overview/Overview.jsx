@@ -3,11 +3,7 @@ import CounterAnimation from "@/components/elements/CounterAnimation/CounterAnim
 import styles from "./Overview.module.scss"
 import RichTextElements from "@/components/contentful/RichText/RichTextElements"
 
-const Overview = ({ companyInfo, metrics, logo }) => {
-  console.log("metrics", metrics)
-  // Prepend 'https:' if the URL starts with //
-  const imageUrl = logo.startsWith("//") ? `https:${logo}` : logo
-
+const Overview = ({ companyInfo, metrics }) => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>

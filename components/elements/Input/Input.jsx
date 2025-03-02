@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
-import cn from "classnames";
-import styles from "./Input.module.scss";
+import cn from "classnames"
+import styles from "./Input.module.scss"
 
 const Input = ({
   textarea,
@@ -15,23 +15,25 @@ const Input = ({
   required,
   name,
   onChange,
+  error,
 }) => {
   const handleChange = (e) => {
-    onChange?.(e.target.value);
-  };
+    onChange?.(e.target.value)
+  }
 
   const inputClasses = cn(styles.inputField, {
     [styles.leftPadding]: leftPadding,
     [styles.disabled]: disabled,
     [styles.textarea]: textarea,
-  });
+    [styles.inputError]: error,
+  })
 
   return (
     <div className={styles.input}>
       {label && (
         <div className={styles.inputLabel}>
           <span>{label}</span>
-          {required ? "*" : ""}
+          {required ? " *" : ""}
         </div>
       )}
       {textarea ? (
@@ -58,8 +60,9 @@ const Input = ({
           onChange={handleChange}
         />
       )}
+      {error && <p className={styles.error}>{error}</p>}
     </div>
-  );
-};
+  )
+}
 
-export default Input;
+export default Input

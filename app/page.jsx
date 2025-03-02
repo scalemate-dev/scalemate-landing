@@ -10,9 +10,7 @@ import { pageMetadata } from "./metadata"
 
 export const metadata = {
   ...pageMetadata.home,
-  alternates: {
-    canonical: "https://www.scalemate.co",
-  },
+  alternates: { canonical: "https://www.scalemate.co" },
 }
 
 export default function Home() {

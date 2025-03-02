@@ -44,6 +44,10 @@
     text-indent: 1px;
     text-overflow: '';
 
+    &:focus {
+      border-color: #4450F2;
+    }
+
     &.hasValue {
       color: #000;
     }

@@ -61,7 +61,7 @@ const NavDropdown = ({ label, items = [], inline = false, onLinkClick }) => {
   }
 
   return (
-    <div
+    <nav
       ref={dropdownRef}
       className={cn(styles.navDropdown, {
         [styles.inlineDropdown]: inline,
@@ -112,7 +112,7 @@ const NavDropdown = ({ label, items = [], inline = false, onLinkClick }) => {
           )
         })}
       </div>
-    </div>
+    </nav>
   )
 }
 

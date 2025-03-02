@@ -29,41 +29,43 @@ export const pageMetadata = {
   home: defaultMetadata,
   launch: {
     title: "Automate Ad Launching | Scalemate",
+    alternates: { canonical: "https://www.scalemate.co/launch" },
     description:
-      "Launch hundreds of Ads in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
+      "Bulk ads launches in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
     keywords:
-      "Launch facebook campaigns, automated ads launch, launch ads from google drive, ad templates, automated campaign launch, automated creative upload, automated rules",
+      "Bulk ads launches, automated ads launch, launch ads from google drive, ad templates, campaign tempaltes, automated campaign launch, automated creative upload, automated rules",
     openGraph: {
       title: "Automate Ad Launching | Scalemate",
       description:
-        "Launch hundreds of Ads in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
-      images: [{ url: "/og-image-automate.png" }],
+        "Bulk ads launches in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
+      images: [{ url: "/og-image.png" }],
     },
     twitter: {
       card: "summary_large_image",
       title: "Automate Ad Launching | Scalemate",
       description:
         "Launch hundreds of Ads in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
-      images: ["/og-image-automate.png"],
+      images: ["/og-image.png"],
     },
   },
   bookDemo: {
-    title: "Scalemate | Book a Demo",
+    title: "Book a Demo | Scalemate",
+    alternates: { canonical: "https://www.scalemate.co/book-a-demo" },
     description:
       "Experience the power of automation for ads management. Book a demo with Scalemate to see how you launch your ads 3x faster.",
     keywords:
-      "Book demo facebook ads automation, Scalemate demo, facebook ads automation, cross-platform creatives launch, schedule Scalemate demo, ads management automation demo",
+      "Book demo facebook ads automation, Scalemate demo, facebook ads automation free trial, cross-platform adds launch, schedule Scalemate demo, ads management automation free trial",
     openGraph: {
-      title: "Creative Testing Automation - Book a Demo",
+      title: "Book a Demo And See how fast you can launch ads",
       description:
-        "Get a personalized demonstration of Scalemate and learn how our tool can triple your ads management speed on Facebook and beyond.",
+        "Get a personalized demo of Scalemate and learn how our tool can triple your ads management speed on Facebook and beyond.",
       images: [{ url: "/og-image-demo.png" }],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Creative Testing Automation - Book a Demo",
+      title: "Book a Demo – And See how fast you can launch ads",
       description:
-        "Get a personalized demonstration of Scalemate and learn how our tool can triple your ads management speed on Facebook and beyond.",
+        "Get a personalized demo of Scalemate and learn how our tool can triple your ads management speed on Facebook and beyond.",
       images: ["/og-image-demo.png"],
     },
   },

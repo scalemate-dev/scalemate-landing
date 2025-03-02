@@ -59,10 +59,10 @@ export default function RootLayout({ children }) {
 
       <body className={`${inter.variable} ${poppins.variable}`}>
         <Header />
-        <div className={styles.main}>{children}</div>
-        <div className={styles.fixed}>
+        <main className={styles.main}>{children}</main>
+        <footer className={styles.fixed}>
           <Footer />
-        </div>
+        </footer>
       </body>
     </html>
   )
