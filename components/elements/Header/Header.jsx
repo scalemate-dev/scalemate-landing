@@ -82,8 +82,8 @@ const Header = () => {
           </Link>
           <div className={styles.linksWrapper}>
             <NavDropdown items={solutions} label="Product" />
-            <Link href="/case-study" className={styles.navLink}>
-              Case Study
+            <Link href="/customers" className={styles.navLink}>
+              Customers
             </Link>
           </div>
           {/* <NavDropdown items={solutions} label="Integrations" /> */}
@@ -133,11 +133,11 @@ const Header = () => {
               onLinkClick={() => setMobileMenuOpen(false)}
             />
             <Link
-              href="/case-study"
+              href="/customers"
               className={styles.mobileNavLink}
               onClick={() => setMobileMenuOpen(false)}
             >
-              Case Study
+              Customers
             </Link>
             <Button
               outline

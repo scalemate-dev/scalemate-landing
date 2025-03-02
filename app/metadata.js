@@ -25,6 +25,28 @@ export const defaultMetadata = {
   },
 }
 
+const cusromersMetadata = {
+  title: "Customer Success Stories | Scalemate",
+  description:
+    "Discover how Scalemate automates marketing processes, optimizes ad management, and helps businesses scale faster with better performance.",
+  alternates: { canonical: "https://www.scalemate.co/customers" },
+  keywords:
+    "marketing automation, ads automation, Scalemate, case study, customer success stories",
+  openGraph: {
+    title: "Customer Success Stories | Scalemate",
+    description:
+      "Discover how Scalemate automates marketing processes, optimizes ad management, and helps businesses scale faster with better performance.",
+    images: [{ url: "/og-image.png" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Customer Success Stories | Scalemate",
+    description:
+      "Discover how Scalemate automates marketing processes, optimizes ad management, and helps businesses scale faster with better performance.",
+    images: ["/og-image.png"],
+  },
+}
+
 export const pageMetadata = {
   home: defaultMetadata,
   launch: {
@@ -69,4 +91,5 @@ export const pageMetadata = {
       images: ["/og-image-demo.png"],
     },
   },
+  customers: cusromersMetadata,
 }

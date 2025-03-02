@@ -6,13 +6,14 @@ import Image from "next/image"
 import styles from "./page.module.scss"
 import { createClient } from "contentful"
 import CounterAnimation from "@/components/elements/CounterAnimation/CounterAnimation"
-
-// Configure Contentful client
+import { pageMetadata } from "../metadata"
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
   environment: process.env.CONTENTFUL_ENVIRONMENT,
   accessToken: process.env.CONTENTFUL_DELIVERY_ACCESS_TOKEN,
 })
+
+export const metadata = pageMetadata.customers
 
 export default async function CaseStudies() {
   const response = await client.getEntries({
@@ -21,7 +22,6 @@ export default async function CaseStudies() {
     include: 10,
   })
 
-  // Map Contentful data to the format needed by our components
   const caseStudies = response.items.map((item) => {
     return {
       id: item.sys.id,
@@ -70,7 +70,7 @@ function CaseStudyCard({ caseStudy }) {
       <div className={styles.cardContent}>
         <div className={styles.cardInnerLeft}>
           <div className={styles.clientName}>{clientName}</div>
-          <Link href={`/case-study/${slug}`}>
+          <Link href={`/customers/${slug}`}>
             <h2 className={styles.cardTitle}>{title}</h2>
           </Link>
           {/* <p className={styles.cardDescription}>{description}</p> */}
@@ -90,7 +90,7 @@ function CaseStudyCard({ caseStudy }) {
 
         <Button
           color="accent"
-          href={`/case-study/${slug}`}
+          href={`/customers/${slug}`}
           className={styles.button}
         >
           Read full story
