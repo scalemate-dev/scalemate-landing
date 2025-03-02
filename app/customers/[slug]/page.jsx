@@ -26,6 +26,68 @@ const previewClient = createClient({
   host: "preview.contentful.com",
 })
 
+// Function to fetch case study data
+async function getCaseStudy(slug, preview = false) {
+  const isPreview = preview === previewAccessToken
+  const currentClient = isPreview ? previewClient : client
+  const locale = "en-US"
+
+  const entries = await currentClient.getEntries({
+    content_type: "caseStudy",
+    "fields.slug": slug,
+    locale,
+    include: 10,
+  })
+
+  if (!entries.items.length) {
+    return null
+  }
+
+  return entries.items[0]
+}
+
+// Generate metadata for the page
+export async function generateMetadata({ params, searchParams }) {
+  const { slug } = params
+  const { preview } = searchParams
+
+  const caseStudy = await getCaseStudy(slug, preview)
+
+  if (!caseStudy) {
+    return {}
+  }
+
+  const description = caseStudy.fields.seoDescription
+
+  const imageUrl =
+    caseStudy.fields.previewImage?.fields.file.url || "/og-image.png"
+
+  const fullImageUrl = imageUrl.startsWith("//")
+    ? `https:${imageUrl}`
+    : imageUrl
+
+  return {
+    title: `${caseStudy.fields.clientName} Success Story | Scalemate`,
+    description,
+    alternates: {
+      canonical: `https://www.scalemate.co/customers/${slug}`,
+    },
+    keywords: `marketing automation, case study, success story, ${caseStudy.fields.seoKeywords}, Scalemate`,
+    openGraph: {
+      title: `${caseStudy.fields.clientName} Success Story | Scalemate`,
+      description,
+      images: [{ url: fullImageUrl }],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${caseStudy.fields.clientName} Success Story | Scalemate`,
+      description,
+      images: [fullImageUrl],
+    },
+  }
+}
+
 async function AppPage({ params, searchParams }) {
   const { slug } = await params
   const { preview } = await searchParams
