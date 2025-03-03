@@ -4,7 +4,7 @@ import Features from "../components/home/Features/Features"
 import WithScalemate from "../components/home/WithScalemate/WithScalemate"
 import ROICalculator from "../components/home/ROICalculator/ROICalculator"
 import WaitList from "../components/home/WaitList/WaitList"
-import Footer from "@/components/elements/Footer/Footer"
+import cn from "classnames"
 import styles from "./page.module.scss"
 import { pageMetadata } from "./metadata"
 
@@ -26,13 +26,13 @@ export default function Home() {
           faster and smarter. Born to erase marketing routine and save you 3
           hours daily.`
   return (
-    <>
+    <div className={cn(styles.main, styles.home)}>
       <Hero title={renderTitle()} description={description} fullHeight />
       <WithScalemate title="With Scalemate, ad management becomes easy, cutting time by over 62%." />
       <Features />
       <HowCanHelp />
       <ROICalculator />
       <WaitList />
-    </>
+    </div>
   )
 }

@@ -40,7 +40,7 @@ const Button = ({
 
   if (href) {
     return (
-      <Link href={href} className={classNames}>
+      <Link href={href} className={classNames} onClick={handleClick}>
         {children}
       </Link>
     )

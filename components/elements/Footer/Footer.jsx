@@ -33,6 +33,9 @@ const Footer = () => {
         <div className={styles.footerRight}>
           <div className={styles.footerCol}>
             <div className={styles.footerColTitle}>Product</div>
+            <Link className={styles.footerColLink} href="/customers">
+              Customers
+            </Link>
             <Link className={styles.footerColLink} href="/launch">
               Launch
             </Link>

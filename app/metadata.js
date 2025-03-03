@@ -25,18 +25,41 @@ export const defaultMetadata = {
   },
 }
 
+const cusromersMetadata = {
+  title: "Customer Success Stories | Scalemate",
+  description:
+    "Discover how Scalemate automates marketing processes, optimizes ad management, and helps businesses scale faster with better performance.",
+  alternates: { canonical: "https://www.scalemate.co/customers" },
+  keywords:
+    "marketing automation, ads automation, Scalemate, case study, customer success stories",
+  openGraph: {
+    title: "Customer Success Stories | Scalemate",
+    description:
+      "Discover how Scalemate automates marketing processes, optimizes ad management, and helps businesses scale faster with better performance.",
+    images: [{ url: "/og-image.png" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Customer Success Stories | Scalemate",
+    description:
+      "Discover how Scalemate automates marketing processes, optimizes ad management, and helps businesses scale faster with better performance.",
+    images: ["/og-image.png"],
+  },
+}
+
 export const pageMetadata = {
   home: defaultMetadata,
   launch: {
     title: "Automate Ad Launching | Scalemate",
+    alternates: { canonical: "https://www.scalemate.co/launch" },
     description:
-      "Launch hundreds of Ads in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
+      "Bulk ads launches in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
     keywords:
-      "Launch facebook campaigns, automated ads launch, launch ads from google drive, ad templates, automated campaign launch, automated creative upload, automated rules",
+      "Bulk ads launches, automated ads launch, launch ads from google drive, ad templates, campaign tempaltes, automated campaign launch, automated creative upload, automated rules",
     openGraph: {
       title: "Automate Ad Launching | Scalemate",
       description:
-        "Launch hundreds of Ads in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
+        "Bulk ads launches in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
       images: [{ url: "/og-image.png" }],
     },
     twitter: {
@@ -68,4 +91,5 @@ export const pageMetadata = {
       images: ["/og-image-demo.png"],
     },
   },
+  customers: cusromersMetadata,
 }

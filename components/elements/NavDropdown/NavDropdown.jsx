@@ -6,7 +6,13 @@ import Link from "next/link"
 import cn from "classnames"
 import styles from "./NavDropdown.module.scss"
 
-const NavDropdown = ({ label, items = [], darkTheme }) => {
+const NavDropdown = ({
+  label,
+  items = [],
+  inline = false,
+  onLinkClick,
+  darkTheme,
+}) => {
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef(null)
 
@@ -34,20 +40,50 @@ const NavDropdown = ({ label, items = [], darkTheme }) => {
     )
   }
 
+  // Handle dropdown toggle on click
+  const handleToggleClick = () => {
+    setIsOpen(!isOpen)
+  }
+
+  // Handle mouse enter for desktop dropdown
+  const handleMouseEnter = () => {
+    if (!inline) {
+      setIsOpen(true)
+    }
+  }
+
+  // Handle mouse leave for desktop dropdown
+  const handleMouseLeave = () => {
+    if (!inline) {
+      setIsOpen(false)
+    }
+  }
+
+  const handleLinkClick = () => {
+    setIsOpen(false)
+    if (onLinkClick) {
+      onLinkClick()
+    }
+  }
+
   return (
     <nav
       ref={dropdownRef}
-      className={cn(styles.navDropdown, { [styles.darkTheme]: darkTheme })}
-      onMouseEnter={() => setIsOpen(true)}
+      className={cn(styles.navDropdown, {
+        [styles.inlineDropdown]: inline,
+        [styles.darkTheme]: darkTheme,
+      })}
+      onMouseEnter={handleMouseEnter}
     >
-      <div className={styles.label}>
+      <div className={styles.label} onClick={handleToggleClick}>
         {label}
         <IconChevronDown size={16} />
       </div>
       <div
-        onMouseLeave={() => setIsOpen(false)}
+        onMouseLeave={handleMouseLeave}
         className={cn(styles.list, {
           [styles.visible]: isOpen,
+          [styles.inlineList]: inline,
         })}
       >
         {items.map((item) => {
@@ -68,7 +104,7 @@ const NavDropdown = ({ label, items = [], darkTheme }) => {
               href={item.path}
               className={styles.item}
               data-disabled={item.disabled ? "true" : "false"}
-              onClick={() => setIsOpen(false)}
+              onClick={handleLinkClick}
             >
               {renderNavItem(item)}
             </Link>

@@ -1,0 +1,53 @@
+.card {
+  // background: #FFE8D3;
+  background: #ecedf6;
+  border-radius: 18px;
+  padding: 32px;
+  width: 100%;
+  color: #1A1A1A;
+  // border: 1px solid #1A1A1A;
+}
+
+.logo {
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 32px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.8);
+  object-fit: contain;
+  border: 8px solid #fff;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.infoGroup {
+  .label {
+    font-size: 14px;
+    color: #121718bf;
+    margin-bottom: 2px;
+    font-weight: 400;
+  }
+
+  .value {
+    font-size: 18px;
+    font-weight: 600;
+  }
+} 
+
+@include tablet-vertical {
+  .card {
+    padding: 24px;
+  }
+
+  .info {
+    gap: 16px;
+  }
+
+  .logo {
+    margin-bottom: 16px;
+  }
+}

@@ -1,5 +1,31 @@
-export default function sitemap() {
-  return [
+import { createClient } from "contentful"
+
+export default async function sitemap() {
+  // Initialize Contentful client
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    environment: process.env.CONTENTFUL_ENVIRONMENT,
+    accessToken: process.env.CONTENTFUL_DELIVERY_ACCESS_TOKEN,
+  })
+
+  // Fetch all case studies
+  const response = await client.getEntries({
+    content_type: "caseStudy",
+    locale: "en-US",
+  })
+
+  // Generate dynamic entries for case studies
+  const caseStudyEntries = response.items.map((item) => {
+    return {
+      url: `https://www.scalemate.co/customers/${item.fields.slug}`,
+      lastModified: new Date(item.sys.updatedAt || item.sys.createdAt),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    }
+  })
+
+  // Static pages
+  const staticPages = [
     {
       url: "https://www.scalemate.co",
       lastModified: new Date(),
@@ -18,5 +44,14 @@ export default function sitemap() {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    {
+      url: "https://www.scalemate.co/customers",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
   ]
+
+  // Combine static and dynamic entries
+  return [...staticPages, ...caseStudyEntries]
 }
