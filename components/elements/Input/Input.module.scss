@@ -63,6 +63,24 @@
     -webkit-appearance: none;
     margin: 0;
   }
+
+  &.darkTheme {
+
+    .inputField {
+      border: 1px solid rgba(226,232,255,.1);
+      background: linear-gradient(180deg,rgba(226,232,255,0) 0%,rgba(226,232,255,.06) 100%),rgba(226,232,255,.02);
+    }
+    .inputLabel {
+      span {
+        color: #FFFFFF;
+      }
+    }
+
+    .inputField {
+      color: #FFFFFF;
+    }
+  }
+
 } 
 
 

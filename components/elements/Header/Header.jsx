@@ -67,28 +67,28 @@ const Header = () => {
       path: "/launch",
     },
 
-    {
-      label: "Cloud sync",
-      description: "Upload your ad creatives in one click.",
-      icon: (
-        <Icon style={{ backgroundColor: "#EDF2FF" }}>
-          <IconCloud color="#40C057" size={16} />
-        </Icon>
-      ),
-      path: "/cloud-sync",
-      disabled: true,
-    },
-    {
-      label: "Rules",
-      description: "Create and apply rules to your ads.",
-      icon: (
-        <Icon style={{ backgroundColor: "#E7FCF5" }}>
-          <Fork color="#8E44AD" />
-        </Icon>
-      ),
-      path: "/rules",
-      disabled: true,
-    },
+    // {
+    //   label: "Cloud sync",
+    //   description: "Upload your ad creatives in one click.",
+    //   icon: (
+    //     <Icon style={{ backgroundColor: "#EDF2FF" }}>
+    //       <IconCloud color="#40C057" size={16} />
+    //     </Icon>
+    //   ),
+    //   path: "/cloud-sync",
+    //   disabled: true,
+    // },
+    // {
+    //   label: "Rules",
+    //   description: "Create and apply rules to your ads.",
+    //   icon: (
+    //     <Icon style={{ backgroundColor: "#E7FCF5" }}>
+    //       <Fork color="#8E44AD" />
+    //     </Icon>
+    //   ),
+    //   path: "/rules",
+    //   disabled: true,
+    // },
   ]
 
   return (
@@ -103,6 +103,7 @@ const Header = () => {
               items={solutions}
               label="Product"
               darkTheme={darkTheme}
+              onLinkClick={() => setMobileMenuOpen(false)}
             />
             <Link href="/customers" className={styles.navLink}>
               Customers
@@ -134,9 +135,10 @@ const Header = () => {
 
       {/* Mobile Menu Drawer */}
       <div
-        className={`${styles.mobileDrawer} ${
-          mobileMenuOpen ? styles.open : ""
-        }`}
+        className={cn(styles.mobileDrawer, {
+          [styles.open]: mobileMenuOpen,
+          [styles.darkTheme]: darkTheme,
+        })}
         onClick={() => setMobileMenuOpen(false)}
       >
         <div
@@ -157,6 +159,7 @@ const Header = () => {
               label="Product"
               inline={true}
               onLinkClick={() => setMobileMenuOpen(false)}
+              darkTheme={darkTheme}
             />
             <Link
               href="/customers"
@@ -169,6 +172,7 @@ const Header = () => {
               outline
               href="/book-a-demo"
               className={styles.mobileButton}
+              darkTheme={darkTheme}
               onClick={() => setMobileMenuOpen(false)}
             >
               Get Started

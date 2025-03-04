@@ -182,6 +182,10 @@
 .darkTheme {
   .label {
     color: $color-platinum;
+
+    &:hover {
+      color: $color-ash;
+    }
   }
 
   .list {

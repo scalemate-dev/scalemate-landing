@@ -15,9 +15,13 @@ const Hero = ({
   image,
   CTALink,
   CTAButtonText,
+  ctaForm,
   showTrial = true,
 }) => {
-  const renderButton = () => {
+  const renderCTA = () => {
+    if (ctaForm) {
+      return ctaForm
+    }
     return (
       <>
         <Button
@@ -63,7 +67,7 @@ const Hero = ({
         <div className={styles.heroDescription}>
           <div dangerouslySetInnerHTML={{ __html: description }} />
         </div>
-        {renderButton()}
+        {renderCTA()}
       </Container>
     </div>
   )
@@ -91,7 +95,7 @@ const Hero = ({
             <div className={styles.heroDescription}>
               <div dangerouslySetInnerHTML={{ __html: description }} />
             </div>
-            {renderButton()}
+            {renderCTA()}
           </div>
           {/* <div className={styles.heroImageContainer}> */}
           {image && (
