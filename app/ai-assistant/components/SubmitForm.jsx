@@ -28,7 +28,7 @@ export default function SubmitForm() {
     e.preventDefault()
     setIsLoading(true)
     try {
-      await validateEmail(email)
+      // await validateEmail(email)
       // await sendForm({ email })
       await trackTTFormSubmit(email)
       setIsSuccess(true)
@@ -83,7 +83,7 @@ export const trackTTFormSubmit = async (email) => {
   window.dataLayer = window.dataLayer || []
   window.dataLayer.push({ ecommerce: null }) // Clear previous ecommerce object
   window.dataLayer.push({
-    event: "ttq_form_submit", // Custom event name for GTM trigger
+    event: "submit_early_access_form", // Custom event name for GTM trigger
     tiktok_event: "SubmitForm", // TikTok standard event name
     email_hashed: hashedEmail, // Properly formatted for TikTok
     tt_external_id: getGAClientId(),
