@@ -25,7 +25,7 @@ export const defaultMetadata = {
   },
 }
 
-const cusromersMetadata = {
+const customersMetadata = {
   title: "Customer Success Stories | Scalemate",
   description:
     "Discover how Scalemate automates marketing processes, optimizes ad management, and helps businesses scale faster with better performance.",
@@ -44,6 +44,28 @@ const cusromersMetadata = {
     description:
       "Discover how Scalemate automates marketing processes, optimizes ad management, and helps businesses scale faster with better performance.",
     images: ["/og-image.png"],
+  },
+}
+
+const assistantMetadata = {
+  title: "Marketing AI Assistant | Scalemate",
+  alternates: { canonical: "https://www.scalemate.co/ai-assistant" },
+  description:
+    "Experience next-generation Ads management with Scalemate AI Assistant. Control budgets, launch campaigns, upload creatives, generate reports, get smart recommendations and unlock insights. All via an AI-powered chat",
+  keywords:
+    "Marketing AI Assistant, Ad management AI, AI for Ad management, AI for Facebook ads, AI for Google ads, Scalemate",
+  openGraph: {
+    title: "Marketing AI Assistant | Scalemate",
+    description:
+      "Experience next-generation Ads management with Scalemate AI Assistant. Control budgets, launch campaigns, upload creatives, generate reports, get smart recommendations and unlock insights. All via an AI-powered chat",
+    images: ["/og-image-assistant.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Marketing AI Assistant | Scalemate",
+    description:
+      "Experience next-generation Ads management with Scalemate AI Assistant. Control budgets, launch campaigns, upload creatives, generate reports, get smart recommendations and unlock insights. All via an AI-powered chat",
+    images: ["/og-image-assistant.png"],
   },
 }
 
@@ -91,5 +113,6 @@ export const pageMetadata = {
       images: ["/og-image-demo.png"],
     },
   },
-  customers: cusromersMetadata,
+  customers: customersMetadata,
+  assistant: assistantMetadata,
 }

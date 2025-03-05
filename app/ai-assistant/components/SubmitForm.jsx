@@ -11,7 +11,7 @@ export default function SubmitForm() {
   const [email, setEmail] = useState("")
   const [error, setError] = useState("")
   const [isLoading, setIsLoading] = useState(false)
-  const [isSuccess, setIsSuccess] = useState(true)
+  const [isSuccess, setIsSuccess] = useState(false)
 
   const sendForm = async (data) => {
     await fetch("https://submit-form.com/CcXQWUTEJ", {
@@ -23,6 +23,7 @@ export default function SubmitForm() {
       },
     })
   }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsLoading(true)
@@ -38,6 +39,11 @@ export default function SubmitForm() {
     }
   }
 
+  const handleChange = (value) => {
+    setEmail(value)
+    setError("")
+  }
+
   return (
     <form onSubmit={handleSubmit} className={styles.heroForm}>
       <Input
@@ -46,7 +52,7 @@ export default function SubmitForm() {
         darkTheme
         value={email}
         error={error}
-        onChange={setEmail}
+        onChange={handleChange}
       />
       <Button submit loading={isLoading} disabled={isSuccess}>
         {isSuccess ? (

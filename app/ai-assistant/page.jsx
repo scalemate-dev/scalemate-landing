@@ -8,7 +8,8 @@ import Hero from "@/components/Hero/Hero"
 import Features from "./components/Features"
 import styles from "./page.module.scss"
 
-import heroImage from "@/assets/images/assistant/chat-v8.png"
+import heroImage from "@/assets/images/assistant/chat.png"
+import { pageMetadata } from "@/app/metadata"
 
 const FAQ_ITEMS = [
   {
@@ -55,6 +56,8 @@ const FAQ_ITEMS = [
       "Yes, you can request a new integration by contacting our support team.",
   },
 ]
+
+export const metadata = pageMetadata.assistant
 
 export default function AssistantPage() {
   return (
