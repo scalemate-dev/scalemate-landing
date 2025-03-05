@@ -28,8 +28,8 @@ export default function SubmitForm() {
     e.preventDefault()
     setIsLoading(true)
     try {
-      // await validateEmail(email)
-      // await sendForm({ email })
+      await validateEmail(email)
+      await sendForm({ email })
       await trackTTFormSubmit(email)
       setIsSuccess(true)
       setIsLoading(false)
