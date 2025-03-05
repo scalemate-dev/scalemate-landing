@@ -63,10 +63,10 @@ export default function AssistantPage() {
         image={heroImage}
         title={
           <>
-            <span>One AI</span> to scale your campaigns
+            Talk to your Ads with <span>Scalemate AI</span>
           </>
         }
-        description="Experience future of ad management. Turn insights into action with intelligent recommendations and full-scale automation, all at your fingertips"
+        description="Experience future of Ad management: Control budgets, launch campaigns, upload creatives, generate reports and unlock insights. All in one AI-powered chat."
         ctaForm={<SubmitForm />}
         showTrial={false}
         fullHeight

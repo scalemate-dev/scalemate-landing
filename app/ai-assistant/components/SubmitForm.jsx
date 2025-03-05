@@ -5,12 +5,13 @@ import styles from "../page.module.scss"
 import Input from "@/components/elements/Input/Input"
 import Button from "@/components/elements/Button/Button"
 import { validateEmail } from "@/helpers/emails"
+import { IconCheck } from "@tabler/icons-react"
 
 export default function SubmitForm() {
   const [email, setEmail] = useState("")
   const [error, setError] = useState("")
   const [isLoading, setIsLoading] = useState(false)
-  const [isSuccess, setIsSuccess] = useState(false)
+  const [isSuccess, setIsSuccess] = useState(true)
 
   const sendForm = async (data) => {
     await fetch("https://submit-form.com/CcXQWUTEJ", {
@@ -48,7 +49,14 @@ export default function SubmitForm() {
         onChange={setEmail}
       />
       <Button submit loading={isLoading} disabled={isSuccess}>
-        {isSuccess ? "Success!  👍" : "Get early access"}
+        {isSuccess ? (
+          <>
+            Done
+            <IconCheck size={20} />
+          </>
+        ) : (
+          "Get early access"
+        )}
       </Button>
     </form>
   )

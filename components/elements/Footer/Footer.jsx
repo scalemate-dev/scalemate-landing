@@ -33,15 +33,15 @@ const Footer = () => {
         <div className={styles.footerRight}>
           <div className={styles.footerCol}>
             <div className={styles.footerColTitle}>Product</div>
-            <Link className={styles.footerColLink} href="/customers">
-              Customers
+            <Link className={styles.footerColLink} href="/ai-assistant">
+              Marketing AI Agent
             </Link>
             <Link className={styles.footerColLink} href="/launch">
               Launch
             </Link>
-            {/* <Link className={styles.footerColLink} href="/assistant">
-              Performance AI Agent
-            </Link> */}
+            <Link className={styles.footerColLink} href="/customers">
+              Customers
+            </Link>
             <Link className={styles.footerColLink} href="/book-a-demo">
               Book a Demo
             </Link>
