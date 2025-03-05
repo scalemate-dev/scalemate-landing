@@ -81,25 +81,27 @@ export const trackTTFormSubmit = async (email) => {
     .join("")
 
   window.dataLayer = window.dataLayer || []
-  window.dataLayer.push({ ecommerce: null }) // Clear previous ecommerce object
-  window.dataLayer.push({
-    event: "submit_early_access_form", // Custom event name for GTM trigger
-    tiktok_event: "SubmitForm", // TikTok standard event name
-    email_hashed: hashedEmail, // Properly formatted for TikTok
-    tt_external_id: getGAClientId(),
-    value: 20,
-    currency: "USD",
+
+  dataLayer.push({ ecommerce: null })
+  dataLayer.push({
+    event: "submit_early_access_form",
+    user_data: { sha256_email_address: hashedEmail },
     ecommerce: {
       value: 20,
       currency: "USD",
-      items: [
-        {
-          item_id: "waitlist_request",
-          item_name: "Waitlist Request",
-          price: 20,
-          quantity: 1,
-        },
-      ],
+      ecommerce: {
+        value: 20,
+        currency: "USD",
+        items: [
+          {
+            item_id: "waitlist_request",
+            item_name: "AI Assistant waitlist request",
+            price: 20,
+            quantity: 1,
+          },
+        ],
+      },
     },
+    tt_external_id: getGAClientId(),
   })
 }

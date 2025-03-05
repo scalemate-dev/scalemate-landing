@@ -118,13 +118,11 @@
       background: linear-gradient(180deg, 
       transparent 0%, 
       #ded8d343 10%,
-      rgb(239, 123, 22) 20%,
-      rgb(255, 121, 4) 30%,
-      rgb(253, 68, 17) 40%,
-      rgb(255, 47, 47) 50%,
-      rgb(253, 68, 17) 60%,
-      rgb(255, 121, 4) 70%,
-      rgb(239, 123, 22) 80%,
+      #926aff99 20%,
+      #ff77b0 30%,
+      #ffb367 50%,
+      #ff77b0 70%,
+      #926aff99 80%,
       #ded8d343 90%,
       transparent 100%
     );
@@ -133,7 +131,7 @@
 
   .border {
     position: relative;
-    left: -16px;
+    left: -14px;
     height: 2px;
     width: 100%;
     background: linear-gradient(90deg, rgb(222, 216, 211) 0%, transparent 70%);

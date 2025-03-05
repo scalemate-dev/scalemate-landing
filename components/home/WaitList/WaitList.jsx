@@ -5,24 +5,35 @@ import Container from "@/components/elements/Container/Container"
 import Button from "@/components/elements/Button/Button"
 import styles from "./WaitList.module.scss"
 
-const WaitList = ({ noButton, theme }) => {
+const WaitList = ({
+  noButton,
+  theme,
+  href,
+  title = "Deal with Ad Launches <span>260% faster</span>",
+  subtitle = "1-month free trial | Dedicated onboarding | Custom integrations",
+  buttonText = "Book a demo",
+  onClick = () => {},
+}) => {
   return (
     <div className={cn(styles.black, { [styles.dark]: theme === "dark" })}>
       <div className={cn(styles.waitList, { [styles.dark]: theme === "dark" })}>
         <Container className={styles.container}>
-          <h2 className={styles.waitListTitle}>
-            Deal with Ad Launches <span>260% faster</span>
-          </h2>
-          <div className={styles.waitListSubtitle}>
-            1-month free trial | Dedicated onboarding | Custom integrations
-          </div>
+          <h2
+            className={styles.waitListTitle}
+            dangerouslySetInnerHTML={{ __html: title }}
+          />
+          <div
+            className={styles.waitListSubtitle}
+            dangerouslySetInnerHTML={{ __html: subtitle }}
+          />
           {!noButton && (
             <Button
               color="accent"
-              href="/book-a-demo"
+              href={href}
               className={styles.waitListSubmit}
+              onClick={onClick}
             >
-              Book a demo
+              {buttonText}
             </Button>
           )}
         </Container>

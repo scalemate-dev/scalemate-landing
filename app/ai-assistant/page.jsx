@@ -20,15 +20,15 @@ const FAQ_ITEMS = [
   {
     question: "Can I manage multiple ad accounts and networks?",
     answer:
-      "Yes! Scalemate works with Meta (Facebook), TikTok, Google Ads — and we’re expanding. Manage all your accounts in one place with ease.",
+      "Yes! Scalemate works with Meta (ex-Facebook), TikTok, Google Ads — and we’re expanding. Manage all your accounts in one place with ease.",
   },
   {
     question: "What Bulk Actions are available?",
     answer:
-      "You can bulk-upload videos and images to Facebook TikTok and Google Ads, launch creatives using our one-ad-per-ad-set setup, and rotate top-performing ads in your campaigns – all with a few simple commands, manage budgets, and more.",
+      "You can bulk-upload videos and images from your Cloud or Local Drive to Meta (ex-Facebook) TikTok and Google Ads. Launch creatives using any confiuration, control budgets, and rotate top-performing ads in your campaigns.",
   },
   {
-    question: " How is my data processed?",
+    question: "Is it safe to use for sensitive data?",
     answer:
       "For your security, all data is anonymized before processing – ensuring your private information stays private. Additioinaly, you can request data deletion at any time.",
   },
@@ -39,7 +39,7 @@ const FAQ_ITEMS = [
   },
 
   {
-    question: "I have custom analytics system, can I use it with Scalemate?",
+    question: "I have custom analytics dashboard, can I use it with Scalemate?",
     answer:
       "Yes, we can connect Scalemate to your custom analytics system. We'll use your data to help you optimize your campaigns for better results and increase your ROAS.",
   },
@@ -61,15 +61,16 @@ export const metadata = pageMetadata.assistant
 
 export default function AssistantPage() {
   return (
-    <div className={cn(styles.main, styles.darkTheme)}>
+    <div className={cn(styles.main, styles.darkTheme)} id="request-access">
       <Hero
         image={heroImage}
         title={
           <>
-            Talk to your Ads with <span>Scalemate AI</span>
+            Chat your Ads with <br />
+            <span> Marketing AI Agent</span>
           </>
         }
-        description="Experience future of Ad management: Control budgets, launch campaigns, upload creatives, generate reports and unlock insights. All in one AI-powered chat."
+        description="Experience future of Ad management: Control budgets, launch campaigns, upload creatives and generate reports. All in one AI-powered chat"
         ctaForm={<SubmitForm />}
         showTrial={false}
         fullHeight
@@ -90,7 +91,11 @@ export default function AssistantPage() {
       <Container>
         <FAQ faqItems={FAQ_ITEMS} />
       </Container>
-      <WaitList theme="dark" />
+      <WaitList
+        theme="dark"
+        href="/ai-assistant#request-access"
+        buttonText="Get early access"
+      />
     </div>
   )
 }
