@@ -45,17 +45,17 @@ const Header = () => {
   }, [mobileMenuOpen])
 
   const solutions = [
-    {
-      label: "Performance AI Agent",
-      description: "Scale campaigns with AI",
-      icon: (
-        <Icon style={{ background: "#fae6ff" }}>
-          <Sparkles stroke="#9f4bfe" height={16} width={16} />
-        </Icon>
-      ),
-      path: "/assistant",
-      new: true,
-    },
+    // {
+    //   label: "Performance AI Agent",
+    //   description: "Scale campaigns with AI",
+    //   icon: (
+    //     <Icon style={{ background: "#fae6ff" }}>
+    //       <Sparkles stroke="#9f4bfe" height={16} width={16} />
+    //     </Icon>
+    //   ),
+    //   path: "/assistant",
+    //   new: true,
+    // },
     {
       label: "Launch",
       description: "Quickly set up multiple ad sets and ads.",

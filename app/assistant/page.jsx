@@ -1,7 +1,6 @@
 import WaitList from "@/components/home/WaitList/WaitList"
+import SubmitForm from "./components/SubmitForm"
 import Image from "next/image"
-import Input from "@/components/elements/Input/Input"
-import Button from "@/components/elements/Button/Button"
 import cn from "classnames"
 import FAQ from "@/components/FAQ/FAQ"
 import Container from "@/components/elements/Container/Container"
@@ -58,18 +57,6 @@ const FAQ_ITEMS = [
 ]
 
 export default function AssistantPage() {
-  const renderCTA = () => {
-    return (
-      <div className={styles.heroForm}>
-        <Input
-          placeholder="Enter your business email"
-          className={styles.heroFormInput}
-          darkTheme
-        />
-        <Button href="/get-early-access">Get early access</Button>
-      </div>
-    )
-  }
   return (
     <div className={cn(styles.main, styles.darkTheme)}>
       <Hero
@@ -80,8 +67,9 @@ export default function AssistantPage() {
           </>
         }
         description="Experience future of ad management. Turn insights into action with intelligent recommendations and full-scale automation, all at your fingertips"
-        ctaForm={renderCTA()}
+        ctaForm={<SubmitForm />}
         showTrial={false}
+        fullHeight
       />
       <Container>
         <div className={styles.heroImageContainer}>

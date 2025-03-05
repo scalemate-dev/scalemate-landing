@@ -107,12 +107,13 @@
 @include tablet-vertical {
   .features {
     flex-direction: column;
+    padding-left: 16px;
 
     &::before {
       height: 100%;
       width: 2px;
       top: 0;
-      left: -16px;
+      left: 0;
       transform: none;
       background: linear-gradient(180deg, 
       transparent 0%, 
@@ -132,7 +133,7 @@
 
   .border {
     position: relative;
-    left: -14px;
+    left: -16px;
     height: 2px;
     width: 100%;
     background: linear-gradient(90deg, rgb(222, 216, 211) 0%, transparent 70%);
