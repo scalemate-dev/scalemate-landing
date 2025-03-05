@@ -10,7 +10,7 @@ const checkEmailValidity = async (email) => {
   if (data.skip) return
 
   if (data.email_status !== "ok") {
-    throw new Error("Please enter a valid business email")
+    throw new Error("Please enter a valid email")
   }
 }
 

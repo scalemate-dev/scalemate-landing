@@ -5,7 +5,7 @@
   align-items: center;
   height: auto;
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
   &.secondary {
     padding-top: 192px;
     padding-bottom: 128px;
@@ -23,13 +23,23 @@
   }
 
   &.primary {
+    padding-top: 192px;
+    padding-bottom: 128px;
+  }
+
+  &.fullHeight {
     height: 100vh;
   }
 }
 
+.heroSubmitContainer {
+  display: flex;
+  gap: 8px;
+}
+
 .heroSubmit {
-  animation: float 2s ease-in-out infinite;
-  transition: all 1s ease-in-out;
+  // animation: float 2s ease-in-out infinite;
+  transition: all .3s ease-in-out;
 
   &:hover {
     box-shadow: 0 5px 8px 0px rgba(0,0,0, 0.2) !important;
@@ -46,8 +56,9 @@
 .contentWrapper {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  gap: 48px;
+  align-items: flex-end;
+  width: 100%;
+  gap: 16px;
 
   .heroDescription, h1 {
     text-align: left;
@@ -59,7 +70,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  flex-shrink: 0.5
+  width: 80%;
+  flex-shrink: 0.5;
 }
 
 .linearBackground1 {
@@ -119,7 +131,7 @@
   line-height: 32px;
   text-align: center;
   color: #121718;
-  margin-bottom: 72px;
+  margin-bottom: 56px;
   max-width: 768px;
 }
 
@@ -131,7 +143,7 @@
 
 
 .heroImageContainer {
-
+  
 }
 
 .heroImage {
@@ -140,14 +152,14 @@
   width: 100%;
   height: auto;
   margin: 0 auto;
-  border-radius: 16px;
   overflow: hidden;
-  border: 8px solid #f8f8f8;
+  // border: 8px solid #f8f8f8;
   object-fit: contain;
 
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: 32px;
-  background-blend-mode: color-burn;
+  padding: 24px;
+  // padding: 32px;
+  // background-blend-mode: color-burn;
+
 }
 
 
@@ -222,6 +234,12 @@
   }
 }
 
+
+@include tablet-vertical {
+  .heroContent {
+    width: 100%;
+  }
+}
 
 @include mobile {
   .heroTrial {

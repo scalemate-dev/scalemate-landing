@@ -1,0 +1,122 @@
+.main {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.heroForm {
+  max-width: 768px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 60% 1fr;
+  align-items: end;
+  gap: 8px;
+}
+
+.heroFormInput {
+  padding: 18px 16px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background: linear-gradient(180deg,rgba(226,232,255,0) 0%,rgba(226,232,255,.06) 100%),rgba(226,232,255,.02);
+}
+
+.heroImageContainer {
+  margin-top: -32px;
+  margin-bottom: 64px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 156px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba($color-jet-black, 1) 70%);
+    z-index: 1;
+  }
+}
+
+.heroImage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+}
+
+.darkTheme {
+  /* Using your SCSS variables */
+  --background: #{$color-jet-black};
+  --foreground: #{$color-platinum};
+  --text-primary: #{$color-platinum};
+  --text-secondary: #{$color-ash};
+  --border: #{$color-graphite};
+  --card-bg: #{$color-onyx};
+  
+  & ~ main, &.main {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+  
+  /* Make sure all child elements inherit these variables */
+  & h1, & h2, & h3, & p, & div {
+    color: var(--text-primary);
+  }
+  
+  & a {
+    color: var(--text-primary);
+  }
+  
+  & button, & a {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    border: none;
+
+    background: linear-gradient(135deg,#926aff 0%,#ff77b0 50%,#ffb367 100%);
+    filter: drop-shadow(0 0 4px rgba(255, 147, 15, 0.1))
+    drop-shadow(0 0 4px rgba(255, 249, 91, 0.1));
+    
+    &:hover {
+      filter: drop-shadow(0 0 6px rgba(255, 147, 15, 0.1))
+              drop-shadow(0 0 6px rgba(255, 249, 91, 0.1));
+      background-color: var(--background) !important;
+    }
+
+    transition: all 0.3s ease-in-out;
+    margin-bottom: -1px;
+  }
+} 
+
+@include tablet-vertical {
+  .heroForm {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .heroImageContainer {
+    margin-top: -40px;
+
+    &::after {
+      display: none;
+      // right: -24px;
+      // bottom: 0;
+      // left: initial;
+      // height: 100%;
+      // width: 30%;
+      // background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba($color-jet-black, 1) 70%);
+    }
+  }
+
+  .heroImage {
+    object-fit: cover;
+    width: 200%;
+    height: 200%;
+  }
+  
+}

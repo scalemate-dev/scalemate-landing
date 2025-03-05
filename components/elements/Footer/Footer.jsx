@@ -26,6 +26,9 @@ const Footer = () => {
               LinkedIn
             </a>
           </div>
+          <div className={styles.footerColLink} style={{ paddingTop: 16 }}>
+            © Scalemate 2025
+          </div>
         </div>
         <div className={styles.footerRight}>
           <div className={styles.footerCol}>
@@ -36,6 +39,9 @@ const Footer = () => {
             <Link className={styles.footerColLink} href="/launch">
               Launch
             </Link>
+            {/* <Link className={styles.footerColLink} href="/assistant">
+              Performance AI Agent
+            </Link> */}
             <Link className={styles.footerColLink} href="/book-a-demo">
               Book a Demo
             </Link>

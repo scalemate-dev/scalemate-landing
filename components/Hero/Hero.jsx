@@ -1,4 +1,5 @@
 import bubble from "@/assets/icons/hero-linear-background.svg"
+import Input from "@/components/elements/Input/Input"
 import bubble2 from "@/assets/icons/hero-linear-background-2.svg"
 import Image from "next/image"
 import Button from "@/components/elements/Button/Button"
@@ -6,28 +7,47 @@ import Container from "@/components/elements/Container/Container"
 import styles from "./Hero.module.scss"
 import cn from "classnames"
 
-const Hero = ({ title, description, type = "primary", image }) => {
-  const renderButton = () => {
+const Hero = ({
+  title,
+  description,
+  type = "primary",
+  fullHeight,
+  image,
+  CTALink,
+  CTAButtonText,
+  ctaForm,
+  showTrial = true,
+}) => {
+  const renderCTA = () => {
+    if (ctaForm) {
+      return ctaForm
+    }
     return (
       <>
         <Button
           color="accent"
           className={styles.heroSubmit}
-          float
-          href="/book-a-demo"
+          href={CTALink ?? "/book-a-demo"}
         >
-          Try for free <span style={{ marginLeft: "4px" }}>🚀</span>
+          {CTAButtonText ?? "Try for free"}
+          <span style={{ marginLeft: "4px" }}>🚀</span>
         </Button>
-        <div className={styles.heroTrial}>
-          <span>✓ 1-month free trial</span>
-          <span>✓ No credit card required</span>
-          <span>✓ Custom integrations</span>
-        </div>
+        {showTrial && (
+          <div className={styles.heroTrial}>
+            <span>✓ 1-month free trial</span>
+            <span>✓ No credit card required</span>
+            <span>✓ Custom integrations</span>
+          </div>
+        )}
       </>
     )
   }
   const renderPrimaryHero = () => (
-    <div className={cn(styles.hero, styles.primary)}>
+    <div
+      className={cn(styles.hero, styles.primary, {
+        [styles.fullHeight]: fullHeight,
+      })}
+    >
       <Image
         className={styles.linearBackground1}
         src={bubble}
@@ -44,8 +64,10 @@ const Hero = ({ title, description, type = "primary", image }) => {
       />
       <Container className={styles.hero}>
         <h1>{title}</h1>
-        <div className={styles.heroDescription}>{description}</div>
-        {renderButton()}
+        <div className={styles.heroDescription}>
+          <div dangerouslySetInnerHTML={{ __html: description }} />
+        </div>
+        {renderCTA()}
       </Container>
     </div>
   )
@@ -70,8 +92,10 @@ const Hero = ({ title, description, type = "primary", image }) => {
         <div className={styles.contentWrapper}>
           <div className={styles.heroContent}>
             <h1>{title}</h1>
-            <div className={styles.heroDescription}>{description}</div>
-            {renderButton()}
+            <div className={styles.heroDescription}>
+              <div dangerouslySetInnerHTML={{ __html: description }} />
+            </div>
+            {renderCTA()}
           </div>
           {/* <div className={styles.heroImageContainer}> */}
           {image && (

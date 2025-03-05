@@ -205,6 +205,44 @@
   }
 }
 
+.darkTheme {
+  .container {
+    background-color: rgba($color-onyx, 0.5);
+  }
+
+  .navLink {
+    color: $color-platinum;
+
+    &:hover {
+      color: $color-ash;
+    }
+  }
+
+  .headerLogo {
+    * {
+      fill: #fff;
+    }
+  }
+
+  .burgerButton {
+    span {
+      background: $color-platinum;
+    }
+  }
+
+  .mobileDrawer {
+    background-color: rgba($color-onyx, 0.5);
+
+    .mobileDrawerContent {
+      background-color: $color-onyx;
+    }
+
+    .mobileNavLink {
+      color: $color-platinum;
+    }
+  }
+}
+
 @include tablet-horizontal {
   .header {
     top: 0;

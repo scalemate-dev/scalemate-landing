@@ -11,6 +11,16 @@
   background: linear-gradient(90deg, rgba(238, 174, 202, 0.2) 9.68%, rgba(148, 187, 233, 0.2) 85.58%), #F9FAFB;
   border-radius: 0px 0px 60px 60px;
 
+  &.dark {
+
+    background: linear-gradient(45deg, rgba(50, 45, 47, 0.2) 50%, rgba(251, 214, 119, 0.2) 100%), #1A1A1A;
+    
+    
+    .waitListTitle, .waitListSubtitle {
+      color: #F9FAFB;
+    }
+  }
+
   .container {
     display: flex;
     flex-flow: column nowrap;

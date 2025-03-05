@@ -1,7 +1,7 @@
 "use client"
+import cn from "classnames"
 import Container from "../Container/Container"
-import Bolt from "@/assets/icons/bolt.inline.svg"
-import Cloud from "@/assets/icons/cloud.inline.svg"
+import Sparkles from "@/assets/icons/sparkles.inline.svg"
 import Fork from "@/assets/icons/fork.inline.svg"
 import NavDropdown from "../NavDropdown/NavDropdown"
 import Link from "next/link"
@@ -10,9 +10,15 @@ import Button from "@/components/elements/Button/Button"
 import styles from "./Header.module.scss"
 import Icon from "@/components/elements/Icon/Icon"
 import { useState, useEffect } from "react"
+import { IconCloud, IconBoltFilled } from "@tabler/icons-react"
+
+import { usePathname } from "next/navigation"
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  const pathname = usePathname()
+  const darkTheme = pathname.includes("assistant")
 
   // Close mobile menu when resizing to desktop
   useEffect(() => {
@@ -39,56 +45,77 @@ const Header = () => {
   }, [mobileMenuOpen])
 
   const solutions = [
+    // {
+    //   label: "Performance AI Agent",
+    //   description: "Scale campaigns with AI",
+    //   icon: (
+    //     <Icon style={{ background: "#fae6ff" }}>
+    //       <Sparkles stroke="#9f4bfe" height={16} width={16} />
+    //     </Icon>
+    //   ),
+    //   path: "/assistant",
+    //   new: true,
+    // },
     {
       label: "Launch",
       description: "Quickly set up multiple ad sets and ads.",
       icon: (
         <Icon style={{ backgroundColor: "#FFFAEB" }}>
-          <Bolt color="#FEC84B" height={16} width={16} />
+          <IconBoltFilled color="#FEC84B" size={16} />
         </Icon>
       ),
       path: "/launch",
     },
-    {
-      label: "Cloud sync",
-      description: "Upload your ad creatives in one click.",
-      icon: (
-        <Icon style={{ backgroundColor: "#EDF2FF" }}>
-          <Cloud color="#40C057" />
-        </Icon>
-      ),
-      path: "/cloud-sync",
-      disabled: true,
-    },
-    {
-      label: "Rules",
-      description: "Create and apply rules to your ads.",
-      icon: (
-        <Icon style={{ backgroundColor: "#E7FCF5" }}>
-          <Fork color="#8E44AD" />
-        </Icon>
-      ),
-      path: "/rules",
-      disabled: true,
-    },
+
+    // {
+    //   label: "Cloud sync",
+    //   description: "Upload your ad creatives in one click.",
+    //   icon: (
+    //     <Icon style={{ backgroundColor: "#EDF2FF" }}>
+    //       <IconCloud color="#40C057" size={16} />
+    //     </Icon>
+    //   ),
+    //   path: "/cloud-sync",
+    //   disabled: true,
+    // },
+    // {
+    //   label: "Rules",
+    //   description: "Create and apply rules to your ads.",
+    //   icon: (
+    //     <Icon style={{ backgroundColor: "#E7FCF5" }}>
+    //       <Fork color="#8E44AD" />
+    //     </Icon>
+    //   ),
+    //   path: "/rules",
+    //   disabled: true,
+    // },
   ]
 
   return (
-    <header className={styles.header}>
+    <header className={cn(styles.header, { [styles.darkTheme]: darkTheme })}>
       <Container className={styles.container}>
         <div className={styles.headerNavigation}>
           <Link href="/" className={styles.headerLogo}>
             <Logo className={styles.logo} />
           </Link>
           <div className={styles.linksWrapper}>
-            <NavDropdown items={solutions} label="Product" />
+            <NavDropdown
+              items={solutions}
+              label="Product"
+              darkTheme={darkTheme}
+              onLinkClick={() => setMobileMenuOpen(false)}
+            />
             <Link href="/customers" className={styles.navLink}>
               Customers
             </Link>
           </div>
-          {/* <NavDropdown items={solutions} label="Integrations" /> */}
         </div>
-        <Button outline href="/book-a-demo" className={styles.desktopButton}>
+        <Button
+          outline
+          href="/book-a-demo"
+          className={styles.desktopButton}
+          darkTheme={darkTheme}
+        >
           Get Started
         </Button>
 
@@ -108,9 +135,10 @@ const Header = () => {
 
       {/* Mobile Menu Drawer */}
       <div
-        className={`${styles.mobileDrawer} ${
-          mobileMenuOpen ? styles.open : ""
-        }`}
+        className={cn(styles.mobileDrawer, {
+          [styles.open]: mobileMenuOpen,
+          [styles.darkTheme]: darkTheme,
+        })}
         onClick={() => setMobileMenuOpen(false)}
       >
         <div
@@ -131,6 +159,7 @@ const Header = () => {
               label="Product"
               inline={true}
               onLinkClick={() => setMobileMenuOpen(false)}
+              darkTheme={darkTheme}
             />
             <Link
               href="/customers"
@@ -143,6 +172,7 @@ const Header = () => {
               outline
               href="/book-a-demo"
               className={styles.mobileButton}
+              darkTheme={darkTheme}
               onClick={() => setMobileMenuOpen(false)}
             >
               Get Started

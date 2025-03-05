@@ -5,7 +5,7 @@ import launchSchema from "@/assets/images/launch/launch-schema.png"
 
 import Metrics from "@/components/Metrics/Metrics"
 import WaitList from "../../components/home/WaitList/WaitList"
-import styles from "@/assets/styles/shared.module.scss"
+import styles from "../page.module.scss"
 import { pageMetadata } from "../metadata"
 import Advantages from "@/components/Launch/Advantages/Advantages"
 import rulesImage from "@/assets/images/launch/rules-dashboard.png"
@@ -73,7 +73,7 @@ export default function Launch() {
   }
   const description = `Easily create multiple ad sets and variations. Bulk upload your images and videos for seamless automated launches. `
   return (
-    <div className={styles.main}>
+    <div className={styles.home}>
       <Hero
         type="secondary"
         title={renderTitle()}

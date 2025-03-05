@@ -16,20 +16,27 @@ const Input = ({
   name,
   onChange,
   error,
+  darkTheme,
+  className,
 }) => {
   const handleChange = (e) => {
     onChange?.(e.target.value)
   }
 
-  const inputClasses = cn(styles.inputField, {
+  const inputClasses = cn(styles.inputField, className, {
     [styles.leftPadding]: leftPadding,
+    [styles.darkTheme]: darkTheme,
     [styles.disabled]: disabled,
     [styles.textarea]: textarea,
     [styles.inputError]: error,
   })
 
   return (
-    <div className={styles.input}>
+    <div
+      className={cn(styles.input, {
+        [styles.darkTheme]: darkTheme,
+      })}
+    >
       {label && (
         <div className={styles.inputLabel}>
           <span>{label}</span>

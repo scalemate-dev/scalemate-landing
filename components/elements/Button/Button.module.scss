@@ -76,3 +76,16 @@
     color: #747576;
   }
 } 
+
+.darkTheme {
+
+  &.outline {
+    border: 1px solid $color-ash;
+
+    color: $color-platinum;
+
+    &:hover {
+      background: $color-graphite;
+    }
+  }
+}

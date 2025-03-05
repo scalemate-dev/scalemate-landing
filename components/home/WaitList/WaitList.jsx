@@ -1,17 +1,17 @@
 "use client"
+import cn from "classnames"
 import Container from "@/components/elements/Container/Container"
 
 import Button from "@/components/elements/Button/Button"
 import styles from "./WaitList.module.scss"
 
-const WaitList = ({ noButton }) => {
+const WaitList = ({ noButton, theme }) => {
   return (
-    <div className={styles.black}>
-      <div className={styles.waitList}>
+    <div className={cn(styles.black, { [styles.dark]: theme === "dark" })}>
+      <div className={cn(styles.waitList, { [styles.dark]: theme === "dark" })}>
         <Container className={styles.container}>
           <h2 className={styles.waitListTitle}>
             Deal with Ad Launches <span>260% faster</span>
-            {/* Deal with creatives testing <span>260% faster</span> */}
           </h2>
           <div className={styles.waitListSubtitle}>
             1-month free trial | Dedicated onboarding | Custom integrations

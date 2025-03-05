@@ -15,6 +15,7 @@
     line-height: 24px;
     color: #2f2f2f;
     cursor: pointer;
+    gap: 8px;
   }
 
   .list {
@@ -66,6 +67,16 @@
         cursor: auto;
       }
     }
+  }
+
+  .new {
+    font-size: 10px;
+    line-height: 16px;
+    background: linear-gradient(221deg, #9f4bfe 0%, #0061ff80 100%);
+    border-radius: 20px;
+    padding: 2px 8px;
+    color: #fff;
+    
   }
 
   .itemLabel {
@@ -166,22 +177,58 @@
       background-color: transparent;
     }
   }
-  
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
+}
+
+.darkTheme {
+  .label {
+    color: $color-platinum;
+
+    &:hover {
+      color: $color-ash;
     }
   }
 
-  @keyframes scale {
-    0% {
-      transform: scale(.9);
-    }
-    100% {
-      transform: scale(1);
+  .list {
+    background-color: $color-onyx;
+  }
+
+  .item {
+    &:hover {
+      background-color: $color-graphite;
     }
   }
-} 
+  .itemLabel {
+    color: $color-platinum;
+  }
+
+  .itemDescription {
+    color: $color-ash;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
