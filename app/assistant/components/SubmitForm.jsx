@@ -1,4 +1,5 @@
 "use client"
+import { getGAClientId } from "@/helpers/getGAClientId"
 import React, { useState } from "react"
 import styles from "../page.module.scss"
 import Input from "@/components/elements/Input/Input"
@@ -9,6 +10,7 @@ export default function SubmitForm() {
   const [email, setEmail] = useState("")
   const [error, setError] = useState("")
   const [isLoading, setIsLoading] = useState(false)
+  const [isSuccess, setIsSuccess] = useState(true)
 
   const sendForm = async (data) => {
     await fetch("https://submit-form.com/CcXQWUTEJ", {
@@ -24,9 +26,10 @@ export default function SubmitForm() {
     e.preventDefault()
     setIsLoading(true)
     try {
-      // await validateEmail(email)
+      await validateEmail(email)
       // await sendForm({ email })
       await trackTTFormSubmit(email)
+      setIsSuccess(true)
       setIsLoading(false)
     } catch (error) {
       setError(error.message)
@@ -44,8 +47,8 @@ export default function SubmitForm() {
         error={error}
         onChange={setEmail}
       />
-      <Button submit loading={isLoading}>
-        Get early access
+      <Button submit loading={isLoading} disabled={isSuccess}>
+        {isSuccess ? "Success!  👍" : "Get early access"}
       </Button>
     </form>
   )
@@ -63,21 +66,26 @@ export const trackTTFormSubmit = async (email) => {
     .map((b) => b.toString(16).padStart(2, "0"))
     .join("")
 
-  // Push to dataLayer for GTM to pick up and send to TikTok Pixel
   window.dataLayer = window.dataLayer || []
   window.dataLayer.push({ ecommerce: null }) // Clear previous ecommerce object
   window.dataLayer.push({
     event: "ttq_form_submit", // Custom event name for GTM trigger
     tiktok_event: "SubmitForm", // TikTok standard event name
-    user_data: {
-      sha256_email_address: hashedEmail,
+    email_hashed: hashedEmail, // Properly formatted for TikTok
+    tt_external_id: getGAClientId(),
+    value: 20,
+    currency: "USD",
+    ecommerce: {
+      value: 20,
+      currency: "USD",
+      items: [
+        {
+          item_id: "waitlist_request",
+          item_name: "Waitlist Request",
+          price: 20,
+          quantity: 1,
+        },
+      ],
     },
-    event_id: generateUniqueEventId(), // Optional: generate unique ID for deduplication
-    tt_content_type: "product",
   })
-}
-
-// Helper function to generate a unique event ID
-function generateUniqueEventId() {
-  return "tt_" + Date.now() + "_" + Math.random().toString(36).substring(2, 10)
 }
