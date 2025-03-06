@@ -1,4 +1,5 @@
 "use client"
+import cn from "classnames"
 import React, { useState } from "react"
 import styles from "./FAQ.module.scss"
 
@@ -25,9 +26,9 @@ const FAQ = ({
         return (
           <div key={actualIndex} className={styles.item}>
             <button
-              className={`${styles.question} ${
-                openIndex === actualIndex ? styles.active : ""
-              }`}
+              className={cn(styles.question, {
+                [styles.active]: openIndex === actualIndex,
+              })}
               onClick={() => toggleAccordion(actualIndex)}
               aria-expanded={openIndex === actualIndex}
               aria-controls={`faq-answer-${actualIndex}`}
@@ -40,9 +41,10 @@ const FAQ = ({
             </button>
             <div
               id={`faq-answer-${actualIndex}`}
-              className={`${styles.answer} ${
-                openIndex === actualIndex ? styles.open : styles.closed
-              }`}
+              className={cn(styles.answer, {
+                [styles.open]: openIndex === actualIndex,
+                [styles.closed]: openIndex !== actualIndex,
+              })}
               role="region"
               aria-labelledby={`faq-question-${actualIndex}`}
             >
