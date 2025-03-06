@@ -63,6 +63,7 @@ export default function AssistantPage() {
   return (
     <div className={cn(styles.main, styles.darkTheme)} id="request-access">
       <Hero
+        className={styles.hero}
         image={heroImage}
         title={
           <>

@@ -48,7 +48,6 @@
   object-fit: contain;
 
 }
-
 .darkTheme {
   /* Using your SCSS variables */
   --background: #{$color-jet-black};
@@ -71,29 +70,32 @@
   & a {
     color: var(--text-primary);
   }
+
+  .hero  {
+
+    & button, & a {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      border: none;
   
-  & button, & a {
-    position: relative;
-    z-index: 1;
-    color: #fff;
-    border: none;
-
-    background: linear-gradient(135deg,#926aff 0%,#ff77b0 50%,#ffb367 100%);
-    filter: drop-shadow(0 0 4px rgba(255, 147, 15, 0.1))
-    drop-shadow(0 0 4px rgba(255, 249, 91, 0.1));
-
-    transition: all 0.3s ease-in-out;
-    margin-bottom: -1px;
-
-    &:hover {
-      filter: drop-shadow(0 0 6px rgba(255, 147, 15, 0.1))
-              drop-shadow(0 0 6px rgba(255, 249, 91, 0.1));
-      background-color: var(--background) !important;
-    }
-
-    &:disabled {
-      background: linear-gradient(45deg, #FF930F 0%, #FFF95B 100%);
-      color: $color-graphite;
+      background: linear-gradient(135deg,#926aff 0%,#ff77b0 50%,#ffb367 100%);
+      filter: drop-shadow(0 0 4px rgba(255, 147, 15, 0.1))
+      drop-shadow(0 0 4px rgba(255, 249, 91, 0.1));
+  
+      transition: all 0.3s ease-in-out;
+      margin-bottom: -1px;
+  
+      &:hover {
+        filter: drop-shadow(0 0 6px rgba(255, 147, 15, 0.1))
+                drop-shadow(0 0 6px rgba(255, 249, 91, 0.1));
+        background-color: var(--background) !important;
+      }
+  
+      &:disabled {
+        background: linear-gradient(45deg, #FF930F 0%, #FFF95B 100%);
+        color: $color-graphite;
+      }
     }
   }
 

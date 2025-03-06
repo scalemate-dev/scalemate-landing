@@ -17,6 +17,7 @@ const Hero = ({
   CTAButtonText,
   ctaForm,
   showTrial = true,
+  className,
 }) => {
   const renderCTA = () => {
     if (ctaForm) {
@@ -44,7 +45,7 @@ const Hero = ({
   }
   const renderPrimaryHero = () => (
     <div
-      className={cn(styles.hero, styles.primary, {
+      className={cn(styles.hero, styles.primary, className, {
         [styles.fullHeight]: fullHeight,
       })}
     >

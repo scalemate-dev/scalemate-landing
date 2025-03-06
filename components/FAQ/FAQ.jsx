@@ -24,24 +24,27 @@ const FAQ = ({
         const actualIndex = startIndex + index
         return (
           <div key={actualIndex} className={styles.item}>
-            <div
+            <button
               className={`${styles.question} ${
                 openIndex === actualIndex ? styles.active : ""
               }`}
               onClick={() => toggleAccordion(actualIndex)}
               aria-expanded={openIndex === actualIndex}
               aria-controls={`faq-answer-${actualIndex}`}
+              type="button"
             >
               {item.question}
               <span className={styles.icon} aria-hidden="true">
                 {openIndex === actualIndex ? "−" : "+"}
               </span>
-            </div>
+            </button>
             <div
               id={`faq-answer-${actualIndex}`}
               className={`${styles.answer} ${
                 openIndex === actualIndex ? styles.open : styles.closed
               }`}
+              role="region"
+              aria-labelledby={`faq-question-${actualIndex}`}
             >
               <p className={styles.answerText}>{item.answer}</p>
             </div>
