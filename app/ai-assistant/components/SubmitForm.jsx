@@ -108,6 +108,11 @@ export const trackTTFormSubmit = async (email) => {
 
   window.dataLayer = window.dataLayer || []
 
+  console.log("trackTTFormSubmit", {
+    email: hashedEmail,
+    clientId: hashedClientId,
+  })
+
   dataLayer.push({ ecommerce: null })
   dataLayer.push({
     event: "SubmitForm",
