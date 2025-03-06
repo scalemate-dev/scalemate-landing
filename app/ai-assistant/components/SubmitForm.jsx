@@ -6,7 +6,7 @@ import Input from "@/components/elements/Input/Input"
 import Button from "@/components/elements/Button/Button"
 import { validateEmail } from "@/helpers/emails"
 import { IconCheck } from "@tabler/icons-react"
-
+import { hashString } from "@/helpers/hashString"
 export default function SubmitForm() {
   const [email, setEmail] = useState("")
   const [error, setError] = useState("")
@@ -69,16 +69,9 @@ export default function SubmitForm() {
 }
 
 export const trackTTFormSubmit = async (email) => {
-  // Hash the email using SHA-256 with Web Crypto API
-  const encoder = new TextEncoder()
-  const data = encoder.encode(email.toLowerCase().trim())
-  const hashBuffer = await crypto.subtle.digest("SHA-256", data)
-
-  // Convert the hash buffer to hex string
-  const hashArray = Array.from(new Uint8Array(hashBuffer))
-  const hashedEmail = hashArray
-    .map((b) => b.toString(16).padStart(2, "0"))
-    .join("")
+  const normalizedEmail = email.toLowerCase().trim()
+  const hashedEmail = await hashString(normalizedEmail)
+  const hashedClientId = await hashString(getGAClientId())
 
   window.dataLayer = window.dataLayer || []
 
@@ -102,6 +95,6 @@ export const trackTTFormSubmit = async (email) => {
         ],
       },
     },
-    tt_external_id: getGAClientId(),
+    tt_external_id: hashedClientId,
   })
 }
