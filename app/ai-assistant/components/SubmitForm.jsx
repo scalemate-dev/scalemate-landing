@@ -7,11 +7,14 @@ import Button from "@/components/elements/Button/Button"
 import { validateEmail } from "@/helpers/emails"
 import { IconCheck } from "@tabler/icons-react"
 import { hashString } from "@/helpers/hashString"
+import { useSearchParams } from "next/navigation"
+
 export default function SubmitForm() {
   const [email, setEmail] = useState("")
   const [error, setError] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+  const searchParams = useSearchParams()
 
   const sendForm = async (data) => {
     await fetch("https://submit-form.com/CcXQWUTEJ", {
@@ -29,7 +32,9 @@ export default function SubmitForm() {
     setIsLoading(true)
     try {
       await validateEmail(email)
-      await sendForm({ email })
+
+      if (!searchParams.get("skip_send")) await sendForm({ email })
+
       await trackTTFormSubmit(email)
       setIsSuccess(true)
       setIsLoading(false)
@@ -78,7 +83,10 @@ export const trackTTFormSubmit = async (email) => {
   dataLayer.push({ ecommerce: null })
   dataLayer.push({
     event: "submit_early_access_form",
-    user_data: { sha256_email_address: hashedEmail },
+    user_data: {
+      sha256_email_address: hashedEmail,
+      external_id: hashedClientId,
+    },
     ecommerce: {
       value: 20,
       currency: "USD",
