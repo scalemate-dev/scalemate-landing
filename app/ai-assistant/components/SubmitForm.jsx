@@ -116,6 +116,7 @@ export const trackTTFormSubmit = async (email) => {
   dataLayer.push({ ecommerce: null })
   dataLayer.push({
     event: "SubmitForm",
+    tt_external_id: hashedClientId,
     user_data: {
       sha256_email_address: hashedEmail,
       external_id: hashedClientId,
@@ -123,19 +124,14 @@ export const trackTTFormSubmit = async (email) => {
     ecommerce: {
       value: 20,
       currency: "USD",
-      ecommerce: {
-        value: 20,
-        currency: "USD",
-        items: [
-          {
-            item_id: "waitlist_request",
-            item_name: "AI Assistant waitlist request",
-            price: 20,
-            quantity: 1,
-          },
-        ],
-      },
+      items: [
+        {
+          item_id: "waitlist_request",
+          item_name: "AI Assistant waitlist request",
+          price: 20,
+          quantity: 1,
+        },
+      ],
     },
-    tt_external_id: hashedClientId,
   })
 }
