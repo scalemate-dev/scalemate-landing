@@ -51,7 +51,7 @@ export default function Features() {
         {FEATURES.map((feature, index) => (
           <React.Fragment key={index}>
             <div className={styles.feature}>
-              <h3 className={styles.title}>
+              <div className={styles.title}>
                 <div className={styles.iconWrapper}>
                   {feature.icon}
                   <div
@@ -60,7 +60,7 @@ export default function Features() {
                   />
                 </div>
                 {feature.title}
-              </h3>
+              </div>
               <p className={styles.description}>{feature.description}</p>
             </div>
             <div className={styles.border} />
