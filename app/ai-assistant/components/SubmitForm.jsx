@@ -1,6 +1,6 @@
 "use client"
 import { getGAClientId } from "@/helpers/getGAClientId"
-import React, { useState } from "react"
+import React, { useState, Suspense } from "react"
 import styles from "../page.module.scss"
 import Input from "@/components/elements/Input/Input"
 import Button from "@/components/elements/Button/Button"
@@ -9,44 +9,20 @@ import { IconCheck } from "@tabler/icons-react"
 import { hashString } from "@/helpers/hashString"
 import { useSearchParams } from "next/navigation"
 
-export default function SubmitForm() {
-  const [email, setEmail] = useState("")
-  const [error, setError] = useState("")
-  const [isLoading, setIsLoading] = useState(false)
-  const [isSuccess, setIsSuccess] = useState(false)
+// Create a component that safely uses useSearchParams
+function FormWithSearchParams({
+  onSubmit,
+  email,
+  error,
+  isLoading,
+  isSuccess,
+  handleChange,
+}) {
   const searchParams = useSearchParams()
-
-  const sendForm = async (data) => {
-    await fetch("https://submit-form.com/CcXQWUTEJ", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setIsLoading(true)
-    try {
-      await validateEmail(email)
-
-      if (!searchParams.get("skip_send")) await sendForm({ email })
-
-      await trackTTFormSubmit(email)
-      setIsSuccess(true)
-      setIsLoading(false)
-    } catch (error) {
-      setError(error.message)
-      setIsLoading(false)
-    }
-  }
-
-  const handleChange = (value) => {
-    setEmail(value)
-    setError("")
+    await onSubmit(searchParams)
   }
 
   return (
@@ -70,6 +46,58 @@ export default function SubmitForm() {
         )}
       </Button>
     </form>
+  )
+}
+
+export default function SubmitForm() {
+  const [email, setEmail] = useState("")
+  const [error, setError] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
+  const [isSuccess, setIsSuccess] = useState(false)
+
+  const sendForm = async (data) => {
+    await fetch("https://submit-form.com/CcXQWUTEJ", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+  }
+
+  const handleSubmit = async (searchParams) => {
+    setIsLoading(true)
+    try {
+      await validateEmail(email)
+
+      if (!searchParams.get("skip_send")) await sendForm({ email })
+
+      await trackTTFormSubmit(email)
+      setIsSuccess(true)
+      setIsLoading(false)
+    } catch (error) {
+      setError(error.message)
+      setIsLoading(false)
+    }
+  }
+
+  const handleChange = (value) => {
+    setEmail(value)
+    setError("")
+  }
+
+  return (
+    <Suspense fallback={<div className={styles.heroForm}>Loading...</div>}>
+      <FormWithSearchParams
+        onSubmit={handleSubmit}
+        email={email}
+        error={error}
+        isLoading={isLoading}
+        isSuccess={isSuccess}
+        handleChange={handleChange}
+      />
+    </Suspense>
   )
 }
 
