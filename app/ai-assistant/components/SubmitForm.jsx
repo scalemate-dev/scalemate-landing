@@ -110,7 +110,7 @@ export const trackTTFormSubmit = async (email) => {
 
   dataLayer.push({ ecommerce: null })
   dataLayer.push({
-    event: "submit_early_access_form",
+    event: "SubmitForm",
     user_data: {
       sha256_email_address: hashedEmail,
       external_id: hashedClientId,
