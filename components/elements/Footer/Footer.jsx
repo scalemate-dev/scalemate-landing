@@ -33,9 +33,9 @@ const Footer = () => {
         <div className={styles.footerRight}>
           <div className={styles.footerCol}>
             <div className={styles.footerColTitle}>Product</div>
-            <Link className={styles.footerColLink} href="/ai-assistant">
+            {/* <Link className={styles.footerColLink} href="/ai-assistant">
               Marketing AI Agent
-            </Link>
+            </Link> */}
             <Link className={styles.footerColLink} href="/launch">
               Launch
             </Link>

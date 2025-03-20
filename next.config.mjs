@@ -13,6 +13,20 @@ const nextConfig = {
     includePaths: [path.join(__dirname, "app/styles")],
     prependData: `@import "_variables.scss";`,
   },
+  async redirects() {
+    return [
+      {
+        source: "/ai-assistant",
+        destination: "/",
+        permanent: false,
+      },
+      {
+        source: "/ai-assistant/:path*",
+        destination: "/",
+        permanent: false,
+      },
+    ]
+  },
   experimental: {
     turbo: {
       rules: {
