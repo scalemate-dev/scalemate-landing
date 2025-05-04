@@ -49,9 +49,15 @@
   transition: all 0.2s ease;
   font-family: var(--font-inter);
   font-weight: 600;
-  color: #ffffff;
+  color: $color-jet-black;
   &.active {
     // Keeping the active class for future use
+  }
+}
+
+.dark {
+  .question {
+    color: #ffffff;
   }
 }
 
