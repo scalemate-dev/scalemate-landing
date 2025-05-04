@@ -1,6 +1,7 @@
 "use client"
 import Container from "@/components/elements/Container/Container"
 import WaitList from "@/components/home/WaitList/WaitList"
+import PricingCard from "@/components/elements/PricingCard/PricingCard"
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
@@ -69,17 +70,6 @@ export default function PricingPage() {
     const calculate =
       calculations[price.recurring.interval] || (() => price.unit_amount)
     return `$${formatPrice(calculate())}`
-  }
-
-  // Helper function to get billing period text
-  function getBillingPeriodText(cycle) {
-    const billingTexts = {
-      month: "Billed monthly",
-      quarter: "Billed quarterly",
-      year: "Billed annually",
-    }
-
-    return billingTexts[cycle] || "Billed monthly"
   }
 
   // Combine API plans with static plans
@@ -193,60 +183,32 @@ export default function PricingPage() {
 
       <section className={styles.pricingTiers}>
         <Container>
-          {loading ? (
-            <div className={styles.loading}>Loading pricing plans...</div>
-          ) : (
-            <div className={styles.tiersGrid}>
-              {allPlans.map((plan) => (
-                <div
-                  key={plan.id}
-                  className={cn(styles.tierCard, {
-                    [styles.popular]: plan.popular,
-                  })}
-                >
-                  {plan.popular && (
-                    <div className={styles.popularTag}>Most popular</div>
-                  )}
-                  <h3 className={styles.tierName}>{plan.name}</h3>
-                  <div className={styles.tierPrice}>
-                    <span className={styles.priceNumber}>{plan.price}</span>
-                    {!plan.isFree && !plan.isCustom && (
-                      <span className={styles.period}>/mo</span>
-                    )}
-                  </div>
-                  <p className={styles.billingPeriod}>
-                    {plan.isFree && "Forever free"}
-                    {plan.isCustom && ""}
-                    {!plan.isFree &&
-                      !plan.isCustom &&
-                      getBillingPeriodText(billingCycle)}
-                  </p>
-                  <p className={styles.tierDescription}>{plan.description}</p>
-                  <Button
-                    href={plan.ctaLink}
-                    color="accent"
-                    className={styles.tierCta}
-                  >
-                    {plan.cta}
-                  </Button>
-                  <div className={styles.featuresContainer}>
-                    <h4 className={styles.featuresTitle}>Features included</h4>
-                    <ul className={styles.featuresList}>
-                      {plan.features.map((feature, i) => (
-                        <li key={i} className={styles.feature}>
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
+          <div className={styles.tiersGrid}>
+            {allPlans.length === 0 &&
+              Array(3)
+                .fill(0)
+                .map((_, index) => <PricingCard loading key={index} />)}
+            {allPlans.map((plan) => (
+              <PricingCard
+                key={plan.id}
+                id={plan.id}
+                name={plan.name}
+                price={plan.price}
+                description={plan.description}
+                cta={plan.cta}
+                ctaLink={plan.ctaLink}
+                popular={plan.popular}
+                features={plan.features}
+                isFree={plan.isFree}
+                isCustom={plan.isCustom}
+                billingCycle={billingCycle}
+              />
+            ))}
+          </div>
         </Container>
       </section>
 
-      <section className={styles.testimonial}>
+      {/* <section className={styles.testimonial}>
         <Container>
           <p className={styles.testimonialIntro}>
             15,000+ clients trust our platform.{" "}
@@ -263,7 +225,7 @@ export default function PricingPage() {
             </footer>
           </blockquote>
         </Container>
-      </section>
+      </section> */}
 
       <section className={styles.faqSection}>
         <Container>
