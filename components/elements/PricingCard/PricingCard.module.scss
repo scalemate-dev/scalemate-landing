@@ -1,0 +1,210 @@
+.tierCard {
+  position: relative;
+  background-color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+
+  
+  &.popular {
+    border: 2px solid #0077ff;
+  }
+  
+  &.skeleton {
+    &:hover {
+      transform: none;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    }
+  }
+}
+
+// Skeleton animation
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+// Skeleton base style
+%skeleton-base {
+  background-color: #e9e9e9;
+  border-radius: 4px;
+  // animation: pulse 1.5s infinite ease-in-out;
+}
+
+// Skeleton elements
+.skeletonTag {
+  @extend %skeleton-base;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 90px;
+  height: 22px;
+  border-radius: 12px;
+}
+
+.skeletonName {
+  @extend %skeleton-base;
+  width: 60%;
+  height: 28px;
+  margin-bottom: 1rem;
+}
+
+.skeletonPrice {
+  @extend %skeleton-base;
+  width: 40%;
+  height: 44px;
+  margin-bottom: 0.5rem;
+}
+
+.skeletonPeriod {
+  @extend %skeleton-base;
+  width: 50%;
+  height: 16px;
+  margin-bottom: 1.5rem;
+}
+
+.skeletonDescription {
+  @extend %skeleton-base;
+  width: 100%;
+  height: 60px;
+  margin-bottom: 1.5rem;
+}
+
+.skeletonButton {
+  @extend %skeleton-base;
+  width: 100%;
+  height: 46px;
+  margin-bottom: 1.5rem;
+}
+
+.skeletonFeatureTitle {
+  @extend %skeleton-base;
+  width: 70%;
+  height: 40px;
+  margin-bottom: 1rem;
+}
+
+.skeletonFeatures {
+  margin-top: 1.5rem;
+}
+
+.skeletonFeature {
+  @extend %skeleton-base;
+  width: 90%;
+  height: 16px;
+  margin-bottom: 0.75rem;
+  
+  &:nth-child(2) {
+    width: 85%;
+  }
+  
+  &:nth-child(3) {
+    width: 70%;
+  }
+  
+  &:nth-child(4) {
+    width: 80%;
+  }
+}
+
+.popularTag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: #0077ff;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+}
+
+.tierName {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.tierPrice {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.currency {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-right: 0.1rem;
+}
+
+.priceNumber {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.period {
+  font-size: 1rem;
+  color: #666;
+  margin-left: 0.2rem;
+}
+
+.billingPeriod {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.tierDescription {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #444;
+  margin-bottom: 1.5rem;
+  min-height: 4.5rem;
+}
+
+.tierCta {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.featuresContainer {
+  border-top: 1px solid #eee;
+  padding-top: 1.5rem;
+}
+
+.featuresTitle {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+  
+  &::before {
+    content: "✓";
+    color: #0077ff;
+    margin-right: 0.5rem;
+    font-weight: bold;
+  }
+} 
