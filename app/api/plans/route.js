@@ -7,12 +7,6 @@ export async function GET() {
   try {
     const response = await fetch(
       "https://api.scalemate.co/api/v1/payment/billings/plans",
-      {
-        headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InR5cGUiOiJtYWluIn0sInN1YiI6MiwidG9rZW5fdmVyc2lvbiI6MSwiZXhwIjo0OTAwMTU2MDg2fQ.moKHNFsKyHMxG8FWaYNptkA19w5hRCviJ8TYs5yFCyM",
-        },
-      },
     )
 
     if (!response.ok) {
