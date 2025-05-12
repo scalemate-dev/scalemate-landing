@@ -6,7 +6,7 @@ import { NextResponse } from "next/server"
 export async function GET() {
   try {
     const response = await fetch(
-      "http://localhost:3000/api/v1/payment/billings/plans",
+      "https://api.scalemate.co/api/v1/payment/billings/plans",
       {
         headers: {
           Authorization:

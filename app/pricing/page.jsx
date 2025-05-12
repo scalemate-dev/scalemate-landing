@@ -54,7 +54,7 @@ export default function PricingPage() {
   // Helper function to format price from cents to dollars
   function formatPrice(amount) {
     if (!amount) return "N/A"
-    return (amount / 100).toFixed(2)
+    return (amount / 100).toFixed(0)
   }
 
   // Helper function to calculate monthly price
@@ -89,11 +89,11 @@ export default function PricingPage() {
         popular: true, // We can set this based on some logic if needed
         features: [
           `Up to ${plan.metadata?.ad_account_limit || "unlimited"} ad accounts`,
-          `${plan.metadata?.requests_limit || "unlimited"} requests`,
+          `${plan.metadata?.requests_limit || "unlimited"} requests per month`,
           "Campaign management",
           "Reports",
           "Recommendations",
-          "Premium support in Slack",
+          "Premium support via Slack",
         ],
         priceData: price,
         isStatic: false,
@@ -112,7 +112,7 @@ export default function PricingPage() {
       popular: false,
       features: [
         "1 ad account",
-        "20 requests per month",
+        "20 requests",
         "Basic analytics",
         "Email support",
       ],
@@ -175,7 +175,7 @@ export default function PricingPage() {
               })}
               onClick={() => setBillingCycle("year")}
             >
-              Yearly <span className={styles.discount}>-20%</span>
+              Yearly <span className={styles.discount}>2 months free</span>
             </span>
           </div>
         </Container>
