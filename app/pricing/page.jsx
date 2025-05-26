@@ -128,7 +128,7 @@ export default function PricingPage() {
       description:
         "Designed for large marketing teams seeking tailored solutions, help with onboarding and account setup, and premium support.",
       cta: "Let's chat",
-      ctaLink: "/book-a-demo",
+      ctaLink: "https://cal.com/scalemate/demo-with-scalemate",
       popular: false,
       features: [
         "Onboarding help",
