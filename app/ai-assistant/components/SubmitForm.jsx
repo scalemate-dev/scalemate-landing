@@ -19,6 +19,7 @@ function FormWithSearchParams({
   handleChange,
 }) {
   const searchParams = useSearchParams()
+  console.log("searchParams", searchParams.get("skip_send"))
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -71,15 +72,20 @@ export default function SubmitForm() {
     try {
       await validateEmail(email)
 
-      if (!searchParams.get("skip_send")) await sendForm({ email })
+      // if (!searchParams.get("skip_send")) await sendForm({ email })
 
       await trackTTFormSubmit(email)
       setIsSuccess(true)
       setIsLoading(false)
+      redirectToSignup(email)
     } catch (error) {
       setError(error.message)
       setIsLoading(false)
     }
+  }
+
+  const redirectToSignup = (email) => {
+    window.location.href = `https://app.scalemate.co/create-account?email=${email}`
   }
 
   const handleChange = (value) => {

@@ -45,17 +45,17 @@ const Header = () => {
   }, [mobileMenuOpen])
 
   const solutions = [
-    // {
-    //   label: "Marketing AI Agent",
-    //   description: "Next-gen AI for Ad management",
-    //   icon: (
-    //     <Icon style={{ background: "#fae6ff" }}>
-    //       <Sparkles stroke="#9f4bfe" height={16} width={16} />
-    //     </Icon>
-    //   ),
-    //   path: "/ai-assistant",
-    //   new: true,
-    // },
+    {
+      label: "Marketing AI Agent",
+      description: "Next-gen AI for Ad management",
+      icon: (
+        <Icon style={{ background: "#fae6ff" }}>
+          <Sparkles stroke="#9f4bfe" height={16} width={16} />
+        </Icon>
+      ),
+      path: "/ai-assistant",
+      new: true,
+    },
     {
       label: "Launch",
       description: "Quickly set up multiple ad sets and ads.",

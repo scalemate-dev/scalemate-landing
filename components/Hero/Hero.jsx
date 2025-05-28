@@ -4,6 +4,8 @@ import bubble2 from "@/assets/icons/hero-linear-background-2.svg"
 import Image from "next/image"
 import Button from "@/components/elements/Button/Button"
 import Container from "@/components/elements/Container/Container"
+import Link from "next/link"
+import { IconChevronRight } from "@tabler/icons-react"
 import styles from "./Hero.module.scss"
 import cn from "classnames"
 
@@ -18,6 +20,7 @@ const Hero = ({
   ctaForm,
   showTrial = true,
   className,
+  badge,
 }) => {
   const renderCTA = () => {
     if (ctaForm) {
@@ -64,6 +67,13 @@ const Hero = ({
         height={800}
       />
       <Container className={styles.hero}>
+        {badge && (
+          <Link href={badge.link} className={styles.heroBadge}>
+            <span>NEW</span>
+            {badge.text}
+            <IconChevronRight size={16} className={styles.chevron} />
+          </Link>
+        )}
         <h1>{title}</h1>
         <div className={styles.heroDescription}>
           <div dangerouslySetInnerHTML={{ __html: description }} />
