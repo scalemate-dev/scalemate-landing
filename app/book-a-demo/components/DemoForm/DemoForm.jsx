@@ -59,7 +59,7 @@ const DemoForm = () => {
   }
 
   const redirectToSignup = (email, name) => {
-    const [firstName, lastName] = name.split(" ")
+    const [firstName = "", lastName = ""] = name.split(" ")
     window.location.href = `https://app.scalemate.co/create-account?email=${email}&firstName=${firstName}&lastName=${lastName}`
   }
 
