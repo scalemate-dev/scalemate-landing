@@ -49,13 +49,18 @@ const DemoForm = () => {
     try {
       setLoading(true)
       await validateEmail(formData.email)
-      await sendForm(formData)
+      redirectToSignup(formData.email, formData.name)
       setFormSent(true)
     } catch (error) {
       setError(error.message)
     } finally {
       setLoading(false)
     }
+  }
+
+  const redirectToSignup = (email, name) => {
+    const [firstName, lastName] = name.split(" ")
+    window.location.href = `https://app.scalemate.co/create-account?email=${email}&firstName=${firstName}&lastName=${lastName}`
   }
 
   const sendForm = async (data) => {
@@ -164,9 +169,7 @@ const DemoForm = () => {
             loading={loading}
             disabled={formSent}
           >
-            {formSent
-              ? "Success! Await access details on your email 👍"
-              : "Try for free 🚀"}
+            {formSent ? "Done 👍" : "Try for free 🚀"}
           </Button>
           <p className={styles.error}>{error}</p>
         </form>

@@ -25,9 +25,19 @@ export default function Home() {
   const description = `Scalemate let you launch hundreds of ads in minutes, scaling campaigns
           faster and smarter. Born to erase marketing routine and save you 3
           hours daily.`
+
+  const badge = {
+    link: "/ai-assistant",
+    text: "Meet Marketing AI Agent",
+  }
   return (
     <div className={cn(styles.main, styles.home)}>
-      <Hero title={renderTitle()} description={description} fullHeight />
+      <Hero
+        title={renderTitle()}
+        description={description}
+        fullHeight
+        badge={badge}
+      />
       <WithScalemate title="With Scalemate, ad management becomes easy, cutting time by over 62%." />
       <Features />
       <HowCanHelp />
