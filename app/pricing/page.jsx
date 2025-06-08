@@ -69,7 +69,8 @@ export default function PricingPage() {
 
     const calculate =
       calculations[price.recurring.interval] || (() => price.unit_amount)
-    return `$${formatPrice(calculate())}`
+    const currency = price.currency == "usd" ? "$" : "€"
+    return `${currency}${formatPrice(calculate())}`
   }
 
   // Combine API plans with static plans
