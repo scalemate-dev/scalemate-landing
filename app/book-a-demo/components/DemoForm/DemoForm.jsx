@@ -12,8 +12,13 @@ import styles from "./DemoForm.module.scss"
 import demoLinearBackground from "@/assets/icons/demo-linear-background.svg"
 import demoLinearBackground2 from "@/assets/icons/demo-linear-background-2.svg"
 import { trackDemoFormSubmit } from "@/helpers/trackGTM"
+import { useSearchParams } from "next/navigation"
 
 const DemoForm = () => {
+  const searchParams = useSearchParams()
+  const plan = searchParams.get("plan")
+
+  console.log(plan)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -49,7 +54,11 @@ const DemoForm = () => {
     try {
       setLoading(true)
       await validateEmail(formData.email)
-      redirectToSignup(formData.email, formData.name)
+      if (plan === "custom") {
+        sendForm(formData)
+      } else {
+        redirectToSignup(formData.email, formData.name)
+      }
       setFormSent(true)
     } catch (error) {
       setError(error.message)

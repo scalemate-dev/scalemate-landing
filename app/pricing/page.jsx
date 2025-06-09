@@ -129,7 +129,7 @@ export default function PricingPage() {
       description:
         "Designed for large marketing teams seeking tailored solutions, help with onboarding and account setup, and premium support.",
       cta: "Let's chat",
-      ctaLink: "/book-a-demo",
+      ctaLink: "/book-a-demo?plan=custom",
       popular: false,
       features: [
         "Onboarding help",

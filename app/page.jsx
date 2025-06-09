@@ -42,7 +42,7 @@ export default function Home() {
       <Features />
       <HowCanHelp />
       <ROICalculator />
-      <WaitList />
+      <WaitList href="/book-a-demo" />
     </div>
   )
 }
