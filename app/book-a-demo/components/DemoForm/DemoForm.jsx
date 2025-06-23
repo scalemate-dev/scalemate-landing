@@ -3,7 +3,7 @@
 import { validateEmail } from "@/helpers/emails"
 import WaitList from "@/components/home/WaitList/WaitList"
 
-import { useState } from "react"
+import { useState, Suspense } from "react"
 import Image from "next/image"
 import Input from "@/components/elements/Input/Input"
 import Select from "@/components/elements/Select/Select"
@@ -14,7 +14,8 @@ import demoLinearBackground2 from "@/assets/icons/demo-linear-background-2.svg"
 import { trackDemoFormSubmit } from "@/helpers/trackGTM"
 import { useSearchParams } from "next/navigation"
 
-const DemoForm = () => {
+// Separate component for search params handling
+const DemoFormWithParams = () => {
   const searchParams = useSearchParams()
   const plan = searchParams.get("plan")
 
@@ -93,6 +94,84 @@ const DemoForm = () => {
   }
 
   return (
+    <div className={styles.demoForm}>
+      <div className={styles.demoHero}>
+        <h1 className={styles.demoTitle}>Get started today</h1>
+        <p className={styles.demoDescription}>
+          Join the community of advertisers to learn how you can triple-scale
+          your marketing with Scalemate
+        </p>
+      </div>
+
+      <form className={styles.demoContainer} onSubmit={handleSubmit}>
+        <Input
+          required
+          label="Name"
+          name="name"
+          type="text"
+          placeholder="Enter youe name"
+          value={formData.name}
+          onChange={handleChange("name")}
+        />
+        <Input
+          required
+          error={error}
+          label="Work Email"
+          name="email"
+          type="email"
+          placeholder="Enter your business email"
+          value={formData.email}
+          onChange={handleChange("email")}
+        />
+        <Input
+          label="Company name"
+          name="company-name"
+          type="text"
+          placeholder="Your company name"
+          value={formData.companyName}
+          onChange={handleChange("companyName")}
+        />
+        <Select
+          label="Job position"
+          value={formData.jobPosition}
+          onChange={handleChange("jobPosition")}
+          placeholder="Your job position"
+          options={jobPositionOptions}
+        />
+
+        <Select
+          label="Monthly ad budget"
+          value={formData.monthlyBudget}
+          onChange={handleChange("monthlyBudget")}
+          placeholder="Your avarage ad spend"
+          options={monthlyBudgetOptions}
+        />
+        <Input
+          textarea
+          label="Message"
+          name="message"
+          placeholder="Anything you'd like to add?"
+          value={formData.message}
+          onChange={handleChange("message")}
+        />
+        <Button
+          color="accent"
+          outline={formSent}
+          wide
+          submit
+          loading={loading}
+          disabled={formSent}
+        >
+          {formSent ? "Done 👍" : "Try for free 🚀"}
+        </Button>
+        <p className={styles.error}>{error}</p>
+      </form>
+    </div>
+  )
+}
+
+const DemoForm = () => {
+  return (
     <div className={styles.demo}>
       <Image
         className={styles.linearBackground1}
@@ -110,79 +189,9 @@ const DemoForm = () => {
         height={500}
       />
 
-      <div className={styles.demoForm}>
-        <div className={styles.demoHero}>
-          <h1 className={styles.demoTitle}>Get started today</h1>
-          <p className={styles.demoDescription}>
-            Join the community of advertisers to learn how you can triple-scale
-            your marketing with Scalemate
-          </p>
-        </div>
-
-        <form className={styles.demoContainer} onSubmit={handleSubmit}>
-          <Input
-            required
-            label="Name"
-            name="name"
-            type="text"
-            placeholder="Enter youe name"
-            value={formData.name}
-            onChange={handleChange("name")}
-          />
-          <Input
-            required
-            error={error}
-            label="Work Email"
-            name="email"
-            type="email"
-            placeholder="Enter your business email"
-            value={formData.email}
-            onChange={handleChange("email")}
-          />
-          <Input
-            label="Company name"
-            name="company-name"
-            type="text"
-            placeholder="Your company name"
-            value={formData.companyName}
-            onChange={handleChange("companyName")}
-          />
-          <Select
-            label="Job position"
-            value={formData.jobPosition}
-            onChange={handleChange("jobPosition")}
-            placeholder="Your job position"
-            options={jobPositionOptions}
-          />
-
-          <Select
-            label="Monthly ad budget"
-            value={formData.monthlyBudget}
-            onChange={handleChange("monthlyBudget")}
-            placeholder="Your avarage ad spend"
-            options={monthlyBudgetOptions}
-          />
-          <Input
-            textarea
-            label="Message"
-            name="message"
-            placeholder="Anything you'd like to add?"
-            value={formData.message}
-            onChange={handleChange("message")}
-          />
-          <Button
-            color="accent"
-            outline={formSent}
-            wide
-            submit
-            loading={loading}
-            disabled={formSent}
-          >
-            {formSent ? "Done 👍" : "Try for free 🚀"}
-          </Button>
-          <p className={styles.error}>{error}</p>
-        </form>
-      </div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <DemoFormWithParams />
+      </Suspense>
       <WaitList noButton />
     </div>
   )
