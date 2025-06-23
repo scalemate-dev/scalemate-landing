@@ -115,7 +115,7 @@ const Header = () => {
         </div>
         <Button
           outline
-          href="https://app.scalemate.co/create-account"
+          href="/book-a-demo"
           className={styles.desktopButton}
           darkTheme={darkTheme}
         >

@@ -86,7 +86,7 @@ export default function PricingPage() {
         price: calculateMonthlyPrice(price),
         description: plan.description,
         cta: "Try for free",
-        ctaLink: "https://app.scalemate.co/create-account",
+        ctaLink: "/book-a-demo",
         popular: true, // We can set this based on some logic if needed
         features: [
           "Unlimited ad account spend",
@@ -110,7 +110,7 @@ export default function PricingPage() {
       description:
         "Get started with the basics. Perfect for individuals and small projects.",
       cta: "Try for free",
-      ctaLink: "https://app.scalemate.co/create-account",
+      ctaLink: "/book-a-demo",
       popular: false,
       features: [
         "1 ad account",

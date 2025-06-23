@@ -42,7 +42,10 @@ const Footer = () => {
             <Link className={styles.footerColLink} href="/customers">
               Customers
             </Link>
-            <Link className={styles.footerColLink} href="/book-a-demo">
+            <Link
+              className={styles.footerColLink}
+              href="/book-a-demo?plan=custom"
+            >
               Book a Demo
             </Link>
             <Link className={styles.footerColLink} href="/pricing">
