@@ -89,12 +89,13 @@ export default function PricingPage() {
         ctaLink: "https://app.scalemate.co/create-account",
         popular: true, // We can set this based on some logic if needed
         features: [
+          "Unlimited ad account spend",
           `Up to ${plan.metadata?.ad_account_limit || "unlimited"} ad accounts`,
           `${plan.metadata?.requests_limit || "unlimited"} requests per month`,
           "Campaign management",
-          "Reports",
+          "Custom reports",
           "Recommendations",
-          "Premium support via Slack",
+          "Premium support",
         ],
         priceData: price,
         isStatic: false,
@@ -113,7 +114,7 @@ export default function PricingPage() {
       popular: false,
       features: [
         "1 ad account",
-        "20 requests",
+        "10 requests",
         "Basic analytics",
         "Email support",
       ],

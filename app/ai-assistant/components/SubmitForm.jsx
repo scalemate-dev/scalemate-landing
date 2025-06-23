@@ -43,7 +43,7 @@ function FormWithSearchParams({
             <IconCheck size={20} />
           </>
         ) : (
-          "Get early access"
+          "Try for free"
         )}
       </Button>
     </form>

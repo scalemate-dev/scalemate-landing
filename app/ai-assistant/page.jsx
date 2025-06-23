@@ -95,7 +95,7 @@ export default function AssistantPage() {
       <WaitList
         theme="dark"
         href="/ai-assistant#request-access"
-        buttonText="Get early access"
+        buttonText="Try for free"
       />
     </div>
   )
