@@ -1,49 +1,136 @@
-export function getGAClientId() {
-  // Try to get GA4 client ID
+/**
+ * Gets Google Analytics client ID from various sources
+ * Supports both GA4 and Universal Analytics
+ * @returns {Promise<string>} The client ID or a fallback ID
+ */
+export async function getGAClientId() {
+  // Check if we're in browser environment
+  if (typeof window === "undefined") {
+    return "server_" + Math.random().toString(36).substr(2, 9)
+  }
+
   try {
-    // For GA4 - try to get from dataLayer first (more reliable)
-    if (typeof gtag !== "undefined" && window.dataLayer) {
-      // Look for GA4 client_id in dataLayer
-      for (let i = window.dataLayer.length - 1; i >= 0; i--) {
-        const event = window.dataLayer[i]
-        if (event && event.client_id) {
-          return event.client_id
-        }
-      }
-    }
+    // Try GA4 first (gtag)
+    const ga4ClientId = await getGA4ClientId()
+    if (ga4ClientId) return ga4ClientId
 
-    // For Universal Analytics
-    if (typeof ga !== "undefined") {
-      let tracker = ga.getAll()[0]
-      if (tracker) return tracker.get("clientId")
-    }
+    // Try Universal Analytics
+    const uaClientId = getUniversalAnalyticsClientId()
+    if (uaClientId) return uaClientId
 
-    // Try to get from cookies (Universal Analytics)
-    const gaCookie = document.cookie
-      .split(";")
-      .find((c) => c.trim().startsWith("_ga="))
-    if (gaCookie) {
-      const gaValue = gaCookie.split("=")[1]
-      const parts = gaValue.split(".")
-      if (parts.length > 2) {
-        return parts.slice(2).join(".")
-      }
-    }
+    // Try cookie-based fallback
+    const cookieClientId = getClientIdFromCookie()
+    if (cookieClientId) return cookieClientId
+
+    // Try dataLayer fallback
+    const dataLayerClientId = getClientIdFromDataLayer()
+    if (dataLayerClientId) return dataLayerClientId
   } catch (e) {
     console.error("Error getting GA client ID:", e)
   }
 
-  // Fallback to dataLayer.js_id if available
+  // Generate a fallback ID if nothing else works
+  return "anonymous_" + Math.random().toString(36).substr(2, 9)
+}
+
+/**
+ * Gets GA4 client ID using gtag
+ * @returns {Promise<string|null>}
+ */
+async function getGA4ClientId() {
+  if (typeof gtag === "undefined") return null
+
+  // Get tracking ID from Next.js public env var or from gtag config
+  const trackingId = process.env.GTAG_ID
+
+  if (!trackingId) return null
+
+  return new Promise((resolve) => {
+    try {
+      const timeout = setTimeout(() => resolve(null), 1000) // 1 second timeout
+
+      gtag("get", trackingId, "client_id", (clientId) => {
+        clearTimeout(timeout)
+        resolve(clientId || null)
+      })
+    } catch (e) {
+      console.log("GA4 gtag call failed:", e)
+      resolve(null)
+    }
+  })
+}
+
+/**
+ * Gets Universal Analytics client ID
+ * @returns {string|null}
+ */
+function getUniversalAnalyticsClientId() {
+  if (typeof ga === "undefined") return null
+
   try {
-    for (let i = 0; i < window.dataLayer.length; i++) {
-      if (window.dataLayer[i].js_id) {
-        return window.dataLayer[i].js_id
+    const trackers = ga.getAll()
+    if (trackers && trackers.length > 0) {
+      return trackers[0].get("clientId")
+    }
+  } catch (e) {
+    console.log("Universal Analytics call failed:", e)
+  }
+
+  return null
+}
+
+/**
+ * Gets client ID from GA cookies
+ * @returns {string|null}
+ */
+function getClientIdFromCookie() {
+  try {
+    // GA4 cookie format: _ga_<MEASUREMENT_ID>=GS1.1.clientId.timestamp
+    const ga4Match = document.cookie.match(
+      /_ga_[A-Z0-9]+=[^;]*\.([0-9]+\.[0-9]+)/i,
+    )
+    if (ga4Match && ga4Match[1]) {
+      return ga4Match[1]
+    }
+
+    // Universal Analytics cookie format: _ga=GA1.2.clientId
+    const gaMatch = document.cookie.match(/_ga=GA[^;]*\.([0-9]+\.[0-9]+)/i)
+    if (gaMatch && gaMatch[1]) {
+      return gaMatch[1]
+    }
+  } catch (e) {
+    console.log("Cookie parsing failed:", e)
+  }
+
+  return null
+}
+
+/**
+ * Gets client ID from dataLayer
+ * @returns {string|null}
+ */
+function getClientIdFromDataLayer() {
+  if (!window.dataLayer) return null
+
+  try {
+    // Look for client_id in recent dataLayer events (GA4)
+    for (let i = window.dataLayer.length - 1; i >= 0; i--) {
+      const event = window.dataLayer[i]
+      if (event && event.client_id) {
+        return event.client_id
+      }
+    }
+
+    // Fallback to js_id
+    for (let i = window.dataLayer.length - 1; i >= 0; i--) {
+      const event = window.dataLayer[i]
+      if (event && event.js_id) {
+        return event.js_id
       }
     }
   } catch (e) {
-    console.error("Error getting dataLayer js_id:", e)
+    console.log("DataLayer parsing failed:", e)
   }
 
-  // Generate a fallback ID if nothing else works
-  return "anonymous_" + Math.random().toString(36).substr(2, 9)
+  return null
 }
