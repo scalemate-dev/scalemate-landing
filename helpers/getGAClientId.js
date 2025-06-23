@@ -1,13 +1,15 @@
 export function getGAClientId() {
   // Try to get GA4 client ID
   try {
-    // For GA4
-    if (typeof gtag !== "undefined") {
-      let clientId = ""
-      gtag("get", process.env.GTAG_ID, "client_id", (id) => {
-        clientId = id
-      })
-      if (clientId) return clientId
+    // For GA4 - try to get from dataLayer first (more reliable)
+    if (typeof gtag !== "undefined" && window.dataLayer) {
+      // Look for GA4 client_id in dataLayer
+      for (let i = window.dataLayer.length - 1; i >= 0; i--) {
+        const event = window.dataLayer[i]
+        if (event && event.client_id) {
+          return event.client_id
+        }
+      }
     }
 
     // For Universal Analytics
@@ -42,5 +44,6 @@ export function getGAClientId() {
     console.error("Error getting dataLayer js_id:", e)
   }
 
-  return persistentId
+  // Generate a fallback ID if nothing else works
+  return "anonymous_" + Math.random().toString(36).substr(2, 9)
 }
