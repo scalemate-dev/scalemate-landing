@@ -45,6 +45,9 @@ const Footer = () => {
             <Link className={styles.footerColLink} href="/book-a-demo">
               Book a Demo
             </Link>
+            <Link className={styles.footerColLink} href="/pricing">
+              Pricing
+            </Link>
           </div>
           <div className={styles.footerCol}>
             <div className={styles.footerColTitle}>Legal</div>
