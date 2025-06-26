@@ -33,28 +33,34 @@ export default async function sitemap() {
       priority: 1,
     },
     {
+      url: "https://www.scalemate.co/ai-assistant",
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    {
       url: "https://www.scalemate.co/launch",
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 1,
+      priority: 0.9,
     },
     {
       url: "https://www.scalemate.co/book-a-demo",
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.9,
+      priority: 0.75,
+    },
+    {
+      url: "https://www.scalemate.co/pricing",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.75,
     },
     {
       url: "https://www.scalemate.co/customers",
       lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: "https://www.scalemate.co/ai-assistant",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
+      priority: 0.6,
     },
   ]
 
