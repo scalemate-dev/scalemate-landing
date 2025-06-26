@@ -72,7 +72,7 @@ export default function SubmitForm() {
     try {
       await validateEmail(email)
 
-      // if (!searchParams.get("skip_send")) await sendForm({ email })
+      if (!searchParams.get("skip_send")) await sendForm({ email })
 
       await trackTTFormSubmit(email)
       setIsSuccess(true)

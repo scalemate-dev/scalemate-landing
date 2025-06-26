@@ -54,12 +54,13 @@ const DemoFormWithParams = () => {
     e.preventDefault()
     try {
       setLoading(true)
+
       await validateEmail(formData.email)
-      if (plan === "custom") {
-        sendForm(formData)
-      } else {
+      if (plan !== "custom") {
         redirectToSignup(formData.email, formData.name)
       }
+
+      sendForm(formData)
       setFormSent(true)
     } catch (error) {
       setError(error.message)
