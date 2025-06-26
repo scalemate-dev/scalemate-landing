@@ -4,10 +4,9 @@ import WaitList from "@/components/home/WaitList/WaitList"
 import PricingCard from "@/components/elements/PricingCard/PricingCard"
 
 import { useState, useEffect } from "react"
-import Link from "next/link"
+
 import cn from "classnames"
 import FAQ from "@/components/FAQ/FAQ"
-import Button from "@/components/elements/Button/Button"
 import styles from "./page.module.scss"
 
 export default function PricingPage() {
