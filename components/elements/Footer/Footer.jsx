@@ -62,14 +62,9 @@ const Footer = () => {
             >
               Terms and Conditions
             </a>
-            <a
-              className={styles.footerColLink}
-              href="/privacy-policy.pdf"
-              target="_blank"
-              rel="noopener noreferrer noindex"
-            >
+            <Link className={styles.footerColLink} href="/privacy-policy">
               Privacy Policy
-            </a>
+            </Link>
           </div>
         </div>
       </Container>
