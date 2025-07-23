@@ -4,12 +4,17 @@ import WaitList from "@/components/home/WaitList/WaitList"
 import PricingCard from "@/components/elements/PricingCard/PricingCard"
 
 import { useState, useEffect } from "react"
+import { redirect } from "next/navigation"
 
 import cn from "classnames"
 import FAQ from "@/components/FAQ/FAQ"
 import styles from "./page.module.scss"
 
 export default function PricingPage() {
+  // Redirect to home page - pricing page is temporarily disabled
+  redirect("/")
+
+  // Rest of the component code is preserved but unreachable
   const [billingCycle, setBillingCycle] = useState("month") // "month", "quarter", or "year"
   const [plansData, setPlansData] = useState([])
   const [loading, setLoading] = useState(true)

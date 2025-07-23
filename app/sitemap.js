@@ -50,12 +50,12 @@ export default async function sitemap() {
       changeFrequency: "monthly",
       priority: 0.75,
     },
-    {
-      url: "https://www.scalemate.co/pricing",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.75,
-    },
+    // {
+    //   url: "https://www.scalemate.co/pricing",
+    //   lastModified: new Date(),
+    //   changeFrequency: "weekly",
+    //   priority: 0.75,
+    // },
     {
       url: "https://www.scalemate.co/customers",
       lastModified: new Date(),

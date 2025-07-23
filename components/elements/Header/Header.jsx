@@ -108,9 +108,9 @@ const Header = () => {
             <Link href="/customers" className={styles.navLink}>
               Customers
             </Link>
-            <Link href="/pricing" className={styles.navLink}>
+            {/* <Link href="/pricing" className={styles.navLink}>
               Pricing
-            </Link>
+            </Link> */}
           </div>
         </div>
         <Button
@@ -171,13 +171,13 @@ const Header = () => {
             >
               Customers
             </Link>
-            <Link
+            {/* <Link
               href="/pricing"
               className={styles.mobileNavLink}
               onClick={() => setMobileMenuOpen(false)}
             >
               Pricing
-            </Link>
+            </Link> */}
             <Link
               href="/book-a-demo?plan=custom"
               className={styles.mobileNavLink}
