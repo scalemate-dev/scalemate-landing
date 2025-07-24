@@ -13,20 +13,27 @@ const nextConfig = {
     includePaths: [path.join(__dirname, "app/styles")],
     prependData: `@import "_variables.scss";`,
   },
-  // async redirects() {
-  //   return [
-  //     {
-  //       source: "/ai-assistant",
-  //       destination: "/",
-  //       permanent: false,
-  //     },
-  //     {
-  //       source: "/ai-assistant/:path*",
-  //       destination: "/",
-  //       permanent: false,
-  //     },
-  //   ]
-  // },
+  async redirects() {
+    return [
+      {
+        source: "/scalemate-docs/:path*",
+        destination: "/docs/:path*",
+        permanent: false,
+      },
+    ]
+  },
+  async rewrites() {
+    return [
+      {
+        source: "/docs",
+        destination: "https://scalemate.gitbook.io/scalemate-docs/",
+      },
+      {
+        source: "/docs/:path*",
+        destination: "https://scalemate.gitbook.io/scalemate-docs/:path*",
+      },
+    ]
+  },
   experimental: {
     turbo: {
       rules: {
