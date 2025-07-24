@@ -171,6 +171,13 @@ const Header = () => {
             >
               Customers
             </Link>
+            <Link
+              href="/docs"
+              className={styles.mobileNavLink}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              API
+            </Link>
             {/* <Link
               href="/pricing"
               className={styles.mobileNavLink}
