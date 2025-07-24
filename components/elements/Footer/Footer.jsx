@@ -39,9 +39,9 @@ const Footer = () => {
             <Link className={styles.footerColLink} href="/launch">
               Launch
             </Link>
-            <Link className={styles.footerColLink} href="/docs">
+            <a className={styles.footerColLink} href="/docs">
               API documentation
-            </Link>
+            </a>
             <Link className={styles.footerColLink} href="/customers">
               Customers
             </Link>
