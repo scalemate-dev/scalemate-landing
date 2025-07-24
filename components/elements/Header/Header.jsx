@@ -108,6 +108,9 @@ const Header = () => {
             <Link href="/customers" className={styles.navLink}>
               Customers
             </Link>
+            <Link href="/docs" className={styles.navLink}>
+              API
+            </Link>
             {/* <Link href="/pricing" className={styles.navLink}>
               Pricing
             </Link> */}
