@@ -15,21 +15,15 @@ export const metadata = {
 
 export default function Home() {
   const renderTitle = () => {
-    return (
-      <>
-        Launch Ads Faster
-        <br /> to <span>triple-scale</span> your app
-      </>
-    )
+    return <>Launch Hundreds of Ads in a Seconds</>
   }
-  const description = `Scalemate let you launch hundreds of ads in minutes, scaling campaigns
-          faster and smarter. Born to erase marketing routine and save you 3
-          hours daily.`
+  const description = `Replace hours of repetitive setup with elegant campaign templates and instant creative uploads. Finally, automation that's actually simple.`
 
   const badge = {
-    link: "/ai-assistant",
-    text: "Meet Marketing AI Agent",
+    link: "/docs",
+    text: "Scalemate API",
   }
+
   return (
     <div className={cn(styles.main, styles.home)}>
       <Hero
@@ -37,11 +31,12 @@ export default function Home() {
         description={description}
         fullHeight
         badge={badge}
+        showTrial={false}
       />
-      <WithScalemate title="With Scalemate, ad management becomes easy, cutting time by over 62%." />
+      {/* <WithScalemate title="With Scalemate, ad management becomes easy, cutting time by over 62%." /> */}
       <Features />
       <HowCanHelp />
-      <ROICalculator />
+      {/* <ROICalculator /> */}
       <WaitList href="/book-a-demo" />
     </div>
   )

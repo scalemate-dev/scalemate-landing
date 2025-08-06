@@ -78,26 +78,15 @@ const Features = () => {
     {
       image: launchSchema,
       badge: {
-        label: "Smart Launches",
+        label: "Smart Templates",
         background: "#F4F3FF",
         color: "#5925DC",
       },
-      title: "Easy launch to Win",
-      description: `Run multiple ads with ease using smart launches.
-        <br /><br />
-        With Scalemate, launching ads is as simple as a click. No hassle, just
-        results.`,
-    },
-    {
-      image: rulesImage,
-      title: "Scale on Autopilot",
-      badge: {
-        label: "Rules",
-        background: "#F4F3FF",
-        color: "#5925DC",
-      },
-      description:
-        "Optimize ad performance effortlessly. <br/> <br/> Automate scaling, pausing, and bid adjustments to maximize ROAS and reduce manual work.",
+      title: "Flexible Templates",
+      description: `
+      Quickly build ad campaigns tailored to your exact strategy, without repetitive setup or manual copying.
+      <br /><br />
+      Create a dynamic template once, and use it to launch multiple campaigns.`,
     },
     {
       image: cloudSync,
@@ -107,22 +96,34 @@ const Features = () => {
         color: "#027A48",
       },
       title: "One touch assets upload",
-      description: `Forget about manual drag & drop routine — upload files in bulk via cloud sync.
+      description: `Forget about manual drag & drop routine – upload new creatives automatically.
         <br /><br />
-        Transfer videos & images from cloud storage to advertisement platform with zero effort on your side.`,
+        Instantly upload and sync your ad creatives from Google Drive directly to Meta & TikTok Ads.`,
     },
     {
-      image: creativeLibrary,
+      image: rulesImage,
+      title: "Empower Your Workflow",
       badge: {
-        label: "Creative Library",
-        background: "#FFF1F3",
-        color: "#C01048",
+        label: "Scalemate API",
+        background: "#F4F3FF",
+        color: "#5925DC",
       },
-      title: "Unified creative library",
-      description: `Keep all your creatives in one place and instantly reach the asset you need. Filter files by tags, sizes, colors, and more.
-        <br /><br />
-        Access historical data about launched campaigns so you would never repeat them.`,
+      description: `Quickly set up seamless automation that complements your existing processes.
+        <br/><br/>
+        Scalemate smoothly plugs into your favorite tools, workflows, and dashboards, making campaign management and creative syncing feel effortless from day one.`,
     },
+    // {
+    //   image: creativeLibrary,
+    //   badge: {
+    //     label: "Creative Library",
+    //     background: "#FFF1F3",
+    //     color: "#C01048",
+    //   },
+    //   title: "Unified creative library",
+    //   description: `Keep all your creatives in one place and instantly reach the asset you need. Filter files by tags, sizes, colors, and more.
+    //     <br /><br />
+    //     Access historical data about launched campaigns so you would never repeat them.`,
+    // },
   ]
 
   return (

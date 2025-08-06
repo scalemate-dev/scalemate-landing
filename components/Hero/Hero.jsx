@@ -74,7 +74,7 @@ const Hero = ({
             <IconChevronRight size={16} className={styles.chevron} />
           </Link>
         )}
-        <h1>{title}</h1>
+        <h1 className={styles.heroTitle}>{title}</h1>
         <div className={styles.heroDescription}>
           <div dangerouslySetInnerHTML={{ __html: description }} />
         </div>
