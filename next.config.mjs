@@ -16,21 +16,14 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/scalemate-docs/:path*",
-        destination: "/docs/:path*",
-        permanent: false,
-      },
-    ]
-  },
-  async rewrites() {
-    return [
-      {
         source: "/docs",
-        destination: "https://scalemate.gitbook.io/scalemate-docs/",
+        destination: "https://scalemate.featurebase.app/en/help/articles/9281751-overview",
+        permanent: false,
       },
       {
         source: "/docs/:path*",
-        destination: "https://scalemate.gitbook.io/scalemate-docs/:path*",
+        destination: "https://scalemate.featurebase.app/en/help/:path*",
+        permanent: false,
       },
     ]
   },
