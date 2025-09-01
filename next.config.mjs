@@ -20,6 +20,11 @@ const nextConfig = {
         destination: "/docs/:path*",
         permanent: false,
       },
+      {
+        source: "/url/scalemate.gitbook.io/scalemate-api",
+        destination: "/",
+        permanent: false,
+      },
     ]
   },
   async rewrites() {
