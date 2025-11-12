@@ -111,18 +111,18 @@ const Features = () => {
         <br /><br />
         Transfer videos & images from cloud storage to advertisement platform with zero effort on your side.`,
     },
-    {
-      image: creativeLibrary,
-      badge: {
-        label: "Creative Library",
-        background: "#FFF1F3",
-        color: "#C01048",
-      },
-      title: "Unified creative library",
-      description: `Keep all your creatives in one place and instantly reach the asset you need. Filter files by tags, sizes, colors, and more.
-        <br /><br />
-        Access historical data about launched campaigns so you would never repeat them.`,
-    },
+    // {
+    //   image: creativeLibrary,
+    //   badge: {
+    //     label: "Creative Library",
+    //     background: "#FFF1F3",
+    //     color: "#C01048",
+    //   },
+    //   title: "Unified creative library",
+    //   description: `Keep all your creatives in one place and instantly reach the asset you need. Filter files by tags, sizes, colors, and more.
+    //     <br /><br />
+    //     Access historical data about launched campaigns so you would never repeat them.`,
+    // },
   ]
 
   return (
