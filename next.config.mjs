@@ -7,11 +7,17 @@ const __dirname = path.dirname(__filename)
 
 const nextConfig = {
   images: {
-    domains: ["images.ctfassets.net"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.ctfassets.net",
+      },
+    ],
   },
   sassOptions: {
-    includePaths: [path.join(__dirname, "app/styles")],
-    prependData: `@import "_variables.scss";`,
+    loadPaths: [path.join(__dirname, "app/styles")],
+    additionalData: `@use "_variables.scss" as *;`,
+    silenceDeprecations: ["mixed-decls"],
   },
   async redirects() {
     return [
@@ -39,13 +45,11 @@ const nextConfig = {
       },
     ]
   },
-  experimental: {
-    turbo: {
-      rules: {
-        "*.inline.svg": {
-          loaders: ["@svgr/webpack"],
-          as: "*.js",
-        },
+  turbopack: {
+    rules: {
+      "*.inline.svg": {
+        loaders: ["@svgr/webpack"],
+        as: "*.js",
       },
     },
   },

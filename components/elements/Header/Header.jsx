@@ -118,11 +118,11 @@ const Header = () => {
         </div>
         <Button
           outline
-          href="/book-a-demo"
+          href="https://app.scalemate.co/create-account"
           className={styles.desktopButton}
           darkTheme={darkTheme}
         >
-          Get started
+          Try it Now
         </Button>
 
         {/* Mobile Menu Toggle */}

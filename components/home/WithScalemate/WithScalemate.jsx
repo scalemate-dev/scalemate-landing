@@ -13,18 +13,18 @@ import styles from "./WithScalemate.module.scss"
 
 const DEFAULT_CARDS = [
   {
-    value: "100k",
-    label: "Ad creatives launched",
+    value: "2M+",
+    label: "Ads launched",
     background: "#FFE8D3",
   },
   {
-    value: "13k",
+    value: "53k",
     label: "hours saved",
     background: "#F0DCFF",
   },
   {
-    value: "-32%",
-    label: "cost per winner",
+    value: "32%",
+    label: "budget saved with automation",
     background: "#FFBF99",
   },
   {

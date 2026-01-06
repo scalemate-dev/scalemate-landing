@@ -31,18 +31,11 @@ const Hero = ({
         <Button
           color="accent"
           className={styles.heroSubmit}
-          href={CTALink ?? "/book-a-demo"}
+          href={CTALink ?? "https://app.scalemate.co/create-account"}
         >
           {CTAButtonText ?? "Try for free"}
           <span style={{ marginLeft: "4px" }}>🚀</span>
         </Button>
-        {showTrial && (
-          <div className={styles.heroTrial}>
-            <span>✓ 1-month free trial</span>
-            <span>✓ No credit card required</span>
-            <span>✓ Custom integrations</span>
-          </div>
-        )}
       </>
     )
   }

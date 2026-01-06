@@ -134,7 +134,10 @@ async function AppPage({ params, searchParams }) {
           <RichTextElements key={index} document={item} />
         ))}
       </Layout>
-      <WaitList />
+      <WaitList
+        href="https://app.scalemate.co/create-account"
+        buttonText="Try Scalemate Now"
+      />
     </main>
   )
 }

@@ -23,8 +23,7 @@ export default function Home() {
     )
   }
   const description = `Scalemate let you launch hundreds of ads in minutes, scaling campaigns
-          faster and smarter. Born to erase marketing routine and save you 3
-          hours daily.`
+          faster and smarter. Born to erase marketing routine and save your time.`
 
   const badge = {
     link: "/ai-assistant",
@@ -42,7 +41,10 @@ export default function Home() {
       <Features />
       <HowCanHelp />
       <ROICalculator />
-      <WaitList href="/book-a-demo" />
+      <WaitList
+        href="https://app.scalemate.co/create-account"
+        buttonText="Try Scalemate"
+      />
     </div>
   )
 }
