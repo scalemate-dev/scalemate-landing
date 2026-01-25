@@ -131,7 +131,7 @@ const UploaderWidget = () => {
       if (pickerFiles.length > 0) {
         await updateFiles({ googleToken, files: getFilesForApi() })
       }
-      redirectToApp("/signup")
+      redirectToApp("/create-account")
     } catch (err) {
       console.error("Upload error:", err)
       setIsUploading(false)
