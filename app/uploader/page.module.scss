@@ -1,0 +1,139 @@
+.main {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  background-color: #ffffff;
+}
+
+.hero {
+  position: relative;
+  padding-top: 160px;
+  padding-bottom: 80px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.bubble1 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-30%, -20%);
+  z-index: 0;
+  opacity: 0.5;
+  filter: hue-rotate(220deg) saturate(0.7);
+}
+
+.bubble2 {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translate(30%, 20%);
+  z-index: 0;
+  opacity: 0.5;
+  filter: hue-rotate(220deg) saturate(0.7);
+}
+
+.heroContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
+  position: relative;
+  z-index: 1;
+}
+
+.heroText {
+  flex: 1;
+  max-width: 560px;
+
+  h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 1.15;
+    color: $color-jet-black;
+    margin-bottom: 24px;
+
+    span {
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+}
+
+.heroDescription {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #64748b;
+  max-width: 480px;
+}
+
+.heroWidget {
+  flex-shrink: 0;
+}
+
+.featuresPlaceholder {
+  min-height: 100px;
+}
+
+@include desktop-s {
+  .heroContent {
+    gap: 40px;
+  }
+
+  .heroText h1 {
+    font-size: 44px;
+  }
+}
+
+@include tablet-horizontal {
+  .hero {
+    padding-top: 120px;
+    padding-bottom: 60px;
+    min-height: auto;
+  }
+
+  .heroContent {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 48px;
+  }
+
+  .heroText {
+    max-width: 100%;
+    text-align: center;
+
+    h1 {
+      font-size: 40px;
+
+      br {
+        display: none;
+      }
+    }
+  }
+
+  .heroDescription {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .heroWidget {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@include tablet-vertical {
+  .heroText h1 {
+    font-size: 32px;
+  }
+
+  .heroDescription {
+    font-size: 16px;
+  }
+}
