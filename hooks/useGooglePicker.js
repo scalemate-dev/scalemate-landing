@@ -1,8 +1,7 @@
 "use client"
 
-import { useState, useCallback } from "react"
+import { useState, useCallback, useRef } from "react"
 import useDrivePicker from "react-google-drive-picker"
-import { config } from "@/lib/config"
 
 /**
  * Hook for Google Drive Picker integration.
@@ -14,13 +13,18 @@ export function useGooglePicker() {
   const [selectedFiles, setSelectedFiles] = useState([])
   const [error, setError] = useState(null)
   const [isPickerOpen, setIsPickerOpen] = useState(false)
+  const scrollPositionRef = useRef(0)
 
-  console.log("process env:", {
-    devkey: process.env.NEXT_PUBLIC_GOOGLE_PICKER_API_KEY,
-  })
   const handleOpenPicker = useCallback(() => {
     setError(null)
     setIsPickerOpen(true)
+
+    // Save scroll position and lock body scroll
+    scrollPositionRef.current = window.scrollY
+    document.body.style.overflow = 'hidden'
+    document.body.style.position = 'fixed'
+    document.body.style.top = `-${scrollPositionRef.current}px`
+    document.body.style.width = '100%'
 
     openPicker({
       clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
@@ -32,6 +36,13 @@ export function useGooglePicker() {
       multiselect: true,
       callbackFunction: (data) => {
         setIsPickerOpen(false)
+
+        // Unlock body scroll and restore position
+        document.body.style.overflow = ''
+        document.body.style.position = ''
+        document.body.style.top = ''
+        document.body.style.width = ''
+        window.scrollTo(0, scrollPositionRef.current)
 
         if (data.action === "cancel") {
           return
