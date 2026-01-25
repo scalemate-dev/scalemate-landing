@@ -34,7 +34,15 @@ const nextConfig = {
     ]
   },
   async rewrites() {
+    const apiBaseUrl = process.env.API_BASE_URL || 'https://api.scalemate.co'
+
     return [
+      // API proxy - avoids CORS issues
+      {
+        source: "/api/v1/:path*",
+        destination: `${apiBaseUrl}/api/v1/:path*`,
+      },
+      // Docs proxy
       {
         source: "/docs",
         destination: "https://scalemate.gitbook.io/scalemate-api/",
