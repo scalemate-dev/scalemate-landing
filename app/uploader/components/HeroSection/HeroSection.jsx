@@ -4,11 +4,9 @@ import UploaderWidget from "../UploaderWidget/UploaderWidget"
 import styles from "./HeroSection.module.scss"
 import bubble from "@/assets/icons/hero-linear-background.svg"
 import bubble2 from "@/assets/icons/hero-linear-background-2.svg"
-import {
-  IconBrandGoogleDrive,
-  IconBrandTiktok,
-  IconBrandFacebook,
-} from "@tabler/icons-react"
+import metaIcon from "@/assets/icons/meta-icon.svg"
+import tiktokIcon from "@/assets/icons/tiktok-icon.svg"
+import googleDriveIcon from "@/assets/icons/google-drive-icon.svg"
 
 export default function HeroSection() {
   return (
@@ -48,15 +46,15 @@ export default function HeroSection() {
             <span>Works with:</span>
             <div className={styles.platformLogos}>
               <div className={styles.platformLogo}>
-                <IconBrandGoogleDrive size={20} />
+                <Image src={googleDriveIcon} alt="" width={20} height={20} />
                 <span>Google Drive</span>
               </div>
               <div className={styles.platformLogo}>
-                <IconBrandTiktok size={20} />
+                <Image src={tiktokIcon} alt="" width={20} height={20} />
                 <span>TikTok Ads</span>
               </div>
               <div className={styles.platformLogo}>
-                <IconBrandFacebook size={20} />
+                <Image src={metaIcon} alt="" width={20} height={20} />
                 <span>Meta Ads</span>
               </div>
             </div>

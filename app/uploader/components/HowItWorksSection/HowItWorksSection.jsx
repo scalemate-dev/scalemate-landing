@@ -3,32 +3,41 @@ import Container from "@/components/elements/Container/Container"
 import styles from "./HowItWorksSection.module.scss"
 import bubble from "@/assets/icons/hero-linear-background.svg"
 import bubble2 from "@/assets/icons/hero-linear-background-2.svg"
-import {
-  IconBrandGoogleDrive,
-  IconBrandTiktok,
-  IconCheck,
-} from "@tabler/icons-react"
+import { IconBrandGoogleDrive, IconCheck, IconLink } from "@tabler/icons-react"
 
 const steps = [
   {
     number: "1",
-    icon: IconBrandGoogleDrive,
+    iconType: "google-drive",
     title: "Select",
     description: "Pick creatives from your Google Drive",
   },
   {
     number: "2",
-    icon: IconBrandTiktok,
+    iconType: "link",
     title: "Connect",
-    description: "Select TikTok or Meta ad accounts",
+    description: "Connect with TikTok or Meta ad accounts",
   },
   {
     number: "3",
-    icon: IconCheck,
+    iconType: "check",
     title: "Upload",
     description: "One click and files go to your ad accounts",
   },
 ]
+
+function StepIcon({ type }) {
+  switch (type) {
+    case "google-drive":
+      return <IconBrandGoogleDrive size={24} />
+    case "link":
+      return <IconLink size={24} />
+    case "check":
+      return <IconCheck size={24} />
+    default:
+      return null
+  }
+}
 
 export default function HowItWorksSection() {
   return (
@@ -60,7 +69,7 @@ export default function HowItWorksSection() {
                 <p>{step.description}</p>
               </div>
               <div className={styles.timelineDot}>
-                <step.icon size={24} />
+                <StepIcon type={step.iconType} />
               </div>
               <div className={styles.timelineNumber}>{step.number}</div>
             </div>
