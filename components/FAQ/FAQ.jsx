@@ -8,10 +8,18 @@ const FAQ = ({
   title = "Frequently Asked Questions",
   theme = "dark",
 }) => {
-  const [openIndex, setOpenIndex] = useState(null)
+  const [openIndexes, setOpenIndexes] = useState(new Set())
 
   const toggleAccordion = (index) => {
-    setOpenIndex(openIndex === index ? null : index)
+    setOpenIndexes((prev) => {
+      const next = new Set(prev)
+      if (next.has(index)) {
+        next.delete(index)
+      } else {
+        next.add(index)
+      }
+      return next
+    })
   }
 
   // Split items into two columns
@@ -28,23 +36,23 @@ const FAQ = ({
           <div key={actualIndex} className={styles.item}>
             <button
               className={cn(styles.question, {
-                [styles.active]: openIndex === actualIndex,
+                [styles.active]: openIndexes.has(actualIndex),
               })}
               onClick={() => toggleAccordion(actualIndex)}
-              aria-expanded={openIndex === actualIndex}
+              aria-expanded={openIndexes.has(actualIndex)}
               aria-controls={`faq-answer-${actualIndex}`}
               type="button"
             >
               {item.question}
               <span className={styles.icon} aria-hidden="true">
-                {openIndex === actualIndex ? "−" : "+"}
+                {openIndexes.has(actualIndex) ? "−" : "+"}
               </span>
             </button>
             <div
               id={`faq-answer-${actualIndex}`}
               className={cn(styles.answer, {
-                [styles.open]: openIndex === actualIndex,
-                [styles.closed]: openIndex !== actualIndex,
+                [styles.open]: openIndexes.has(actualIndex),
+                [styles.closed]: !openIndexes.has(actualIndex),
               })}
               role="region"
               aria-labelledby={`faq-question-${actualIndex}`}
