@@ -14,6 +14,7 @@ import {
 } from "@tabler/icons-react"
 import cn from "classnames"
 import tiktokWhiteIcon from "@/assets/icons/tiktok-white-icon.svg"
+import tiktokBlackIcon from "@/assets/icons/tiktok-icon.svg"
 import metaIcon from "@/assets/icons/meta-icon.svg"
 import googleDriveIcon from "@/assets/icons/google-drive-icon.svg"
 import { useFacebookAuth } from "@/hooks/useFacebookAuth"
@@ -274,7 +275,12 @@ const UploaderWidget = () => {
                 <div className={styles.platformGroup}>
                   <div className={styles.platformHeader}>
                     <div className={cn(styles.platformIcon, styles.tiktok)}>
-                      <Image src={tiktokWhiteIcon} alt="" width={24} height={24} />
+                      <Image
+                        src={tiktokBlackIcon}
+                        alt=""
+                        width={24}
+                        height={24}
+                      />
                     </div>
                     <span className={styles.platformName}>TikTok Ads</span>
                   </div>
@@ -347,35 +353,32 @@ const UploaderWidget = () => {
               </button>
             </>
           ) : (
-            <div className={styles.connectPlatforms}>
-              <div className={styles.connectLabel}>Connect platforms</div>
-              <div className={styles.platformButtons}>
-                <button
-                  className={cn(styles.platformBtn, styles.tiktok)}
-                  onClick={handleTikTokConnect}
-                  disabled={isTikTokConnecting || isSessionLoading}
-                >
-                  {isTikTokConnecting || isSessionLoading ? (
-                    <IconLoader2 size={18} className={styles.spinner} />
-                  ) : (
-                    <Image src={tiktokWhiteIcon} alt="" width={18} height={18} />
-                  )}
-                  TikTok Ads
-                </button>
+            <div className={styles.platformButtons}>
+              <button
+                className={cn(styles.platformBtn, styles.tiktok)}
+                onClick={handleTikTokConnect}
+                disabled={isTikTokConnecting || isSessionLoading}
+              >
+                {isTikTokConnecting || isSessionLoading ? (
+                  <IconLoader2 size={18} className={styles.spinner} />
+                ) : (
+                  <Image src={tiktokWhiteIcon} alt="" width={18} height={18} />
+                )}
+                TikTok Ads
+              </button>
 
-                <button
-                  className={cn(styles.platformBtn, styles.facebook)}
-                  onClick={handleFacebookConnect}
-                  disabled={isFacebookConnecting || isSessionLoading}
-                >
-                  {isFacebookConnecting ? (
-                    <IconLoader2 size={18} className={styles.spinner} />
-                  ) : (
-                    <Image src={metaIcon} alt="" width={18} height={18} />
-                  )}
-                  Meta Ads
-                </button>
-              </div>
+              <button
+                className={cn(styles.platformBtn, styles.facebook)}
+                onClick={handleFacebookConnect}
+                disabled={isFacebookConnecting || isSessionLoading}
+              >
+                {isFacebookConnecting ? (
+                  <IconLoader2 size={18} className={styles.spinner} />
+                ) : (
+                  <Image src={metaIcon} alt="" width={18} height={18} />
+                )}
+                Meta Ads
+              </button>
             </div>
           )}
         </div>
