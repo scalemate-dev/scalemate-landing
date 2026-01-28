@@ -28,7 +28,7 @@ const features = [
     icon: IconDevices,
     title: "Multi-Platform",
     description:
-      "Upload to Facebook and TikTok at once. One workflow for all your ad accounts.",
+      "Upload to Meta and TikTok x§at once. One workflow for all your ad accounts.",
     color: "purple",
   },
   {
