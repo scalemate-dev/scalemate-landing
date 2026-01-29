@@ -48,8 +48,8 @@ async function getCaseStudy(slug, preview = false) {
 
 // Generate metadata for the page
 export async function generateMetadata({ params, searchParams }) {
-  const { slug } = params
-  const { preview } = searchParams
+  const { slug } = await params
+  const { preview } = await searchParams
 
   const caseStudy = await getCaseStudy(slug, preview)
 
