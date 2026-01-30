@@ -9,9 +9,9 @@ const Footer = () => {
     <div className={styles.footer}>
       <Container className={styles.container}>
         <div className={styles.footerLeft}>
-          <div className={styles.footerLogo}>
+          <Link href="/" className={styles.footerLogo} aria-label="Scalemate Home">
             <Logo />
-          </div>
+          </Link>
           <div className={styles.footerTitle}>
             Launch Ads Faster
             <br /> and triple-scale your app
