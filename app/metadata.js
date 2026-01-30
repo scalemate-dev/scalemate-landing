@@ -2,8 +2,6 @@ export const defaultMetadata = {
   title: "Scalemate: Launch & Scale Ad Campaigns 3x Faster",
   description:
     "Launch hundreds of Facebook ads in minutes, scale campaigns faster and save hours of marketing routine daily.",
-  keywords:
-    "Facebook ads automation software, Scale ad campaigns smarter, Bulk Facebook ads launch, Automate ad creatives upload, Save time with Facebook ad automation, Cut ad launch costs by 90%, Marketing automation software for facebook ads, Ad management tools for marketers, Launch ads",
   openGraph: {
     title: "Scalemate: Launch & Scale Ad Campaigns 3x Faster",
     description:
@@ -30,8 +28,6 @@ const customersMetadata = {
   description:
     "Discover how Scalemate automates marketing processes, optimizes ad management, and helps businesses scale faster with better performance.",
   alternates: { canonical: "https://www.scalemate.co/customers" },
-  keywords:
-    "marketing automation, ads automation, Scalemate, case study, customer success stories",
   openGraph: {
     title: "Scalemate: Customer Success Stories in Ad Automation",
     description:
@@ -52,8 +48,6 @@ const assistantMetadata = {
   alternates: { canonical: "https://www.scalemate.co/ai-assistant" },
   description:
     "Experience next-generation Ads management with Scalemate AI Assistant. Control budgets, launch campaigns, upload creatives, generate reports, get smart recommendations and unlock insights. All via an AI-powered chat",
-  keywords:
-    "Marketing AI Assistant, Ad management AI, AI for Ad management, AI for Facebook ads, AI for Google ads, Scalemate",
   openGraph: {
     title: "Scalemate: AI Marketing Agent for Ads & Reporting",
     description:
@@ -98,8 +92,6 @@ export const pageMetadata = {
     alternates: { canonical: "https://www.scalemate.co/launch" },
     description:
       "Bulk ads launches in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
-    keywords:
-      "Bulk ads launches, automated ads launch, launch ads from google drive, ad templates, campaign tempaltes, automated campaign launch, automated creative upload, automated rules",
     openGraph: {
       title: "Scalemate: Bulk Ad Launch for Meta & TikTok, 3x Faster",
       description:
@@ -119,8 +111,6 @@ export const pageMetadata = {
     alternates: { canonical: "https://www.scalemate.co/book-a-demo" },
     description:
       "Experience the power of automation for ads management. Book a demo with Scalemate to see how you launch your ads 3x faster.",
-    keywords:
-      "Book demo facebook ads automation, Scalemate demo, facebook ads automation free trial, cross-platform adds launch, schedule Scalemate demo, ads management automation free trial",
     openGraph: {
       title: "Scalemate: Book a Demo — Launch Ads 3x Faster",
       description:

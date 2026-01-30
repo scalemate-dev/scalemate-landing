@@ -42,7 +42,7 @@ export default async function CaseStudies() {
   return (
     <div className={styles.container}>
       <Container className={styles.headingContainer}>
-        <h2 className={styles.heading}>Success Stories</h2>
+        <h1 className={styles.heading}>Success Stories</h1>
         <p className={styles.subheading}>
           Learn how businesses use Scalemate to supercharge their ad processes
           and scale faster.

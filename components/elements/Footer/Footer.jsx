@@ -27,7 +27,7 @@ const Footer = () => {
             </a>
           </div>
           <div className={styles.footerColLink} style={{ paddingTop: 16 }}>
-            © Scalemate 2025
+            © Scalemate {new Date().getFullYear()}
           </div>
         </div>
         <div className={styles.footerRight}>
