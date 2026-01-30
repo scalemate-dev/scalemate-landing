@@ -51,6 +51,7 @@ const WithScalemate = ({ cards = DEFAULT_CARDS, title }) => {
         className={styles.withScalemateBackground}
         src={background}
         alt=""
+        aria-hidden="true"
         width={500}
         height={500}
       />
