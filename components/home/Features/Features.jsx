@@ -25,7 +25,7 @@ export const FeatureItem = ({ feature, index }) => {
         <Image
           className={styles.featureImage1}
           src={features1}
-          alt=""
+          alt="Scalemate bulk ad launch interface"
           width={500}
           height={500}
         />
@@ -34,7 +34,7 @@ export const FeatureItem = ({ feature, index }) => {
         <Image
           className={styles.featureImage2}
           src={features2}
-          alt=""
+          alt="Scalemate campaign automation dashboard"
           width={500}
           height={500}
         />

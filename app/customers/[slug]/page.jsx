@@ -48,8 +48,8 @@ async function getCaseStudy(slug, preview = false) {
 
 // Generate metadata for the page
 export async function generateMetadata({ params, searchParams }) {
-  const { slug } = params
-  const { preview } = searchParams
+  const { slug } = await params
+  const { preview } = await searchParams
 
   const caseStudy = await getCaseStudy(slug, preview)
 
@@ -67,21 +67,20 @@ export async function generateMetadata({ params, searchParams }) {
     : imageUrl
 
   return {
-    title: `${caseStudy.fields.clientName} Success Story | Scalemate`,
+    title: `${caseStudy.fields.clientName}: How They Scaled Ad Campaigns with Scalemate`,
     description,
     alternates: {
       canonical: `https://www.scalemate.co/customers/${slug}`,
     },
-    keywords: `marketing automation, case study, success story, ${caseStudy.fields.seoKeywords}, Scalemate`,
     openGraph: {
-      title: `${caseStudy.fields.clientName} Success Story | Scalemate`,
+      title: `${caseStudy.fields.clientName}: How They Scaled Ad Campaigns with Scalemate`,
       description,
       images: [{ url: fullImageUrl }],
       type: "article",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${caseStudy.fields.clientName} Success Story | Scalemate`,
+      title: `${caseStudy.fields.clientName}: How They Scaled Ad Campaigns with Scalemate`,
       description,
       images: [fullImageUrl],
     },

@@ -13,6 +13,7 @@ export default function Hero({ title, label }) {
           className={styles.linearBackground1}
           src={bubble}
           alt=""
+          aria-hidden="true"
           width={500}
           height={500}
         />
@@ -20,6 +21,7 @@ export default function Hero({ title, label }) {
           className={styles.linearBackground2}
           src={bubble2}
           alt=""
+          aria-hidden="true"
           width={500}
           height={500}
         />

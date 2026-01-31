@@ -49,6 +49,7 @@ const Hero = ({
         className={styles.linearBackground1}
         src={bubble}
         alt=""
+        aria-hidden="true"
         width={800}
         height={800}
       />
@@ -56,6 +57,7 @@ const Hero = ({
         className={styles.linearBackground2}
         src={bubble2}
         alt=""
+        aria-hidden="true"
         width={800}
         height={800}
       />
@@ -82,6 +84,7 @@ const Hero = ({
         className={styles.linearBackground1}
         src={bubble}
         alt=""
+        aria-hidden="true"
         width={800}
         height={800}
       />
@@ -89,6 +92,7 @@ const Hero = ({
         className={styles.linearBackground2}
         src={bubble2}
         alt=""
+        aria-hidden="true"
         width={800}
         height={800}
       />

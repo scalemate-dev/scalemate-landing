@@ -178,6 +178,7 @@ const DemoForm = () => {
         className={styles.linearBackground1}
         src={demoLinearBackground}
         alt=""
+        aria-hidden="true"
         width={500}
         height={500}
         priority
@@ -186,6 +187,7 @@ const DemoForm = () => {
         className={styles.linearBackground2}
         src={demoLinearBackground2}
         alt=""
+        aria-hidden="true"
         width={500}
         height={500}
       />

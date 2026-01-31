@@ -95,7 +95,7 @@ const Header = () => {
     <header className={cn(styles.header, { [styles.darkTheme]: darkTheme })}>
       <Container className={styles.container}>
         <div className={styles.headerNavigation}>
-          <Link href="/" className={styles.headerLogo}>
+          <Link href="/" className={styles.headerLogo} aria-label="Scalemate Home">
             <Logo className={styles.logo} />
           </Link>
           <div className={styles.linksWrapper}>

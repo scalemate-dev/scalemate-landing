@@ -9,9 +9,9 @@ const Footer = () => {
     <div className={styles.footer}>
       <Container className={styles.container}>
         <div className={styles.footerLeft}>
-          <div className={styles.footerLogo}>
+          <Link href="/" className={styles.footerLogo} aria-label="Scalemate Home">
             <Logo />
-          </div>
+          </Link>
           <div className={styles.footerTitle}>
             Launch Ads Faster
             <br /> and triple-scale your app
@@ -27,7 +27,7 @@ const Footer = () => {
             </a>
           </div>
           <div className={styles.footerColLink} style={{ paddingTop: 16 }}>
-            © Scalemate 2025
+            © Scalemate {new Date().getFullYear()}
           </div>
         </div>
         <div className={styles.footerRight}>

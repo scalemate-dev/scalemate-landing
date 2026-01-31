@@ -247,7 +247,7 @@ const ROICalculator = () => {
                   }),
                 )}`}
               >
-                <Image src={ship} alt="" width={24} height={24} />
+                <Image src={ship} alt="" aria-hidden="true" width={24} height={24} />
                 Get a demo
               </Button>
             </div>
