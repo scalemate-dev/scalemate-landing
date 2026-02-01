@@ -396,13 +396,19 @@ const UploaderWidget = () => {
             {upload.isStarting ? "Starting upload..." : "Upload files"}
           </button>
           <div className={styles.guestLimits}>
-            <IconInfoCircle size={14} />
-            <span>Free mode: 20 files/day · 1 destination</span>
+            <span className={styles.infoTooltip}>
+              <IconInfoCircle size={14} />
+              <span className={styles.infoTooltipText}>
+                Free mode lets you use the uploader without creating an account.
+                Sign up to unlock all features.
+              </span>
+            </span>
+            <span>Free mode: 20 files/day · 1 destination ·</span>
             <a
               href={guestSessionApi.getAppRedirectUrl()}
               className={styles.guestLimitsLink}
             >
-              Remove limits
+              Create account to Remove limits
             </a>
           </div>
         </div>

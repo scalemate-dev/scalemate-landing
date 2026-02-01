@@ -30,12 +30,11 @@ export default function HeroSection() {
         <div className={styles.heroContent}>
           <div className={styles.heroHeader}>
             <h1>
-              Upload your ad creatives from <br /> Google Drive to your ad
-              accounts
+              Upload ad creatives from <br /> Google Drive to Ad Accounts
             </h1>
             <p>
               Free tool to skip downloading files to your computer. Select from
-              Drive, choose your ad accounts, upload in one click.
+              Google Drive, choose your ad accounts, upload in one click.
             </p>
           </div>
 

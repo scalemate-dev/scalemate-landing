@@ -1,4 +1,5 @@
 "use client"
+import Button from "@/components/elements/Button/Button"
 
 import {
   IconCheck,
@@ -41,7 +42,8 @@ const UploadComplete = ({
       </h3>
 
       <p className={styles.summary}>
-        {completedFiles} of {totalFiles} files uploaded successfully
+        {completedFiles} of {totalFiles} files uploaded successfully. Daily
+        limit is 20 files for guest users.{" "}
         {failedFiles > 0 && ` · ${failedFiles} failed`}
       </p>
 
@@ -59,11 +61,6 @@ const UploadComplete = ({
           </p>
         </div>
       )}
-
-      <a href={signupUrl} className={styles.primaryCta}>
-        <IconCloudUpload size={18} />
-        Create account to manage your uploads
-      </a>
 
       <button className={styles.secondaryCta} onClick={onUploadMore}>
         <IconRefresh size={16} />
