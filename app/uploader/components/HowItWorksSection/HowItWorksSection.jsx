@@ -58,7 +58,7 @@ export default function HowItWorksSection() {
       />
       <Container>
         <div className={styles.sectionHeader}>
-          <h2>How it works</h2>
+          <h2>How the free ad creative uploader works</h2>
           <p>Your coffee won't even get cold. 3 steps and you're done</p>
         </div>
         <div className={styles.timeline}>

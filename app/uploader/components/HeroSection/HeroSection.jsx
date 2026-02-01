@@ -30,11 +30,12 @@ export default function HeroSection() {
         <div className={styles.heroContent}>
           <div className={styles.heroHeader}>
             <h1>
-              Upload ad creatives from <br /> Google Drive to your ad accounts
+              Upload your ad creatives from <br /> Google Drive to your ad
+              accounts
             </h1>
             <p>
-              Skip downloading files to your computer. Select from Drive, choose
-              your ad accounts, upload in one click.
+              Free tool to skip downloading files to your computer. Select from
+              Drive, choose your ad accounts, upload in one click.
             </p>
           </div>
 
@@ -46,15 +47,25 @@ export default function HeroSection() {
             <span>Works with:</span>
             <div className={styles.platformLogos}>
               <div className={styles.platformLogo}>
-                <Image src={googleDriveIcon} alt="" width={20} height={20} />
+                <Image
+                  src={googleDriveIcon}
+                  alt="Google Drive"
+                  width={20}
+                  height={20}
+                />
                 <span>Google Drive</span>
               </div>
               <div className={styles.platformLogo}>
-                <Image src={tiktokIcon} alt="" width={20} height={20} />
+                <Image
+                  src={tiktokIcon}
+                  alt="TikTok Ads"
+                  width={20}
+                  height={20}
+                />
                 <span>TikTok Ads</span>
               </div>
               <div className={styles.platformLogo}>
-                <Image src={metaIcon} alt="" width={20} height={20} />
+                <Image src={metaIcon} alt="Meta Ads" width={20} height={20} />
                 <span>Meta Ads</span>
               </div>
             </div>

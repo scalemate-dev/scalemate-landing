@@ -22,57 +22,60 @@ const FAQ = ({
     })
   }
 
-  // Split items into two columns
-  const midpoint = Math.ceil(faqItems.length / 2)
-  const leftColumnItems = faqItems.slice(0, midpoint)
-  const rightColumnItems = faqItems.slice(midpoint)
-
-  // Render a column of FAQ items
-  const renderColumn = (items, startIndex) => (
-    <div className={styles.column}>
-      {items.map((item, index) => {
-        const actualIndex = startIndex + index
-        return (
-          <div key={actualIndex} className={styles.item}>
-            <button
-              className={cn(styles.question, {
-                [styles.active]: openIndexes.has(actualIndex),
-              })}
-              onClick={() => toggleAccordion(actualIndex)}
-              aria-expanded={openIndexes.has(actualIndex)}
-              aria-controls={`faq-answer-${actualIndex}`}
-              type="button"
-            >
-              {item.question}
-              <span className={styles.icon} aria-hidden="true">
-                {openIndexes.has(actualIndex) ? "−" : "+"}
-              </span>
-            </button>
-            <div
-              id={`faq-answer-${actualIndex}`}
-              className={cn(styles.answer, {
-                [styles.open]: openIndexes.has(actualIndex),
-                [styles.closed]: !openIndexes.has(actualIndex),
-              })}
-              role="region"
-              aria-labelledby={`faq-question-${actualIndex}`}
-            >
-              <p className={styles.answerText}>{item.answer}</p>
-            </div>
-          </div>
-        )
-      })}
-    </div>
-  )
-
   return (
     <section
       className={cn(styles.container, { [styles.dark]: theme === "dark" })}
     >
       <h2 className={styles.heading}>{title}</h2>
       <div className={styles.list}>
-        {renderColumn(leftColumnItems, 0)}
-        {renderColumn(rightColumnItems, midpoint)}
+        {faqItems.map((item, index) => (
+          <div key={index} className={styles.item}>
+            <button
+              className={cn(styles.question, {
+                [styles.active]: openIndexes.has(index),
+              })}
+              onClick={() => toggleAccordion(index)}
+              aria-expanded={openIndexes.has(index)}
+              aria-controls={`faq-answer-${index}`}
+              type="button"
+            >
+              {item.question}
+              <span
+                className={cn(styles.icon, {
+                  [styles.iconOpen]: openIndexes.has(index),
+                })}
+                aria-hidden="true"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5 7.5L10 12.5L15 7.5"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+            </button>
+            <div
+              id={`faq-answer-${index}`}
+              className={cn(styles.answer, {
+                [styles.open]: openIndexes.has(index),
+                [styles.closed]: !openIndexes.has(index),
+              })}
+              role="region"
+              aria-labelledby={`faq-question-${index}`}
+            >
+              <p className={styles.answerText}>{item.answer}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   )
