@@ -8,8 +8,8 @@ import {
   IconCloudUpload,
 } from "@tabler/icons-react"
 import cn from "classnames"
-import { guestSessionApi } from "@/lib/api/guestSession"
 import FileIcon from "../FileIcon/FileIcon"
+import SignupCta from "../SignupCta/SignupCta"
 import styles from "./UploadProgress.module.scss"
 
 const STATUS_CONFIG = {
@@ -27,8 +27,6 @@ const UploadProgress = ({
   progress,
   error,
 }) => {
-  const signupUrl = guestSessionApi.getAppRedirectUrl("/signup")
-
   return (
     <div className={styles.progressContainer}>
       <div className={styles.progressHeader}>
@@ -84,18 +82,7 @@ const UploadProgress = ({
         })}
       </div>
 
-      <div className={styles.ctaBlock}>
-        <p className={styles.ctaTitle}>Create a free account to:</p>
-        <ul className={styles.ctaBenefits}>
-          <li>Track your upload history</li>
-          <li>Upload unlimited files</li>
-          <li>Get creative analytics</li>
-          <li>Manage multiple ad accounts</li>
-        </ul>
-        <a href={signupUrl} className={styles.ctaButton}>
-          Sign Up Free
-        </a>
-      </div>
+      <SignupCta />
     </div>
   )
 }

@@ -83,7 +83,7 @@
   font-style: italic;
 }
 
-// CTAs
+// Primary CTA
 .primaryCta {
   display: inline-flex;
   align-items: center;
@@ -115,6 +115,7 @@
   }
 }
 
+// Upload more button
 .secondaryCta {
   display: inline-flex;
   align-items: center;
@@ -137,52 +138,10 @@
   }
 }
 
-// Benefits
-.benefitsBlock {
-  width: 100%;
-  padding: 18px 20px;
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-}
-
-.benefitsTitle {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  color: #374151;
-  margin: 0 0 12px;
-  text-align: left;
-}
-
-.benefitsGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-}
-
-.benefitItem {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  color: #475467;
-}
-
-.benefitIcon {
-  color: #F97316;
-  flex-shrink: 0;
-}
-
 // Responsive
 @include tablet-vertical {
   .completeContainer {
     padding: 32px 20px 24px;
-  }
-
-  .benefitsGrid {
-    grid-template-columns: 1fr;
   }
 }
 

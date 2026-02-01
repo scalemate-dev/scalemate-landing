@@ -5,21 +5,11 @@ import {
   IconAlertTriangle,
   IconCloudUpload,
   IconRefresh,
-  IconInfinity,
-  IconChartBar,
-  IconHistory,
-  IconArrowsExchange,
 } from "@tabler/icons-react"
 import cn from "classnames"
 import { guestSessionApi } from "@/lib/api/guestSession"
+import SignupCta from "../SignupCta/SignupCta"
 import styles from "./UploadComplete.module.scss"
-
-const BENEFITS = [
-  { icon: IconInfinity, label: "Unlimited uploads" },
-  { icon: IconChartBar, label: "Creative analytics" },
-  { icon: IconHistory, label: "Upload history" },
-  { icon: IconArrowsExchange, label: "Multi-account" },
-]
 
 const UploadComplete = ({
   totalFiles,
@@ -74,17 +64,7 @@ const UploadComplete = ({
         Upload more files
       </button>
 
-      <div className={styles.benefitsBlock}>
-        <p className={styles.benefitsTitle}>With a free account you get:</p>
-        <div className={styles.benefitsGrid}>
-          {BENEFITS.map(({ icon: Icon, label }) => (
-            <div key={label} className={styles.benefitItem}>
-              <Icon size={16} className={styles.benefitIcon} />
-              <span>{label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
+      <SignupCta />
     </div>
   )
 }

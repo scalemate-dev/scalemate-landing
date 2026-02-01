@@ -1,0 +1,91 @@
+.ctaBlock {
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(135deg, #FFFBF5 0%, #FFF7ED 50%, #FEF3E2 100%);
+  border: 1px solid #FDBA74;
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(249, 115, 22, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+}
+
+.ctaTitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1A1A1A;
+  margin: 0 0 10px;
+}
+
+.ctaBenefits {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 16px;
+
+  li {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #475467;
+    padding-left: 20px;
+    position: relative;
+
+    &::before {
+      content: '\2713';
+      position: absolute;
+      left: 0;
+      color: #F97316;
+      font-weight: 700;
+      font-size: 12px;
+    }
+  }
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 28px;
+  background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(249, 115, 22, 0.25);
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(249, 115, 22, 0.35);
+  }
+}
+
+@include tablet-vertical {
+  .ctaBenefits {
+    grid-template-columns: 1fr;
+  }
+}
+
+@include mobile {
+  .ctaButton {
+    width: 100%;
+    text-align: center;
+  }
+}
