@@ -1,12 +1,21 @@
 "use client"
 
-import { useState, useCallback, useRef } from "react"
+import { useState, useCallback, useRef, useEffect } from "react"
 import useDrivePicker from "react-google-drive-picker"
+import { guestSessionApi } from "@/lib/api/guestSession"
 
-/**
- * Hook for Google Drive Picker integration.
- * Uses react-google-drive-picker library.
- */
+const GOOGLE_TOKEN_KEY = "google_access_token"
+
+function getStoredGoogleToken() {
+  if (typeof window === "undefined") return null
+  return sessionStorage.getItem(GOOGLE_TOKEN_KEY)
+}
+
+function storeGoogleToken(token) {
+  if (typeof window === "undefined" || !token) return
+  sessionStorage.setItem(GOOGLE_TOKEN_KEY, token)
+}
+
 export function useGooglePicker() {
   const [openPicker, authResponse] = useDrivePicker()
 
@@ -19,14 +28,13 @@ export function useGooglePicker() {
     setError(null)
     setIsPickerOpen(true)
 
-    // Save scroll position and lock body scroll
     scrollPositionRef.current = window.scrollY
-    document.body.style.overflow = 'hidden'
-    document.body.style.position = 'fixed'
+    document.body.style.overflow = "hidden"
+    document.body.style.position = "fixed"
     document.body.style.top = `-${scrollPositionRef.current}px`
-    document.body.style.width = '100%'
+    document.body.style.width = "100%"
 
-    openPicker({
+    const pickerConfig = {
       clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
       viewId: "DOCS_IMAGES_AND_VIDEOS",
       developerKey: process.env.NEXT_PUBLIC_GOOGLE_PICKER_API_KEY,
@@ -37,16 +45,13 @@ export function useGooglePicker() {
       callbackFunction: (data) => {
         setIsPickerOpen(false)
 
-        // Unlock body scroll and restore position
-        document.body.style.overflow = ''
-        document.body.style.position = ''
-        document.body.style.top = ''
-        document.body.style.width = ''
+        document.body.style.overflow = ""
+        document.body.style.position = ""
+        document.body.style.top = ""
+        document.body.style.width = ""
         window.scrollTo(0, scrollPositionRef.current)
 
-        if (data.action === "cancel") {
-          return
-        }
+        if (data.action === "cancel") return
 
         if (data.action === "picked" && data.docs) {
           const files = data.docs.map((doc) => ({
@@ -58,8 +63,24 @@ export function useGooglePicker() {
           setSelectedFiles(files)
         }
       },
-    })
+    }
+
+    const storedToken = getStoredGoogleToken()
+    if (storedToken) {
+      pickerConfig.token = storedToken
+    }
+
+    openPicker(pickerConfig)
   }, [openPicker])
+
+  // Persist new Google token and sync to backend when auth happens
+  useEffect(() => {
+    const newToken = authResponse?.access_token
+    if (!newToken) return
+
+    storeGoogleToken(newToken)
+    guestSessionApi.update({ googleToken: newToken }).catch(() => {})
+  }, [authResponse?.access_token])
 
   const clearFiles = useCallback(() => {
     setSelectedFiles([])
@@ -81,7 +102,7 @@ export function useGooglePicker() {
     // State
     isPickerOpen,
     selectedFiles,
-    accessToken: authResponse?.access_token || null,
+    accessToken: authResponse?.access_token || getStoredGoogleToken(),
     error,
     hasFiles: selectedFiles.length > 0,
 

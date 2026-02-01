@@ -1,24 +1,47 @@
 "use client"
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import { guestSessionApi } from '@/lib/api/guestSession'
 
-/**
- * Hook for managing guest session state and API interactions.
- *
- * @returns {Object} Guest session state and methods
- */
 export function useGuestSession() {
   const [session, setSession] = useState(null)
   const [adAccounts, setAdAccounts] = useState([])
   const [selectedAccountId, setSelectedAccountId] = useState(null)
   const [selectedFiles, setSelectedFiles] = useState([])
+  const [connectedPlatform, setConnectedPlatform] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
+  const [isRestoring, setIsRestoring] = useState(() => guestSessionApi.exists())
   const [error, setError] = useState(null)
+  const restoredRef = useRef(false)
 
-  /**
-   * Create a new guest session.
-   */
+  // Restore session on mount if guest_token exists in localStorage
+  useEffect(() => {
+    if (restoredRef.current || !guestSessionApi.exists()) {
+      setIsRestoring(false)
+      return
+    }
+    restoredRef.current = true
+
+    const restore = async () => {
+      try {
+        const info = await guestSessionApi.getInfo()
+
+        setSession({ token: guestSessionApi.getToken() })
+        setConnectedPlatform(info.platform_type)
+        setAdAccounts(info.ad_accounts || [])
+        setSelectedAccountId(info.selected_account_id)
+        setSelectedFiles(info.selected_files || [])
+      } catch (err) {
+        // 401/410 — expired or claimed session
+        guestSessionApi.clear()
+      } finally {
+        setIsRestoring(false)
+      }
+    }
+
+    restore()
+  }, [])
+
   const createSession = useCallback(async ({ platformType, platformToken, platformUserId }) => {
     setIsLoading(true)
     setError(null)
@@ -32,6 +55,7 @@ export function useGuestSession() {
 
       setSession({ token: data.guest_token })
       setAdAccounts(data.ad_accounts || [])
+      setConnectedPlatform(platformType)
 
       return data
     } catch (err) {
@@ -78,47 +102,35 @@ export function useGuestSession() {
     }
   }, [])
 
-  /**
-   * Clear session and reset state.
-   */
   const clearSession = useCallback(() => {
     guestSessionApi.clear()
     setSession(null)
     setAdAccounts([])
     setSelectedAccountId(null)
     setSelectedFiles([])
+    setConnectedPlatform(null)
     setError(null)
   }, [])
 
-  /**
-   * Redirect to app with guest token.
-   */
   const redirectToApp = useCallback((path) => {
     guestSessionApi.redirectToApp(path)
   }, [])
 
-  /**
-   * Check if session exists.
-   */
   const hasSession = guestSessionApi.exists()
-
-  /**
-   * Check if ready to upload (has account and files).
-   */
   const isReadyToUpload = hasSession && selectedAccountId && selectedFiles.length > 0
 
   return {
-    // State
     session,
     adAccounts,
     selectedAccountId,
     selectedFiles,
+    connectedPlatform,
     isLoading,
+    isRestoring,
     error,
     hasSession,
     isReadyToUpload,
 
-    // Actions
     createSession,
     selectAccount,
     updateFiles,

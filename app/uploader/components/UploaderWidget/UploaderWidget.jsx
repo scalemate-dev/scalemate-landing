@@ -91,7 +91,6 @@ const PlatformAccounts = ({
 
 const UploaderWidget = () => {
   const {
-    isConnected: isFacebookConnected,
     isConnecting: isFacebookConnecting,
     connect: connectFacebook,
     disconnect: disconnectFacebook,
@@ -121,7 +120,9 @@ const UploaderWidget = () => {
     updateFiles,
     adAccounts,
     selectedAccountId,
+    connectedPlatform,
     isLoading: isSessionLoading,
+    isRestoring,
     error: sessionError,
     clearSession,
     hasSession,
@@ -129,14 +130,9 @@ const UploaderWidget = () => {
 
   const upload = useUploadProgress()
 
-  const [connectedPlatform, setConnectedPlatform] = useState(null)
   const [view, setView] = useState(VIEWS.FORM)
 
-  const isConnected =
-    (connectedPlatform === "tiktok" && hasSession && adAccounts.length > 0) ||
-    (connectedPlatform === "facebook" &&
-      isFacebookConnected &&
-      adAccounts.length > 0)
+  const isConnected = !!connectedPlatform && hasSession && adAccounts.length > 0
   const hasFiles = pickerFiles.length > 0
   const canUpload = !!selectedAccountId && hasFiles
 
@@ -156,7 +152,6 @@ const UploaderWidget = () => {
         platformToken: token,
         platformUserId: userId,
       })
-      setConnectedPlatform("facebook")
     } catch (err) {
       console.error("Facebook connect error:", err)
     }
@@ -169,7 +164,6 @@ const UploaderWidget = () => {
         platformType: "tiktok",
         platformToken: auth_code,
       })
-      setConnectedPlatform("tiktok")
     } catch (err) {
       console.error("TikTok connect error:", err)
     }
@@ -181,7 +175,6 @@ const UploaderWidget = () => {
     }
     clearFiles()
     clearSession()
-    setConnectedPlatform(null)
   }
 
   const handleUpload = async () => {
@@ -199,12 +192,18 @@ const UploaderWidget = () => {
   const handleUploadMore = () => {
     upload.reset()
     clearFiles()
-    clearSession()
-    setConnectedPlatform(null)
     setView(VIEWS.FORM)
   }
 
   const renderContent = () => {
+    if (isRestoring) {
+      return (
+        <div className={styles.content} style={{ justifyContent: "center", alignItems: "center", padding: "3rem 0" }}>
+          <IconLoader2 size={32} className={styles.spinner} />
+        </div>
+      )
+    }
+
     if (view === VIEWS.PROGRESS) {
       return (
         <UploadProgress
