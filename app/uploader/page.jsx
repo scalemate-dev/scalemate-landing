@@ -8,6 +8,7 @@ import CtaSection from "./components/CtaSection/CtaSection"
 import styles from "./page.module.scss"
 
 export const metadata = {
+  robots: "noindex",
   title: "Free Ad Creative Uploader — Google Drive to Meta & TikTok",
   description:
     "Upload ad creatives from Google Drive directly to Meta and TikTok Ads. Free bulk upload tool - no downloads needed. Save hours on campaign launches.",
