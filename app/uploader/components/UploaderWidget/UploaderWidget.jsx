@@ -399,7 +399,7 @@ const UploaderWidget = () => {
             <IconInfoCircle size={14} />
             <span>Free mode: 20 files/day · 1 destination</span>
             <a
-              href={guestSessionApi.getAppRedirectUrl("/signup")}
+              href={guestSessionApi.getAppRedirectUrl()}
               className={styles.guestLimitsLink}
             >
               Remove limits

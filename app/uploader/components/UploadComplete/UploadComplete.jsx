@@ -18,14 +18,20 @@ const UploadComplete = ({
   results,
   onUploadMore,
 }) => {
-  const signupUrl = guestSessionApi.getAppRedirectUrl("/signup")
+  const signupUrl = guestSessionApi.getAppRedirectUrl()
   const allSucceeded = failedFiles === 0
   const failedResults = results?.filter((r) => r.status === "failed") || []
 
   return (
     <div className={styles.completeContainer}>
-      <div className={cn(styles.statusIcon, { [styles.warning]: !allSucceeded })}>
-        {allSucceeded ? <IconCheck size={32} /> : <IconAlertTriangle size={32} />}
+      <div
+        className={cn(styles.statusIcon, { [styles.warning]: !allSucceeded })}
+      >
+        {allSucceeded ? (
+          <IconCheck size={32} />
+        ) : (
+          <IconAlertTriangle size={32} />
+        )}
       </div>
 
       <h3 className={styles.title}>

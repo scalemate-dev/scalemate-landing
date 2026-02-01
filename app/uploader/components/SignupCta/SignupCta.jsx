@@ -4,7 +4,7 @@ import { guestSessionApi } from "@/lib/api/guestSession"
 import styles from "./SignupCta.module.scss"
 
 const SignupCta = () => {
-  const signupUrl = guestSessionApi.getAppRedirectUrl("/signup")
+  const signupUrl = guestSessionApi.getAppRedirectUrl()
 
   return (
     <div className={styles.ctaBlock}>
