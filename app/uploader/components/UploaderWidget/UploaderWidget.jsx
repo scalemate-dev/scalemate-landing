@@ -198,7 +198,14 @@ const UploaderWidget = () => {
   const renderContent = () => {
     if (isRestoring) {
       return (
-        <div className={styles.content} style={{ justifyContent: "center", alignItems: "center", padding: "3rem 0" }}>
+        <div
+          className={styles.content}
+          style={{
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "3rem 0",
+          }}
+        >
           <IconLoader2 size={32} className={styles.spinner} />
         </div>
       )
@@ -258,11 +265,7 @@ const UploaderWidget = () => {
               disabled={isPickerOpen}
             >
               <div className={styles.dropzoneIcon}>
-                {isPickerOpen ? (
-                  <IconLoader2 size={32} className={styles.spinner} />
-                ) : (
-                  <Image src={googleDriveIcon} alt="" width={32} height={32} />
-                )}
+                <Image src={googleDriveIcon} alt="" width={32} height={32} />
               </div>
               <span className={styles.dropzoneText}>
                 {hasFiles

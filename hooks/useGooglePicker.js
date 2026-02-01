@@ -3,18 +3,7 @@
 import { useState, useCallback, useRef, useEffect } from "react"
 import useDrivePicker from "react-google-drive-picker"
 import { guestSessionApi } from "@/lib/api/guestSession"
-
-const GOOGLE_TOKEN_KEY = "google_access_token"
-
-function getStoredGoogleToken() {
-  if (typeof window === "undefined") return null
-  return sessionStorage.getItem(GOOGLE_TOKEN_KEY)
-}
-
-function storeGoogleToken(token) {
-  if (typeof window === "undefined" || !token) return
-  sessionStorage.setItem(GOOGLE_TOKEN_KEY, token)
-}
+import { getStoredToken, storeToken } from "@/helpers/googleDriveToken"
 
 export function useGooglePicker() {
   const [openPicker, authResponse] = useDrivePicker()
@@ -65,7 +54,7 @@ export function useGooglePicker() {
       },
     }
 
-    const storedToken = getStoredGoogleToken()
+    const storedToken = getStoredToken()
     if (storedToken) {
       pickerConfig.token = storedToken
     }
@@ -78,7 +67,7 @@ export function useGooglePicker() {
     const newToken = authResponse?.access_token
     if (!newToken) return
 
-    storeGoogleToken(newToken)
+    storeToken(newToken)
     guestSessionApi.update({ googleToken: newToken }).catch(() => {})
   }, [authResponse?.access_token])
 
@@ -102,7 +91,7 @@ export function useGooglePicker() {
     // State
     isPickerOpen,
     selectedFiles,
-    accessToken: authResponse?.access_token || getStoredGoogleToken(),
+    accessToken: authResponse?.access_token || getStoredToken(),
     error,
     hasFiles: selectedFiles.length > 0,
 
