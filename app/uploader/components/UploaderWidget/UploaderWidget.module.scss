@@ -54,7 +54,6 @@
   display: grid;
   grid-template-columns: 1fr 56px 1fr;
   gap: 0;
-  min-height: 380px;
 }
 
 // Left Column - File Selection
@@ -235,38 +234,6 @@
   }
 }
 
-.fileIcon {
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f3f4f6;
-  border-radius: 6px;
-  flex-shrink: 0;
-
-  svg {
-    width: 16px;
-    height: 16px;
-    color: #6b7280;
-  }
-
-  &.video {
-    background: #fef3c7;
-
-    svg {
-      color: #d97706;
-    }
-  }
-
-  &.image {
-    background: #dbeafe;
-
-    svg {
-      color: #2563eb;
-    }
-  }
-}
 
 .fileName {
   flex: 1;
@@ -535,8 +502,38 @@
 .footer {
   padding: 20px 24px 24px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
   border-top: 1px solid #f1f1f1;
+}
+
+.guestLimits {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #9ca3af;
+
+  svg {
+    flex-shrink: 0;
+    color: #d1d5db;
+  }
+}
+
+.guestLimitsLink {
+  color: #F97316;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 2px;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #ea580c;
+    text-decoration: underline;
+  }
 }
 
 .uploadBtn {

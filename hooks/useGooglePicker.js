@@ -65,6 +65,10 @@ export function useGooglePicker() {
     setSelectedFiles([])
   }, [])
 
+  const removeFile = useCallback((index) => {
+    setSelectedFiles((prev) => prev.filter((_, i) => i !== index))
+  }, [])
+
   const getFilesForApi = useCallback(() => {
     return selectedFiles.map((file) => ({
       hash: file.id,
@@ -84,8 +88,7 @@ export function useGooglePicker() {
     // Actions
     openPicker: handleOpenPicker,
     clearFiles,
+    removeFile,
     getFilesForApi,
   }
 }
-
-export default useGooglePicker
