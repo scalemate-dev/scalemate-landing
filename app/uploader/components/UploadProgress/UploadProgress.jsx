@@ -59,13 +59,13 @@ const UploadProgress = ({
       </div>
 
       <div className={styles.fileResults}>
-        {results.map((file, index) => {
+        {results.map((file) => {
           const config = STATUS_CONFIG[file.status] || STATUS_CONFIG.pending
           const StatusIcon = config.icon
 
           return (
             <div
-              key={index}
+              key={file.file_name}
               className={cn(styles.fileRow, styles[config.className])}
             >
               <FileIcon fileName={file.file_name} />

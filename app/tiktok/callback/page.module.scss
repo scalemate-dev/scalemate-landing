@@ -28,25 +28,6 @@
   }
 }
 
-.spinner {
-  width: 48px;
-  height: 48px;
-  border: 3px solid #f3f3f3;
-  border-top: 3px solid #00f2ea;
-  border-radius: 50%;
-  margin: 0 auto;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 .success {
   width: 48px;
   height: 48px;
@@ -58,33 +39,4 @@
   justify-content: center;
   font-size: 24px;
   margin: 0 auto;
-}
-
-.error {
-  width: 48px;
-  height: 48px;
-  background: #ef4444;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  margin: 0 auto;
-}
-
-.retryButton {
-  margin-top: 24px;
-  padding: 12px 24px;
-  background: #1a1a2e;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: background 0.2s;
-
-  &:hover {
-    background: #2d2d44;
-  }
 }

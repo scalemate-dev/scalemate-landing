@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import { facebookOAuth } from '@/lib/oauth/facebook'
 
 /**
@@ -20,11 +20,14 @@ export function useFacebookAuth(options = {}) {
   const [user, setUser] = useState(null)
   const [error, setError] = useState(null)
 
+  const initRef = useRef(false)
+
   /**
    * Initialize Facebook SDK.
    */
   const initialize = useCallback(async () => {
-    if (isInitialized || isInitializing) return
+    if (initRef.current) return
+    initRef.current = true
 
     setIsInitializing(true)
     setError(null)
@@ -41,11 +44,12 @@ export function useFacebookAuth(options = {}) {
         setUser(userInfo)
       }
     } catch (err) {
+      initRef.current = false
       setError(err.message)
     } finally {
       setIsInitializing(false)
     }
-  }, [isInitialized, isInitializing])
+  }, [])
 
   /**
    * Connect with Facebook (login).

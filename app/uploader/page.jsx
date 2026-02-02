@@ -8,6 +8,7 @@ import CtaSection from "./components/CtaSection/CtaSection"
 import styles from "./page.module.scss"
 
 export const metadata = {
+  // TODO: Remove noindex once the uploader page is ready for public launch
   robots: "noindex",
   title: "Free Ad Creative Uploader — Google Drive to Meta & TikTok",
   description:
@@ -79,6 +80,7 @@ export default function UploaderPage() {
             faqItems={faqItems}
             subtitle="Got questions? We've got answers"
             theme="light"
+            multiOpen
           />
         </Container>
       </section>

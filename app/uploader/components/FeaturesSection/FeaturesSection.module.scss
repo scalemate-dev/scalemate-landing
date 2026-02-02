@@ -21,7 +21,7 @@
   margin-bottom: 56px;
 
   h2 {
-    font-family: 'Poppins', sans-serif;
+    font-family: $font-heading;
     font-weight: 700;
     font-size: 36px;
     color: #1A1A1A;
@@ -30,7 +30,7 @@
   }
 
   p {
-    font-family: 'Inter', sans-serif;
+    font-family: $font-body;
     font-size: 17px;
     color: #667085;
     margin: 0;
@@ -61,7 +61,7 @@
   }
 
   h3 {
-    font-family: 'Poppins', sans-serif;
+    font-family: $font-heading;
     font-weight: 700;
     font-size: 22px;
     line-height: 1.2;
@@ -70,7 +70,7 @@
   }
 
   p {
-    font-family: 'Inter', sans-serif;
+    font-family: $font-body;
     font-weight: 500;
     font-size: 16px;
     line-height: 1.4;

@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Container from "@/components/elements/Container/Container"
+import UploaderErrorBoundary from "../UploaderWidget/UploaderErrorBoundary"
 import UploaderWidget from "../UploaderWidget/UploaderWidget"
 import styles from "./HeroSection.module.scss"
 import bubble from "@/assets/icons/hero-linear-background.svg"
@@ -39,7 +40,9 @@ export default function HeroSection() {
           </div>
 
           <div className={styles.widgetWrapper}>
-            <UploaderWidget />
+            <UploaderErrorBoundary>
+              <UploaderWidget />
+            </UploaderErrorBoundary>
           </div>
 
           <div className={styles.platforms}>

@@ -30,7 +30,7 @@
   margin-bottom: 56px;
 
   h2 {
-    font-family: 'Poppins', sans-serif;
+    font-family: $font-heading;
     font-weight: 700;
     font-size: 36px;
     color: #1A1A1A;
@@ -39,7 +39,7 @@
   }
 
   p {
-    font-family: 'Inter', sans-serif;
+    font-family: $font-body;
     font-size: 17px;
     color: #667085;
     margin: 0;
@@ -97,7 +97,7 @@
   position: relative;
 
   h3 {
-    font-family: 'Poppins', sans-serif;
+    font-family: $font-heading;
     font-weight: 600;
     font-size: 22px;
     color: #1A1A1A;
@@ -105,7 +105,7 @@
   }
 
   p {
-    font-family: 'Inter', sans-serif;
+    font-family: $font-body;
     font-size: 15px;
     line-height: 1.5;
     color: #667085;
@@ -131,7 +131,7 @@
 
 .timelineNumber {
   grid-column: 3;
-  font-family: 'Poppins', sans-serif;
+  font-family: $font-heading;
   font-weight: 900;
   font-size: 120px;
   line-height: 0.8;

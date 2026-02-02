@@ -5,8 +5,11 @@ import { guestSessionApi } from "@/lib/api/guestSession"
 
 const POLL_INTERVAL = 5000
 const TERMINAL_STATUSES = ["completed", "failed", "with_errors"]
+// Average observed upload time per file via Google Drive → ad platform pipeline
 const SECONDS_PER_FILE = 15
+// Cap fake progress below 100% so the bar never "completes" before the real status confirms it
 const MAX_FAKE_PROGRESS = 93
+// Tick interval for the eased progress animation (smooth visual updates without excessive re-renders)
 const FAKE_TICK_MS = 300
 
 export function useUploadProgress() {

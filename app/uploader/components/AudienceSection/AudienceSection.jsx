@@ -9,31 +9,31 @@ import styles from "./AudienceSection.module.scss"
 
 const audiences = [
   {
-    icon: IconChartBar,
-    role: "Media Buyers",
-    description:
-      "Running multiple ad accounts across platforms? Upload creatives to all of them without switching tabs.",
-    accent: "#F97316",
-  },
-  {
     icon: IconBuildingSkyscraper,
     role: "Marketing Agencies",
     description:
-      "Delivering assets to client ad accounts shouldn't take longer than making them. Skip the download-reupload loop.",
+      "Juggling dozens of client ad accounts? Push creatives to any of them in one go – no more downloading, re-uploading, or tab-hopping.",
     accent: "#8B5CF6",
   },
   {
-    icon: IconTrendingUp,
-    role: "Growth Teams",
+    icon: IconChartBar,
+    role: "App Publishers",
     description:
-      "Launching campaigns at high frequency means every minute counts. Bulk upload and move on to what matters.",
+      "Scaling UA across Meta and TikTok at the same time? Send creatives to every ad account from a single dashboard.",
+    accent: "#F97316",
+  },
+  {
+    icon: IconTrendingUp,
+    role: "E-commerce",
+    description:
+      "New products, seasonal pushes, weekly refreshes – bulk-upload creatives to your campaigns and get back to selling.",
     accent: "#0EA5E9",
   },
   {
     icon: IconUserCircle,
     role: "Freelancers",
     description:
-      "Managing multiple client accounts solo? One tool to upload creatives across all of them in seconds.",
+      "One person, many clients. Upload ad creatives across all their accounts without juggling logins or permissions.",
     accent: "#10B981",
   },
 ]
@@ -45,7 +45,8 @@ export default function AudienceSection() {
         <div className={styles.sectionHeader}>
           <h2>Built for people who run ads</h2>
           <p>
-            If you upload creatives to ad platforms, this tool was made for you
+            If you upload ad creatives to Meta or TikTok Ads, this tool was made
+            for you
           </p>
         </div>
         <div className={styles.grid}>

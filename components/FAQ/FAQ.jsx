@@ -7,18 +7,23 @@ const FAQ = ({
   faqItems = FAQ_ITEMS,
   title = "Frequently Asked Questions",
   theme = "dark",
+  multiOpen = false,
 }) => {
   const [openIndexes, setOpenIndexes] = useState(new Set())
 
   const toggleAccordion = (index) => {
     setOpenIndexes((prev) => {
-      const next = new Set(prev)
-      if (next.has(index)) {
-        next.delete(index)
-      } else {
-        next.add(index)
+      if (multiOpen) {
+        const next = new Set(prev)
+        if (next.has(index)) {
+          next.delete(index)
+        } else {
+          next.add(index)
+        }
+        return next
       }
-      return next
+      // Single-open: close current if clicking the same, otherwise open only the new one
+      return prev.has(index) ? new Set() : new Set([index])
     })
   }
 

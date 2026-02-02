@@ -1,12 +1,6 @@
 "use client"
-import Button from "@/components/elements/Button/Button"
 
-import {
-  IconCheck,
-  IconAlertTriangle,
-  IconCloudUpload,
-  IconRefresh,
-} from "@tabler/icons-react"
+import { IconCheck, IconAlertTriangle, IconRefresh } from "@tabler/icons-react"
 import cn from "classnames"
 import { guestSessionApi } from "@/lib/api/guestSession"
 import SignupCta from "../SignupCta/SignupCta"
@@ -19,7 +13,6 @@ const UploadComplete = ({
   results,
   onUploadMore,
 }) => {
-  const signupUrl = guestSessionApi.getAppRedirectUrl()
   const allSucceeded = failedFiles === 0
   const failedResults = results?.filter((r) => r.status === "failed") || []
 
@@ -42,16 +35,16 @@ const UploadComplete = ({
       </h3>
 
       <p className={styles.summary}>
-        {completedFiles} of {totalFiles} files uploaded successfully. Daily
-        limit is 20 files for guest users.{" "}
+        {completedFiles} of {totalFiles} files uploaded successfully and ready
+        to be launched!
         {failedFiles > 0 && ` · ${failedFiles} failed`}
       </p>
 
       {failedResults.length > 0 && (
         <div className={styles.failedList}>
           <p className={styles.failedTitle}>Failed files:</p>
-          {failedResults.map((file, i) => (
-            <div key={i} className={styles.failedItem}>
+          {failedResults.map((file) => (
+            <div key={file.file_name} className={styles.failedItem}>
               <IconAlertTriangle size={14} />
               <span>{file.file_name}</span>
             </div>

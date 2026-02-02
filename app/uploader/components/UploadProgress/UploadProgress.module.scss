@@ -9,7 +9,7 @@
   text-align: center;
 
   h3 {
-    font-family: 'Poppins', sans-serif;
+    font-family: $font-heading;
     font-size: 22px;
     font-weight: 600;
     color: #1A1A1A;
@@ -18,7 +18,7 @@
   }
 
   p {
-    font-family: 'Inter', sans-serif;
+    font-family: $font-body;
     font-size: 14px;
     color: #667085;
     margin: 0;
@@ -46,7 +46,7 @@
   border: 1px solid #fecaca;
   border-radius: 10px;
   color: #dc2626;
-  font-family: 'Inter', sans-serif;
+  font-family: $font-body;
   font-size: 13px;
   font-weight: 500;
 
@@ -102,7 +102,7 @@
 }
 
 .progressPercent {
-  font-family: 'Inter', sans-serif;
+  font-family: $font-body;
   font-size: 14px;
   font-weight: 600;
   color: #1A1A1A;
@@ -162,7 +162,7 @@
 
 .fileName {
   flex: 1;
-  font-family: 'Inter', sans-serif;
+  font-family: $font-body;
   font-size: 13px;
   color: #374151;
   white-space: nowrap;
@@ -174,7 +174,7 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  font-family: 'Inter', sans-serif;
+  font-family: $font-body;
   font-size: 12px;
   font-weight: 500;
   padding: 4px 10px;
