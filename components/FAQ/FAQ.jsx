@@ -7,55 +7,25 @@ const FAQ = ({
   faqItems = FAQ_ITEMS,
   title = "Frequently Asked Questions",
   theme = "dark",
+  multiOpen = false,
 }) => {
-  const [openIndex, setOpenIndex] = useState(null)
+  const [openIndexes, setOpenIndexes] = useState(new Set())
 
   const toggleAccordion = (index) => {
-    setOpenIndex(openIndex === index ? null : index)
+    setOpenIndexes((prev) => {
+      if (multiOpen) {
+        const next = new Set(prev)
+        if (next.has(index)) {
+          next.delete(index)
+        } else {
+          next.add(index)
+        }
+        return next
+      }
+      // Single-open: close current if clicking the same, otherwise open only the new one
+      return prev.has(index) ? new Set() : new Set([index])
+    })
   }
-
-  // Split items into two columns
-  const midpoint = Math.ceil(faqItems.length / 2)
-  const leftColumnItems = faqItems.slice(0, midpoint)
-  const rightColumnItems = faqItems.slice(midpoint)
-
-  // Render a column of FAQ items
-  const renderColumn = (items, startIndex) => (
-    <div className={styles.column}>
-      {items.map((item, index) => {
-        const actualIndex = startIndex + index
-        return (
-          <div key={actualIndex} className={styles.item}>
-            <button
-              className={cn(styles.question, {
-                [styles.active]: openIndex === actualIndex,
-              })}
-              onClick={() => toggleAccordion(actualIndex)}
-              aria-expanded={openIndex === actualIndex}
-              aria-controls={`faq-answer-${actualIndex}`}
-              type="button"
-            >
-              {item.question}
-              <span className={styles.icon} aria-hidden="true">
-                {openIndex === actualIndex ? "−" : "+"}
-              </span>
-            </button>
-            <div
-              id={`faq-answer-${actualIndex}`}
-              className={cn(styles.answer, {
-                [styles.open]: openIndex === actualIndex,
-                [styles.closed]: openIndex !== actualIndex,
-              })}
-              role="region"
-              aria-labelledby={`faq-question-${actualIndex}`}
-            >
-              <p className={styles.answerText}>{item.answer}</p>
-            </div>
-          </div>
-        )
-      })}
-    </div>
-  )
 
   return (
     <section
@@ -63,8 +33,54 @@ const FAQ = ({
     >
       <h2 className={styles.heading}>{title}</h2>
       <div className={styles.list}>
-        {renderColumn(leftColumnItems, 0)}
-        {renderColumn(rightColumnItems, midpoint)}
+        {faqItems.map((item, index) => (
+          <div key={index} className={styles.item}>
+            <button
+              className={cn(styles.question, {
+                [styles.active]: openIndexes.has(index),
+              })}
+              onClick={() => toggleAccordion(index)}
+              aria-expanded={openIndexes.has(index)}
+              aria-controls={`faq-answer-${index}`}
+              type="button"
+            >
+              {item.question}
+              <span
+                className={cn(styles.icon, {
+                  [styles.iconOpen]: openIndexes.has(index),
+                })}
+                aria-hidden="true"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5 7.5L10 12.5L15 7.5"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+            </button>
+            <div
+              id={`faq-answer-${index}`}
+              className={cn(styles.answer, {
+                [styles.open]: openIndexes.has(index),
+                [styles.closed]: !openIndexes.has(index),
+              })}
+              role="region"
+              aria-labelledby={`faq-question-${index}`}
+            >
+              <p className={styles.answerText}>{item.answer}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   )

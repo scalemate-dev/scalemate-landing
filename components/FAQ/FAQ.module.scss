@@ -14,22 +14,12 @@
 
 .list {
   margin-top: 16px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0 32px;
-}
-
-.column {
-  flex: 1;
-  min-width: 280px;
-  
-  @include tablet-vertical {
-    flex-basis: 100%;
-  }
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .item {
-  margin-bottom: 16px;
   border-bottom: 2px solid $color-ash;
 }
 
@@ -39,7 +29,7 @@
   align-items: center;
   width: 100%;
   text-align: left;
-  padding: 16px 0;
+  padding: 18px 0;
   background: none;
   border: none;
   font-size: 18px;
@@ -60,10 +50,15 @@
 }
 
 .icon {
-  font-size: 24px;
-  line-height: 1;
+  display: flex;
+  align-items: center;
   margin-left: 8px;
   flex-shrink: 0;
+  transition: transform 0.3s ease;
+
+  &.iconOpen {
+    transform: rotate(180deg);
+  }
 }
 
 .answer {

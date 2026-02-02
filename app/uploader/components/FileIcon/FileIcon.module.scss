@@ -1,0 +1,24 @@
+.fileIcon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f4f6;
+  border-radius: 6px;
+  flex-shrink: 0;
+
+  svg {
+    color: #6b7280;
+  }
+
+  &.video {
+    background: #fef3c7;
+    svg { color: #d97706; }
+  }
+
+  &.image {
+    background: #dbeafe;
+    svg { color: #2563eb; }
+  }
+}
