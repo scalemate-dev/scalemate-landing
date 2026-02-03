@@ -6,6 +6,8 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const nextConfig = {
+  productionBrowserSourceMaps: false,
+  compress: true,
   images: {
     remotePatterns: [
       {
@@ -34,7 +36,7 @@ const nextConfig = {
     ]
   },
   async rewrites() {
-    const apiBaseUrl = process.env.API_BASE_URL || 'https://api.scalemate.co'
+    const apiBaseUrl = process.env.API_BASE_URL || "https://api.scalemate.co"
 
     return [
       // API proxy - avoids CORS issues
