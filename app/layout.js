@@ -1,4 +1,4 @@
-import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google"
+import { GoogleTagManager } from "@next/third-parties/google"
 import { Inter, Poppins } from "next/font/google"
 import styles from "./page.module.scss"
 import Footer from "@/components/elements/Footer/Footer"
@@ -55,7 +55,6 @@ export default function RootLayout({ children }) {
         />
       </head>
       <GoogleTagManager gtmId="GTM-P5QQVGJ" />
-      <GoogleAnalytics gaId="UA-184823727-1" />
 
       <body className={`${inter.variable} ${poppins.variable}`}>
         <Header />
