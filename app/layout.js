@@ -4,7 +4,7 @@ import styles from "./page.module.scss"
 import Footer from "@/components/elements/Footer/Footer"
 import Header from "@/components/elements/Header/Header"
 import "./globals.css"
-import FacebookPixel from "@/components/FacebookPixel"
+import MixpanelProvider from "@/components/MixpanelProvider"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -48,7 +48,7 @@ export default function RootLayout({ children }) {
           href="/favicon-16x16.png"
         />
         <link rel="manifest" href="/site.webmanifest" />
-        <FacebookPixel />
+        <MixpanelProvider />
         <meta
           name="facebook-domain-verification"
           content="xen4h4jqm1szk6rn5dl14g5eeqhg1o"
