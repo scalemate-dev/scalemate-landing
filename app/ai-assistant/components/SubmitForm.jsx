@@ -110,7 +110,8 @@ export default function SubmitForm() {
 export const trackTTFormSubmit = async (email) => {
   const normalizedEmail = email.toLowerCase().trim()
   const hashedEmail = await hashString(normalizedEmail)
-  const hashedClientId = await hashString(getGAClientId())
+  const clientId = await getGAClientId()
+  const hashedClientId = await hashString(clientId)
 
   window.dataLayer = window.dataLayer || []
 

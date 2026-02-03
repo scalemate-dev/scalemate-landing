@@ -40,8 +40,8 @@ export async function getGAClientId() {
 async function getGA4ClientId() {
   if (typeof gtag === "undefined") return null
 
-  // Get tracking ID from Next.js public env var or from gtag config
-  const trackingId = process.env.GTAG_ID
+  // Get tracking ID from Next.js public env var
+  const trackingId = process.env.NEXT_PUBLIC_GTAG_ID
 
   if (!trackingId) return null
 

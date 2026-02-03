@@ -4,6 +4,6 @@ export const trackDemoFormSubmit = (userData) => {
     window.dataLayer.push({ userData })
     window.dataLayer.push({ event: "DemoFormSubmitted" })
   } catch (error) {
-    Sentry.captureException(error)
+    console.error("Failed to track demo form submit:", error)
   }
 }
