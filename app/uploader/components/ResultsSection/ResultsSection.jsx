@@ -1,7 +1,12 @@
 import Link from "next/link"
 import Image from "next/image"
 import Container from "@/components/elements/Container/Container"
-import { IconArrowRight, IconClock, IconRocket, IconStack2 } from "@tabler/icons-react"
+import {
+  IconArrowRight,
+  IconClock,
+  IconRocket,
+  IconStack2,
+} from "@tabler/icons-react"
 import styles from "./ResultsSection.module.scss"
 import bubble from "@/assets/icons/hero-linear-background.svg"
 
@@ -38,7 +43,6 @@ export default function ResultsSection() {
       />
       <Container>
         <div className={styles.sectionHeader}>
-          <span className={styles.eyebrow}>Real Results</span>
           <h2>Stop wasting time on uploads</h2>
           <p>
             Marketing teams save hours every week with direct Google Drive to ad

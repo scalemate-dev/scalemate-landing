@@ -49,6 +49,16 @@
     color: #1A1A1A;
     margin: 0 0 20px;
     letter-spacing: -0.02em;
+
+    span {
+      background: url('/hero-text.jpg');
+      background-repeat: no-repeat;
+      background-size: 137%;
+      background-position: 40% 56%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
   }
 
   p {

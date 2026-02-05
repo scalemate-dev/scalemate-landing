@@ -1,5 +1,7 @@
+import Image from "next/image"
 import Container from "@/components/elements/Container/Container"
 import styles from "./ProblemSection.module.scss"
+import bubble from "@/assets/icons/hero-linear-background.svg"
 
 const problems = [
   {
@@ -25,19 +27,32 @@ const problems = [
 export default function ProblemSection() {
   return (
     <section className={styles.problem}>
+      <Image
+        className={styles.bubble}
+        src={bubble}
+        alt=""
+        width={700}
+        height={700}
+      />
       <Container>
         <div className={styles.inner}>
           <div className={styles.header}>
-            <h2>The manual workflow holding you back</h2>
+            <h2>
+              The manual workflow
+              <br />
+              <span className={styles.gradientText}>holding you back</span>
+            </h2>
+            <p className={styles.subtitle}>
+              Every creative upload is a chain of repetitive steps that steals
+              your time
+            </p>
           </div>
 
-          <div className={styles.problemList}>
+          <div className={styles.cardsGrid}>
             {problems.map((problem, index) => (
-              <div key={index} className={styles.problemItem}>
-                <div className={styles.numberColumn}>
-                  <span className={styles.number}>{problem.number}</span>
-                </div>
-                <div className={styles.contentColumn}>
+              <div key={index} className={styles.card}>
+                <span className={styles.cardNumber}>{problem.number}</span>
+                <div className={styles.cardContent}>
                   <h3>{problem.title}</h3>
                   <p>{problem.description}</p>
                 </div>
