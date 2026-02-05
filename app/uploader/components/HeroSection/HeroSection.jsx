@@ -34,8 +34,9 @@ export default function HeroSection() {
               Upload ad creatives from <br /> Google Drive to Ad Accounts
             </h1>
             <p>
-              Free tool to skip downloading files to your computer. Select from
-              Google Drive, choose your ad accounts, upload in one click.
+              Free tool to skip downloading and re-uploading ad creatives to the
+              platforms. Select from Google Drive, send it to Meta Ads & TikTok
+              Ads
             </p>
           </div>
 

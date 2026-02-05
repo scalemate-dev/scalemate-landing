@@ -52,7 +52,7 @@ export default function FeaturesSection() {
       />
       <Container>
         <div className={styles.sectionHeader}>
-          <h2>Why use a free bulk ad creatives uploader?</h2>
+          <h2>Why use ad creatives uploader?</h2>
           <p>Built to protect marketers from boring tasks</p>
         </div>
         <div className={styles.featuresGrid}>

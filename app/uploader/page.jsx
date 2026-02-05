@@ -1,8 +1,10 @@
 import Container from "@/components/elements/Container/Container"
 import FAQ from "@/components/FAQ/FAQ"
 import HeroSection from "./components/HeroSection/HeroSection"
+import ProblemSection from "./components/ProblemSection/ProblemSection"
 import FeaturesSection from "./components/FeaturesSection/FeaturesSection"
 import HowItWorksSection from "./components/HowItWorksSection/HowItWorksSection"
+import ResultsSection from "./components/ResultsSection/ResultsSection"
 import AudienceSection from "./components/AudienceSection/AudienceSection"
 import CtaSection from "./components/CtaSection/CtaSection"
 import styles from "./page.module.scss"
@@ -70,10 +72,12 @@ export default function UploaderPage() {
   return (
     <div className={styles.main}>
       <HeroSection />
+      <ProblemSection />
       <FeaturesSection />
-      <AudienceSection />
-      <HowItWorksSection />
 
+      <HowItWorksSection />
+      <ResultsSection />
+      <AudienceSection />
       <section className={styles.faq}>
         <Container>
           <FAQ
