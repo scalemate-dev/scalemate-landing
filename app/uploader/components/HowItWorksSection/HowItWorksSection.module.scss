@@ -1,305 +1,589 @@
 .howItWorks {
   position: relative;
-  padding: 120px 0 140px;
-  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+  padding: 120px 0 160px;
+  background: linear-gradient(180deg, rgb(249 250 251) 0%, rgb(254, 247, 240) 50%, rgb(255 255 255) 100%);
   overflow: hidden;
 }
 
 // Header
 .sectionHeader {
   text-align: center;
-  margin-bottom: 72px;
-  opacity: 0;
-  transform: translateY(24px);
-  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  margin-bottom: 80px;
 }
 
 .eyebrow {
   display: inline-block;
   font-family: $font-body;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #F97316;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .sectionHeader h2 {
   font-family: $font-heading;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 48px;
-  letter-spacing: -0.035em;
-  color: #0f172a;
-  margin: 0 0 12px;
-  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #1A1A1A;
+  margin: 0 0 16px;
+  line-height: 1.15;
 }
 
 .sectionHeader p {
   font-family: $font-body;
   font-size: 18px;
-  color: #64748b;
+  color: #667085;
   margin: 0;
   font-weight: 400;
 }
 
-// Steps container
-.stepsContainer {
-  position: relative;
-  max-width: 1000px;
-  margin: 0 auto;
-  opacity: 0;
-  transform: translateY(32px);
-  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
-
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.steps {
+// Scroll container - two columns
+.scrollContainer {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  position: relative;
-  z-index: 2;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 60px;
+  align-items: start;
 }
 
-// Individual step card
-.step {
+// Left column - Steps
+.stepsColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.stepCard {
   position: relative;
   background: #ffffff;
+  border: 1px solid #e5e7eb;
   border-radius: 20px;
-  padding: 32px 28px 28px;
+  padding: 28px;
   cursor: pointer;
-  overflow: hidden;
-  border: 1px solid #e2e8f0;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  opacity: 0;
-  transform: translateY(16px);
-  animation: cardReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: var(--delay);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 
   &::before {
     content: '';
     position: absolute;
-    top: 0;
     left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--accent);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    top: 24px;
+    bottom: 24px;
+    width: 3px;
+    background: #F97316;
+    border-radius: 0 2px 2px 0;
+    opacity: 0;
+    transform: scaleY(0);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   &:hover {
-    transform: translateY(-6px);
-    box-shadow:
-      0 20px 40px -12px rgba(0, 0, 0, 0.08),
-      0 4px 12px -2px rgba(0, 0, 0, 0.04);
-    border-color: transparent;
-
-    &::before {
-      transform: scaleX(1);
-    }
+    border-color: #d1d5db;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   }
 
   &.active {
-    transform: translateY(-6px);
-    border-color: transparent;
-    box-shadow:
-      0 20px 40px -12px rgba(0, 0, 0, 0.1),
-      0 4px 12px -2px rgba(0, 0, 0, 0.05);
+    background: #ffffff;
+    border-color: #fed7aa;
+    box-shadow: 0 8px 24px rgba(249, 115, 22, 0.1);
 
     &::before {
-      transform: scaleX(1);
+      opacity: 1;
+      transform: scaleY(1);
     }
 
-    .iconBox {
-      background: var(--accent);
+    .stepIcon {
+      background: #F97316;
       border-color: transparent;
-
-      .icon {
-        color: #ffffff;
-      }
+      color: #ffffff;
     }
 
     .stepNumber {
-      color: var(--accent);
+      color: #F97316;
     }
 
-    .bgNumber {
-      opacity: 0.06;
-      transform: translate(-50%, -50%) scale(1);
+    .stepTitle {
+      color: #1A1A1A;
     }
 
-    .progressInner {
-      transform: scaleX(1);
-    }
-  }
-
-  &.completed {
-    .iconBox {
-      background: var(--accent-light);
-      border-color: transparent;
-
-      .icon {
-        color: var(--accent);
-      }
-    }
-
-    .progressInner {
-      transform: scaleX(1);
+    .stepDesc {
+      color: #667085;
     }
   }
 }
 
-@keyframes cardReveal {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-// Background number
-.bgNumber {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.9);
-  font-family: $font-heading;
-  font-size: 180px;
-  font-weight: 700;
-  color: #0f172a;
-  opacity: 0.03;
-  line-height: 1;
-  pointer-events: none;
-  user-select: none;
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-// Card header
-.cardHeader {
+.stepHeader {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
+  justify-content: space-between;
+  margin-bottom: 16px;
 }
 
-.iconBox {
+.stepIcon {
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
+  background: #fef3eb;
+  border: 1px solid #fed7aa;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #F97316;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  flex-shrink: 0;
-
-  .icon {
-    color: #64748b;
-    transition: color 0.35s ease;
-  }
 }
 
 .stepNumber {
-  font-family: $font-body;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  color: #94a3b8;
+  font-family: $font-heading;
+  font-size: 14px;
+  font-weight: 600;
+  color: #9ca3af;
   transition: color 0.3s ease;
 }
 
-// Title
 .stepTitle {
   font-family: $font-heading;
   font-weight: 600;
-  font-size: 26px;
+  font-size: 22px;
   letter-spacing: -0.02em;
-  color: #0f172a;
-  margin: 0 0 8px;
-  line-height: 1.2;
+  color: #6b7280;
+  margin: 0 0 10px;
+  line-height: 1.3;
+  transition: color 0.3s ease;
 }
 
-// Description
 .stepDesc {
   font-family: $font-body;
   font-size: 15px;
-  line-height: 1.55;
-  color: #64748b;
-  margin: 0 0 24px;
+  line-height: 1.6;
+  color: #9ca3af;
+  margin: 0;
+  transition: color 0.3s ease;
 }
 
-// Card footer
-.cardFooter {
-  margin-top: auto;
-}
-
-.progressBar {
-  height: 3px;
-  background: #f1f5f9;
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-.progressInner {
+// Right column - Screens
+.screensColumn {
+  position: relative;
   height: 100%;
-  background: var(--accent);
-  border-radius: 2px;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-// Connectors between cards
-.connectors {
+.screensSticky {
+  position: relative;
+  height: 500px;
+}
+
+.screen {
   position: absolute;
-  top: 70px;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 calc(33.333% - 12px);
-  z-index: 1;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(20px) scale(0.98);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
-}
-
-.connector {
-  width: 48px;
-  height: 20px;
-  opacity: 0.3;
-  transition: opacity 0.4s ease;
 
   &.active {
     opacity: 1;
-  }
-
-  svg {
-    width: 100%;
-    height: 100%;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
   }
 }
 
-.connectorPath {
-  fill: none;
-  stroke: #e2e8f0;
-  stroke-width: 2;
-  stroke-dasharray: 6 4;
-  transition: stroke 0.4s ease;
+// Window mockup
+.screenWindow {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.08),
+    0 12px 24px -8px rgba(0, 0, 0, 0.04);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
-  .connector.active & {
-    stroke: #F97316;
+.windowHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: #fafafa;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.windowDots {
+  display: flex;
+  gap: 8px;
+}
+
+.dotRed,
+.dotYellow,
+.dotGreen {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dotRed {
+  background: #ff5f57;
+}
+
+.dotYellow {
+  background: #febc2e;
+}
+
+.dotGreen {
+  background: #28c840;
+}
+
+.windowTitle {
+  font-family: $font-body;
+  font-size: 13px;
+  color: #667085;
+  font-weight: 500;
+}
+
+.windowActions {
+  width: 52px;
+}
+
+.windowIcon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background: #e5e7eb;
+  margin-left: auto;
+}
+
+.windowContent {
+  flex: 1;
+  padding: 20px;
+  overflow: hidden;
+  background: #fafbfc;
+}
+
+// Select Screen Content
+.selectScreen {
+  height: 100%;
+}
+
+.fileGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.fileItem {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: #d1d5db;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   }
+
+  &.selected {
+    border-color: #F97316;
+    background: #fffaf5;
+  }
+
+  span {
+    display: block;
+    font-family: $font-body;
+    font-size: 11px;
+    color: #667085;
+    margin-top: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.fileThumbnail {
+  aspect-ratio: 16/10;
+  border-radius: 8px;
+  background: #f3f4f6;
+  overflow: hidden;
+}
+
+.videoThumb {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a1a1a 0%, #374151 100%);
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.imageThumb {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #F97316 0%, #fb923c 100%);
+}
+
+.checkmark {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #F97316;
+  color: #ffffff;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Connect Screen Content
+.connectScreen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.connectHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  h4 {
+    font-family: $font-heading;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin: 0;
+  }
+}
+
+.addBtn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  color: #667085;
+  font-family: $font-body;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #f9fafb;
+    border-color: #d1d5db;
+    color: #374151;
+  }
+}
+
+.accountsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.accountCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+
+  &.connected {
+    border-color: #d1d5db;
+  }
+}
+
+.accountIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-family: $font-heading;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.accountInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.accountName {
+  font-family: $font-heading;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1A1A1A;
+}
+
+.accountStatus {
+  font-family: $font-body;
+  font-size: 12px;
+  color: #667085;
+}
+
+.accountCheck {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #22c55e;
+  color: #ffffff;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Upload Screen Content
+.uploadScreen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 20px;
+}
+
+.uploadProgress {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.uploadHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.uploadTitle {
+  font-family: $font-heading;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1A1A1A;
+}
+
+.uploadCount {
+  font-family: $font-body;
+  font-size: 13px;
+  color: #22c55e;
+}
+
+.progressBar {
+  height: 6px;
+  background: #f3f4f6;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #F97316 0%, #fb923c 100%);
+  border-radius: 3px;
+  transition: width 0.5s ease;
+
+  &.animated {
+    width: 75%;
+    animation: progressPulse 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes progressPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.uploadList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.uploadItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+
+  &.complete .uploadStatus {
+    color: #22c55e;
+  }
+
+  &.uploading {
+    background: #fffaf5;
+    border-color: #fed7aa;
+  }
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #fed7aa;
+  border-top-color: #F97316;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fileName {
+  font-family: $font-body;
+  font-size: 13px;
+  color: #667085;
+}
+
+.uploadStatus {
+  font-size: 14px;
+  color: #d1d5db;
+}
+
+.successMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 12px;
+  margin-top: auto;
+
+  span {
+    font-family: $font-body;
+    font-size: 14px;
+    color: #16a34a;
+    font-weight: 500;
+  }
+}
+
+.successIcon {
+  font-size: 18px;
 }
 
 // Responsive
@@ -309,31 +593,20 @@
   }
 
   .sectionHeader {
-    margin-bottom: 56px;
+    margin-bottom: 60px;
 
     h2 {
       font-size: 40px;
     }
   }
 
-  .steps {
-    gap: 20px;
+  .scrollContainer {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
   }
 
-  .step {
-    padding: 28px 24px 24px;
-  }
-
-  .bgNumber {
-    font-size: 140px;
-  }
-
-  .stepTitle {
-    font-size: 22px;
-  }
-
-  .connectors {
-    display: none;
+  .screensSticky {
+    height: 420px;
   }
 }
 
@@ -347,6 +620,10 @@
 
     h2 {
       font-size: 34px;
+
+      br {
+        display: none;
+      }
     }
 
     p {
@@ -354,73 +631,45 @@
     }
   }
 
-  .steps {
+  .scrollContainer {
     grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .screensColumn {
+    order: -1;
+  }
+
+  .screensSticky {
+    position: relative;
+    top: 0;
+    height: 360px;
+  }
+
+  .stepsColumn {
     gap: 16px;
-    max-width: 420px;
-    margin: 0 auto;
   }
 
-  .step {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto auto;
-    gap: 0 20px;
-    padding: 24px;
-    align-items: center;
+  .stepCard {
+    padding: 20px;
 
-    &:hover,
+    &::before {
+      display: none;
+    }
+
     &.active {
-      transform: translateY(-2px);
+      border-color: #F97316;
     }
-  }
-
-  .bgNumber {
-    display: none;
-  }
-
-  .cardHeader {
-    grid-column: 1;
-    grid-row: 1 / 3;
-    flex-direction: column;
-    margin-bottom: 0;
-    gap: 8px;
-  }
-
-  .iconBox {
-    width: 52px;
-    height: 52px;
-    border-radius: 14px;
-    background: var(--accent);
-    border-color: transparent;
-
-    .icon {
-      color: #ffffff;
-    }
-  }
-
-  .stepNumber {
-    font-size: 10px;
-    color: var(--accent);
   }
 
   .stepTitle {
-    grid-column: 2;
-    grid-row: 1;
     font-size: 18px;
-    margin-bottom: 2px;
   }
 
   .stepDesc {
-    grid-column: 2;
-    grid-row: 2;
     font-size: 14px;
-    margin-bottom: 0;
   }
 
-  .cardFooter {
-    display: none;
-  }
 }
 
 @include mobile {
@@ -444,31 +693,38 @@
     font-size: 11px;
   }
 
-  .steps {
-    gap: 12px;
+  .screensSticky {
+    height: 300px;
   }
 
-  .step {
-    padding: 20px;
-    gap: 0 16px;
+  .windowContent {
+    padding: 12px;
   }
 
-  .iconBox {
-    width: 46px;
-    height: 46px;
+  .stepCard {
+    padding: 16px;
   }
 
-  .icon {
-    width: 20px !important;
-    height: 20px !important;
+  .stepIcon {
+    width: 38px;
+    height: 38px;
   }
 
   .stepTitle {
     font-size: 16px;
+    margin-bottom: 8px;
   }
 
   .stepDesc {
     font-size: 13px;
-    line-height: 1.5;
+  }
+
+  .fileGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .fileItem span {
+    font-size: 10px;
   }
 }
