@@ -1,0 +1,299 @@
+.results {
+  position: relative;
+  padding: 120px 0;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.resultsBubble {
+  position: absolute;
+  left: -20%;
+  top: 20%;
+  z-index: 0;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.sectionHeader {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 64px;
+
+  h2 {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 44px;
+    color: #1A1A1A;
+    margin: 0 0 16px;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+  }
+
+  p {
+    font-family: $font-body;
+    font-size: 17px;
+    color: $color-text-500;
+    margin: 0;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.caseStudies {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.caseStudy {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 48px;
+  align-items: center;
+  padding: 48px;
+  background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%);
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba($color-accent-500, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+}
+
+.caseStudyContent {
+  position: relative;
+  z-index: 1;
+
+  h3 {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.25;
+    color: #ffffff;
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    font-family: $font-body;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 24px;
+  }
+}
+
+.caseStudyTag {
+  display: inline-block;
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $color-accent-500;
+  margin-bottom: 16px;
+  padding: 6px 12px;
+  background: rgba($color-accent-500, 0.15);
+  border-radius: 6px;
+}
+
+.caseStudyLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: $font-body;
+  font-size: 15px;
+  font-weight: 600;
+  color: $color-accent-500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  svg {
+    transition: transform 0.2s ease;
+  }
+
+  &:hover {
+    color: #FF6B8A;
+
+    svg {
+      transform: translateX(4px);
+    }
+  }
+}
+
+.caseStudyStats {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stat {
+  padding: 20px 24px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.statValue {
+  font-family: $font-heading;
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 1;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.statLabel {
+  font-family: $font-body;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+}
+
+// Responsive
+@include desktop-s {
+  .caseStudy {
+    grid-template-columns: 1fr 300px;
+    gap: 40px;
+    padding: 40px;
+  }
+
+  .caseStudyContent h3 {
+    font-size: 24px;
+  }
+
+  .statValue {
+    font-size: 28px;
+  }
+}
+
+@include tablet-horizontal {
+  .results {
+    padding: 90px 0;
+  }
+
+  .sectionHeader {
+    margin-bottom: 48px;
+
+    h2 {
+      font-size: 34px;
+    }
+  }
+
+  .caseStudy {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px;
+  }
+
+  .caseStudyStats {
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .stat {
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+    padding: 16px;
+  }
+}
+
+@include tablet-vertical {
+  .results {
+    padding: 70px 0;
+  }
+
+  .sectionHeader {
+    margin-bottom: 40px;
+
+    h2 {
+      font-size: 30px;
+    }
+  }
+
+  .caseStudies {
+    gap: 24px;
+  }
+
+  .caseStudy {
+    padding: 28px;
+  }
+
+  .caseStudyContent {
+    h3 {
+      font-size: 22px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+  }
+
+  .caseStudyStats {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .stat {
+    flex-direction: row;
+    align-items: baseline;
+    padding: 14px 18px;
+  }
+
+  .statValue {
+    font-size: 24px;
+  }
+}
+
+@include mobile {
+  .results {
+    padding: 56px 0;
+  }
+
+  .sectionHeader h2 {
+    font-size: 26px;
+  }
+
+  .caseStudy {
+    padding: 24px;
+    border-radius: 20px;
+  }
+
+  .caseStudyContent {
+    h3 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .statValue {
+    font-size: 22px;
+  }
+
+  .statLabel {
+    font-size: 13px;
+  }
+}

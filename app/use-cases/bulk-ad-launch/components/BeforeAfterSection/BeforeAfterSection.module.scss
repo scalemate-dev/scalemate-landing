@@ -1,0 +1,358 @@
+.section {
+  position: relative;
+  padding: 120px 0;
+  background: #f9fafb;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 64px;
+
+  h2 {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 44px;
+    color: #1A1A1A;
+    margin: 0;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+  }
+}
+
+// Comparison
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0;
+  align-items: stretch;
+  margin-bottom: 64px;
+}
+
+.comparisonCard {
+  padding: 36px;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #E4E7EC;
+
+  h3 {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 24px;
+    color: #1A1A1A;
+    margin: 0 0 14px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    font-family: $font-body;
+    font-size: 15px;
+    line-height: 1.65;
+    color: $color-text-500;
+    margin: 0 0 24px;
+  }
+}
+
+.afterCard {
+  border-color: rgba($color-accent-500, 0.2);
+  background: linear-gradient(160deg, #FFFBFC 0%, #FFF5F7 100%);
+}
+
+.cardLabel {
+  margin-bottom: 20px;
+}
+
+.labelBefore {
+  display: inline-block;
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $color-text-500;
+  padding: 6px 14px;
+  background: #f3f4f6;
+  border-radius: 100px;
+}
+
+.labelAfter {
+  display: inline-block;
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $color-accent-500;
+  padding: 6px 14px;
+  background: rgba($color-accent-500, 0.1);
+  border-radius: 100px;
+}
+
+.divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.dividerLine {
+  width: 2px;
+  flex: 1;
+  background: linear-gradient(180deg, transparent 0%, #E4E7EC 30%, #E4E7EC 70%, transparent 100%);
+}
+
+.dividerIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: $color-accent-500;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 12px 0;
+  flex-shrink: 0;
+}
+
+// Pain points
+.painPoints {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.painPoint {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: $font-body;
+  font-size: 14px;
+  font-weight: 500;
+  color: $color-text-500;
+}
+
+.painIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fee2e2;
+  color: #ef4444;
+  font-size: 10px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+// Gains
+.gains {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gain {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: $font-body;
+  font-size: 14px;
+  font-weight: 500;
+  color: $color-text-800;
+}
+
+.gainIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, $color-accent-500 0%, #FF6B8A 100%);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+// Metrics
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.metricCard {
+  padding: 32px;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #E4E7EC;
+  text-align: center;
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+  }
+}
+
+.metricIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, $color-accent-500 0%, #FF6B8A 100%);
+  color: #ffffff;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba($color-accent-500, 0.25);
+}
+
+.metricValue {
+  font-family: $font-heading;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 1;
+  color: #1A1A1A;
+  margin-bottom: 8px;
+  letter-spacing: -0.03em;
+}
+
+.metricLabel {
+  font-family: $font-heading;
+  font-weight: 600;
+  font-size: 18px;
+  color: $color-accent-500;
+  margin-bottom: 8px;
+}
+
+.metricDescription {
+  font-family: $font-body;
+  font-size: 14px;
+  line-height: 1.5;
+  color: $color-text-500;
+  margin: 0;
+}
+
+// Responsive
+@include desktop-s {
+  .sectionHeader h2 {
+    font-size: 38px;
+  }
+
+  .metricValue {
+    font-size: 40px;
+  }
+}
+
+@include tablet-horizontal {
+  .section {
+    padding: 90px 0;
+  }
+
+  .sectionHeader {
+    margin-bottom: 48px;
+
+    h2 {
+      font-size: 34px;
+    }
+  }
+
+  .comparison {
+    margin-bottom: 48px;
+  }
+
+  .comparisonCard {
+    padding: 28px;
+
+    h3 {
+      font-size: 20px;
+    }
+  }
+
+  .metricsGrid {
+    gap: 16px;
+  }
+
+  .metricCard {
+    padding: 24px 20px;
+  }
+
+  .metricValue {
+    font-size: 36px;
+  }
+
+  .metricLabel {
+    font-size: 16px;
+  }
+}
+
+@include tablet-vertical {
+  .section {
+    padding: 70px 0;
+  }
+
+  .sectionHeader h2 {
+    font-size: 30px;
+  }
+
+  .comparison {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-bottom: 40px;
+  }
+
+  .divider {
+    flex-direction: row;
+    padding: 16px 0;
+  }
+
+  .dividerLine {
+    width: auto;
+    height: 2px;
+    flex: 1;
+    background: linear-gradient(90deg, transparent 0%, #E4E7EC 30%, #E4E7EC 70%, transparent 100%);
+  }
+
+  .dividerIcon {
+    margin: 0 12px;
+  }
+
+  .metricsGrid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@include mobile {
+  .section {
+    padding: 56px 0;
+  }
+
+  .sectionHeader h2 {
+    font-size: 26px;
+  }
+
+  .comparisonCard {
+    padding: 24px 20px;
+
+    h3 {
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .metricValue {
+    font-size: 32px;
+  }
+}
