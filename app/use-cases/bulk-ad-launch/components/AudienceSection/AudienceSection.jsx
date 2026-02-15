@@ -13,7 +13,7 @@ const audiences = [
     role: "UA Managers & Media Buyers",
     description:
       "Performance teams running high-volume Meta campaigns absorb the bulk of operational drag. Every additional campaign, language, or creative concept multiplies the manual workload. For buyers managing dozens of active campaigns, a setup that lets them create ads in bulk — without touching each ad set individually — removes the single biggest time drain in their week.",
-    accent: "#F63D68",
+    accent: "#F97316",
     links: [
       {
         label: "Scalemate for Media Buyers",

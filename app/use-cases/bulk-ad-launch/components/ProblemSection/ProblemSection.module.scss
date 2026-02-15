@@ -39,7 +39,7 @@
 }
 
 .gradientText {
-  background: linear-gradient(135deg, $color-accent-500 0%, #FF6B8A 100%);
+  background: linear-gradient(135deg, #F97316 0%, #FB923C 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -63,9 +63,9 @@
 .card {
   position: relative;
   padding: 36px 32px 32px;
-  background: linear-gradient(160deg, #FFFBFC 0%, #FFF5F7 100%);
+  background: linear-gradient(160deg, #FEFCFA 0%, #FFF8F3 100%);
   border-radius: 20px;
-  border: 1px solid rgba($color-accent-500, 0.12);
+  border: 1px solid rgba(#F97316, 0.12);
   overflow: hidden;
   transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -73,7 +73,7 @@
   &:hover {
     transform: translateY(-6px);
     box-shadow:
-      0 20px 40px rgba($color-accent-500, 0.1),
+      0 20px 40px rgba(#F97316, 0.1),
       0 8px 16px rgba(0, 0, 0, 0.04);
 
     .cardNumber {
@@ -90,7 +90,7 @@
   font-size: 80px;
   line-height: 1;
   letter-spacing: -0.04em;
-  color: $color-accent-500;
+  color: #F97316;
   opacity: 0.08;
   margin-bottom: 20px;
   user-select: none;

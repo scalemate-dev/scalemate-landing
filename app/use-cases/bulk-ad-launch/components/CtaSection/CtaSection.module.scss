@@ -7,7 +7,7 @@
   background: linear-gradient(
     135deg,
     rgba(50, 45, 47, 0.3) 0%,
-    rgba($color-accent-500, 0.15) 100%
+    rgba(#F97316, 0.15) 100%
   ), #1A1A1A;
   border-radius: 0px 0px 60px 60px;
 }
@@ -47,7 +47,7 @@
   align-items: center;
   gap: 10px;
   padding: 16px 32px;
-  background: $color-accent-500;
+  background: #F97316;
   color: #ffffff;
   border-radius: 10px;
   font-family: $font-body;
@@ -57,9 +57,9 @@
   transition: all 0.2s ease;
 
   &:hover {
-    background: darken($color-accent-500, 8%);
+    background: #ea580c;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba($color-accent-500, 0.3);
+    box-shadow: 0 8px 24px rgba(#F97316, 0.3);
   }
 }
 

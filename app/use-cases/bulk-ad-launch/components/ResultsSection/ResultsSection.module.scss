@@ -67,7 +67,7 @@
     right: -10%;
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, rgba($color-accent-500, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(#F97316, 0.15) 0%, transparent 70%);
     pointer-events: none;
   }
 }
@@ -102,10 +102,10 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: $color-accent-500;
+  color: #F97316;
   margin-bottom: 16px;
   padding: 6px 12px;
-  background: rgba($color-accent-500, 0.15);
+  background: rgba(#F97316, 0.15);
   border-radius: 6px;
 }
 
@@ -116,7 +116,7 @@
   font-family: $font-body;
   font-size: 15px;
   font-weight: 600;
-  color: $color-accent-500;
+  color: #F97316;
   text-decoration: none;
   transition: all 0.2s ease;
 
@@ -125,7 +125,7 @@
   }
 
   &:hover {
-    color: #FF6B8A;
+    color: #FB923C;
 
     svg {
       transform: translateX(4px);

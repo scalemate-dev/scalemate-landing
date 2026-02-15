@@ -98,7 +98,7 @@
   font-family: $font-body;
   font-size: 14px;
   font-weight: 600;
-  color: $color-accent-500;
+  color: #F97316;
   text-decoration: none;
   transition: all 0.2s ease;
 
@@ -107,7 +107,7 @@
   }
 
   &:hover {
-    color: #FF6B8A;
+    color: #FB923C;
 
     svg {
       transform: translateX(4px);
