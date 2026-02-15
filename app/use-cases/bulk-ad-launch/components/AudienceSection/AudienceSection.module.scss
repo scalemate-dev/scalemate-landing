@@ -1,20 +1,19 @@
 .audience {
-  padding: 120px 0;
+  padding: 100px 0;
   background: #f9fafb;
 }
 
 .sectionHeader {
   text-align: center;
-  margin-bottom: 64px;
+  margin-bottom: 56px;
 
   h2 {
     font-family: $font-heading;
     font-weight: 700;
-    font-size: 44px;
+    font-size: 36px;
     color: #1A1A1A;
-    margin: 0 0 16px;
-    letter-spacing: -0.025em;
-    line-height: 1.15;
+    margin: 0 0 12px;
+    letter-spacing: -0.02em;
   }
 
   p {
@@ -28,8 +27,8 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  max-width: 1080px;
+  gap: 20px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
@@ -37,8 +36,8 @@
   position: relative;
   display: flex;
   align-items: flex-start;
-  gap: 24px;
-  padding: 36px;
+  gap: 20px;
+  padding: 32px;
   background: #ffffff;
   border-radius: 20px;
   border: 1px solid #E4E7EC;
@@ -54,9 +53,9 @@
 
 .iconWrap {
   flex-shrink: 0;
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,15 +70,15 @@
   h3 {
     font-family: $font-heading;
     font-weight: 700;
-    font-size: 22px;
+    font-size: 20px;
     color: #1A1A1A;
-    margin: 0 0 12px;
+    margin: 0 0 8px;
   }
 
   p {
     font-family: $font-body;
     font-size: 15px;
-    line-height: 1.65;
+    line-height: 1.6;
     color: $color-text-500;
     margin: 0 0 20px;
   }
@@ -121,7 +120,7 @@
   bottom: 12px;
   font-family: $font-heading;
   font-weight: 900;
-  font-size: 72px;
+  font-size: 64px;
   line-height: 1;
   color: rgba(0, 0, 0, 0.03);
   user-select: none;
@@ -131,51 +130,38 @@
 // Responsive
 @include tablet-horizontal {
   .audience {
-    padding: 90px 0;
+    padding: 80px 0;
   }
 
-  .sectionHeader {
-    margin-bottom: 48px;
-
-    h2 {
-      font-size: 34px;
-    }
+  .sectionHeader h2 {
+    font-size: 30px;
   }
 
   .card {
     padding: 28px;
-    gap: 20px;
   }
 }
 
 @include tablet-vertical {
   .audience {
-    padding: 70px 0;
+    padding: 60px 0;
   }
 
   .sectionHeader {
     margin-bottom: 40px;
 
     h2 {
-      font-size: 30px;
+      font-size: 26px;
     }
   }
 
   .grid {
     grid-template-columns: 1fr;
-    max-width: 560px;
+    max-width: 520px;
   }
 }
 
 @include mobile {
-  .audience {
-    padding: 56px 0;
-  }
-
-  .sectionHeader h2 {
-    font-size: 26px;
-  }
-
   .card {
     flex-direction: column;
     gap: 16px;
@@ -183,14 +169,14 @@
   }
 
   .iconWrap {
-    width: 48px;
-    height: 48px;
-    border-radius: 14px;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
   }
 
   .text {
     h3 {
-      font-size: 20px;
+      font-size: 18px;
     }
 
     p {
@@ -199,6 +185,6 @@
   }
 
   .index {
-    font-size: 56px;
+    font-size: 48px;
   }
 }

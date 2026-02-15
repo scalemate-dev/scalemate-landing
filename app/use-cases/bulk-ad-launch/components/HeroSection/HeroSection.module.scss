@@ -1,7 +1,7 @@
 // ─── Hero Section ─── Side-by-side with pipeline visual
 .hero {
   position: relative;
-  padding: 172px 0 100px;
+  padding: 160px 0 80px;
   background: linear-gradient(180deg, #fef7f0 0%, #fffaf7 45%, #ffffff 100%);
   overflow: hidden;
 }
@@ -459,7 +459,7 @@
 
 @include tablet-horizontal {
   .hero {
-    padding: 148px 0 80px;
+    padding: 140px 0 60px;
   }
 
   .grid {
@@ -496,7 +496,7 @@
 
 @include tablet-vertical {
   .hero {
-    padding: 130px 0 64px;
+    padding: 120px 0 48px;
   }
 
   .grid {
@@ -554,7 +554,7 @@
 
 @include mobile {
   .hero {
-    padding: 110px 0 48px;
+    padding: 100px 0 40px;
   }
 
   .content h1 {

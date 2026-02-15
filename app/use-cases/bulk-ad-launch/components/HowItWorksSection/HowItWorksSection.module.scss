@@ -47,7 +47,7 @@
 .stepCard {
   position: relative;
   background: #ffffff;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #E4E7EC;
   border-radius: 20px;
   padding: 28px;
   cursor: pointer;
@@ -190,7 +190,7 @@
 // Window mockup
 .screenWindow {
   background: #ffffff;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #E4E7EC;
   border-radius: 16px;
   overflow: hidden;
   box-shadow:
@@ -207,7 +207,7 @@
   justify-content: space-between;
   padding: 14px 16px;
   background: #fafafa;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #E4E7EC;
 }
 
 .windowDots {
@@ -271,7 +271,7 @@
   color: #1A1A1A;
   margin-bottom: 14px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #E4E7EC;
 
   svg {
     color: #F97316;
@@ -290,7 +290,7 @@
   gap: 8px;
   padding: 8px 10px;
   background: #ffffff;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #E4E7EC;
   border-radius: 8px;
   font-family: $font-body;
   font-size: 12px;
@@ -314,7 +314,7 @@
 .syncArrowLine {
   width: 2px;
   flex: 1;
-  background: linear-gradient(180deg, transparent, #e5e7eb, transparent);
+  background: linear-gradient(180deg, transparent, #E4E7EC, transparent);
 }
 
 .syncArrowIcon {
@@ -369,7 +369,7 @@
   justify-content: space-between;
   padding: 12px 14px;
   background: #ffffff;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #E4E7EC;
   border-radius: 10px;
 }
 
@@ -470,7 +470,7 @@
   gap: 10px;
   padding: 10px 14px;
   background: #ffffff;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #E4E7EC;
   border-radius: 8px;
   font-family: $font-body;
   font-size: 13px;
@@ -642,7 +642,7 @@
     height: 2px;
     width: auto;
     flex: 1;
-    background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
+    background: linear-gradient(90deg, transparent, #E4E7EC, transparent);
   }
 
   .syncArrowIcon {

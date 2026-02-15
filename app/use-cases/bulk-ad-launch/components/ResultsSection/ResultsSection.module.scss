@@ -1,6 +1,6 @@
 .results {
   position: relative;
-  padding: 120px 0;
+  padding: 100px 0;
   background: #ffffff;
   overflow: hidden;
 }
@@ -186,7 +186,7 @@
 
 @include tablet-horizontal {
   .results {
-    padding: 90px 0;
+    padding: 80px 0;
   }
 
   .sectionHeader {
@@ -220,7 +220,7 @@
 
 @include tablet-vertical {
   .results {
-    padding: 70px 0;
+    padding: 60px 0;
   }
 
   .sectionHeader {
@@ -267,7 +267,7 @@
 
 @include mobile {
   .results {
-    padding: 56px 0;
+    padding: 48px 0;
   }
 
   .sectionHeader h2 {

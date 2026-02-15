@@ -4,11 +4,7 @@
 
 .cta {
   padding: 100px 0;
-  background: linear-gradient(
-    135deg,
-    rgba(50, 45, 47, 0.3) 0%,
-    rgba(#F97316, 0.15) 100%
-  ), #1A1A1A;
+  background: linear-gradient(45deg, rgba(50, 45, 47, 0.2) 50%, rgba(251, 214, 119, 0.2) 100%), #1A1A1A;
   border-radius: 0px 0px 60px 60px;
 }
 
@@ -51,7 +47,7 @@
   color: #ffffff;
   border-radius: 10px;
   font-family: $font-body;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -59,7 +55,6 @@
   &:hover {
     background: #ea580c;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(#F97316, 0.3);
   }
 }
 
@@ -73,7 +68,7 @@
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 10px;
   font-family: $font-body;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -104,11 +99,11 @@
 
   .ctaContent {
     h2 {
-      font-size: 28px;
+      font-size: 26px;
     }
 
     p {
-      font-size: 16px;
+      font-size: 15px;
     }
   }
 

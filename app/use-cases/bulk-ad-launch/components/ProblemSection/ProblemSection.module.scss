@@ -62,39 +62,23 @@
 
 .card {
   position: relative;
-  padding: 36px 32px 32px;
-  background: linear-gradient(160deg, #FEFCFA 0%, #FFF8F3 100%);
+  padding: 32px;
   border-radius: 20px;
-  border: 1px solid rgba(#F97316, 0.12);
+  border: 2px solid #121718;
   overflow: hidden;
   transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
   &:hover {
-    transform: translateY(-6px);
-    box-shadow:
-      0 20px 40px rgba(#F97316, 0.1),
-      0 8px 16px rgba(0, 0, 0, 0.04);
-
-    .cardNumber {
-      opacity: 0.12;
-      transform: translateY(-4px);
-    }
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   }
 }
 
-.cardNumber {
+.cardIcon {
   display: block;
-  font-family: $font-heading;
-  font-weight: 800;
-  font-size: 80px;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  color: #F97316;
-  opacity: 0.08;
-  margin-bottom: 20px;
-  user-select: none;
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  color: #1A1A1A;
+  margin-bottom: 24px;
 }
 
 .cardContent {
@@ -115,8 +99,9 @@
     font-family: $font-body;
     font-size: 15px;
     line-height: 1.65;
-    color: $color-text-500;
+    color: #1A1A1A;
     margin: 0;
+    opacity: 0.7;
   }
 }
 
@@ -129,7 +114,7 @@
 
 @include tablet-horizontal {
   .problem {
-    padding: 90px 0;
+    padding: 80px 0;
   }
 
   .header {
@@ -145,12 +130,7 @@
   }
 
   .card {
-    padding: 28px 24px 24px;
-  }
-
-  .cardNumber {
-    font-size: 64px;
-    margin-bottom: 16px;
+    padding: 28px 24px;
   }
 
   .cardContent {
@@ -166,7 +146,7 @@
 
 @include tablet-vertical {
   .problem {
-    padding: 70px 0;
+    padding: 60px 0;
   }
 
   .header {
@@ -192,11 +172,6 @@
     padding: 28px 24px;
   }
 
-  .cardNumber {
-    font-size: 56px;
-    margin-bottom: 14px;
-  }
-
   .cardContent h3 {
     font-size: 20px;
   }
@@ -204,7 +179,7 @@
 
 @include mobile {
   .problem {
-    padding: 56px 0;
+    padding: 48px 0;
   }
 
   .header {
@@ -228,9 +203,8 @@
     padding: 24px 20px;
   }
 
-  .cardNumber {
-    font-size: 48px;
-    margin-bottom: 12px;
+  .cardIcon {
+    margin-bottom: 20px;
   }
 
   .cardContent {
