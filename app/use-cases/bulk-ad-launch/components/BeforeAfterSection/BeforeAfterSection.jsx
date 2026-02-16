@@ -33,6 +33,10 @@ export default function BeforeAfterSection() {
       <Container>
         <div className={styles.sectionHeader}>
           <h2>What Changes With Scalemate</h2>
+          <p>
+            The gap between manual and automated deployment is measurable — in
+            hours saved and campaigns launched per week.
+          </p>
         </div>
 
         <div className={styles.comparison}>
@@ -42,11 +46,9 @@ export default function BeforeAfterSection() {
             </div>
             <h3>Manual Setup That Eats the Entire Week</h3>
             <p>
-              Every ad assembled by hand. Every creative uploaded individually,
-              with the right resolution matched to the right placement. Now
-              multiply that by languages: one concept localized into ten markets
-              turns one ad into ten. The work gets done, but it takes 3–5x
-              longer than it should.
+              Every ad assembled by hand, matched to the right placement. One
+              concept, ten markets — ten ad sets. 3–5x longer than it should
+              take.
             </p>
             <div className={styles.painPoints}>
               <div className={styles.painPoint}>
@@ -76,11 +78,10 @@ export default function BeforeAfterSection() {
             </div>
             <h3>Hundreds of Ads From One Setup</h3>
             <p>
-              Scalemate replaces the manual assembly line with automated bulk
-              deployment. Creatives sync from cloud storage directly into the ad
-              platform&apos;s media library. Campaign structures — including
-              one-ad-per-ad-set — get configured once and applied across hundreds
-              of ad sets simultaneously.
+              Scalemate&apos;s <strong>bulk ad launch tool</strong> automates
+              the entire deployment. Creatives sync from cloud storage into the
+              media library. Campaign structures — including one-ad-per-ad-set —
+              configured once, applied across hundreds of ad sets.
             </p>
             <div className={styles.gains}>
               <div className={styles.gain}>

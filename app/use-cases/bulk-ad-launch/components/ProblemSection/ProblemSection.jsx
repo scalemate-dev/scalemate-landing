@@ -11,23 +11,23 @@ import bubble from "@/assets/icons/hero-linear-background.svg"
 const problems = [
   {
     icon: IconRepeat,
-    title: "Every Ad Set Is the Same Repetitive Workflow",
+    title: "Every Ad Set Is the Same Repetitive Ad Creation Workflow",
     description:
-      "Launching ads one by one forces teams to repeat the same sequence across every ad set: pick the creative, match resolutions to placements, set the copy, confirm targeting. Multiply that by languages and concepts, and a single campaign launch turns into days of mechanical clicking.",
+      "Launching ads one by one means repeating the same sequence per ad set: creative, resolutions, targeting. Multiply by languages — days of clicking. It\u2019s error-prone too — wrong creatives, missing assets, mismatched placements. Volume compounds micro-mistakes into budget waste.",
     bg: "#E0F8DE",
   },
   {
     icon: IconAlertTriangle,
-    title: "The Platform Keeps Breaking at Scale",
+    title: "New Ads Takes a Day — Because the Platform Keeps Breaking",
     description:
-      "Facebook Ads Manager wasn't built for mass ad campaign creation at the scale UA teams operate today. Five concepts multiplied by fifteen languages equals seventy-five combinations — and every single one requires a separate ad set assembled by hand. Manual campaign setup takes hours. Sometimes days.",
+      "Facebook Ads Manager wasn\u2019t built for mass ad campaign creation at this scale. Five concepts across fifteen languages means seventy-five combinations — each requiring a separate ad set built by hand. Manual campaign setup takes hours. Sometimes days. The platform lags, crashes mid-upload, or drops assets. Teams need speed, and native tools can\u2019t deliver.",
     bg: "#F0DCFF",
   },
   {
     icon: IconUsersGroup,
-    title: "More Scale = More People? Not How It Should Work",
+    title: "More Scale = More People? That\u2019s Not How It Should Work",
     description:
-      "When campaign volume outgrows a team's capacity, the default answer is hiring. But scaling ads without hiring buyers is entirely possible — when the tooling removes the bottleneck. Without automation, every new campaign adds linear workload. Slow campaign launches become the norm.",
+      "When campaign volume outgrows capacity, the default is hiring — another buyer, another coordinator, same mechanical tasks. But scaling ads without hiring buyers is possible when tooling removes the bottleneck. Without automation, slow campaign launches become the norm.",
     bg: "#FFE8D3",
   },
 ]
@@ -51,8 +51,8 @@ export default function ProblemSection() {
               <span className={styles.gradientText}>Don&apos;t Scale</span>
             </h2>
             <p className={styles.subtitle}>
-              Every new creative, language, or concept multiplies the manual
-              workload exponentially
+              Three bottlenecks keep media buyers stuck — repetitive setup,
+              platform limitations, and the pressure to hire just to keep up.
             </p>
           </div>
 

@@ -10,9 +10,9 @@ import styles from "./AudienceSection.module.scss"
 const audiences = [
   {
     icon: IconChartBar,
-    role: "UA Managers & Media Buyers",
+    role: "Performance Marketing Managers & Media Buyers",
     description:
-      "Performance teams running high-volume Meta campaigns absorb the bulk of operational drag. Every additional campaign, language, or creative concept multiplies the manual workload. For buyers managing dozens of active campaigns, a setup that lets them create ads in bulk — without touching each ad set individually — removes the single biggest time drain in their week.",
+      "High-volume Meta campaigns multiply operational drag with every new concept. A bulk facebook ad creation tool that lets buyers create ads in bulk meta \u2014 without touching each ad set \u2014 removes the biggest time drain. Finally, scaling ads without hiring buyers becomes realistic.",
     accent: "#F97316",
     links: [
       {
@@ -29,7 +29,7 @@ const audiences = [
     icon: IconBuildingSkyscraper,
     role: "Founders & Marketing Leaders",
     description:
-      "From the leadership perspective, the question isn't about individual ad sets. It's about whether the team can increase campaign output without increasing headcount. Every hour a UA manager spends on manual assembly is an hour not spent on strategy, creative direction, or performance analysis. Scalemate compresses time-to-launch, reduces operational risk from human error, and makes scaling acquisition realistic without proportional team growth.",
+      "Every hour on manual assembly is time away from strategy. A bulk ad launch tool like Scalemate compresses time-to-launch and makes scaling realistic without adding headcount.",
     accent: "#8B5CF6",
     links: [
       {
@@ -51,7 +51,9 @@ export default function AudienceSection() {
         <div className={styles.sectionHeader}>
           <h2>Who Bulk Ad Launch Is For</h2>
           <p>
-            Built for teams that need to move faster without adding headcount
+            Built for teams where campaign volume outpaces capacity — whether
+            the bottleneck is with buyers executing campaigns or leadership
+            planning growth.
           </p>
         </div>
         <div className={styles.grid}>

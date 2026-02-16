@@ -24,9 +24,9 @@ const steps = [
     number: "Step 1",
     title: "Sync Creatives From Cloud Storage",
     description:
-      "Scalemate connects directly to Google Drive, NextCloud, or other cloud storage where creative teams deliver assets. Instead of downloading files and re-uploading them by hand, the platform pushes creatives straight into Meta's Media Library.",
+      "Scalemate connects to Google Drive, NextCloud, or other storage and pushes creatives into Meta\u2019s Media Library.",
     detail:
-      "Built-in deduplication ensures only new files transfer. Inclusion and exclusion rules let teams filter exactly which assets sync.",
+      "Deduplication ensures only new files transfer. Filtering rules control which assets sync.",
     icon: IconCloudDownload,
   },
   {
@@ -34,9 +34,9 @@ const steps = [
     number: "Step 2",
     title: "Set Campaign Parameters Once",
     description:
-      "Budget, targeting, placements, optimization goals, naming conventions — all configured in a single setup. These parameters apply uniformly across every ad set Scalemate generates.",
+      "Budget, targeting, placements, naming conventions \u2014 configured once, applied across every ad set.",
     detail:
-      "For teams requiring specific campaign architecture (one creative per ad set for isolated performance tracking), the tool supports custom structural rules.",
+      "For one-creative-per-ad-set tracking, custom structural rules are supported.",
     icon: IconSettings,
   },
   {
@@ -44,9 +44,9 @@ const steps = [
     number: "Step 3",
     title: "Launch All Ads at Once",
     description:
-      "With creatives synced and parameters locked, Scalemate's Smart Launches feature deploys hundreds of ad sets in a single action. The entire sequence — from creative sync to live campaigns — takes minutes.",
+      "Smart Launches deploys hundreds of ad sets in one action \u2014 true bulk ad deployment software that takes you from sync to live campaigns in minutes.",
     detail:
-      "What previously consumed a full working week now fits inside a short operational window.",
+      "The launch ads at scale tool handles the volume; the team handles the decisions.",
     icon: IconRocket,
   },
 ]
@@ -218,8 +218,11 @@ export default function HowItWorksSection() {
     <section className={styles.howItWorks}>
       <Container>
         <div className={styles.sectionHeader}>
-          <h2>How Bulk Ad Launch Works</h2>
-          <p>From creative sync to live campaigns in three steps</p>
+          <h2>How the Bulk Ad Launch Tool Works</h2>
+          <p>
+            Three steps replace the manual pipeline — from cloud storage to
+            live campaigns across Meta.
+          </p>
         </div>
 
         <div className={styles.scrollContainer}>

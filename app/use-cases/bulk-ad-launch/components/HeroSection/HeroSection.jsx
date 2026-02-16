@@ -5,18 +5,6 @@ import styles from "./HeroSection.module.scss"
 import bubble from "@/assets/icons/hero-linear-background.svg"
 import bubble2 from "@/assets/icons/hero-linear-background-2.svg"
 
-const creatives = [
-  { gradient: "linear-gradient(135deg, #FFE0E6, #FFB3C6)", ext: "JPG" },
-  { gradient: "linear-gradient(135deg, #C7D2FE, #A5B4FC)", ext: "MP4" },
-  { gradient: "linear-gradient(135deg, #FEF3C7, #FDE68A)", ext: "PNG" },
-]
-
-const adColors = [
-  "#FFE0E6", "#C7D2FE", "#FEF3C7", "#D1FAE5", "#EDE9FE",
-  "#FFE4E6", "#DBEAFE", "#FEF9C3", "#CCFBF1", "#FCE7F3",
-  "#E0E7FF", "#FED7AA", "#D1FAE5", "#DDD6FE", "#FECDD3",
-]
-
 export default function HeroSection() {
   return (
     <section className={styles.hero}>
@@ -43,28 +31,31 @@ export default function HeroSection() {
             <span className={styles.label}>Bulk Ad Launch</span>
 
             <h1>
-              Launch Hundreds
+              Launch Hundreds of Ads{" "}
+              <span className={styles.accent}>in Minutes</span>
               <br />
-              of Ads <span className={styles.accent}>in Minutes</span>
+              — Without Manual Setup
             </h1>
 
             <p className={styles.description}>
-              Remove the manual grind from campaign deployment — so your UA
-              team spends time on strategy, not copy-paste.
+              A <strong>bulk ad launch tool</strong> removes the manual grind
+              from campaign deployment. Instead of spending hours on repetitive
+              setup, one workflow lets you:
             </p>
 
             <ul className={styles.props}>
               <li className={styles.prop}>
                 <span className={styles.propDot} />
-                Bulk-create hundreds of ad sets
+                Bulk-create hundreds of ad sets from a single setup
               </li>
               <li className={styles.prop}>
                 <span className={styles.propDot} />
-                Cloud storage sync to ad platforms
+                Sync creatives from cloud storage directly to ad platforms
               </li>
               <li className={styles.prop}>
                 <span className={styles.propDot} />
-                Full campaign structure control
+                Full control over campaign structure — including
+                one-ad-per-ad-set
               </li>
             </ul>
 
@@ -79,70 +70,46 @@ export default function HeroSection() {
           </div>
 
           <div className={styles.visual}>
-            <div className={styles.pipeline}>
-              {/* Source: Cloud storage */}
-              <div className={styles.stage}>
-                <span className={styles.sourceBadge}>
+            <div className={styles.canvas}>
+              {/* Window chrome */}
+              <div className={styles.canvasBar}>
+                <div className={styles.barDots}>
+                  <span />
+                  <span />
+                  <span />
+                </div>
+                <span className={styles.barTitle}>
                   <svg
-                    width="14"
-                    height="12"
-                    viewBox="0 0 24 20"
+                    width="11"
+                    height="11"
+                    viewBox="0 0 16 16"
                     fill="none"
                     aria-hidden="true"
                   >
                     <path
-                      d="M7.71 2L2 11.5h4.71L8.5 8h7l1.79 3.5H22L16.29 2H7.71z"
-                      fill="#4285F4"
-                      opacity="0.7"
-                    />
-                    <path
-                      d="M2 11.5l3.5 6.5h13l3.5-6.5H2z"
-                      fill="#0F9D58"
-                      opacity="0.7"
+                      d="M11.5 1.5l3 3-9 9H2.5v-3l9-9z"
+                      stroke="currentColor"
+                      strokeWidth="1.3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                   </svg>
-                  Google Drive
+                  Launch Template
                 </span>
-                <div className={styles.creatives}>
-                  {creatives.map((c, i) => (
-                    <div
-                      key={i}
-                      className={styles.creative}
-                      style={{
-                        background: c.gradient,
-                        animationDelay: `${i * 0.1}s`,
-                      }}
-                    >
-                      <span className={styles.ext}>{c.ext}</span>
-                    </div>
-                  ))}
+                <div className={styles.barActions}>
+                  <span className={styles.btnGhost}>Cancel</span>
+                  <span className={styles.btnPrimary}>Save</span>
                 </div>
               </div>
 
-              {/* Flow indicator */}
-              <div className={styles.flow}>
-                <span />
-                <span />
-                <span />
-              </div>
-
-              {/* Hub: Scalemate */}
-              <div className={styles.hub}>Scalemate.</div>
-
-              {/* Flow indicator */}
-              <div className={styles.flow}>
-                <span />
-                <span />
-                <span />
-              </div>
-
-              {/* Output: Ad platforms */}
-              <div className={styles.stage}>
-                <div className={styles.outputBadges}>
-                  <span className={styles.metaBadge}>
+              {/* Canvas area with dot grid */}
+              <div className={styles.canvasArea}>
+                {/* Campaign setup card */}
+                <div className={styles.campaignCard}>
+                  <div className={styles.campaignHead}>
                     <svg
-                      width="12"
-                      height="12"
+                      width="14"
+                      height="14"
                       viewBox="0 0 24 24"
                       fill="none"
                       aria-hidden="true"
@@ -152,35 +119,132 @@ export default function HeroSection() {
                         fill="#1877F2"
                       />
                     </svg>
-                    Meta Ads
-                  </span>
-                  <span className={styles.tiktokBadge}>
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.82 4.48 6.3 6.3 0 001.86-4.49V8.73a8.3 8.3 0 004.76 1.5V6.78a4.83 4.83 0 01-1-.09z"
-                        fill="#1A1A1A"
-                      />
-                    </svg>
-                    TikTok Ads
-                  </span>
+                    Campaign setup
+                  </div>
+                  <div className={styles.campaignBody}>
+                    <div className={styles.field}>
+                      <span className={styles.fieldLabel}>Ad account:</span>
+                      <span className={styles.fieldValue}>Brand_US_Main</span>
+                    </div>
+                    <div className={styles.field}>
+                      <span className={styles.fieldLabel}>Campaign:</span>
+                      <span className={styles.fieldValue}>Q2_Performance</span>
+                    </div>
+                  </div>
                 </div>
-                <div className={styles.adsGrid}>
-                  {adColors.map((color, i) => (
-                    <div
-                      key={i}
-                      className={styles.miniAd}
-                      style={{
-                        background: color,
-                        animationDelay: `${0.6 + i * 0.04}s`,
-                      }}
+
+                {/* Connector line */}
+                <div className={styles.connectorLine} aria-hidden="true" />
+
+                {/* Adset cards row */}
+                <div className={styles.adsetRow}>
+                  <div className={styles.adsetCard}>
+                    <div className={styles.adsetHead}>
+                      <span>Adset setup</span>
+                      <svg
+                        width="11"
+                        height="11"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <rect
+                          x="5"
+                          y="2"
+                          width="9"
+                          height="9"
+                          rx="1.5"
+                          stroke="currentColor"
+                          strokeWidth="1.2"
+                        />
+                        <rect
+                          x="2"
+                          y="5"
+                          width="9"
+                          height="9"
+                          rx="1.5"
+                          stroke="currentColor"
+                          strokeWidth="1.2"
+                        />
+                      </svg>
+                    </div>
+                    <div className={styles.adsetBody}>
+                      <span className={styles.fieldLabel}>Name:</span>
+                      <span className={styles.fieldValue}>
+                        Broad_18-65_&#123;dd-mm&#125;
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className={styles.adsetCard}>
+                    <div className={styles.adsetHead}>
+                      <span>Adset setup</span>
+                      <svg
+                        width="11"
+                        height="11"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <rect
+                          x="5"
+                          y="2"
+                          width="9"
+                          height="9"
+                          rx="1.5"
+                          stroke="currentColor"
+                          strokeWidth="1.2"
+                        />
+                        <rect
+                          x="2"
+                          y="5"
+                          width="9"
+                          height="9"
+                          rx="1.5"
+                          stroke="currentColor"
+                          strokeWidth="1.2"
+                        />
+                      </svg>
+                    </div>
+                    <div className={styles.adsetBody}>
+                      <span className={styles.fieldLabel}>Name:</span>
+                      <span className={styles.fieldValue}>
+                        LAL_TopSpenders
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className={styles.adsetPlaceholder}>
+                    <span>+ New Adset setup</span>
+                  </div>
+                </div>
+
+                {/* Google Drive launch button */}
+                <div className={styles.driveBtn}>
+                  <svg
+                    width="18"
+                    height="16"
+                    viewBox="0 0 24 20"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M7.71 2L2 11.5h4.71L8.5 8h7l1.79 3.5H22L16.29 2H7.71z"
+                      fill="#4285F4"
+                      opacity="0.85"
                     />
-                  ))}
+                    <path
+                      d="M2 11.5l3.5 6.5h13l3.5-6.5H2z"
+                      fill="#0F9D58"
+                      opacity="0.85"
+                    />
+                    <path
+                      d="M7.71 2L12 9.5 16.29 2H7.71z"
+                      fill="#FBBC04"
+                      opacity="0.85"
+                    />
+                  </svg>
+                  Launch from Google Drive
                 </div>
               </div>
             </div>

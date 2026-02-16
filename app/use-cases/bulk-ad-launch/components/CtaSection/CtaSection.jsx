@@ -8,10 +8,11 @@ export default function CtaSection() {
       <section className={styles.cta}>
         <Container>
           <div className={styles.ctaContent}>
-            <h2>Ready to launch at scale?</h2>
+            <h2>Book a Demo — Bulk Ad Launch Tool</h2>
             <p>
-              Stop assembling ads by hand. Deploy hundreds of campaigns in
-              minutes.
+              Replace slow campaign launches with a{" "}
+              <strong>bulk ad launch tool</strong> built for high-volume
+              marketing teams.
             </p>
             <div className={styles.ctaButtons}>
               <a href="/book-a-demo" className={styles.ctaButton}>
