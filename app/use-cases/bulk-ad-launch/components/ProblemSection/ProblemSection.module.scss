@@ -1,17 +1,22 @@
+// ─── Section ───
+
 .problem {
   position: relative;
-  padding: 120px 0;
-  background: #ffffff;
+  padding: 120px 0 80px;
+  background: #faf9f6;
   overflow: hidden;
-}
 
-.bubble {
-  position: absolute;
-  right: -18%;
-  top: -5%;
-  z-index: 0;
-  opacity: 0.4;
-  pointer-events: none;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at 12% 55%,
+      rgba(249, 115, 22, 0.025) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
+  }
 }
 
 .inner {
@@ -19,201 +24,358 @@
   z-index: 1;
 }
 
-// Header
-.header {
-  text-align: center;
-  margin-bottom: 72px;
-  max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
+// ─── Header ───
 
-  h2 {
-    font-family: $font-heading;
-    font-weight: 700;
-    font-size: 44px;
-    color: #1A1A1A;
-    margin: 0;
-    letter-spacing: -0.025em;
-    line-height: 1.15;
-  }
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 80px;
 }
 
-.gradientText {
-  background: linear-gradient(135deg, #F97316 0%, #FB923C 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.headerMain {
+  flex: 0 0 55%;
+}
+
+.label {
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #9b9488;
+  display: block;
+  margin-bottom: 28px;
+}
+
+.headerMain h2 {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 54px;
+  color: #1a1614;
+  margin: 0;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+}
+
+.accent {
+  font-style: italic;
+  color: #f97316;
 }
 
 .subtitle {
   font-family: $font-body;
-  font-size: 17px;
-  line-height: 1.6;
-  color: $color-text-500;
-  margin: 20px 0 0;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #7a7267;
+  margin: 0;
+  max-width: 380px;
+  padding-bottom: 8px;
 }
 
-// Cards
-.cardsGrid {
+// ─── Divider ───
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: #ddd9d0;
+  margin: 56px 0;
+}
+
+// ─── Grid ───
+
+.grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 48px;
+  align-items: start;
 }
 
-.card {
+// ─── Item ───
+
+.item {
   position: relative;
-  padding: 32px;
-  border-radius: 20px;
-  border: 2px solid #121718;
+  padding: 36px;
   overflow: hidden;
-  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  &:nth-child(2) {
+    margin-top: 36px;
+  }
+
+  &:nth-child(3) {
+    margin-top: 72px;
+  }
+
+  // Ensure content stays above the background shape
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  // Geometric background shapes
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  // Oval
+  &:nth-child(1)::after {
+    width: 160px;
+    height: 160px;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(-15deg);
+    background: #eae8e3;
+    border-radius: 50%;
+    opacity: 0.4;
+  }
+
+  // Triangle (CSS filled)
+  &:nth-child(2)::after {
+    width: 0;
+    height: 0;
+    right: 8px;
+    top: 70%;
+    transform: translateY(-50%) rotate(-10deg);
+    border-left: 70px solid transparent;
+    border-right: 70px solid transparent;
+    border-bottom: 120px solid #eae8e3;
+    background: none;
+    opacity: 0.4;
+  }
+
+  // Square (rotated)
+  &:nth-child(3)::after {
+    width: 130px;
+    height: 130px;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(12deg);
+    background: #eae8e3;
+    opacity: 0.4;
+  }
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    &::after {
+      opacity: 0.55;
+    }
+
+    .dash {
+      width: 48px;
+      background: #f97316;
+    }
   }
-}
-
-.cardIcon {
-  display: block;
-  color: #1A1A1A;
-  margin-bottom: 24px;
-}
-
-.cardContent {
-  position: relative;
-  z-index: 1;
 
   h3 {
     font-family: $font-heading;
-    font-weight: 700;
-    font-size: 22px;
-    color: #1A1A1A;
-    margin: 0 0 12px;
-    line-height: 1.25;
-    letter-spacing: -0.01em;
+    font-weight: 600;
+    font-size: 20px;
+    color: #1a1614;
+    margin: 0 0 16px;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
   }
 
   p {
     font-family: $font-body;
     font-size: 15px;
-    line-height: 1.65;
-    color: #1A1A1A;
+    line-height: 1.8;
+    color: #7a7267;
     margin: 0;
-    opacity: 0.7;
   }
 }
 
-// Responsive
+.dash {
+  display: block;
+  width: 36px;
+  height: 2px;
+  background: #d6d2ca;
+  margin-bottom: 24px;
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+// ─── Responsive ───
+
 @include desktop-s {
-  .header h2 {
-    font-size: 38px;
+  .headerMain h2 {
+    font-size: 46px;
+  }
+
+  .item {
+    padding: 32px;
+  }
+
+  .item:nth-child(2) {
+    margin-top: 28px;
+  }
+
+  .item:nth-child(3) {
+    margin-top: 56px;
   }
 }
 
 @include tablet-horizontal {
   .problem {
-    padding: 80px 0;
+    padding: 100px 0 72px;
   }
 
   .header {
-    margin-bottom: 56px;
-
-    h2 {
-      font-size: 34px;
-    }
+    gap: 48px;
   }
 
-  .cardsGrid {
-    gap: 20px;
+  .headerMain {
+    flex: 0 0 50%;
   }
 
-  .card {
-    padding: 28px 24px;
+  .headerMain h2 {
+    font-size: 38px;
   }
 
-  .cardContent {
-    h3 {
-      font-size: 20px;
-    }
+  .subtitle {
+    font-size: 15px;
+    max-width: 320px;
+  }
 
-    p {
-      font-size: 14px;
-    }
+  .divider {
+    margin: 48px 0;
+  }
+
+  .grid {
+    gap: 32px;
+  }
+
+  .item {
+    padding: 28px;
+  }
+
+  .dash {
+    margin-bottom: 20px;
+  }
+
+  .item:nth-child(2) {
+    margin-top: 24px;
+  }
+
+  .item:nth-child(3) {
+    margin-top: 48px;
+  }
+
+  .item h3 {
+    font-size: 18px;
+  }
+
+  .item p {
+    font-size: 14px;
+  }
+
+  .item:nth-child(1)::after {
+    width: 120px;
+    height: 144px;
+  }
+
+  .item:nth-child(2)::after {
+    width: 100px;
+    height: 87px;
+  }
+
+  .item:nth-child(3)::after {
+    width: 96px;
+    height: 96px;
   }
 }
 
 @include tablet-vertical {
   .problem {
-    padding: 60px 0;
+    padding: 80px 0;
   }
 
   .header {
-    margin-bottom: 44px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
 
-    h2 {
-      font-size: 30px;
-    }
+  .headerMain {
+    flex: unset;
+  }
+
+  .headerMain h2 {
+    font-size: 34px;
   }
 
   .subtitle {
+    max-width: 480px;
     font-size: 16px;
+    padding-bottom: 0;
   }
 
-  .cardsGrid {
+  .divider {
+    margin: 40px 0;
+  }
+
+  .grid {
     grid-template-columns: 1fr;
-    max-width: 440px;
-    margin: 0 auto;
-    gap: 16px;
+    gap: 0;
   }
 
-  .card {
-    padding: 28px 24px;
+  .item {
+    padding: 32px 0;
+    border-top: 1px solid #e2ded6;
+    overflow: visible;
+
+    &::after {
+      display: none;
+    }
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      margin-top: 0;
+    }
   }
 
-  .cardContent h3 {
-    font-size: 20px;
+  .dash {
+    display: none;
   }
 }
 
 @include mobile {
   .problem {
-    padding: 48px 0;
+    padding: 56px 0;
   }
 
-  .header {
-    margin-bottom: 36px;
+  .label {
+    margin-bottom: 20px;
+    font-size: 10px;
+  }
 
-    h2 {
-      font-size: 26px;
-    }
+  .headerMain h2 {
+    font-size: 28px;
   }
 
   .subtitle {
     font-size: 15px;
-    margin-top: 16px;
   }
 
-  .cardsGrid {
-    gap: 14px;
+  .divider {
+    margin: 28px 0;
   }
 
-  .card {
-    padding: 24px 20px;
+  .item {
+    padding: 24px 0;
   }
 
-  .cardIcon {
-    margin-bottom: 20px;
+  .item h3 {
+    font-size: 17px;
+    margin-bottom: 14px;
   }
 
-  .cardContent {
-    h3 {
-      font-size: 18px;
-    }
-
-    p {
-      font-size: 14px;
-    }
+  .item p {
+    font-size: 14px;
+    line-height: 1.75;
   }
 }

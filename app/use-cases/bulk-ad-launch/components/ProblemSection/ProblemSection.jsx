@@ -1,73 +1,51 @@
-import Image from "next/image"
 import Container from "@/components/elements/Container/Container"
-import {
-  IconRepeat,
-  IconAlertTriangle,
-  IconUsersGroup,
-} from "@tabler/icons-react"
 import styles from "./ProblemSection.module.scss"
-import bubble from "@/assets/icons/hero-linear-background.svg"
 
 const problems = [
   {
-    icon: IconRepeat,
-    title: "Every Ad Set Is the Same Repetitive Ad Creation Workflow",
+    title: "Repetitive Ad Creation Workflow",
     description:
-      "Launching ads one by one means repeating the same sequence per ad set: creative, resolutions, targeting. Multiply by languages — days of clicking. It\u2019s error-prone too — wrong creatives, missing assets, mismatched placements. Volume compounds micro-mistakes into budget waste.",
-    bg: "#E0F8DE",
+      "Launching ads one by one means repeating the same sequence per ad set: creative, resolutions, targeting. Multiply by languages — days of clicking. Volume compounds micro-mistakes into budget waste.",
   },
   {
-    icon: IconAlertTriangle,
-    title: "New Ads Takes a Day — Because the Platform Keeps Breaking",
+    title: "The Platform Keeps Breaking",
     description:
-      "Facebook Ads Manager wasn\u2019t built for mass ad campaign creation at this scale. Five concepts across fifteen languages means seventy-five combinations — each requiring a separate ad set built by hand. Manual campaign setup takes hours. Sometimes days. The platform lags, crashes mid-upload, or drops assets. Teams need speed, and native tools can\u2019t deliver.",
-    bg: "#F0DCFF",
+      "Facebook Ads Manager wasn't built for mass ad campaign creation at this scale. Five concepts across fifteen languages means seventy-five combinations — each requiring a separate ad set built by hand. The platform lags, crashes mid-upload, or drops assets.",
   },
   {
-    icon: IconUsersGroup,
-    title: "More Scale = More People? That\u2019s Not How It Should Work",
+    title: "More Scale = More People?",
     description:
-      "When campaign volume outgrows capacity, the default is hiring — another buyer, another coordinator, same mechanical tasks. But scaling ads without hiring buyers is possible when tooling removes the bottleneck. Without automation, slow campaign launches become the norm.",
-    bg: "#FFE8D3",
+      "When campaign volume outgrows capacity, the default is hiring — another buyer, another coordinator, same mechanical tasks. But scaling ads without hiring buyers is possible when tooling removes the bottleneck.",
   },
 ]
 
 export default function ProblemSection() {
   return (
     <section className={styles.problem}>
-      <Image
-        className={styles.bubble}
-        src={bubble}
-        alt=""
-        aria-hidden="true"
-        width={700}
-        height={700}
-      />
       <Container>
         <div className={styles.inner}>
           <div className={styles.header}>
-            <h2>
-              Why Manual Ad Launches{" "}
-              <span className={styles.gradientText}>Don&apos;t Scale</span>
-            </h2>
+            <div className={styles.headerMain}>
+              <span className={styles.label}>The Problem</span>
+              <h2>
+                Why Manual Ad Launches{" "}
+                <em className={styles.accent}>Don&apos;t Scale</em>
+              </h2>
+            </div>
             <p className={styles.subtitle}>
               Three bottlenecks keep media buyers stuck — repetitive setup,
               platform limitations, and the pressure to hire just to keep up.
             </p>
           </div>
 
-          <div className={styles.cardsGrid}>
-            {problems.map((problem, index) => (
-              <div
-                key={index}
-                className={styles.card}
-                style={{ backgroundColor: problem.bg }}
-              >
-                <problem.icon size={32} className={styles.cardIcon} />
-                <div className={styles.cardContent}>
-                  <h3>{problem.title}</h3>
-                  <p>{problem.description}</p>
-                </div>
+          <div className={styles.divider} />
+
+          <div className={styles.grid}>
+            {problems.map((problem) => (
+              <div key={problem.title} className={styles.item}>
+                <span className={styles.dash} />
+                <h3>{problem.title}</h3>
+                <p>{problem.description}</p>
               </div>
             ))}
           </div>
