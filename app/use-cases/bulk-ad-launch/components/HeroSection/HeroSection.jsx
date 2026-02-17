@@ -11,7 +11,7 @@ export default function HeroSection() {
 
           <h1>
             Launch <span className={styles.accent}>Hundreds of Ads</span> in
-            Minutes Without Manual Setup
+            minutes without manual setup
           </h1>
 
           <p className={styles.description}>
