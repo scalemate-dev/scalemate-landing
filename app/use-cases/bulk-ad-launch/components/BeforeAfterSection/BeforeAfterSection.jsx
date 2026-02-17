@@ -1,116 +1,93 @@
+"use client"
+
+import { useState, useEffect, useRef } from "react"
 import Container from "@/components/elements/Container/Container"
-import {
-  IconClock,
-  IconCalendarDown,
-  IconChartArrows,
-} from "@tabler/icons-react"
 import styles from "./BeforeAfterSection.module.scss"
 
 const metrics = [
-  {
-    value: "65%",
-    label: "Faster Deployment",
-    description: "Creative deployment speed improvement",
-    icon: IconClock,
-  },
-  {
-    value: "25%+",
-    label: "Hours Saved Weekly",
-    description: "Reduction in weekly operational hours",
-    icon: IconCalendarDown,
-  },
-  {
-    value: "3–5x",
-    label: "Faster Than Manual",
-    description: "Time saved vs. manual assembly line",
-    icon: IconChartArrows,
-  },
+  { value: "3x", prefix: "faster", desc: "than manual campaign setup" },
+  { value: "65%", prefix: "faster", desc: "creative deployment" },
+  { value: "25%+", prefix: "reduction", desc: "in weekly operational hours" },
 ]
 
 export default function BeforeAfterSection() {
+  const ref = useRef(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.12 },
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section className={styles.section}>
+    <section
+      ref={ref}
+      className={`${styles.section} ${visible ? styles.visible : ""}`}
+    >
       <Container>
-        <div className={styles.sectionHeader}>
-          <h2>What Changes With Scalemate</h2>
-          <p>
-            The gap between manual and automated deployment is measurable — in
-            hours saved and campaigns launched per week.
+        <header className={styles.header}>
+          <span className={styles.eyebrow}>The Difference</span>
+          <h2 className={styles.title}>What changes with Scalemate</h2>
+          <p className={styles.subtitle}>
+            The gap between manual and automated deployment is measurable.
           </p>
-        </div>
+        </header>
 
         <div className={styles.comparison}>
-          <div className={styles.comparisonCard}>
-            <div className={styles.cardLabel}>
-              <span className={styles.labelBefore}>Before</span>
-            </div>
-            <h3>Manual Setup That Eats the Entire Week</h3>
-            <p>
-              Every ad assembled by hand, matched to the right placement. One
-              concept, ten markets — ten ad sets. 3–5x longer than it should
-              take.
+          <div className={styles.beforeSide}>
+            <span className={styles.sideLabel}>Before</span>
+            <h3 className={styles.sideTitle}>Manual setup eats entire week</h3>
+            <p className={styles.sideText}>
+              One concept, ten markets – ten ad sets, each built by hand. 3–5x
+              longer than it should take.
             </p>
-            <div className={styles.painPoints}>
-              <div className={styles.painPoint}>
-                <span className={styles.painIcon}>&#10005;</span>
-                Hours of manual clicking
-              </div>
-              <div className={styles.painPoint}>
-                <span className={styles.painIcon}>&#10005;</span>
-                Error-prone copy-paste
-              </div>
-              <div className={styles.painPoint}>
-                <span className={styles.painIcon}>&#10005;</span>
-                Creative bottleneck
-              </div>
-            </div>
           </div>
 
-          <div className={styles.divider}>
-            <div className={styles.dividerLine} />
-            <span className={styles.dividerIcon}>&#8594;</span>
-            <div className={styles.dividerLine} />
-          </div>
-
-          <div className={`${styles.comparisonCard} ${styles.afterCard}`}>
-            <div className={styles.cardLabel}>
-              <span className={styles.labelAfter}>After</span>
-            </div>
-            <h3>Hundreds of Ads From One Setup</h3>
-            <p>
+          <div className={styles.afterSide}>
+            <span className={`${styles.sideLabel} ${styles.sideLabelAccent}`}>
+              After
+            </span>
+            <h3 className={styles.sideTitle}>Hundreds of Ads from one setup</h3>
+            <p className={styles.sideText}>
               Scalemate&apos;s <strong>bulk ad launch tool</strong> automates
-              the entire deployment. Creatives sync from cloud storage into the
-              media library. Campaign structures — including one-ad-per-ad-set —
-              configured once, applied across hundreds of ad sets.
+              the entire deployment – creatives sync from cloud storage,
+              campaign structures configured once, applied across hundreds of ad
+              sets.
             </p>
-            <div className={styles.gains}>
-              <div className={styles.gain}>
-                <span className={styles.gainIcon}>&#10003;</span>
-                Minutes instead of days
-              </div>
-              <div className={styles.gain}>
-                <span className={styles.gainIcon}>&#10003;</span>
-                Zero manual errors
-              </div>
-              <div className={styles.gain}>
-                <span className={styles.gainIcon}>&#10003;</span>
-                Focus shifts to strategy
-              </div>
-            </div>
           </div>
         </div>
 
-        <div className={styles.metricsGrid}>
-          {metrics.map((metric, index) => (
-            <div key={index} className={styles.metricCard}>
-              <div className={styles.metricIcon}>
-                <metric.icon size={24} />
+        <div className={styles.resultsBlock}>
+          <div className={styles.resultsHeader}>
+            <div />
+            <p className={styles.resultsLeadIn}>
+              What used to be a repetitive ad creation workflow now runs
+              automatically. No more launching ads one by one —{" "}
+              <strong>mass ad campaign creation</strong> becomes the default.
+            </p>
+          </div>
+          <p className={styles.resultsLabel}>The shift is measurable</p>
+          <div className={styles.metricsGrid}>
+            {metrics.map((m, i) => (
+              <div key={i} className={styles.metric}>
+                <span className={styles.metricValue}>{m.value}</span>
+                <span className={styles.metricDesc}>
+                  <strong>{m.prefix}</strong> {m.desc}
+                </span>
               </div>
-              <div className={styles.metricValue}>{metric.value}</div>
-              <div className={styles.metricLabel}>{metric.label}</div>
-              <p className={styles.metricDescription}>{metric.description}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </Container>
     </section>

@@ -16,7 +16,7 @@ export default function HeroSection() {
 
           <p className={styles.description}>
             A <strong>bulk ad launch tool</strong> removes the manual grind from
-            campaign deployment — no more slow launches or hours spent on
+            campaign deployment, no more slow launches or hours spent on
             repetitive setup. One setup covers the full workflow:
           </p>
 
