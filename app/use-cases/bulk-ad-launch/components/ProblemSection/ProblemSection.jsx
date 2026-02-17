@@ -5,17 +5,17 @@ const problems = [
   {
     title: "Repetitive Ad Creation Workflow",
     description:
-      "Launching ads one by one means repeating the same sequence per ad set: creative, resolutions, targeting. Multiply by languages — days of clicking. Volume compounds micro-mistakes into budget waste.",
+      "Launching ads one by one means repeating the same sequence per ad set: creative, resolutions, targeting. Multiply by languages – days of clicking. Volume compounds micro-mistakes into budget waste.",
   },
   {
     title: "The Platform Keeps Breaking",
     description:
-      "Facebook Ads Manager wasn't built for mass ad campaign creation at this scale. Five concepts across fifteen languages means seventy-five combinations — each requiring a separate ad set built by hand. The platform lags, crashes mid-upload, or drops assets.",
+      "Facebook Ads Manager wasn't built for mass ad campaign creation at this scale. Five concepts across fifteen languages means seventy-five combinations – each requiring a separate ad set built by hand. The platform lags, crashes mid-upload, or drops assets.",
   },
   {
     title: "More Scale = More People?",
     description:
-      "When campaign volume outgrows capacity, the default is hiring — another buyer, another coordinator, same mechanical tasks. But scaling ads without hiring buyers is possible when tooling removes the bottleneck.",
+      "When campaign volume outgrows capacity, the default is hiring – another buyer, another coordinator, same mechanical tasks. But scaling ads without hiring buyers is possible when tooling removes the bottleneck.",
   },
 ]
 
