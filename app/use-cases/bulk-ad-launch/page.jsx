@@ -56,7 +56,7 @@ const faqItems = [
   {
     question: "Which cloud storage platforms does Scalemate integrate with?",
     answer:
-      "Google Drive and NextCloud are supported natively, with custom integrations available for other storage providers. The connection runs through a direct API sync \u2014 no browser extensions, plugins, or manual exports required. Once connected, teams select which folders or files to push into Meta\u2019s Media Library, with automatic deduplication handling the rest.",
+      "Google Drive and NextCloud are supported natively, with custom integrations available for other storage providers. The connection runs through a direct API sync \u2014 no browser extensions, plugins, or manual exports required. Once connected, teams select which folders or files to push into Meta\u2019s Media Library, with automatic deduplication handling the rest. Need a custom cloud storage integration? Contact us to discuss your setup.",
   },
   {
     question: "How long does it take to set up a bulk ad launch?",
@@ -66,7 +66,7 @@ const faqItems = [
   {
     question: "Which ad platforms are supported for bulk ad launch?",
     answer:
-      "Scalemate currently supports bulk ad launch across Meta (Facebook & Instagram), TikTok, and Google Ads. The same workflow applies \u2014 configure once, deploy across ad sets in minutes.",
+      "Scalemate currently supports bulk ad launch across Meta (Facebook & Instagram), TikTok, and Google Ads. The same workflow applies \u2014 configure once, deploy across ad sets in minutes. If your team runs campaigns on a platform not yet listed, Scalemate accepts custom integration requests.",
   },
   {
     question:
