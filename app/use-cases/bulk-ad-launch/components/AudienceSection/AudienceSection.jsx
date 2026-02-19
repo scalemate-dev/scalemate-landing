@@ -68,8 +68,8 @@ export default function AudienceSection() {
 
         <footer className={styles.footer}>
           <p className={styles.footerLabel}>
-            Scalemate fits any team running paid acquisition with high creative
-            volume:
+            Scalemate fits any industry running paid acquisition with high
+            creative volume:
           </p>
           <ul className={styles.industryList}>
             <li>Marketing Agencies</li>
