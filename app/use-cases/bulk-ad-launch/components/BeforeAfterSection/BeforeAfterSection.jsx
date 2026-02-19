@@ -69,25 +69,22 @@ export default function BeforeAfterSection() {
         </div>
 
         <div className={styles.resultsBlock}>
-          <div className={styles.resultsHeader}>
-            <div />
-            <p className={styles.resultsLeadIn}>
-              What used to be a repetitive ad creation workflow now runs
-              automatically. No more launching ads one by one —{" "}
-              <strong>mass ad campaign creation</strong> becomes the default.
-            </p>
-          </div>
-          <p className={styles.resultsLabel}>The shift is measurable</p>
-          <div className={styles.metricsGrid}>
+          <p className={styles.resultsLabel}>The shift is measurable:</p>
+          <ul className={styles.metricsGrid}>
             {metrics.map((m, i) => (
-              <div key={i} className={styles.metric}>
+              <li key={i} className={styles.metric}>
                 <span className={styles.metricValue}>{m.value}</span>
                 <span className={styles.metricDesc}>
                   <strong>{m.prefix}</strong> {m.desc}
                 </span>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
+          <p className={styles.resultsLeadIn}>
+            What used to be a repetitive ad creation workflow now runs
+            automatically. No more launching ads one by one —{" "}
+            <strong>mass ad campaign creation</strong> becomes the default.
+          </p>
         </div>
       </Container>
     </section>
