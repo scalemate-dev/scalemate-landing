@@ -131,38 +131,54 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
     transition-delay: 0.7s;
   }
 
-  // Stagger launch items
-  .vizLaunchHeader {
+  // Pipeline vertical flow stagger
+  .pipelineConnector,
+  .pipelineFork {
     opacity: 1;
-    transform: none;
-    transition-delay: 0.3s;
+    transition-delay: 0.35s;
   }
 
-  .vizProgressFill {
-    transform: scaleX(1);
-    transition-delay: 0.45s;
-  }
-
-  .vizLaunchItem {
+  .pipelineNode {
     opacity: 1;
     transform: none;
 
-    @for $i from 1 through 4 {
-      &:nth-child(#{$i}) {
-        transition-delay: #{0.55 + ($i * 0.08)}s;
-      }
-    }
-  }
-
-  .vizLaunchMore {
-    opacity: 1;
-    transition-delay: 0.95s;
+    &[data-row="1"] { transition-delay: 0.3s; }
+    &[data-row="2"] { transition-delay: 0.5s; }
+    &[data-row="3"] { transition-delay: 0.7s; }
+    &[data-row="4"] { transition-delay: 0.9s; }
   }
 
   .vizSyncResult {
     opacity: 1;
     transform: none;
     transition-delay: 0.65s;
+  }
+
+  // Config flow diagram stagger
+  .cfgLines {
+    opacity: 1;
+    transition-delay: 0.5s;
+  }
+
+  .cfgPill {
+    opacity: 1;
+    transform: none;
+
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) {
+        transition-delay: #{0.3 + ($i * 0.1)}s;
+      }
+    }
+  }
+
+  .cfgCenter {
+    opacity: 1;
+    transition-delay: 0.6s;
+  }
+
+  .cfgTree {
+    opacity: 1;
+    transition-delay: 0.8s;
   }
 }
 
@@ -177,10 +193,14 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
   .vizFile,
   .vizParam,
   .vizApply,
-  .vizLaunchHeader,
-  .vizLaunchItem,
-  .vizLaunchMore,
-  .vizSyncResult {
+  .pipelineNode,
+  .pipelineConnector,
+  .pipelineFork,
+  .vizSyncResult,
+  .cfgPill,
+  .cfgCenter,
+  .cfgTree,
+  .cfgLines {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
@@ -193,11 +213,6 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
 
   .step::after {
     opacity: 0.03 !important;
-    transition: none !important;
-  }
-
-  .vizProgressFill {
-    transform: scaleX(1) !important;
     transition: none !important;
   }
 
@@ -743,178 +758,433 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 // ———————————————————————————————————————
-// Config visual — with internal stagger
+// Config flow diagram — block 2
 // ———————————————————————————————————————
 
-.vizConfig {
-  display: flex;
-  flex-direction: column;
+.cfgDiagram {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 52 / 36;
+  min-height: 300px;
 }
 
-.vizParam {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba($_ink, 0.04);
-  opacity: 0;
-  transform: translateY(8px);
-  transition:
-    opacity 0.6s $_ease,
-    transform 0.6s $_ease;
-
-  &:first-child {
-    padding-top: 0;
-  }
-
-  &:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-}
-
-.vizParamKey {
-  font-family: $font-body;
-  font-size: 12px;
-  font-weight: 500;
-  color: $_stone;
-  letter-spacing: 0.02em;
-}
-
-.vizParamValue {
-  font-family: $font-body;
-  font-size: 13px;
-  font-weight: 500;
-  color: $_ink;
-  text-align: right;
-}
-
-.vizApply {
-  margin-top: 20px;
-  padding: 12px 16px;
-  text-align: center;
-  font-family: $font-body;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: $_accent;
-  border: 1px solid rgba($_accent, 0.18);
-  border-radius: 10px;
-  background: rgba($_accent, 0.03);
-  opacity: 0;
-  transform: translateY(8px);
-  transition:
-    opacity 0.6s $_ease,
-    transform 0.6s $_ease,
-    background 0.3s ease,
-    border-color 0.3s ease;
-
-  &:hover {
-    background: rgba($_accent, 0.06);
-    border-color: rgba($_accent, 0.3);
-  }
-}
-
-// ———————————————————————————————————————
-// Launch visual — with internal stagger
-// ———————————————————————————————————————
-
-.vizLaunch {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.vizLaunchHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  opacity: 0;
-  transform: translateY(8px);
-  transition:
-    opacity 0.6s $_ease,
-    transform 0.6s $_ease;
-
-  span:first-child {
-    font-family: $font-heading;
-    font-size: 15px;
-    font-weight: 600;
-    color: $_ink;
-  }
-}
-
-.vizLaunchComplete {
-  font-family: $font-body;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: $_success;
-}
-
-.vizProgressBar {
-  height: 3px;
-  background: rgba($_ink, 0.05);
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-.vizProgressFill {
+.cfgLines {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, $_accent, lighten($_accent, 8%));
-  border-radius: 2px;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 1.2s $_ease;
+  z-index: 0;
+  overflow: visible;
+  opacity: 0;
+  transition: opacity 1s $_ease;
 }
 
-.vizLaunchList {
+.cfgPath {
+  stroke: $_line;
+  stroke-width: 1.5;
+  fill: none;
+  opacity: 0.6;
+}
+
+.cfgDotStatic {
+  fill: $_stone;
+  opacity: 0.35;
+}
+
+.cfgDotAnimated {
+  fill: $_accent;
+  opacity: 0.7;
+}
+
+// ——— Left: Parameter pills ———
+
+.cfgParams {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
+  gap: 12px;
+  z-index: 1;
 }
 
-.vizLaunchItem {
+.cfgPill {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba($_ink, 0.04);
+  gap: 10px;
+  padding: 10px 16px 10px 12px;
+  background: linear-gradient(168deg, rgba(#fff, 0.9) 0%, rgba(#FEFCFA, 0.8) 100%);
+  border: 1px solid rgba($_ink, 0.06);
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 1px 3px rgba(42, 39, 36, 0.04),
+    0 4px 16px rgba(42, 39, 36, 0.04);
   opacity: 0;
-  transform: translateY(6px);
+  transform: translateX(-12px);
   transition:
-    opacity 0.5s $_ease,
-    transform 0.5s $_ease;
-
-  &:last-child {
-    border-bottom: none;
-  }
-
-  span:first-child {
-    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Menlo', monospace;
-    font-size: 11.5px;
-    color: $_body;
-    letter-spacing: -0.01em;
-  }
+    opacity 0.7s $_ease,
+    transform 0.7s $_ease;
 }
 
-.vizLive {
-  font-family: $font-body;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: $_success;
+.cfgPillIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: rgba($_accent, 0.1);
+  color: $_accent;
+  flex-shrink: 0;
 }
 
-.vizLaunchMore {
-  padding-top: 12px;
+.cfgPillLabel {
   font-family: $font-body;
   font-size: 12px;
-  color: $_stone;
+  font-weight: 600;
+  color: $_ink;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  white-space: pre-line;
+}
+
+// ——— Center: Smart Template ———
+
+.cfgCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 1;
   opacity: 0;
   transition: opacity 0.8s $_ease;
 }
+
+.cfgTemplateStack {
+  position: relative;
+  width: 110px;
+  height: 88px;
+  perspective: 400px;
+}
+
+.cfgTemplateCard {
+  position: absolute;
+  border-radius: 12px;
+  border: 1px solid rgba($_ink, 0.06);
+  box-shadow: 0 2px 10px rgba(42, 39, 36, 0.06);
+
+  &[data-layer="3"] {
+    width: 86px;
+    height: 60px;
+    background: rgba(#fff, 0.45);
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) rotateX(8deg);
+    z-index: 0;
+  }
+
+  &[data-layer="2"] {
+    width: 96px;
+    height: 66px;
+    background: rgba(#fff, 0.65);
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%) rotateX(5deg);
+    z-index: 1;
+  }
+
+  &[data-layer="1"] {
+    width: 106px;
+    height: 72px;
+    background: linear-gradient(168deg, #fff 0%, #FEFCFA 100%);
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    overflow: hidden;
+    padding: 12px;
+    border: 1.5px solid rgba($_accent, 0.12);
+    box-shadow:
+      0 2px 8px rgba($_accent, 0.06),
+      0 6px 20px rgba(42, 39, 36, 0.05);
+  }
+}
+
+.cfgTemplateLines {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.cfgTemplateLine {
+  height: 3px;
+  border-radius: 2px;
+  background: rgba($_accent, 0.2);
+}
+
+.cfgTemplateBlock {
+  width: 40px;
+  height: 18px;
+  border-radius: 4px;
+  background: rgba($_accent, 0.1);
+  margin-top: 3px;
+}
+
+.cfgCenterLabel {
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 600;
+  color: $_body;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+// ——— Right: Campaign tree structure ———
+
+.cfgTree {
+  position: absolute;
+  right: 2%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  opacity: 0;
+  transition: opacity 0.8s $_ease;
+}
+
+.cfgTreeNode {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px 6px 8px;
+  background: linear-gradient(168deg, rgba(#fff, 0.88) 0%, rgba(#FEFCFA, 0.75) 100%);
+  border: 1px solid rgba($_ink, 0.06);
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+  box-shadow:
+    0 1px 3px rgba(42, 39, 36, 0.03),
+    0 3px 12px rgba(42, 39, 36, 0.04);
+  white-space: nowrap;
+
+  span {
+    font-family: $font-body;
+    font-size: 10.5px;
+    font-weight: 600;
+    color: $_ink;
+    letter-spacing: -0.005em;
+  }
+
+  &[data-level="campaign"] {
+    margin-bottom: 6px;
+
+    .cfgTreeIcon {
+      background: rgba($_accent, 0.1);
+      color: $_accent;
+    }
+
+    span {
+      font-size: 11.5px;
+      font-weight: 700;
+    }
+  }
+
+  &[data-level="adset"] {
+    .cfgTreeIcon {
+      background: rgba(#6B9FD6, 0.12);
+      color: #5B8EC4;
+    }
+
+    span {
+      color: $_body;
+    }
+  }
+
+  &[data-level="ad"] {
+    .cfgTreeIcon {
+      background: rgba($_stone, 0.1);
+      color: $_stone;
+    }
+
+    span {
+      font-size: 10px;
+      font-weight: 500;
+      color: $_body-faded;
+    }
+  }
+}
+
+.cfgTreeIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  flex-shrink: 0;
+}
+
+.cfgTreeRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 28px;
+  margin-bottom: 8px;
+}
+
+// ———————————————————————————————————————
+// Pipeline visual — vertical flow (block 3)
+// ———————————————————————————————————————
+
+.pipelineDiagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.pipelineConnector {
+  width: 1.5px;
+  height: 24px;
+  background: $_line;
+  opacity: 0;
+  flex-shrink: 0;
+  transition: opacity 0.8s $_ease;
+}
+
+.pipelineFork {
+  width: 200px;
+  height: 32px;
+  flex-shrink: 0;
+  margin-bottom: 2px;
+  opacity: 0;
+  transition: opacity 0.8s $_ease;
+}
+
+.pipelinePath {
+  stroke: $_line;
+  stroke-width: 1.5;
+  fill: none;
+  opacity: 0.5;
+}
+
+// ——— Pipeline nodes ———
+
+.pipelineNode {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.8s $_ease,
+    transform 0.8s $_ease;
+}
+
+.pipelineNodeInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 20px 10px;
+  background: linear-gradient(168deg, rgba(#fff, 0.88) 0%, rgba(#FEFCFA, 0.75) 100%);
+  border: 1px solid rgba($_ink, 0.06);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 1px 3px rgba(42, 39, 36, 0.04),
+    0 6px 24px rgba(42, 39, 36, 0.05);
+
+  &[data-brand="scalemate"] {
+    padding: 16px 24px 12px;
+  }
+
+  &[data-brand="template"] {
+    padding: 14px 18px 10px;
+    border: 1.5px solid rgba($_accent, 0.12);
+    box-shadow:
+      0 2px 8px rgba($_accent, 0.06),
+      0 6px 20px rgba(42, 39, 36, 0.05);
+  }
+}
+
+.pipelineNodeIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  background: rgba(#fff, 0.9);
+  border: 1px solid rgba($_ink, 0.05);
+  box-shadow: 0 1px 4px rgba(42, 39, 36, 0.06);
+}
+
+.pipelineNodeLogo {
+  width: 80px;
+  height: auto;
+
+  path {
+    fill: $_ink;
+  }
+}
+
+.pipelineNodeLabel {
+  font-family: $font-body;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $_body;
+  white-space: nowrap;
+}
+
+// Template preview inside pipeline
+.pipelineTemplatePreview {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 10px;
+  background: rgba(#fff, 0.7);
+  border: 1px solid rgba($_ink, 0.04);
+  border-radius: 8px;
+  width: 80px;
+}
+
+.pipelineTemplateLine {
+  height: 3px;
+  border-radius: 2px;
+  background: rgba($_accent, 0.2);
+}
+
+.pipelineTemplateBlock {
+  width: 32px;
+  height: 12px;
+  border-radius: 3px;
+  background: rgba($_accent, 0.1);
+  margin-top: 2px;
+}
+
+// ——— Pipeline outputs row ———
+
+.pipelineOutputs {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
 
 // ———————————————————————————————————————
 // Responsive
@@ -1023,6 +1293,29 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
   .flowNodeFiles {
     display: none;
   }
+
+  .cfgDiagram {
+    min-height: 260px;
+  }
+
+  .cfgPillLabel {
+    font-size: 11px;
+  }
+
+  .cfgPill {
+    padding: 8px 12px 8px 10px;
+    gap: 8px;
+  }
+
+  .cfgPillIcon {
+    width: 30px;
+    height: 30px;
+
+    svg {
+      width: 15px;
+      height: 15px;
+    }
+  }
 }
 
 @include mobile {
@@ -1093,6 +1386,138 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
 
   .flowDiagram {
     min-height: 200px;
+  }
+
+  .cfgDiagram {
+    min-height: 220px;
+  }
+
+  .cfgParams {
+    gap: 8px;
+  }
+
+  .cfgPill {
+    padding: 6px 10px 6px 8px;
+    gap: 6px;
+    border-radius: 10px;
+  }
+
+  .cfgPillIcon {
+    width: 26px;
+    height: 26px;
+    border-radius: 7px;
+
+    svg {
+      width: 13px;
+      height: 13px;
+    }
+  }
+
+  .cfgPillLabel {
+    font-size: 10px;
+  }
+
+  .cfgTemplateStack {
+    width: 76px;
+    height: 60px;
+  }
+
+  .cfgTemplateCard {
+    &[data-layer="3"] { width: 60px; height: 42px; }
+    &[data-layer="2"] { width: 66px; height: 46px; }
+    &[data-layer="1"] { width: 72px; height: 50px; padding: 8px; }
+  }
+
+  .cfgCenterLabel {
+    font-size: 9px;
+  }
+
+  .cfgTreeNode {
+    padding: 4px 8px 4px 6px;
+    border-radius: 8px;
+    gap: 5px;
+
+    span {
+      font-size: 9px;
+    }
+
+    &[data-level="campaign"] span {
+      font-size: 9.5px;
+    }
+
+    &[data-level="ad"] span {
+      font-size: 8.5px;
+    }
+  }
+
+  .cfgTreeIcon {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+
+    svg {
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  .cfgTreeRow {
+    margin-left: 20px;
+    margin-bottom: 6px;
+    gap: 4px;
+  }
+
+  .pipelineDiagram {
+    max-width: 260px;
+  }
+
+  .pipelineConnector {
+    height: 16px;
+  }
+
+  .pipelineFork {
+    width: 160px;
+    height: 26px;
+  }
+
+  .pipelineNodeInner {
+    padding: 10px 14px 8px;
+    border-radius: 12px;
+    gap: 6px;
+  }
+
+  .pipelineNodeIcon {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+
+    img {
+      width: 18px !important;
+      height: 18px !important;
+    }
+  }
+
+  .pipelineNodeLogo {
+    width: 60px;
+  }
+
+  .pipelineNodeLabel {
+    font-size: 9px;
+  }
+
+  .pipelineTemplatePreview {
+    width: 64px;
+    padding: 6px 8px;
+  }
+
+  .pipelineOutputs {
+    gap: 16px;
+  }
+
+  .pipelineDiagram {
+    > .pipelineNode[data-row="1"] { margin-bottom: 14px; }
+    > .pipelineNode[data-row="2"] { margin-bottom: 14px; }
+    > .pipelineNode[data-row="3"] { margin-bottom: 18px; }
   }
 
   .flowNodeInner {

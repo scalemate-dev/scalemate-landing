@@ -203,32 +203,285 @@ function SyncVisual() {
   )
 }
 
-const params = [
-  { key: "Budget", value: "$50 / day per ad set" },
-  { key: "Targeting", value: "Lookalike 1% — US, DE, UK" },
-  { key: "Placements", value: "Feed, Reels, Stories" },
-  { key: "Structure", value: "1 ad per ad set" },
-  { key: "Naming", value: "{concept}_{lang}_{date}" },
-]
-
-const launches = [
-  "concept_A_en",
-  "concept_A_de",
-  "concept_B_en",
-  "concept_B_fr",
+const configParams = [
+  {
+    label: "Budget",
+    icon: (
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <circle cx="12" cy="12" r="10" />
+        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+        <line x1="12" y1="8" x2="12" y2="8" />
+        <path d="M15 9.5V6a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v.5" />
+        <circle cx="8" cy="16" r="2" />
+        <circle cx="16" cy="16" r="2" />
+        <circle cx="12" cy="10" r="2" />
+      </svg>
+    ),
+  },
+  {
+    label: "Targeting",
+    icon: (
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <circle cx="12" cy="12" r="10" />
+        <circle cx="12" cy="12" r="6" />
+        <circle cx="12" cy="12" r="2" />
+      </svg>
+    ),
+  },
+  {
+    label: "Placements",
+    icon: (
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <rect x="3" y="3" width="7" height="7" rx="1" />
+        <rect x="14" y="3" width="7" height="7" rx="1" />
+        <rect x="3" y="14" width="7" height="7" rx="1" />
+        <rect x="14" y="14" width="7" height="7" rx="1" />
+      </svg>
+    ),
+  },
+  {
+    label: "Distribution \n control",
+    icon: (
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+      </svg>
+    ),
+  },
 ]
 
 function ConfigVisual() {
   return (
-    <div className={styles.visual}>
-      <div className={styles.vizConfig}>
-        {params.map((param, i) => (
-          <div key={i} className={styles.vizParam}>
-            <span className={styles.vizParamKey}>{param.key}</span>
-            <span className={styles.vizParamValue}>{param.value}</span>
+    <div className={styles.cfgDiagram}>
+      {/* SVG connection lines */}
+      <svg
+        className={styles.cfgLines}
+        viewBox="0 0 520 360"
+        fill="none"
+        preserveAspectRatio="xMidYMid meet"
+      >
+        {/* Param pills → Smart Template (center) */}
+        <path
+          d="M 128 75 C 175 75, 200 145, 240 150"
+          className={styles.cfgPath}
+        />
+        <path
+          d="M 128 130 C 180 130, 205 150, 240 158"
+          className={styles.cfgPath}
+        />
+        <path
+          d="M 128 210 C 180 210, 205 175, 240 172"
+          className={styles.cfgPath}
+        />
+        <path
+          d="M 128 290 C 175 290, 200 190, 240 185"
+          className={styles.cfgPath}
+        />
+
+        {/* Smart Template → Campaign tree */}
+        <path
+          d="M 305 165 C 355 165, 360 110, 395 110"
+          className={styles.cfgPath}
+        />
+
+        {/* Static dots at pill endpoints */}
+        <circle cx="128" cy="75" r="3" className={styles.cfgDotStatic} />
+        <circle cx="128" cy="130" r="3" className={styles.cfgDotStatic} />
+        <circle cx="128" cy="210" r="3" className={styles.cfgDotStatic} />
+        <circle cx="128" cy="290" r="3" className={styles.cfgDotStatic} />
+
+        {/* Animated dots — pills to template */}
+        <circle r="3" className={styles.cfgDotAnimated}>
+          <animateMotion
+            dur="2s"
+            repeatCount="indefinite"
+            path="M 128 75 C 175 75, 200 145, 240 150"
+          />
+        </circle>
+        <circle r="3" className={styles.cfgDotAnimated}>
+          <animateMotion
+            dur="2.2s"
+            repeatCount="indefinite"
+            begin="0.5s"
+            path="M 128 130 C 180 130, 205 150, 240 158"
+          />
+        </circle>
+        <circle r="3" className={styles.cfgDotAnimated}>
+          <animateMotion
+            dur="2.1s"
+            repeatCount="indefinite"
+            begin="1s"
+            path="M 128 210 C 180 210, 205 175, 240 172"
+          />
+        </circle>
+        <circle r="3" className={styles.cfgDotAnimated}>
+          <animateMotion
+            dur="2.4s"
+            repeatCount="indefinite"
+            begin="0.3s"
+            path="M 128 290 C 175 290, 200 190, 240 185"
+          />
+        </circle>
+
+        {/* Animated dots — template to campaign tree */}
+        <circle r="3" className={styles.cfgDotAnimated}>
+          <animateMotion
+            dur="1.8s"
+            repeatCount="indefinite"
+            begin="1.2s"
+            path="M 305 165 C 355 165, 360 110, 395 110"
+          />
+        </circle>
+        <circle
+          r="2.5"
+          className={styles.cfgDotAnimated}
+          style={{ opacity: 0.45 }}
+        >
+          <animateMotion
+            dur="1.8s"
+            repeatCount="indefinite"
+            begin="2.4s"
+            path="M 305 165 C 355 165, 360 110, 395 110"
+          />
+        </circle>
+      </svg>
+
+      {/* Left: Parameter pills */}
+      <div className={styles.cfgParams}>
+        {configParams.map((p, i) => (
+          <div key={i} className={styles.cfgPill}>
+            <div className={styles.cfgPillIcon}>{p.icon}</div>
+            <span className={styles.cfgPillLabel}>{p.label}</span>
           </div>
         ))}
-        <div className={styles.vizApply}>Apply to all 75 ad sets</div>
+      </div>
+
+      {/* Center: Smart Template */}
+      <div className={styles.cfgCenter}>
+        <div className={styles.cfgTemplateStack}>
+          <div className={styles.cfgTemplateCard} data-layer="3" />
+          <div className={styles.cfgTemplateCard} data-layer="2" />
+          <div className={styles.cfgTemplateCard} data-layer="1">
+            <div className={styles.cfgTemplateLines}>
+              <div
+                className={styles.cfgTemplateLine}
+                style={{ width: "60%" }}
+              />
+              <div
+                className={styles.cfgTemplateLine}
+                style={{ width: "80%" }}
+              />
+              <div
+                className={styles.cfgTemplateLine}
+                style={{ width: "45%" }}
+              />
+              <div className={styles.cfgTemplateBlock} />
+            </div>
+          </div>
+        </div>
+        <span className={styles.cfgCenterLabel}>Smart Template</span>
+      </div>
+
+      {/* Right: Campaign structure tree */}
+      <div className={styles.cfgTree}>
+        {/* Campaign node */}
+        <div className={styles.cfgTreeNode} data-level="campaign">
+          <div className={styles.cfgTreeIcon}>
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M3 3h18v18H3z" />
+              <path d="M3 9h18" />
+              <path d="M9 21V9" />
+            </svg>
+          </div>
+          <span>Campaign</span>
+        </div>
+
+        {/* Ad Set rows */}
+        {[1, 2, 3].map((n) => (
+          <div key={n} className={styles.cfgTreeRow} data-row={n}>
+            <div className={styles.cfgTreeNode} data-level="adset">
+              <div className={styles.cfgTreeIcon}>
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <circle cx="12" cy="12" r="4" />
+                </svg>
+              </div>
+              <span>Ad Set {n}</span>
+            </div>
+            <div className={styles.cfgTreeNode} data-level="ad">
+              <div className={styles.cfgTreeIcon}>
+                <svg
+                  width="11"
+                  height="11"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <circle cx="8.5" cy="8.5" r="1.5" />
+                  <polyline points="21 15 16 10 5 21" />
+                </svg>
+              </div>
+              <span>Ad</span>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   )
@@ -236,23 +489,89 @@ function ConfigVisual() {
 
 function LaunchVisual() {
   return (
-    <div className={styles.visual}>
-      <div className={styles.vizLaunch}>
-        <div className={styles.vizLaunchHeader}>
-          <span>75 ad sets</span>
-          <span className={styles.vizLaunchComplete}>Complete</span>
+    <div className={styles.pipelineDiagram}>
+      {/* Row 1: Google Drive */}
+      <div className={styles.pipelineNode} data-row="1">
+        <div className={styles.pipelineNodeInner}>
+          <div className={styles.pipelineNodeIcon}>
+            <Image
+              src={googleDriveIcon}
+              alt="Google Drive"
+              width={24}
+              height={24}
+            />
+          </div>
+          <span className={styles.pipelineNodeLabel}>Google Drive</span>
         </div>
-        <div className={styles.vizProgressBar}>
-          <div className={styles.vizProgressFill} />
+      </div>
+
+      <div className={styles.pipelineConnector} />
+
+      {/* Row 2: Scalemate */}
+      <div className={styles.pipelineNode} data-row="2">
+        <div className={styles.pipelineNodeInner} data-brand="scalemate">
+          <Logo className={styles.pipelineNodeLogo} />
         </div>
-        <div className={styles.vizLaunchList}>
-          {launches.map((name, i) => (
-            <div key={i} className={styles.vizLaunchItem}>
-              <span>{name}</span>
-              <span className={styles.vizLive}>Live</span>
+      </div>
+
+      <div className={styles.pipelineConnector} />
+
+      {/* Row 3: Smart Template */}
+      <div className={styles.pipelineNode} data-row="3">
+        <div className={styles.pipelineNodeInner} data-brand="template">
+          <div className={styles.pipelineTemplatePreview}>
+            <div
+              className={styles.pipelineTemplateLine}
+              style={{ width: "55%" }}
+            />
+            <div
+              className={styles.pipelineTemplateLine}
+              style={{ width: "75%" }}
+            />
+            <div
+              className={styles.pipelineTemplateLine}
+              style={{ width: "40%" }}
+            />
+            <div className={styles.pipelineTemplateBlock} />
+          </div>
+          <span className={styles.pipelineNodeLabel}>Smart Template</span>
+        </div>
+      </div>
+
+      {/* Y-fork connector */}
+      <svg
+        className={styles.pipelineFork}
+        viewBox="0 0 200 40"
+        fill="none"
+        preserveAspectRatio="xMidYMid meet"
+      >
+        <path
+          d="M 100 0 C 100 20, 45 20, 45 40"
+          className={styles.pipelinePath}
+        />
+        <path
+          d="M 100 0 C 100 20, 155 20, 155 40"
+          className={styles.pipelinePath}
+        />
+      </svg>
+
+      {/* Row 4: TikTok + Meta side by side */}
+      <div className={styles.pipelineOutputs}>
+        <div className={styles.pipelineNode} data-row="4">
+          <div className={styles.pipelineNodeInner}>
+            <div className={styles.pipelineNodeIcon}>
+              <Image src={tiktokIcon} alt="TikTok" width={20} height={20} />
             </div>
-          ))}
-          <div className={styles.vizLaunchMore}>+71 more launched</div>
+            <span className={styles.pipelineNodeLabel}>TikTok Ads</span>
+          </div>
+        </div>
+        <div className={styles.pipelineNode} data-row="4">
+          <div className={styles.pipelineNodeInner}>
+            <div className={styles.pipelineNodeIcon}>
+              <Image src={metaIcon} alt="Meta" width={22} height={22} />
+            </div>
+            <span className={styles.pipelineNodeLabel}>Meta Ads</span>
+          </div>
         </div>
       </div>
     </div>
@@ -264,19 +583,19 @@ const steps = [
     number: "01",
     title: "Sync Ad Creatives from Cloud Storage",
     description:
-      "Scalemate connects to Google Drive, NextCloud, or other storage and pushes creatives into Meta\u2019s Media Library \u2014 with deduplication and filtering built in.",
+      "Scalemate connects to Google Drive, NextCloud, or other storage and pushes creatives into Meta And TikTok Media Library – with deduplication and filtering built in.",
     Visual: SyncVisual,
   },
   {
     number: "02",
-    title: "Set Campaign Parameters Once",
+    title: "Set Campaign parameters once",
     description:
-      "Budget, targeting, placements, naming conventions \u2014 configured once, ads destribution rules and saved to smart template. One-creative-per-ad-set tracking is supported.",
+      "Budget, targeting, placements, naming conventions, ads destribution rules, configured once and saved to smart template.",
     Visual: ConfigVisual,
   },
   {
     number: "03",
-    title: "Launch All Ads at Once",
+    title: "Launch all Ads at once",
     description:
       "Bulk ad deployment software that deploys hundreds of ad sets in one action \u2014 the launch ads at scale tool handles the volume, the team handles the decisions.",
     Visual: LaunchVisual,
