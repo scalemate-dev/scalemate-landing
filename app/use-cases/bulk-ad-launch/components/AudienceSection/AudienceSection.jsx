@@ -1,6 +1,5 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
 import Container from "@/components/elements/Container/Container"
 import styles from "./AudienceSection.module.scss"
 
@@ -23,30 +22,8 @@ const roles = [
 ]
 
 export default function AudienceSection() {
-  const ref = useRef(null)
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.12 },
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
   return (
-    <section
-      ref={ref}
-      className={`${styles.section} ${visible ? styles.visible : ""}`}
-    >
+    <section className={styles.section}>
       <Container>
         <header className={styles.header}>
           <h2 className={styles.title}>Who Bulk Ad Launch Is For</h2>

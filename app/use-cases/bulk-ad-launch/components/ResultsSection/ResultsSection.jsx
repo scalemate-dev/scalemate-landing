@@ -1,6 +1,5 @@
 "use client"
 
-import { useEffect, useRef } from "react"
 import Link from "next/link"
 import Container from "@/components/elements/Container/Container"
 import { IconArrowRight } from "@tabler/icons-react"
@@ -36,31 +35,11 @@ const caseStudies = [
 ]
 
 export default function ResultsSection() {
-  const sectionRef = useRef(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add(styles.revealed)
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.08, rootMargin: "0px 0px -60px 0px" },
-    )
-
-    const els = sectionRef.current?.querySelectorAll(`.${styles.reveal}`)
-    els?.forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
-
   return (
-    <section className={styles.section} ref={sectionRef}>
+    <section className={styles.section}>
       <Container>
         {/* Header */}
-        <div className={`${styles.header} ${styles.reveal}`}>
+        <div className={styles.header}>
           <span className={styles.eyebrow}>Proven Results</span>
           <div className={styles.headerGrid}>
             <h2 className={styles.title}>
@@ -79,7 +58,7 @@ export default function ResultsSection() {
           {caseStudies.map((study, idx) => (
             <article
               key={idx}
-              className={`${styles.card} ${styles.reveal}`}
+              className={styles.card}
             >
               <div className={styles.cardTop}>
                 <span className={styles.cardCompany}>{study.company}</span>

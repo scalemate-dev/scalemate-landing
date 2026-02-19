@@ -1,6 +1,3 @@
-"use client"
-
-import { useState, useEffect, useRef } from "react"
 import Container from "@/components/elements/Container/Container"
 import styles from "./BeforeAfterSection.module.scss"
 
@@ -11,30 +8,8 @@ const metrics = [
 ]
 
 export default function BeforeAfterSection() {
-  const ref = useRef(null)
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.12 },
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
   return (
-    <section
-      ref={ref}
-      className={`${styles.section} ${visible ? styles.visible : ""}`}
-    >
+    <section className={styles.section}>
       <Container>
         <header className={styles.header}>
           <span className={styles.eyebrow}>The Difference</span>
