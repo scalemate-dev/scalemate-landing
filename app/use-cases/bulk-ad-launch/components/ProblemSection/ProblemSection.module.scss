@@ -2,7 +2,7 @@
 
 .problem {
   position: relative;
-  padding: 120px 0 80px;
+  padding: 148px 0 80px;
   background: #faf9f6;
   overflow: hidden;
 
@@ -41,7 +41,7 @@
   font-family: $font-body;
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: #9b9488;
   display: block;
@@ -51,7 +51,7 @@
 .headerMain h2 {
   font-family: $font-heading;
   font-weight: 700;
-  font-size: 54px;
+  font-size: 52px;
   color: #1a1614;
   margin: 0;
   letter-spacing: -0.035em;
@@ -67,8 +67,8 @@
   font-family: $font-body;
   font-style: italic;
   font-size: 16px;
-  line-height: 1.75;
-  color: #7a7267;
+  line-height: 1.7;
+  color: #475467;
   margin: 0;
   max-width: 380px;
   padding-bottom: 8px;
@@ -183,8 +183,8 @@
   p {
     font-family: $font-body;
     font-size: 15px;
-    line-height: 1.8;
-    color: #7a7267;
+    line-height: 1.7;
+    color: #475467;
     margin: 0;
   }
 }

@@ -8,7 +8,7 @@
 // =========================================================
 
 $_ink: #1a1614;
-$_body: #7a7267;
+$_body: #475467;
 $_body-faded: #A8A49D;
 $_stone: #9C9890;
 $_line: #DDD9D2;
@@ -25,7 +25,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
 
 .howItWorks {
   position: relative;
-  padding: 160px 0 140px;
+  padding: 148px 0 140px;
   background: $_bg;
   overflow: hidden;
 
@@ -234,7 +234,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
   font-size: 11px;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.25em;
   color: $_stone;
   margin-bottom: 24px;
 }
@@ -244,7 +244,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
   font-weight: 700;
   font-size: 52px;
   line-height: 1.08;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.035em;
   color: $_ink;
   margin: 0 0 20px;
 }
@@ -253,7 +253,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
   font-family: $font-body;
   font-size: 17px;
   line-height: 1.7;
-  color: $_stone;
+  color: $_body;
   margin: 0;
   max-width: 564px;
 }
@@ -369,19 +369,19 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .stepTitle {
-  font-family: $font-heading;
-  font-weight: 600;
-  font-size: 28px;
-  letter-spacing: -0.025em;
+  letter-spacing: -.025em;
+  margin: 0 0 16px;
+  font-family: Poppins, sans-serif;
+  font-size: 26px;
+  font-weight: 700;
   line-height: 1.2;
   color: $_ink;
-  margin: 0 0 20px;
 }
 
 .stepDesc {
   font-family: $font-body;
   font-size: 16px;
-  line-height: 1.75;
+  line-height: 1.7;
   color: $_body;
   margin: 0;
   max-width: 440px;
@@ -390,7 +390,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
 .stepDetail {
   font-family: $font-body;
   font-size: 14px;
-  line-height: 1.75;
+  line-height: 1.7;
   color: $_body-faded;
   margin: 16px 0 0;
   max-width: 440px;

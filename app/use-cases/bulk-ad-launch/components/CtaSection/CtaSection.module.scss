@@ -50,10 +50,10 @@
   font-size: 15px;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 
   &:hover {
-    background: #ea580c;
+    background: #fb923c;
     transform: translateY(-2px);
   }
 }
@@ -71,7 +71,7 @@
   font-size: 15px;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 
   &:hover {
     background: rgba(255, 255, 255, 0.08);
@@ -81,6 +81,12 @@
 }
 
 // Responsive
+@include desktop-s {
+  .ctaContent h2 {
+    font-size: 38px;
+  }
+}
+
 @include tablet-horizontal {
   .cta {
     padding: 80px 0;
