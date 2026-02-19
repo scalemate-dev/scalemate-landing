@@ -1,651 +1,1128 @@
+// =========================================================
+// HowItWorksSection — "Quiet Luxury"
+//
+// Architectural editorial layout. Alternating two-column
+// steps with oversized ghost numbers, cinematic reveals,
+// and elevated visual panels. Brutally minimal, warm,
+// premium.
+// =========================================================
+
+$_ink: #1a1614;
+$_body: #7a7267;
+$_body-faded: #A8A49D;
+$_stone: #9C9890;
+$_line: #DDD9D2;
+$_accent: #f97316;
+$_bg: #faf9f6;
+$_panel-bg: linear-gradient(168deg, #FFFFFF 0%, #FEFCFA 100%);
+$_success: #6BBF7B;
+
+$_ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+// ———————————————————————————————————————
+// Section
+// ———————————————————————————————————————
+
 .howItWorks {
   position: relative;
-  padding: 120px 0 160px;
-  background: linear-gradient(180deg, #f9fafb 0%, #fef7f0 50%, #ffffff 100%);
+  padding: 160px 0 140px;
+  background: $_bg;
   overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at 80% 15%,
+      rgba(249, 115, 22, 0.018) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
+  }
 }
 
+// ———————————————————————————————————————
+// Scroll-reveal — header children
+// ———————————————————————————————————————
+
+.eyebrow,
+.headerTitle,
+.headerSub {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 1.1s $_ease,
+    transform 1.1s $_ease;
+}
+
+.header.visible {
+  .eyebrow     { opacity: 1; transform: none; transition-delay: 0s; }
+  .headerTitle { opacity: 1; transform: none; transition-delay: 0.08s; }
+  .headerSub   { opacity: 1; transform: none; transition-delay: 0.16s; }
+}
+
+// ———————————————————————————————————————
+// Scroll-reveal — step children
+// ———————————————————————————————————————
+
+.stepTitle,
+.stepDesc,
+.stepDetail,
+.stepVisual {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 1s $_ease,
+    transform 1s $_ease;
+}
+
+.stepTitle  { transition-delay: 0.08s; }
+.stepDesc   { transition-delay: 0.16s; }
+.stepDetail { transition-delay: 0.24s; }
+.stepVisual { transition-delay: 0.2s; }
+
+.step.visible {
+  .stepTitle,
+  .stepDesc,
+  .stepDetail,
+  .stepVisual {
+    opacity: 1;
+    transform: none;
+  }
+
+  // Animate the divider line
+  &::before {
+    transform: scaleX(1);
+  }
+
+  // Ghost number reveal
+  &::after {
+    opacity: 0.03;
+  }
+
+  // Visual panel internals — stagger files
+  .vizFile {
+    opacity: 1;
+    transform: none;
+
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) {
+        transition-delay: #{0.35 + ($i * 0.06)}s;
+      }
+    }
+  }
+
+  // Stagger params
+  .vizParam {
+    opacity: 1;
+    transform: none;
+
+    @for $i from 1 through 5 {
+      &:nth-child(#{$i}) {
+        transition-delay: #{0.3 + ($i * 0.07)}s;
+      }
+    }
+  }
+
+  .vizApply {
+    opacity: 1;
+    transform: none;
+    transition-delay: 0.7s;
+  }
+
+  // Stagger launch items
+  .vizLaunchHeader {
+    opacity: 1;
+    transform: none;
+    transition-delay: 0.3s;
+  }
+
+  .vizProgressFill {
+    transform: scaleX(1);
+    transition-delay: 0.45s;
+  }
+
+  .vizLaunchItem {
+    opacity: 1;
+    transform: none;
+
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) {
+        transition-delay: #{0.55 + ($i * 0.08)}s;
+      }
+    }
+  }
+
+  .vizLaunchMore {
+    opacity: 1;
+    transition-delay: 0.95s;
+  }
+
+  .vizSyncResult {
+    opacity: 1;
+    transform: none;
+    transition-delay: 0.65s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eyebrow,
+  .headerTitle,
+  .headerSub,
+  .stepTitle,
+  .stepDesc,
+  .stepDetail,
+  .stepVisual,
+  .vizFile,
+  .vizParam,
+  .vizApply,
+  .vizLaunchHeader,
+  .vizLaunchItem,
+  .vizLaunchMore,
+  .vizSyncResult {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .step::before {
+    transform: scaleX(1) !important;
+    transition: none !important;
+  }
+
+  .step::after {
+    opacity: 0.03 !important;
+    transition: none !important;
+  }
+
+  .vizProgressFill {
+    transform: scaleX(1) !important;
+    transition: none !important;
+  }
+
+}
+
+// ———————————————————————————————————————
 // Header
-.sectionHeader {
-  text-align: center;
-  margin-bottom: 80px;
+// ———————————————————————————————————————
+
+.header {
+  margin-bottom: 72px;
+  position: relative;
+  z-index: 1;
 }
 
-.sectionHeader h2 {
+.eyebrow {
+  display: block;
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: $_stone;
+  margin-bottom: 24px;
+}
+
+.headerTitle {
   font-family: $font-heading;
   font-weight: 700;
-  font-size: 48px;
-  letter-spacing: -0.02em;
-  color: #1A1A1A;
-  margin: 0 0 16px;
-  line-height: 1.15;
+  font-size: 52px;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  color: $_ink;
+  margin: 0 0 20px;
 }
 
-.sectionHeader p {
+.headerSub {
   font-family: $font-body;
-  font-size: 18px;
-  color: $color-text-500;
+  font-size: 17px;
+  line-height: 1.7;
+  color: $_stone;
   margin: 0;
-  font-weight: 400;
+  max-width: 564px;
 }
 
-// Two-column layout
-.scrollContainer {
-  display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 60px;
-  align-items: start;
-}
+// ———————————————————————————————————————
+// Steps container
+// ———————————————————————————————————————
 
-// Steps column
-.stepsColumn {
+.steps {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  position: relative;
+  z-index: 1;
 }
 
-.stepCard {
-  position: relative;
-  background: #ffffff;
-  border: 1px solid #E4E7EC;
-  border-radius: 20px;
-  padding: 28px;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+// ———————————————————————————————————————
+// Step — alternating two-column layout
+// ———————————————————————————————————————
 
+.step {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  padding: 80px 0;
+  position: relative;
+
+  // Top divider — animated
   &::before {
     content: '';
     position: absolute;
+    top: 0;
     left: 0;
-    top: 24px;
-    bottom: 24px;
-    width: 3px;
-    background: #F97316;
-    border-radius: 0 2px 2px 0;
+    right: 0;
+    height: 1px;
+    background: $_line;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1.4s $_ease;
+  }
+
+  // Ghost number watermark
+  &::after {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 280px;
+    line-height: 0.8;
+    letter-spacing: -0.05em;
+    color: $_ink;
     opacity: 0;
-    transform: scaleY(0);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    transition: opacity 1.8s $_ease 0.3s;
   }
 
-  &:hover {
-    border-color: #d1d5db;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  &:nth-child(1)::after {
+    content: '01';
+    right: 0;
+    top: 40px;
   }
 
-  &.active {
-    background: #ffffff;
-    border-color: rgba(#F97316, 0.35);
-    box-shadow: 0 8px 24px rgba(#F97316, 0.1);
+  &:nth-child(2)::after {
+    content: '02';
+    left: 0;
+    top: 40px;
+  }
 
+  &:nth-child(3)::after {
+    content: '03';
+    right: 0;
+    top: 40px;
+  }
+
+  // Bottom divider on last step
+  &:last-child {
     &::before {
-      opacity: 1;
-      transform: scaleY(1);
+      // already has top line
     }
 
-    .stepIcon {
-      background: #F97316;
-      border-color: transparent;
-      color: #ffffff;
-    }
-
-    .stepNumber {
-      color: #F97316;
-    }
-
-    .stepTitle {
-      color: #1A1A1A;
-    }
-
-    .stepDesc {
-      color: $color-text-500;
+    // Extra bottom line
+    .stepInfo::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: $_line;
     }
   }
 }
 
-.stepHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
+// Reversed (even) steps — visual on left
+.stepReversed {
+  .stepVisual {
+    order: -1;
+  }
+
+  &::after {
+    // Ghost number moves to opposite side
+  }
 }
 
-.stepIcon {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: rgba(#F97316, 0.08);
-  border: 1px solid rgba(#F97316, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #F97316;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
+// ———————————————————————————————————————
+// Step info (number + text)
+// ———————————————————————————————————————
 
-.stepNumber {
-  font-family: $font-heading;
-  font-size: 14px;
-  font-weight: 600;
-  color: #9ca3af;
-  transition: color 0.3s ease;
+.stepInfo {
+  position: relative;
+  z-index: 1;
 }
 
 .stepTitle {
   font-family: $font-heading;
   font-weight: 600;
-  font-size: 22px;
-  letter-spacing: -0.02em;
-  color: #6b7280;
-  margin: 0 0 10px;
-  line-height: 1.3;
-  transition: color 0.3s ease;
+  font-size: 28px;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: $_ink;
+  margin: 0 0 20px;
 }
 
 .stepDesc {
   font-family: $font-body;
-  font-size: 15px;
-  line-height: 1.6;
-  color: #9ca3af;
+  font-size: 16px;
+  line-height: 1.75;
+  color: $_body;
   margin: 0;
-  transition: color 0.3s ease;
+  max-width: 440px;
 }
 
 .stepDetail {
   font-family: $font-body;
   font-size: 14px;
-  line-height: 1.6;
-  color: $color-text-500;
-  margin: 12px 0 0;
-  padding-top: 12px;
-  border-top: 1px solid #f3f4f6;
+  line-height: 1.75;
+  color: $_body-faded;
+  margin: 16px 0 0;
+  max-width: 440px;
 }
 
-// Screens column
-.screensColumn {
+// ———————————————————————————————————————
+// Visual panels — elevated white cards
+// ———————————————————————————————————————
+
+.stepVisual {
   position: relative;
-  height: 100%;
+  z-index: 1;
 }
 
-.screensSticky {
+.stepImage {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  display: block;
+}
+
+.visual {
+  background: $_panel-bg;
+  border-radius: 20px;
+  padding: 32px;
+  border: 1px solid rgba($_ink, 0.04);
+  box-shadow:
+    0 1px 2px rgba(42, 39, 36, 0.03),
+    0 4px 16px rgba(42, 39, 36, 0.04),
+    0 16px 56px rgba(42, 39, 36, 0.04);
+  transition:
+    transform 0.6s $_ease,
+    box-shadow 0.6s $_ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 2px 4px rgba(42, 39, 36, 0.03),
+      0 8px 24px rgba(42, 39, 36, 0.05),
+      0 24px 72px rgba(42, 39, 36, 0.06);
+  }
+}
+
+// ———————————————————————————————————————
+// Sync visual — with internal stagger
+// ———————————————————————————————————————
+
+.vizSync {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 28px;
+}
+
+.vizLabel {
+  display: block;
+  font-family: $font-body;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $_stone;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba($_ink, 0.06);
+}
+
+.vizFile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition:
+    opacity 0.6s $_ease,
+    transform 0.6s $_ease;
+}
+
+.vizFileName {
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Menlo', monospace;
+  font-size: 11.5px;
+  color: $_body;
+  letter-spacing: -0.01em;
+}
+
+.vizCheck {
+  color: $_success;
+  opacity: 0.75;
+}
+
+.vizSyncResult {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.8s $_ease,
+    transform 0.8s $_ease;
+}
+
+.vizStat {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.vizStatNumber {
+  font-family: $font-heading;
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: $_ink;
+  line-height: 1.2;
+}
+
+.vizStatText {
+  font-family: $font-body;
+  font-size: 13px;
+  color: $_stone;
+}
+
+// ———————————————————————————————————————
+// Flow diagram visual — isometric sync
+// ———————————————————————————————————————
+
+.flowDiagram {
   position: relative;
-  height: 520px;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  min-height: 280px;
 }
 
-.screen {
+.flowLines {
   position: absolute;
   inset: 0;
-  opacity: 0;
-  transform: translateY(20px) scale(0.98);
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  pointer-events: none;
-
-  &.active {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    pointer-events: auto;
-  }
-}
-
-// Window mockup
-.screenWindow {
-  background: #ffffff;
-  border: 1px solid #E4E7EC;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow:
-    0 25px 50px -12px rgba(0, 0, 0, 0.08),
-    0 12px 24px -8px rgba(0, 0, 0, 0.04);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.windowHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 16px;
-  background: #fafafa;
-  border-bottom: 1px solid #E4E7EC;
-}
-
-.windowDots {
-  display: flex;
-  gap: 8px;
-}
-
-.dotRed,
-.dotYellow,
-.dotGreen {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-}
-
-.dotRed { background: #ff5f57; }
-.dotYellow { background: #febc2e; }
-.dotGreen { background: #28c840; }
-
-.windowTitle {
-  font-family: $font-body;
-  font-size: 13px;
-  color: $color-text-500;
-  font-weight: 500;
-}
-
-.windowActions {
-  width: 52px;
-}
-
-.windowContent {
-  flex: 1;
-  padding: 20px;
-  overflow: hidden;
-  background: #fafbfc;
-}
-
-// Sync screen
-.syncScreen {
-  display: flex;
-  gap: 16px;
-  align-items: stretch;
-  height: 100%;
-}
-
-.syncSource,
-.syncDest {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.syncSourceHeader,
-.syncDestHeader {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: $font-heading;
-  font-size: 14px;
-  font-weight: 600;
-  color: #1A1A1A;
-  margin-bottom: 14px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #E4E7EC;
-
-  svg {
-    color: #F97316;
-  }
-}
-
-.fileList {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.fileRow {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 10px;
-  background: #ffffff;
-  border: 1px solid #E4E7EC;
-  border-radius: 8px;
-  font-family: $font-body;
-  font-size: 12px;
-  color: $color-text-500;
-}
-
-.fileCheck {
-  color: #22c55e;
-  flex-shrink: 0;
-}
-
-.syncArrow {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  flex-shrink: 0;
-}
-
-.syncArrowLine {
-  width: 2px;
-  flex: 1;
-  background: linear-gradient(180deg, transparent, #E4E7EC, transparent);
-}
-
-.syncArrowIcon {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: #F97316;
-  color: #ffffff;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 8px 0;
-  flex-shrink: 0;
-}
-
-.syncStatus {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 12px;
-}
-
-.syncBadge {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 10px 12px;
-  background: #f0fdf4;
-  border: 1px solid #bbf7d0;
-  border-radius: 8px;
-  font-family: $font-body;
-  font-size: 12px;
-  font-weight: 500;
-  color: #16a34a;
-
-  svg {
-    flex-shrink: 0;
-  }
-}
-
-// Config screen
-.configScreen {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.configRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 14px;
-  background: #ffffff;
-  border: 1px solid #E4E7EC;
-  border-radius: 10px;
-}
-
-.configLabel {
-  font-family: $font-body;
-  font-size: 13px;
-  font-weight: 600;
-  color: $color-text-500;
-}
-
-.configValue {
-  font-family: $font-body;
-  font-size: 13px;
-  color: #1A1A1A;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-
-  svg {
-    color: #F97316;
-  }
-}
-
-.configApply {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 8px;
-  padding: 14px;
-  background: linear-gradient(135deg, #F97316 0%, #FB923C 100%);
-  border-radius: 10px;
-  font-family: $font-body;
-  font-size: 14px;
-  font-weight: 600;
-  color: #ffffff;
-}
-
-// Launch screen
-.launchScreen {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.launchHeader {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: $font-heading;
-  font-size: 16px;
-  font-weight: 600;
-  color: #1A1A1A;
-
-  svg {
-    color: #F97316;
-  }
-}
-
-.launchProgress {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.launchBar {
-  flex: 1;
-  height: 8px;
-  background: #f3f4f6;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.launchFill {
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, #F97316 0%, #FB923C 100%);
-  border-radius: 4px;
+  z-index: 0;
+  overflow: visible;
 }
 
-.launchPercent {
-  font-family: $font-body;
-  font-size: 14px;
-  font-weight: 600;
-  color: #22c55e;
+.flowPath {
+  stroke: $_line;
+  stroke-width: 1.5;
+  stroke-dasharray: 6 4;
+  fill: none;
+  opacity: 0.7;
 }
 
-.launchList {
+.flowDot {
+  fill: $_accent;
+  opacity: 0.8;
+}
+
+.flowFileIcon {
+  color: $_stone;
+  opacity: 0.55;
+}
+
+// ——— Nodes ———
+
+.flowNode {
+  position: absolute;
+  z-index: 1;
+}
+
+.flowNodeInner {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-}
-
-.launchItem {
-  display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 14px;
-  background: #ffffff;
-  border: 1px solid #E4E7EC;
-  border-radius: 8px;
-  font-family: $font-body;
-  font-size: 13px;
-  color: $color-text-500;
+  padding: 18px 20px 14px;
+  background: linear-gradient(168deg, rgba(#fff, 0.85) 0%, rgba(#FEFCFA, 0.7) 100%);
+  border: 1px solid rgba($_ink, 0.06);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 1px 3px rgba(42, 39, 36, 0.04),
+    0 6px 24px rgba(42, 39, 36, 0.05);
+  transition: transform 0.5s $_ease, box-shadow 0.5s $_ease;
 
-  svg {
-    color: #22c55e;
-    flex-shrink: 0;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 2px 6px rgba(42, 39, 36, 0.05),
+      0 10px 32px rgba(42, 39, 36, 0.07);
   }
 }
 
-.launchLive {
-  margin-left: auto;
-  font-size: 11px;
-  font-weight: 600;
-  color: #22c55e;
-  padding: 3px 8px;
-  background: #f0fdf4;
-  border-radius: 100px;
+.flowNodeIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(#fff, 0.9);
+  border: 1px solid rgba($_ink, 0.05);
+  box-shadow: 0 1px 4px rgba(42, 39, 36, 0.06);
 }
 
-.launchMore {
+.flowNodeLogoS {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: $_ink;
+  color: #fff;
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  box-shadow: 0 2px 8px rgba(42, 39, 36, 0.15);
+}
+
+.flowNodeLogo {
+  width: 72px;
+  height: auto;
+
+  path {
+    fill: $_ink;
+  }
+}
+
+.flowNodeLabel {
+  font-family: $font-body;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $_body;
+  white-space: nowrap;
+}
+
+// ——— Node file list (Google Drive) ———
+
+.flowNodeFiles {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 10px 12px;
+  background: rgba(#fff, 0.75);
+  border: 1px solid rgba($_ink, 0.05);
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+  min-width: 130px;
+}
+
+.flowNodeFile {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Menlo', monospace;
+  font-size: 9px;
+  color: $_body;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  line-height: 1.6;
+}
+
+.flowNodeFileIcon {
+  font-size: 7px;
+  color: $_stone;
+  width: 10px;
   text-align: center;
+}
+
+// ——— Node positions ———
+
+.flowNodeDrive {
+  top: 4%;
+  left: 4%;
+}
+
+.flowNodeScalemate {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.flowNodeTiktok {
+  top: 8%;
+  right: 4%;
+}
+
+.flowNodeMeta {
+  bottom: 8%;
+  right: 4%;
+}
+
+// ——— Stagger animations on reveal ———
+
+.step.visible {
+  .flowNode {
+    opacity: 1;
+    transform: none;
+  }
+
+  .flowNodeDrive {
+    transition-delay: 0.3s;
+  }
+
+  .flowNodeScalemate {
+    transform: translate(-50%, -50%) !important;
+    transition-delay: 0.5s;
+  }
+
+  .flowNodeTiktok {
+    transition-delay: 0.7s;
+  }
+
+  .flowNodeMeta {
+    transition-delay: 0.8s;
+  }
+
+  .flowLines {
+    opacity: 1;
+    transition-delay: 0.5s;
+  }
+
+  .flowNodeFiles .flowNodeFile {
+    opacity: 1;
+    transform: none;
+
+    @for $i from 1 through 5 {
+      &:nth-child(#{$i}) {
+        transition-delay: #{0.5 + ($i * 0.06)}s;
+      }
+    }
+  }
+}
+
+// Initial hidden states for flow elements
+.flowNode {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.8s $_ease,
+    transform 0.8s $_ease;
+}
+
+.flowNodeScalemate {
+  transform: translate(-50%, calc(-50% + 16px));
+}
+
+.flowLines {
+  opacity: 0;
+  transition: opacity 1s $_ease;
+}
+
+.flowNodeFile {
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.5s $_ease,
+    transform 0.5s $_ease;
+}
+
+// ———————————————————————————————————————
+// Config visual — with internal stagger
+// ———————————————————————————————————————
+
+.vizConfig {
+  display: flex;
+  flex-direction: column;
+}
+
+.vizParam {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba($_ink, 0.04);
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.6s $_ease,
+    transform 0.6s $_ease;
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+.vizParamKey {
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: 500;
+  color: $_stone;
+  letter-spacing: 0.02em;
+}
+
+.vizParamValue {
   font-family: $font-body;
   font-size: 13px;
   font-weight: 500;
-  color: #F97316;
-  padding: 10px;
-  background: rgba(#F97316, 0.04);
-  border-radius: 8px;
+  color: $_ink;
+  text-align: right;
 }
 
+.vizApply {
+  margin-top: 20px;
+  padding: 12px 16px;
+  text-align: center;
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: $_accent;
+  border: 1px solid rgba($_accent, 0.18);
+  border-radius: 10px;
+  background: rgba($_accent, 0.03);
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.6s $_ease,
+    transform 0.6s $_ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+
+  &:hover {
+    background: rgba($_accent, 0.06);
+    border-color: rgba($_accent, 0.3);
+  }
+}
+
+// ———————————————————————————————————————
+// Launch visual — with internal stagger
+// ———————————————————————————————————————
+
+.vizLaunch {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.vizLaunchHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.6s $_ease,
+    transform 0.6s $_ease;
+
+  span:first-child {
+    font-family: $font-heading;
+    font-size: 15px;
+    font-weight: 600;
+    color: $_ink;
+  }
+}
+
+.vizLaunchComplete {
+  font-family: $font-body;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $_success;
+}
+
+.vizProgressBar {
+  height: 3px;
+  background: rgba($_ink, 0.05);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.vizProgressFill {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, $_accent, lighten($_accent, 8%));
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.2s $_ease;
+}
+
+.vizLaunchList {
+  display: flex;
+  flex-direction: column;
+}
+
+.vizLaunchItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba($_ink, 0.04);
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.5s $_ease,
+    transform 0.5s $_ease;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  span:first-child {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Menlo', monospace;
+    font-size: 11.5px;
+    color: $_body;
+    letter-spacing: -0.01em;
+  }
+}
+
+.vizLive {
+  font-family: $font-body;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $_success;
+}
+
+.vizLaunchMore {
+  padding-top: 12px;
+  font-family: $font-body;
+  font-size: 12px;
+  color: $_stone;
+  opacity: 0;
+  transition: opacity 0.8s $_ease;
+}
+
+// ———————————————————————————————————————
 // Responsive
+// ———————————————————————————————————————
+
+@include desktop-s {
+  .howItWorks {
+    padding: 136px 0 120px;
+  }
+
+  .headerTitle {
+    font-size: 46px;
+  }
+
+  .step {
+    gap: 60px;
+    padding: 72px 0;
+  }
+
+  .stepTitle {
+    font-size: 26px;
+  }
+}
+
 @include tablet-horizontal {
   .howItWorks {
-    padding: 100px 0 120px;
+    padding: 104px 0 100px;
   }
 
-  .sectionHeader {
-    margin-bottom: 60px;
-
-    h2 {
-      font-size: 40px;
-    }
+  .header {
+    margin-bottom: 56px;
   }
 
-  .scrollContainer {
-    grid-template-columns: 1fr 1.2fr;
-    gap: 40px;
+  .headerTitle {
+    font-size: 40px;
   }
 
-  .screensSticky {
-    height: 440px;
+  .step {
+    gap: 44px;
+    padding: 60px 0;
+  }
+
+  .stepTitle {
+    font-size: 23px;
+  }
+
+  .stepDesc {
+    font-size: 15px;
+  }
+
+  .visual {
+    padding: 28px;
   }
 }
 
 @include tablet-vertical {
   .howItWorks {
-    padding: 80px 0 100px;
+    padding: 80px 0;
   }
 
-  .sectionHeader {
+  .header {
     margin-bottom: 48px;
-
-    h2 {
-      font-size: 34px;
-    }
-
-    p {
-      font-size: 16px;
-    }
   }
 
-  .scrollContainer {
+  .headerTitle {
+    font-size: 36px;
+  }
+
+  .headerSub {
+    font-size: 16px;
+  }
+
+  .step {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 32px;
+    padding: 48px 0;
   }
 
-  .screensColumn {
-    order: -1;
-  }
-
-  .screensSticky {
-    position: relative;
-    top: 0;
-    height: 380px;
-  }
-
-  .stepsColumn {
-    gap: 16px;
-  }
-
-  .stepCard {
-    padding: 20px;
-
-    &::before {
-      display: none;
-    }
-
-    &.active {
-      border-color: #F97316;
-    }
+  // Reset order on single column
+  .stepReversed .stepVisual {
+    order: 0;
   }
 
   .stepTitle {
-    font-size: 18px;
+    font-size: 22px;
+    margin-bottom: 16px;
   }
 
   .stepDesc {
-    font-size: 14px;
+    font-size: 15px;
+  }
+
+  .visual {
+    padding: 28px;
+  }
+
+  .vizSync {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 24px;
+  }
+
+  .flowDiagram {
+    min-height: 240px;
+  }
+
+  .flowNodeFiles {
+    display: none;
   }
 }
 
 @include mobile {
   .howItWorks {
-    padding: 60px 0 80px;
+    padding: 56px 0;
   }
 
-  .sectionHeader {
-    margin-bottom: 36px;
-
-    h2 {
-      font-size: 28px;
-    }
-
-    p {
-      font-size: 15px;
-    }
+  .header {
+    margin-bottom: 40px;
   }
 
-  .screensSticky {
-    height: 320px;
+  .eyebrow {
+    margin-bottom: 20px;
+    font-size: 10px;
   }
 
-  .windowContent {
-    padding: 12px;
+  .headerTitle {
+    font-size: 28px;
+    letter-spacing: -0.025em;
   }
 
-  .stepCard {
-    padding: 16px;
+  .headerSub {
+    font-size: 15px;
   }
 
-  .stepIcon {
-    width: 38px;
-    height: 38px;
+  .step {
+    gap: 24px;
+    padding: 36px 0;
   }
 
   .stepTitle {
-    font-size: 16px;
-    margin-bottom: 8px;
+    font-size: 19px;
+    margin-bottom: 14px;
   }
 
   .stepDesc {
+    font-size: 14px;
+  }
+
+  .stepDetail {
     font-size: 13px;
+    margin-top: 12px;
   }
 
-  .syncScreen {
+  .visual {
+    padding: 22px;
+    border-radius: 16px;
+  }
+
+  .vizSync {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .vizStatNumber {
+    font-size: 32px;
+  }
+
+  .vizParam {
     flex-direction: column;
-    gap: 12px;
+    align-items: flex-start;
+    gap: 4px;
   }
 
-  .syncArrow {
-    flex-direction: row;
-    width: 100%;
-    height: 28px;
+  .vizParamValue {
+    text-align: left;
   }
 
-  .syncArrowLine {
-    height: 2px;
-    width: auto;
-    flex: 1;
-    background: linear-gradient(90deg, transparent, #E4E7EC, transparent);
+  .flowDiagram {
+    min-height: 200px;
   }
 
-  .syncArrowIcon {
-    margin: 0 8px;
+  .flowNodeInner {
+    padding: 12px 14px 10px;
+    border-radius: 12px;
+  }
+
+  .flowNodeIcon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+
+    img {
+      width: 20px !important;
+      height: 20px !important;
+    }
+  }
+
+  .flowNodeLogoS {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    border-radius: 11px;
+  }
+
+  .flowNodeLabel {
+    font-size: 9px;
+  }
+
+  .flowNodeFiles {
+    display: none;
   }
 }
