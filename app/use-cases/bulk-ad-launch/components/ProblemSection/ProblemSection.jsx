@@ -3,19 +3,19 @@ import styles from "./ProblemSection.module.scss"
 
 const problems = [
   {
-    title: "Repetitive Ad Creation Workflow",
+    title: "Every Campaign is the same repetitive workflow",
     description:
-      "Launching ads one by one means repeating the same sequence per ad set: creative, resolutions, targeting. Multiply by languages – days of clicking. Volume compounds micro-mistakes into budget waste.",
+      "Launching ads one by one means repeating the same sequence per ad set – creative, resolutions, targeting – multiplying errors across every language and placement.",
   },
   {
-    title: "The Platform Keeps Breaking",
+    title: "New Ad Creatives wait days before testing starts",
     description:
-      "Facebook Ads Manager wasn't built for mass ad campaign creation at this scale. Five concepts across fifteen languages means seventy-five combinations – each requiring a separate ad set built by hand. The platform lags, crashes mid-upload, or drops assets.",
+      "Mass ad campaign creation still means building each ad set by hand – manual campaign setup takes hours, and every day creatives sit untested is a day without data.",
   },
   {
     title: "More Scale = More People?",
     description:
-      "When campaign volume outgrows capacity, the default is hiring – another buyer, another coordinator, same mechanical tasks. But scaling ads without hiring buyers is possible when tooling removes the bottleneck.",
+      "Scaling ads without hiring buyers is possible when tooling removes the bottleneck – without it, slow campaign launches become the norm.",
   },
 ]
 
@@ -33,8 +33,9 @@ export default function ProblemSection() {
               </h2>
             </div>
             <p className={styles.subtitle}>
-              Three bottlenecks keep media buyers stuck — repetitive setup,
-              platform limitations, and the pressure to hire just to keep up.
+              Three bottlenecks keep media buyers stuck: repetitive setup, slow
+              creative-to-campaign handoff, and the pressure to hire just to
+              keep up.
             </p>
           </div>
 

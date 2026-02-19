@@ -23,18 +23,17 @@ export default function HeroSection() {
           <ul className={styles.features}>
             <li className={styles.feature}>
               <span className={styles.featureText}>
-                Bulk-create hundreds of ad sets from a single setup
+                Hundreds of ad sets from one setup
               </span>
             </li>
             <li className={styles.feature}>
               <span className={styles.featureText}>
-                Sync creatives from cloud storage directly to ad platforms
+                Sync creatives from cloud storage
               </span>
             </li>
             <li className={styles.feature}>
               <span className={styles.featureText}>
-                Full control over campaign structure, including
-                one-ad-per-ad-set
+                Full control over campaign structure
               </span>
             </li>
           </ul>

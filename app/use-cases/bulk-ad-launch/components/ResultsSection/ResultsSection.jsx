@@ -11,7 +11,7 @@ const caseStudies = [
     vertical: "Education · 1M+ users",
     title: "15,000+ Ads Launched, 35 Hours Saved Monthly",
     description:
-      "KitUp adopted Scalemate as their bulk facebook ad creation tool for one-ad-per-ad-set campaigns. Setup stopped being the bottleneck — the team shifted to strategic analysis.",
+      "KitUp (education, 1M+ users) adopted Scalemate as their bulk facebook ad creation tool for one-ad-per-ad-set campaigns. Manual campaign setup takes hours — KitUp shifted that time to strategic analysis and creative iteration.",
     href: "/customers/kitup",
     metrics: [
       { value: "15,000+", label: "Ads launched" },
@@ -24,7 +24,7 @@ const caseStudies = [
     vertical: "Gaming · 2B+ downloads",
     title: "70% Faster Creative Deployment, 2,000+ Files Processed",
     description:
-      "Moving creatives from NextCloud to Facebook meant downloading and re-uploading every file. At scale, bulk ad deployment software becomes a necessity.",
+      "ZeptoLab (Cut the Rope, 2B+ downloads) needed bulk ad deployment software — moving creatives from NextCloud to Facebook manually meant downloading and re-uploading every file. The hours previously spent on manual file transfers went back into campaign optimization and creative testing.",
     href: "/customers/zeptolab",
     metrics: [
       { value: "2,000+", label: "Media files delivered" },
@@ -47,8 +47,8 @@ export default function ResultsSection() {
               <em className={styles.titleAccent}>Bulk Ad Launch Tool</em>
             </h2>
             <p className={styles.headerAside}>
-              From education to gaming — teams that replaced manual campaign
-              setup with Scalemate to scale ad volume without scaling headcount.
+              Two examples — from education to gaming, across web and mobile
+              apps.
             </p>
           </div>
         </div>
@@ -56,10 +56,7 @@ export default function ResultsSection() {
         {/* Case study cards */}
         <div className={styles.cards}>
           {caseStudies.map((study, idx) => (
-            <article
-              key={idx}
-              className={styles.card}
-            >
+            <article key={idx} className={styles.card}>
               <div className={styles.cardTop}>
                 <span className={styles.cardCompany}>{study.company}</span>
                 <span className={styles.cardVertical}>{study.vertical}</span>

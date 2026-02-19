@@ -581,21 +581,21 @@ const steps = [
     number: "01",
     title: "Sync Ad Creatives from Cloud Storage",
     description:
-      "Scalemate connects to Google Drive, NextCloud, or other storage and pushes creatives into Meta And TikTok Media Library – with deduplication and filtering built in.",
+      "Scalemate connects to Google Drive, NextCloud, or other storage and pushes creatives into Meta and TikTok Media Library – with deduplication and filtering built in",
     Visual: SyncVisual,
   },
   {
     number: "02",
     title: "Set Campaign parameters once",
     description:
-      "Budget, targeting, placements, naming conventions, ads destribution rules, configured once and saved to smart template.",
+      "Budget, targeting, placements, naming conventions, ads destribution rules, configured once and saved to smart template",
     Visual: ConfigVisual,
   },
   {
     number: "03",
     title: "Launch all Ads at once",
     description:
-      "Bulk ad deployment software that deploys hundreds of ad sets in one action \u2014 the launch ads at scale tool handles the volume, the team handles the decisions.",
+      "Bulk ad deployment software that deploys hundreds of ad sets in one action \u2014 the launch ads at scale tool handles the volume, the team handles the decisions",
     Visual: LaunchVisual,
   },
 ]
