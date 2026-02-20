@@ -1,9 +1,7 @@
-"use client"
-
 import Container from "@/components/elements/Container/Container"
 import styles from "./AudienceSection.module.scss"
 
-export default function AudienceSection({ title, subtitle, roles, industries, footer }) {
+export default function AudienceSection({ title, subtitle, roles, industries, industryLabel, footer }) {
   return (
     <section className={styles.section}>
       <Container>
@@ -23,10 +21,7 @@ export default function AudienceSection({ title, subtitle, roles, industries, fo
         </div>
 
         <footer className={styles.footer}>
-          <p className={styles.footerLabel}>
-            Scalemate fits any industry running paid acquisition with high
-            creative volume:
-          </p>
+          <p className={styles.footerLabel}>{industryLabel}</p>
           <ul className={styles.industryList}>
             {industries.map((industry) => (
               <li key={industry}>{industry}</li>

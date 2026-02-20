@@ -119,7 +119,7 @@ export const data = {
         number: "02",
         title: "Set Campaign parameters once",
         description:
-          "Budget, targeting, placements, naming conventions, ads destribution rules, configured once and saved to smart template",
+          "Budget, targeting, placements, naming conventions, ads distribution rules, configured once and saved to smart template",
         Visual: ConfigVisual,
       },
       {
@@ -189,6 +189,8 @@ export const data = {
           "Scaling ads without hiring buyers becomes realistic when tooling replaces headcount.",
       },
     ],
+    industryLabel:
+      "Scalemate fits any industry running paid acquisition with high creative volume:",
     industries: [
       "Marketing Agencies",
       "Mobile Apps & Web Utilities",

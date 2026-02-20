@@ -166,7 +166,7 @@
 }
 
 .beforeSide .sideTitle {
-  color: #3D3B37;
+  color: $uc-ink-soft;
 }
 
 // ———————————————————————————————————————
@@ -491,9 +491,6 @@
   .metricsGrid {
     grid-column: 1;
     grid-row: 2 / 3;
-  }
-
-  .metricsGrid {
     grid-template-columns: repeat(3, 1fr);
     gap: 28px;
   }
@@ -567,9 +564,6 @@
   .metricsGrid {
     grid-column: 1;
     grid-row: 2 / 3;
-  }
-
-  .metricsGrid {
     grid-template-columns: 1fr;
     gap: 0;
   }

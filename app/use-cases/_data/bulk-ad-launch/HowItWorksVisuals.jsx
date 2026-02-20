@@ -3,7 +3,7 @@ import Logo from "@/components/elements/Logo"
 import googleDriveIcon from "@/assets/icons/google-drive-icon.svg"
 import metaIcon from "@/assets/icons/meta-icon.svg"
 import tiktokIcon from "@/assets/icons/tiktok-icon.svg"
-import styles from "../../_components/HowItWorksSection/HowItWorksSection.module.scss"
+import styles from "../../_components/HowItWorksSection/HowItWorksVisuals.module.scss"
 
 const fileTypes = [
   { name: "hero_v2.mp4", type: "video" },
