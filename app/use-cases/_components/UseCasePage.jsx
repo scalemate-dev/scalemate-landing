@@ -9,9 +9,31 @@ import AudienceSection from "./AudienceSection/AudienceSection"
 import CtaSection from "./CtaSection/CtaSection"
 import styles from "./UseCasePage.module.scss"
 
+function FaqJsonLd({ items }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  }
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  )
+}
+
 export default function UseCasePage({ data }) {
   return (
     <div className={styles.main}>
+      <FaqJsonLd items={data.faq} />
       <HeroSection {...data.hero} />
       <ProblemSection {...data.problem} />
       <BeforeAfterSection {...data.beforeAfter} />
