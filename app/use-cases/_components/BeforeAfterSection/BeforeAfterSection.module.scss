@@ -1,3 +1,5 @@
+@use '../uc' as *;
+
 // =========================================================
 // BeforeAfterSection — "Bare vs. Contained" v6
 //
@@ -7,15 +9,6 @@
 // The asymmetry IS the narrative.
 // =========================================================
 
-$_bg: #F3F0EB;
-$_ink: #1a1614;
-$_stone: #9C9890;
-$_body: #475467;
-$_body-faded: #A8A49D;
-$_line: #DDD9D2;
-$_accent: #f97316;
-$_pain: #C0785E;
-
 // ———————————————————————————————————————
 // Section
 // ———————————————————————————————————————
@@ -23,7 +16,7 @@ $_pain: #C0785E;
 .section {
   position: relative;
   padding: 148px 0 140px;
-  background: $_bg;
+  background: $uc-bg-sand;
   overflow: hidden;
 }
 
@@ -36,32 +29,16 @@ $_pain: #C0785E;
 }
 
 .eyebrow {
-  display: block;
-  font-family: $font-body;
-  font-size: 11px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.25em;
-  color: $_stone;
-  margin-bottom: 24px;
+  @include uc-eyebrow;
 }
 
 .title {
-  font-family: $font-heading;
-  font-weight: 700;
-  font-size: 52px;
-  line-height: 1.08;
-  letter-spacing: -0.035em;
-  color: $_ink;
+  @include uc-section-title;
   margin: 0 0 20px;
 }
 
 .subtitle {
-  font-family: $font-body;
-  font-size: 17px;
-  line-height: 1.7;
-  color: $_body;
-  margin: 0;
+  @include uc-body-text;
   max-width: 564px;
 }
 
@@ -91,7 +68,7 @@ $_pain: #C0785E;
   font-size: 110px;
   line-height: 0.85;
   letter-spacing: -0.04em;
-  color: $_ink;
+  color: $uc-ink;
   opacity: 0.05;
   position: absolute;
   right: -24px;
@@ -105,12 +82,10 @@ $_pain: #C0785E;
 
 .afterSide {
   position: relative;
-  background: linear-gradient(165deg, #FFFFFF 0%, #FEFCFA 100%);
+  background: $uc-panel-bg;
   border-radius: 24px;
   padding: 44px;
-  box-shadow:
-    0 1px 3px rgba(42, 39, 36, 0.03),
-    0 8px 32px rgba(42, 39, 36, 0.06);
+  box-shadow: $uc-shadow-card;
   overflow: hidden;
 }
 
@@ -121,7 +96,7 @@ $_pain: #C0785E;
   font-size: 110px;
   line-height: 0.85;
   letter-spacing: -0.04em;
-  color: $_ink;
+  color: $uc-ink;
   opacity: 0.035;
   position: absolute;
   right: 0;
@@ -140,7 +115,7 @@ $_pain: #C0785E;
   height: 260px;
   background: radial-gradient(
     circle,
-    rgba($_accent, 0.06) 0%,
+    rgba($uc-accent, 0.06) 0%,
     transparent 65%
   );
   pointer-events: none;
@@ -164,14 +139,14 @@ $_pain: #C0785E;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.25em;
-  color: $_stone;
+  color: $uc-stone;
   margin-bottom: 16px;
   position: relative;
   z-index: 1;
 }
 
 .sideLabelAccent {
-  color: $_accent;
+  color: $uc-accent;
 }
 
 // ———————————————————————————————————————
@@ -184,7 +159,7 @@ $_pain: #C0785E;
   font-size: 28px;
   line-height: 1.2;
   letter-spacing: -0.025em;
-  color: $_ink;
+  color: $uc-ink;
   margin: 0 0 16px;
   position: relative;
   z-index: 1;
@@ -202,19 +177,19 @@ $_pain: #C0785E;
   font-family: $font-body;
   font-size: 15px;
   line-height: 1.7;
-  color: $_body;
+  color: $uc-body;
   margin: 0 0 28px;
   position: relative;
   z-index: 1;
 
   strong {
     font-weight: 600;
-    color: $_ink;
+    color: $uc-ink;
   }
 }
 
 .beforeSide .sideText {
-  color: $_body;
+  color: $uc-body;
 }
 
 // ———————————————————————————————————————
@@ -253,21 +228,21 @@ $_pain: #C0785E;
 
   &::before {
     content: '×';
-    color: $_pain;
+    color: $uc-pain;
     font-weight: 600;
     font-size: 13px;
   }
 }
 
 .gainList li {
-  color: $_ink;
+  color: $uc-ink;
 
   &::before {
     content: '';
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: $_accent;
+    background: $uc-accent;
     top: 7px;
   }
 }
@@ -279,7 +254,7 @@ $_pain: #C0785E;
 .resultsBlock {
   margin-top: 16px;
   padding-top: 80px;
-  border-top: 1px solid $_line;
+  border-top: 1px solid $uc-line;
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-rows: auto auto;
@@ -292,7 +267,7 @@ $_pain: #C0785E;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.25em;
-  color: $_stone;
+  color: $uc-stone;
   margin: 0;
   grid-column: 1 / 2;
   grid-row: 1 / 2;
@@ -304,7 +279,7 @@ $_pain: #C0785E;
   font-size: 16px;
   font-style: italic;
   line-height: 1.75;
-  color: $_body;
+  color: $uc-body;
   margin: 0;
   max-width: 440px;
   grid-column: 2 / 3;
@@ -314,7 +289,7 @@ $_pain: #C0785E;
   strong {
     font-weight: 600;
     font-style: normal;
-    color: $_ink;
+    color: $uc-ink;
   }
 }
 
@@ -338,7 +313,7 @@ $_pain: #C0785E;
   flex-direction: column;
   gap: 16px;
   padding-top: 24px;
-  border-top: 2px solid $_accent;
+  border-top: 2px solid $uc-accent;
   position: relative;
 
   &::after {
@@ -348,10 +323,10 @@ $_pain: #C0785E;
     left: 0;
     width: 100%;
     height: 2px;
-    background: $_accent;
+    background: $uc-accent;
     transform: scaleX(1);
     transform-origin: left;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.5s $uc-ease;
   }
 
   &:hover .metricValue {
@@ -365,19 +340,19 @@ $_pain: #C0785E;
   font-size: 56px;
   line-height: 1;
   letter-spacing: -0.04em;
-  color: $_ink;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  color: $uc-ink;
+  transition: transform 0.5s $uc-ease;
 }
 
 .metricDesc {
   font-family: $font-body;
   font-size: 15px;
   line-height: 1.65;
-  color: $_body;
+  color: $uc-body;
 
   strong {
     font-weight: 600;
-    color: $_ink;
+    color: $uc-ink;
   }
 }
 
@@ -600,7 +575,7 @@ $_pain: #C0785E;
   }
 
   .metric {
-    border-top: 1.5px solid $_line;
+    border-top: 1.5px solid $uc-line;
     padding: 24px 0;
     flex-direction: row;
     align-items: baseline;
@@ -611,7 +586,7 @@ $_pain: #C0785E;
     }
 
     &:last-child {
-      border-bottom: 1.5px solid $_line;
+      border-bottom: 1.5px solid $uc-line;
     }
   }
 
@@ -619,7 +594,7 @@ $_pain: #C0785E;
     font-size: 32px;
     flex-shrink: 0;
     min-width: 80px;
-    color: $_accent;
+    color: $uc-accent;
   }
 
   .metricDesc {

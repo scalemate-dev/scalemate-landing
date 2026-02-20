@@ -1,13 +1,8 @@
+@use '../uc' as *;
+
 // =========================================================
 // ResultsSection — Two dark case study cards
 // =========================================================
-
-$_bg: #F3F0EB;
-$_ink: #1a1614;
-$_stone: #9C9890;
-$_body: #475467;
-$_accent: #f97316;
-$_card-dark: #171412;
 
 // ———————————————————————————————————————
 // Section
@@ -16,7 +11,7 @@ $_card-dark: #171412;
 .section {
   position: relative;
   padding: 148px 0 148px;
-  background: $_bg;
+  background: $uc-bg-sand;
   overflow: hidden;
 }
 
@@ -29,13 +24,7 @@ $_card-dark: #171412;
 }
 
 .eyebrow {
-  display: block;
-  font-family: $font-body;
-  font-size: 11px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.25em;
-  color: $_stone;
+  @include uc-eyebrow;
   margin-bottom: 32px;
 }
 
@@ -47,18 +36,13 @@ $_card-dark: #171412;
 }
 
 .title {
-  font-family: $font-heading;
-  font-weight: 700;
-  font-size: 52px;
+  @include uc-section-title;
   line-height: 1.06;
-  letter-spacing: -0.035em;
-  color: $_ink;
-  margin: 0;
 }
 
 .titleAccent {
   font-style: italic;
-  color: $_accent;
+  color: $uc-accent;
 }
 
 .headerAside {
@@ -66,7 +50,7 @@ $_card-dark: #171412;
   font-style: italic;
   font-size: 16px;
   line-height: 1.7;
-  color: $_body;
+  color: $uc-body;
   margin: 0;
   max-width: 400px;
   margin-left: auto;
@@ -87,7 +71,7 @@ $_card-dark: #171412;
 // ———————————————————————————————————————
 
 .card {
-  background: $_card-dark;
+  background: $uc-card-dark;
   border-radius: 22px;
   padding: 40px 40px 36px;
   display: flex;
@@ -175,17 +159,17 @@ $_card-dark: #171412;
   font-family: $font-body;
   font-size: 14px;
   font-weight: 500;
-  color: $_accent;
+  color: $uc-accent;
   text-decoration: none;
   width: fit-content;
   transition: color 0.3s ease;
 
   svg {
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.4s $uc-ease;
   }
 
   &:hover {
-    color: #fb923c;
+    color: $uc-accent-hover;
 
     svg {
       transform: translateX(4px);

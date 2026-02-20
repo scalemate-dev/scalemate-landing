@@ -1,3 +1,5 @@
+@use '../uc' as *;
+
 // =========================================================
 // HowItWorksSection — "Quiet Luxury"
 //
@@ -7,18 +9,6 @@
 // premium.
 // =========================================================
 
-$_ink: #1a1614;
-$_body: #475467;
-$_body-faded: #A8A49D;
-$_stone: #9C9890;
-$_line: #DDD9D2;
-$_accent: #f97316;
-$_bg: #faf9f6;
-$_panel-bg: linear-gradient(168deg, #FFFFFF 0%, #FEFCFA 100%);
-$_success: #6BBF7B;
-
-$_ease: cubic-bezier(0.16, 1, 0.3, 1);
-
 // ———————————————————————————————————————
 // Section
 // ———————————————————————————————————————
@@ -26,7 +16,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
 .howItWorks {
   position: relative;
   padding: 148px 0 140px;
-  background: $_bg;
+  background: $uc-bg-warm;
   overflow: hidden;
 
   &::before {
@@ -54,32 +44,16 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .eyebrow {
-  display: block;
-  font-family: $font-body;
-  font-size: 11px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.25em;
-  color: $_stone;
-  margin-bottom: 24px;
+  @include uc-eyebrow;
 }
 
 .headerTitle {
-  font-family: $font-heading;
-  font-weight: 700;
-  font-size: 52px;
-  line-height: 1.08;
-  letter-spacing: -0.035em;
-  color: $_ink;
+  @include uc-section-title;
   margin: 0 0 20px;
 }
 
 .headerSub {
-  font-family: $font-body;
-  font-size: 17px;
-  line-height: 1.7;
-  color: $_body;
-  margin: 0;
+  @include uc-body-text;
   max-width: 564px;
 }
 
@@ -114,7 +88,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
     left: 0;
     right: 0;
     height: 1px;
-    background: $_line;
+    background: $uc-line;
   }
 
   // Ghost number watermark
@@ -124,7 +98,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
     font-size: 280px;
     line-height: 0.8;
     letter-spacing: -0.05em;
-    color: $_ink;
+    color: $uc-ink;
     opacity: 0.03;
     position: absolute;
     pointer-events: none;
@@ -164,7 +138,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
       left: 0;
       right: 0;
       height: 1px;
-      background: $_line;
+      background: $uc-line;
     }
   }
 }
@@ -196,14 +170,14 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
   font-size: 26px;
   font-weight: 700;
   line-height: 1.2;
-  color: $_ink;
+  color: $uc-ink;
 }
 
 .stepDesc {
   font-family: $font-body;
   font-size: 16px;
   line-height: 1.7;
-  color: $_body;
+  color: $uc-body;
   margin: 0;
   max-width: 440px;
 }
@@ -212,7 +186,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
   font-family: $font-body;
   font-size: 14px;
   line-height: 1.7;
-  color: $_body-faded;
+  color: $uc-body-faded;
   margin: 16px 0 0;
   max-width: 440px;
 }
@@ -234,24 +208,18 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .visual {
-  background: $_panel-bg;
+  background: $uc-panel-bg;
   border-radius: 20px;
   padding: 32px;
-  border: 1px solid rgba($_ink, 0.04);
-  box-shadow:
-    0 1px 2px rgba(42, 39, 36, 0.03),
-    0 4px 16px rgba(42, 39, 36, 0.04),
-    0 16px 56px rgba(42, 39, 36, 0.04);
+  border: 1px solid rgba($uc-ink, 0.04);
+  box-shadow: $uc-shadow-panel;
   transition:
-    transform 0.6s $_ease,
-    box-shadow 0.6s $_ease;
+    transform 0.6s $uc-ease,
+    box-shadow 0.6s $uc-ease;
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow:
-      0 2px 4px rgba(42, 39, 36, 0.03),
-      0 8px 24px rgba(42, 39, 36, 0.05),
-      0 24px 72px rgba(42, 39, 36, 0.06);
+    box-shadow: $uc-shadow-panel-hover;
   }
 }
 
@@ -272,10 +240,10 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: $_stone;
+  color: $uc-stone;
   margin-bottom: 16px;
   padding-bottom: 12px;
-  border-bottom: 1px solid rgba($_ink, 0.06);
+  border-bottom: 1px solid rgba($uc-ink, 0.06);
 }
 
 .vizFile {
@@ -288,12 +256,12 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
 .vizFileName {
   font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Menlo', monospace;
   font-size: 11.5px;
-  color: $_body;
+  color: $uc-body;
   letter-spacing: -0.01em;
 }
 
 .vizCheck {
-  color: $_success;
+  color: $uc-success;
   opacity: 0.75;
 }
 
@@ -315,14 +283,14 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
   font-size: 44px;
   font-weight: 700;
   letter-spacing: -0.03em;
-  color: $_ink;
+  color: $uc-ink;
   line-height: 1.2;
 }
 
 .vizStatText {
   font-family: $font-body;
   font-size: 13px;
-  color: $_stone;
+  color: $uc-stone;
 }
 
 // ———————————————————————————————————————
@@ -346,7 +314,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .flowPath {
-  stroke: $_line;
+  stroke: $uc-line;
   stroke-width: 1.5;
   stroke-dasharray: 6 4;
   fill: none;
@@ -354,12 +322,12 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .flowDot {
-  fill: $_accent;
+  fill: $uc-accent;
   opacity: 0.8;
 }
 
 .flowFileIcon {
-  color: $_stone;
+  color: $uc-stone;
   opacity: 0.55;
 }
 
@@ -377,13 +345,13 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
   gap: 10px;
   padding: 18px 20px 14px;
   background: linear-gradient(168deg, rgba(#fff, 0.85) 0%, rgba(#FEFCFA, 0.7) 100%);
-  border: 1px solid rgba($_ink, 0.06);
+  border: 1px solid rgba($uc-ink, 0.06);
   border-radius: 16px;
   backdrop-filter: blur(12px);
   box-shadow:
     0 1px 3px rgba(42, 39, 36, 0.04),
     0 6px 24px rgba(42, 39, 36, 0.05);
-  transition: transform 0.5s $_ease, box-shadow 0.5s $_ease;
+  transition: transform 0.5s $uc-ease, box-shadow 0.5s $uc-ease;
 
   &:hover {
     transform: translateY(-2px);
@@ -401,7 +369,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
   height: 44px;
   border-radius: 12px;
   background: rgba(#fff, 0.9);
-  border: 1px solid rgba($_ink, 0.05);
+  border: 1px solid rgba($uc-ink, 0.05);
   box-shadow: 0 1px 4px rgba(42, 39, 36, 0.06);
 }
 
@@ -412,7 +380,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
   width: 48px;
   height: 48px;
   border-radius: 14px;
-  background: $_ink;
+  background: $uc-ink;
   color: #fff;
   font-family: $font-heading;
   font-weight: 700;
@@ -426,7 +394,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
   height: auto;
 
   path {
-    fill: $_ink;
+    fill: $uc-ink;
   }
 }
 
@@ -436,7 +404,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: $_body;
+  color: $uc-body;
   white-space: nowrap;
 }
 
@@ -452,7 +420,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
   gap: 3px;
   padding: 10px 12px;
   background: rgba(#fff, 0.75);
-  border: 1px solid rgba($_ink, 0.05);
+  border: 1px solid rgba($uc-ink, 0.05);
   border-radius: 10px;
   backdrop-filter: blur(8px);
   min-width: 130px;
@@ -464,7 +432,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
   gap: 6px;
   font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Menlo', monospace;
   font-size: 9px;
-  color: $_body;
+  color: $uc-body;
   letter-spacing: -0.01em;
   white-space: nowrap;
   line-height: 1.6;
@@ -472,7 +440,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
 
 .flowNodeFileIcon {
   font-size: 7px;
-  color: $_stone;
+  color: $uc-stone;
   width: 10px;
   text-align: center;
 }
@@ -522,19 +490,19 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .cfgPath {
-  stroke: $_line;
+  stroke: $uc-line;
   stroke-width: 1.5;
   fill: none;
   opacity: 0.6;
 }
 
 .cfgDotStatic {
-  fill: $_stone;
+  fill: $uc-stone;
   opacity: 0.35;
 }
 
 .cfgDotAnimated {
-  fill: $_accent;
+  fill: $uc-accent;
   opacity: 0.7;
 }
 
@@ -557,7 +525,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
   gap: 10px;
   padding: 10px 16px 10px 12px;
   background: linear-gradient(168deg, rgba(#fff, 0.9) 0%, rgba(#FEFCFA, 0.8) 100%);
-  border: 1px solid rgba($_ink, 0.06);
+  border: 1px solid rgba($uc-ink, 0.06);
   border-radius: 14px;
   backdrop-filter: blur(10px);
   box-shadow:
@@ -572,8 +540,8 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
   width: 34px;
   height: 34px;
   border-radius: 9px;
-  background: rgba($_accent, 0.1);
-  color: $_accent;
+  background: rgba($uc-accent, 0.1);
+  color: $uc-accent;
   flex-shrink: 0;
 }
 
@@ -581,7 +549,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
   font-family: $font-body;
   font-size: 12px;
   font-weight: 600;
-  color: $_ink;
+  color: $uc-ink;
   letter-spacing: -0.01em;
   line-height: 1.3;
   white-space: pre-line;
@@ -611,7 +579,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
 .cfgTemplateCard {
   position: absolute;
   border-radius: 12px;
-  border: 1px solid rgba($_ink, 0.06);
+  border: 1px solid rgba($uc-ink, 0.06);
   box-shadow: 0 2px 10px rgba(42, 39, 36, 0.06);
 
   &[data-layer="3"] {
@@ -644,9 +612,9 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 2;
     overflow: hidden;
     padding: 12px;
-    border: 1.5px solid rgba($_accent, 0.12);
+    border: 1.5px solid rgba($uc-accent, 0.12);
     box-shadow:
-      0 2px 8px rgba($_accent, 0.06),
+      0 2px 8px rgba($uc-accent, 0.06),
       0 6px 20px rgba(42, 39, 36, 0.05);
   }
 }
@@ -660,14 +628,14 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
 .cfgTemplateLine {
   height: 3px;
   border-radius: 2px;
-  background: rgba($_accent, 0.2);
+  background: rgba($uc-accent, 0.2);
 }
 
 .cfgTemplateBlock {
   width: 40px;
   height: 18px;
   border-radius: 4px;
-  background: rgba($_accent, 0.1);
+  background: rgba($uc-accent, 0.1);
   margin-top: 3px;
 }
 
@@ -675,7 +643,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
   font-family: $font-body;
   font-size: 11px;
   font-weight: 600;
-  color: $_body;
+  color: $uc-body;
   letter-spacing: 0.01em;
   text-align: center;
 }
@@ -699,7 +667,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
   gap: 7px;
   padding: 6px 12px 6px 8px;
   background: linear-gradient(168deg, rgba(#fff, 0.88) 0%, rgba(#FEFCFA, 0.75) 100%);
-  border: 1px solid rgba($_ink, 0.06);
+  border: 1px solid rgba($uc-ink, 0.06);
   border-radius: 10px;
   backdrop-filter: blur(8px);
   box-shadow:
@@ -711,7 +679,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
     font-family: $font-body;
     font-size: 10.5px;
     font-weight: 600;
-    color: $_ink;
+    color: $uc-ink;
     letter-spacing: -0.005em;
   }
 
@@ -719,8 +687,8 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
     margin-bottom: 6px;
 
     .cfgTreeIcon {
-      background: rgba($_accent, 0.1);
-      color: $_accent;
+      background: rgba($uc-accent, 0.1);
+      color: $uc-accent;
     }
 
     span {
@@ -736,20 +704,20 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     span {
-      color: $_body;
+      color: $uc-body;
     }
   }
 
   &[data-level="ad"] {
     .cfgTreeIcon {
-      background: rgba($_stone, 0.1);
-      color: $_stone;
+      background: rgba($uc-stone, 0.1);
+      color: $uc-stone;
     }
 
     span {
       font-size: 10px;
       font-weight: 500;
-      color: $_body-faded;
+      color: $uc-body-faded;
     }
   }
 }
@@ -788,7 +756,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
 .pipelineConnector {
   width: 1.5px;
   height: 24px;
-  background: $_line;
+  background: $uc-line;
   flex-shrink: 0;
 }
 
@@ -800,7 +768,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .pipelinePath {
-  stroke: $_line;
+  stroke: $uc-line;
   stroke-width: 1.5;
   fill: none;
   opacity: 0.5;
@@ -822,7 +790,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
   gap: 8px;
   padding: 14px 20px 10px;
   background: linear-gradient(168deg, rgba(#fff, 0.88) 0%, rgba(#FEFCFA, 0.75) 100%);
-  border: 1px solid rgba($_ink, 0.06);
+  border: 1px solid rgba($uc-ink, 0.06);
   border-radius: 16px;
   backdrop-filter: blur(12px);
   box-shadow:
@@ -835,9 +803,9 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
 
   &[data-brand="template"] {
     padding: 14px 18px 10px;
-    border: 1.5px solid rgba($_accent, 0.12);
+    border: 1.5px solid rgba($uc-accent, 0.12);
     box-shadow:
-      0 2px 8px rgba($_accent, 0.06),
+      0 2px 8px rgba($uc-accent, 0.06),
       0 6px 20px rgba(42, 39, 36, 0.05);
   }
 }
@@ -850,7 +818,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
   height: 40px;
   border-radius: 11px;
   background: rgba(#fff, 0.9);
-  border: 1px solid rgba($_ink, 0.05);
+  border: 1px solid rgba($uc-ink, 0.05);
   box-shadow: 0 1px 4px rgba(42, 39, 36, 0.06);
 }
 
@@ -859,7 +827,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
   height: auto;
 
   path {
-    fill: $_ink;
+    fill: $uc-ink;
   }
 }
 
@@ -869,7 +837,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: $_body;
+  color: $uc-body;
   white-space: nowrap;
 }
 
@@ -880,7 +848,7 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
   gap: 4px;
   padding: 8px 10px;
   background: rgba(#fff, 0.7);
-  border: 1px solid rgba($_ink, 0.04);
+  border: 1px solid rgba($uc-ink, 0.04);
   border-radius: 8px;
   width: 80px;
 }
@@ -888,14 +856,14 @@ $_ease: cubic-bezier(0.16, 1, 0.3, 1);
 .pipelineTemplateLine {
   height: 3px;
   border-radius: 2px;
-  background: rgba($_accent, 0.2);
+  background: rgba($uc-accent, 0.2);
 }
 
 .pipelineTemplateBlock {
   width: 32px;
   height: 12px;
   border-radius: 3px;
-  background: rgba($_accent, 0.1);
+  background: rgba($uc-accent, 0.1);
   margin-top: 2px;
 }
 

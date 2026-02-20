@@ -1,10 +1,12 @@
+@use '../uc' as *;
+
 .ctaWrapper {
-  background: #1A1A1A;
+  background: $color-jet-black;
 }
 
 .cta {
   padding: 100px 0;
-  background: linear-gradient(45deg, rgba(50, 45, 47, 0.2) 50%, rgba(251, 214, 119, 0.2) 100%), #1A1A1A;
+  background: linear-gradient(45deg, rgba(50, 45, 47, 0.2) 50%, rgba(251, 214, 119, 0.2) 100%), $color-jet-black;
   border-radius: 0px 0px 60px 60px;
 }
 
@@ -43,17 +45,17 @@
   align-items: center;
   gap: 10px;
   padding: 16px 32px;
-  background: #F97316;
+  background: $uc-accent;
   color: #ffffff;
   border-radius: 10px;
   font-family: $font-body;
   font-size: 15px;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s $uc-ease;
 
   &:hover {
-    background: #fb923c;
+    background: $uc-accent-hover;
     transform: translateY(-2px);
   }
 }
@@ -71,7 +73,7 @@
   font-size: 15px;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s $uc-ease;
 
   &:hover {
     background: rgba(255, 255, 255, 0.08);
