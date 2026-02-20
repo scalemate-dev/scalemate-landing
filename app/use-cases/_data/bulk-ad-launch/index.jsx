@@ -3,9 +3,9 @@ import { SyncVisual, ConfigVisual, LaunchVisual } from "./HowItWorksVisuals"
 export const data = {
   metadata: {
     title:
-      "Bulk Ad Launch Tool — Launch Hundreds of Ads in Minutes | Scalemate",
+      "Bulk Ad Launch Tool – Launch Hundreds of Ads in Minutes | Scalemate",
     description:
-      "A bulk ad launch tool that removes the manual grind from campaign deployment. Bulk-create hundreds of ad sets, sync creatives from cloud storage, and launch at scale.",
+      "A bulk ad launch tool removes the manual grind from campaign deployment, no more slow launches or hours spent on repetitive setup.",
     alternates: {
       canonical: "https://www.scalemate.co/use-cases/bulk-ad-launch",
     },
@@ -69,8 +69,7 @@ export const data = {
   beforeAfter: {
     eyebrow: "The Difference",
     title: "What changes with Scalemate",
-    subtitle:
-      "The gap between manual and automated deployment is measurable.",
+    subtitle: "The gap between manual and automated deployment is measurable.",
     before: {
       title: "Manual setup eats entire week",
       text: "One concept, ten markets – ten ad sets, each built by hand. 3–5x longer than it should take.",
@@ -218,14 +217,12 @@ export const data = {
         "It\u2019s not limited to one structure. Teams define how ads get distributed across campaigns and ad sets based on their own approach. For example, all creatives from one concept can go into a single ad set or campaign, with AI diversifying variations automatically. One-ad-per-ad-set is also fully supported, it gives teams control over spend per creative and ensuring each ad gets enough impressions for fair testing.",
     },
     {
-      question:
-        "Can teams create ads in bulk for Meta (Facebook & Instagram)?",
+      question: "Can teams create ads in bulk for Meta (Facebook & Instagram)?",
       answer:
         "Yes. Scalemate is a bulk facebook ad creation tool that integrates directly with Meta\u2019s advertising infrastructure. It enables mass campaign deployment across both Facebook and Instagram placements from a single configuration. Teams create ads in bulk meta without switching between multiple interfaces.",
     },
     {
-      question:
-        "Which cloud storage platforms does Scalemate integrate with?",
+      question: "Which cloud storage platforms does Scalemate integrate with?",
       answer:
         "Google Drive and NextCloud are supported natively, with custom integrations available for other storage providers. The connection runs through a direct API sync \u2014 no browser extensions, plugins, or manual exports required. Once connected, teams select which folders or files to push into Meta\u2019s Media Library, with automatic deduplication handling the rest. Need a custom cloud storage integration? Contact us to discuss your setup.",
     },
@@ -235,8 +232,7 @@ export const data = {
         "Initial onboarding includes dedicated setup and configuration. Once live, the launch ads at scale tool deploys hundreds of ads in minutes \u2014 compared to the days or weeks required manually. Most teams complete onboarding and run their first bulk launch within the first week.",
     },
     {
-      question:
-        "Which ad platforms are supported for bulk ad launch?",
+      question: "Which ad platforms are supported for bulk ad launch?",
       answer:
         "Scalemate currently supports bulk ad launch across Meta (Facebook & Instagram), TikTok, and Google Ads. The same workflow applies \u2014 configure once, deploy across ad sets in minutes. If your team runs campaigns on a platform not yet listed, Scalemate accepts custom integration requests.",
     },
