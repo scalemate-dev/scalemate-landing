@@ -611,7 +611,7 @@ export default function HowItWorksSection() {
           </h2>
           <p className={styles.headerSub}>
             Three steps replace the manual pipeline — from cloud storage to live
-            campaigns across Meta.
+            campaigns across Meta & TikTok.
           </p>
         </div>
 
