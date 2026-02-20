@@ -7,17 +7,17 @@ export default function HeroSection() {
     <section className={styles.hero}>
       <Container>
         <div className={styles.content}>
-          <span className={styles.label}>Bulk Ad Launch Tool</span>
+          <span className={styles.label}>Ads launcher</span>
 
           <h1>
-            Launch <span className={styles.accent}>Hundreds of Ads</span> in
-            minutes without manual setup
+            Launch Hundreds of Ads with{" "}
+            <span className={styles.accent}>Bulk Ad Launch tool</span>
           </h1>
 
           <p className={styles.description}>
-            A <strong>bulk ad launch tool</strong> removes the manual grind from
-            campaign deployment, no more slow launches or hours spent on
-            repetitive setup. One setup covers the full workflow:
+            A bulk ad launch tool removes the manual grind from campaign
+            deployment, no more slow launches or hours spent on repetitive
+            setup. One setup covers the full workflow:
           </p>
 
           <ul className={styles.features}>
