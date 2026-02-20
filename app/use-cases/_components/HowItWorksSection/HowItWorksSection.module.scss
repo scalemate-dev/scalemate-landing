@@ -1,0 +1,370 @@
+@use '../uc' as *;
+
+// =========================================================
+// HowItWorksSection — "Quiet Luxury"
+//
+// Architectural editorial layout. Alternating two-column
+// steps with oversized ghost numbers, cinematic reveals,
+// and elevated visual panels. Brutally minimal, warm,
+// premium.
+//
+// Visual diagram styles are in HowItWorksVisuals.module.scss.
+// =========================================================
+
+// ———————————————————————————————————————
+// Section
+// ———————————————————————————————————————
+
+.howItWorks {
+  position: relative;
+  padding: 148px 0 140px;
+  background: $uc-bg-warm;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at 80% 15%,
+      rgba(249, 115, 22, 0.018) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
+  }
+}
+
+
+// ———————————————————————————————————————
+// Header
+// ———————————————————————————————————————
+
+.header {
+  margin-bottom: 72px;
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  @include uc-eyebrow;
+}
+
+.headerTitle {
+  @include uc-section-title;
+  margin: 0 0 20px;
+}
+
+.headerSub {
+  @include uc-body-text;
+  max-width: 564px;
+}
+
+// ———————————————————————————————————————
+// Steps container
+// ———————————————————————————————————————
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+// ———————————————————————————————————————
+// Step — alternating two-column layout
+// ———————————————————————————————————————
+
+.step {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  padding: 80px 0;
+  position: relative;
+
+  // Top divider
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: $uc-line;
+  }
+
+  // Ghost number watermark
+  &::after {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 280px;
+    line-height: 0.8;
+    letter-spacing: -0.05em;
+    color: $uc-ink;
+    opacity: 0.03;
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+
+  &:nth-child(1)::after {
+    content: '01';
+    right: 0;
+    top: 40px;
+  }
+
+  &:nth-child(2)::after {
+    content: '02';
+    left: 0;
+    top: 40px;
+  }
+
+  &:nth-child(3)::after {
+    content: '03';
+    right: 0;
+    top: 40px;
+  }
+
+  // Bottom divider on last step
+  &:last-child {
+    &::before {
+      // already has top line
+    }
+
+    // Extra bottom line
+    .stepInfo::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: $uc-line;
+    }
+  }
+}
+
+// Reversed (even) steps — visual on left
+.stepReversed {
+  .stepVisual {
+    order: -1;
+  }
+
+  &::after {
+    // Ghost number moves to opposite side
+  }
+}
+
+// ———————————————————————————————————————
+// Step info (number + text)
+// ———————————————————————————————————————
+
+.stepInfo {
+  position: relative;
+  z-index: 1;
+}
+
+.stepTitle {
+  letter-spacing: -.025em;
+  margin: 0 0 16px;
+  font-family: Poppins, sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: $uc-ink;
+}
+
+.stepDesc {
+  font-family: $font-body;
+  font-size: 16px;
+  line-height: 1.7;
+  color: $uc-body;
+  margin: 0;
+  max-width: 440px;
+}
+
+.stepDetail {
+  font-family: $font-body;
+  font-size: 14px;
+  line-height: 1.7;
+  color: $uc-body-faded;
+  margin: 16px 0 0;
+  max-width: 440px;
+}
+
+// ———————————————————————————————————————
+// Visual panels — elevated white cards
+// ———————————————————————————————————————
+
+.stepVisual {
+  position: relative;
+  z-index: 1;
+}
+
+.stepImage {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  display: block;
+}
+
+.visual {
+  background: $uc-panel-bg;
+  border-radius: 20px;
+  padding: 32px;
+  border: 1px solid rgba($uc-ink, 0.04);
+  box-shadow: $uc-shadow-panel;
+  transition:
+    transform 0.6s $uc-ease,
+    box-shadow 0.6s $uc-ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $uc-shadow-panel-hover;
+  }
+}
+
+// ———————————————————————————————————————
+// Responsive
+// ———————————————————————————————————————
+
+@include desktop-s {
+  .howItWorks {
+    padding: 136px 0 120px;
+  }
+
+  .headerTitle {
+    font-size: 46px;
+  }
+
+  .step {
+    gap: 60px;
+    padding: 72px 0;
+  }
+
+  .stepTitle {
+    font-size: 26px;
+  }
+}
+
+@include tablet-horizontal {
+  .howItWorks {
+    padding: 104px 0 100px;
+  }
+
+  .header {
+    margin-bottom: 56px;
+  }
+
+  .headerTitle {
+    font-size: 40px;
+  }
+
+  .step {
+    gap: 44px;
+    padding: 60px 0;
+  }
+
+  .stepTitle {
+    font-size: 23px;
+  }
+
+  .stepDesc {
+    font-size: 15px;
+  }
+
+  .visual {
+    padding: 28px;
+  }
+}
+
+@include tablet-vertical {
+  .howItWorks {
+    padding: 80px 0;
+  }
+
+  .header {
+    margin-bottom: 48px;
+  }
+
+  .headerTitle {
+    font-size: 36px;
+  }
+
+  .headerSub {
+    font-size: 16px;
+  }
+
+  .step {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 48px 0;
+  }
+
+  // Reset order on single column
+  .stepReversed .stepVisual {
+    order: 0;
+  }
+
+  .stepTitle {
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+
+  .stepDesc {
+    font-size: 15px;
+  }
+
+  .visual {
+    padding: 28px;
+  }
+}
+
+@include mobile {
+  .howItWorks {
+    padding: 56px 0;
+  }
+
+  .header {
+    margin-bottom: 40px;
+  }
+
+  .eyebrow {
+    margin-bottom: 20px;
+    font-size: 10px;
+  }
+
+  .headerTitle {
+    font-size: 28px;
+    letter-spacing: -0.025em;
+  }
+
+  .headerSub {
+    font-size: 15px;
+  }
+
+  .step {
+    gap: 24px;
+    padding: 36px 0;
+  }
+
+  .stepTitle {
+    font-size: 19px;
+    margin-bottom: 14px;
+  }
+
+  .stepDesc {
+    font-size: 14px;
+  }
+
+  .stepDetail {
+    font-size: 13px;
+    margin-top: 12px;
+  }
+
+  .visual {
+    padding: 22px;
+    border-radius: 16px;
+  }
+}

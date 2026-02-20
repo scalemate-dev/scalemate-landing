@@ -1,0 +1,371 @@
+@use '../uc' as *;
+
+// ─── Animations ───
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.08);
+  }
+}
+
+// ─── Hero Section ───
+
+.hero {
+  position: relative;
+  padding: 180px 0 120px;
+  background: linear-gradient(168deg, #fefdfb 0%, #fff8f3 45%, #fefefe 100%);
+  overflow: hidden;
+
+  // Dot matrix — represents the scale of "hundreds of ads"
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+      circle,
+      rgba(0, 0, 0, 0.035) 1px,
+      transparent 1px
+    );
+    background-size: 32px 32px;
+    mask-image: radial-gradient(
+      ellipse 65% 55% at 38% 32%,
+      rgba(0, 0, 0, 0.5) 0%,
+      transparent 70%
+    );
+    -webkit-mask-image: radial-gradient(
+      ellipse 65% 55% at 38% 32%,
+      rgba(0, 0, 0, 0.5) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  // Ambient warm glow
+  &::after {
+    content: "";
+    position: absolute;
+    top: 2%;
+    right: -6%;
+    width: 660px;
+    height: 660px;
+    background: radial-gradient(
+      circle,
+      rgba($uc-accent, 0.07) 0%,
+      rgba($uc-accent, 0.02) 45%,
+      transparent 70%
+    );
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    animation: breathe 12s ease-in-out infinite;
+  }
+}
+
+// ─── Content ───
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+
+  h1 {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 1.05;
+    color: $uc-ink;
+    letter-spacing: -0.035em;
+    text-align: left;
+    margin: 0 0 32px;
+    max-width: 800px;
+  }
+}
+
+// ─── Label pill ───
+
+.label {
+  font-family: $font-body;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $uc-stone;
+  margin-bottom: 12px;
+}
+
+// ─── Accent text — animated gradient shimmer ───
+
+.accent {
+  background: linear-gradient(
+    90deg,
+    $uc-accent-deep 0%,
+    $uc-accent 25%,
+    $uc-accent-light 50%,
+    $uc-accent 75%,
+    $uc-accent-deep 100%
+  );
+  background-size: 300% 100%;
+  background-position: 200% center;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 5s ease-in-out infinite alternate;
+}
+
+// ─── Description ───
+
+.description {
+  font-family: $font-body;
+  font-size: 18px;
+  line-height: 1.7;
+  color: $uc-body;
+  text-align: left;
+  margin: 0 0 56px;
+  max-width: 560px;
+
+  strong {
+    color: $uc-ink;
+    font-weight: 600;
+  }
+}
+
+// ─── Features — clean numbered grid ───
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 44px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  width: 100%;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 20px;
+  border-top: 1.5px solid rgba(0, 0, 0, 0.08);
+}
+
+.featureNum {
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: 500;
+  color: $uc-accent;
+  letter-spacing: 0.08em;
+}
+
+.featureText {
+  font-family: $font-heading;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.45;
+  color: $uc-ink;
+  letter-spacing: -0.01em;
+}
+
+// ─── Aside ───
+
+.aside {
+  font-family: $font-body;
+  font-size: 15px;
+  line-height: 1.6;
+  color: $color-text-500;
+  margin: 0 0 44px;
+  max-width: 528px;
+}
+
+// ─── CTA ───
+
+.cta {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+// ─── Responsive ───
+
+@include desktop-s {
+  .content h1 {
+    font-size: 52px;
+    text-align: left;
+  }
+}
+
+@include tablet-horizontal {
+  .hero {
+    padding: 150px 0 80px;
+
+    &::after {
+      width: 450px;
+      height: 450px;
+      top: 0;
+      right: -10%;
+    }
+  }
+
+  .content h1 {
+    font-size: 44px;
+    text-align: left;
+    max-width: 560px;
+  }
+
+  .description {
+    font-size: 16px;
+    margin-bottom: 48px;
+  }
+
+  .features {
+    gap: 28px;
+  }
+
+  .featureText {
+    font-size: 16px;
+  }
+}
+
+@include tablet-vertical {
+  .hero {
+    padding: 120px 0 56px;
+
+    &::before {
+      mask-image: radial-gradient(
+        ellipse 90% 50% at 50% 25%,
+        rgba(0, 0, 0, 0.4) 0%,
+        transparent 70%
+      );
+      -webkit-mask-image: radial-gradient(
+        ellipse 90% 50% at 50% 25%,
+        rgba(0, 0, 0, 0.4) 0%,
+        transparent 70%
+      );
+    }
+
+    &::after {
+      width: 320px;
+      height: 320px;
+      top: 5%;
+      right: -15%;
+    }
+  }
+
+  .content h1 {
+    font-size: 38px;
+    text-align: left;
+    max-width: 100%;
+
+    br {
+      display: none;
+    }
+  }
+
+  .description {
+    max-width: 100%;
+    margin-bottom: 40px;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-bottom: 40px;
+  }
+
+  .feature {
+    padding: 18px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    flex-direction: row;
+    align-items: baseline;
+    gap: 16px;
+  }
+
+  .featureNum {
+    flex-shrink: 0;
+  }
+
+  .aside {
+    max-width: 100%;
+    margin-bottom: 36px;
+  }
+
+  .cta {
+    flex-direction: column;
+    width: 100%;
+    max-width: 360px;
+
+    a {
+      width: 100%;
+    }
+  }
+}
+
+@include mobile {
+  .hero {
+    padding: 100px 0 44px;
+
+    &::before {
+      background-size: 28px 28px;
+    }
+
+    &::after {
+      width: 200px;
+      height: 200px;
+      top: 2%;
+      right: -20%;
+      opacity: 0.6;
+    }
+  }
+
+  .content h1 {
+    font-size: 32px;
+    text-align: left;
+    letter-spacing: -0.025em;
+  }
+
+  .label {
+    font-size: 11px;
+    margin-bottom: 24px;
+  }
+
+  .description {
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+
+  .features {
+    margin-bottom: 32px;
+  }
+
+  .feature {
+    padding: 14px 0;
+  }
+
+  .featureText {
+    font-size: 15px;
+  }
+
+  .aside {
+    font-size: 14px;
+    margin-bottom: 28px;
+  }
+}
