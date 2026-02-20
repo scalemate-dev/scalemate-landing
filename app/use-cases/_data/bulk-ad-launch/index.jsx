@@ -14,8 +14,8 @@ export const data = {
         "Bulk Ad Launch Tool — Launch Hundreds of Ads in Minutes | Scalemate",
       description:
         "A bulk ad launch tool that removes the manual grind from campaign deployment. Bulk-create hundreds of ad sets and launch at scale.",
+      url: "https://www.scalemate.co/use-cases/bulk-ad-launch",
       type: "website",
-      images: [{ url: "/og-image.png", width: 1200, height: 630 }],
     },
     twitter: {
       card: "summary_large_image",
