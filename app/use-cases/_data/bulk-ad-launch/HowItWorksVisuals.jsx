@@ -1,10 +1,9 @@
 import Image from "next/image"
-import Container from "@/components/elements/Container/Container"
 import Logo from "@/components/elements/Logo"
 import googleDriveIcon from "@/assets/icons/google-drive-icon.svg"
 import metaIcon from "@/assets/icons/meta-icon.svg"
 import tiktokIcon from "@/assets/icons/tiktok-icon.svg"
-import styles from "./HowItWorksSection.module.scss"
+import styles from "../../_components/HowItWorksSection/HowItWorksSection.module.scss"
 
 const fileTypes = [
   { name: "hero_v2.mp4", type: "video" },
@@ -14,33 +13,28 @@ const fileTypes = [
   { name: "feed_square.png", type: "image" },
 ]
 
-function SyncVisual() {
+export function SyncVisual() {
   return (
     <div className={styles.flowDiagram}>
-      {/* Connection lines SVG */}
       <svg
         className={styles.flowLines}
         viewBox="0 0 480 320"
         fill="none"
         preserveAspectRatio="xMidYMid meet"
       >
-        {/* Google Drive → Scalemate */}
         <path
           d="M 90 100 C 150 100, 160 160, 220 160"
           className={styles.flowPath}
         />
-        {/* Scalemate → TikTok */}
         <path
           d="M 280 160 C 340 160, 340 90, 400 90"
           className={styles.flowPath}
         />
-        {/* Scalemate → Meta */}
         <path
           d="M 280 160 C 340 160, 340 235, 400 235"
           className={styles.flowPath}
         />
 
-        {/* Animated dots — Drive to Scalemate */}
         <circle r="3" className={styles.flowDot}>
           <animateMotion
             dur="2.4s"
@@ -57,7 +51,6 @@ function SyncVisual() {
           />
         </circle>
 
-        {/* Animated dots — Scalemate to TikTok */}
         <circle r="3" className={styles.flowDot}>
           <animateMotion
             dur="2s"
@@ -67,7 +60,6 @@ function SyncVisual() {
           />
         </circle>
 
-        {/* Animated dots — Scalemate to Meta */}
         <circle r="3" className={styles.flowDot}>
           <animateMotion
             dur="2s"
@@ -85,7 +77,6 @@ function SyncVisual() {
           />
         </circle>
 
-        {/* Small file icons flowing — Drive to Scalemate */}
         <g className={styles.flowFileIcon}>
           <animateMotion
             dur="3.2s"
@@ -146,7 +137,6 @@ function SyncVisual() {
         </g>
       </svg>
 
-      {/* Google Drive Node */}
       <div className={`${styles.flowNode} ${styles.flowNodeDrive}`}>
         <div className={styles.flowNodeInner}>
           <div className={styles.flowNodeIcon}>
@@ -171,14 +161,12 @@ function SyncVisual() {
         </div>
       </div>
 
-      {/* Scalemate Node */}
       <div className={`${styles.flowNode} ${styles.flowNodeScalemate}`}>
         <div className={styles.flowNodeInner}>
           <Logo className={styles.flowNodeLogo} />
         </div>
       </div>
 
-      {/* TikTok Node */}
       <div className={`${styles.flowNode} ${styles.flowNodeTiktok}`}>
         <div className={styles.flowNodeInner}>
           <div className={styles.flowNodeIcon}>
@@ -188,7 +176,6 @@ function SyncVisual() {
         </div>
       </div>
 
-      {/* Meta Node */}
       <div className={`${styles.flowNode} ${styles.flowNodeMeta}`}>
         <div className={styles.flowNodeInner}>
           <div className={styles.flowNodeIcon}>
@@ -283,17 +270,15 @@ const configParams = [
   },
 ]
 
-function ConfigVisual() {
+export function ConfigVisual() {
   return (
     <div className={styles.cfgDiagram}>
-      {/* SVG connection lines */}
       <svg
         className={styles.cfgLines}
         viewBox="0 0 520 360"
         fill="none"
         preserveAspectRatio="xMidYMid meet"
       >
-        {/* Param pills → Smart Template (center) */}
         <path
           d="M 128 75 C 175 75, 200 145, 240 150"
           className={styles.cfgPath}
@@ -311,19 +296,16 @@ function ConfigVisual() {
           className={styles.cfgPath}
         />
 
-        {/* Smart Template → Campaign tree */}
         <path
           d="M 305 165 C 355 165, 360 110, 395 110"
           className={styles.cfgPath}
         />
 
-        {/* Static dots at pill endpoints */}
         <circle cx="128" cy="75" r="3" className={styles.cfgDotStatic} />
         <circle cx="128" cy="130" r="3" className={styles.cfgDotStatic} />
         <circle cx="128" cy="210" r="3" className={styles.cfgDotStatic} />
         <circle cx="128" cy="290" r="3" className={styles.cfgDotStatic} />
 
-        {/* Animated dots — pills to template */}
         <circle r="3" className={styles.cfgDotAnimated}>
           <animateMotion
             dur="2s"
@@ -356,7 +338,6 @@ function ConfigVisual() {
           />
         </circle>
 
-        {/* Animated dots — template to campaign tree */}
         <circle r="3" className={styles.cfgDotAnimated}>
           <animateMotion
             dur="1.8s"
@@ -379,7 +360,6 @@ function ConfigVisual() {
         </circle>
       </svg>
 
-      {/* Left: Parameter pills */}
       <div className={styles.cfgParams}>
         {configParams.map((p, i) => (
           <div key={i} className={styles.cfgPill}>
@@ -389,7 +369,6 @@ function ConfigVisual() {
         ))}
       </div>
 
-      {/* Center: Smart Template */}
       <div className={styles.cfgCenter}>
         <div className={styles.cfgTemplateStack}>
           <div className={styles.cfgTemplateCard} data-layer="3" />
@@ -415,9 +394,7 @@ function ConfigVisual() {
         <span className={styles.cfgCenterLabel}>Smart Template</span>
       </div>
 
-      {/* Right: Campaign structure tree */}
       <div className={styles.cfgTree}>
-        {/* Campaign node */}
         <div className={styles.cfgTreeNode} data-level="campaign">
           <div className={styles.cfgTreeIcon}>
             <svg
@@ -438,7 +415,6 @@ function ConfigVisual() {
           <span>Campaign</span>
         </div>
 
-        {/* Ad Set rows */}
         {[1, 2, 3].map((n) => (
           <div key={n} className={styles.cfgTreeRow} data-row={n}>
             <div className={styles.cfgTreeNode} data-level="adset">
@@ -485,10 +461,9 @@ function ConfigVisual() {
   )
 }
 
-function LaunchVisual() {
+export function LaunchVisual() {
   return (
     <div className={styles.pipelineDiagram}>
-      {/* Row 1: Google Drive */}
       <div className={styles.pipelineNode} data-row="1">
         <div className={styles.pipelineNodeInner}>
           <div className={styles.pipelineNodeIcon}>
@@ -505,7 +480,6 @@ function LaunchVisual() {
 
       <div className={styles.pipelineConnector} />
 
-      {/* Row 2: Scalemate */}
       <div className={styles.pipelineNode} data-row="2">
         <div className={styles.pipelineNodeInner} data-brand="scalemate">
           <Logo className={styles.pipelineNodeLogo} />
@@ -514,7 +488,6 @@ function LaunchVisual() {
 
       <div className={styles.pipelineConnector} />
 
-      {/* Row 3: Smart Template */}
       <div className={styles.pipelineNode} data-row="3">
         <div className={styles.pipelineNodeInner} data-brand="template">
           <div className={styles.pipelineTemplatePreview}>
@@ -536,7 +509,6 @@ function LaunchVisual() {
         </div>
       </div>
 
-      {/* Y-fork connector */}
       <svg
         className={styles.pipelineFork}
         viewBox="0 0 200 40"
@@ -553,7 +525,6 @@ function LaunchVisual() {
         />
       </svg>
 
-      {/* Row 4: TikTok + Meta side by side */}
       <div className={styles.pipelineOutputs}>
         <div className={styles.pipelineNode} data-row="4">
           <div className={styles.pipelineNodeInner}>
@@ -573,65 +544,5 @@ function LaunchVisual() {
         </div>
       </div>
     </div>
-  )
-}
-
-const steps = [
-  {
-    number: "01",
-    title: "Sync Ad Creatives from Cloud Storage",
-    description:
-      "Scalemate connects to Google Drive, NextCloud, or other storage and pushes creatives into Meta and TikTok Media Library – with deduplication and filtering built in",
-    Visual: SyncVisual,
-  },
-  {
-    number: "02",
-    title: "Set Campaign parameters once",
-    description:
-      "Budget, targeting, placements, naming conventions, ads destribution rules, configured once and saved to smart template",
-    Visual: ConfigVisual,
-  },
-  {
-    number: "03",
-    title: "Launch all Ads at once",
-    description:
-      "Bulk ad deployment software that deploys hundreds of ad sets in one action \u2014 the launch ads at scale tool handles the volume, the team handles the decisions",
-    Visual: LaunchVisual,
-  },
-]
-
-export default function HowItWorksSection() {
-  return (
-    <section className={styles.howItWorks}>
-      <Container>
-        <div className={styles.header}>
-          <span className={styles.eyebrow}>How It Works</span>
-          <h2 className={styles.headerTitle}>
-            How the Bulk Ad Launch Tool Works
-          </h2>
-          <p className={styles.headerSub}>
-            Three steps replace the manual pipeline — from cloud storage to live
-            campaigns across Meta & TikTok.
-          </p>
-        </div>
-
-        <div className={styles.steps}>
-          {steps.map((step, index) => (
-            <div
-              key={step.number}
-              className={`${styles.step} ${index % 2 !== 0 ? styles.stepReversed : ""}`}
-            >
-              <div className={styles.stepInfo}>
-                <h3 className={styles.stepTitle}>{step.title}</h3>
-                <p className={styles.stepDesc}>{step.description}</p>
-              </div>
-              <div className={styles.stepVisual}>
-                {step.Visual ? <step.Visual /> : step.visual}
-              </div>
-            </div>
-          ))}
-        </div>
-      </Container>
-    </section>
   )
 }
