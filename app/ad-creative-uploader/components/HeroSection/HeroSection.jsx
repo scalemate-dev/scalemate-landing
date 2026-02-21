@@ -3,8 +3,6 @@ import Container from "@/components/elements/Container/Container"
 import UploaderErrorBoundary from "../UploaderWidget/UploaderErrorBoundary"
 import UploaderWidget from "../UploaderWidget/UploaderWidget"
 import styles from "./HeroSection.module.scss"
-import bubble from "@/assets/icons/hero-linear-background.svg"
-import bubble2 from "@/assets/icons/hero-linear-background-2.svg"
 import metaIcon from "@/assets/icons/meta-icon.svg"
 import tiktokIcon from "@/assets/icons/tiktok-icon.svg"
 import googleDriveIcon from "@/assets/icons/google-drive-icon.svg"
@@ -12,31 +10,18 @@ import googleDriveIcon from "@/assets/icons/google-drive-icon.svg"
 export default function HeroSection() {
   return (
     <section className={styles.hero} id="top">
-      <Image
-        className={styles.bubble1}
-        src={bubble}
-        alt=""
-        width={900}
-        height={900}
-      />
-      <Image
-        className={styles.bubble2}
-        src={bubble2}
-        alt=""
-        width={900}
-        height={900}
-      />
-
       <Container>
         <div className={styles.heroContent}>
           <div className={styles.heroHeader}>
+            <span className={styles.label}>Free Ad Creative Uploader</span>
             <h1>
-              Upload Ad creatives from <br /> Google Drive to Ad Accounts
+              Google Drive to Meta & TikTok Ads —{" "}
+              <span className={styles.accent}>in one click</span>
             </h1>
             <p>
-              Free tool to skip downloading and re-uploading ad creatives to the
-              platforms. Select from Google Drive, send it to Meta Ads & TikTok
-              Ads
+              Upload ad creatives from Google Drive directly to Meta Ads and
+              TikTok Ads. No downloads, no manual re-uploads — bulk upload to
+              multiple ad accounts in one click.
             </p>
           </div>
 

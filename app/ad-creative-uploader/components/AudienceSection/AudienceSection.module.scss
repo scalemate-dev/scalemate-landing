@@ -1,0 +1,216 @@
+@use '../uc' as *;
+
+// ─── Section ───
+
+.section {
+  position: relative;
+  padding: 148px 0 140px;
+  background: $uc-bg-warm;
+  overflow: hidden;
+}
+
+// ─── Header ───
+
+.header {
+  margin-bottom: 80px;
+}
+
+.eyebrow {
+  @include uc-eyebrow;
+}
+
+.title {
+  @include uc-section-title;
+  margin: 0 0 20px;
+}
+
+.subtitle {
+  @include uc-body-text;
+  color: $uc-stone;
+  max-width: 600px;
+
+  strong {
+    font-weight: 600;
+    color: $uc-ink;
+  }
+}
+
+// ─── Columns ───
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+}
+
+.col {
+  padding-top: 32px;
+
+  &:hover .dash {
+    width: 56px;
+    background: $uc-accent;
+  }
+}
+
+.dash {
+  @include uc-accent-dash;
+  margin-bottom: 28px;
+}
+
+.colRole {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: $uc-ink;
+  margin: 0 0 16px;
+}
+
+.colDesc {
+  font-family: $font-body;
+  font-size: 15px;
+  line-height: 1.7;
+  color: $uc-body;
+  margin: 0;
+}
+
+// ─── Footer — industries ───
+
+.footer {
+  margin-top: 80px;
+  padding-top: 48px;
+  border-top: 1px solid $uc-line;
+}
+
+.footerLabel {
+  font-family: $font-body;
+  font-size: 15px;
+  line-height: 1.7;
+  color: $uc-body;
+  margin: 0 0 20px;
+}
+
+.industryList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  li {
+    font-family: $font-body;
+    font-size: 14px;
+    font-weight: 500;
+    color: $uc-ink;
+    line-height: 2;
+    white-space: nowrap;
+
+    &::after {
+      content: "·";
+      display: inline-block;
+      margin: 0 14px;
+      color: $uc-stone;
+      font-weight: 700;
+    }
+
+    &:last-child::after {
+      display: none;
+    }
+  }
+}
+
+// ─── Responsive ───
+
+@include desktop-s {
+  .title {
+    font-size: 46px;
+  }
+
+  .columns {
+    gap: 36px;
+  }
+}
+
+@include tablet-horizontal {
+  .section {
+    padding: 104px 0;
+  }
+
+  .header {
+    margin-bottom: 64px;
+  }
+
+  .title {
+    font-size: 40px;
+  }
+
+  .columns {
+    gap: 32px;
+  }
+
+  .colRole {
+    font-size: 22px;
+  }
+}
+
+@include tablet-vertical {
+  .section {
+    padding: 80px 0;
+  }
+
+  .header {
+    margin-bottom: 48px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .columns {
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 480px;
+  }
+
+  .col {
+    padding: 32px 0;
+    border-bottom: 1px solid $uc-line;
+
+    &:first-child {
+      padding-top: 0;
+    }
+  }
+
+  .footer {
+    margin-top: 48px;
+    padding-top: 36px;
+  }
+}
+
+@include mobile {
+  .section {
+    padding: 64px 0;
+  }
+
+  .header {
+    margin-bottom: 40px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .colRole {
+    font-size: 20px;
+  }
+
+  .colDesc {
+    font-size: 14px;
+  }
+}

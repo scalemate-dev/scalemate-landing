@@ -8,7 +8,7 @@ export function generateStaticParams() {
 
 const OG_DEFAULTS = {
   siteName: "Scalemate",
-  images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  images: [{ url: "/og-bulk-ad-launch.png", width: 1200, height: 630 }],
 }
 
 export async function generateMetadata({ params }) {
@@ -19,7 +19,10 @@ export async function generateMetadata({ params }) {
   return {
     ...rest,
     openGraph: { ...OG_DEFAULTS, ...openGraph },
-    twitter: { ...twitter, images: twitter?.images ?? ["/og-image.png"] },
+    twitter: {
+      ...twitter,
+      images: twitter?.images ?? ["/og-bulk-ad-launch.png"],
+    },
   }
 }
 

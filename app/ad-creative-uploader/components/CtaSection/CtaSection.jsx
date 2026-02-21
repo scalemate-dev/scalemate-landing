@@ -8,8 +8,11 @@ export default function CtaSection() {
       <section className={styles.cta}>
         <Container>
           <div className={styles.ctaContent}>
-            <h2>Ready to scale your campaigns?</h2>
-            <p>Join thousands of marketers uploading creatives the smart way</p>
+            <h2>Ready to upload creatives faster?</h2>
+            <p>
+              Skip the manual workflow. Upload ad creatives from Google Drive to
+              Meta Ads and TikTok Ads in clicks.
+            </p>
             <a href="#top" className={styles.ctaButton}>
               <IconCloudUpload size={20} />
               Start Uploading — It's Free
