@@ -77,7 +77,7 @@ const softwareSchema = {
     "Free ad creative upload tool. Upload creatives from Google Drive directly to Meta Ads and TikTok Ads. Bulk upload to multiple ad accounts — no downloads needed.",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
-  url: "https://www.scalemate.co/uploader",
+  url: "https://www.scalemate.co/ad-creative-uploader",
   offers: {
     "@type": "Offer",
     price: "0",
