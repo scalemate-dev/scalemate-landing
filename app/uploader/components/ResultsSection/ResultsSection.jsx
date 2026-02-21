@@ -14,19 +14,19 @@ const stats = [
   {
     value: "65%",
     label: "Time Saved",
-    description: "Less time uploading creatives to ad platforms",
+    description: "Less time on ad creative management, more on strategy",
     icon: IconClock,
   },
   {
     value: "35hrs",
     label: "Saved Monthly",
-    description: "More time for strategy, less on manual uploads",
+    description: "Hours reclaimed from manual uploads to ad platforms",
     icon: IconRocket,
   },
   {
     value: "15K+",
     label: "Ads Launched",
-    description: "Bulk upload entire creative batches instantly",
+    description: "Bulk creative upload — entire batches uploaded instantly",
     icon: IconStack2,
   },
 ]
@@ -43,10 +43,10 @@ export default function ResultsSection() {
       />
       <Container>
         <div className={styles.sectionHeader}>
-          <h2>Stop wasting time on uploads</h2>
+          <h2>Upload ad creatives faster. Save hours every week.</h2>
           <p>
-            Marketing teams save hours every week with direct Google Drive to ad
-            platform uploads
+            Marketing teams cut their creative upload workflow from hours to
+            minutes with Google Drive to Meta Ads and TikTok Ads uploads
           </p>
         </div>
 

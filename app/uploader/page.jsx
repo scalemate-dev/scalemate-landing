@@ -12,21 +12,21 @@ import styles from "./page.module.scss"
 export const metadata = {
   // TODO: Remove noindex once the uploader page is ready for public launch
   robots: "noindex",
-  title: "Free Ad Creative Uploader — Google Drive to Meta & TikTok",
+  title: "Free Ad Creative Uploader — Google Drive to Meta & TikTok Ads",
   description:
-    "Upload ad creatives from Google Drive directly to Meta and TikTok Ads. Free bulk upload tool - no downloads needed. Save hours on campaign launches.",
+    "Free ad creative upload tool. Upload creatives from Google Drive directly to Meta Ads and TikTok Ads. Bulk upload to multiple ad accounts — no downloads needed.",
   openGraph: {
-    title: "Free Ad Creative Uploader — Google Drive to Meta & TikTok",
+    title: "Free Ad Creative Uploader — Google Drive to Meta & TikTok Ads",
     description:
-      "Upload ad creatives from Google Drive directly to Meta and TikTok Ads. Free bulk upload tool - no downloads needed.",
+      "Free ad creative upload tool. Upload creatives from Google Drive to Meta Ads and TikTok Ads — no downloads needed.",
     type: "website",
     images: [{ url: "/og/uploader.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Ad Creative Uploader — Google Drive to Meta & TikTok",
+    title: "Free Ad Creative Uploader — Google Drive to Meta & TikTok Ads",
     description:
-      "Upload from Google Drive to Meta & TikTok Ads. Free, no downloads needed.",
+      "Free creative uploader tool. Upload ads from Google Drive to Meta & TikTok — no downloads needed.",
   },
 }
 
@@ -34,32 +34,32 @@ const faqItems = [
   {
     question: "Is this tool really free?",
     answer:
-      "Yes, 100% free. No credit card required, no hidden fees, no upload limits. We built this to help marketers work faster.",
+      "Yes, 100% free. No credit card required, no hidden fees, no upload limits. We built this ad creative uploader to help media buyers and marketing teams work faster.",
   },
   {
     question: "How is this different from uploading manually?",
     answer:
-      "Instead of downloading files and re-uploading them one by one, you pick files from Google Drive and send them straight to your ad account in one click. The bigger the batch, the more time you save.",
+      "Instead of downloading files and re-uploading them one by one, you pick files from Google Drive and send them straight to your ad account in one click. Bulk upload ad creatives to multiple accounts at once — the bigger the batch, the more time you save.",
   },
   {
     question: "Who is this built for?",
     answer:
-      "Anyone who uploads ad creatives regularly: media buyers managing multiple accounts, marketing agencies delivering assets to clients, growth teams launching campaigns at high frequency, and freelancers juggling multiple client accounts.",
+      "Anyone who manages ad creatives regularly: media buyers running multiple accounts, marketing agencies handling creative distribution for clients, growth teams scaling ad operations at high frequency, and freelancers juggling multiple client accounts.",
   },
   {
     question: "Which platforms are supported?",
     answer:
-      "Currently we support Meta Ads and TikTok Ads. Google Ads support is coming soon.",
+      "You can upload creatives to Meta Ads and TikTok Ads directly from Google Drive. Google Ads support is coming soon.",
   },
   {
     question: "What file formats can I upload?",
     answer:
-      "We support all major formats: JPG, PNG, MP4. Basically anything your ad platforms accept.",
+      "Upload images to Meta Ads and TikTok Ads in JPG and PNG, or upload videos in MP4. Basically anything your ad platforms accept.",
   },
   {
     question: "Do I need to download files to my computer?",
     answer:
-      "No. Files go directly from your Google Drive to the ad platform. Nothing is downloaded to your device, and we never store your files on our servers.",
+      "No. Upload ads without downloading — files go directly from Google Drive to Meta Ads or TikTok Ads. Nothing is downloaded to your device, and we never store your files on our servers.",
   },
   {
     question: "Is my data secure?",

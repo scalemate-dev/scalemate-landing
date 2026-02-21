@@ -8,19 +8,19 @@ const problems = [
     number: "01",
     title: "Download, upload, repeat",
     description:
-      "Creatives in Google Drive, ad platforms elsewhere. Download files, then re-upload one by one.",
+      "Ad creatives live in Google Drive, but ad platforms need them re-uploaded. Download files, then upload ads one by one to Ads Manager.",
   },
   {
     number: "02",
     title: "Multiply by every account",
     description:
-      "Multiple ad accounts? Repeat the same process for each. Same files, same clicks.",
+      "Multiple ad accounts across Meta and TikTok? Repeat the same upload workflow for each. Same files, same clicks.",
   },
   {
     number: "03",
     title: "Hours lost on busywork",
     description:
-      "A 50-creative launch becomes an hour of clicking. Time better spent on strategy.",
+      "A 50-creative launch becomes an hour of clicking. Your creative pipeline stalls while you do manual uploads instead of strategy.",
   },
 ]
 
@@ -38,13 +38,13 @@ export default function ProblemSection() {
         <div className={styles.inner}>
           <div className={styles.header}>
             <h2>
-              The manual workflow
+              The manual upload workflow
               <br />
               <span className={styles.gradientText}>holding you back</span>
             </h2>
             <p className={styles.subtitle}>
-              Every creative upload is a chain of repetitive steps that steals
-              your time
+              Every creative upload is a chain of repetitive steps that slows
+              your ad operations
             </p>
           </div>
 

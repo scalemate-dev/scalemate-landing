@@ -31,12 +31,13 @@ export default function HeroSection() {
         <div className={styles.heroContent}>
           <div className={styles.heroHeader}>
             <h1>
-              Upload Ad creatives from <br /> Google Drive to Ad Accounts
+              Free Ad Creative Uploader — <br /> Google Drive to Meta & TikTok
+              Ads
             </h1>
             <p>
-              Free tool to skip downloading and re-uploading ad creatives to the
-              platforms. Select from Google Drive, send it to Meta Ads & TikTok
-              Ads
+              Upload ad creatives from Google Drive directly to Meta Ads and
+              TikTok Ads. No downloads, no manual re-uploads — bulk upload to
+              multiple ad accounts in one click.
             </p>
           </div>
 

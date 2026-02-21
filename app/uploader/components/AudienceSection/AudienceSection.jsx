@@ -12,28 +12,28 @@ const audiences = [
     icon: IconBuildingSkyscraper,
     role: "Marketing Agencies",
     description:
-      "Juggling dozens of client ad accounts? Push creatives to any of them in one go – no more downloading, re-uploading, or tab-hopping.",
+      "Juggling dozens of client ad accounts? Upload creatives from Google Drive to any of them in one go — no downloading, no tab-hopping.",
     accent: "#8B5CF6",
   },
   {
     icon: IconChartBar,
     role: "App Publishers",
     description:
-      "Scaling UA across Meta and TikTok at the same time? Send creatives to every ad account from a single dashboard.",
+      "Scaling UA across Meta Ads and TikTok Ads? Send creatives to every ad account from a single dashboard. Streamline your creative distribution.",
     accent: "#F97316",
   },
   {
     icon: IconTrendingUp,
     role: "E-commerce",
     description:
-      "New products, seasonal pushes, weekly refreshes – bulk-upload creatives to your campaigns and get back to selling.",
+      "New products, seasonal pushes, weekly refreshes — bulk upload ad creatives to your campaigns and get back to selling.",
     accent: "#0EA5E9",
   },
   {
     icon: IconUserCircle,
-    role: "Freelancers",
+    role: "Freelancers & Media Buyers",
     description:
-      "One person, many clients. Upload ad creatives across all their accounts without juggling logins or permissions.",
+      "One person, many clients. Upload ad creatives across all accounts without juggling logins. Simplify your media buyer workflow.",
     accent: "#10B981",
   },
 ]
@@ -43,10 +43,10 @@ export default function AudienceSection() {
     <section className={styles.audience}>
       <Container>
         <div className={styles.sectionHeader}>
-          <h2>Built for people who run ads</h2>
+          <h2>Built for teams who manage ad creatives</h2>
           <p>
-            If you upload ad creatives to Meta or TikTok Ads, this tool was made
-            for you
+            If you upload creatives to Meta Ads or TikTok Ads, this ad creative
+            uploader was made for you
           </p>
         </div>
         <div className={styles.grid}>
