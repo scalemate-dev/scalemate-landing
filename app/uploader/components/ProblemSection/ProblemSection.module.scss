@@ -1,17 +1,24 @@
+@use '../uc' as *;
+
+// ─── Section ───
+
 .problem {
   position: relative;
-  padding: 120px 0;
-  background: #ffffff;
+  padding: 148px 0 80px;
+  background: $uc-bg-warm;
   overflow: hidden;
-}
 
-.bubble {
-  position: absolute;
-  right: -18%;
-  top: -5%;
-  z-index: 0;
-  opacity: 0.4;
-  pointer-events: none;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at 12% 55%,
+      rgba($uc-accent, 0.025) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
+  }
 }
 
 .inner {
@@ -22,193 +29,295 @@
 // ─── Header ───
 
 .header {
-  text-align: center;
-  margin-bottom: 72px;
-  max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
-
-  h2 {
-    font-family: $font-heading;
-    font-weight: 700;
-    font-size: 44px;
-    color: #1A1A1A;
-    margin: 0;
-    letter-spacing: -0.025em;
-    line-height: 1.15;
-  }
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 80px;
 }
 
+.headerMain {
+  flex: 0 0 55%;
+}
 
-.gradientText {
-  background: linear-gradient(135deg, #F97316 0%, #F63D68 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.label {
+  @include uc-eyebrow;
+  margin-bottom: 28px;
+}
+
+.headerMain h2 {
+  @include uc-section-title;
+}
+
+.accent {
+  font-style: italic;
+  color: $uc-accent;
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: $uc-accent;
+  background-clip: initial;
 }
 
 .subtitle {
   font-family: $font-body;
-  font-size: 17px;
-  line-height: 1.6;
-  color: #667085;
-  margin: 20px 0 0;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.7;
+  color: $uc-body;
+  margin: 0;
+  max-width: 380px;
+  padding-bottom: 8px;
 }
 
-// ─── Cards Grid ───
+// ─── Divider ───
 
-.cardsGrid {
+.divider {
+  width: 100%;
+  height: 1px;
+  background: $uc-line;
+  margin: 56px 0;
+}
+
+// ─── Grid ───
+
+.grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 48px;
+  align-items: start;
 }
 
-.card {
+// ─── Item ───
+
+.item {
   position: relative;
-  padding: 36px 32px 32px;
-  background: linear-gradient(160deg, #FEFCFA 0%, #FFF8F3 100%);
-  border-radius: 20px;
-  border: 1px solid rgba(249, 115, 22, 0.12);
+  padding: 36px;
   overflow: hidden;
-  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  &:nth-child(2) {
+    margin-top: 36px;
+  }
+
+  &:nth-child(3) {
+    margin-top: 72px;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  // Geometric background shapes
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    transition: opacity 0.5s $uc-ease;
+  }
+
+  // Oval
+  &:nth-child(1)::after {
+    width: 160px;
+    height: 160px;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(-15deg);
+    background: $uc-shape;
+    border-radius: 50%;
+    opacity: 0.4;
+  }
+
+  // Triangle
+  &:nth-child(2)::after {
+    width: 0;
+    height: 0;
+    right: 8px;
+    top: 70%;
+    transform: translateY(-50%) rotate(-10deg);
+    border-left: 70px solid transparent;
+    border-right: 70px solid transparent;
+    border-bottom: 120px solid $uc-shape;
+    background: none;
+    opacity: 0.4;
+  }
+
+  // Square (rotated)
+  &:nth-child(3)::after {
+    width: 130px;
+    height: 130px;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(12deg);
+    background: $uc-shape;
+    opacity: 0.4;
+  }
 
   &:hover {
-    transform: translateY(-6px);
-    box-shadow:
-      0 20px 40px rgba(249, 115, 22, 0.1),
-      0 8px 16px rgba(0, 0, 0, 0.04);
-
-    .cardNumber {
-      opacity: 0.12;
-      transform: translateY(-4px);
+    &::after {
+      opacity: 0.55;
     }
 
-
+    .dash {
+      width: 48px;
+      background: $uc-accent;
+    }
   }
-}
-
-.cardNumber {
-  display: block;
-  font-family: $font-heading;
-  font-weight: 800;
-  font-size: 80px;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  color: #F97316;
-  opacity: 0.08;
-  margin-bottom: 20px;
-  user-select: none;
-  transition: opacity 0.35s ease, transform 0.35s ease;
-}
-
-.cardContent {
-  position: relative;
-  z-index: 1;
 
   h3 {
     font-family: $font-heading;
-    font-weight: 700;
-    font-size: 22px;
-    color: #1A1A1A;
-    margin: 0 0 10px;
-    line-height: 1.25;
-    letter-spacing: -0.01em;
+    font-weight: 600;
+    font-size: 20px;
+    color: $uc-ink;
+    margin: 0 0 16px;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
   }
 
   p {
     font-family: $font-body;
     font-size: 15px;
-    line-height: 1.6;
-    color: #667085;
+    line-height: 1.7;
+    color: $uc-body;
     margin: 0;
   }
 }
 
+.dash {
+  display: block;
+  width: 36px;
+  height: 2px;
+  background: $uc-dash;
+  margin-bottom: 24px;
+  transition: width 0.5s $uc-ease,
+    background 0.5s $uc-ease;
+}
 
 // ─── Responsive ───
 
 @include desktop-s {
-  .header h2 {
-    font-size: 38px;
+  .headerMain h2 {
+    font-size: 46px;
+  }
+
+  .item {
+    padding: 32px;
+  }
+
+  .item:nth-child(2) {
+    margin-top: 28px;
+  }
+
+  .item:nth-child(3) {
+    margin-top: 56px;
   }
 }
 
 @include tablet-horizontal {
   .problem {
-    padding: 90px 0;
+    padding: 100px 0 72px;
   }
 
   .header {
-    margin-bottom: 56px;
-
-    h2 {
-      font-size: 34px;
-    }
+    gap: 48px;
   }
 
-  .cardsGrid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+  .headerMain {
+    flex: 0 0 50%;
   }
 
-  .card {
-    padding: 28px 24px 24px;
+  .headerMain h2 {
+    font-size: 38px;
   }
 
-  .cardNumber {
-    font-size: 64px;
-    margin-bottom: 16px;
+  .subtitle {
+    font-size: 15px;
+    max-width: 320px;
   }
 
-  .cardContent {
-    h3 {
-      font-size: 20px;
-    }
+  .divider {
+    margin: 48px 0;
+  }
 
-    p {
-      font-size: 14px;
-    }
+  .grid {
+    gap: 32px;
+  }
+
+  .item {
+    padding: 28px;
+  }
+
+  .dash {
+    margin-bottom: 20px;
+  }
+
+  .item:nth-child(2) {
+    margin-top: 24px;
+  }
+
+  .item:nth-child(3) {
+    margin-top: 48px;
+  }
+
+  .item h3 {
+    font-size: 18px;
+  }
+
+  .item p {
+    font-size: 14px;
   }
 }
 
 @include tablet-vertical {
   .problem {
-    padding: 70px 0;
+    padding: 80px 0;
   }
 
   .header {
-    margin-bottom: 44px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
 
-    h2 {
-      font-size: 30px;
-    }
+  .headerMain {
+    flex: unset;
+  }
+
+  .headerMain h2 {
+    font-size: 34px;
   }
 
   .subtitle {
+    max-width: 480px;
     font-size: 16px;
+    padding-bottom: 0;
   }
 
-  .cardsGrid {
+  .divider {
+    margin: 40px 0;
+  }
+
+  .grid {
     grid-template-columns: 1fr;
-    max-width: 440px;
-    margin: 0 auto;
-    gap: 16px;
+    gap: 0;
   }
 
-  .card {
-    padding: 28px 24px;
-  }
+  .item {
+    padding: 32px 0;
+    border-top: 1px solid $uc-line;
+    overflow: visible;
 
-  .cardNumber {
-    font-size: 56px;
-    margin-bottom: 14px;
-  }
-
-  .cardContent {
-    h3 {
-      font-size: 20px;
+    &::after {
+      display: none;
     }
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      margin-top: 0;
+    }
+  }
+
+  .dash {
+    display: none;
   }
 }
 
@@ -217,39 +326,34 @@
     padding: 56px 0;
   }
 
-  .header {
-    margin-bottom: 36px;
+  .label {
+    margin-bottom: 20px;
+    font-size: 10px;
+  }
 
-    h2 {
-      font-size: 26px;
-    }
+  .headerMain h2 {
+    font-size: 28px;
   }
 
   .subtitle {
     font-size: 15px;
-    margin-top: 16px;
   }
 
-  .cardsGrid {
-    gap: 14px;
+  .divider {
+    margin: 28px 0;
   }
 
-  .card {
-    padding: 24px 20px;
+  .item {
+    padding: 24px 0;
   }
 
-  .cardNumber {
-    font-size: 48px;
-    margin-bottom: 12px;
+  .item h3 {
+    font-size: 17px;
+    margin-bottom: 14px;
   }
 
-  .cardContent {
-    h3 {
-      font-size: 18px;
-    }
-
-    p {
-      font-size: 14px;
-    }
+  .item p {
+    font-size: 14px;
+    line-height: 1.75;
   }
 }

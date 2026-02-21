@@ -1,154 +1,216 @@
-.audience {
-  padding: 100px 0;
-  background: #f9fafb;
-}
+@use '../uc' as *;
 
-.sectionHeader {
-  text-align: center;
-  margin-bottom: 56px;
+// ─── Section ───
 
-  h2 {
-    font-family: $font-heading;
-    font-weight: 700;
-    font-size: 36px;
-    color: #1A1A1A;
-    margin: 0 0 12px;
-    letter-spacing: -0.02em;
-  }
-
-  p {
-    font-family: $font-body;
-    font-size: 17px;
-    color: #667085;
-    margin: 0;
-  }
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  max-width: 960px;
-  margin: 0 auto;
-}
-
-.card {
+.section {
   position: relative;
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  padding: 32px;
-  background: #ffffff;
-  border-radius: 20px;
-  border: 1px solid #E4E7EC;
+  padding: 148px 0 140px;
+  background: $uc-bg-warm;
   overflow: hidden;
-  transition: all 0.3s ease;
+}
 
-  &:hover {
-    border-color: #D0D5DD;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-    transform: translateY(-2px);
+// ─── Header ───
+
+.header {
+  margin-bottom: 80px;
+}
+
+.eyebrow {
+  @include uc-eyebrow;
+}
+
+.title {
+  @include uc-section-title;
+  margin: 0 0 20px;
+}
+
+.subtitle {
+  @include uc-body-text;
+  color: $uc-stone;
+  max-width: 600px;
+
+  strong {
+    font-weight: 600;
+    color: $uc-ink;
   }
 }
 
-.iconWrap {
-  flex-shrink: 0;
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: color-mix(in srgb, var(--accent) 12%, transparent);
-  color: var(--accent);
+// ─── Columns ───
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
 }
 
-.text {
-  flex: 1;
-  min-width: 0;
+.col {
+  padding-top: 32px;
 
-  h3 {
-    font-family: $font-heading;
-    font-weight: 700;
-    font-size: 20px;
-    color: #1A1A1A;
-    margin: 0 0 8px;
-  }
-
-  p {
-    font-family: $font-body;
-    font-size: 15px;
-    line-height: 1.6;
-    color: #667085;
-    margin: 0;
+  &:hover .dash {
+    width: 56px;
+    background: $uc-accent;
   }
 }
 
-.index {
-  position: absolute;
-  right: 16px;
-  bottom: 12px;
+.dash {
+  @include uc-accent-dash;
+  margin-bottom: 28px;
+}
+
+.colRole {
   font-family: $font-heading;
-  font-weight: 900;
-  font-size: 64px;
-  line-height: 1;
-  color: rgba(0, 0, 0, 0.03);
-  user-select: none;
-  pointer-events: none;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: $uc-ink;
+  margin: 0 0 16px;
 }
 
-// Responsive
-@include tablet-horizontal {
-  .audience {
-    padding: 80px 0;
-  }
-
-  .sectionHeader h2 {
-    font-size: 30px;
-  }
-
-  .card {
-    padding: 28px;
-  }
+.colDesc {
+  font-family: $font-body;
+  font-size: 15px;
+  line-height: 1.7;
+  color: $uc-body;
+  margin: 0;
 }
 
-@include tablet-vertical {
-  .audience {
-    padding: 60px 0;
-  }
+// ─── Footer — industries ───
 
-  .grid {
-    grid-template-columns: 1fr;
-    max-width: 520px;
-  }
+.footer {
+  margin-top: 80px;
+  padding-top: 48px;
+  border-top: 1px solid $uc-line;
+}
 
-  .sectionHeader {
-    margin-bottom: 40px;
+.footerLabel {
+  font-family: $font-body;
+  font-size: 15px;
+  line-height: 1.7;
+  color: $uc-body;
+  margin: 0 0 20px;
+}
 
-    h2 {
-      font-size: 26px;
+.industryList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  li {
+    font-family: $font-body;
+    font-size: 14px;
+    font-weight: 500;
+    color: $uc-ink;
+    line-height: 2;
+    white-space: nowrap;
+
+    &::after {
+      content: "·";
+      display: inline-block;
+      margin: 0 14px;
+      color: $uc-stone;
+      font-weight: 700;
+    }
+
+    &:last-child::after {
+      display: none;
     }
   }
 }
 
+// ─── Responsive ───
+
+@include desktop-s {
+  .title {
+    font-size: 46px;
+  }
+
+  .columns {
+    gap: 36px;
+  }
+}
+
+@include tablet-horizontal {
+  .section {
+    padding: 104px 0;
+  }
+
+  .header {
+    margin-bottom: 64px;
+  }
+
+  .title {
+    font-size: 40px;
+  }
+
+  .columns {
+    gap: 32px;
+  }
+
+  .colRole {
+    font-size: 22px;
+  }
+}
+
+@include tablet-vertical {
+  .section {
+    padding: 80px 0;
+  }
+
+  .header {
+    margin-bottom: 48px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .columns {
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 480px;
+  }
+
+  .col {
+    padding: 32px 0;
+    border-bottom: 1px solid $uc-line;
+
+    &:first-child {
+      padding-top: 0;
+    }
+  }
+
+  .footer {
+    margin-top: 48px;
+    padding-top: 36px;
+  }
+}
+
 @include mobile {
-  .card {
-    flex-direction: column;
-    gap: 16px;
-    padding: 24px;
+  .section {
+    padding: 64px 0;
   }
 
-  .iconWrap {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
+  .header {
+    margin-bottom: 40px;
   }
 
-  .text h3 {
-    font-size: 18px;
+  .title {
+    font-size: 30px;
   }
 
-  .index {
-    font-size: 48px;
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .colRole {
+    font-size: 20px;
+  }
+
+  .colDesc {
+    font-size: 14px;
   }
 }

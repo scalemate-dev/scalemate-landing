@@ -1,23 +1,18 @@
-import Image from "next/image"
 import Container from "@/components/elements/Container/Container"
 import styles from "./ProblemSection.module.scss"
-import bubble from "@/assets/icons/hero-linear-background.svg"
 
 const problems = [
   {
-    number: "01",
     title: "Download, upload, repeat",
     description:
       "Ad creatives live in Google Drive, but ad platforms need them re-uploaded. Download files, then upload ads one by one to Ads Manager.",
   },
   {
-    number: "02",
     title: "Multiply by every account",
     description:
       "Multiple ad accounts across Meta and TikTok? Repeat the same upload workflow for each. Same files, same clicks.",
   },
   {
-    number: "03",
     title: "Hours lost on busywork",
     description:
       "A 50-creative launch becomes an hour of clicking. Your creative pipeline stalls while you do manual uploads instead of strategy.",
@@ -27,35 +22,30 @@ const problems = [
 export default function ProblemSection() {
   return (
     <section className={styles.problem}>
-      <Image
-        className={styles.bubble}
-        src={bubble}
-        alt=""
-        width={700}
-        height={700}
-      />
       <Container>
         <div className={styles.inner}>
           <div className={styles.header}>
-            <h2>
-              The manual upload workflow
-              <br />
-              <span className={styles.gradientText}>holding you back</span>
-            </h2>
+            <div className={styles.headerMain}>
+              <span className={styles.label}>The Problem</span>
+              <h2>
+                The manual upload workflow{" "}
+                <span className={styles.accent}>holding you back</span>
+              </h2>
+            </div>
             <p className={styles.subtitle}>
               Every creative upload is a chain of repetitive steps that slows
-              your ad operations
+              your ad operations and drains your team's time
             </p>
           </div>
 
-          <div className={styles.cardsGrid}>
+          <div className={styles.divider} />
+
+          <div className={styles.grid}>
             {problems.map((problem, index) => (
-              <div key={index} className={styles.card}>
-                <span className={styles.cardNumber}>{problem.number}</span>
-                <div className={styles.cardContent}>
-                  <h3>{problem.title}</h3>
-                  <p>{problem.description}</p>
-                </div>
+              <div key={index} className={styles.item}>
+                <span className={styles.dash} />
+                <h3>{problem.title}</h3>
+                <p>{problem.description}</p>
               </div>
             ))}
           </div>

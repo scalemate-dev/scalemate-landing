@@ -3,8 +3,6 @@ import Container from "@/components/elements/Container/Container"
 import UploaderErrorBoundary from "../UploaderWidget/UploaderErrorBoundary"
 import UploaderWidget from "../UploaderWidget/UploaderWidget"
 import styles from "./HeroSection.module.scss"
-import bubble from "@/assets/icons/hero-linear-background.svg"
-import bubble2 from "@/assets/icons/hero-linear-background-2.svg"
 import metaIcon from "@/assets/icons/meta-icon.svg"
 import tiktokIcon from "@/assets/icons/tiktok-icon.svg"
 import googleDriveIcon from "@/assets/icons/google-drive-icon.svg"
@@ -12,27 +10,13 @@ import googleDriveIcon from "@/assets/icons/google-drive-icon.svg"
 export default function HeroSection() {
   return (
     <section className={styles.hero} id="top">
-      <Image
-        className={styles.bubble1}
-        src={bubble}
-        alt=""
-        width={900}
-        height={900}
-      />
-      <Image
-        className={styles.bubble2}
-        src={bubble2}
-        alt=""
-        width={900}
-        height={900}
-      />
-
       <Container>
         <div className={styles.heroContent}>
           <div className={styles.heroHeader}>
+            <span className={styles.label}>Free Creative Uploader</span>
             <h1>
-              Free Ad Creative Uploader — <br /> Google Drive to Meta & TikTok
-              Ads
+              Google Drive to Meta & TikTok Ads —{" "}
+              <span className={styles.accent}>in one click</span>
             </h1>
             <p>
               Upload ad creatives from Google Drive directly to Meta Ads and

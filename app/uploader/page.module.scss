@@ -1,17 +1,15 @@
-// Uploader Landing Page - Shared Styles
+@use './components/uc' as *;
 
 .main {
   width: 100%;
-  background: #ffffff;
+  background: $uc-bg-warm;
 }
 
-// FAQ Section
 .faq {
   padding: 80px 0 0;
-  background: #ffffff;
+  background: $uc-bg-warm;
 }
 
-// Responsive
 @include tablet-horizontal {
   .faq {
     padding: 80px 0;
