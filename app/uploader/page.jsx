@@ -18,15 +18,16 @@ export const metadata = {
   openGraph: {
     title: "Free Ad Creative Uploader — Google Drive to Meta & TikTok Ads",
     description:
-      "Free ad creative upload tool. Upload creatives from Google Drive to Meta Ads and TikTok Ads — no downloads needed.",
+      "Free ad creative upload tool. Upload creatives from Google Drive directly to Meta Ads and TikTok Ads. Bulk upload to multiple ad accounts — no downloads needed.",
     type: "website",
-    images: [{ url: "/og/uploader.png", width: 1200, height: 630 }],
+    images: [{ url: "/og-creative-uploader.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Free Ad Creative Uploader — Google Drive to Meta & TikTok Ads",
     description:
-      "Free creative uploader tool. Upload ads from Google Drive to Meta & TikTok — no downloads needed.",
+      "Free ad creative upload tool. Upload creatives from Google Drive directly to Meta Ads and TikTok Ads. Bulk upload to multiple ad accounts — no downloads needed.",
+    images: ["/og-creative-uploader.png"],
   },
 }
 
@@ -68,9 +69,26 @@ const faqItems = [
   },
 ]
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+}
+
 export default function UploaderPage() {
   return (
     <div className={styles.main}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <HeroSection />
       <ProblemSection />
       <FeaturesSection />
