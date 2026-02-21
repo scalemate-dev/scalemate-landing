@@ -1,15 +1,22 @@
 "use client"
 
+import { useEffect } from "react"
+import { useSearchParams } from "next/navigation"
 import styles from "./page.module.scss"
 
-/**
- * TikTok OAuth callback page.
- *
- * With popup-based OAuth, the parent window polls this page's URL
- * to detect when the redirect has happened and parse the query params.
- * This page just shows a brief message before the popup closes automatically.
- */
 export default function TikTokCallbackPage() {
+  const searchParams = useSearchParams()
+
+  useEffect(() => {
+    if (!window.opener) return
+
+    const params = Object.fromEntries(searchParams.entries())
+    window.opener.postMessage(
+      { type: "oauth_callback", provider: "tiktok", ...params },
+      window.location.origin
+    )
+  }, [searchParams])
+
   return (
     <div className={styles.container}>
       <div className={styles.card}>
