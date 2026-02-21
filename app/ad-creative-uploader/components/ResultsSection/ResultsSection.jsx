@@ -1,44 +1,45 @@
 import Link from "next/link"
 import Container from "@/components/elements/Container/Container"
-import {
-  IconArrowRight,
-  IconClock,
-  IconRocket,
-  IconStack2,
-} from "@tabler/icons-react"
+import { IconArrowRight } from "@tabler/icons-react"
 import styles from "./ResultsSection.module.scss"
 
-const stats = [
+const caseStudies = [
   {
-    value: "65%",
-    label: "Time Saved",
-    description: "Less time on ad creative management, more on strategy",
-    icon: IconClock,
+    company: "KitUp",
+    vertical: "Education · 1M+ users",
+    description:
+      "This mobile app publisher saved 200+ hours monthly on ad launches and shipped 30,000+ ads using Scalemate — cutting 90% of creative upload time.",
+    metrics: [
+      { value: "200hr+", label: "Monthly saved" },
+      { value: "30K+", label: "Ads launched" },
+      { value: "90%", label: "Time saved" },
+    ],
+    href: "/customers/kitup",
   },
   {
-    value: "35hrs",
-    label: "Saved Monthly",
-    description: "Hours reclaimed from manual uploads to ad platforms",
-    icon: IconRocket,
-  },
-  {
-    value: "15K+",
-    label: "Ads Launched",
-    description: "Bulk creative upload — entire batches uploaded instantly",
-    icon: IconStack2,
+    company: "ZeptoLab",
+    vertical: "Mobile games · 2B+ downloads",
+    description:
+      "ZeptoLab (Cut the Rope) achieved 70% faster ad creative uploads, delivering 2,000+ media files to ad accounts and saving 35 hours monthly on ad launches.",
+    metrics: [
+      { value: "70%", label: "Faster uploads" },
+      { value: "2,000+", label: "Files delivered" },
+      { value: "35hr", label: "Monthly saved" },
+    ],
+    href: "/customers/zeptolab",
   },
 ]
 
 export default function ResultsSection() {
   return (
-    <section className={styles.results}>
+    <section className={styles.section}>
       <Container>
         <div className={styles.header}>
           <span className={styles.eyebrow}>Proven Results</span>
           <div className={styles.headerGrid}>
             <h2 className={styles.title}>
               Upload ad creatives faster.{" "}
-              <span className={styles.titleAccent}>Save hours every week.</span>
+              <em className={styles.titleAccent}>Save hours every week.</em>
             </h2>
             <p className={styles.headerAside}>
               Marketing teams cut their creative upload workflow from hours to
@@ -47,80 +48,27 @@ export default function ResultsSection() {
           </div>
         </div>
 
-        <div className={styles.statsGrid}>
-          {stats.map((stat, index) => (
-            <div key={index} className={styles.statCard}>
-              <div className={styles.statIcon}>
-                <stat.icon size={24} />
-              </div>
-              <div className={styles.statValue}>{stat.value}</div>
-              <div className={styles.statLabel}>{stat.label}</div>
-              <p className={styles.statDescription}>{stat.description}</p>
-            </div>
-          ))}
-        </div>
-
         <div className={styles.cards}>
-          <div className={styles.caseStudy}>
-            <div className={styles.caseStudyTop}>
-              <span className={styles.caseStudyCompany}>KitUp</span>
-              <span className={styles.caseStudyVertical}>Mobile App · 1M+ users</span>
-            </div>
-            <p className={styles.caseStudyText}>
-              This mobile app publisher cut creative upload time by 65% and
-              launched 15,000+ ads using Scalemate — freeing the team to focus
-              on strategy and ROAS.
-            </p>
-            <div className={styles.caseStudyMetrics}>
-              <div className={styles.caseStudyMetric}>
-                <span className={styles.metricValue}>65%</span>
-                <span className={styles.metricLabel}>Time saved</span>
+          {caseStudies.map((study, idx) => (
+            <article key={idx} className={styles.card}>
+              <div className={styles.cardTop}>
+                <span className={styles.cardCompany}>{study.company}</span>
+                <span className={styles.cardVertical}>{study.vertical}</span>
               </div>
-              <div className={styles.caseStudyMetric}>
-                <span className={styles.metricValue}>35hrs</span>
-                <span className={styles.metricLabel}>Saved monthly</span>
+              <p className={styles.cardText}>{study.description}</p>
+              <div className={styles.cardMetrics}>
+                {study.metrics.map((m, i) => (
+                  <div key={i} className={styles.cardMetric}>
+                    <span className={styles.cardMetricValue}>{m.value}</span>
+                    <span className={styles.cardMetricLabel}>{m.label}</span>
+                  </div>
+                ))}
               </div>
-              <div className={styles.caseStudyMetric}>
-                <span className={styles.metricValue}>15K+</span>
-                <span className={styles.metricLabel}>Ads launched</span>
-              </div>
-            </div>
-            <Link href="/customers/kitup" className={styles.caseStudyLink}>
-              Read the full story
-              <IconArrowRight size={16} />
-            </Link>
-          </div>
-
-          <div className={styles.caseStudy}>
-            <div className={styles.caseStudyTop}>
-              <span className={styles.caseStudyCompany}>ZeptoLab</span>
-              <span className={styles.caseStudyVertical}>Gaming · 2B+ downloads</span>
-            </div>
-            <p className={styles.caseStudyText}>
-              ZeptoLab (Cut the Rope) needed bulk creative deployment from
-              cloud storage to Facebook. The hours previously spent on manual
-              file transfers went back into campaign optimization and creative
-              testing.
-            </p>
-            <div className={styles.caseStudyMetrics}>
-              <div className={styles.caseStudyMetric}>
-                <span className={styles.metricValue}>2,000+</span>
-                <span className={styles.metricLabel}>Files delivered</span>
-              </div>
-              <div className={styles.caseStudyMetric}>
-                <span className={styles.metricValue}>70%</span>
-                <span className={styles.metricLabel}>Upload time cut</span>
-              </div>
-              <div className={styles.caseStudyMetric}>
-                <span className={styles.metricValue}>35hrs</span>
-                <span className={styles.metricLabel}>Freed monthly</span>
-              </div>
-            </div>
-            <Link href="/customers/zeptolab" className={styles.caseStudyLink}>
-              Read the full story
-              <IconArrowRight size={16} />
-            </Link>
-          </div>
+              <Link href={study.href} className={styles.cardLink}>
+                Read the full story <IconArrowRight size={14} />
+              </Link>
+            </article>
+          ))}
         </div>
       </Container>
     </section>

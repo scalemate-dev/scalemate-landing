@@ -2,7 +2,7 @@
 
 // ─── Section ───
 
-.results {
+.section {
   position: relative;
   padding: 148px 0;
   background: $uc-bg-sand;
@@ -35,10 +35,6 @@
 .titleAccent {
   font-style: italic;
   color: $uc-accent;
-  background: none;
-  -webkit-background-clip: initial;
-  -webkit-text-fill-color: $uc-accent;
-  background-clip: initial;
 }
 
 .headerAside {
@@ -52,70 +48,6 @@
   margin-left: auto;
 }
 
-// ─── Stats Grid ───
-
-.statsGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-bottom: 32px;
-}
-
-.statCard {
-  background: $uc-panel-bg;
-  border-radius: 20px;
-  padding: 32px;
-  border: 1px solid rgba($uc-ink, 0.04);
-  box-shadow: $uc-shadow-panel;
-  text-align: center;
-  transition:
-    transform 0.6s $uc-ease,
-    box-shadow 0.6s $uc-ease;
-
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: $uc-shadow-panel-hover;
-  }
-}
-
-.statIcon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  background: rgba($uc-accent, 0.08);
-  color: $uc-accent;
-  margin-bottom: 20px;
-}
-
-.statValue {
-  font-family: $font-heading;
-  font-weight: 800;
-  font-size: 52px;
-  line-height: 1;
-  color: $uc-ink;
-  margin-bottom: 8px;
-  letter-spacing: -0.03em;
-}
-
-.statLabel {
-  font-family: $font-heading;
-  font-weight: 600;
-  font-size: 16px;
-  color: $uc-accent;
-  margin-bottom: 8px;
-}
-
-.statDescription {
-  font-family: $font-body;
-  font-size: 14px;
-  line-height: 1.5;
-  color: $uc-body;
-  margin: 0;
-}
-
 // ─── Cards Grid ───
 
 .cards {
@@ -124,47 +56,48 @@
   gap: 24px;
 }
 
-// ─── Case Study Card ───
+// ─── Card ───
 
-.caseStudy {
+.card {
   background: $uc-card-dark;
   border-radius: 22px;
-  padding: 40px;
+  padding: 40px 40px 36px;
   display: flex;
   flex-direction: column;
 }
 
-.caseStudyTop {
+.cardTop {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
 }
 
-.caseStudyCompany {
+.cardCompany {
   font-family: $font-heading;
   font-weight: 700;
   font-size: 18px;
   color: #ffffff;
 }
 
-.caseStudyVertical {
+.cardVertical {
   font-family: $font-body;
   font-size: 13px;
   color: rgba(255, 255, 255, 0.35);
 }
 
-.caseStudyText {
+.cardText {
   font-family: $font-body;
   font-size: 15px;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.55);
   margin: 0 0 28px;
+  flex-grow: 1;
 }
 
 // ─── Metrics row ───
 
-.caseStudyMetrics {
+.cardMetrics {
   display: flex;
   gap: 0;
   margin-bottom: 28px;
@@ -172,7 +105,7 @@
   padding-top: 24px;
 }
 
-.caseStudyMetric {
+.cardMetric {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -185,7 +118,7 @@
   }
 }
 
-.metricValue {
+.cardMetricValue {
   font-family: $font-heading;
   font-weight: 700;
   font-size: 22px;
@@ -194,7 +127,7 @@
   color: #ffffff;
 }
 
-.metricLabel {
+.cardMetricLabel {
   font-family: $font-body;
   font-size: 12px;
   color: rgba(255, 255, 255, 0.35);
@@ -203,7 +136,7 @@
 
 // ─── Link ───
 
-.caseStudyLink {
+.cardLink {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -239,17 +172,21 @@
     gap: 56px;
   }
 
-  .statValue {
-    font-size: 48px;
+  .header {
+    margin-bottom: 60px;
   }
 
-  .caseStudy {
-    padding: 36px;
+  .card {
+    padding: 36px 36px 32px;
+  }
+
+  .cardMetricValue {
+    font-size: 20px;
   }
 }
 
 @include tablet-horizontal {
-  .results {
+  .section {
     padding: 112px 0 104px;
   }
 
@@ -272,30 +209,30 @@
     margin-left: 0;
   }
 
-  .statsGrid {
-    gap: 20px;
-  }
-
-  .statCard {
-    padding: 24px 20px;
-  }
-
-  .statValue {
-    font-size: 40px;
-  }
-
   .cards {
     gap: 20px;
   }
 
-  .caseStudy {
-    padding: 32px;
+  .card {
+    padding: 32px 32px 28px;
     border-radius: 18px;
+  }
+
+  .cardMetricValue {
+    font-size: 18px;
+  }
+
+  .cardMetric {
+    padding-right: 12px;
+
+    &:not(:first-child) {
+      padding-left: 12px;
+    }
   }
 }
 
 @include tablet-vertical {
-  .results {
+  .section {
     padding: 88px 0 80px;
   }
 
@@ -311,32 +248,18 @@
     font-size: 34px;
   }
 
-  .statsGrid {
-    grid-template-columns: 1fr;
-    max-width: 400px;
-    margin: 0 auto 32px;
-  }
-
-  .statCard {
-    padding: 28px;
-  }
-
-  .statValue {
-    font-size: 44px;
-  }
-
   .cards {
     grid-template-columns: 1fr;
     gap: 16px;
   }
 
-  .caseStudy {
-    padding: 28px;
+  .card {
+    padding: 28px 28px 24px;
   }
 }
 
 @include mobile {
-  .results {
+  .section {
     padding: 64px 0;
   }
 
@@ -355,41 +278,34 @@
 
   .headerAside {
     font-size: 14px;
+    line-height: 1.7;
   }
 
-  .statValue {
-    font-size: 36px;
-  }
-
-  .statLabel {
-    font-size: 15px;
-  }
-
-  .caseStudy {
-    padding: 24px;
+  .card {
+    padding: 24px 24px 24px;
     border-radius: 16px;
   }
 
-  .caseStudyTop {
+  .cardTop {
     flex-direction: column;
     align-items: flex-start;
     gap: 4px;
     margin-bottom: 16px;
   }
 
-  .caseStudyText {
+  .cardText {
     font-size: 14px;
     margin-bottom: 24px;
   }
 
-  .caseStudyMetrics {
+  .cardMetrics {
     flex-direction: column;
     gap: 16px;
     padding-top: 20px;
     margin-bottom: 24px;
   }
 
-  .caseStudyMetric {
+  .cardMetric {
     flex-direction: row;
     align-items: baseline;
     gap: 12px;
@@ -408,13 +324,17 @@
     }
   }
 
-  .metricValue {
+  .cardMetricValue {
     font-size: 20px;
     min-width: 80px;
     flex-shrink: 0;
   }
 
-  .metricLabel {
+  .cardMetricLabel {
     font-size: 13px;
+  }
+
+  .cards {
+    gap: 14px;
   }
 }
