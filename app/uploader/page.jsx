@@ -69,6 +69,22 @@ const faqItems = [
   },
 ]
 
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Scalemate Ad Creative Uploader",
+  description:
+    "Free ad creative upload tool. Upload creatives from Google Drive directly to Meta Ads and TikTok Ads. Bulk upload to multiple ad accounts — no downloads needed.",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  url: "https://www.scalemate.co/uploader",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+  },
+}
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -85,6 +101,10 @@ const faqSchema = {
 export default function UploaderPage() {
   return (
     <div className={styles.main}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
