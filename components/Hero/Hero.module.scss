@@ -265,12 +265,21 @@
   }
 }
 
+@keyframes badgeShimmer {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
 .heroBadge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: linear-gradient(135deg, rgba(146, 106, 255, 0.1) 0%, rgba(255, 119, 176, 0.1) 50%, rgba(255, 179, 103, 0.1) 100%);
-  border: 1px solid #121718;
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.08) 0%, rgba(253, 186, 116, 0.12) 50%, rgba(249, 115, 22, 0.08) 100%);
+  border: 1px solid rgba(249, 115, 22, 0.3);
   border-radius: 100px;
   font-family: 'Inter';
   font-style: normal;
@@ -278,34 +287,54 @@
   font-size: 14px;
   line-height: 20px;
   color: #121718;
-  padding: 8px 12px;
+  padding: 8px 16px 8px 8px;
   margin-bottom: 24px;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.7) 50%, transparent 100%);
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  &:hover::after {
+    opacity: 1;
+    animation: badgeShimmer 0.6s ease-out forwards;
+  }
+
   &:hover {
-    box-shadow: 0 4px 12px rgba(146, 106, 255, 0.2);
-    background: linear-gradient(135deg, rgba(146, 106, 255, 0.15) 0%, rgba(255, 119, 176, 0.15) 50%, rgba(255, 179, 103, 0.15) 100%);
-    border-color: #926aff;
-    
+    box-shadow: 0 4px 16px rgba(249, 115, 22, 0.2);
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.12) 0%, rgba(253, 186, 116, 0.18) 50%, rgba(249, 115, 22, 0.12) 100%);
+    border-color: #f97316;
+
     .chevron {
       transform: translateX(4px);
+      color: #f97316;
     }
   }
-  
+
   .chevron {
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease;
     color: #121718;
     stroke-width: 2;
   }
-  
+
   span {
-    background: linear-gradient(135deg, #926aff 0%, #ff77b0 50%, #ffb367 100%);
+    background: linear-gradient(135deg, #ea580c 0%, #f97316 50%, #fdba74 100%);
     color: white;
     font-weight: 600;
     font-size: 12px;
-    padding: 4px 8px;
+    padding: 4px 10px;
     border-radius: 100px;
     text-transform: uppercase;
     letter-spacing: 0.5px;

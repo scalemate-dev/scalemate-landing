@@ -26,8 +26,8 @@ export default function Home() {
           faster and smarter. Born to erase marketing routine and save your time.`
 
   const badge = {
-    link: "/ai-assistant",
-    text: "Meet Marketing AI Agent",
+    link: "/ad-creative-uploader",
+    text: "Free Ad Creative Uploader",
   }
   return (
     <div className={cn(styles.main, styles.home)}>

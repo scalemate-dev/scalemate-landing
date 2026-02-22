@@ -64,7 +64,7 @@ const Hero = ({
       <Container className={styles.hero}>
         {badge && (
           <Link href={badge.link} className={styles.heroBadge}>
-            <span>NEW</span>
+            <span>FREE</span>
             {badge.text}
             <IconChevronRight size={16} className={styles.chevron} />
           </Link>
