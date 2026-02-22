@@ -10,11 +10,12 @@ import CtaSection from "./components/CtaSection/CtaSection"
 import styles from "./page.module.scss"
 
 export const metadata = {
-  // TODO: Remove noindex once the uploader page is ready for public launch
-  robots: "noindex",
   title: "Free Ad Creative Uploader — Google Drive to Meta & TikTok Ads",
   description:
     "Free ad creative upload tool. Upload creatives from Google Drive directly to Meta Ads and TikTok Ads. Bulk upload to multiple ad accounts — no downloads needed.",
+  alternates: {
+    canonical: "https://www.scalemate.co/ad-creative-uploader",
+  },
   openGraph: {
     title: "Free Ad Creative Uploader — Google Drive to Meta & TikTok Ads",
     description:
