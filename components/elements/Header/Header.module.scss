@@ -1,3 +1,12 @@
+@keyframes navShimmer {
+  from {
+    background-position: 100% center;
+  }
+  to {
+    background-position: -50% center;
+  }
+}
+
 .header {
   position: fixed;
   width: 100%;
@@ -38,7 +47,19 @@
     color: #2f2f2f;
 
     &:hover {
-      color: $color-text-800;
+      background: linear-gradient(
+        90deg,
+        #f97316 0%,
+        #f97316 40%,
+        #fdba74 50%,
+        #f97316 60%,
+        #f97316 100%
+      );
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: navShimmer 0.5s ease-in-out forwards;
     }
   }
 
@@ -159,6 +180,22 @@
       font-size: 16px;
       color: $color-text-800;
       padding: 8px 0;
+
+      &:hover {
+        background: linear-gradient(
+          90deg,
+          #f97316 0%,
+          #f97316 40%,
+          #fdba74 50%,
+          #f97316 60%,
+          #f97316 100%
+        );
+        background-size: 200% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: navShimmer 0.5s ease-in-out forwards;
+      }
     }
     
     .mobileButton {
@@ -214,7 +251,19 @@
     color: $color-platinum;
 
     &:hover {
-      color: $color-ash;
+      background: linear-gradient(
+        90deg,
+        #f97316 0%,
+        #f97316 40%,
+        #fdba74 50%,
+        #f97316 60%,
+        #f97316 100%
+      );
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: navShimmer 0.6s ease-in-out forwards;
     }
   }
 

@@ -1,3 +1,12 @@
+@keyframes navShimmer {
+  from {
+    background-position: 100% center;
+  }
+  to {
+    background-position: -50% center;
+  }
+}
+
 .navDropdown {
   position: relative;
 
@@ -15,6 +24,26 @@
     border: none;
     padding: 0;
     font-family: inherit;
+
+    &:hover {
+      background: linear-gradient(
+        90deg,
+        #f97316 0%,
+        #f97316 40%,
+        #fdba74 50%,
+        #f97316 60%,
+        #f97316 100%
+      );
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: navShimmer 0.5s ease-in-out forwards;
+
+      svg {
+        color: #f97316;
+      }
+    }
   }
 
   .list {
@@ -164,7 +193,23 @@
     color: $color-platinum;
 
     &:hover {
-      color: $color-ash;
+      background: linear-gradient(
+        90deg,
+        #f97316 0%,
+        #f97316 40%,
+        #fdba74 50%,
+        #f97316 60%,
+        #f97316 100%
+      );
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: navShimmer 0.5s ease-in-out forwards;
+
+      svg {
+        color: #f97316;
+      }
     }
   }
 

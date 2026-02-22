@@ -89,8 +89,8 @@ const USE_CASES = [
 ]
 
 const NAV_LINKS = [
-  { href: "/ad-creative-uploader", label: "Free Uploader" },
   { href: "/customers", label: "Customers" },
+  { href: "/ad-creative-uploader", label: "Free Uploader" },
 ]
 
 const MOBILE_EXTRA_LINKS = [
