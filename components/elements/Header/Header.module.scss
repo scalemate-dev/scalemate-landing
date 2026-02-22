@@ -11,7 +11,7 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    max-width: 772px;
+    max-width: 960px;
     margin: 0 auto;
     @include backgroundBlur(24px, rgba(255, 194, 194, 0.95));
     background-color: rgba(#fff, 0.5);

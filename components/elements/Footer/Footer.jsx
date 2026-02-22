@@ -39,6 +39,9 @@ const Footer = () => {
             <Link className={styles.footerColLink} href="/launch">
               Launch
             </Link>
+            <Link className={styles.footerColLink} href="/ad-creative-uploader">
+              Free Ad Creative Uploader
+            </Link>
             <a className={styles.footerColLink} href="/docs">
               API documentation
             </a>
@@ -51,9 +54,15 @@ const Footer = () => {
             >
               Book a Demo
             </Link>
-            {/* <Link className={styles.footerColLink} href="/pricing">
-              Pricing
-            </Link> */}
+          </div>
+          <div className={styles.footerCol}>
+            <div className={styles.footerColTitle}>Use Cases</div>
+            <Link
+              className={styles.footerColLink}
+              href="/use-cases/bulk-ad-launch"
+            >
+              Launch Ads Faster
+            </Link>
           </div>
           <div className={styles.footerCol}>
             <div className={styles.footerColTitle}>Legal</div>

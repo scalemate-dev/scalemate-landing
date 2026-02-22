@@ -1,40 +1,41 @@
 .navDropdown {
   position: relative;
 
-  .labelWrapper {
-    position: relative;
-  }
-  
   .label {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
     color: #2f2f2f;
     cursor: pointer;
     gap: 8px;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit;
   }
 
   .list {
     border-radius: 16px;
     padding: 32px;
     visibility: hidden;
+    opacity: 0;
     background-color: #fff;
     position: absolute;
     top: 54px;
     left: 0px;
     min-width: 384px;
     box-shadow: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
-    animation-timing-function: cubic-bezier(.02,.85,.01,.98);
-    animation-duration: 0.4s;
-    animation-name: scale, fadeIn;
+    transform: scale(0.95);
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+  }
 
-    &.visible {
-      visibility: visible;
-    }
+  &:hover > .list {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
   }
 
   .item {
@@ -45,7 +46,6 @@
     padding: 12px 16px;
     text-align: left;
     cursor: pointer;
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     gap: 16px;
@@ -76,49 +76,29 @@
     border-radius: 20px;
     padding: 2px 8px;
     color: #fff;
-    
   }
 
   .itemLabel {
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
   }
 
   .itemDescription {
-    font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 20px;
     color: #667085;
   }
 
-  .upcomingNote {
-    flex-grow: 1;
-    text-align: right;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 8px;
-    line-height: 12px;
-    color: #acb2be;
-  }
-
-  .arrow {
-    width: 16px;
-    height: auto;
-    margin-left: 8px;
-    transform: rotate(180deg);
-    transition: transform .3s ease;
-
-    &.rotated {
-      transform: rotate(0);
-    }
-  }
-
-  // Inline dropdown styles
+  // Inline dropdown styles (mobile drawer)
   &.inlineDropdown {
     width: 100%;
+
+    &:hover > .list {
+      visibility: hidden;
+      opacity: 0;
+    }
 
     .list {
       position: static;
@@ -133,8 +113,8 @@
       box-shadow: none;
       background-color: transparent;
       border-radius: 0;
+      transform: none;
       transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0s linear 0.3s, padding 0.3s ease;
-      animation: none;
 
       &.visible {
         max-height: 500px;
@@ -149,7 +129,7 @@
       padding: 12px 8px;
       margin-bottom: 4px;
       background-color: rgba(255, 255, 255, 0.1);
-      
+
       &:hover {
         background-color: rgba(255, 255, 255, 0.2);
       }
@@ -167,7 +147,7 @@
       border-radius: 0;
       @include backgroundBlur(24px, rgba(255, 194, 194, 0.95));
     }
-    
+
     &.inlineDropdown .list {
       position: static;
       top: auto;
@@ -197,38 +177,12 @@
       background-color: $color-graphite;
     }
   }
+
   .itemLabel {
     color: $color-platinum;
   }
 
   .itemDescription {
     color: $color-ash;
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes scale {
-  0% {
-    transform: scale(.9);
-  }
-  100% {
-    transform: scale(1);
   }
 }
