@@ -54,7 +54,9 @@ export default function RootLayout({ children }) {
           content="xen4h4jqm1szk6rn5dl14g5eeqhg1o"
         />
       </head>
-      <GoogleTagManager gtmId="GTM-P5QQVGJ" />
+      {process.env.NEXT_PUBLIC_GTM_ID && (
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
+      )}
 
       <body className={`${inter.variable} ${poppins.variable}`}>
         <Header />
