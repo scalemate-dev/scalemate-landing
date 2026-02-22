@@ -248,31 +248,24 @@
     top: 0;
 
     .container {
+      max-width: 100%;
       border-radius: 0px;
       padding: 16px;
     }
-  }
-}
 
-@include tablet-vertical {
-  .header {
-    .linksWrapper {
-      gap: 8px;
-    }
-  
     .headerNavigation {
       gap: 16px;
     }
-    
+
     .burgerButton {
       display: block;
     }
-    
-    .linksWrapper, 
+
+    .linksWrapper,
     .desktopButton {
       display: none;
     }
-    
+
     .mobileDrawerContent {
       padding-top: 70px;
     }
