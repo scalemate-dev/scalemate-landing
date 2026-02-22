@@ -26,6 +26,20 @@ const previewClient = createClient({
   host: "preview.contentful.com",
 })
 
+export const revalidate = 86400
+
+export async function generateStaticParams() {
+  const entries = await client.getEntries({
+    content_type: "caseStudy",
+    locale: "en-US",
+    select: "fields.slug",
+  })
+
+  return entries.items.map((item) => ({
+    slug: item.fields.slug,
+  }))
+}
+
 // Function to fetch case study data
 async function getCaseStudy(slug, preview = false) {
   const isPreview = preview === previewAccessToken
