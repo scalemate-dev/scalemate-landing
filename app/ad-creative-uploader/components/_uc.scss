@@ -1,0 +1,71 @@
+@use "variables" as vars;
+
+// ── Colors ──
+$uc-ink: #1a1614;
+$uc-body: #475467;
+$uc-body-faded: #A8A49D;
+$uc-stone: #9C9890;
+$uc-line: #DDD9D2;
+$uc-accent: #f97316;
+$uc-accent-hover: #fb923c;
+$uc-accent-light: #fdba74;
+$uc-accent-deep: #ea580c;
+$uc-bg-warm: #faf9f6;
+$uc-bg-sand: #F3F0EB;
+$uc-card-dark: #171412;
+$uc-pain: #C0785E;
+$uc-success: #6BBF7B;
+$uc-ink-soft: #3D3B37;
+$uc-shape: #eae8e3;
+$uc-dash: #d6d2ca;
+
+// ── Easing ──
+$uc-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+// ── Shadows ──
+$uc-shadow-card: 0 1px 3px rgba(42, 39, 36, 0.03), 0 8px 32px rgba(42, 39, 36, 0.06);
+$uc-shadow-panel: 0 1px 2px rgba(42, 39, 36, 0.03), 0 4px 16px rgba(42, 39, 36, 0.04), 0 16px 56px rgba(42, 39, 36, 0.04);
+$uc-shadow-panel-hover: 0 2px 4px rgba(42, 39, 36, 0.03), 0 8px 24px rgba(42, 39, 36, 0.05), 0 24px 72px rgba(42, 39, 36, 0.06);
+
+// ── Panel gradient ──
+$uc-panel-bg: linear-gradient(168deg, #FFFFFF 0%, #FEFCFA 100%);
+
+// ── Mixins ──
+
+@mixin uc-eyebrow {
+  display: block;
+  font-family: vars.$font-body;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: $uc-stone;
+  margin-bottom: 24px;
+}
+
+@mixin uc-section-title {
+  font-family: vars.$font-heading;
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: $uc-ink;
+  margin: 0;
+}
+
+@mixin uc-body-text {
+  font-family: vars.$font-body;
+  font-size: 17px;
+  line-height: 1.7;
+  color: $uc-body;
+  margin: 0;
+}
+
+@mixin uc-accent-dash($width: 40px) {
+  display: block;
+  width: $width;
+  height: 2.5px;
+  background: $uc-accent;
+  border-radius: 2px;
+  transition: width 0.5s $uc-ease;
+}

@@ -62,6 +62,18 @@ export default async function sitemap() {
       changeFrequency: "weekly",
       priority: 0.6,
     },
+    {
+      url: "https://www.scalemate.co/ad-creative-uploader",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: "https://www.scalemate.co/use-cases/bulk-ad-launch",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
   ]
 
   // Combine static and dynamic entries
