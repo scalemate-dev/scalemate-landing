@@ -84,4 +84,12 @@
 .answerText {
   margin: 0;
   padding: 0;
+
+  a {
+    color: #f97316; // Orange color for links
+    font-weight: 500;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 } 
