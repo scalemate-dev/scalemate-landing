@@ -1,14 +1,11 @@
 import Link from "next/link"
-import {
-  SyncVisual,
-  ConfigVisual,
-  LaunchVisual,
-} from "../bulk-ad-launch/HowItWorksVisuals"
+import { SyncVisual } from "../bulk-ad-launch/HowItWorksVisuals"
+import { ConnectVisual } from "./ConnectVisual"
+import { UploadVisual } from "./UploadVisual"
 
 export const data = {
   metadata: {
-    title:
-      "Automate Creative Upload to Meta Ads | Scalemate",
+    title: "Automate Creative Upload to Meta Ads | Scalemate",
     description:
       "Automate creative upload meta ads with a direct cloud-to-platform sync. No download-reupload cycle, automatic deduplication – from cloud storage to live campaigns.",
     alternates: {
@@ -16,8 +13,7 @@ export const data = {
         "https://www.scalemate.co/use-cases/automated-creative-upload-meta",
     },
     openGraph: {
-      title:
-        "Automate Creative Upload to Meta Ads | Scalemate",
+      title: "Automate Creative Upload to Meta Ads | Scalemate",
       description:
         "Automate creative upload meta ads with a direct cloud-to-platform sync. No download-reupload cycle, automatic deduplication – from cloud storage to live campaigns.",
       url: "https://www.scalemate.co/use-cases/automated-creative-upload-meta",
@@ -25,8 +21,7 @@ export const data = {
     },
     twitter: {
       card: "summary_large_image",
-      title:
-        "Automate Creative Upload to Meta Ads | Scalemate",
+      title: "Automate Creative Upload to Meta Ads | Scalemate",
       description:
         "Automate creative upload meta ads with a direct cloud-to-platform sync. No download-reupload cycle, automatic deduplication.",
     },
@@ -58,10 +53,9 @@ export const data = {
     titleAccent: "Drain Your Team",
     subtitle: (
       <>
-        Three problems compound as creative volume grows, hitting{" "}
-        <Link href="/solutions/media-buyers">media buyers</Link> hardest –
-        repetitive manual steps, messy media libraries, and a pipeline that
-        can&apos;t keep pace.
+        Three problems compound as creative volume grows, hitting media buyers
+        hardest – repetitive manual steps, messy media libraries, and a pipeline
+        that can&apos;t keep pace.
       </>
     ),
     problems: [
@@ -123,7 +117,7 @@ export const data = {
       <>
         The download-reupload cycle disappears. Teams that automate creative
         upload meta ads move creatives from storage to ad accounts through a
-        direct connection.
+        direct connection
       </>
     ),
   },
@@ -141,17 +135,17 @@ export const data = {
           <>
             Scalemate integrates with Google Drive, Dropbox, and NextCloud.
             Setup runs once: connect, select folders, done. Teams that want to
-            upload ad creatives from Google Drive change nothing upstream.
+            upload ad creatives from Google Drive change nothing upstream
           </>
         ),
         Visual: SyncVisual,
       },
       {
         number: "02",
-        title: "Set File Selection Rules",
+        title: "Connect Your Ad Accounts",
         description:
-          "Inclusion and exclusion rules filter which assets sync. Deduplication skips files already in Meta's Media Library, transferring only what's new.",
-        Visual: ConfigVisual,
+          "Link your Meta Ads accounts with secure OAuth. One-time setup, then upload creatives to Ads Manager whenever you need.",
+        Visual: ConnectVisual,
       },
       {
         number: "03",
@@ -161,10 +155,10 @@ export const data = {
             Hundreds of files land in Meta Media Library in one batch – no
             downloads, no drag-and-drop. For mobile apps teams that need to bulk
             upload creatives Meta Ads across multiple accounts, everything runs
-            from one screen. Same workflow for TikTok and YouTube.
+            from one screen. Same workflow for TikTok, YouTube is comming soon
           </>
         ),
-        Visual: LaunchVisual,
+        Visual: UploadVisual,
       },
     ],
   },
@@ -177,7 +171,7 @@ export const data = {
       <>
         Two teams chose to automate creative upload meta ads with Scalemate.
         Both faced the same challenge – scaling creative delivery without
-        scaling headcount.
+        scaling headcount
       </>
     ),
     caseStudies: [
@@ -230,7 +224,7 @@ export const data = {
         description: (
           <>
             For buyers managing multiple accounts, auto sync creatives to meta
-            ads from cloud storage removes the most repetitive weekly task.
+            ads from cloud storage removes the most repetitive weekly task
           </>
         ),
       },
@@ -240,7 +234,7 @@ export const data = {
           <>
             Direct sync shrinks the pipeline: designer saves file → file appears
             in Meta. Teams that automate facebook ad uploads get faster feedback
-            and tighter cycles.
+            and tighter cycles
           </>
         ),
       },
@@ -258,7 +252,7 @@ export const data = {
       <>
         High output plus manual uploads equals a bottleneck – teams that
         automate creative upload meta ads break free and scale without adding
-        headcount.
+        headcount
       </>
     ),
   },
