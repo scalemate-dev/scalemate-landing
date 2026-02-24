@@ -8,7 +8,7 @@ import {
 export const data = {
   metadata: {
     title:
-      "Automate Creative Upload Meta Ads – No More Manual Drag-and-Drop | Scalemate",
+      "Automate Creative Upload to Meta Ads | Scalemate",
     description:
       "Automate creative upload meta ads with a direct cloud-to-platform sync. No download-reupload cycle, automatic deduplication – from cloud storage to live campaigns.",
     alternates: {
@@ -17,7 +17,7 @@ export const data = {
     },
     openGraph: {
       title:
-        "Automate Creative Upload Meta Ads – No More Manual Drag-and-Drop | Scalemate",
+        "Automate Creative Upload to Meta Ads | Scalemate",
       description:
         "Automate creative upload meta ads with a direct cloud-to-platform sync. No download-reupload cycle, automatic deduplication – from cloud storage to live campaigns.",
       url: "https://www.scalemate.co/use-cases/automated-creative-upload-meta",
@@ -26,7 +26,7 @@ export const data = {
     twitter: {
       card: "summary_large_image",
       title:
-        "Automate Creative Upload Meta Ads – No More Manual Drag-and-Drop | Scalemate",
+        "Automate Creative Upload to Meta Ads | Scalemate",
       description:
         "Automate creative upload meta ads with a direct cloud-to-platform sync. No download-reupload cycle, automatic deduplication.",
     },
@@ -292,6 +292,8 @@ export const data = {
     },
     {
       question: "Is there a free version of the creative uploader?",
+      answerText:
+        "Yes. As a meta ads creative uploader, Scalemate offers a free uploader tool that handles up to 20 files per day – a functional entry point for smaller teams or for testing the workflow before committing to the full Cloud Sync feature. The free tier includes the same direct API connection and deduplication logic, with the only limit being daily file count.",
       answer: (
         <>
           Yes. As a meta ads creative uploader, Scalemate offers a{" "}
