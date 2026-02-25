@@ -202,6 +202,12 @@
   display: flex;
   gap: 14px;
   align-items: center;
+
+  a[class*="outline"] {
+    padding: 15px 32px;
+    font-size: 18px;
+    line-height: 28px;
+  }
 }
 
 // ─── Responsive ───

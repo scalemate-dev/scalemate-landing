@@ -46,8 +46,8 @@ export const data = {
     aside:
       "From cloud storage to live campaigns – without dragging creatives into Facebook.",
     secondaryCta: {
-      label: "Try Free Uploader — 20 files/day",
-      href: "https://www.scalemate.co/ad-creative-uploader",
+      label: "Try Free Uploader ",
+      href: "/ad-creative-uploader",
     },
   },
 
@@ -57,9 +57,9 @@ export const data = {
     titleAccent: "Drain Your Team",
     subtitle: (
       <>
-        As creative volume grows, teams that don&apos;t automate creative
-        upload meta ads hit the same bottleneck: repetitive manual steps, messy
-        media libraries, and a stalled pipeline.
+        As creative volume grows, teams that don&apos;t automate creative upload
+        meta ads hit the same bottleneck: repetitive manual steps, messy media
+        libraries, and a stalled pipeline.
       </>
     ),
     problems: [
@@ -195,9 +195,10 @@ export const data = {
         metrics: [
           { value: "2,000+", label: "Media files delivered" },
           { value: "70%", label: "Upload time reduction" },
-          { value: "35hrs/mo", label: "Freed from file management" },
+          { value: "35hrs", label: "monthly savings" },
         ],
-        footer: "The team refocused entirely on creative strategy and performance analysis.",
+        // footer:
+        //   "The team refocused entirely on creative strategy and performance analysis.",
       },
       {
         company: "KitUp",
@@ -216,7 +217,8 @@ export const data = {
           { value: "35hrs", label: "Saved per month" },
           { value: "25%+", label: "Weekly hours reduced" },
         ],
-        footer: "Faster uploads free up time the team reinvests into analysis and optimization.",
+        // footer:
+        //   "Faster uploads free up time the team reinvests into analysis and optimization.",
       },
     ],
   },
