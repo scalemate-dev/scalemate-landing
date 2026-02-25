@@ -661,6 +661,286 @@
 }
 
 // ———————————————————————————————————————
+// Connect accounts visual — block 2 (creative-upload)
+// ———————————————————————————————————————
+
+.connCard {
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+  background: linear-gradient(168deg, rgba(#fff, 0.92) 0%, rgba(#FEFCFA, 0.8) 100%);
+  border: 1px solid rgba($uc-ink, 0.06);
+  border-radius: 18px;
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 1px 3px rgba(42, 39, 36, 0.04),
+    0 6px 24px rgba(42, 39, 36, 0.05);
+  overflow: hidden;
+}
+
+.connHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px 14px;
+  border-bottom: 1px solid rgba($uc-ink, 0.06);
+}
+
+.connHeaderTitle {
+  font-family: $font-body;
+  font-size: 13px;
+  font-weight: 700;
+  color: $uc-ink;
+  letter-spacing: -0.01em;
+}
+
+.connHeaderBtn {
+  font-family: $font-body;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: $uc-body;
+  padding: 5px 12px;
+  border: 1px solid rgba($uc-ink, 0.08);
+  border-radius: 8px;
+  background: rgba(#fff, 0.7);
+  letter-spacing: -0.005em;
+}
+
+.connRows {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 12px;
+  gap: 8px;
+}
+
+.connRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba($uc-ink, 0.04);
+  background: rgba(#fff, 0.5);
+  transition: box-shadow 0.4s $uc-ease, border-color 0.4s $uc-ease;
+}
+
+.connRowActive {
+  border-color: rgba($uc-success, 0.2);
+  background: rgba(#fff, 0.7);
+  box-shadow: 0 2px 12px rgba($uc-success, 0.06);
+}
+
+.connRowIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  background: rgba(#fff, 0.9);
+  border: 1px solid rgba($uc-ink, 0.05);
+  box-shadow: 0 1px 4px rgba(42, 39, 36, 0.06);
+  flex-shrink: 0;
+}
+
+.connRowInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.connRowName {
+  font-family: $font-body;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: $uc-ink;
+  letter-spacing: -0.01em;
+}
+
+.connRowStatus {
+  font-family: $font-body;
+  font-size: 10.5px;
+  color: $uc-stone;
+  letter-spacing: -0.005em;
+}
+
+.connRowActive .connRowStatus {
+  color: $uc-body;
+}
+
+.connRowCheck {
+  color: $uc-success;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+// ———————————————————————————————————————
+// Upload progress visual — block 3 (creative-upload)
+// ———————————————————————————————————————
+
+.uplCard {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  background: linear-gradient(168deg, rgba(#fff, 0.92) 0%, rgba(#FEFCFA, 0.8) 100%);
+  border: 1px solid rgba($uc-ink, 0.06);
+  border-radius: 18px;
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 1px 3px rgba(42, 39, 36, 0.04),
+    0 6px 24px rgba(42, 39, 36, 0.05);
+  overflow: hidden;
+}
+
+.uplChrome {
+  display: flex;
+  gap: 7px;
+  padding: 14px 18px 12px;
+  border-bottom: 1px solid rgba($uc-ink, 0.05);
+}
+
+.uplDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+
+  &[data-color="red"]    { background: #EF6B5E; }
+  &[data-color="yellow"] { background: #F4BF4F; }
+  &[data-color="green"]  { background: #61C554; }
+}
+
+.uplBody {
+  padding: 16px 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.uplHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba($uc-ink, 0.05);
+  background: rgba(#fff, 0.5);
+}
+
+.uplHeaderLeft {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.uplHeaderTitle {
+  font-family: $font-body;
+  font-size: 13px;
+  font-weight: 700;
+  color: $uc-ink;
+  letter-spacing: -0.01em;
+}
+
+.uplHeaderCount {
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 600;
+  color: $uc-accent;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-top: 1px;
+}
+
+.uplProgress {
+  width: 100%;
+  height: 5px;
+  border-radius: 3px;
+  background: rgba($uc-ink, 0.06);
+  overflow: hidden;
+}
+
+.uplProgressFill {
+  width: 75%;
+  height: 100%;
+  border-radius: 3px;
+  background: $uc-accent;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(#fff, 0.45) 45%,
+      rgba(#fff, 0.6) 50%,
+      rgba(#fff, 0.45) 55%,
+      transparent 100%
+    );
+    animation: uplShimmer 1.6s ease-in-out infinite;
+  }
+}
+
+@keyframes uplShimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.uplFiles {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.uplFile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba($uc-ink, 0.05);
+  background: rgba(#fff, 0.45);
+}
+
+.uplFileActive {
+  border-color: rgba($uc-accent, 0.2);
+  background: rgba($uc-accent, 0.03);
+}
+
+.uplFileName {
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Menlo', monospace;
+  font-size: 11px;
+  color: $uc-body;
+  letter-spacing: -0.01em;
+}
+
+.uplCheck {
+  color: $uc-success;
+  flex-shrink: 0;
+}
+
+.uplSpinner {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid rgba($uc-accent, 0.2);
+  border-top-color: $uc-accent;
+  flex-shrink: 0;
+  animation: uplSpin 0.8s linear infinite;
+}
+
+@keyframes uplSpin {
+  to { transform: rotate(360deg); }
+}
+
+// ———————————————————————————————————————
 // Responsive
 // ———————————————————————————————————————
 
@@ -699,6 +979,14 @@
       width: 15px;
       height: 15px;
     }
+  }
+
+  .connCard {
+    max-width: 300px;
+  }
+
+  .uplCard {
+    max-width: 320px;
   }
 }
 
@@ -885,5 +1173,97 @@
 
   .flowNodeFiles {
     display: none;
+  }
+
+  .connCard {
+    max-width: 100%;
+  }
+
+  .connHeader {
+    padding: 12px 16px 10px;
+  }
+
+  .connHeaderTitle {
+    font-size: 11.5px;
+  }
+
+  .connHeaderBtn {
+    font-size: 9.5px;
+    padding: 4px 10px;
+  }
+
+  .connRows {
+    padding: 8px 10px;
+    gap: 6px;
+  }
+
+  .connRow {
+    padding: 10px 12px;
+    gap: 10px;
+    border-radius: 11px;
+  }
+
+  .connRowIcon {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+
+    img {
+      max-width: 18px;
+      max-height: 18px;
+    }
+  }
+
+  .connRowName {
+    font-size: 11px;
+  }
+
+  .connRowStatus {
+    font-size: 9.5px;
+  }
+
+  .uplCard {
+    max-width: 100%;
+  }
+
+  .uplChrome {
+    padding: 10px 14px 8px;
+    gap: 6px;
+  }
+
+  .uplDot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .uplBody {
+    padding: 12px 12px 10px;
+    gap: 10px;
+  }
+
+  .uplHeader {
+    padding: 10px 12px;
+    border-radius: 10px;
+  }
+
+  .uplHeaderTitle {
+    font-size: 11.5px;
+  }
+
+  .uplHeaderCount {
+    font-size: 9.5px;
+  }
+
+  .uplFiles {
+    gap: 6px;
+  }
+
+  .uplFile {
+    padding: 9px 12px;
+    border-radius: 10px;
+  }
+
+  .uplFileName {
+    font-size: 9.5px;
   }
 }

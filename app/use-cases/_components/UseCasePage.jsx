@@ -18,7 +18,7 @@ function FaqJsonLd({ items }) {
       name: item.question,
       acceptedAnswer: {
         "@type": "Answer",
-        text: item.answer,
+        text: item.answerText ?? item.answer,
       },
     })),
   }

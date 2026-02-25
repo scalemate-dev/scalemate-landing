@@ -418,7 +418,7 @@
 
   .resultsBlock {
     padding-top: 60px;
-    gap: 0 48px;
+    gap: 12px 48px;
   }
 
   .resultsLeadIn {
@@ -486,6 +486,10 @@
     max-width: 480px;
     font-size: 15px;
     margin-top: 40px;
+  }
+
+  .resultsLabel {
+    margin-bottom: 12px;
   }
 
   .metricsGrid {
