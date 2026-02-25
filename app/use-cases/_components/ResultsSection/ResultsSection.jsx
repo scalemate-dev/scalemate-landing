@@ -34,6 +34,7 @@ export default function ResultsSection({ eyebrow = "Proven Results", title, titl
                   </div>
                 ))}
               </div>
+              {study.footer && <p className={styles.cardFooter}>{study.footer}</p>}
               <Link href={study.href} className={styles.cardLink}>
                 Read the full story <IconArrowRight size={14} />
               </Link>

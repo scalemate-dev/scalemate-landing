@@ -1,7 +1,7 @@
 import Container from "@/components/elements/Container/Container"
 import styles from "./CtaSection.module.scss"
 
-export default function CtaSection({ title, description }) {
+export default function CtaSection({ title, description, secondaryCta }) {
   return (
     <div className={styles.ctaWrapper}>
       <section className={styles.cta}>
@@ -10,14 +10,14 @@ export default function CtaSection({ title, description }) {
             <h2>{title}</h2>
             <p>{description}</p>
             <div className={styles.ctaButtons}>
-              <a href="/book-a-demo" className={styles.ctaButton}>
-                Book a Demo
-              </a>
               <a
-                href="https://app.scalemate.co/create-account"
-                className={styles.ctaButtonOutline}
+                href={secondaryCta?.href ?? "https://app.scalemate.co/create-account"}
+                className={styles.ctaButton}
               >
-                Start Free Trial
+                {secondaryCta?.label ?? "Start Free Trial"}
+              </a>
+              <a href="/book-a-demo" className={styles.ctaButtonOutline}>
+                Book a Demo
               </a>
             </div>
           </div>
