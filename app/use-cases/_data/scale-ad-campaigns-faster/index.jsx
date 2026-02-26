@@ -86,7 +86,8 @@ export const data = {
           Without automation, new creatives sit for days after design delivers.
           Bulk launches are impossible, every ad assembled by hand. Scaling
           winners stays cautious, with no fast rollback if aggressive scaling
-          tanks performance.
+          tanks performance. This is what it looks like trying to scale meta
+          ads faster without a system to match.
         </>
       ),
     },
@@ -102,7 +103,7 @@ export const data = {
     },
     metrics: [
       { value: "260%", prefix: "faster", desc: "campaign launches" },
-      { value: "4x", prefix: "faster", desc: "creative scaling at scale" },
+      { value: "4x", prefix: "faster", desc: "budget adjustments at scale" },
       { value: "62%", prefix: "less", desc: "ad management time" },
     ],
     leadIn: (
@@ -210,7 +211,7 @@ export const data = {
   audience: {
     title: "Who Scalemate is For",
     subtitle:
-      "Scalemate serves teams where campaign volume has outgrown manual execution. The bottleneck varies, but the cost is always the same: revenue lost to slow processes.",
+      "Scalemate serves teams where the scaling paid acquisition process has outgrown manual execution. The bottleneck varies, but the cost is always the same: revenue lost to slow processes.",
     roles: [
       {
         role: "Performance Marketing Managers & Media Buyers",
@@ -226,8 +227,9 @@ export const data = {
         role: "Marketing Leaders & Heads of User Acquisition",
         description: (
           <>
-            Deciding whether to hire more buyers or automate. When the team is
-            at capacity, adding headcount treats the symptom — not the cause.
+            Looking to scale user acquisition without hiring more buyers. When
+            the team is at capacity, adding headcount treats the symptom — not
+            the cause.
           </>
         ),
       },
@@ -236,8 +238,8 @@ export const data = {
         description: (
           <>
             High creative volume, multiple audiences and geos, constant IPM
-            pressure — need to test more and scale faster without expanding the
-            UA team.
+            pressure — need to conduct more tests and scale meta ads faster
+            without expanding the UA team.
           </>
         ),
       },
@@ -259,7 +261,7 @@ export const data = {
     {
       question: "How does Scalemate help scale ad campaigns faster?",
       answer:
-        "Scalemate automates the three largest bottlenecks: creative deployment from cloud storage, budget scaling through automation rules, and performance tracking via AI agent. It removes every manual step between creative delivery and live campaigns. Teams launch, scale, and optimize in hours rather than days.",
+        "Scalemate automates the three largest bottlenecks: creative deployment from cloud storage, budget scaling through automation rules, and performance tracking via AI agent. As a performance marketing automation tool, it removes every manual step between creative delivery and live campaigns. Teams launch, scale, and optimize in hours rather than days.",
     },
     {
       question: "How does automated scaling of winning creatives work?",
@@ -276,7 +278,7 @@ export const data = {
       question:
         "Does Scalemate work with custom campaign structures like one-ad-per-ad-set?",
       answer:
-        "Scalemate supports any structure: one-ad-per-ad-set, multiple creatives per ad set, custom hierarchies. The bulk launch engine generates ad sets from a concept \u00D7 audience \u00D7 structure matrix at any volume.",
+        "Scalemate supports any structure and uses AI to distribute creatives intelligently. In one-ad-per-ad-set mode, each creative gets its own ad set for clean performance data. Alternatively, Scalemate recognizes creatives from the same concept and groups them into a single ad set, while creatives from a different concept go into a separate one. It can also match creatives by language \u2014 ads in French are placed into ad sets targeting French-speaking audiences, English creatives into English-targeted ad sets, and so on. The bulk launch engine generates every combination from a concept \u00D7 audience \u00D7 language \u00D7 structure matrix at any volume.",
     },
     {
       question: "What ad platforms does Scalemate support?",
@@ -285,14 +287,21 @@ export const data = {
     },
     {
       question: "How much time can teams save with campaign automation?",
-      answer:
-        "Teams report saving 62% of ad management time on average. KitUp saved 35h/month while managing 15,000+ ads. Higher campaign volume means proportionally more time recovered.",
+      answer: (
+        <>
+          Teams that automate campaign scaling workflow report saving 62% of ad
+          management time on average.{" "}
+          <Link href="/customers/kitup">KitUp</Link> saved 35h/month while
+          managing 15,000+ ads. Higher campaign volume means proportionally more
+          time recovered.
+        </>
+      ),
     },
     {
       question:
         "Can teams scale across multiple audiences and structures in one launch?",
       answer:
-        "The bulk launch system handles this by design. Define the matrix \u2014 concepts, audiences, geos, structures \u2014 and Scalemate generates every combination as live campaigns. Days of manual ad set creation compressed into minutes.",
+        "The bulk launch system handles this by design. Define the matrix \u2014 concepts, audiences, geos, structures \u2014 and Scalemate generates every combination as live campaigns. A single launch can produce hundreds of ad sets across different audiences, each with the right creative-to-structure mapping. This is how teams automate campaign scaling workflow at volume \u2014 select creatives, define targeting, choose the structure, and launch. For teams where the scaling paid acquisition process spans multiple geos and languages, bulk launch removes the repetitive setup entirely. Days of manual ad set creation compressed into minutes.",
     },
   ],
 
