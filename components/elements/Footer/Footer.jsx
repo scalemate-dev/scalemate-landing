@@ -69,6 +69,12 @@ const Footer = () => {
             >
               Automate Creative Uploads
             </Link>
+            <Link
+              className={styles.footerColLink}
+              href="/use-cases/scale-ad-campaigns-faster"
+            >
+              Scale Ad Campaigns Faster
+            </Link>
           </div>
           <div className={styles.footerCol}>
             <div className={styles.footerColTitle}>Legal</div>

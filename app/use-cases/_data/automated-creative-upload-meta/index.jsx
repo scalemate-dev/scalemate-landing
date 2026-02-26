@@ -323,8 +323,8 @@ export const data = {
       <>From cloud storage to live campaigns, without the manual grind.</>
     ),
     secondaryCta: {
-      label: "Try Free Uploader — 20 files/day",
-      href: "https://www.scalemate.co/ad-creative-uploader",
+      label: "Try Free Uploader",
+      href: "/ad-creative-uploader",
     },
   },
 }

@@ -310,7 +310,7 @@ export const data = {
     title: "Ready to scale ad campaigns faster?",
     description: null,
     secondaryCta: {
-      label: "Start Your Free Month",
+      label: "Start for Free",
       href: "https://app.scalemate.co/create-account",
     },
   },
