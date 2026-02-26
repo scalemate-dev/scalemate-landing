@@ -51,8 +51,8 @@ export const data = {
       <>
         Winners emerge, budgets get approved – and the scaling process still
         drags. The ability to <strong>scale ad campaigns faster</strong> is what
-        separates <Link href="/solutions/media-buyers">media buyers</Link> who
-        capture revenue windows from those who miss them.
+        separates media buyers who capture revenue windows from those who miss
+        them.
       </>
     ),
     problems: [
@@ -108,9 +108,9 @@ export const data = {
     ],
     leadIn: (
       <>
-        Teams that <strong>automate campaign scaling workflow</strong> see gains
-        immediately, 260% faster launches and creatives scaled over than 4x
-        faster if performance is strong.
+        Teams that automate campaign scaling workflow see gains immediately –
+        260% faster launches and creatives scaled more than 4x faster if
+        performance is strong.
       </>
     ),
   },
@@ -126,11 +126,11 @@ export const data = {
         title: "Get Fresh Creatives Live Instantly",
         description: (
           <>
-            For <Link href="/solutions/mobile-apps">mobile apps</Link> with high
-            creative volume, the first delay is moving creatives from design
-            into live campaigns. Cloud-to-platform creative sync eliminates
-            manual uploads, new ad sets for any audience are adding in minutes,
-            and creative rotation ahead of fatigue holds conversion at scale.
+            For mobile apps with high creative volume, the first delay is moving
+            creatives from design into live campaigns. Cloud-to-platform
+            creative sync eliminates manual uploads, new ad sets for any
+            audience are added in minutes, and creative rotation ahead of
+            fatigue holds conversion at scale.
           </>
         ),
         Visual: SyncVisual,
@@ -283,10 +283,12 @@ export const data = {
     {
       question: "What ad platforms does Scalemate support?",
       answer:
-        "Scalemate connects with Meta (Facebook and Instagram), TikTok, Unity Ads, Snapchat, and other major platforms. Cross-platform teams manage campaign scaling from one interface – no repeated setup across ad managers.",
+        "Scalemate connects with Meta (Facebook and Instagram), TikTok. Cross-platform teams manage campaign scaling from one interface – no repeated setup across ad managers.",
     },
     {
       question: "How much time can teams save with campaign automation?",
+      answerText:
+        "Teams that automate campaign scaling workflow report saving 62% of ad management time on average. KitUp saved 35h/month while managing 15,000+ ads. Higher campaign volume means proportionally more time recovered.",
       answer: (
         <>
           Teams that automate campaign scaling workflow report saving 62% of ad
