@@ -47,7 +47,7 @@ const metrics = [
 
 export function ThresholdVisual() {
   return (
-    <div className={styles.ruleDiagram}>
+    <div className={styles.ruleDiagram} aria-hidden="true">
       <svg
         className={styles.ruleLines}
         viewBox="0 0 480 320"
@@ -157,7 +157,7 @@ const actions = [
 
 export function ActionVisual() {
   return (
-    <div className={styles.actionDiagram}>
+    <div className={styles.actionDiagram} aria-hidden="true">
       <svg
         className={styles.actionLines}
         viewBox="0 0 480 320"
@@ -202,6 +202,9 @@ export function ActionVisual() {
 
       {/* Center: Decision */}
       <div className={styles.actionDecision}>
+        <div className={styles.actionDecisionBadge}>
+          <Logo className={styles.actionDecisionLogo} />
+        </div>
         <div className={styles.actionDecisionInner}>
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2" />
@@ -239,7 +242,7 @@ const activityItems = [
 
 export function MonitorVisual() {
   return (
-    <div className={styles.monitorDiagram}>
+    <div className={styles.monitorDiagram} aria-hidden="true">
       {/* Left: 24/7 clock */}
       <div className={styles.monitorClock}>
         <svg viewBox="0 0 120 120" className={styles.monitorClockSvg}>
