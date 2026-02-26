@@ -151,7 +151,7 @@ const Header = () => {
           className={styles.desktopButton}
           darkTheme={darkTheme}
         >
-          Try it Now
+          Get started for Free
         </Button>
 
         <button
