@@ -45,7 +45,7 @@ const SOLUTIONS = [
 const USE_CASES = [
   {
     label: "Launch Ads Faster",
-    description: "Set up and launch bulk ad campaigns in minutes.",
+    description: "Set up and launch bulk ad campaigns in minutes",
     icon: (
       <Icon style={{ backgroundColor: "#FFF4E6" }}>
         <IconRocket color="#F76707" size={16} />
@@ -53,20 +53,19 @@ const USE_CASES = [
     ),
     path: "/use-cases/bulk-ad-launch",
   },
-  // {
-  //   label: "Automate Creative Uploads",
-  //   description: "Upload ad creatives to Meta automatically.",
-  //   icon: (
-  //     <Icon style={{ backgroundColor: "#E6FCF5" }}>
-  //       <IconCloudUpload color="#12B886" size={16} />
-  //     </Icon>
-  //   ),
-  //   path: "/use-cases/automated-creative-upload-meta",
-  //   disabled: true,
-  // },
+  {
+    label: "Automate Creative Uploads",
+    description: "Upload ad creatives to Meta automatically",
+    icon: (
+      <Icon style={{ backgroundColor: "#E6FCF5" }}>
+        <IconCloudUpload color="#12B886" size={16} />
+      </Icon>
+    ),
+    path: "/use-cases/automated-creative-upload-meta",
+  },
   // {
   //   label: "Scale Campaigns Without Hiring",
-  //   description: "Grow your ad operations without extra headcount.",
+  //   description: "Grow your ad operations without extra headcount",
   //   icon: (
   //     <Icon style={{ backgroundColor: "#EDF2FF" }}>
   //       <IconTrendingUp color="#4C6EF5" size={16} />
@@ -75,17 +74,16 @@ const USE_CASES = [
   //   path: "/use-cases/scale-ad-campaigns-faster",
   //   disabled: true,
   // },
-  // {
-  //   label: "Campaign Automation Rules",
-  //   description: "Create rules to automate your ad management.",
-  //   icon: (
-  //     <Icon style={{ backgroundColor: "#F3E8FF" }}>
-  //       <IconSettingsAutomation color="#7C3AED" size={16} />
-  //     </Icon>
-  //   ),
-  //   path: "/use-cases/ad-campaign-automation-rules",
-  //   disabled: true,
-  // },
+  {
+    label: "Campaign Automation Rules",
+    description: "Create rules to automate your ad management",
+    icon: (
+      <Icon style={{ backgroundColor: "#F3E8FF" }}>
+        <IconSettingsAutomation color="#7C3AED" size={16} />
+      </Icon>
+    ),
+    path: "/use-cases/ad-campaign-automation-rules",
+  },
 ]
 
 const NAV_LINKS = [

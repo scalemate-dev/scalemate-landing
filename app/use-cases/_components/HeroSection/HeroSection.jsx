@@ -2,7 +2,7 @@ import Container from "@/components/elements/Container/Container"
 import Button from "@/components/elements/Button/Button"
 import styles from "./HeroSection.module.scss"
 
-export default function HeroSection({ label, title, titleAccent, description, features, aside }) {
+export default function HeroSection({ label, title, titleAccent, description, features, aside, secondaryCta }) {
   return (
     <section className={styles.hero}>
       <Container>
@@ -27,11 +27,11 @@ export default function HeroSection({ label, title, titleAccent, description, fe
           <p className={styles.aside}>{aside}</p>
 
           <div className={styles.cta}>
-            <Button color="accent" href="/book-a-demo">
-              Book a Demo
+            <Button color="accent" href={secondaryCta?.href ?? "https://app.scalemate.co/create-account"}>
+              {secondaryCta?.label ?? "Start Free Trial"}
             </Button>
-            <Button outline href="https://app.scalemate.co/create-account">
-              Start Free Trial
+            <Button outline href="/book-a-demo">
+              Book a Demo
             </Button>
           </div>
         </div>

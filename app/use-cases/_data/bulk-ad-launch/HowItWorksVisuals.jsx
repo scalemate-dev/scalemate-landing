@@ -15,7 +15,7 @@ const fileTypes = [
 
 export function SyncVisual() {
   return (
-    <div className={styles.flowDiagram}>
+    <div className={styles.flowDiagram} aria-hidden="true">
       <svg
         className={styles.flowLines}
         viewBox="0 0 480 320"
@@ -272,7 +272,7 @@ const configParams = [
 
 export function ConfigVisual() {
   return (
-    <div className={styles.cfgDiagram}>
+    <div className={styles.cfgDiagram} aria-hidden="true">
       <svg
         className={styles.cfgLines}
         viewBox="0 0 520 360"
@@ -463,7 +463,7 @@ export function ConfigVisual() {
 
 export function LaunchVisual() {
   return (
-    <div className={styles.pipelineDiagram}>
+    <div className={styles.pipelineDiagram} aria-hidden="true">
       <div className={styles.pipelineNode} data-row="1">
         <div className={styles.pipelineNodeInner}>
           <div className={styles.pipelineNodeIcon}>

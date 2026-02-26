@@ -8,7 +8,10 @@ export function generateStaticParams() {
 
 const OG_DEFAULTS = {
   siteName: "Scalemate",
-  images: [{ url: "/og-bulk-ad-launch.png", width: 1200, height: 630 }],
+}
+
+const OG_IMAGES = {
+  "bulk-ad-launch": "/og-bulk-ad-launch.png",
 }
 
 export async function generateMetadata({ params }) {
@@ -16,12 +19,19 @@ export async function generateMetadata({ params }) {
   const data = getUseCaseData(slug)
   if (!data) return {}
   const { openGraph, twitter, ...rest } = data.metadata
+  const ogImage = OG_IMAGES[slug] ?? `/og-${slug}.png`
   return {
     ...rest,
-    openGraph: { ...OG_DEFAULTS, ...openGraph },
+    openGraph: {
+      ...OG_DEFAULTS,
+      ...openGraph,
+      images: openGraph?.images ?? [
+        { url: ogImage, width: 1200, height: 630 },
+      ],
+    },
     twitter: {
       ...twitter,
-      images: twitter?.images ?? ["/og-bulk-ad-launch.png"],
+      images: twitter?.images ?? [ogImage],
     },
   }
 }

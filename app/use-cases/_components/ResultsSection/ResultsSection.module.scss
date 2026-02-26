@@ -149,6 +149,18 @@
 }
 
 // ———————————————————————————————————————
+// Footer text (closing sentence after metrics)
+// ———————————————————————————————————————
+
+.cardFooter {
+  font-family: $font-body;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0 0 24px;
+}
+
+// ———————————————————————————————————————
 // Link
 // ———————————————————————————————————————
 

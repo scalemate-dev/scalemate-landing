@@ -63,6 +63,12 @@ const Footer = () => {
             >
               Launch Ads Faster
             </Link>
+            <Link
+              className={styles.footerColLink}
+              href="/use-cases/automated-creative-upload-meta"
+            >
+              Automate Creative Uploads
+            </Link>
           </div>
           <div className={styles.footerCol}>
             <div className={styles.footerColTitle}>Legal</div>
