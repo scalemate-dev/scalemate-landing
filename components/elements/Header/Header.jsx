@@ -45,7 +45,7 @@ const SOLUTIONS = [
 const USE_CASES = [
   {
     label: "Launch Ads Faster",
-    description: "Set up and launch bulk ad campaigns in minutes.",
+    description: "Set up and launch bulk ad campaigns in minutes",
     icon: (
       <Icon style={{ backgroundColor: "#FFF4E6" }}>
         <IconRocket color="#F76707" size={16} />
@@ -55,7 +55,7 @@ const USE_CASES = [
   },
   {
     label: "Automate Creative Uploads",
-    description: "Upload ad creatives to Meta automatically.",
+    description: "Upload ad creatives to Meta automatically",
     icon: (
       <Icon style={{ backgroundColor: "#E6FCF5" }}>
         <IconCloudUpload color="#12B886" size={16} />
@@ -63,17 +63,16 @@ const USE_CASES = [
     ),
     path: "/use-cases/automated-creative-upload-meta",
   },
-  // {
-  //   label: "Scale Campaigns Without Hiring",
-  //   description: "Grow your ad operations without extra headcount.",
-  //   icon: (
-  //     <Icon style={{ backgroundColor: "#EDF2FF" }}>
-  //       <IconTrendingUp color="#4C6EF5" size={16} />
-  //     </Icon>
-  //   ),
-  //   path: "/use-cases/scale-ad-campaigns-faster",
-  //   disabled: true,
-  // },
+  {
+    label: "Scale Campaigns Faster",
+    description: "Scale winning ads before they burn out",
+    icon: (
+      <Icon style={{ backgroundColor: "#EDF2FF" }}>
+        <IconTrendingUp color="#4C6EF5" size={16} />
+      </Icon>
+    ),
+    path: "/use-cases/scale-ad-campaigns-faster",
+  },
   // {
   //   label: "Campaign Automation Rules",
   //   description: "Create rules to automate your ad management.",

@@ -1266,4 +1266,349 @@
   .uplFileName {
     font-size: 9.5px;
   }
+
+  .rulesCard {
+    max-width: 100%;
+  }
+
+  .rulesRow {
+    padding: 10px 12px;
+    gap: 10px;
+    border-radius: 11px;
+  }
+
+  .rulesRowIcon {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+  }
+
+  .rulesRowName {
+    font-size: 11px;
+  }
+
+  .rulesRowDesc {
+    font-size: 9.5px;
+  }
+
+  .rulesRowBadge {
+    font-size: 8.5px;
+    padding: 3px 8px;
+  }
+
+  .agentCard {
+    max-width: 100%;
+  }
+
+  .agentChrome {
+    padding: 10px 14px 8px;
+    gap: 6px;
+  }
+
+  .agentDot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .agentBody {
+    padding: 12px 12px 10px;
+    gap: 10px;
+  }
+
+  .agentMsg {
+    padding: 10px 12px;
+    border-radius: 10px;
+  }
+
+  .agentMsgUser span {
+    font-size: 11px;
+  }
+
+  .agentMsgLabel {
+    font-size: 9px;
+  }
+
+  .agentMetricName {
+    font-size: 9px;
+  }
+
+  .agentMetricTrend {
+    font-size: 9px;
+  }
+}
+
+// ———————————————————————————————————————
+// Automation rules visual — scale-ad-campaigns-faster
+// ———————————————————————————————————————
+
+.rulesCard {
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+  background: linear-gradient(168deg, rgba(#fff, 0.92) 0%, rgba(#FEFCFA, 0.8) 100%);
+  border: 1px solid rgba($uc-ink, 0.06);
+  border-radius: 18px;
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 1px 3px rgba(42, 39, 36, 0.04),
+    0 6px 24px rgba(42, 39, 36, 0.05);
+  overflow: hidden;
+}
+
+.rulesHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px 14px;
+  border-bottom: 1px solid rgba($uc-ink, 0.06);
+}
+
+.rulesHeaderTitle {
+  font-family: $font-body;
+  font-size: 13px;
+  font-weight: 700;
+  color: $uc-ink;
+  letter-spacing: -0.01em;
+}
+
+.rulesHeaderBadge {
+  font-family: $font-body;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: $uc-success;
+  padding: 4px 10px;
+  border: 1px solid rgba($uc-success, 0.2);
+  border-radius: 8px;
+  background: rgba($uc-success, 0.06);
+  letter-spacing: -0.005em;
+}
+
+.rulesRows {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 12px;
+  gap: 8px;
+}
+
+.rulesRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba($uc-ink, 0.04);
+  background: rgba(#fff, 0.5);
+  transition: box-shadow 0.4s $uc-ease, border-color 0.4s $uc-ease;
+}
+
+.rulesRowScale {
+  border-color: rgba($uc-success, 0.2);
+  background: rgba($uc-success, 0.03);
+}
+
+.rulesRowPause {
+  border-color: rgba(#EF6B5E, 0.15);
+  background: rgba(#EF6B5E, 0.02);
+}
+
+.rulesRowRollback {
+  border-color: rgba($uc-accent, 0.15);
+  background: rgba($uc-accent, 0.02);
+}
+
+.rulesRowIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  background: rgba(#fff, 0.9);
+  border: 1px solid rgba($uc-ink, 0.05);
+  box-shadow: 0 1px 4px rgba(42, 39, 36, 0.06);
+  flex-shrink: 0;
+
+  .rulesRowScale & {
+    color: $uc-success;
+    background: rgba($uc-success, 0.08);
+    border-color: rgba($uc-success, 0.12);
+  }
+
+  .rulesRowPause & {
+    color: #EF6B5E;
+    background: rgba(#EF6B5E, 0.08);
+    border-color: rgba(#EF6B5E, 0.12);
+  }
+
+  .rulesRowRollback & {
+    color: $uc-accent;
+    background: rgba($uc-accent, 0.08);
+    border-color: rgba($uc-accent, 0.12);
+  }
+}
+
+.rulesRowInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.rulesRowName {
+  font-family: $font-body;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: $uc-ink;
+  letter-spacing: -0.01em;
+}
+
+.rulesRowDesc {
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Menlo', monospace;
+  font-size: 10.5px;
+  color: $uc-stone;
+  letter-spacing: -0.005em;
+}
+
+.rulesRowBadge {
+  font-family: $font-body;
+  font-size: 9.5px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 6px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+
+  &[data-type="scale"] {
+    color: $uc-success;
+    background: rgba($uc-success, 0.08);
+  }
+
+  &[data-type="pause"] {
+    color: #EF6B5E;
+    background: rgba(#EF6B5E, 0.08);
+  }
+
+  &[data-type="rollback"] {
+    color: $uc-accent;
+    background: rgba($uc-accent, 0.08);
+  }
+}
+
+// ———————————————————————————————————————
+// AI Agent visual — scale-ad-campaigns-faster
+// ———————————————————————————————————————
+
+.agentCard {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  background: linear-gradient(168deg, rgba(#fff, 0.92) 0%, rgba(#FEFCFA, 0.8) 100%);
+  border: 1px solid rgba($uc-ink, 0.06);
+  border-radius: 18px;
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 1px 3px rgba(42, 39, 36, 0.04),
+    0 6px 24px rgba(42, 39, 36, 0.05);
+  overflow: hidden;
+}
+
+.agentChrome {
+  display: flex;
+  gap: 7px;
+  padding: 14px 18px 12px;
+  border-bottom: 1px solid rgba($uc-ink, 0.05);
+}
+
+.agentDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+
+  &[data-color="red"]    { background: #EF6B5E; }
+  &[data-color="yellow"] { background: #F4BF4F; }
+  &[data-color="green"]  { background: #61C554; }
+}
+
+.agentBody {
+  padding: 16px 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.agentMsg {
+  padding: 12px 16px;
+  border-radius: 14px;
+}
+
+.agentMsgUser {
+  background: rgba($uc-ink, 0.04);
+  border: 1px solid rgba($uc-ink, 0.06);
+  align-self: flex-end;
+  max-width: 85%;
+
+  span {
+    font-family: $font-body;
+    font-size: 12px;
+    font-weight: 500;
+    color: $uc-ink;
+    letter-spacing: -0.01em;
+  }
+}
+
+.agentMsgBot {
+  background: rgba(#fff, 0.7);
+  border: 1px solid rgba($uc-accent, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.agentMsgLabel {
+  font-family: $font-body;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $uc-accent;
+}
+
+.agentMetrics {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.agentMetric {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: rgba(#fff, 0.5);
+  border: 1px solid rgba($uc-ink, 0.04);
+}
+
+.agentMetricName {
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Menlo', monospace;
+  font-size: 10px;
+  color: $uc-body;
+  letter-spacing: -0.01em;
+}
+
+.agentMetricTrend {
+  font-family: $font-body;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+
+  &[data-trend="down"] {
+    color: #EF6B5E;
+  }
+
+  &[data-trend="up"] {
+    color: $uc-success;
+  }
 }
