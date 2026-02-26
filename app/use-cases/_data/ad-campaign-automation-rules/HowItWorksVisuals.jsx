@@ -55,34 +55,34 @@ export function ThresholdVisual() {
         preserveAspectRatio="xMidYMid meet"
       >
         {/* Metric pills → Rules Engine */}
-        <path d="M 120 55 C 175 55, 190 130, 230 140" className={styles.rulePath} />
-        <path d="M 120 125 C 175 125, 195 140, 230 150" className={styles.rulePath} />
-        <path d="M 120 195 C 175 195, 195 170, 230 168" className={styles.rulePath} />
-        <path d="M 120 265 C 175 265, 190 190, 230 178" className={styles.rulePath} />
+        <path d="M 90 89 C 135 89, 160 138, 191 149" className={styles.rulePath} />
+        <path d="M 90 136 C 135 136, 162 148, 191 153" className={styles.rulePath} />
+        <path d="M 90 184 C 135 184, 162 160, 191 157" className={styles.rulePath} />
+        <path d="M 90 231 C 135 231, 160 170, 191 163" className={styles.rulePath} />
 
         {/* Rules Engine → Output */}
-        <path d="M 310 160 C 360 160, 370 160, 410 160" className={styles.rulePath} />
+        <path d="M 289 155 C 330 155, 365 158, 393 158" className={styles.rulePath} />
 
-        {/* Animated dots on input paths */}
+        {/* Animated dots — no begin delays to avoid stray dot at (0,0) */}
         <circle r="3" className={styles.ruleDot}>
-          <animateMotion dur="2.2s" repeatCount="indefinite" path="M 120 55 C 175 55, 190 130, 230 140" />
+          <animateMotion dur="2.2s" repeatCount="indefinite" path="M 90 89 C 135 89, 160 138, 191 149" />
         </circle>
         <circle r="3" className={styles.ruleDot}>
-          <animateMotion dur="2.4s" repeatCount="indefinite" begin="0.6s" path="M 120 125 C 175 125, 195 140, 230 150" />
+          <animateMotion dur="2.6s" repeatCount="indefinite" path="M 90 136 C 135 136, 162 148, 191 153" />
         </circle>
         <circle r="3" className={styles.ruleDot}>
-          <animateMotion dur="2.1s" repeatCount="indefinite" begin="1.2s" path="M 120 195 C 175 195, 195 170, 230 168" />
+          <animateMotion dur="1.9s" repeatCount="indefinite" path="M 90 184 C 135 184, 162 160, 191 157" />
         </circle>
         <circle r="3" className={styles.ruleDot}>
-          <animateMotion dur="2.5s" repeatCount="indefinite" begin="0.3s" path="M 120 265 C 175 265, 190 190, 230 178" />
+          <animateMotion dur="2.8s" repeatCount="indefinite" path="M 90 231 C 135 231, 160 170, 191 163" />
         </circle>
 
-        {/* Animated dot on output path */}
+        {/* Output dot */}
         <circle r="3" className={styles.ruleDot}>
-          <animateMotion dur="1.6s" repeatCount="indefinite" begin="1s" path="M 310 160 C 360 160, 370 160, 410 160" />
+          <animateMotion dur="1.6s" repeatCount="indefinite" path="M 289 155 C 330 155, 365 158, 393 158" />
         </circle>
         <circle r="2.5" className={styles.ruleDot} style={{ opacity: 0.45 }}>
-          <animateMotion dur="1.6s" repeatCount="indefinite" begin="2.2s" path="M 310 160 C 360 160, 370 160, 410 160" />
+          <animateMotion dur="2.4s" repeatCount="indefinite" path="M 289 155 C 330 155, 365 158, 393 158" />
         </circle>
       </svg>
 
@@ -165,26 +165,26 @@ export function ActionVisual() {
         preserveAspectRatio="xMidYMid meet"
       >
         {/* Condition → Decision */}
-        <path d="M 130 160 C 180 160, 195 160, 225 160" className={styles.rulePath} />
+        <path d="M 93 160 C 145 160, 185 155, 218 151" className={styles.rulePath} />
 
         {/* Decision → Actions */}
-        <path d="M 295 160 C 340 160, 345 80, 385 80" className={styles.rulePath} />
-        <path d="M 295 160 C 340 160, 345 160, 385 160" className={styles.rulePath} />
-        <path d="M 295 160 C 340 160, 345 240, 385 240" className={styles.rulePath} />
+        <path d="M 262 151 C 300 151, 326 106, 351 106" className={styles.rulePath} />
+        <path d="M 262 151 C 300 151, 326 160, 351 160" className={styles.rulePath} />
+        <path d="M 262 151 C 300 151, 326 214, 351 214" className={styles.rulePath} />
 
-        {/* Animated dots */}
+        {/* Animated dots — no begin delays to avoid stray dot at (0,0) */}
         <circle r="3" className={styles.ruleDot}>
-          <animateMotion dur="1.8s" repeatCount="indefinite" path="M 130 160 C 180 160, 195 160, 225 160" />
+          <animateMotion dur="1.8s" repeatCount="indefinite" path="M 93 160 C 145 160, 185 155, 218 151" />
         </circle>
 
         <circle r="3" className={styles.ruleDot}>
-          <animateMotion dur="2s" repeatCount="indefinite" begin="0.8s" path="M 295 160 C 340 160, 345 80, 385 80" />
+          <animateMotion dur="2.1s" repeatCount="indefinite" path="M 262 151 C 300 151, 326 106, 351 106" />
         </circle>
         <circle r="3" className={styles.ruleDot}>
-          <animateMotion dur="2s" repeatCount="indefinite" begin="1.4s" path="M 295 160 C 340 160, 345 160, 385 160" />
+          <animateMotion dur="2.5s" repeatCount="indefinite" path="M 262 151 C 300 151, 326 160, 351 160" />
         </circle>
         <circle r="3" className={styles.ruleDot}>
-          <animateMotion dur="2s" repeatCount="indefinite" begin="0.2s" path="M 295 160 C 340 160, 345 240, 385 240" />
+          <animateMotion dur="1.7s" repeatCount="indefinite" path="M 262 151 C 300 151, 326 214, 351 214" />
         </circle>
       </svg>
 

@@ -1,4 +1,8 @@
-import { ThresholdVisual, ActionVisual, MonitorVisual } from "./HowItWorksVisuals"
+import {
+  ThresholdVisual,
+  ActionVisual,
+  MonitorVisual,
+} from "./HowItWorksVisuals"
 
 export const data = {
   metadata: {
@@ -51,7 +55,7 @@ export const data = {
     problems: [
       {
         title:
-          '\u201CCheck Metrics, Pause Losers, Bump Winners\u201D — Every Single Day',
+          "\u201CCheck Metrics, Pause Losers, Bump Winners\u201D — Every Single Day",
         description:
           "Open the dashboard. Scan metrics. Pause losers. Bump winners. Repeat every four hours. ROAS below threshold \u2014 pause. CPI above limit \u2014 reduce. Adjusting bids manually across platforms means the same logic repeated three times, by hand.",
       },
@@ -108,7 +112,10 @@ export const data = {
       <>
         Winners scaled within hours, not stretched across a week. Budget
         protected by spend limits and anomaly alerts around the clock \u2014{" "}
-        <strong>the rules handle the mechanics, the team handles the thinking</strong>.
+        <strong>
+          the rules handle the mechanics, the team handles the thinking
+        </strong>
+        .
       </>
     ),
   },
@@ -182,22 +189,22 @@ export const data = {
   audience: {
     title: "Who Automation Rules Are For",
     subtitle:
-      "Built for teams where campaign volume outpaces manual capacity \u2014 whether the bottleneck is with buyers or leadership.",
+      "Built for teams where campaign volume outpaces manual capacity – whether the bottleneck is with buyers or leadership",
     roles: [
       {
         role: "Performance Marketing Managers & Media Buyers",
         description:
-          "For buyers who need a facebook ads automation rules tool \u2014 pausing underperformers, scaling winners, protecting budgets \u2014 Scalemate replaces the most time-intensive daily tasks across Meta and TikTok.",
+          "For buyers who need a facebook ads automation rules tool – pausing underperformers, scaling winners, protecting budgets – Scalemate replaces the most time-intensive daily tasks across Meta and TikTok.",
       },
       {
         role: "Founders & Marketing Leaders",
         description:
-          "Ad campaign automation rules reduce two risks: budget waste from delayed reactions and missed revenue from cautious scaling.",
+          "Ad campaign automation rules reduce two risks: budget waste from delayed reactions and missed revenue from cautious scaling",
       },
       {
-        role: "Agencies & Multi-Account Teams",
+        role: "Creative Managers",
         description:
-          "Cross-account rule management from a single interface \u2014 apply logic across the full portfolio instead of configuring per account.",
+          "Set automation rules for creative tests – pause underperformers, rotate winners, and stop watching campaigns around the clock.",
       },
     ],
     industryLabel:
@@ -242,8 +249,7 @@ export const data = {
         "Rules can be set to auto-execute or alert-only \u2014 depending on how much control the team wants to retain. Alert-only mode notifies via Slack or email without taking action, giving the team a chance to review before responding. Auto-execute acts immediately \u2014 the right mode for budget protection, overnight optimization, and any scenario where a delayed reaction costs money. Most teams use a mix: auto-execute for budget safeguards and pause rules, alert-only for scaling decisions that benefit from human review.",
     },
     {
-      question:
-        "Does Scalemate support rules for TikTok and other platforms?",
+      question: "Does Scalemate support rules for TikTok and other platforms?",
       answer:
         "Yes. The same rules engine works across Meta and TikTok, with identical condition-action logic applied to platform-specific metrics. Teams manage rules for both platforms from a single dashboard, using the same thresholds and actions \u2014 no need to rebuild logic per platform.",
     },
