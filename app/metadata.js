@@ -97,20 +97,20 @@ export const pageMetadata = {
     title: "Scalemate: Bulk Ad Launch for Meta & TikTok, 3x Faster",
     alternates: { canonical: "https://www.scalemate.co/launch" },
     description:
-      "Bulk ads launches in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
+      "Bulk ad launches in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
     openGraph: {
       url: "https://www.scalemate.co/launch",
       type: "website",
       title: "Scalemate: Bulk Ad Launch for Meta & TikTok, 3x Faster",
       description:
-        "Bulk ads launches in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
+        "Bulk ad launches in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
       images: [{ url: "/og-image.png" }],
     },
     twitter: {
       card: "summary_large_image",
       title: "Scalemate: Bulk Ad Launch for Meta & TikTok, 3x Faster",
       description:
-        "Bulk ads launches in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
+        "Bulk ad launches in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
       images: ["/og-image.png"],
     },
   },

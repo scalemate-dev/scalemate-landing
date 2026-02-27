@@ -109,7 +109,7 @@ const DemoFormWithParams = () => {
           label="Name"
           name="name"
           type="text"
-          placeholder="Enter youe name"
+          placeholder="Enter your name"
           value={formData.name}
           onChange={handleChange("name")}
         />
@@ -143,7 +143,7 @@ const DemoFormWithParams = () => {
           label="Monthly ad budget"
           value={formData.monthlyBudget}
           onChange={handleChange("monthlyBudget")}
-          placeholder="Your avarage ad spend"
+          placeholder="Your average ad spend"
           options={monthlyBudgetOptions}
         />
         <Input
