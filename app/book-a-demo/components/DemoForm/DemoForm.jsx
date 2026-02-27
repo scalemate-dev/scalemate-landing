@@ -56,12 +56,12 @@ const DemoFormWithParams = () => {
       setLoading(true)
 
       await validateEmail(formData.email)
+      await sendForm(formData)
+      setFormSent(true)
+
       if (plan !== "custom") {
         redirectToSignup(formData.email, formData.name)
       }
-
-      sendForm(formData)
-      setFormSent(true)
     } catch (error) {
       setError(error.message)
     } finally {
