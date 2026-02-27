@@ -67,10 +67,7 @@ export default function Home() {
       <Features />
       <HowCanHelp />
       <ROICalculator />
-      <WaitList
-        href="https://app.scalemate.co/create-account"
-        buttonText="Try Scalemate"
-      />
+      <WaitList href="/book-a-demo" buttonText="Book a demo" />
     </div>
   )
 }
