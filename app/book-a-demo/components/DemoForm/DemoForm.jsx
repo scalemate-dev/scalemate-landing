@@ -12,14 +12,13 @@ import styles from "./DemoForm.module.scss"
 import demoLinearBackground from "@/assets/icons/demo-linear-background.svg"
 import demoLinearBackground2 from "@/assets/icons/demo-linear-background-2.svg"
 import { trackDemoFormSubmit } from "@/helpers/trackGTM"
-import { useSearchParams } from "next/navigation"
+// import { useSearchParams } from "next/navigation"
 
 // Separate component for search params handling
 const DemoFormWithParams = () => {
-  const searchParams = useSearchParams()
-  const plan = searchParams.get("plan")
+  // const searchParams = useSearchParams()
+  // const plan = searchParams.get("plan")
 
-  console.log(plan)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -56,12 +55,12 @@ const DemoFormWithParams = () => {
       setLoading(true)
 
       await validateEmail(formData.email)
-      if (plan !== "custom") {
-        redirectToSignup(formData.email, formData.name)
-      }
-
-      sendForm(formData)
+      await sendForm(formData)
       setFormSent(true)
+
+      // if (plan !== "custom") {
+      //   redirectToSignup(formData.email, formData.name)
+      // }
     } catch (error) {
       setError(error.message)
     } finally {
@@ -69,10 +68,10 @@ const DemoFormWithParams = () => {
     }
   }
 
-  const redirectToSignup = (email, name) => {
-    const [firstName = "", lastName = ""] = name.split(" ")
-    window.location.href = `https://app.scalemate.co/create-account?email=${email}&firstName=${firstName}&lastName=${lastName}`
-  }
+  // const redirectToSignup = (email, name) => {
+  //   const [firstName = "", lastName = ""] = name.split(" ")
+  //   window.location.href = `https://app.scalemate.co/create-account?email=${email}&firstName=${firstName}&lastName=${lastName}`
+  // }
 
   const sendForm = async (data) => {
     await fetch("https://submit-form.com/S3mkBrhnv", {
@@ -110,7 +109,7 @@ const DemoFormWithParams = () => {
           label="Name"
           name="name"
           type="text"
-          placeholder="Enter youe name"
+          placeholder="Enter your name"
           value={formData.name}
           onChange={handleChange("name")}
         />
@@ -144,7 +143,7 @@ const DemoFormWithParams = () => {
           label="Monthly ad budget"
           value={formData.monthlyBudget}
           onChange={handleChange("monthlyBudget")}
-          placeholder="Your avarage ad spend"
+          placeholder="Your average ad spend"
           options={monthlyBudgetOptions}
         />
         <Input
@@ -163,7 +162,7 @@ const DemoFormWithParams = () => {
           loading={loading}
           disabled={formSent}
         >
-          {formSent ? "Done 👍" : "Try for free 🚀"}
+          {formSent ? "Done 👍" : "Book a Demo"}
         </Button>
         <p className={styles.error}>{error}</p>
       </form>

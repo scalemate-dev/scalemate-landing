@@ -92,7 +92,7 @@ const NAV_LINKS = [
 ]
 
 const MOBILE_EXTRA_LINKS = [
-  { href: "/book-a-demo?plan=custom", label: "Book a Demo" },
+  { href: "/book-a-demo", label: "Book a Demo" },
 ]
 
 const Header = () => {

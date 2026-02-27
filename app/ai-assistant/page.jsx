@@ -15,7 +15,7 @@ const FAQ_ITEMS = [
   {
     question: "What is the purpose of this AI assistant?",
     answer:
-      "The AI assistant is designed speciffically for performance marketers to help you analyze and manage your ad campaigns more efficiently.",
+      "The AI assistant is designed specifically for performance marketers to help you analyze and manage your ad campaigns more efficiently.",
   },
   {
     question: "Can I manage multiple ad accounts and networks?",
@@ -25,12 +25,12 @@ const FAQ_ITEMS = [
   {
     question: "What Bulk Actions are available?",
     answer:
-      "You can bulk-upload videos and images from your Cloud or Local Drive to Meta (ex-Facebook) TikTok and Google Ads. Launch creatives using any confiuration, control budgets, and rotate top-performing ads in your campaigns.",
+      "You can bulk-upload videos and images from your Cloud or Local Drive to Meta (ex-Facebook) TikTok and Google Ads. Launch creatives using any configuration, control budgets, and rotate top-performing ads in your campaigns.",
   },
   {
     question: "Is it safe to use for sensitive data?",
     answer:
-      "For your security, all data is anonymized before processing – ensuring your private information stays private. Additioinaly, you can request data deletion at any time.",
+      "For your security, all data is anonymized before processing – ensuring your private information stays private. Additionally, you can request data deletion at any time.",
   },
   {
     question: "Will Scalemate create new ad creatives for me?",
@@ -59,9 +59,26 @@ const FAQ_ITEMS = [
 
 export const metadata = pageMetadata.assistant
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ_ITEMS.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+}
+
 export default function AssistantPage() {
   return (
     <div className={cn(styles.main, styles.darkTheme)} id="request-access">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <Hero
         className={styles.hero}
         image={heroImage}

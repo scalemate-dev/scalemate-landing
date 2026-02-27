@@ -7,7 +7,7 @@ export const data = {
     title:
       "Scale Ad Campaigns Faster – Before Your Winners Burn Out | Scalemate",
     description:
-      "Your campaigns are ready to scale – but manual setup and slow execution cost you revenue on every winning creative. Scalemate gives marketing teams the speed to scale ad campaigns faster.",
+      "Manual setup costs revenue on every winning creative. Scale ad campaigns faster with Scalemate – automate launches and scale winners in minutes, not days.",
     alternates: {
       canonical: "https://www.scalemate.co/use-cases/scale-ad-campaigns-faster",
     },
@@ -15,7 +15,7 @@ export const data = {
       title:
         "Scale Ad Campaigns Faster – Before Your Winners Burn Out | Scalemate",
       description:
-        "Your campaigns are ready to scale – but manual setup and slow execution cost you revenue on every winning creative. Scalemate gives marketing teams the speed to scale ad campaigns faster.",
+        "Manual setup costs revenue on every winning creative. Scale ad campaigns faster with Scalemate – automate launches and scale winners in minutes, not days.",
       url: "https://www.scalemate.co/use-cases/scale-ad-campaigns-faster",
       type: "website",
     },
@@ -24,7 +24,7 @@ export const data = {
       title:
         "Scale Ad Campaigns Faster – Before Your Winners Burn Out | Scalemate",
       description:
-        "Your campaigns are ready to scale – but manual setup and slow execution cost you revenue on every winning creative. Scalemate gives marketing teams the speed to scale ad campaigns faster.",
+        "Manual setup costs revenue on every winning creative. Scale ad campaigns faster with Scalemate – automate launches and scale winners in minutes, not days.",
     },
   },
 

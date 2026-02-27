@@ -56,7 +56,7 @@ export default async function CaseStudies() {
           ))}
         </div>
       </Container>
-      <WaitList />
+      <WaitList href="/book-a-demo" />
     </div>
   )
 }

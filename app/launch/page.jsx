@@ -90,7 +90,7 @@ export default function Launch() {
         description="Scalemate adapts to your existing campaign strategies, automating every step while letting you stick to the workflows you already have as top performing ones."
       />
       {/* <Slider /> */}
-      <WaitList />
+      <WaitList href="/book-a-demo" />
     </div>
   )
 }

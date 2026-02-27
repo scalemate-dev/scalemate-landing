@@ -9,7 +9,11 @@ const Footer = () => {
     <div className={styles.footer}>
       <Container className={styles.container}>
         <div className={styles.footerLeft}>
-          <Link href="/" className={styles.footerLogo} aria-label="Scalemate Home">
+          <Link
+            href="/"
+            className={styles.footerLogo}
+            aria-label="Scalemate Home"
+          >
             <Logo />
           </Link>
           <div className={styles.footerTitle}>
@@ -33,27 +37,25 @@ const Footer = () => {
         <div className={styles.footerRight}>
           <div className={styles.footerCol}>
             <div className={styles.footerColTitle}>Product</div>
-            {/* <Link className={styles.footerColLink} href="/ai-assistant">
-              Marketing AI Agent
-            </Link> */}
+
             <Link className={styles.footerColLink} href="/launch">
               Launch
             </Link>
             <Link className={styles.footerColLink} href="/ad-creative-uploader">
               Free Ad Creative Uploader
             </Link>
-            <a className={styles.footerColLink} href="/docs">
-              API documentation
-            </a>
+            <Link className={styles.footerColLink} href="/ai-assistant">
+              Marketing AI Agent
+            </Link>
             <Link className={styles.footerColLink} href="/customers">
               Customers
             </Link>
-            <Link
-              className={styles.footerColLink}
-              href="/book-a-demo?plan=custom"
-            >
+            <Link className={styles.footerColLink} href="/book-a-demo">
               Book a Demo
             </Link>
+            <a className={styles.footerColLink} href="/docs">
+              API documentation
+            </a>
           </div>
           <div className={styles.footerCol}>
             <div className={styles.footerColTitle}>Use Cases</div>
