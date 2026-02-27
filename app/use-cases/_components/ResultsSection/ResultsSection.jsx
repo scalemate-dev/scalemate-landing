@@ -4,6 +4,8 @@ import { IconArrowRight } from "@tabler/icons-react"
 import styles from "./ResultsSection.module.scss"
 
 export default function ResultsSection({ eyebrow = "Proven Results", title, titleAccent, subtitle, caseStudies }) {
+  const isSingle = caseStudies.length === 1
+
   return (
     <section className={styles.section}>
       <Container>
@@ -18,9 +20,9 @@ export default function ResultsSection({ eyebrow = "Proven Results", title, titl
           </div>
         </div>
 
-        <div className={styles.cards}>
+        <div className={`${styles.cards} ${isSingle ? styles.cardsSingle : ""}`}>
           {caseStudies.map((study, idx) => (
-            <article key={idx} className={styles.card}>
+            <article key={idx} className={`${styles.card} ${isSingle ? styles.cardWide : ""}`}>
               <div className={styles.cardTop}>
                 <span className={styles.cardCompany}>{study.company}</span>
                 <span className={styles.cardVertical}>{study.vertical}</span>
@@ -35,9 +37,11 @@ export default function ResultsSection({ eyebrow = "Proven Results", title, titl
                 ))}
               </div>
               {study.footer && <p className={styles.cardFooter}>{study.footer}</p>}
-              <Link href={study.href} className={styles.cardLink}>
-                Read the full story <IconArrowRight size={14} />
-              </Link>
+              {study.href && (
+                <Link href={study.href} className={styles.cardLink}>
+                  Read the full story <IconArrowRight size={14} />
+                </Link>
+              )}
             </article>
           ))}
         </div>

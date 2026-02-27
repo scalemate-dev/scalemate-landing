@@ -50,24 +50,29 @@ export const data = {
     label: "The Problem",
     title: "Why Manual Campaign Optimization",
     titleAccent: "Costs More Than You Think",
-    subtitle:
-      "Three patterns drain budget and time for media buyers running campaigns at scale – repetitive monitoring, overnight risk, and delayed scaling.",
+    subtitle: (
+      <>
+        Three patterns drain budget and time, the reason teams look for{" "}
+        <a href="/solutions/media-buyers">tools for media buyers automation</a>:
+        repetitive monitoring, overnight risk, and delayed scaling.
+      </>
+    ),
     problems: [
       {
         title:
-          "\u201CCheck Metrics, Pause Losers, Bump Winners\u201D – Every Single Day",
+          "\u201CCheck, Pause, Bump\u201D — Every Single Day",
         description:
-          "Open the dashboard. Scan metrics. Pause losers. Bump winners. Repeat every four hours. ROAS below threshold – pause. CPI above limit – reduce. Adjusting bids manually across platforms means the same logic repeated three times, by hand.",
+          "Checking ROAS every day: that\u2019s life for any UA manager running fifty-plus campaigns. ROAS below threshold \u2192 pause. CPI above limit \u2192 reduce. Adjusting bids manually across platforms means the same logic repeated three times, by hand.",
       },
       {
-        title: "One Forgotten Budget Cap Burns More Than a Month of Planning",
+        title: "One Forgotten Cap Burns a Monthly Budget",
         description:
-          "Pausing losing ads manually works at low volume. At fifty campaigns across four accounts, watching ads 24/7 is impossible – one oversight, a forgotten cap, a campaign left over the weekend – burns a monthly budget in a day.",
+          "Pausing losing ads manually works at low volume. At fifty campaigns across four accounts, watching ads 24/7 is impossible. One forgotten cap, one weekend left unchecked, burns a monthly budget in a day.",
       },
       {
-        title: "Winning Ads Go Unnoticed or Get Scaled Too Late",
+        title: "Winners Go Unnoticed or Scale Too Late",
         description:
-          "A creative test surfaces a winner – strong ROAS, low CPI, climbing IPM. But at fifty-plus campaigns, some winners go unnoticed entirely. The ones that get spotted take days to scale – because tripling the budget feels dangerous when rollback means reverting every change by hand.",
+          "Winners stay buried in dashboards no one checks fast enough. The ones spotted take days to scale: tripling budget feels dangerous without automated rollback. Manual campaign babysitting can\u2019t catch every winner in time. Automated scaling acts without hesitation.",
       },
     ],
   },
@@ -85,9 +90,8 @@ export const data = {
       title: "Rules React in Real Time, Even Offline",
       text: (
         <>
-          Rules collapse that gap. The system checks continuously and acts when
-          thresholds cross ad campaign automation rules handle the mechanics
-          while the team handles the thinking.
+          <strong>Ad campaign automation rules</strong> collapse that gap. The
+          system checks continuously and acts when thresholds cross:
         </>
       ),
     },
@@ -110,9 +114,8 @@ export const data = {
     ],
     leadIn: (
       <>
-        Winners scaled within hours, not stretched across a week. Budget
-        protected by spend limits and anomaly alerts around the clock the rules
-        handle the mechanics, the team handles the thinking
+        Winners scaled within hours, not stretched across a week. The rules
+        handle the mechanics. The team handles the thinking.
       </>
     ),
   },
@@ -127,21 +130,21 @@ export const data = {
         number: "01",
         title: "Set Performance Thresholds",
         description:
-          "Every rule starts with a condition: ROAS below 1.5, CPI exceeds target by 20%, or $500 spent without conversion. Scalemate\u2019s rules engine supports any metric-based condition – ROAS, CPI, IPM, CTR, spend.",
+          "Every rule starts with a condition: ROAS below 1.5, CPI exceeds target by 20%, or $500 spent without conversion. Scalemate\u2019s rules engine for ad campaigns supports any metric-based condition: ROAS, CPI, IPM, CTR, spend. For teams running automated bid management meta campaigns at scale, this replaces manual scanning of ad sets.",
         Visual: ThresholdVisual,
       },
       {
         number: "02",
         title: "Define Actions: Pause, Scale, or Alert",
         description:
-          "Auto-pause ad sets breaching floors. Auto-scale budget when winners hit targets. Adjust bids on real-time signals. Plus alerts – notifications when metrics move outside normal ranges.",
+          "Auto-pause: auto pause ads ROAS below a threshold, set the rule once. Auto-scale: automate budget scaling ads when winners hit targets, closing the gap between spotting and funding. Bid adjustments shift on real-time signals, keeping CPAs in range. Plus alerts when metrics move outside normal ranges.",
         Visual: ActionVisual,
       },
       {
         number: "03",
         title: "Rules Run 24/7 – The Team Focuses on Strategy",
         description:
-          "Once configured, rules cover the full loop: monitor → decide → act → rollback. The system runs continuously: nights, weekends, holidays. The work shifts from “what needs fixing” to “what to test next week.”",
+          "Once configured, the rules engine for ad campaigns covers the full loop: monitor → decide → act → rollback. The system runs continuously: nights, weekends, holidays. The work shifts from “what needs fixing” to “what to test next week.”",
         Visual: MonitorVisual,
       },
     ],
@@ -151,34 +154,26 @@ export const data = {
     eyebrow: "Proven Results",
     title: "Results Teams Get With",
     titleAccent: "Ad Campaign Automation Rules",
-    subtitle:
-      "Measured outcomes from production rules across Meta and TikTok – from mobile apps studios to e-commerce teams.",
+    subtitle: (
+      <>
+        Across Scalemate users, from{" "}
+        <a href="/solutions/mobile-apps">mobile apps</a> studios to e-commerce
+        teams, the pattern is consistent:
+      </>
+    ),
     caseStudies: [
       {
-        company: "Promin",
-        vertical: "Mobile Apps",
-        title: "Automated Rules That Protect Budgets Around the Clock",
-        description:
-          "Promin uses Scalemate's automated rules to protect ad budgets across Meta and TikTok campaigns – auto-pausing underperformers and scaling winners without manual intervention. Budget waste from overnight and weekend drift dropped significantly",
-        href: "/customers/promin-uses-automated-rules",
-        metrics: [
-          { value: "32%", label: "Budget savings" },
-          { value: "24/7", label: "Automated protection" },
-          { value: "80%", label: "Routines automated" },
-        ],
-      },
-      {
         company: "Scalemate Platform",
-        vertical: "Meta & TikTok campaigns",
-        title: "Consistent Results Across Industries and Teams",
+        vertical: "Meta campaigns",
         description:
-          "Across Scalemate users – from mobile apps studios to e-commerce teams – automation rules deliver consistent improvements. Whether teams auto-pause ads ROAS-based or automate budget scaling on winners, the pattern holds: less manual work, better outcomes",
-        href: "/features/automation-rules",
+          "Measured outcomes from production rules across Meta, from mobile apps studios to e-commerce teams.",
         metrics: [
-          { value: "62%", label: "Less time on routine ops" },
-          { value: "53K+", label: "Hours saved platform-wide" },
           { value: "32%", label: "Average budget savings" },
+          { value: "62%", label: "Less time on routine ad management" },
+          { value: "53K+", label: "Hours saved across the platform" },
         ],
+        footer:
+          "Whether teams auto pause ads ROAS-based or automate budget scaling ads on winners, the pattern holds: less manual work, better outcomes.",
       },
     ],
   },
@@ -186,22 +181,17 @@ export const data = {
   audience: {
     title: "Who Automation Rules Are For",
     subtitle:
-      "Built for teams where campaign volume outpaces manual capacity – whether the bottleneck is with buyers or leadership",
+      "Ad campaign automation rules are built for teams where campaign volume outpaces manual capacity, whether the bottleneck is with buyers or leadership.",
     roles: [
       {
         role: "Performance Marketing Managers & Media Buyers",
         description:
-          "For buyers who need a facebook ads automation rules tool – pausing underperformers, scaling winners, protecting budgets – Scalemate replaces the most time-intensive daily tasks across Meta and TikTok.",
+          "A facebook ads automation rules tool that pauses underperformers, scales winners, and protects budgets. Automated bid management meta campaigns at scale, from one interface.",
       },
       {
         role: "Founders & Marketing Leaders",
         description:
           "Ad campaign automation rules reduce two risks: budget waste from delayed reactions and missed revenue from cautious scaling",
-      },
-      {
-        role: "Creative Managers",
-        description:
-          "Set automation rules for creative tests – pause underperformers, rotate winners, and stop watching campaigns around the clock.",
       },
     ],
     industryLabel:
@@ -227,7 +217,7 @@ export const data = {
       question:
         "How do Scalemate\u2019s rules differ from Meta\u2019s built-in rules?",
       answer:
-        "Meta\u2019s native rules cover basic conditions within a single account. Scalemate extends this with cross-account management, multi-platform support (Meta, TikTok), automated scaling with rollback, and budget safeguards across the entire portfolio. For teams seeking a comprehensive facebook ads automation rules tool, the difference is most visible at scale – native rules require per-account configuration while Scalemate applies logic across the full portfolio from one interface.",
+        "Meta\u2019s native rules cover basic conditions within a single account. Scalemate extends this with cross-account management, automated scaling with rollback, and budget safeguards across the entire portfolio. For teams seeking a comprehensive facebook ads automation rules tool, the difference is most visible at scale: native rules require per-account configuration while Scalemate applies logic across the full portfolio from one interface.",
     },
     {
       question: "Can rules automatically pause ads based on ROAS?",
@@ -246,9 +236,9 @@ export const data = {
         "Rules can be set to auto-execute or alert-only – depending on how much control the team wants to retain. Alert-only mode notifies via Slack or email without taking action, giving the team a chance to review before responding. Auto-execute acts immediately – the right mode for budget protection, overnight optimization, and any scenario where a delayed reaction costs money. Most teams use a mix: auto-execute for budget safeguards and pause rules, alert-only for scaling decisions that benefit from human review.",
     },
     {
-      question: "Does Scalemate support rules for TikTok and other platforms?",
+      question: "Does Scalemate support rules for other platforms beyond Meta?",
       answer:
-        "Yes. The same rules engine works across Meta and TikTok, with identical condition-action logic applied to platform-specific metrics. Teams manage rules for both platforms from a single dashboard, using the same thresholds and actions – no need to rebuild logic per platform.",
+        "The rules engine for ad campaigns is built on Meta today, covering the full range of campaign, ad set, and ad-level automation. All condition-action logic, including auto-pause, auto-scale, bid adjustments, and alerts, works across multiple Meta ad accounts from a single dashboard. Support for additional platforms is on the roadmap. If your team runs campaigns beyond Meta, Scalemate accepts custom integration requests.",
     },
   ],
 
