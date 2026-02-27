@@ -87,6 +87,7 @@ export async function generateMetadata({ params, searchParams }) {
       canonical: `https://www.scalemate.co/customers/${slug}`,
     },
     openGraph: {
+      url: `https://www.scalemate.co/customers/${slug}`,
       title: `${caseStudy.fields.clientName}: How They Scaled Ad Campaigns with Scalemate`,
       description,
       images: [{ url: fullImageUrl }],
