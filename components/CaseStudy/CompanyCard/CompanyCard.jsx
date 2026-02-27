@@ -2,14 +2,14 @@ import React from "react"
 import Image from "next/image"
 import styles from "./CompanyCard.module.scss"
 
-const CompanyCard = ({ logo, useCase, industry }) => {
+const CompanyCard = ({ logo, companyName, useCase, industry }) => {
   const imageUrl = logo.startsWith("//") ? `https:${logo}` : logo
 
   return (
     <div className={styles.card}>
       <Image
         src={imageUrl}
-        alt="Contentful Logo"
+        alt={companyName ? `${companyName} logo` : "Company logo"}
         className={styles.logo}
         height={128}
         width={128}

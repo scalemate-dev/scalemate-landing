@@ -130,6 +130,7 @@ async function AppPage({ params, searchParams }) {
       <Layout
         side={
           <CompanyCard
+            companyName={caseStudy.fields.clientName}
             industry={caseStudy.fields.industry}
             useCase={caseStudy.fields.useCase}
             logo={caseStudy.fields.clientLogo.fields.file.url}
