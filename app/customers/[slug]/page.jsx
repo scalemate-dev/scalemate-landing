@@ -124,8 +124,39 @@ async function AppPage({ params, searchParams }) {
 
   const { challenge, solution, results, metrics } = caseStudy.fields
 
+  const imageUrl =
+    caseStudy.fields.previewImage?.fields.file.url || "/og-image.png"
+  const fullImageUrl = imageUrl.startsWith("//")
+    ? `https:${imageUrl}`
+    : `https://www.scalemate.co${imageUrl}`
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: caseStudy.fields.title,
+    description: caseStudy.fields.seoDescription,
+    image: fullImageUrl,
+    url: `https://www.scalemate.co/customers/${slug}`,
+    author: {
+      "@type": "Organization",
+      name: "Scalemate",
+      url: "https://www.scalemate.co",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Scalemate",
+      url: "https://www.scalemate.co",
+    },
+    datePublished: caseStudy.sys.createdAt,
+    dateModified: caseStudy.sys.updatedAt,
+  }
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <Hero title={caseStudy.fields.title} label="Case Study" />
       <Layout
         side={

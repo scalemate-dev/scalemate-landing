@@ -13,6 +13,24 @@ export const metadata = {
   alternates: { canonical: "https://www.scalemate.co" },
 }
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Scalemate",
+  url: "https://www.scalemate.co",
+  logo: "https://www.scalemate.co/og-image.png",
+  description:
+    "Launch hundreds of Facebook ads in minutes, scale campaigns faster and save hours of marketing routine daily.",
+  sameAs: ["https://www.linkedin.com/company/scalemate"],
+}
+
+const webSiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Scalemate",
+  url: "https://www.scalemate.co",
+}
+
 export default function Home() {
   const renderTitle = () => {
     return (
@@ -31,6 +49,14 @@ export default function Home() {
   }
   return (
     <div className={cn(styles.main, styles.home)}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
+      />
       <Hero
         title={renderTitle()}
         description={description}
