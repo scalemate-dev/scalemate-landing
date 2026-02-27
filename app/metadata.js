@@ -4,6 +4,7 @@ export const defaultMetadata = {
     "Launch hundreds of Facebook ads in minutes, scale campaigns faster and save hours of marketing routine daily.",
   openGraph: {
     url: "https://www.scalemate.co",
+    type: "website",
     title: "Scalemate: Launch & Scale Ad Campaigns 3x Faster",
     description:
       "Launch hundreds of Facebook ads in minutes, scale campaigns faster and save hours of marketing routine daily.",
@@ -31,6 +32,7 @@ const customersMetadata = {
   alternates: { canonical: "https://www.scalemate.co/customers" },
   openGraph: {
     url: "https://www.scalemate.co/customers",
+    type: "website",
     title: "Scalemate: Customer Success Stories in Ad Automation",
     description:
       "Discover how Scalemate automates marketing processes, optimizes ad management, and helps businesses scale faster with better performance.",
@@ -52,6 +54,7 @@ const assistantMetadata = {
     "Experience next-generation Ads management with Scalemate AI Assistant. Control budgets, launch campaigns, upload creatives, generate reports, get smart recommendations and unlock insights. All via an AI-powered chat",
   openGraph: {
     url: "https://www.scalemate.co/ai-assistant",
+    type: "website",
     title: "Scalemate: AI Marketing Agent for Ads & Reporting",
     description:
       "Experience next-generation Ads management with Scalemate AI Assistant. Control budgets, launch campaigns, upload creatives, generate reports, get smart recommendations and unlock insights. All via an AI-powered chat",
@@ -97,6 +100,7 @@ export const pageMetadata = {
       "Bulk ads launches in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
     openGraph: {
       url: "https://www.scalemate.co/launch",
+      type: "website",
       title: "Scalemate: Bulk Ad Launch for Meta & TikTok, 3x Faster",
       description:
         "Bulk ads launches in minutes with Scalemate. Automate ad creatives upload and set automated workflows.",
@@ -117,6 +121,7 @@ export const pageMetadata = {
       "Experience the power of automation for ads management. Book a demo with Scalemate to see how you launch your ads 3x faster.",
     openGraph: {
       url: "https://www.scalemate.co/book-a-demo",
+      type: "website",
       title: "Scalemate: Book a Demo — Launch Ads 3x Faster",
       description:
         "Get a personalized demo of Scalemate and learn how our tool can triple your ads management speed on Facebook and beyond.",
