@@ -1,6 +1,8 @@
 "use client"
 import cn from "classnames"
 import React, { useState } from "react"
+import { trackMixpanelEvent } from "@/helpers/analytics/mixpanel"
+import { EVENTS } from "@/helpers/analytics/mixpanel.events"
 import styles from "./FAQ.module.scss"
 
 const FAQ = ({
@@ -12,6 +14,11 @@ const FAQ = ({
   const [openIndexes, setOpenIndexes] = useState(new Set())
 
   const toggleAccordion = (index) => {
+    const isOpening = !openIndexes.has(index)
+    trackMixpanelEvent(EVENTS.FAQ_ITEM_TOGGLED, {
+      question: faqItems[index]?.question,
+      action: isOpening ? "opened" : "closed",
+    })
     setOpenIndexes((prev) => {
       if (multiOpen) {
         const next = new Set(prev)

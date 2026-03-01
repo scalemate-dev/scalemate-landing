@@ -24,7 +24,7 @@ export const initMixpanel = (): boolean => {
   }
 
   mixpanel.init(MIXPANEL_TOKEN, {
-    autocapture: true,
+    autocapture: false,
     record_sessions_percent: isDev ? 0 : 95,
     record_mask_text_selector: '',
     api_host: 'https://api-eu.mixpanel.com',
@@ -74,6 +74,34 @@ export const setMixpanelUserProperties = (
     mixpanel.people.set(properties)
   } catch (error) {
     console.error('Failed to set Mixpanel user properties:', error)
+  }
+}
+
+export const registerMixpanelSuperProperties = (
+  properties: Record<string, unknown>
+) => {
+  if (!initMixpanel()) return
+
+  log('Register Super Properties', properties)
+
+  try {
+    mixpanel.register(properties)
+  } catch (error) {
+    console.error('Failed to register Mixpanel super properties:', error)
+  }
+}
+
+export const registerMixpanelSuperPropertiesOnce = (
+  properties: Record<string, unknown>
+) => {
+  if (!initMixpanel()) return
+
+  log('Register Super Properties Once', properties)
+
+  try {
+    mixpanel.register_once(properties)
+  } catch (error) {
+    console.error('Failed to register Mixpanel super properties once:', error)
   }
 }
 

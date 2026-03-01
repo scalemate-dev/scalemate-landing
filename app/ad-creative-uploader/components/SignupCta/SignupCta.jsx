@@ -1,6 +1,8 @@
 "use client"
 
 import { guestSessionApi } from "@/lib/api/guestSession"
+import { trackMixpanelEvent } from "@/helpers/analytics/mixpanel"
+import { EVENTS } from "@/helpers/analytics/mixpanel.events"
 import styles from "./SignupCta.module.scss"
 
 const SignupCta = () => {
@@ -15,7 +17,15 @@ const SignupCta = () => {
         <li>Build & Launch ad campaigns</li>
         <li>Persistent platform connections</li>
       </ul>
-      <a href={signupUrl} className={styles.ctaButton}>
+      <a
+        href={signupUrl}
+        className={styles.ctaButton}
+        onClick={() => {
+          trackMixpanelEvent(EVENTS.UPLOADER_SIGNUP_CTA_CLICKED, {
+            cta_location: "upload_sidebar",
+          })
+        }}
+      >
         Create Free Account
       </a>
     </div>

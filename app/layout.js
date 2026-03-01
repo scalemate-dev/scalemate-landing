@@ -46,7 +46,6 @@ export default function RootLayout({ children }) {
           href="/favicon-16x16.png"
         />
         <link rel="manifest" href="/site.webmanifest" />
-        <MixpanelProvider />
         <meta
           name="facebook-domain-verification"
           content="xen4h4jqm1szk6rn5dl14g5eeqhg1o"
@@ -57,6 +56,7 @@ export default function RootLayout({ children }) {
       )}
 
       <body className={`${inter.variable} ${poppins.variable}`}>
+        <MixpanelProvider />
         <Header />
         <main className={styles.main}>{children}</main>
         <footer className={styles.fixed}>

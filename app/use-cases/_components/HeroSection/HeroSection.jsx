@@ -39,10 +39,17 @@ export default function HeroSection({
               href={
                 secondaryCta?.href ?? "https://app.scalemate.co/create-account"
               }
+              trackEvent="cta_clicked"
+              trackProps={{ cta_location: "use_case_hero" }}
             >
               {secondaryCta?.label ?? "Start for Free"}
             </Button>
-            <Button outline href="/book-a-demo">
+            <Button
+              outline
+              href="/book-a-demo"
+              trackEvent="cta_clicked"
+              trackProps={{ cta_location: "use_case_hero" }}
+            >
               Book a Demo
             </Button>
           </div>

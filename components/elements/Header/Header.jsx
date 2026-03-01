@@ -17,6 +17,8 @@ import {
   IconSettingsAutomation,
 } from "@tabler/icons-react"
 import { usePathname } from "next/navigation"
+import { trackMixpanelEvent } from "@/helpers/analytics/mixpanel"
+import { EVENTS } from "@/helpers/analytics/mixpanel.events"
 
 const SOLUTIONS = [
   {
@@ -91,9 +93,7 @@ const NAV_LINKS = [
   { href: "/ad-creative-uploader", label: "Free Uploader" },
 ]
 
-const MOBILE_EXTRA_LINKS = [
-  { href: "/book-a-demo", label: "Book a Demo" },
-]
+const MOBILE_EXTRA_LINKS = [{ href: "/book-a-demo", label: "Book a Demo" }]
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -101,6 +101,13 @@ const Header = () => {
   const darkTheme = pathname.includes("assistant")
 
   const closeMobile = () => setMobileMenuOpen(false)
+
+  const trackNavClick = (label, path) => {
+    trackMixpanelEvent(EVENTS.NAV_ITEM_CLICKED, {
+      nav_label: label,
+      nav_path: path,
+    })
+  }
 
   useEffect(() => {
     if (mobileMenuOpen) {
@@ -136,11 +143,20 @@ const Header = () => {
               darkTheme={darkTheme}
             />
             {NAV_LINKS.map(({ href, label }) => (
-              <Link key={href} href={href} className={styles.navLink}>
+              <Link
+                key={href}
+                href={href}
+                className={styles.navLink}
+                onClick={() => trackNavClick(label, href)}
+              >
                 {label}
               </Link>
             ))}
-            <a href="/docs" className={styles.navLink}>
+            <a
+              href="/docs"
+              className={styles.navLink}
+              onClick={() => trackNavClick("API", "/docs")}
+            >
               API
             </a>
           </nav>
@@ -150,6 +166,8 @@ const Header = () => {
           href="https://app.scalemate.co/create-account"
           className={styles.desktopButton}
           darkTheme={darkTheme}
+          trackEvent="cta_clicked"
+          trackProps={{ cta_location: "header" }}
         >
           Get started for Free
         </Button>
@@ -206,7 +224,10 @@ const Header = () => {
                 key={href}
                 href={href}
                 className={styles.mobileNavLink}
-                onClick={closeMobile}
+                onClick={() => {
+                  trackNavClick(label, href)
+                  closeMobile()
+                }}
               >
                 {label}
               </Link>
@@ -214,7 +235,10 @@ const Header = () => {
             <a
               href="/docs"
               className={styles.mobileNavLink}
-              onClick={closeMobile}
+              onClick={() => {
+                trackNavClick("API", "/docs")
+                closeMobile()
+              }}
             >
               API
             </a>

@@ -2,6 +2,7 @@
 
 import cn from "classnames"
 import Link from "next/link"
+import { trackMixpanelEvent } from "@/helpers/analytics/mixpanel"
 import Spinner from "../Spinner/Spinner"
 import styles from "./Button.module.scss"
 
@@ -18,6 +19,8 @@ const Button = ({
   className,
   float,
   darkTheme,
+  trackEvent,
+  trackProps,
   ...props
 }) => {
   const classNames = cn(
@@ -35,6 +38,15 @@ const Button = ({
 
   const handleClick = (e) => {
     if (disabled) return
+
+    if (trackEvent) {
+      trackMixpanelEvent(trackEvent, {
+        cta_text: typeof children === "string" ? children : undefined,
+        cta_destination: href || undefined,
+        ...trackProps,
+      })
+    }
+
     onClick?.(e)
   }
 

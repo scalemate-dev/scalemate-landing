@@ -1,11 +1,13 @@
 "use client"
 import Container from "@/components/elements/Container/Container"
 import ship from "@/assets/icons/help/ship.svg"
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import Image from "next/image"
 import Select from "@/components/elements/Select/Select"
 import Button from "@/components/elements/Button/Button"
 import ReactSlider from "react-slider"
+import { trackMixpanelEvent } from "@/helpers/analytics/mixpanel"
+import { EVENTS } from "@/helpers/analytics/mixpanel.events"
 import styles from "./ROICalculator.module.scss"
 
 // Constants
@@ -36,6 +38,16 @@ const ROICalculator = () => {
   const [CPA, setCPA] = useState(94)
   const [CPI, setCPI] = useState(1.5)
   const [creatives, setCreatives] = useState(78)
+
+  const hasInteracted = useRef(false)
+  const resultTimerRef = useRef(null)
+
+  const trackFirstInteraction = () => {
+    if (!hasInteracted.current) {
+      hasInteracted.current = true
+      trackMixpanelEvent(EVENTS.ROI_CALCULATOR_INTERACTED)
+    }
+  }
 
   const nicheOptions = ["Gaming Casual", "Gaming Hyper Casual", "Non-gaming"]
   const marksCreatives = [10, 100, 200, 300, 400, 500]
@@ -105,6 +117,23 @@ const ROICalculator = () => {
     }
   })()
 
+  // Debounced result_viewed — fires 1.5s after last input change
+  useEffect(() => {
+    if (!hasInteracted.current) return
+    clearTimeout(resultTimerRef.current)
+    resultTimerRef.current = setTimeout(() => {
+      trackMixpanelEvent(EVENTS.ROI_CALCULATOR_RESULT_VIEWED, {
+        niche,
+        creatives,
+        cpa: CPA,
+        cpi: CPI,
+        saved_money: saved.money,
+        saved_time: saved.time,
+      })
+    }, 1500)
+    return () => clearTimeout(resultTimerRef.current)
+  }, [niche, CPA, CPI, creatives])
+
   return (
     <div className={styles.roiCalculator}>
       <Container>
@@ -123,7 +152,10 @@ const ROICalculator = () => {
               <div className={styles.selectLabel}>Your app niche</div>
               <Select
                 value={niche}
-                onChange={(value) => setNiche(value)}
+                onChange={(value) => {
+                  trackFirstInteraction()
+                  setNiche(value)
+                }}
                 options={nicheOptions}
               />
             </div>
@@ -137,7 +169,10 @@ const ROICalculator = () => {
                   thumbClassName={styles.thumb}
                   trackClassName={styles.track}
                   value={creatives}
-                  onChange={(value) => setCreatives(value)}
+                  onChange={(value) => {
+                    trackFirstInteraction()
+                    setCreatives(value)
+                  }}
                   min={10}
                   max={500}
                   marks={marksCreatives}
@@ -167,7 +202,10 @@ const ROICalculator = () => {
                     thumbClassName={styles.thumb}
                     trackClassName={styles.track}
                     value={CPA}
-                    onChange={(value) => setCPA(value)}
+                    onChange={(value) => {
+                      trackFirstInteraction()
+                      setCPA(value)
+                    }}
                     min={10}
                     max={1000}
                     marks={
@@ -195,7 +233,10 @@ const ROICalculator = () => {
                     thumbClassName={styles.thumb}
                     trackClassName={styles.track}
                     value={CPI}
-                    onChange={(value) => setCPI(value)}
+                    onChange={(value) => {
+                      trackFirstInteraction()
+                      setCPI(value)
+                    }}
                     marks={marksCPI}
                     renderThumb={(props, state) => (
                       <div {...props} key={props.key}>
@@ -246,8 +287,23 @@ const ROICalculator = () => {
                     saved: `${saved.time} hours, $${saved.money} yearly`,
                   }),
                 )}`}
+                trackEvent={EVENTS.ROI_CALCULATOR_DEMO_CLICKED}
+                trackProps={{
+                  niche,
+                  creatives,
+                  cpa: CPA,
+                  cpi: CPI,
+                  saved_money: saved.money,
+                  saved_time: saved.time,
+                }}
               >
-                <Image src={ship} alt="" aria-hidden="true" width={24} height={24} />
+                <Image
+                  src={ship}
+                  alt=""
+                  aria-hidden="true"
+                  width={24}
+                  height={24}
+                />
                 Get a demo
               </Button>
             </div>

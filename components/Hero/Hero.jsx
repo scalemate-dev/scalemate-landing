@@ -32,6 +32,8 @@ const Hero = ({
           color="accent"
           className={styles.heroSubmit}
           href={CTALink ?? "https://app.scalemate.co/create-account"}
+          trackEvent="cta_clicked"
+          trackProps={{ cta_location: "hero" }}
         >
           {CTAButtonText ?? "Try for free"}
           <span style={{ marginLeft: "4px" }}>🚀</span>

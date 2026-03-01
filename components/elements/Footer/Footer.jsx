@@ -2,6 +2,7 @@
 import Link from "next/link"
 
 import Container from "@/components/elements/Container/Container"
+import TrackedLink from "@/components/elements/TrackedLink/TrackedLink"
 import styles from "./Footer.module.scss"
 import Logo from "@/components/elements/Logo"
 const Footer = () => {
@@ -21,14 +22,15 @@ const Footer = () => {
             <br /> and triple-scale your app
           </div>
           <div className={styles.footerButtons}>
-            <a
+            <TrackedLink
               className={styles.footerButton}
               href="https://www.linkedin.com/company/scalemate"
               target="_blank"
               rel="noopener noreferrer"
+              location="footer"
             >
               LinkedIn
-            </a>
+            </TrackedLink>
           </div>
           <div className={styles.footerColLink} style={{ paddingTop: 16 }}>
             © Scalemate {new Date().getFullYear()}
@@ -53,9 +55,13 @@ const Footer = () => {
             <Link className={styles.footerColLink} href="/book-a-demo">
               Book a Demo
             </Link>
-            <a className={styles.footerColLink} href="/docs">
+            <TrackedLink
+              className={styles.footerColLink}
+              href="/docs"
+              location="footer"
+            >
               API documentation
-            </a>
+            </TrackedLink>
           </div>
           <div className={styles.footerCol}>
             <div className={styles.footerColTitle}>Use Cases</div>

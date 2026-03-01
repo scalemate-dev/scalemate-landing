@@ -5,7 +5,7 @@ import useDrivePicker from "react-google-drive-picker"
 import { guestSessionApi } from "@/lib/api/guestSession"
 import { getStoredToken, storeToken } from "@/helpers/googleDriveToken"
 
-export function useGooglePicker() {
+export function useGooglePicker({ onFilesSelected } = {}) {
   const [openPicker, authResponse] = useDrivePicker()
 
   const [selectedFiles, setSelectedFiles] = useState([])
@@ -50,6 +50,7 @@ export function useGooglePicker() {
             url: doc.url,
           }))
           setSelectedFiles(files)
+          onFilesSelected?.(files)
         }
       },
     }
