@@ -14,6 +14,8 @@ import tiktokBlackIcon from "@/assets/icons/tiktok-icon.svg"
 import metaIcon from "@/assets/icons/meta-icon.svg"
 import googleDriveIcon from "@/assets/icons/google-drive-icon.svg"
 import { guestSessionApi } from "@/lib/api/guestSession"
+import { trackMixpanelEvent } from "@/helpers/analytics/mixpanel"
+import { EVENTS } from "@/helpers/analytics/mixpanel.events"
 import FileIcon from "../FileIcon/FileIcon"
 import styles from "./UploaderWidget.module.scss"
 
@@ -162,9 +164,7 @@ const FormView = ({
           >
             <IconArrowRight size={20} />
           </div>
-          <span className={styles.arrowLabel}>
-            {canUpload ? "Ready" : ""}
-          </span>
+          <span className={styles.arrowLabel}>{canUpload ? "Ready" : ""}</span>
         </div>
 
         {/* Right Column - Destinations */}
@@ -188,10 +188,7 @@ const FormView = ({
                 selectedAccountId={selectedAccountId}
                 onSelect={selectAccount}
               />
-              <button
-                className={styles.disconnectLink}
-                onClick={onDisconnect}
-              >
+              <button className={styles.disconnectLink} onClick={onDisconnect}>
                 Disconnect account
               </button>
             </>
@@ -205,12 +202,7 @@ const FormView = ({
                 {isTikTokConnecting || isSessionLoading ? (
                   <IconLoader2 size={18} className={styles.spinner} />
                 ) : (
-                  <Image
-                    src={tiktokWhiteIcon}
-                    alt=""
-                    width={18}
-                    height={18}
-                  />
+                  <Image src={tiktokWhiteIcon} alt="" width={18} height={18} />
                 )}
                 TikTok Ads
               </button>
@@ -257,6 +249,11 @@ const FormView = ({
           <a
             href={guestSessionApi.getAppRedirectUrl()}
             className={styles.guestLimitsLink}
+            onClick={() => {
+              trackMixpanelEvent(EVENTS.UPLOADER_SIGNUP_CTA_CLICKED, {
+                cta_location: "form_footer",
+              })
+            }}
           >
             Create account to Remove limits
           </a>

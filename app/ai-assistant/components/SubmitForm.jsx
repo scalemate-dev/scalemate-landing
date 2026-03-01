@@ -1,12 +1,14 @@
 "use client"
 import { getGAClientId } from "@/helpers/getGAClientId"
-import React, { useState, Suspense } from "react"
+import React, { useState, useEffect, Suspense } from "react"
 import styles from "../page.module.scss"
 import Input from "@/components/elements/Input/Input"
 import Button from "@/components/elements/Button/Button"
 import { validateEmail } from "@/helpers/emails"
 import { IconCheck } from "@tabler/icons-react"
 import { hashString } from "@/helpers/hashString"
+import { trackMixpanelEvent } from "@/helpers/analytics/mixpanel"
+import { EVENTS } from "@/helpers/analytics/mixpanel.events"
 import { useSearchParams } from "next/navigation"
 
 // Create a component that safely uses useSearchParams
@@ -56,6 +58,10 @@ export default function SubmitForm() {
   const [isLoading, setIsLoading] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
 
+  useEffect(() => {
+    trackMixpanelEvent(EVENTS.AI_WAITLIST_FORM_VIEWED)
+  }, [])
+
   const sendForm = async (data) => {
     await fetch("https://submit-form.com/CcXQWUTEJ", {
       method: "POST",
@@ -77,10 +83,14 @@ export default function SubmitForm() {
       await trackTTFormSubmit(email)
       setIsSuccess(true)
       setIsLoading(false)
+      trackMixpanelEvent(EVENTS.AI_WAITLIST_FORM_SUBMITTED)
       redirectToSignup(email)
     } catch (error) {
       setError(error.message)
       setIsLoading(false)
+      trackMixpanelEvent(EVENTS.AI_WAITLIST_FORM_ERRORED, {
+        error_message: error.message,
+      })
     }
   }
 
