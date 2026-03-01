@@ -150,6 +150,8 @@ const Header = () => {
           href="https://app.scalemate.co/create-account"
           className={styles.desktopButton}
           darkTheme={darkTheme}
+          trackEvent="cta_clicked"
+          trackProps={{ cta_location: "header" }}
         >
           Get started for Free
         </Button>

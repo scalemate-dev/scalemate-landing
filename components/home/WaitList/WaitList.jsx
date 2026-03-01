@@ -33,6 +33,8 @@ const WaitList = ({
                 href={href}
                 className={styles.waitListSubmit}
                 onClick={onClick}
+                trackEvent="cta_clicked"
+                trackProps={{ cta_location: "waitlist_section" }}
               >
                 {buttonText}
               </Button>
@@ -41,6 +43,8 @@ const WaitList = ({
                 darkTheme={theme === "dark"}
                 href="https://app.scalemate.co"
                 className={styles.waitListSubmit}
+                trackEvent="cta_clicked"
+                trackProps={{ cta_location: "waitlist_section" }}
               >
                 Start for free
               </Button>

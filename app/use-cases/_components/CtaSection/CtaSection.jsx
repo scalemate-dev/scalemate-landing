@@ -1,4 +1,5 @@
 import Container from "@/components/elements/Container/Container"
+import Button from "@/components/elements/Button/Button"
 import styles from "./CtaSection.module.scss"
 
 export default function CtaSection({ title, description, secondaryCta }) {
@@ -10,15 +11,22 @@ export default function CtaSection({ title, description, secondaryCta }) {
             <h2>{title}</h2>
             <p>{description}</p>
             <div className={styles.ctaButtons}>
-              <a
+              <Button
                 href={secondaryCta?.href ?? "https://app.scalemate.co/create-account"}
                 className={styles.ctaButton}
+                trackEvent="cta_clicked"
+                trackProps={{ cta_location: "use_case_cta_section" }}
               >
                 {secondaryCta?.label ?? "Start Free Trial"}
-              </a>
-              <a href="/book-a-demo" className={styles.ctaButtonOutline}>
+              </Button>
+              <Button
+                href="/book-a-demo"
+                className={styles.ctaButtonOutline}
+                trackEvent="cta_clicked"
+                trackProps={{ cta_location: "use_case_cta_section" }}
+              >
                 Book a Demo
-              </a>
+              </Button>
             </div>
           </div>
         </Container>

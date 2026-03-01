@@ -3,7 +3,7 @@
 import { validateEmail } from "@/helpers/emails"
 import WaitList from "@/components/home/WaitList/WaitList"
 
-import { useState, Suspense } from "react"
+import { useState, useEffect, useRef, Suspense } from "react"
 import Image from "next/image"
 import Input from "@/components/elements/Input/Input"
 import Select from "@/components/elements/Select/Select"
@@ -12,6 +12,8 @@ import styles from "./DemoForm.module.scss"
 import demoLinearBackground from "@/assets/icons/demo-linear-background.svg"
 import demoLinearBackground2 from "@/assets/icons/demo-linear-background-2.svg"
 import { trackDemoFormSubmit } from "@/helpers/trackGTM"
+import { trackMixpanelEvent } from "@/helpers/analytics/mixpanel"
+import { EVENTS } from "@/helpers/analytics/mixpanel.events"
 // import { useSearchParams } from "next/navigation"
 
 // Separate component for search params handling
@@ -31,6 +33,13 @@ const DemoFormWithParams = () => {
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const [formSent, setFormSent] = useState(false)
+  const hasStarted = useRef(false)
+
+  useEffect(() => {
+    trackMixpanelEvent(EVENTS.DEMO_FORM_VIEWED, {
+      page_name: "Book a Demo",
+    })
+  }, [])
 
   const jobPositionOptions = [
     "C-level",
@@ -58,11 +67,20 @@ const DemoFormWithParams = () => {
       await sendForm(formData)
       setFormSent(true)
 
+      trackMixpanelEvent(EVENTS.DEMO_FORM_SUBMITTED, {
+        job_position: formData.jobPosition || "not_provided",
+        monthly_budget: formData.monthlyBudget || "not_provided",
+        has_message: !!formData.message,
+      })
+
       // if (plan !== "custom") {
       //   redirectToSignup(formData.email, formData.name)
       // }
     } catch (error) {
       setError(error.message)
+      trackMixpanelEvent(EVENTS.DEMO_FORM_ERRORED, {
+        error_message: error.message,
+      })
     } finally {
       setLoading(false)
     }
@@ -91,6 +109,13 @@ const DemoFormWithParams = () => {
       ...prev,
       [field]: value,
     }))
+
+    if (!hasStarted.current) {
+      hasStarted.current = true
+      trackMixpanelEvent(EVENTS.DEMO_FORM_STARTED, {
+        first_field: field,
+      })
+    }
   }
 
   return (
