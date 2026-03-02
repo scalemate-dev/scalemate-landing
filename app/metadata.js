@@ -115,23 +115,23 @@ export const pageMetadata = {
     },
   },
   bookDemo: {
-    title: "Scalemate: Book a Demo — Launch Ads 3x Faster",
+    title: "Book a Demo – Automate Meta & TikTok Ad Campaigns | Scalemate",
     alternates: { canonical: "https://www.scalemate.co/book-a-demo" },
     description:
-      "Experience the power of automation for ads management. Book a demo with Scalemate to see how you launch your ads 3x faster.",
+      "Book a 30-minute Scalemate demo. See how performance teams automate campaign setup, creative uploads, and scaling rules across Meta and TikTok — without adding headcount.",
     openGraph: {
       url: "https://www.scalemate.co/book-a-demo",
       type: "website",
-      title: "Scalemate: Book a Demo — Launch Ads 3x Faster",
+      title: "Book a Demo – Automate Meta & TikTok Ad Campaigns | Scalemate",
       description:
-        "Get a personalized demo of Scalemate and learn how our tool can triple your ads management speed on Facebook and beyond.",
+        "Book a 30-minute Scalemate demo. See how performance teams automate campaign setup, creative uploads, and scaling rules across Meta and TikTok — without adding headcount.",
       images: [{ url: "/og-image-demo.png" }],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Scalemate: Book a Demo — Launch Ads 3x Faster",
+      title: "Book a Demo – Automate Meta & TikTok Ad Campaigns | Scalemate",
       description:
-        "Get a personalized demo of Scalemate and learn how our tool can triple your ads management speed on Facebook and beyond.",
+        "Book a 30-minute Scalemate demo. See how performance teams automate campaign setup, creative uploads, and scaling rules across Meta and TikTok — without adding headcount.",
       images: ["/og-image-demo.png"],
     },
   },
