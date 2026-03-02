@@ -82,6 +82,12 @@ const Footer = () => {
             </Link>
             <Link
               className={styles.footerColLink}
+              href="/use-cases/ad-campaign-automation-rules"
+            >
+              Campaign Automation Rules
+            </Link>
+            <Link
+              className={styles.footerColLink}
               href="/use-cases/scale-ad-campaigns-faster"
             >
               Scale Ad Campaigns Faster
