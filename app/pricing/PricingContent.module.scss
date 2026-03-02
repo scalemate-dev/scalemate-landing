@@ -176,6 +176,7 @@ $uc-shadow-panel-hover: 0 2px 4px rgba(42, 39, 36, 0.03),
 // ── Shared card base ──
 
 %card-base {
+  position: relative;
   border-radius: 20px;
   padding: 44px 40px;
   display: flex;
@@ -344,12 +345,14 @@ $uc-shadow-panel-hover: 0 2px 4px rgba(42, 39, 36, 0.03),
 }
 
 .noCc {
-  display: block;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-family: $font-body;
-  font-size: 13px;
-  color: $uc-stone;
-  margin-top: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: $uc-body;
+  margin-bottom: 24px;
 }
 
 .ctaCustom {

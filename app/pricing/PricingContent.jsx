@@ -1,6 +1,6 @@
 "use client"
 
-import { IconCheck } from "@tabler/icons-react"
+import { IconCheck, IconCreditCardOff } from "@tabler/icons-react"
 import Container from "@/components/elements/Container/Container"
 import Button from "@/components/elements/Button/Button"
 import styles from "./PricingContent.module.scss"
@@ -13,7 +13,13 @@ const FREE_FEATURES = [
   "Unlimited uploads",
 ]
 
-const CUSTOM_FEATURES = []
+const CUSTOM_FEATURES = [
+  "Unlimited ad accounts & rules",
+  "Unlimited launches",
+  "API access",
+  "Priority feature requests",
+  "Dedicated support",
+]
 
 export default function PricingContent() {
   return (
@@ -24,7 +30,7 @@ export default function PricingContent() {
           <div className={styles.heroContent}>
             <span className={styles.eyebrow}>Pricing</span>
             <h1>
-              Start <span className={styles.accent}>free, </span>
+              Start <span className={styles.accent}>free. </span>
               Scale when you're ready
             </h1>
             <p className={styles.subtitle}>
@@ -64,6 +70,10 @@ export default function PricingContent() {
                   </li>
                 ))}
               </ul>
+              <span className={styles.noCc}>
+                <IconCreditCardOff size={15} stroke={1.8} />
+                No credit card required
+              </span>
               <Button
                 href="https://app.scalemate.co/create-account"
                 className={styles.ctaFree}
@@ -75,7 +85,6 @@ export default function PricingContent() {
               >
                 Try for free
               </Button>
-              <span className={styles.noCc}>No credit card required</span>
             </div>
 
             {/* Custom Card */}
