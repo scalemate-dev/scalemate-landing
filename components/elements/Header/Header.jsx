@@ -169,7 +169,7 @@ const Header = () => {
           trackEvent="cta_clicked"
           trackProps={{ cta_location: "header" }}
         >
-          Get started for Free
+          Try for free
         </Button>
 
         <button
