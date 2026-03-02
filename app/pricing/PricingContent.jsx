@@ -8,8 +8,8 @@ import styles from "./PricingContent.module.scss"
 const FREE_FEATURES = [
   "1 Ad account",
   "2 Active rules",
-  "100 Ad launches / month",
-  "50 AI messages / month",
+  "100 Ad launches per month",
+  "50 AI messages per month",
   "Unlimited uploads",
 ]
 
@@ -34,9 +34,9 @@ export default function PricingContent() {
               Scale when you're ready
             </h1>
             <p className={styles.subtitle}>
-              Automate repetitive ad operations across Meta and TikTok at no
-              cost. Need to scale further? We'll build a plan around your
-              workflow
+              Cut the manual work from your Meta and TikTok ad operations – at
+              no cost. When your volume grows, we'll build a plan around how
+              your team actually works.
             </p>
           </div>
         </Container>
@@ -80,10 +80,10 @@ export default function PricingContent() {
                 trackEvent="cta_clicked"
                 trackProps={{
                   cta_location: "pricing_free_card",
-                  cta_text: "Try for free",
+                  cta_text: "Get Started Free",
                 }}
               >
-                Try for free
+                Get Started Free
               </Button>
             </div>
 
@@ -95,8 +95,9 @@ export default function PricingContent() {
                   <span className={styles.priceCustom}>Let's talk</span>
                 </div>
                 <p className={styles.planDescCustom}>
-                  Scale ad operations without scaling your team. We'll set it up
-                  with you
+                  Scale ad operations without scaling your team. We'll review
+                  your setup, configure everything to your workflow, and have you
+                  live within a week.
                 </p>
               </div>
               <ul className={styles.featureList}>

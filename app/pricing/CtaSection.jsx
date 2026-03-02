@@ -12,8 +12,8 @@ export default function CtaSection() {
           <div className={styles.ctaContent}>
             <h2>Ready to scale your ad operations?</h2>
             <p>
-              Start free or talk to our team about a setup built for your
-              workflow.
+              Start free today, or talk to our team about a plan built around
+              your workflow.
             </p>
             <div className={styles.ctaButtons}>
               <Button
