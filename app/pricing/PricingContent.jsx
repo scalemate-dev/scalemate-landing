@@ -34,9 +34,9 @@ export default function PricingContent() {
               Scale when you're ready
             </h1>
             <p className={styles.subtitle}>
-              Cut the manual work from your Meta and TikTok ad operations – at
-              no cost. When your volume grows, we'll build a plan around how
-              your team actually works.
+              Cut the manual work from your Meta and TikTok ad operations at no
+              cost. When your volume grows, we'll build a plan around how your
+              team actually works.
             </p>
           </div>
         </Container>
@@ -96,8 +96,8 @@ export default function PricingContent() {
                 </div>
                 <p className={styles.planDescCustom}>
                   Scale ad operations without scaling your team. We'll review
-                  your setup, configure everything to your workflow, and have you
-                  live within a week.
+                  your setup, configure everything to your workflow, and have
+                  you live within a week.
                 </p>
               </div>
               <ul className={styles.featureList}>

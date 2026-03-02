@@ -69,27 +69,27 @@ const assistantMetadata = {
   },
 }
 
-// const pricingMetadata = {
-//   title: "Pricing & Free Trial | Scalemate",
-//   alternates: { canonical: "https://www.scalemate.co/pricing" },
-//   description:
-//     "Explore Scalemate's transparent pricing for every marketing team. Compare monthly, quarterly, and yearly plans. Manage all your ad accounts in one place, automate bulk ad launches, and streamline your marketing workflow with our next-gen AI assistant. Free trial, dedicated onboarding, and custom integrations available.",
-//   keywords:
-//     "free AI marketing tool, free ad management software, free trial marketing automation, AI ad platform, marketing automation, ad management, ad automation, Facebook ads tool, TikTok ads tool, Google Ads tool, bulk ad launch, campaign management, scalable marketing software, marketing software pricing, ad software free trial, digital marketing platform, marketing AI, ad campaign automation, scalable ad management, marketing tool for teams, ad software for business",
-//   openGraph: {
-//     title: "Transparent Pricing for Marketing Teams | Scalemate",
-//     description:
-//       "Discover Scalemate's transparent pricing for every marketing team. Compare monthly, quarterly, and yearly plans. Manage all your ad accounts in one place, automate bulk ad launches, and streamline your marketing workflow with our next-gen AI assistant.",
-//     images: [{ url: "/og-image.png" }],
-//   },
-//   twitter: {
-//     card: "summary_large_image",
-//     title: "Transparent Pricing for Marketing Teams | Scalemate",
-//     description:
-//       "Discover Scalemate's transparent pricing for every marketing team. Compare monthly, quarterly, and yearly plans. Manage all your ad accounts in one place, automate bulk ad launches, and streamline your marketing workflow with our next-gen AI assistant.",
-//     images: ["/og-image.png"],
-//   },
-// }
+const pricingMetadata = {
+  title: "Free Ad Automation Tool for Meta & TikTok – Scalemate Pricing",
+  alternates: { canonical: "https://www.scalemate.co/pricing" },
+  description:
+    "Automate Meta and TikTok ad campaigns for free – 1 ad account, 2 rules, 100 launches/month, unlimited creative uploads. No credit card. Custom plans with API access and dedicated support for teams at scale.",
+  openGraph: {
+    url: "https://www.scalemate.co/pricing",
+    type: "website",
+    title: "Free Ad Automation for Meta & TikTok – Scalemate Pricing",
+    description:
+      "Automate Meta and TikTok ad campaigns for free – 1 ad account, 2 rules, 100 launches/month, unlimited creative uploads. No credit card. Custom plans with API access and dedicated support for teams at scale.",
+    images: [{ url: "/og-pricing.png" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free Ad Automation for Meta & TikTok – Scalemate Pricing",
+    description:
+      "Automate Meta and TikTok ad campaigns for free – 1 ad account, 2 rules, 100 launches/month, unlimited creative uploads. No credit card. Custom plans with API access and dedicated support for teams at scale.",
+    images: ["/og-pricing.png"],
+  },
+}
 
 export const pageMetadata = {
   home: defaultMetadata,
@@ -137,5 +137,5 @@ export const pageMetadata = {
   },
   customers: customersMetadata,
   assistant: assistantMetadata,
-  // pricing: pricingMetadata,
+  pricing: pricingMetadata,
 }
