@@ -66,6 +66,36 @@
   gap: 24px;
 }
 
+.cardsSingle {
+  grid-template-columns: 1fr;
+}
+
+.cardWide .cardMetrics {
+  justify-content: center;
+  gap: 48px;
+  padding-top: 32px;
+  margin-bottom: 32px;
+}
+
+.cardWide .cardMetric {
+  flex: 0 0 auto;
+  text-align: center;
+  padding-right: 0;
+
+  &:not(:first-child) {
+    padding-left: 48px;
+  }
+}
+
+.cardWide .cardMetricValue {
+  font-size: 36px;
+  margin-bottom: 6px;
+}
+
+.cardWide .cardMetricLabel {
+  font-size: 13px;
+}
+
 // ———————————————————————————————————————
 // Card
 // ———————————————————————————————————————

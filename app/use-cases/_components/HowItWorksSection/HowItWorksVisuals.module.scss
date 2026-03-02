@@ -661,6 +661,480 @@
 }
 
 // ———————————————————————————————————————
+// Automation Rules — Threshold visual (Step 1)
+// ———————————————————————————————————————
+
+.ruleDiagram {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  min-height: 280px;
+}
+
+.ruleLines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: visible;
+}
+
+.rulePath {
+  stroke: $uc-line;
+  stroke-width: 1.5;
+  stroke-dasharray: 6 4;
+  fill: none;
+  opacity: 0.7;
+}
+
+.ruleDot {
+  fill: $uc-accent;
+  opacity: 0.8;
+}
+
+// ——— Metric pills (left) ———
+
+.ruleMetrics {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1;
+}
+
+.ruleMetricPill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px 8px 10px;
+  background: linear-gradient(168deg, rgba(#fff, 0.9) 0%, rgba(#FEFCFA, 0.8) 100%);
+  border: 1px solid rgba($uc-ink, 0.06);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 1px 3px rgba(42, 39, 36, 0.04),
+    0 4px 16px rgba(42, 39, 36, 0.04);
+}
+
+.ruleMetricIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: rgba($uc-accent, 0.1);
+  color: $uc-accent;
+  flex-shrink: 0;
+}
+
+.ruleMetricText {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.ruleMetricLabel {
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 700;
+  color: $uc-ink;
+  letter-spacing: -0.01em;
+}
+
+.ruleMetricThreshold {
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Menlo', monospace;
+  font-size: 10px;
+  color: $uc-pain;
+  letter-spacing: -0.01em;
+}
+
+// ——— Rules Engine (center) ———
+
+.ruleEngine {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 1;
+}
+
+.ruleEngineInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 22px 14px;
+  background: linear-gradient(168deg, rgba(#fff, 0.85) 0%, rgba(#FEFCFA, 0.7) 100%);
+  border: 1.5px solid rgba($uc-accent, 0.12);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 2px 8px rgba($uc-accent, 0.06),
+    0 6px 20px rgba(42, 39, 36, 0.05);
+}
+
+.ruleEngineLogo {
+  width: 72px;
+  height: auto;
+
+  path {
+    fill: $uc-ink;
+  }
+}
+
+.ruleEngineLabel {
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 600;
+  color: $uc-body;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+// ——— Output (right) ———
+
+.ruleOutput {
+  position: absolute;
+  right: 4%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.ruleOutputInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 20px 12px;
+  background: linear-gradient(168deg, rgba(#fff, 0.85) 0%, rgba(#FEFCFA, 0.7) 100%);
+  border: 1px solid rgba($uc-success, 0.2);
+  border-radius: 14px;
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 1px 3px rgba(42, 39, 36, 0.04),
+    0 6px 24px rgba(42, 39, 36, 0.05);
+  color: $uc-success;
+}
+
+.ruleOutputLabel {
+  font-family: $font-body;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $uc-success;
+}
+
+// ———————————————————————————————————————
+// Automation Rules — Action visual (Step 2)
+// ———————————————————————————————————————
+
+.actionDiagram {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  min-height: 280px;
+}
+
+.actionLines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: visible;
+}
+
+// ——— IF Condition (left) ———
+
+.actionCondition {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.actionConditionInner {
+  padding: 14px 16px;
+  background: linear-gradient(168deg, rgba(#fff, 0.9) 0%, rgba(#FEFCFA, 0.8) 100%);
+  border: 1px solid rgba($uc-ink, 0.06);
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 1px 3px rgba(42, 39, 36, 0.04),
+    0 4px 16px rgba(42, 39, 36, 0.04);
+}
+
+.actionConditionIf {
+  display: block;
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Menlo', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  color: $uc-accent;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.actionConditionRules {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  span {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Menlo', monospace;
+    font-size: 10px;
+    color: $uc-body;
+    line-height: 1.6;
+  }
+}
+
+// ——— Decision (center) ———
+
+.actionDecision {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 1;
+}
+
+.actionDecisionBadge {
+  padding: 6px 12px;
+  background: linear-gradient(168deg, rgba(#fff, 0.92) 0%, rgba(#FEFCFA, 0.8) 100%);
+  border: 1px solid rgba($uc-ink, 0.06);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 1px 3px rgba(42, 39, 36, 0.04),
+    0 4px 12px rgba(42, 39, 36, 0.04);
+}
+
+.actionDecisionLogo {
+  width: 56px;
+  height: auto;
+  display: block;
+
+  path {
+    fill: $uc-ink;
+  }
+}
+
+.actionDecisionInner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(168deg, rgba(#fff, 0.85) 0%, rgba(#FEFCFA, 0.7) 100%);
+  border: 1.5px solid rgba($uc-accent, 0.15);
+  border-radius: 14px;
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 2px 8px rgba($uc-accent, 0.06),
+    0 6px 20px rgba(42, 39, 36, 0.05);
+  color: $uc-accent;
+}
+
+.actionDecisionLabel {
+  font-family: $font-body;
+  font-size: 10px;
+  font-weight: 600;
+  color: $uc-body;
+  letter-spacing: 0.01em;
+}
+
+// ——— Action cards (right) ———
+
+.actionCards {
+  position: absolute;
+  right: 2%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1;
+}
+
+.actionCard {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px 10px 10px;
+  background: linear-gradient(168deg, rgba(#fff, 0.88) 0%, rgba(#FEFCFA, 0.75) 100%);
+  border: 1px solid rgba($uc-ink, 0.06);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 1px 3px rgba(42, 39, 36, 0.03),
+    0 4px 16px rgba(42, 39, 36, 0.04);
+
+  &[data-color="pause"] .actionCardIcon {
+    background: rgba($uc-pain, 0.12);
+    color: $uc-pain;
+  }
+
+  &[data-color="scale"] .actionCardIcon {
+    background: rgba($uc-success, 0.12);
+    color: $uc-success;
+  }
+
+  &[data-color="alert"] .actionCardIcon {
+    background: rgba($uc-accent, 0.1);
+    color: $uc-accent;
+  }
+}
+
+.actionCardIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  flex-shrink: 0;
+}
+
+.actionCardLabel {
+  font-family: $font-body;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: $uc-ink;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+}
+
+// ———————————————————————————————————————
+// Automation Rules — Monitor visual (Step 3)
+// ———————————————————————————————————————
+
+.monitorDiagram {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+// ——— Clock (left) ———
+
+.monitorClock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.monitorClockSvg {
+  width: 100px;
+  height: 100px;
+  color: $uc-ink;
+}
+
+.monitorArc {
+  stroke: $uc-accent;
+  opacity: 0.5;
+  stroke-linecap: round;
+}
+
+.monitorPulse {
+  fill: $uc-accent;
+}
+
+.monitorClockLabel {
+  font-family: $font-heading;
+  font-size: 18px;
+  font-weight: 700;
+  color: $uc-ink;
+  letter-spacing: 0.05em;
+}
+
+// ——— Activity feed (right) ———
+
+.monitorFeed {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.monitorFeedTitle {
+  display: block;
+  font-family: $font-body;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $uc-stone;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba($uc-ink, 0.06);
+}
+
+.monitorFeedItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+
+  &[data-status="pause"] .monitorFeedDot {
+    background: $uc-pain;
+  }
+
+  &[data-status="scale"] .monitorFeedDot {
+    background: $uc-success;
+  }
+
+  &[data-status="alert"] .monitorFeedDot {
+    background: $uc-accent;
+  }
+}
+
+.monitorFeedTime {
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Menlo', monospace;
+  font-size: 10px;
+  color: $uc-stone;
+  min-width: 60px;
+  letter-spacing: -0.01em;
+}
+
+.monitorFeedDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.monitorFeedAction {
+  font-family: $font-body;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: $uc-ink;
+  white-space: nowrap;
+}
+
+.monitorFeedTarget {
+  font-family: $font-body;
+  font-size: 11px;
+  color: $uc-body-faded;
+  white-space: nowrap;
+}
+
+// ———————————————————————————————————————
 // Connect accounts visual — block 2 (creative-upload)
 // ———————————————————————————————————————
 
@@ -981,6 +1455,43 @@
     }
   }
 
+  // Automation Rules — tablet
+  .ruleDiagram {
+    min-height: 240px;
+  }
+
+  .ruleMetricPill {
+    padding: 6px 12px 6px 8px;
+    gap: 8px;
+  }
+
+  .ruleMetricIcon {
+    width: 26px;
+    height: 26px;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  .actionDiagram {
+    min-height: 240px;
+  }
+
+  .actionConditionRules span {
+    font-size: 9px;
+  }
+
+  .monitorDiagram {
+    gap: 20px;
+  }
+
+  .monitorClockSvg {
+    width: 80px;
+    height: 80px;
+  }
+
   .connCard {
     max-width: 300px;
   }
@@ -1173,6 +1684,161 @@
 
   .flowNodeFiles {
     display: none;
+  }
+
+  // Automation Rules — mobile
+  .ruleDiagram {
+    min-height: 200px;
+  }
+
+  .ruleMetrics {
+    gap: 6px;
+  }
+
+  .ruleMetricPill {
+    padding: 5px 8px 5px 6px;
+    gap: 6px;
+    border-radius: 9px;
+  }
+
+  .ruleMetricIcon {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+
+    svg {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  .ruleMetricLabel {
+    font-size: 9.5px;
+  }
+
+  .ruleMetricThreshold {
+    font-size: 8.5px;
+  }
+
+  .ruleEngineInner {
+    padding: 12px 16px 10px;
+    border-radius: 12px;
+  }
+
+  .ruleEngineLogo {
+    width: 56px;
+  }
+
+  .ruleEngineLabel {
+    font-size: 9px;
+  }
+
+  .ruleOutputInner {
+    padding: 10px 14px 8px;
+    border-radius: 10px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .ruleOutputLabel {
+    font-size: 8.5px;
+  }
+
+  .actionDiagram {
+    min-height: 200px;
+  }
+
+  .actionConditionInner {
+    padding: 10px 12px;
+    border-radius: 10px;
+  }
+
+  .actionConditionIf {
+    font-size: 9px;
+    margin-bottom: 6px;
+  }
+
+  .actionConditionRules span {
+    font-size: 8.5px;
+  }
+
+  .actionDecisionBadge {
+    padding: 4px 8px;
+    border-radius: 7px;
+  }
+
+  .actionDecisionLogo {
+    width: 42px;
+  }
+
+  .actionDecisionInner {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .actionDecisionLabel {
+    font-size: 9px;
+  }
+
+  .actionCards {
+    gap: 8px;
+  }
+
+  .actionCard {
+    padding: 6px 10px 6px 6px;
+    gap: 7px;
+    border-radius: 9px;
+  }
+
+  .actionCardIcon {
+    width: 26px;
+    height: 26px;
+    border-radius: 7px;
+
+    svg {
+      width: 13px;
+      height: 13px;
+    }
+  }
+
+  .actionCardLabel {
+    font-size: 10px;
+  }
+
+  .monitorDiagram {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .monitorClockSvg {
+    width: 72px;
+    height: 72px;
+  }
+
+  .monitorClockLabel {
+    font-size: 14px;
+  }
+
+  .monitorFeedTime {
+    font-size: 9px;
+    min-width: 52px;
+  }
+
+  .monitorFeedAction {
+    font-size: 10px;
+  }
+
+  .monitorFeedTarget {
+    font-size: 9.5px;
   }
 
   .connCard {

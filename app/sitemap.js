@@ -86,6 +86,12 @@ export default async function sitemap() {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    {
+      url: "https://www.scalemate.co/use-cases/ad-campaign-automation-rules",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
   ]
 
   // Combine static and dynamic entries

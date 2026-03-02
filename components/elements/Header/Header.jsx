@@ -87,6 +87,16 @@ const USE_CASES = [
     path: "/use-cases/automated-creative-upload-meta",
   },
   {
+    label: "Campaign Automation Rules",
+    description: "Create rules to automate your ad management",
+    icon: (
+      <Icon style={{ backgroundColor: "#F3E8FF" }}>
+        <IconSettingsAutomation color="#7C3AED" size={16} />
+      </Icon>
+    ),
+    path: "/use-cases/ad-campaign-automation-rules",
+  },
+  {
     label: "Scale Campaigns Faster",
     description: "Scale winning ads before they burn out",
     icon: (
@@ -96,17 +106,6 @@ const USE_CASES = [
     ),
     path: "/use-cases/scale-ad-campaigns-faster",
   },
-  // {
-  //   label: "Campaign Automation Rules",
-  //   description: "Create rules to automate your ad management.",
-  //   icon: (
-  //     <Icon style={{ backgroundColor: "#F3E8FF" }}>
-  //       <IconSettingsAutomation color="#7C3AED" size={16} />
-  //     </Icon>
-  //   ),
-  //   path: "/use-cases/ad-campaign-automation-rules",
-  //   disabled: true,
-  // },
 ]
 
 const NAV_LINKS = [
