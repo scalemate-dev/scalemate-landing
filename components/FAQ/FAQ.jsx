@@ -84,11 +84,15 @@ const FAQ = ({
               role="region"
               aria-labelledby={`faq-question-${index}`}
             >
-              {item.answer.split("\n\n").map((paragraph, i) => (
-                <p key={i} className={styles.answerText}>
-                  {paragraph}
-                </p>
-              ))}
+              {typeof item.answer === "string" ? (
+                item.answer.split("\n\n").map((paragraph, i) => (
+                  <p key={i} className={styles.answerText}>
+                    {paragraph}
+                  </p>
+                ))
+              ) : (
+                <p className={styles.answerText}>{item.answer}</p>
+              )}
             </div>
           </div>
         ))}
