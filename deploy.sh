@@ -1,18 +1,18 @@
 #!/bin/bash
 set -e
 
-REPO="scalemate-dev/scalemate-landing"
+REPO=$(gh repo view --json nameWithOwner -q .nameWithOwner)
 
-echo "🔓 Making repo public..."
-gh repo edit "$REPO" --visibility public
+echo "🔓 Making $REPO public..."
+gh repo edit "$REPO" --visibility public --accept-visibility-change-consequences
 
 echo "🚀 Pushing to origin..."
 git push
 
-echo "⏳ Waiting 30s for Vercel to pick up the deploy..."
+echo "⏳ Waiting 10s for Vercel to pick up the deploy..."
 sleep 10
 
-echo "🔒 Making repo private..."
-gh repo edit "$REPO" --visibility private
+echo "🔒 Making $REPO private..."
+gh repo edit "$REPO" --visibility private --accept-visibility-change-consequences
 
 echo "✅ Done! Repo is private again."
