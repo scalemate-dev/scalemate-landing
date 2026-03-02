@@ -84,7 +84,11 @@ const FAQ = ({
               role="region"
               aria-labelledby={`faq-question-${index}`}
             >
-              <p className={styles.answerText}>{item.answer}</p>
+              {item.answer.split("\n\n").map((paragraph, i) => (
+                <p key={i} className={styles.answerText}>
+                  {paragraph}
+                </p>
+              ))}
             </div>
           </div>
         ))}
@@ -102,12 +106,12 @@ export const FAQ_ITEMS = [
   {
     question: "Can I manage multiple ad accounts and networks?",
     answer:
-      "Yes! Scalemate works with Meta (ex-Facebook), TikTok, Google Ads — and we’re expanding. Manage all your accounts in one place with ease.",
+      "Yes! Scalemate works with Meta (ex-Facebook) and TikTok — and we’re expanding. Manage all your accounts in one place with ease.",
   },
   {
     question: "What Bulk Actions are available?",
     answer:
-      "You can bulk-upload videos and images from your Cloud or Local Drive to Meta (ex-Facebook) TikTok and Google Ads. Launch creatives using any confiuration, control budgets, and rotate top-performing ads in your campaigns.",
+      "You can bulk-upload videos and images from your Cloud or Local Drive to Meta (ex-Facebook) and TikTok. Launch creatives using any confiuration, control budgets, and rotate top-performing ads in your campaigns.",
   },
   {
     question: "Is it safe to use for sensitive data?",

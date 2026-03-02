@@ -236,7 +236,7 @@ export const data = {
     {
       question: "Which ad platforms are supported for bulk ad launch?",
       answer:
-        "Scalemate currently supports bulk ad launch across Meta (Facebook & Instagram), TikTok, and Google Ads. The same workflow applies \u2014 configure once, deploy across ad sets in minutes. If your team runs campaigns on a platform not yet listed, Scalemate accepts custom integration requests.",
+        "Scalemate currently supports bulk ad launch across Meta (Facebook & Instagram) and TikTok. The same workflow applies \u2014 configure once, deploy across ad sets in minutes. If your team runs campaigns on a platform not yet listed, Scalemate accepts custom integration requests.",
     },
     {
       question:

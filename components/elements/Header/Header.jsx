@@ -15,12 +15,34 @@ import {
   IconCloudUpload,
   IconTrendingUp,
   IconSettingsAutomation,
+  IconCode,
 } from "@tabler/icons-react"
 import { usePathname } from "next/navigation"
 import { trackMixpanelEvent } from "@/helpers/analytics/mixpanel"
 import { EVENTS } from "@/helpers/analytics/mixpanel.events"
 
 const SOLUTIONS = [
+  {
+    label: "Ad Creative Uploader",
+    description: "Upload ad creatives from Google Drive to Meta and Tiktok",
+    icon: (
+      <Icon style={{ backgroundColor: "#E6FCF5" }}>
+        <IconCloudUpload color="#12B886" size={16} />
+      </Icon>
+    ),
+    path: "/ad-creative-uploader",
+    new: true,
+  },
+  {
+    label: "Launch",
+    description: "Quickly set up and launch multiple ads.",
+    icon: (
+      <Icon style={{ backgroundColor: "#FFFAEB" }}>
+        <IconBoltFilled color="#FEC84B" size={16} />
+      </Icon>
+    ),
+    path: "/launch",
+  },
   {
     label: "Marketing AI Agent",
     description: "Next-gen AI for Ad management",
@@ -30,17 +52,16 @@ const SOLUTIONS = [
       </Icon>
     ),
     path: "/ai-assistant",
-    new: true,
   },
   {
-    label: "Launch",
-    description: "Quickly set up multiple ad sets and ads.",
+    label: "API",
+    description: "Integrate Scalemate into your workflow",
     icon: (
-      <Icon style={{ backgroundColor: "#FFFAEB" }}>
-        <IconBoltFilled color="#FEC84B" size={16} />
+      <Icon style={{ backgroundColor: "#F3F0FF" }}>
+        <IconCode color="#7C3AED" size={16} />
       </Icon>
     ),
-    path: "/launch",
+    path: "/docs",
   },
 ]
 
@@ -90,7 +111,7 @@ const USE_CASES = [
 
 const NAV_LINKS = [
   { href: "/customers", label: "Customers" },
-  { href: "/ad-creative-uploader", label: "Free Uploader" },
+  { href: "/pricing", label: "Pricing" },
 ]
 
 const MOBILE_EXTRA_LINKS = [{ href: "/book-a-demo", label: "Book a Demo" }]
@@ -152,13 +173,6 @@ const Header = () => {
                 {label}
               </Link>
             ))}
-            <a
-              href="/docs"
-              className={styles.navLink}
-              onClick={() => trackNavClick("API", "/docs")}
-            >
-              API
-            </a>
           </nav>
         </div>
         <Button
@@ -169,7 +183,7 @@ const Header = () => {
           trackEvent="cta_clicked"
           trackProps={{ cta_location: "header" }}
         >
-          Get started for Free
+          Try for free
         </Button>
 
         <button
@@ -232,16 +246,6 @@ const Header = () => {
                 {label}
               </Link>
             ))}
-            <a
-              href="/docs"
-              className={styles.mobileNavLink}
-              onClick={() => {
-                trackNavClick("API", "/docs")
-                closeMobile()
-              }}
-            >
-              API
-            </a>
             <Button
               outline
               href="/book-a-demo"

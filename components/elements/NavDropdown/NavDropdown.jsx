@@ -7,7 +7,13 @@ import { trackMixpanelEvent } from "@/helpers/analytics/mixpanel"
 import { EVENTS } from "@/helpers/analytics/mixpanel.events"
 import styles from "./NavDropdown.module.scss"
 
-const NavDropdown = ({ label, items = [], inline = false, onLinkClick, darkTheme }) => {
+const NavDropdown = ({
+  label,
+  items = [],
+  inline = false,
+  onLinkClick,
+  darkTheme,
+}) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const handleLinkClick = (item) => {
@@ -50,7 +56,13 @@ const NavDropdown = ({ label, items = [], inline = false, onLinkClick, darkTheme
       >
         {items.map((item) =>
           item.disabled ? (
-            <span key={item.path} className={styles.item} role="menuitem" data-disabled="true" aria-disabled="true">
+            <span
+              key={item.path}
+              className={styles.item}
+              role="menuitem"
+              data-disabled="true"
+              aria-disabled="true"
+            >
               <NavItem item={item} />
             </span>
           ) : (
@@ -63,7 +75,7 @@ const NavDropdown = ({ label, items = [], inline = false, onLinkClick, darkTheme
             >
               <NavItem item={item} />
             </Link>
-          )
+          ),
         )}
       </div>
     </div>
@@ -77,7 +89,7 @@ const NavItem = ({ item }) => (
       <p className={styles.itemLabel}>{item.label}</p>
       <p className={styles.itemDescription}>{item.description}</p>
     </div>
-    {item.new && <div className={styles.new}>New</div>}
+    {item.new && <div className={styles.new}>free</div>}
   </>
 )
 
