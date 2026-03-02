@@ -85,6 +85,10 @@
   margin: 0;
   padding: 0;
 
+  & + & {
+    margin-top: 12px;
+  }
+
   a {
     color: #f97316; // Orange color for links
     font-weight: 500;

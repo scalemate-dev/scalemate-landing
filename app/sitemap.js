@@ -50,17 +50,17 @@ export default async function sitemap() {
       changeFrequency: "monthly",
       priority: 0.75,
     },
-    // {
-    //   url: "https://www.scalemate.co/pricing",
-    //   lastModified: new Date(),
-    //   changeFrequency: "weekly",
-    //   priority: 0.75,
-    // },
+    {
+      url: "https://www.scalemate.co/pricing",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
     {
       url: "https://www.scalemate.co/customers",
       lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: 0.6,
+      priority: 0.8,
     },
     {
       url: "https://www.scalemate.co/ad-creative-uploader",
@@ -76,6 +76,12 @@ export default async function sitemap() {
     },
     {
       url: "https://www.scalemate.co/use-cases/automated-creative-upload-meta",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://www.scalemate.co/use-cases/scale-ad-campaigns-faster",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,

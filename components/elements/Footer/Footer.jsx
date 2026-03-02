@@ -2,6 +2,7 @@
 import Link from "next/link"
 
 import Container from "@/components/elements/Container/Container"
+import TrackedLink from "@/components/elements/TrackedLink/TrackedLink"
 import styles from "./Footer.module.scss"
 import Logo from "@/components/elements/Logo"
 const Footer = () => {
@@ -9,7 +10,11 @@ const Footer = () => {
     <div className={styles.footer}>
       <Container className={styles.container}>
         <div className={styles.footerLeft}>
-          <Link href="/" className={styles.footerLogo} aria-label="Scalemate Home">
+          <Link
+            href="/"
+            className={styles.footerLogo}
+            aria-label="Scalemate Home"
+          >
             <Logo />
           </Link>
           <div className={styles.footerTitle}>
@@ -17,14 +22,15 @@ const Footer = () => {
             <br /> and triple-scale your app
           </div>
           <div className={styles.footerButtons}>
-            <a
+            <TrackedLink
               className={styles.footerButton}
               href="https://www.linkedin.com/company/scalemate"
               target="_blank"
               rel="noopener noreferrer"
+              location="footer"
             >
               LinkedIn
-            </a>
+            </TrackedLink>
           </div>
           <div className={styles.footerColLink} style={{ paddingTop: 16 }}>
             © Scalemate {new Date().getFullYear()}
@@ -33,27 +39,32 @@ const Footer = () => {
         <div className={styles.footerRight}>
           <div className={styles.footerCol}>
             <div className={styles.footerColTitle}>Product</div>
-            {/* <Link className={styles.footerColLink} href="/ai-assistant">
-              Marketing AI Agent
-            </Link> */}
-            <Link className={styles.footerColLink} href="/launch">
-              Launch
-            </Link>
+
             <Link className={styles.footerColLink} href="/ad-creative-uploader">
               Free Ad Creative Uploader
             </Link>
-            <a className={styles.footerColLink} href="/docs">
-              API documentation
-            </a>
+            <Link className={styles.footerColLink} href="/launch">
+              Launch
+            </Link>
+            <Link className={styles.footerColLink} href="/ai-assistant">
+              Marketing AI Agent
+            </Link>
             <Link className={styles.footerColLink} href="/customers">
               Customers
             </Link>
-            <Link
-              className={styles.footerColLink}
-              href="/book-a-demo?plan=custom"
-            >
+            <Link className={styles.footerColLink} href="/pricing">
+              Pricing
+            </Link>
+            <Link className={styles.footerColLink} href="/book-a-demo">
               Book a Demo
             </Link>
+            <TrackedLink
+              className={styles.footerColLink}
+              href="/docs"
+              location="footer"
+            >
+              API documentation
+            </TrackedLink>
           </div>
           <div className={styles.footerCol}>
             <div className={styles.footerColTitle}>Use Cases</div>
@@ -68,6 +79,12 @@ const Footer = () => {
               href="/use-cases/automated-creative-upload-meta"
             >
               Automate Creative Uploads
+            </Link>
+            <Link
+              className={styles.footerColLink}
+              href="/use-cases/scale-ad-campaigns-faster"
+            >
+              Scale Ad Campaigns Faster
             </Link>
           </div>
           <div className={styles.footerCol}>

@@ -27,9 +27,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -48,7 +46,6 @@ export default function RootLayout({ children }) {
           href="/favicon-16x16.png"
         />
         <link rel="manifest" href="/site.webmanifest" />
-        <MixpanelProvider />
         <meta
           name="facebook-domain-verification"
           content="xen4h4jqm1szk6rn5dl14g5eeqhg1o"
@@ -59,6 +56,7 @@ export default function RootLayout({ children }) {
       )}
 
       <body className={`${inter.variable} ${poppins.variable}`}>
+        <MixpanelProvider />
         <Header />
         <main className={styles.main}>{children}</main>
         <footer className={styles.fixed}>

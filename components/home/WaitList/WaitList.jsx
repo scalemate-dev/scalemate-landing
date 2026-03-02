@@ -10,7 +10,7 @@ const WaitList = ({
   theme,
   href,
   title = "Deal with Ad Launches <span>260% faster</span>",
-  subtitle = "1-month free trial | Dedicated onboarding | Custom integrations",
+  subtitle = "",
   buttonText = "Book a demo",
   onClick = () => {},
 }) => {
@@ -27,14 +27,28 @@ const WaitList = ({
             dangerouslySetInnerHTML={{ __html: subtitle }}
           />
           {!noButton && (
-            <Button
-              color="accent"
-              href={href}
-              className={styles.waitListSubmit}
-              onClick={onClick}
-            >
-              {buttonText}
-            </Button>
+            <div className={styles.waitListButtons}>
+              <Button
+                color="accent"
+                href={href}
+                className={styles.waitListSubmit}
+                onClick={onClick}
+                trackEvent="cta_clicked"
+                trackProps={{ cta_location: "waitlist_section" }}
+              >
+                {buttonText}
+              </Button>
+              <Button
+                outline
+                darkTheme={theme === "dark"}
+                href="https://app.scalemate.co"
+                className={styles.waitListSubmit}
+                trackEvent="cta_clicked"
+                trackProps={{ cta_location: "waitlist_section" }}
+              >
+                Start for free
+              </Button>
+            </div>
           )}
         </Container>
       </div>

@@ -17,6 +17,7 @@ export const metadata = {
     canonical: "https://www.scalemate.co/ad-creative-uploader",
   },
   openGraph: {
+    url: "https://www.scalemate.co/ad-creative-uploader",
     title: "Free Ad Creative Uploader — Google Drive to Meta & TikTok Ads",
     description:
       "Free ad creative upload tool. Upload creatives from Google Drive directly to Meta Ads and TikTok Ads. Bulk upload to multiple ad accounts — no downloads needed.",

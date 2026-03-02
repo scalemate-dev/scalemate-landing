@@ -11,6 +11,8 @@ import { useUploadProgress } from "@/hooks/useUploadProgress"
 import UploadProgress from "../UploadProgress/UploadProgress"
 import UploadComplete from "../UploadComplete/UploadComplete"
 import FormView from "./FormView"
+import { trackMixpanelEvent } from "@/helpers/analytics/mixpanel"
+import { EVENTS } from "@/helpers/analytics/mixpanel.events"
 import styles from "./UploaderWidget.module.scss"
 
 const VIEWS = {
@@ -40,6 +42,12 @@ const UploaderWidget = () => {
     connect: connectTikTok,
   } = useTikTokAuth()
 
+  const handleFilesSelected = (files) => {
+    trackMixpanelEvent(EVENTS.UPLOADER_FILES_SELECTED, {
+      file_count: files.length,
+    })
+  }
+
   const {
     openPicker,
     selectedFiles: pickerFiles,
@@ -49,7 +57,7 @@ const UploaderWidget = () => {
     error: googleError,
     accessToken: googleToken,
     getFilesForApi,
-  } = useGooglePicker()
+  } = useGooglePicker({ onFilesSelected: handleFilesSelected })
 
   const {
     createSession,
@@ -78,10 +86,19 @@ const UploaderWidget = () => {
   useEffect(() => {
     if (view === VIEWS.PROGRESS && upload.isTerminal) {
       setView(VIEWS.COMPLETE)
+      trackMixpanelEvent(EVENTS.UPLOADER_UPLOAD_COMPLETED, {
+        total_files: upload.totalFiles,
+        successful: upload.completedFiles,
+        failed: upload.failedFiles,
+        platform: connectedPlatform,
+      })
     }
   }, [view, upload.isTerminal])
 
   const handleFacebookConnect = async () => {
+    trackMixpanelEvent(EVENTS.UPLOADER_PLATFORM_CONNECT_STARTED, {
+      platform: "facebook",
+    })
     try {
       const { token, userId } = await connectFacebook()
       await createSession({
@@ -89,20 +106,37 @@ const UploaderWidget = () => {
         platformToken: token,
         platformUserId: userId,
       })
+      trackMixpanelEvent(EVENTS.UPLOADER_PLATFORM_CONNECTED, {
+        platform: "facebook",
+      })
     } catch (err) {
       console.error("Facebook connect error:", err)
+      trackMixpanelEvent(EVENTS.UPLOADER_ERROR_OCCURRED, {
+        error_type: "platform_connect",
+        platform: "facebook",
+      })
     }
   }
 
   const handleTikTokConnect = async () => {
+    trackMixpanelEvent(EVENTS.UPLOADER_PLATFORM_CONNECT_STARTED, {
+      platform: "tiktok",
+    })
     try {
       const { auth_code } = await connectTikTok()
       await createSession({
         platformType: "tiktok",
         platformToken: auth_code,
       })
+      trackMixpanelEvent(EVENTS.UPLOADER_PLATFORM_CONNECTED, {
+        platform: "tiktok",
+      })
     } catch (err) {
       console.error("TikTok connect error:", err)
+      trackMixpanelEvent(EVENTS.UPLOADER_ERROR_OCCURRED, {
+        error_type: "platform_connect",
+        platform: "tiktok",
+      })
     }
   }
 
@@ -114,7 +148,18 @@ const UploaderWidget = () => {
     clearSession()
   }
 
+  const handleSelectAccount = (accountId) => {
+    selectAccount(accountId)
+    trackMixpanelEvent(EVENTS.UPLOADER_ACCOUNT_SELECTED, {
+      platform: connectedPlatform,
+    })
+  }
+
   const handleUpload = async () => {
+    trackMixpanelEvent(EVENTS.UPLOADER_UPLOAD_STARTED, {
+      file_count: pickerFiles.length,
+      platform: connectedPlatform,
+    })
     try {
       if (pickerFiles.length > 0) {
         await updateFiles({ googleToken, files: getFilesForApi() })
@@ -123,6 +168,10 @@ const UploaderWidget = () => {
       setView(VIEWS.PROGRESS)
     } catch (err) {
       console.error("Upload error:", err)
+      trackMixpanelEvent(EVENTS.UPLOADER_ERROR_OCCURRED, {
+        error_type: "upload",
+        error_message: err?.message,
+      })
     }
   }
 
@@ -181,7 +230,7 @@ const UploaderWidget = () => {
         isConnected={isConnected}
         connectedPlatform={connectedPlatform}
         adAccounts={adAccounts}
-        selectAccount={selectAccount}
+        selectAccount={handleSelectAccount}
         onDisconnect={handleDisconnect}
         onTikTokConnect={handleTikTokConnect}
         onFacebookConnect={handleFacebookConnect}

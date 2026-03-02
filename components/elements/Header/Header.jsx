@@ -15,10 +15,34 @@ import {
   IconCloudUpload,
   IconTrendingUp,
   IconSettingsAutomation,
+  IconCode,
 } from "@tabler/icons-react"
 import { usePathname } from "next/navigation"
+import { trackMixpanelEvent } from "@/helpers/analytics/mixpanel"
+import { EVENTS } from "@/helpers/analytics/mixpanel.events"
 
 const SOLUTIONS = [
+  {
+    label: "Ad Creative Uploader",
+    description: "Upload ad creatives from Google Drive to Meta and Tiktok",
+    icon: (
+      <Icon style={{ backgroundColor: "#E6FCF5" }}>
+        <IconCloudUpload color="#12B886" size={16} />
+      </Icon>
+    ),
+    path: "/ad-creative-uploader",
+    new: true,
+  },
+  {
+    label: "Launch",
+    description: "Quickly set up and launch multiple ads.",
+    icon: (
+      <Icon style={{ backgroundColor: "#FFFAEB" }}>
+        <IconBoltFilled color="#FEC84B" size={16} />
+      </Icon>
+    ),
+    path: "/launch",
+  },
   {
     label: "Marketing AI Agent",
     description: "Next-gen AI for Ad management",
@@ -28,17 +52,16 @@ const SOLUTIONS = [
       </Icon>
     ),
     path: "/ai-assistant",
-    new: true,
   },
   {
-    label: "Launch",
-    description: "Quickly set up multiple ad sets and ads.",
+    label: "API",
+    description: "Integrate Scalemate into your workflow",
     icon: (
-      <Icon style={{ backgroundColor: "#FFFAEB" }}>
-        <IconBoltFilled color="#FEC84B" size={16} />
+      <Icon style={{ backgroundColor: "#F3F0FF" }}>
+        <IconCode color="#7C3AED" size={16} />
       </Icon>
     ),
-    path: "/launch",
+    path: "/docs",
   },
 ]
 
@@ -63,17 +86,6 @@ const USE_CASES = [
     ),
     path: "/use-cases/automated-creative-upload-meta",
   },
-  // {
-  //   label: "Scale Campaigns Without Hiring",
-  //   description: "Grow your ad operations without extra headcount",
-  //   icon: (
-  //     <Icon style={{ backgroundColor: "#EDF2FF" }}>
-  //       <IconTrendingUp color="#4C6EF5" size={16} />
-  //     </Icon>
-  //   ),
-  //   path: "/use-cases/scale-ad-campaigns-faster",
-  //   disabled: true,
-  // },
   {
     label: "Campaign Automation Rules",
     description: "Create rules to automate your ad management",
@@ -84,16 +96,24 @@ const USE_CASES = [
     ),
     path: "/use-cases/ad-campaign-automation-rules",
   },
+  {
+    label: "Scale Campaigns Faster",
+    description: "Scale winning ads before they burn out",
+    icon: (
+      <Icon style={{ backgroundColor: "#EDF2FF" }}>
+        <IconTrendingUp color="#4C6EF5" size={16} />
+      </Icon>
+    ),
+    path: "/use-cases/scale-ad-campaigns-faster",
+  },
 ]
 
 const NAV_LINKS = [
   { href: "/customers", label: "Customers" },
-  { href: "/ad-creative-uploader", label: "Free Uploader" },
+  { href: "/pricing", label: "Pricing" },
 ]
 
-const MOBILE_EXTRA_LINKS = [
-  { href: "/book-a-demo?plan=custom", label: "Book a Demo" },
-]
+const MOBILE_EXTRA_LINKS = [{ href: "/book-a-demo", label: "Book a Demo" }]
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -101,6 +121,13 @@ const Header = () => {
   const darkTheme = pathname.includes("assistant")
 
   const closeMobile = () => setMobileMenuOpen(false)
+
+  const trackNavClick = (label, path) => {
+    trackMixpanelEvent(EVENTS.NAV_ITEM_CLICKED, {
+      nav_label: label,
+      nav_path: path,
+    })
+  }
 
   useEffect(() => {
     if (mobileMenuOpen) {
@@ -136,13 +163,15 @@ const Header = () => {
               darkTheme={darkTheme}
             />
             {NAV_LINKS.map(({ href, label }) => (
-              <Link key={href} href={href} className={styles.navLink}>
+              <Link
+                key={href}
+                href={href}
+                className={styles.navLink}
+                onClick={() => trackNavClick(label, href)}
+              >
                 {label}
               </Link>
             ))}
-            <a href="/docs" className={styles.navLink}>
-              API
-            </a>
           </nav>
         </div>
         <Button
@@ -150,8 +179,10 @@ const Header = () => {
           href="https://app.scalemate.co/create-account"
           className={styles.desktopButton}
           darkTheme={darkTheme}
+          trackEvent="cta_clicked"
+          trackProps={{ cta_location: "header" }}
         >
-          Try it Now
+          Try for free
         </Button>
 
         <button
@@ -206,18 +237,14 @@ const Header = () => {
                 key={href}
                 href={href}
                 className={styles.mobileNavLink}
-                onClick={closeMobile}
+                onClick={() => {
+                  trackNavClick(label, href)
+                  closeMobile()
+                }}
               >
                 {label}
               </Link>
             ))}
-            <a
-              href="/docs"
-              className={styles.mobileNavLink}
-              onClick={closeMobile}
-            >
-              API
-            </a>
             <Button
               outline
               href="/book-a-demo"

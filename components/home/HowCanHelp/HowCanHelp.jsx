@@ -2,6 +2,8 @@
 import Container from "@/components/elements/Container/Container"
 
 import { useState } from "react"
+import { trackMixpanelEvent } from "@/helpers/analytics/mixpanel"
+import { EVENTS } from "@/helpers/analytics/mixpanel.events"
 import Image from "next/image"
 import styles from "./HowCanHelp.module.scss"
 import clockIcon from "@/assets/icons/help/clock.svg"
@@ -142,7 +144,12 @@ const HowCanHelp = () => {
                 className={`${styles.helpNavigationItem} ${
                   active === item.id ? styles.active : ""
                 }`}
-                onClick={() => setActive(item.id)}
+                onClick={() => {
+                  setActive(item.id)
+                  trackMixpanelEvent(EVENTS.ROLE_TAB_SELECTED, {
+                    role: item.position,
+                  })
+                }}
               >
                 {item.position}
               </h3>

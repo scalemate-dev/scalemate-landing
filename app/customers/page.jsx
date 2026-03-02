@@ -56,7 +56,7 @@ export default async function CaseStudies() {
           ))}
         </div>
       </Container>
-      <WaitList />
+      <WaitList href="/book-a-demo" />
     </div>
   )
 }
@@ -92,6 +92,8 @@ function CaseStudyCard({ caseStudy }) {
           color="accent"
           href={`/customers/${slug}`}
           className={styles.button}
+          trackEvent="case_study_card_clicked"
+          trackProps={{ case_study: clientName, slug }}
         >
           Read full story
         </Button>

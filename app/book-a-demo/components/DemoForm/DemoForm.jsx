@@ -3,7 +3,7 @@
 import { validateEmail } from "@/helpers/emails"
 import WaitList from "@/components/home/WaitList/WaitList"
 
-import { useState, Suspense } from "react"
+import { useState, useEffect, useRef, Suspense } from "react"
 import Image from "next/image"
 import Input from "@/components/elements/Input/Input"
 import Select from "@/components/elements/Select/Select"
@@ -12,14 +12,15 @@ import styles from "./DemoForm.module.scss"
 import demoLinearBackground from "@/assets/icons/demo-linear-background.svg"
 import demoLinearBackground2 from "@/assets/icons/demo-linear-background-2.svg"
 import { trackDemoFormSubmit } from "@/helpers/trackGTM"
-import { useSearchParams } from "next/navigation"
+import { trackMixpanelEvent } from "@/helpers/analytics/mixpanel"
+import { EVENTS } from "@/helpers/analytics/mixpanel.events"
+// import { useSearchParams } from "next/navigation"
 
 // Separate component for search params handling
 const DemoFormWithParams = () => {
-  const searchParams = useSearchParams()
-  const plan = searchParams.get("plan")
+  // const searchParams = useSearchParams()
+  // const plan = searchParams.get("plan")
 
-  console.log(plan)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -32,6 +33,13 @@ const DemoFormWithParams = () => {
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const [formSent, setFormSent] = useState(false)
+  const hasStarted = useRef(false)
+
+  useEffect(() => {
+    trackMixpanelEvent(EVENTS.DEMO_FORM_VIEWED, {
+      page_name: "Book a Demo",
+    })
+  }, [])
 
   const jobPositionOptions = [
     "C-level",
@@ -56,23 +64,32 @@ const DemoFormWithParams = () => {
       setLoading(true)
 
       await validateEmail(formData.email)
-      if (plan !== "custom") {
-        redirectToSignup(formData.email, formData.name)
-      }
-
-      sendForm(formData)
+      await sendForm(formData)
       setFormSent(true)
+
+      trackMixpanelEvent(EVENTS.DEMO_FORM_SUBMITTED, {
+        job_position: formData.jobPosition || "not_provided",
+        monthly_budget: formData.monthlyBudget || "not_provided",
+        has_message: !!formData.message,
+      })
+
+      // if (plan !== "custom") {
+      //   redirectToSignup(formData.email, formData.name)
+      // }
     } catch (error) {
       setError(error.message)
+      trackMixpanelEvent(EVENTS.DEMO_FORM_ERRORED, {
+        error_message: error.message,
+      })
     } finally {
       setLoading(false)
     }
   }
 
-  const redirectToSignup = (email, name) => {
-    const [firstName = "", lastName = ""] = name.split(" ")
-    window.location.href = `https://app.scalemate.co/create-account?email=${email}&firstName=${firstName}&lastName=${lastName}`
-  }
+  // const redirectToSignup = (email, name) => {
+  //   const [firstName = "", lastName = ""] = name.split(" ")
+  //   window.location.href = `https://app.scalemate.co/create-account?email=${email}&firstName=${firstName}&lastName=${lastName}`
+  // }
 
   const sendForm = async (data) => {
     await fetch("https://submit-form.com/S3mkBrhnv", {
@@ -92,6 +109,13 @@ const DemoFormWithParams = () => {
       ...prev,
       [field]: value,
     }))
+
+    if (!hasStarted.current) {
+      hasStarted.current = true
+      trackMixpanelEvent(EVENTS.DEMO_FORM_STARTED, {
+        first_field: field,
+      })
+    }
   }
 
   return (
@@ -110,7 +134,7 @@ const DemoFormWithParams = () => {
           label="Name"
           name="name"
           type="text"
-          placeholder="Enter youe name"
+          placeholder="Enter your name"
           value={formData.name}
           onChange={handleChange("name")}
         />
@@ -144,7 +168,7 @@ const DemoFormWithParams = () => {
           label="Monthly ad budget"
           value={formData.monthlyBudget}
           onChange={handleChange("monthlyBudget")}
-          placeholder="Your avarage ad spend"
+          placeholder="Your average ad spend"
           options={monthlyBudgetOptions}
         />
         <Input
@@ -163,7 +187,7 @@ const DemoFormWithParams = () => {
           loading={loading}
           disabled={formSent}
         >
-          {formSent ? "Done 👍" : "Try for free 🚀"}
+          {formSent ? "Done 👍" : "Book a Demo"}
         </Button>
         <p className={styles.error}>{error}</p>
       </form>

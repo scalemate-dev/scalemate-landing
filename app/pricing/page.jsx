@@ -1,245 +1,101 @@
-"use client"
+import Script from "next/script"
 import Container from "@/components/elements/Container/Container"
-import WaitList from "@/components/home/WaitList/WaitList"
-import PricingCard from "@/components/elements/PricingCard/PricingCard"
-
-import { useState, useEffect } from "react"
-import { redirect } from "next/navigation"
-
-import cn from "classnames"
 import FAQ from "@/components/FAQ/FAQ"
+import PricingContent from "./PricingContent"
+import CtaSection from "./CtaSection"
 import styles from "./page.module.scss"
 
+export const metadata = {
+  title: "Free Ad Automation Tool for Meta & TikTok – Scalemate Pricing",
+  description:
+    "Automate Meta and TikTok ad campaigns for free – 1 ad account, 2 rules, 100 launches/month, unlimited creative uploads. No credit card. Custom plans with API access and dedicated support for teams at scale.",
+  alternates: {
+    canonical: "https://www.scalemate.co/pricing",
+  },
+  openGraph: {
+    title: "Free Ad Automation for Meta & TikTok – Scalemate Pricing",
+    description:
+      "Automate Meta and TikTok ad campaigns for free – 1 ad account, 2 rules, 100 launches/month, unlimited creative uploads. No credit card. Custom plans with API access and dedicated support for teams at scale.",
+    url: "https://www.scalemate.co/pricing",
+    type: "website",
+    images: [{ url: "/og-pricing.png" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free Ad Automation for Meta & TikTok – Scalemate Pricing",
+    description:
+      "Automate Meta and TikTok ad campaigns for free – 1 ad account, 2 rules, 100 launches/month, unlimited creative uploads. No credit card. Custom plans with API access and dedicated support for teams at scale.",
+    images: ["/og-pricing.png"],
+  },
+}
+
+const FAQ_ITEMS = [
+  {
+    question: "Is the Free plan really free – no credit card, no catch?",
+    answer:
+      "Yes. 1 ad account, 2 active rules, 100 ad launches per month, 50 AI messages, and unlimited uploads – $0/month, no credit card required. There's no trial period counting down and no features that quietly disappear after 14 days.\n\nYou keep access for as long as you need it. If you outgrow the free tier, upgrading is straightforward – but we won't nudge you toward it until it actually makes sense for your volume.",
+  },
+  {
+    question: "Which ad platforms does Scalemate support?",
+    answer:
+      "Scalemate currently supports Meta (Facebook and Instagram) and TikTok. From one dashboard, you can bulk-launch ads, upload creatives, and automate campaign operations across both platforms simultaneously.\n\nThis means you're not toggling between Ads Manager and TikTok Ads Manager to run the same workflow twice. Additional platform support is on the roadmap – book a demo if you want to discuss specific requirements.",
+  },
+  {
+    question:
+      "What can I actually do with 100 ad launches and 2 rules per month?",
+    answer:
+      "Quite a lot for a single account. 100 launches lets you bulk-deploy new creative sets, test multiple audiences, and rotate winners on a weekly cadence without touching Ads Manager manually each time.\n\nTwo active rules cover your highest-leverage automations – pausing underperformers below a ROAS threshold, scaling top ads when they hit targets, or controlling spend during off-peak hours. For most single-account performance teams, this is enough to run a structured testing operation without any of the repetitive manual work.",
+  },
+  {
+    question: "When does it make sense to move to a Custom plan?",
+    answer:
+      "The Free plan works well for a focused single-account operation. Once you're managing multiple ad accounts, consistently hitting the 100-launch ceiling, or need more than two automation rules running in parallel, a Custom plan removes those constraints entirely.\n\nCustom plans also include API access for teams that want to integrate Scalemate into existing workflows, priority feature requests, and dedicated support – which matters when ad operations are a core part of how your business scales. Most teams make the switch when manual workarounds start costing more time than the upgrade is worth.",
+  },
+  {
+    question: "How much time does Scalemate actually save?",
+    answer:
+      "Based on data from active users, teams see 260% faster campaign launches, 7x faster creative uploads, and 35+ hours saved per month on average. The difference comes from eliminating the per-ad setup process: instead of configuring each ad individually in Ads Manager, you set parameters once and deploy across hundreds of ad sets in a single action.\n\nAutomation rules remove another layer of daily monitoring – you're not logging in to pause spend on poor performers or manually scale what's working. The cumulative effect is that your team spends less time on ad operations and more time on decisions that actually require judgment.",
+  },
+  {
+    question: "Is my ad account data safe?",
+    answer:
+      "Scalemate connects to Meta and TikTok through their official APIs using only the permissions you explicitly grant. All data is anonymized before processing and is never sold or shared with third parties.\n\nYou remain in control: permissions can be revoked at any time through your connected platforms, and you can request full data deletion if you close your account. If you have specific security or compliance requirements, raise them during your demo and we'll walk through how Scalemate handles them.",
+  },
+  {
+    question: "How do I get started with a Custom plan?",
+    answer:
+      "Book a demo and we'll start with a review of your current ad operations – volume, platforms, team structure, and where the biggest time costs are. From there, we'll recommend a setup that fits your workflow rather than asking you to adapt to ours.\n\nMost teams are live within a week of that first call. If you have existing processes or integrations you need to preserve, we account for those from the start.",
+  },
+]
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ_ITEMS.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+}
+
 export default function PricingPage() {
-  // Redirect to home page - pricing page is temporarily disabled
-  redirect("/")
-
-  // Rest of the component code is preserved but unreachable
-  const [billingCycle, setBillingCycle] = useState("month") // "month", "quarter", or "year"
-  const [plansData, setPlansData] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [allPlans, setAllPlans] = useState([])
-
-  useEffect(() => {
-    async function fetchPlans() {
-      try {
-        const response = await fetch("/api/plans")
-        const data = await response.json()
-        console.log("API Response:", data)
-        setPlansData(data.plans || [])
-        setLoading(false)
-      } catch (error) {
-        console.error("Error fetching plans:", error)
-        setLoading(false)
-      }
-    }
-
-    fetchPlans()
-  }, [])
-
-  // Helper function to get price for selected billing cycle
-  function getPriceForCycle(prices, cycle) {
-    if (!prices || !prices.length) return null
-
-    // Use object mapping instead of multi-ternary
-    const cycleConditions = {
-      month: (p) =>
-        p.recurring.interval === "month" && p.recurring.interval_count === 1,
-      quarter: (p) =>
-        p.recurring.interval === "month" && p.recurring.interval_count === 3,
-      year: (p) =>
-        p.recurring.interval === "year" && p.recurring.interval_count === 1,
-    }
-
-    const condition = cycleConditions[cycle]
-    return condition ? prices.find(condition) : prices[0]
-  }
-
-  // Helper function to format price from cents to dollars
-  function formatPrice(amount) {
-    if (!amount) return "N/A"
-    return (amount / 100).toFixed(0)
-  }
-
-  // Helper function to calculate monthly price
-  function calculateMonthlyPrice(price) {
-    if (!price) return "N/A"
-
-    // Use object mapping instead of if-else chain
-    const calculations = {
-      month: () => price.unit_amount / price.recurring.interval_count,
-      year: () => price.unit_amount / 12,
-    }
-
-    const calculate =
-      calculations[price.recurring.interval] || (() => price.unit_amount)
-    const currency = price.currency == "usd" ? "$" : "€"
-    return `${currency}${formatPrice(calculate())}`
-  }
-
-  // Combine API plans with static plans
-  useEffect(() => {
-    if (loading) return
-
-    // Create dynamic plans from API data
-    const apiPlans = plansData.map((plan) => {
-      const price = getPriceForCycle(plan.prices, billingCycle)
-      return {
-        id: plan.id,
-        name: plan.name,
-        price: calculateMonthlyPrice(price),
-        description: plan.description,
-        cta: "Try for free",
-        ctaLink: "/book-a-demo",
-        popular: true, // We can set this based on some logic if needed
-        features: [
-          "Unlimited ad account spend",
-          `Up to ${plan.metadata?.ad_account_limit || "unlimited"} ad accounts`,
-          `${plan.metadata?.requests_limit || "unlimited"} requests per month`,
-          "Campaign management",
-          "Custom reports",
-          "Recommendations",
-          "Premium support",
-        ],
-        priceData: price,
-        isStatic: false,
-      }
-    })
-
-    // Define static free plan
-    const freePlan = {
-      id: "free",
-      name: "Trial",
-      price: "Free",
-      description:
-        "Get started with the basics. Perfect for individuals and small projects.",
-      cta: "Try for free",
-      ctaLink: "/book-a-demo",
-      popular: false,
-      features: [
-        "1 ad account",
-        "10 requests",
-        "Basic analytics",
-        "Email support",
-      ],
-      isStatic: true,
-      isFree: true,
-    }
-
-    // Define static custom plan
-    const customPlan = {
-      id: "custom",
-      name: "Custom",
-      price: "Let's chat",
-      description:
-        "Designed for large marketing teams seeking tailored solutions, help with onboarding and account setup, and premium support.",
-      cta: "Let's chat",
-      ctaLink: "/book-a-demo?plan=custom",
-      popular: false,
-      features: [
-        "Onboarding help",
-        "Tech setup help",
-        "Premium support",
-        "Custom integrations",
-      ],
-      isStatic: true,
-      isCustom: true,
-    }
-
-    // Combine all plans with API plans in the middle
-    setAllPlans([freePlan, ...apiPlans, customPlan])
-  }, [plansData, billingCycle, loading])
-
   return (
-    <div className={styles.pricingPage}>
-      <section className={styles.hero}>
+    <div className={styles.main}>
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <PricingContent />
+      <section className={styles.faq}>
         <Container>
-          <h1 className={styles.title}>
-            Transparent pricing for every marketing team
-          </h1>
-
-          <div className={styles.pricingToggle}>
-            <span
-              className={cn(styles.toggleOption, {
-                [styles.active]: billingCycle === "month",
-              })}
-              onClick={() => setBillingCycle("month")}
-            >
-              Monthly
-            </span>
-            <span
-              className={cn(styles.toggleOption, {
-                [styles.active]: billingCycle === "quarter",
-              })}
-              onClick={() => setBillingCycle("quarter")}
-            >
-              Quarterly
-            </span>
-            <span
-              className={cn(styles.toggleOption, {
-                [styles.active]: billingCycle === "year",
-              })}
-              onClick={() => setBillingCycle("year")}
-            >
-              Yearly <span className={styles.discount}>2 months free</span>
-            </span>
-          </div>
+          <FAQ faqItems={FAQ_ITEMS} title="FAQ" theme="light" multiOpen />
         </Container>
       </section>
-
-      <section className={styles.pricingTiers}>
-        <Container>
-          <div className={styles.tiersGrid}>
-            {allPlans.length === 0 &&
-              Array(3)
-                .fill(0)
-                .map((_, index) => <PricingCard loading key={index} />)}
-            {allPlans.map((plan) => (
-              <PricingCard
-                key={plan.id}
-                id={plan.id}
-                name={plan.name}
-                price={plan.price}
-                description={plan.description}
-                cta={plan.cta}
-                ctaLink={plan.ctaLink}
-                popular={plan.popular}
-                features={plan.features}
-                isFree={plan.isFree}
-                isCustom={plan.isCustom}
-                billingCycle={billingCycle}
-              />
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* <section className={styles.testimonial}>
-        <Container>
-          <p className={styles.testimonialIntro}>
-            15,000+ clients trust our platform.{" "}
-            <Link href="/customers">Meet our customers →</Link>
-          </p>
-          <blockquote className={styles.quote}>
-            <p>
-              I had to work 8 hours a day on one ad account. With this platform,
-              I only need one or two hours. I just need to work on creatives,
-              because everything else is automated.
-            </p>
-            <footer>
-              <cite>Alessandro Gargiulo, Meta Ads Consultant</cite>
-            </footer>
-          </blockquote>
-        </Container>
-      </section> */}
-
-      <section className={styles.faqSection}>
-        <Container>
-          <FAQ theme="light" />
-        </Container>
-      </section>
-
-      <WaitList />
+      <CtaSection />
     </div>
   )
 }
