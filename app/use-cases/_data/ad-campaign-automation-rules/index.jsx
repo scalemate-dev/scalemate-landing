@@ -7,16 +7,16 @@ import {
 export const data = {
   metadata: {
     title:
-      "Ad Campaign Automation Rules – Stop Babysitting, Start Scaling | Scalemate",
+      "Ad Campaign Automation Rules – Auto-Pause & Scale | Scalemate",
     description:
-      "Ad campaign automation rules replace manual optimization with logic that runs 24/7 – auto-pause ads by ROAS, scale winners automatically, and protect budgets around the clock.",
+      "Ad campaign automation rules replace manual optimization with logic that runs 24/7. Auto-pause ads by ROAS, scale winners, and protect budgets automatically.",
     alternates: {
       canonical:
         "https://www.scalemate.co/use-cases/ad-campaign-automation-rules",
     },
     openGraph: {
       title:
-        "Ad Campaign Automation Rules – Stop Babysitting, Start Scaling | Scalemate",
+        "Ad Campaign Automation Rules – Auto-Pause & Scale | Scalemate",
       description:
         "Auto-pause ads by ROAS, scale winners automatically, and protect budgets 24/7 with ad campaign automation rules built for high-volume teams.",
       url: "https://www.scalemate.co/use-cases/ad-campaign-automation-rules",
@@ -25,7 +25,7 @@ export const data = {
     twitter: {
       card: "summary_large_image",
       title:
-        "Ad Campaign Automation Rules – Stop Babysitting, Start Scaling | Scalemate",
+        "Ad Campaign Automation Rules – Auto-Pause & Scale | Scalemate",
       description:
         "Replace manual optimization with automation rules that pause losers, scale winners, and protect budgets around the clock.",
     },
@@ -50,13 +50,8 @@ export const data = {
     label: "The Problem",
     title: "Why Manual Campaign Optimization",
     titleAccent: "Costs More Than You Think",
-    subtitle: (
-      <>
-        Three patterns drain budget and time, the reason teams look for{" "}
-        <a href="/solutions/media-buyers">tools for media buyers automation</a>:
-        repetitive monitoring, overnight risk, and delayed scaling.
-      </>
-    ),
+    subtitle:
+      "Three patterns drain budget and time for media buyers running campaigns at scale: repetitive monitoring, overnight risk, and delayed scaling.",
     problems: [
       {
         title:
@@ -154,13 +149,8 @@ export const data = {
     eyebrow: "Proven Results",
     title: "Results Teams Get With",
     titleAccent: "Ad Campaign Automation Rules",
-    subtitle: (
-      <>
-        Across Scalemate users, from{" "}
-        <a href="/solutions/mobile-apps">mobile apps</a> studios to e-commerce
-        teams, the pattern is consistent:
-      </>
-    ),
+    subtitle:
+      "Across Scalemate users, from mobile apps studios to e-commerce teams, the pattern is consistent:",
     caseStudies: [
       {
         company: "Scalemate Platform",

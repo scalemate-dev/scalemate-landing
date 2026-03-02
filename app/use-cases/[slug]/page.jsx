@@ -12,6 +12,7 @@ const OG_DEFAULTS = {
 
 const OG_IMAGES = {
   "bulk-ad-launch": "/og-bulk-ad-launch.png",
+  "ad-campaign-automation-rules": "/og-automated-rules.png",
 }
 
 export async function generateMetadata({ params }) {
