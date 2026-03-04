@@ -13,29 +13,27 @@ import styles from "./page.module.scss"
 
 export const metadata = {
   title:
-    "Automated Ad Optimization Rules — 24/7 Campaign Protection | Scalemate",
+    "Automated Ad Optimization Rules – 24/7 Campaign Protection | Scalemate",
   description:
-    "Set conditions on ROAS, CPI, or any metric. Scalemate's automation rules pause, scale, and adjust bids 24/7 across Meta Ads, with built-in rollback.",
+    "Set conditions on ROAS, CPI, or any metric. Scalemate's automation rules pause, scale, and adjust bids 24/7 across Meta Ads, with built-in budget safeguards.",
   alternates: {
     canonical: "https://www.scalemate.co/features/automation-rules",
   },
   openGraph: {
     url: "https://www.scalemate.co/features/automation-rules",
     title:
-      "Automated Ad Optimization Rules — 24/7 Campaign Protection | Scalemate",
+      "Automated Ad Optimization Rules – 24/7 Campaign Protection | Scalemate",
     description:
-      "Set conditions on ROAS, CPI, or any metric. Scalemate's automation rules pause, scale, and adjust bids 24/7 across Meta Ads, with built-in rollback.",
+      "Set conditions on ROAS, CPI, or any metric. Scalemate's automation rules pause, scale, and adjust bids 24/7 across Meta Ads, with built-in budget safeguards.",
     type: "website",
-    images: [
-      { url: "/og-automation-rules.png", width: 1200, height: 630 },
-    ],
+    images: [{ url: "/og-automation-rules.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "Automated Ad Optimization Rules — 24/7 Campaign Protection | Scalemate",
+      "Automated Ad Optimization Rules – 24/7 Campaign Protection | Scalemate",
     description:
-      "Set conditions on ROAS, CPI, or any metric. Scalemate's automation rules pause, scale, and adjust bids 24/7 across Meta Ads, with built-in rollback.",
+      "Set conditions on ROAS, CPI, or any metric. Scalemate's automation rules pause, scale, and adjust bids 24/7 across Meta Ads, with built-in budget safeguards.",
     images: ["/og-automation-rules.png"],
   },
 }
@@ -47,10 +45,9 @@ const faqItems = [
       "Conditional triggers that execute actions when performance metrics cross set thresholds: pause, scale, adjust bids, or alert. Rules run continuously, nights, weekends, holidays, replacing the manual check-and-react cycle. Each rule is configurable per campaign or account: threshold, time window, and action type adjust to the team's targets and risk tolerance.",
   },
   {
-    question:
-      "How do Scalemate's rules differ from Meta's built-in rules?",
+    question: "How do Scalemate's rules differ from Meta's built-in rules?",
     answer:
-      "Meta's native rules handle basic conditions within one platform: no rollback, no scaling logic, no advanced automation. Scalemate adds automated scaling with rollback, budget safeguards, and Slack/email alerts. Teams that automate facebook ads rules beyond basic pause-on-threshold see the difference at scale.",
+      "Meta's native rules handle basic conditions within one platform: no budget safeguards, no scaling logic, no advanced automation. Scalemate adds automated scaling with auto-cut rules, budget protection, and Slack/email alerts. Teams that automate facebook ads rules beyond basic pause-on-threshold see the difference at scale.",
   },
   {
     question: "Can rules auto-pause ads based on ROAS?",
@@ -58,13 +55,12 @@ const faqItems = [
       "Yes. Set a ROAS floor and time window, below 1.2 for 24 hours, for example, and the system pauses the ad set automatically. Threshold, window, and action are configurable per campaign or account-wide.",
   },
   {
-    question: "How does budget scaling with rollback work?",
+    question: "How do budget safeguards work when scaling?",
     answer:
-      "When a campaign hits targets, rules increase budget by a configured percentage. If performance drops after the increase, rollback fires automatically. No manual reversal needed. The system corrects faster than any manual review cycle.",
+      "When a campaign hits targets, rules increase budget by a configured percentage. If performance drops after the increase, a separate rule cuts the budget back automatically. No manual reversal needed. The system corrects faster than any manual review cycle.",
   },
   {
-    question:
-      "What's the difference between auto-execute and alert-only?",
+    question: "What's the difference between auto-execute and alert-only?",
     answer:
       "Auto-execute fires immediately: budget protection, overnight optimization, and time-sensitive scenarios. Alert-only notifies via Slack or email without acting, preserving human review. Most teams combine both: auto-execute for safeguards, alert-only for scaling decisions.",
   },
@@ -77,7 +73,12 @@ const faqItems = [
     question:
       "How is Scalemate different from Revealbot and other automation tools?",
     answer:
-      "Most automation tools require adapting workflows to their interface. Scalemate wraps around the team's existing process — custom rules replace rigid templates. The goal isn't faster routine. It's removing routine so buyers can auto optimize campaigns meta while focusing on creatives and testing strategy.",
+      "Most automation tools require adapting workflows to their interface. Scalemate wraps around the team's existing process – custom rules replace rigid templates. The goal isn't faster routine. It's removing routine so buyers can auto optimize campaigns meta while focusing on creatives and testing strategy.",
+  },
+  {
+    question: "When should I use third-party Facebook ad automation tools?",
+    answer:
+      "When decisions depend on CPA, ROAS, spend pacing, or intraday performance shifts. Meta's native rules can't act on custom thresholds, combine multiple metrics in one condition, or apply logic across accounts. Third-party automation fills the gap: faster reactions, broader coverage, and actions Meta doesn't support natively.",
   },
 ]
 
@@ -102,7 +103,7 @@ const softwareSchema = {
   "@type": "SoftwareApplication",
   name: "Scalemate Automation Rules",
   description:
-    "Set conditions on ROAS, CPI, or any metric. Scalemate's automation rules pause, scale, and adjust bids 24/7 across Meta Ads, with built-in rollback.",
+    "Set conditions on ROAS, CPI, or any metric. Scalemate's automation rules pause, scale, and adjust bids 24/7 across Meta Ads, with built-in budget safeguards.",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   url: "https://www.scalemate.co/features/automation-rules",

@@ -22,7 +22,7 @@ const useCases = [
       <>
         When an ad set hits performance targets, rules increase budget by a
         configured percentage, automatically. If performance dips after the
-        increase, rollback fires. The way to{" "}
+        increase, a budget-cut rule kicks in. The way to{" "}
         <Link href="/use-cases/scale-ad-campaigns-faster">
           scale ad campaigns faster
         </Link>
@@ -47,7 +47,7 @@ const useCases = [
           ad campaign automation rules
         </Link>{" "}
         that cover the full cycle. The system monitors, decides, acts, and
-        rolls back without manual input. Teams using a{" "}
+        adjusts without manual input. Teams using a{" "}
 
         <Link href="/launch">bulk ad creation tool</Link> get the most out of
         this: more campaigns under management, same operational load.

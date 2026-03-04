@@ -29,7 +29,7 @@ const steps = [
       },
       {
         label: "Auto-scale budget",
-        desc: "increase spend on winners, with automatic rollback",
+        desc: "increase spend on winners, auto-cut on performance drop",
         icon: IconArrowsUpDown,
       },
       {
@@ -48,9 +48,9 @@ const steps = [
   },
   {
     number: "03",
-    title: "Rules Run 24/7 With Built-In Rollback",
+    title: "Rules Run 24/7 With Built-In Budget Safeguards",
     description:
-      "Once live, rules run without interruption: monitoring, acting, rolling back. Detection, action, and recovery in one continuous loop. No overnight gaps, no weekend blind spots.",
+      "Once live, rules run without interruption: monitoring, acting, adjusting. Detection, action, and correction in one continuous loop. No overnight gaps, no weekend blind spots.",
     icon: IconRefresh,
   },
 ]

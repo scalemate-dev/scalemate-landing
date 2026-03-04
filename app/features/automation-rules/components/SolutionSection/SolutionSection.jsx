@@ -16,7 +16,7 @@ const rows = [
     scalemate: { text: "One dashboard", type: "yes" },
   },
   {
-    feature: "Budget scaling with rollback",
+    feature: "Budget scaling with safeguards",
     manual: { text: null, type: "no" },
     native: { text: null, type: "no" },
     scalemate: { text: "Auto-reverts on drop", type: "yes" },

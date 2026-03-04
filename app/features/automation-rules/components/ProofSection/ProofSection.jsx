@@ -24,11 +24,10 @@ export default function ProofSection() {
     <section className={styles.section}>
       <Container>
         <div className={styles.header}>
-          <span className={styles.eyebrow}>Proven Results</span>
           <h2>Results From Teams Running Automation Rules</h2>
           <p className={styles.subtitle}>
-            Across teams using Scalemate as an ad performance automation
-            tool on Meta Ads:
+            Across teams using Scalemate as an ad performance automation tool on
+            Meta Ads:
           </p>
         </div>
 
@@ -43,8 +42,8 @@ export default function ProofSection() {
         </div>
 
         <p className={styles.footnote}>
-          These numbers come from automated ad optimization rules{" "}
-          running across Meta Ads, not projections.
+          These numbers come from automated ad optimization rules running across
+          Meta Ads, not projections.
         </p>
       </Container>
     </section>
