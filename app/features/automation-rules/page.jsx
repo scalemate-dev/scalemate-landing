@@ -12,8 +12,7 @@ import CtaSection from "./components/CtaSection/CtaSection"
 import styles from "./page.module.scss"
 
 export const metadata = {
-  title:
-    "Automated Ad Optimization Rules – 24/7 Campaign Protection | Scalemate",
+  title: "Automated Ad Optimization Rules – 24/7 Protection | Scalemate",
   description:
     "Set conditions on ROAS, CPI, or any metric. Scalemate's automation rules pause, scale, and adjust bids 24/7 across Meta Ads, with built-in budget safeguards.",
   alternates: {
@@ -21,20 +20,20 @@ export const metadata = {
   },
   openGraph: {
     url: "https://www.scalemate.co/features/automation-rules",
-    title:
-      "Automated Ad Optimization Rules – 24/7 Campaign Protection | Scalemate",
+    title: "Automated Ad Optimization Rules – 24/7 Protection | Scalemate",
     description:
       "Set conditions on ROAS, CPI, or any metric. Scalemate's automation rules pause, scale, and adjust bids 24/7 across Meta Ads, with built-in budget safeguards.",
     type: "website",
-    images: [{ url: "/og-automation-rules.png", width: 1200, height: 630 }],
+    images: [
+      { url: "/og-ad-campaign-automation-rules.png", width: 1200, height: 630 },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Automated Ad Optimization Rules – 24/7 Campaign Protection | Scalemate",
+    title: "Automated Ad Optimization Rules – 24/7 Protection | Scalemate",
     description:
       "Set conditions on ROAS, CPI, or any metric. Scalemate's automation rules pause, scale, and adjust bids 24/7 across Meta Ads, with built-in budget safeguards.",
-    images: ["/og-automation-rules.png"],
+    images: ["/og-ad-campaign-automation-rules.png"],
   },
 }
 
