@@ -1,0 +1,67 @@
+@use './components/uc' as *;
+
+.main {
+  width: 100%;
+  background: $uc-bg-warm;
+}
+
+.faq {
+  padding: 80px 0 0;
+  background: $uc-bg-warm;
+}
+
+.relatedLinks {
+  padding: 80px 0 100px;
+  background: $uc-bg-warm;
+}
+
+.relatedHeader {
+  @include uc-eyebrow;
+  margin-bottom: 28px;
+}
+
+.relatedList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.relatedLink {
+  font-family: $font-body;
+  font-size: 14px;
+  font-weight: 500;
+  color: $uc-ink;
+  text-decoration: none;
+  padding: 10px 20px;
+  background: $uc-panel-bg;
+  border: 1px solid rgba($uc-ink, 0.06);
+  border-radius: 100px;
+  transition: all 0.3s $uc-ease;
+
+  &:hover {
+    border-color: $uc-accent;
+    color: $uc-accent;
+  }
+}
+
+@include tablet-horizontal {
+  .faq {
+    padding: 80px 0;
+  }
+}
+
+@include tablet-vertical {
+  .faq {
+    padding: 60px 0;
+  }
+
+  .relatedLinks {
+    padding: 60px 0 80px;
+  }
+}
+
+@include mobile {
+  .relatedLinks {
+    padding: 40px 0 64px;
+  }
+}

@@ -1,0 +1,237 @@
+@use '../uc' as *;
+
+// ─── Section ───
+
+.section {
+  position: relative;
+  padding: 148px 0 120px;
+  background: $uc-bg-sand;
+  overflow: hidden;
+}
+
+// ─── Header ───
+
+.header {
+  max-width: 640px;
+  margin-bottom: 72px;
+}
+
+.eyebrow {
+  @include uc-eyebrow;
+}
+
+.header h2 {
+  @include uc-section-title;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  @include uc-body-text;
+}
+
+// ─── Table ───
+
+.tableWrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 -8px;
+  padding: 0 8px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 700px;
+}
+
+.featureCol {
+  width: 36%;
+}
+
+.colHeader {
+  font-family: $font-body;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: $uc-stone;
+  padding: 0 20px 20px;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.colHighlight {
+  color: $uc-accent;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    right: 4px;
+    bottom: 0;
+    height: 2px;
+    background: $uc-accent;
+    border-radius: 1px;
+  }
+}
+
+.featureCell {
+  font-family: $font-body;
+  font-size: 15px;
+  font-weight: 500;
+  color: $uc-ink;
+  padding: 20px 24px 20px 0;
+  border-top: 1px solid $uc-line;
+  vertical-align: middle;
+}
+
+.cell {
+  padding: 20px;
+  border-top: 1px solid $uc-line;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.cellHighlight {
+  background: rgba($uc-accent, 0.03);
+  border-left: 1px solid rgba($uc-accent, 0.08);
+  border-right: 1px solid rgba($uc-accent, 0.08);
+
+  tr:first-child & {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+
+  tr:last-child & {
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-bottom: 1px solid rgba($uc-accent, 0.08);
+  }
+}
+
+// ─── Cell content variants ───
+
+.cellNo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: $font-body;
+  font-size: 14px;
+  color: $uc-stone;
+}
+
+.cellPartial {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: $font-body;
+  font-size: 14px;
+  color: $uc-body-faded;
+}
+
+.cellYes {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: $font-body;
+  font-size: 14px;
+  font-weight: 600;
+  color: $uc-ink;
+}
+
+.iconNo {
+  color: $uc-line;
+}
+
+.iconPartial {
+  color: $uc-body-faded;
+}
+
+.iconYes {
+  color: $uc-success;
+}
+
+// ─── Responsive ───
+
+@include desktop-s {
+  .header h2 {
+    font-size: 46px;
+  }
+}
+
+@include tablet-horizontal {
+  .section {
+    padding: 104px 0 88px;
+  }
+
+  .header {
+    margin-bottom: 56px;
+  }
+
+  .header h2 {
+    font-size: 40px;
+  }
+}
+
+@include tablet-vertical {
+  .section {
+    padding: 80px 0 64px;
+  }
+
+  .header h2 {
+    font-size: 34px;
+  }
+
+  .header {
+    margin-bottom: 44px;
+  }
+
+  .featureCell {
+    font-size: 14px;
+  }
+
+  .cellNo,
+  .cellPartial,
+  .cellYes {
+    font-size: 13px;
+  }
+}
+
+@include mobile {
+  .section {
+    padding: 56px 0 48px;
+  }
+
+  .header h2 {
+    font-size: 28px;
+  }
+
+  .header {
+    margin-bottom: 36px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .tableWrap {
+    margin: 0 -24px;
+    padding: 0 24px;
+  }
+
+  .colHeader {
+    font-size: 11px;
+    padding: 0 12px 16px;
+  }
+
+  .featureCell {
+    font-size: 13px;
+    padding: 16px 16px 16px 0;
+  }
+
+  .cell {
+    padding: 16px 12px;
+  }
+}
