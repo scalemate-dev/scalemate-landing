@@ -186,7 +186,7 @@ export default function AutomationRulesPage() {
 
       <section className={styles.relatedLinks}>
         <Container>
-          <span className={styles.relatedHeader}>Related</span>
+          <span className={styles.relatedHeader}>Related pages</span>
           <div className={styles.relatedList}>
             {relatedLinks.map((link) => (
               <Link

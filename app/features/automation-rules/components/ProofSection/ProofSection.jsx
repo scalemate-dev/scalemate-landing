@@ -31,15 +31,15 @@ export default function ProofSection() {
           </p>
         </div>
 
-        <div className={styles.statsGrid}>
+        <ul className={styles.statsGrid}>
           {stats.map((stat, index) => (
-            <div key={index} className={styles.statCard}>
+            <li key={index} className={styles.statCard}>
               <span className={styles.statValue}>{stat.value}</span>
               <span className={styles.statLabel}>{stat.label}</span>
               <span className={styles.statDesc}>{stat.description}</span>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
 
         <p className={styles.footnote}>
           These numbers come from automated ad optimization rules running across
