@@ -6,6 +6,9 @@ REPO=$(gh repo view --json nameWithOwner -q .nameWithOwner)
 echo "🔓 Making $REPO public..."
 gh repo edit "$REPO" --visibility public --accept-visibility-change-consequences
 
+echo "⏳ Waiting for GitHub to propagate visibility change..."
+sleep 3
+
 echo "🚀 Pushing to origin..."
 git push
 
