@@ -49,6 +49,9 @@ const Footer = () => {
             <Link className={styles.footerColLink} href="/ai-assistant">
               Marketing AI Agent
             </Link>
+            <Link className={styles.footerColLink} href="/features/automation-rules">
+              Automation Rules
+            </Link>
             <Link className={styles.footerColLink} href="/customers">
               Customers
             </Link>

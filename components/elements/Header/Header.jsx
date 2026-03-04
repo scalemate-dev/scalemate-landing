@@ -54,6 +54,16 @@ const SOLUTIONS = [
     path: "/ai-assistant",
   },
   {
+    label: "Automation Rules",
+    description: "Automate your ad management with smart rules",
+    icon: (
+      <Icon style={{ backgroundColor: "#FEF3C7" }}>
+        <IconSettingsAutomation color="#F59E0B" size={16} />
+      </Icon>
+    ),
+    path: "/features/automation-rules",
+  },
+  {
     label: "API",
     description: "Integrate Scalemate into your workflow",
     icon: (

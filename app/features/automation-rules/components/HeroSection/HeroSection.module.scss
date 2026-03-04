@@ -1,0 +1,489 @@
+@use '../uc' as *;
+
+// ─── Animations ───
+
+@keyframes shimmer {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.65; transform: scale(1.06); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba($uc-success, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba($uc-success, 0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+// ─── Hero Section ───
+
+.hero {
+  position: relative;
+  padding: 180px 0 120px;
+  background: linear-gradient(168deg, #fefdfb 0%, #fff8f3 45%, #fefefe 100%);
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: radial-gradient(ellipse 70% 60% at 65% 40%, rgba(0, 0, 0, 0.5) 0%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 65% 40%, rgba(0, 0, 0, 0.5) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: -5%;
+    right: 5%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba($uc-accent, 0.06) 0%, rgba($uc-accent, 0.015) 45%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    animation: breathe 15s ease-in-out infinite;
+  }
+}
+
+.layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+// ─── Left: Content ───
+
+.content {
+  max-width: 560px;
+}
+
+.eyebrow {
+  @include uc-eyebrow;
+}
+
+.content h1 {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: $uc-ink;
+  margin: 0 0 12px;
+  text-align: left;
+}
+
+.tagline {
+  font-family: $font-body;
+  font-style: italic;
+  font-size: 20px;
+  color: $uc-accent;
+  margin: 0 0 28px;
+  font-weight: 500;
+}
+
+.description {
+  font-family: $font-body;
+  font-size: 17px;
+  line-height: 1.7;
+  color: $uc-body;
+  margin: 0 0 20px;
+
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+
+  li {
+    position: relative;
+    font-family: $font-body;
+    font-size: 15px;
+    line-height: 1.7;
+    color: $uc-body;
+    padding-left: 20px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 8px;
+      height: 2px;
+      background: $uc-accent;
+      border-radius: 1px;
+    }
+  }
+}
+
+.closer {
+  font-family: $font-body;
+  font-size: 15px;
+  line-height: 1.7;
+  color: $uc-body;
+  margin: 0 0 32px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+// ─── Right: Visual ───
+
+.visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.ruleCard {
+  width: 100%;
+  max-width: 380px;
+  background: $uc-panel-bg;
+  border: 1px solid rgba($uc-ink, 0.06);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: $uc-shadow-panel;
+  animation: slideUp 0.8s $uc-ease both;
+}
+
+.ruleHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 24px;
+  border-bottom: 1px solid $uc-line;
+  background: rgba($uc-bg-sand, 0.5);
+}
+
+.ruleDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $uc-success;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.ruleLabel {
+  font-family: $font-body;
+  font-size: 13px;
+  font-weight: 600;
+  color: $uc-ink;
+  flex: 1;
+}
+
+.ruleBadge {
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 600;
+  color: $uc-accent;
+  background: rgba($uc-accent, 0.08);
+  padding: 3px 10px;
+  border-radius: 100px;
+  letter-spacing: 0.02em;
+}
+
+.ruleBody {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ruleLine {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.ruleKey {
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $uc-stone;
+  width: 44px;
+  flex-shrink: 0;
+}
+
+.ruleValue {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 14px;
+  color: $uc-ink;
+  background: rgba($uc-ink, 0.03);
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba($uc-ink, 0.06);
+  flex: 1;
+}
+
+.ruleAction {
+  font-family: $font-body;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background: $uc-accent;
+  padding: 6px 14px;
+  border-radius: 8px;
+  flex: 1;
+}
+
+.ruleFooter {
+  display: flex;
+  border-top: 1px solid $uc-line;
+  background: rgba($uc-bg-sand, 0.3);
+}
+
+.ruleMetric {
+  flex: 1;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  &:not(:last-child) {
+    border-right: 1px solid $uc-line;
+  }
+}
+
+.ruleMetricLabel {
+  font-family: $font-body;
+  font-size: 11px;
+  color: $uc-stone;
+}
+
+.ruleMetricValue {
+  font-family: $font-heading;
+  font-size: 15px;
+  font-weight: 700;
+  color: $uc-ink;
+  letter-spacing: -0.02em;
+}
+
+// Floating notification card
+.floatingCard {
+  position: absolute;
+  bottom: 20px;
+  left: -20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: #ffffff;
+  border: 1px solid rgba($uc-ink, 0.06);
+  border-radius: 14px;
+  box-shadow: $uc-shadow-panel;
+  animation: float 4s ease-in-out infinite, slideUp 1s $uc-ease 0.3s both;
+}
+
+.floatingIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: rgba($uc-success, 0.1);
+  color: $uc-success;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floatingText {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.floatingTitle {
+  font-family: $font-body;
+  font-size: 13px;
+  font-weight: 600;
+  color: $uc-ink;
+}
+
+.floatingDesc {
+  font-family: $font-body;
+  font-size: 12px;
+  color: $uc-success;
+}
+
+// ─── Responsive ───
+
+@include desktop-s {
+  .content h1 {
+    font-size: 42px;
+  }
+
+  .layout {
+    gap: 56px;
+  }
+}
+
+@include tablet-horizontal {
+  .hero {
+    padding: 150px 0 100px;
+
+    &::after {
+      width: 400px;
+      height: 400px;
+      top: 0;
+      right: -8%;
+    }
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+  .content {
+    max-width: 100%;
+  }
+
+  .content h1 {
+    font-size: 40px;
+  }
+
+  .tagline {
+    font-size: 18px;
+  }
+
+  .visual {
+    min-height: 320px;
+    justify-content: flex-start;
+  }
+
+  .floatingCard {
+    left: auto;
+    right: 10%;
+    bottom: 10px;
+  }
+}
+
+@include tablet-vertical {
+  .hero {
+    padding: 120px 0 72px;
+
+    &::before {
+      mask-image: radial-gradient(ellipse 90% 50% at 50% 25%, rgba(0, 0, 0, 0.4) 0%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse 90% 50% at 50% 25%, rgba(0, 0, 0, 0.4) 0%, transparent 70%);
+    }
+
+    &::after {
+      width: 280px;
+      height: 280px;
+    }
+  }
+
+  .content h1 {
+    font-size: 34px;
+  }
+
+  .tagline {
+    font-size: 17px;
+    margin-bottom: 24px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  .actions {
+    flex-direction: column;
+
+    a, button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  .visual {
+    min-height: 280px;
+  }
+
+  .ruleCard {
+    max-width: 340px;
+  }
+
+  .floatingCard {
+    display: none;
+  }
+}
+
+@include mobile {
+  .hero {
+    padding: 100px 0 56px;
+
+    &::before {
+      background-size: 28px 28px;
+    }
+
+    &::after {
+      width: 180px;
+      height: 180px;
+      opacity: 0.5;
+    }
+  }
+
+  .content h1 {
+    font-size: 28px;
+    letter-spacing: -0.025em;
+  }
+
+  .tagline {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+
+  .features li {
+    font-size: 14px;
+  }
+
+  .closer {
+    font-size: 14px;
+  }
+
+  .visual {
+    min-height: 240px;
+  }
+
+  .ruleCard {
+    max-width: 100%;
+  }
+
+  .ruleBody {
+    padding: 20px;
+  }
+
+  .ruleValue,
+  .ruleAction {
+    font-size: 13px;
+  }
+}
