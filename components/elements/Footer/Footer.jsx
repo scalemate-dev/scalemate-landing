@@ -95,6 +95,16 @@ const Footer = () => {
             >
               Scale Ad Campaigns Faster
             </Link>
+
+            <div className={styles.footerColTitle} style={{ marginTop: 24 }}>
+              Solutions
+            </div>
+            <Link
+              className={styles.footerColLink}
+              href="/solutions/media-buyers"
+            >
+              For Media Buyers
+            </Link>
           </div>
           <div className={styles.footerCol}>
             <div className={styles.footerColTitle}>Legal</div>
