@@ -1,0 +1,81 @@
+@use "variables" as vars;
+
+// ── Aggregate metrics strip ──
+
+.aggregate {
+  background: #faf9f6;
+  padding: 56px 0;
+  border-top: 1px solid #eae8e3;
+  border-bottom: 1px solid #eae8e3;
+}
+
+.aggregateLabel {
+  font-family: vars.$font-body;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #9C9890;
+  margin: 0 0 32px;
+  text-align: center;
+}
+
+.aggregateGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.aggregateItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.aggregateValue {
+  font-family: vars.$font-heading;
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #1a1614;
+  line-height: 1.1;
+}
+
+.aggregateDesc {
+  font-family: vars.$font-body;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #475467;
+}
+
+@media (max-width: vars.$tablet-horizontal-width) {
+  .aggregateGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 24px;
+  }
+
+  .aggregateValue {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: vars.$mobile-width) {
+  .aggregate {
+    padding: 40px 0;
+  }
+
+  .aggregateGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 16px;
+  }
+
+  .aggregateValue {
+    font-size: 32px;
+  }
+
+  .aggregateDesc {
+    font-size: 13px;
+  }
+}
