@@ -34,14 +34,14 @@ const SOLUTIONS = [
     new: true,
   },
   {
-    label: "Launch",
-    description: "Quickly set up and launch multiple ads.",
+    label: "Bulk Ad Launch",
+    description: "Launch hundreds of ads from templates in minutes",
     icon: (
       <Icon style={{ backgroundColor: "#FFFAEB" }}>
         <IconBoltFilled color="#FEC84B" size={16} />
       </Icon>
     ),
-    path: "/launch",
+    path: "/features/bulk-launch",
   },
   {
     label: "Marketing AI Agent",
