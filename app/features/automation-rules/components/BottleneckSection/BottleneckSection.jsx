@@ -1,3 +1,4 @@
+import Link from "next/link"
 import Container from "@/components/elements/Container/Container"
 import { IconClock, IconCurrencyDollar, IconTrendingUp } from "@tabler/icons-react"
 import styles from "./BottleneckSection.module.scss"
@@ -8,8 +9,14 @@ const costs = [
     label: "Time cost",
     stat: "15–20 hrs",
     statSuffix: "/week",
-    description:
-      "Media buyers managing 30+ campaigns spend 15–20 hours per week on monitoring and manual adjustments. That's half the workweek on tasks a rule can handle in seconds.",
+    description: (
+      <>
+        <Link href="/solutions/media-buyers">Media buyers</Link> managing 30+
+        campaigns spend 15–20 hours per week on monitoring and manual
+        adjustments. That&apos;s half the workweek on tasks a rule can handle in
+        seconds.
+      </>
+    ),
   },
   {
     icon: IconCurrencyDollar,

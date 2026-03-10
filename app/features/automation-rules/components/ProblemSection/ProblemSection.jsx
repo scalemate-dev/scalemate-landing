@@ -1,3 +1,4 @@
+import Link from "next/link"
 import Container from "@/components/elements/Container/Container"
 import styles from "./ProblemSection.module.scss"
 
@@ -34,11 +35,12 @@ export default function ProblemSection() {
               <span className={styles.accent}>Replace</span>
             </h2>
             <p className={styles.subtitle}>
-              Every media buyer knows the loop: open dashboards, scan metrics,
-              decide, act, repeat. At ten campaigns, monitoring campaigns
-              manually is manageable. At thirty-plus, the loop breaks, and
-              without an automated campaign monitoring tool, budget leaks
-              through the cracks.
+              Every{" "}
+              <Link href="/solutions/media-buyers">media buyer</Link> knows
+              the loop: open dashboards, scan metrics, decide, act, repeat. At
+              ten campaigns, monitoring campaigns manually is manageable. At
+              thirty-plus, the loop breaks, and without an automated campaign
+              monitoring tool, budget leaks through the cracks.
             </p>
           </div>
 

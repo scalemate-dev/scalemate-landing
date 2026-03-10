@@ -1,3 +1,4 @@
+import Link from "next/link"
 import Container from "@/components/elements/Container/Container"
 import styles from "./ProblemSection.module.scss"
 
@@ -34,10 +35,11 @@ export default function ProblemSection() {
               <span className={styles.accent}>Replaces</span>
             </h2>
             <p className={styles.subtitle}>
-              Every media buyer at scale hits the same wall. Not strategy, not
-              creative, but setup. A bulk ad creation tool{" "}
-              removes that wall. Without one, the bottleneck compounds week
-              after week.
+              Every{" "}
+              <Link href="/solutions/media-buyers">media buyer</Link> at
+              scale hits the same wall. Not strategy, not creative, but setup.
+              A bulk ad creation tool removes that wall. Without one, the
+              bottleneck compounds week after week.
             </p>
           </div>
 

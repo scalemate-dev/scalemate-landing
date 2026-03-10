@@ -95,6 +95,10 @@ const relatedLinks = [
     label: "Automated Ad Optimization Rules",
     href: "/features/automation-rules",
   },
+  {
+    label: "Solutions for Media Buyers",
+    href: "/solutions/media-buyers",
+  },
 ]
 
 const softwareSchema = {

@@ -1,3 +1,4 @@
+import Link from "next/link"
 import Container from "@/components/elements/Container/Container"
 import {
   IconChartBar,
@@ -10,8 +11,14 @@ const audiences = [
   {
     icon: IconChartBar,
     title: "Media buyers running high-volume ad operations",
-    description:
-      "More tests, more apps, more markets. Same setup time. Templates handle the matrix. The buyer focuses on performance, not repetition.",
+    description: (
+      <>
+        More tests, more apps, more markets. Same setup time. Templates handle
+        the matrix. The buyer focuses on performance, not repetition. See how{" "}
+        <Link href="/solutions/media-buyers">media buyers automate</Link> the
+        full workflow.
+      </>
+    ),
   },
   {
     icon: IconFlask,

@@ -232,9 +232,10 @@ export const data = {
         role: "UA Managers & Media Buyers",
         description: (
           <>
-            For buyers who bulk upload creatives facebook ads across multiple
-            accounts, auto sync creatives to meta ads from cloud storage removes
-            the most repetitive weekly task
+            For <Link href="/solutions/media-buyers">media buyers</Link> who
+            bulk upload creatives facebook ads across multiple accounts, auto
+            sync creatives to meta ads from cloud storage removes the most
+            repetitive weekly task.
           </>
         ),
       },

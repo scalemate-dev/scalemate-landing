@@ -95,6 +95,10 @@ const relatedLinks = [
     href: "/use-cases/automated-creative-upload-meta",
   },
   { label: "Bulk Ad Launch Tool", href: "/use-cases/bulk-ad-launch" },
+  {
+    label: "Solutions for Media Buyers",
+    href: "/solutions/media-buyers",
+  },
 ]
 
 const softwareSchema = {
