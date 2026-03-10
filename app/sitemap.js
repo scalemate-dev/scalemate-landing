@@ -98,6 +98,12 @@ export default async function sitemap() {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    {
+      url: "https://www.scalemate.co/features/bulk-launch",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
   ]
 
   // Combine static and dynamic entries

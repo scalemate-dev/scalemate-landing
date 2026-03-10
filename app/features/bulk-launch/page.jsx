@@ -27,9 +27,7 @@ export const metadata = {
     description:
       "Create multiple ads at once on Meta and TikTok. Scalemate\u2019s bulk campaign builder deploys hundreds of ad variations from templates \u2014 no manual setup, no duplicate campaign creation.",
     type: "website",
-    images: [
-      { url: "/og-bulk-ad-launch.png", width: 1200, height: 630 },
-    ],
+    images: [{ url: "/og-bulk-ad-launch.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
@@ -108,6 +106,21 @@ const softwareSchema = {
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   url: "https://www.scalemate.co/features/bulk-launch",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+    description: "Free plan available with limited usage",
+    url: "https://www.scalemate.co/features/bulk-launch",
+  },
+  featureList: [
+    "Launch hundreds of ad sets from one reusable campaign template",
+    "Matrix creation across concepts, languages, GEOs, and formats",
+    "Sync creatives directly from Google Drive to ad library",
+    "Launch creatieves to Meta and TikTok from a single workflow",
+    "Auto-label every ad set by concept, language, and GEO",
+    "Save campaign structure as a template with targeting, bids, and budgets",
+  ],
 }
 
 const faqSchema = {
