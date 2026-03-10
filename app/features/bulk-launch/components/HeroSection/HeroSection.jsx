@@ -1,195 +1,84 @@
+import Image from "next/image"
 import Container from "@/components/elements/Container/Container"
 import Button from "@/components/elements/Button/Button"
 import { IconRocket } from "@tabler/icons-react"
 import styles from "./HeroSection.module.scss"
+import googleDriveIcon from "@/assets/icons/google-drive-icon.svg"
+import metaIcon from "@/assets/icons/meta-icon.svg"
+import tiktokIcon from "@/assets/icons/tiktok-icon.svg"
 
-const FolderIcon = () => (
-  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-    <path
-      d="M1.5 3V9.5a1 1 0 001 1h7a1 1 0 001-1V4.5a1 1 0 00-1-1H6L5 2H2.5a1 1 0 00-1 1Z"
-      stroke="currentColor"
-      strokeWidth="1.1"
-    />
-  </svg>
-)
+/* ── Pipeline Flow (pure CSS grid, no SVG) ── */
 
-const LayersIcon = () => (
-  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-    <path
-      d="M6 1.5L1.5 4L6 6.5L10.5 4L6 1.5Z"
-      stroke="currentColor"
-      strokeWidth="1"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M1.5 6.5L6 9L10.5 6.5"
-      stroke="currentColor"
-      strokeWidth="1"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M1.5 8.5L6 11L10.5 8.5"
-      stroke="currentColor"
-      strokeWidth="1"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-)
-
-const GridIcon = () => (
-  <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-    <rect
-      x="1"
-      y="1"
-      width="3"
-      height="3"
-      rx="0.5"
-      stroke="currentColor"
-      strokeWidth="1"
-    />
-    <rect
-      x="6"
-      y="1"
-      width="3"
-      height="3"
-      rx="0.5"
-      stroke="currentColor"
-      strokeWidth="1"
-    />
-    <rect
-      x="1"
-      y="6"
-      width="3"
-      height="3"
-      rx="0.5"
-      stroke="currentColor"
-      strokeWidth="1"
-    />
-    <rect
-      x="6"
-      y="6"
-      width="3"
-      height="3"
-      rx="0.5"
-      stroke="currentColor"
-      strokeWidth="1"
-    />
-  </svg>
-)
-
-const CheckIcon = () => (
-  <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-    <path
-      d="M2 5.5L4 7.5L8 3"
-      stroke="currentColor"
-      strokeWidth="1.2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-)
-
-function LaunchEngine() {
+function PipelineFlow() {
   return (
-    <div className={styles.engine}>
-      {/* Template card stack */}
-      <div className={styles.cardsStack}>
-        {/* Back card: variations */}
-        <div className={`${styles.templateCard} ${styles.templateCardBack}`}>
-          <div className={styles.templateTop}>
-            <div className={styles.templateBadge}>
-              <GridIcon />
-              <span>225 ad sets generated</span>
-            </div>
-          </div>
-          <div className={styles.templateName}>Summer_Sale_EN × 15 GEOs</div>
-          <div className={styles.templateMeta}>
-            <span className={styles.tagGreen}>
-              <CheckIcon />
-              Deployed
-            </span>
-            <span className={styles.tagNeutral}>
-              <LayersIcon />5 concepts × 15 langs
-            </span>
-          </div>
-        </div>
-
-        {/* Front card: Template */}
-        <div className={`${styles.templateCard} ${styles.templateCardFront}`}>
-          <div className={styles.templateTop}>
-            <div className={styles.statusPill}>
-              <div className={styles.statusDot} />
-              Ready to launch
-            </div>
-            <span className={styles.templateBadge}>
-              <FolderIcon />
-              Google Drive
-            </span>
-          </div>
-          <div className={styles.templateName}>
-            Campaign Template: Q1 Prospecting
-          </div>
-          <div className={styles.templateMeta}>
-            <span className={styles.tagOrange}>
-              <GridIcon />5 concepts
-            </span>
-            <span className={styles.tagNeutral}>
-              <LayersIcon />
-              15 languages
-            </span>
-            <span className={styles.tagPurple}>
-              <span>3</span>
-              formats
-            </span>
-          </div>
-          <div className={styles.templateDivider} />
-          <div className={styles.templateFooter}>
-            <div className={styles.templateInfo}>
-              <span className={styles.infoLabel}>Target:</span>
-              <span className={styles.infoValue}>Meta + TikTok</span>
-            </div>
-            <div className={styles.templateInfo}>
-              <span className={styles.infoLabel}>Ad sets:</span>
-              <span className={styles.infoValue}>225 total</span>
-            </div>
+    <div className={styles.flow}>
+      {/* ── Column 1: Source ── */}
+      <div className={styles.source}>
+        <div className={styles.card}>
+          <Image
+            src={googleDriveIcon}
+            alt="Google Drive"
+            width={20}
+            height={20}
+          />
+          <div className={styles.cardBody}>
+            <span className={styles.cardTitle}>Google Drive</span>
           </div>
         </div>
       </div>
 
-      {/* Floating notifications */}
-      <div className={`${styles.floater} ${styles.floaterTopRight}`}>
-        <div className={styles.floaterDot} data-type="success" />
-        <div className={styles.floaterBody}>
-          <span className={styles.floaterAction}>Launched</span>
-          <span className={styles.floaterTarget}>75 ad sets → Meta</span>
-        </div>
-        <span className={styles.floaterTime}>0:03s</span>
+      {/* ── Arrow 1 ── */}
+      <div className={styles.arrow}>
+        <div className={styles.arrowLine} />
+        <div className={styles.arrowDot} />
       </div>
 
-      <div className={`${styles.floater} ${styles.floaterRight}`}>
-        <div className={styles.floaterDot} data-type="success" />
-        <div className={styles.floaterBody}>
-          <span className={styles.floaterAction}>Synced</span>
-          <span className={styles.floaterTarget}>42 creatives from Drive</span>
+      {/* ── Column 2: Template ── */}
+      <div className={styles.template}>
+        <div className={`${styles.card} ${styles.cardTemplate}`}>
+          <div className={styles.templateLabel}>Campaign Template</div>
+          <div className={styles.templateName}>Q1 Prospecting</div>
+          <div className={styles.templateTags}>
+            <span className={styles.tag}>5 concepts</span>
+            <span className={styles.tag}>15 languages</span>
+            <span className={styles.tag}>3 formats</span>
+          </div>
         </div>
-        <span className={styles.floaterTime}>just now</span>
       </div>
 
-      <div className={`${styles.floater} ${styles.floaterBottomRight}`}>
-        <div className={styles.floaterDot} data-type="info" />
-        <div className={styles.floaterBody}>
-          <span className={styles.floaterAction}>Auto-labeled</span>
-          <span className={styles.floaterTarget}>concept × lang × GEO</span>
-        </div>
-        <span className={styles.floaterTime}>0:04s</span>
+      {/* ── Arrow 2 (with fork) ── */}
+      <div className={styles.arrowFork}>
+        <div className={styles.forkLine} />
+        <div className={styles.forkBranch} />
+        <div className={styles.forkBranch} />
+        <div className={styles.arrowDot} />
       </div>
 
-      {/* Time saved card */}
-      <div className={styles.savedCard}>
-        <div className={styles.savedAmount}>3 min</div>
-        <div className={styles.savedLabel}>instead of 3–5 days</div>
+      {/* ── Column 3: Destinations ── */}
+      <div className={styles.destinations}>
+        <div className={styles.card}>
+          <Image src={metaIcon} alt="Meta" width={20} height={20} />
+          <div className={styles.cardBody}>
+            <span className={styles.cardTitle}>Meta Ads</span>
+            <span className={styles.cardSub}>150 ad sets</span>
+          </div>
+          <span className={styles.statusDot} />
+        </div>
+        <div className={styles.card}>
+          <Image src={tiktokIcon} alt="TikTok" width={18} height={18} />
+          <div className={styles.cardBody}>
+            <span className={styles.cardTitle}>TikTok Ads</span>
+            <span className={styles.cardSub}>75 ad sets</span>
+          </div>
+          <span className={styles.statusDot} />
+        </div>
+      </div>
+
+      {/* ── Toast ── */}
+      <div className={styles.toast}>
+        <div className={styles.toastDot} />
+        <span className={styles.toastText}>225 ads created</span>
+        <span className={styles.toastTime}>3 min</span>
       </div>
     </div>
   )
@@ -207,10 +96,10 @@ export default function HeroSection() {
               Launch hundreds of ads. Click once.
             </p>
             <p className={styles.description}>
-              A bulk ad creation tool that turns campaign
-              templates into hundreds of live ad sets. Define structure once.
-              The system handles targeting, creatives, and deployment across
-              Meta and TikTok:
+              A bulk ad creation tool that turns campaign templates into
+              hundreds of live ad sets. Define structure once. The system
+              handles targeting, creatives, and deployment across Meta and
+              TikTok:
             </p>
             <ul className={styles.features}>
               <li>Create multiple ads at once on Meta</li>
@@ -239,7 +128,7 @@ export default function HeroSection() {
           </div>
 
           <div className={styles.visual}>
-            <LaunchEngine />
+            <PipelineFlow />
           </div>
         </div>
       </Container>
