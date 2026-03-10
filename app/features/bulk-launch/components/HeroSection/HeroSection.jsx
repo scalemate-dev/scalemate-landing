@@ -127,7 +127,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          <div className={styles.visual}>
+          <div className={styles.visual} aria-hidden="true">
             <PipelineFlow />
           </div>
         </div>
