@@ -1,0 +1,388 @@
+@use '../uc' as *;
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+// ─── Section ───
+
+.section {
+  position: relative;
+  padding: 140px 0 120px;
+  background: $uc-bg-warm;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at 50% 80%,
+      rgba($uc-accent, 0.02) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
+  }
+}
+
+// ─── Header ───
+
+.header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 72px;
+  position: relative;
+  z-index: 1;
+
+  strong {
+    font-weight: 600;
+    color: $uc-ink;
+  }
+}
+
+.header h2 {
+  @include uc-section-title;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  @include uc-body-text;
+}
+
+// ─── Stats Grid ───
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 56px;
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  padding: 0;
+  margin-top: 0;
+}
+
+.statCard {
+  text-align: center;
+  padding: 48px 32px;
+  background: $uc-panel-bg;
+  border: 1px solid rgba($uc-ink, 0.04);
+  border-radius: 22px;
+  box-shadow: $uc-shadow-panel;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.5s $uc-ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $uc-shadow-panel-hover;
+
+    .statValue {
+      color: $uc-accent;
+    }
+  }
+}
+
+.statValue {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 56px;
+  letter-spacing: -0.04em;
+  color: $uc-ink;
+  line-height: 1;
+  transition: color 0.5s $uc-ease;
+  animation: countUp 0.6s $uc-ease both;
+}
+
+.statLabel {
+  font-family: $font-heading;
+  font-weight: 600;
+  font-size: 18px;
+  color: $uc-ink;
+  letter-spacing: -0.01em;
+}
+
+.statDesc {
+  font-family: $font-body;
+  font-size: 14px;
+  color: $uc-stone;
+  line-height: 1.5;
+}
+
+.footnote {
+  text-align: center;
+  font-family: $font-body;
+  font-size: 15px;
+  line-height: 1.7;
+  color: $uc-body;
+  margin: 0 0 80px;
+  position: relative;
+  z-index: 1;
+}
+
+// ─── Case Study ───
+
+.caseStudy {
+  position: relative;
+  z-index: 1;
+  background: $uc-panel-bg;
+  border: 1px solid rgba($uc-ink, 0.06);
+  border-radius: 24px;
+  padding: 48px;
+  box-shadow: $uc-shadow-panel;
+}
+
+.caseHeader {
+  margin-bottom: 24px;
+}
+
+.caseEyebrow {
+  @include uc-eyebrow;
+  margin-bottom: 12px;
+}
+
+.caseStudy h3 {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 32px;
+  color: $uc-ink;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.caseDesc {
+  font-family: $font-body;
+  font-size: 16px;
+  line-height: 1.7;
+  color: $uc-body;
+  margin: 0 0 16px;
+  max-width: 720px;
+}
+
+.caseIntro {
+  font-family: $font-body;
+  font-size: 16px;
+  line-height: 1.7;
+  color: $uc-body;
+  margin: 0 0 28px;
+}
+
+.caseResults {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.caseResult {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px;
+  background: rgba($uc-accent, 0.03);
+  border: 1px solid rgba($uc-accent, 0.08);
+  border-radius: 14px;
+}
+
+.caseValue {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 24px;
+  color: $uc-accent;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.caseLabel {
+  font-family: $font-body;
+  font-size: 14px;
+  color: $uc-body;
+  line-height: 1.5;
+}
+
+.caseClosing {
+  font-family: $font-body;
+  font-size: 16px;
+  line-height: 1.7;
+  color: $uc-body;
+  margin: 0 0 24px;
+  font-style: italic;
+}
+
+.caseLink {
+  display: inline-block;
+  font-family: $font-body;
+  font-size: 15px;
+  font-weight: 600;
+  color: $uc-accent;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $uc-accent-deep;
+  }
+}
+
+// ─── Responsive ───
+
+@include desktop-s {
+  .header h2 {
+    font-size: 46px;
+  }
+
+  .statValue {
+    font-size: 48px;
+  }
+}
+
+@include tablet-horizontal {
+  .section {
+    padding: 104px 0 96px;
+  }
+
+  .header {
+    margin-bottom: 56px;
+  }
+
+  .header h2 {
+    font-size: 40px;
+  }
+
+  .statsGrid {
+    gap: 24px;
+  }
+
+  .statCard {
+    padding: 40px 24px;
+  }
+
+  .statValue {
+    font-size: 42px;
+  }
+
+  .caseResults {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .caseStudy {
+    padding: 36px;
+  }
+}
+
+@include tablet-vertical {
+  .section {
+    padding: 80px 0;
+  }
+
+  .header h2 {
+    font-size: 34px;
+  }
+
+  .header {
+    margin-bottom: 48px;
+    text-align: left;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 400px;
+  }
+
+  .statCard {
+    padding: 36px 28px;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .statValue {
+    font-size: 44px;
+  }
+
+  .footnote {
+    text-align: left;
+    margin-bottom: 56px;
+  }
+
+  .caseResults {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .caseStudy {
+    padding: 28px;
+  }
+
+  .caseStudy h3 {
+    font-size: 26px;
+  }
+}
+
+@include mobile {
+  .section {
+    padding: 56px 0;
+  }
+
+  .header h2 {
+    font-size: 28px;
+  }
+
+  .header {
+    margin-bottom: 36px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .statsGrid {
+    margin-bottom: 40px;
+  }
+
+  .statCard {
+    padding: 28px 24px;
+  }
+
+  .statValue {
+    font-size: 38px;
+  }
+
+  .statLabel {
+    font-size: 16px;
+  }
+
+  .footnote {
+    font-size: 14px;
+    margin-bottom: 40px;
+  }
+
+  .caseResults {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .caseStudy {
+    padding: 24px;
+  }
+
+  .caseStudy h3 {
+    font-size: 22px;
+  }
+
+  .caseDesc,
+  .caseIntro,
+  .caseClosing {
+    font-size: 14px;
+  }
+
+  .caseValue {
+    font-size: 20px;
+  }
+
+  .caseLabel {
+    font-size: 13px;
+  }
+}

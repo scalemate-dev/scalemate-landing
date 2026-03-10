@@ -43,8 +43,8 @@ const Footer = () => {
             <Link className={styles.footerColLink} href="/ad-creative-uploader">
               Free Ad Creative Uploader
             </Link>
-            <Link className={styles.footerColLink} href="/launch">
-              Launch
+            <Link className={styles.footerColLink} href="/features/bulk-launch">
+              Bulk Ad Launch
             </Link>
             <Link className={styles.footerColLink} href="/ai-assistant">
               Marketing AI Agent

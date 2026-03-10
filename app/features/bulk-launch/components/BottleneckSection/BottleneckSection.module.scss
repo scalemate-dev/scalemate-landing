@@ -1,0 +1,245 @@
+@use '../uc' as *;
+
+// ─── Section ───
+
+.section {
+  position: relative;
+  padding: 120px 0;
+  background: $uc-card-dark;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at 50% 0%,
+      rgba($uc-accent, 0.04) 0%,
+      transparent 60%
+    );
+    pointer-events: none;
+  }
+}
+
+// ─── Header ───
+
+.header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 72px;
+  position: relative;
+  z-index: 1;
+
+  strong {
+    font-weight: 600;
+    color: #ffffff;
+  }
+}
+
+.eyebrow {
+  display: block;
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 24px;
+}
+
+.header h2 {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+  margin: 0 0 20px;
+}
+
+.subtitle {
+  font-family: $font-body;
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+// ─── Grid ───
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  padding: 32px;
+  transition: all 0.5s $uc-ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-4px);
+  }
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.iconWrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba($uc-accent, 0.1);
+  border: 1px solid rgba($uc-accent, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $uc-accent;
+}
+
+.cardLabel {
+  font-family: $font-body;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.statRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.stat {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 36px;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.statSuffix {
+  font-family: $font-body;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.cardDesc {
+  font-family: $font-body;
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0;
+}
+
+// ─── Responsive ───
+
+@include desktop-s {
+  .header h2 {
+    font-size: 42px;
+  }
+
+  .stat {
+    font-size: 32px;
+  }
+}
+
+@include tablet-horizontal {
+  .section {
+    padding: 100px 0;
+  }
+
+  .header {
+    margin-bottom: 56px;
+  }
+
+  .header h2 {
+    font-size: 38px;
+  }
+
+  .grid {
+    gap: 20px;
+  }
+
+  .card {
+    padding: 28px;
+  }
+
+  .stat {
+    font-size: 28px;
+  }
+}
+
+@include tablet-vertical {
+  .section {
+    padding: 80px 0;
+  }
+
+  .header h2 {
+    font-size: 32px;
+  }
+
+  .header {
+    margin-bottom: 48px;
+    text-align: left;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 480px;
+  }
+
+  .card {
+    padding: 28px;
+  }
+
+  .stat {
+    font-size: 30px;
+  }
+}
+
+@include mobile {
+  .section {
+    padding: 56px 0;
+  }
+
+  .header h2 {
+    font-size: 26px;
+  }
+
+  .header {
+    margin-bottom: 36px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .card {
+    padding: 24px;
+  }
+
+  .stat {
+    font-size: 28px;
+  }
+
+  .cardDesc {
+    font-size: 14px;
+  }
+}

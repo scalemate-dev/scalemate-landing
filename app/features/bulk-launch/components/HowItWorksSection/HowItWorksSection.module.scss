@@ -1,0 +1,286 @@
+@use '../uc' as *;
+
+// ─── Section ───
+
+.section {
+  position: relative;
+  padding: 148px 0 140px;
+  background: $uc-bg-warm;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at 85% 20%,
+      rgba($uc-accent, 0.015) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
+  }
+}
+
+// ─── Header ───
+
+.header {
+  max-width: 660px;
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  @include uc-eyebrow;
+}
+
+.header h2 {
+  @include uc-section-title;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  @include uc-body-text;
+}
+
+// ─── Timeline ───
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 40px;
+}
+
+// ─── Step Indicator ───
+
+.stepIndicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stepNumber {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: $uc-panel-bg;
+  border: 1px solid rgba($uc-ink, 0.06);
+  box-shadow: $uc-shadow-card;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 18px;
+  color: $uc-accent;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+}
+
+.stepLine {
+  width: 2px;
+  flex: 1;
+  background: linear-gradient(
+    180deg,
+    $uc-line 0%,
+    rgba($uc-line, 0.3) 100%
+  );
+  border-radius: 1px;
+  margin: 8px 0;
+}
+
+// ─── Step Content ───
+
+.stepContent {
+  padding-bottom: 64px;
+
+  .step:last-child & {
+    padding-bottom: 0;
+  }
+
+  a {
+    color: $uc-accent;
+    text-decoration: none;
+    border-bottom: 1px solid rgba($uc-accent, 0.3);
+    transition: border-color 0.3s ease;
+
+    &:hover {
+      border-color: $uc-accent;
+    }
+  }
+}
+
+.stepHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.stepIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba($uc-accent, 0.08);
+  color: $uc-accent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stepContent h3 {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 24px;
+  color: $uc-ink;
+  margin: 0;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.stepDesc {
+  font-family: $font-body;
+  font-size: 16px;
+  line-height: 1.7;
+  color: $uc-body;
+  margin: 0;
+  max-width: 640px;
+}
+
+// ─── Responsive ───
+
+@include desktop-s {
+  .header h2 {
+    font-size: 46px;
+  }
+
+  .stepContent h3 {
+    font-size: 22px;
+  }
+}
+
+@include tablet-horizontal {
+  .section {
+    padding: 104px 0 100px;
+  }
+
+  .header {
+    margin-bottom: 64px;
+  }
+
+  .header h2 {
+    font-size: 40px;
+  }
+
+  .step {
+    grid-template-columns: 60px 1fr;
+    gap: 28px;
+  }
+
+  .stepNumber {
+    width: 48px;
+    height: 48px;
+    font-size: 16px;
+  }
+
+  .stepContent h3 {
+    font-size: 20px;
+  }
+
+  .stepDesc {
+    font-size: 15px;
+  }
+
+  .stepContent {
+    padding-bottom: 48px;
+  }
+}
+
+@include tablet-vertical {
+  .section {
+    padding: 80px 0;
+  }
+
+  .header h2 {
+    font-size: 34px;
+  }
+
+  .header {
+    margin-bottom: 48px;
+  }
+
+  .step {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .stepIndicator {
+    flex-direction: row;
+    gap: 0;
+    margin-bottom: 16px;
+  }
+
+  .stepLine {
+    display: none;
+  }
+
+  .stepContent {
+    padding-bottom: 40px;
+    padding-left: 0;
+  }
+
+  .stepContent h3 {
+    font-size: 19px;
+  }
+}
+
+@include mobile {
+  .section {
+    padding: 56px 0 64px;
+  }
+
+  .header h2 {
+    font-size: 28px;
+  }
+
+  .header {
+    margin-bottom: 36px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .stepNumber {
+    width: 42px;
+    height: 42px;
+    font-size: 15px;
+    border-radius: 12px;
+  }
+
+  .stepIcon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .stepContent h3 {
+    font-size: 17px;
+  }
+
+  .stepDesc {
+    font-size: 14px;
+  }
+
+  .stepContent {
+    padding-bottom: 32px;
+  }
+}

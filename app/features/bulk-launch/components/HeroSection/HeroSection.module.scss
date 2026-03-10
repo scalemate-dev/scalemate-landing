@@ -1,0 +1,640 @@
+@use '../uc' as *;
+
+// ─── Animations ───
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.65; transform: scale(1.06); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba($uc-accent, 0.3); }
+  50% { box-shadow: 0 0 0 5px rgba($uc-accent, 0); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes floatMed {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes feedSlide {
+  from { opacity: 0; transform: translateX(16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+// ─── Hero Section ───
+
+.hero {
+  position: relative;
+  padding: 180px 0 120px;
+  background: linear-gradient(168deg, #fefdfb 0%, #fff8f3 45%, #fefefe 100%);
+  overflow-x: clip;
+  overflow-y: visible;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: radial-gradient(ellipse 70% 60% at 65% 40%, rgba(0, 0, 0, 0.5) 0%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 65% 40%, rgba(0, 0, 0, 0.5) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: -5%;
+    right: 5%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba($uc-accent, 0.06) 0%, rgba($uc-accent, 0.015) 45%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    animation: breathe 15s ease-in-out infinite;
+  }
+}
+
+.layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 56px;
+  align-items: center;
+}
+
+// ─── Left: Content ───
+
+.content {
+  max-width: 540px;
+}
+
+.eyebrow {
+  @include uc-eyebrow;
+}
+
+.content h1 {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: $uc-ink;
+  margin: 0 0 12px;
+  text-align: left;
+}
+
+.tagline {
+  font-family: $font-body;
+  font-style: italic;
+  font-size: 20px;
+  color: $uc-accent;
+  margin: 0 0 28px;
+  font-weight: 500;
+}
+
+.description {
+  font-family: $font-body;
+  font-size: 17px;
+  line-height: 1.7;
+  color: $uc-body;
+  margin: 0 0 20px;
+
+  strong {
+    font-weight: 600;
+    color: $uc-ink;
+  }
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+
+  li {
+    position: relative;
+    font-family: $font-body;
+    font-size: 15px;
+    line-height: 1.7;
+    color: $uc-body;
+    padding-left: 20px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 8px;
+      height: 2px;
+      background: $uc-accent;
+      border-radius: 1px;
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+// ─── Right: Visual ───
+
+.visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.engine {
+  position: relative;
+  width: 100%;
+  padding: 30px 0 40px;
+}
+
+// ─── Stacked Cards ───
+
+.cardsStack {
+  position: relative;
+  margin-right: -12px;
+  margin-bottom: 20px;
+}
+
+.templateCard {
+  background: #ffffff;
+  border: 1px solid rgba($uc-ink, 0.07);
+  border-radius: 16px;
+  padding: 22px 26px;
+  box-shadow: $uc-shadow-panel;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.templateCardFront {
+  position: relative;
+  z-index: 2;
+  animation: slideUp 0.7s $uc-ease both;
+}
+
+.templateCardBack {
+  position: absolute;
+  z-index: 1;
+  top: 28px;
+  left: 24px;
+  right: -24px;
+  animation: slideUp 0.7s $uc-ease 0.12s both;
+  opacity: 0.7;
+}
+
+.templateTop {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.statusPill {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: 600;
+  color: $uc-success;
+  background: rgba($uc-success, 0.06);
+  border: 1px solid rgba($uc-success, 0.15);
+  padding: 5px 12px;
+  border-radius: 8px;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: $uc-success;
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+.templateBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: 500;
+  color: $uc-ink;
+  background: rgba($uc-ink, 0.03);
+  border: 1px solid rgba($uc-ink, 0.07);
+  padding: 5px 12px;
+  border-radius: 8px;
+}
+
+.templateName {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 18px;
+  color: $uc-ink;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.templateMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tagOrange {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: 500;
+  color: $uc-accent-deep;
+  background: rgba($uc-accent, 0.06);
+  border: 1px solid rgba($uc-accent, 0.15);
+  padding: 4px 10px;
+  border-radius: 8px;
+
+  svg { color: $uc-accent; }
+}
+
+.tagNeutral {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: 500;
+  color: $uc-body;
+  background: rgba($uc-ink, 0.02);
+  border: 1px solid rgba($uc-ink, 0.08);
+  padding: 4px 10px;
+  border-radius: 8px;
+
+  svg { color: $uc-stone; }
+}
+
+.tagPurple {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: 500;
+  color: #6B5CE7;
+  background: rgba(#6B5CE7, 0.04);
+  border: 1px solid rgba(#6B5CE7, 0.14);
+  padding: 4px 10px;
+  border-radius: 8px;
+
+  span {
+    font-weight: 600;
+  }
+}
+
+.tagGreen {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: 500;
+  color: #027A48;
+  background: rgba($uc-success, 0.06);
+  border: 1px solid rgba($uc-success, 0.15);
+  padding: 4px 10px;
+  border-radius: 8px;
+
+  svg { color: $uc-success; }
+}
+
+.templateDivider {
+  height: 1px;
+  background: $uc-line;
+}
+
+.templateFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.templateInfo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: $font-body;
+  font-size: 12px;
+  color: $uc-stone;
+}
+
+.infoLabel {
+  color: $uc-stone;
+}
+
+.infoValue {
+  font-weight: 600;
+  color: $uc-ink;
+}
+
+// ─── Floating Activity Cards ───
+
+.floater {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  background: #ffffff;
+  border: 1px solid rgba($uc-ink, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(42, 39, 36, 0.06);
+  white-space: nowrap;
+}
+
+.floaterTopRight {
+  top: 0;
+  right: 0;
+  animation: feedSlide 0.6s $uc-ease 0.3s both, floatSlow 6s ease-in-out 1s infinite;
+}
+
+.floaterRight {
+  top: 50%;
+  right: -20px;
+  animation: feedSlide 0.6s $uc-ease 0.55s both, floatMed 7s ease-in-out 1.2s infinite;
+}
+
+.floaterBottomRight {
+  bottom: 0;
+  right: 10px;
+  animation: feedSlide 0.6s $uc-ease 0.8s both, floatSlow 8s ease-in-out 1.4s infinite;
+}
+
+.floaterDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+
+  &[data-type="success"] {
+    background: $uc-success;
+  }
+
+  &[data-type="info"] {
+    background: #6B5CE7;
+  }
+}
+
+.floaterBody {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.floaterAction {
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: 600;
+  color: $uc-ink;
+}
+
+.floaterTarget {
+  font-family: $font-body;
+  font-size: 10px;
+  color: $uc-stone;
+}
+
+.floaterTime {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 10px;
+  color: $uc-body-faded;
+  flex-shrink: 0;
+}
+
+// ─── Time Saved Card ───
+
+.savedCard {
+  position: absolute;
+  z-index: 3;
+  bottom: 24px;
+  left: -24px;
+  background: #ffffff;
+  border: 1px solid rgba($uc-accent, 0.12);
+  border-radius: 14px;
+  padding: 14px 20px;
+  box-shadow: $uc-shadow-panel;
+  animation: slideUp 0.7s $uc-ease 1s both, floatMed 6s ease-in-out 1.8s infinite;
+  text-align: center;
+}
+
+.savedAmount {
+  font-family: $font-heading;
+  font-size: 24px;
+  font-weight: 700;
+  color: $uc-accent;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.savedLabel {
+  font-family: $font-body;
+  font-size: 11px;
+  color: $uc-stone;
+  margin-top: 3px;
+}
+
+// ─── Responsive ───
+
+@include desktop-s {
+  .content h1 {
+    font-size: 42px;
+  }
+
+  .layout {
+    gap: 48px;
+  }
+}
+
+@include tablet-horizontal {
+  .hero {
+    padding: 150px 0 100px;
+
+    &::after {
+      width: 400px;
+      height: 400px;
+      top: 0;
+      right: -8%;
+    }
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+  .content {
+    max-width: 100%;
+  }
+
+  .content h1 {
+    font-size: 40px;
+  }
+
+  .tagline {
+    font-size: 18px;
+  }
+
+  .visual {
+    justify-content: flex-start;
+  }
+
+  .engine {
+    max-width: 580px;
+  }
+}
+
+@include tablet-vertical {
+  .hero {
+    padding: 120px 0 72px;
+
+    &::before {
+      mask-image: radial-gradient(ellipse 90% 50% at 50% 25%, rgba(0, 0, 0, 0.4) 0%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse 90% 50% at 50% 25%, rgba(0, 0, 0, 0.4) 0%, transparent 70%);
+    }
+
+    &::after {
+      width: 280px;
+      height: 280px;
+    }
+  }
+
+  .content h1 {
+    font-size: 34px;
+  }
+
+  .tagline {
+    font-size: 17px;
+    margin-bottom: 24px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  .actions {
+    flex-direction: column;
+
+    a, button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  .floaterBottomRight {
+    display: none;
+  }
+
+  .savedCard {
+    left: 0;
+  }
+}
+
+@include mobile {
+  .hero {
+    padding: 100px 0 56px;
+
+    &::before {
+      background-size: 28px 28px;
+    }
+
+    &::after {
+      width: 180px;
+      height: 180px;
+      opacity: 0.5;
+    }
+  }
+
+  .content h1 {
+    font-size: 28px;
+    letter-spacing: -0.025em;
+  }
+
+  .tagline {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+
+  .features li {
+    font-size: 14px;
+  }
+
+  .visual {
+    min-height: auto;
+  }
+
+  .engine {
+    max-width: 100%;
+    padding: 20px 0;
+  }
+
+  .templateCard {
+    padding: 18px 20px;
+    gap: 12px;
+  }
+
+  .templateCardBack {
+    display: none;
+  }
+
+  .templateName {
+    font-size: 16px;
+  }
+
+  .templateMeta {
+    gap: 6px;
+  }
+
+  .tagOrange,
+  .tagNeutral,
+  .tagPurple,
+  .tagGreen {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+
+  .floater {
+    display: none;
+  }
+
+  .savedCard {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    margin-top: 12px;
+    display: inline-flex;
+    flex-direction: column;
+    animation: slideUp 0.7s $uc-ease 0.5s both;
+  }
+}
