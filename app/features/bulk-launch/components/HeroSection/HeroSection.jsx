@@ -90,7 +90,7 @@ export default function HeroSection() {
       <Container>
         <div className={styles.layout}>
           <div className={styles.content}>
-            <span className={styles.eyebrow}>Bulk Ad Creation Tool</span>
+            <span className={styles.eyebrow}>Launch Ads at Scale</span>
             <h1>Bulk Ad Creation Tool</h1>
             <p className={styles.tagline}>
               Launch hundreds of ads. Click once.

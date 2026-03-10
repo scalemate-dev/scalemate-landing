@@ -117,7 +117,7 @@ const softwareSchema = {
     "Launch hundreds of ad sets from one reusable campaign template",
     "Matrix creation across concepts, languages, GEOs, and formats",
     "Sync creatives directly from Google Drive to ad library",
-    "Launch creatieves to Meta and TikTok from a single workflow",
+    "Launch creatives to Meta and TikTok from a single workflow",
     "Auto-label every ad set by concept, language, and GEO",
     "Save campaign structure as a template with targeting, bids, and budgets",
   ],
