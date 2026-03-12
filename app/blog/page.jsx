@@ -36,8 +36,26 @@ export default async function BlogPage() {
     }
   })
 
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: "Scalemate Blog",
+    url: "https://www.scalemate.co/blog",
+    description:
+      "Insights on ad automation, scaling strategies, and performance marketing from the Scalemate team.",
+    publisher: {
+      "@type": "Organization",
+      name: "Scalemate",
+      url: "https://www.scalemate.co",
+    },
+  }
+
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
       <section className={styles.hero}>
         <Container>
           <div className={styles.heroContent}>

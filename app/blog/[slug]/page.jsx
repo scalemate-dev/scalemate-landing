@@ -58,6 +58,11 @@ export async function generateMetadata({ params, searchParams }) {
   const description =
     article.fields.metaDescription || `Read about ${title.toLowerCase()} on the Scalemate blog.`
 
+  const authorField = article.fields.author
+  const author = typeof authorField === "string"
+    ? authorField
+    : authorField?.fields?.name || "Scalemate Team"
+
   const cover = article.fields.imageCover?.fields?.file
   const ogImage = cover?.url
     ? cover.url.startsWith("//") ? `https:${cover.url}` : cover.url
@@ -75,6 +80,9 @@ export async function generateMetadata({ params, searchParams }) {
       title: `${title} | Scalemate Blog`,
       description,
       type: "article",
+      publishedTime: article.sys.createdAt,
+      modifiedTime: article.sys.updatedAt,
+      authors: [author],
       images: [{ url: ogImage }],
     },
     twitter: {
@@ -136,9 +144,22 @@ export default async function ArticlePage({ params, searchParams }) {
       "@type": "Organization",
       name: "Scalemate",
       url: "https://www.scalemate.co",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.scalemate.co/logo.png",
+      },
     },
     datePublished: article.sys.createdAt,
     dateModified: article.sys.updatedAt,
+  }
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Blog", item: "https://www.scalemate.co/blog" },
+      { "@type": "ListItem", position: 2, name: title, item: `https://www.scalemate.co/blog/${slug}` },
+    ],
   }
 
   const faqSchema =
@@ -162,6 +183,10 @@ export default async function ArticlePage({ params, searchParams }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       {faqSchema && (
         <script
