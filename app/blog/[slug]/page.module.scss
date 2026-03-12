@@ -1,0 +1,88 @@
+.wrapper {
+  padding-top: 112px;
+}
+
+.heroContainer {
+  text-align: center;
+  padding-bottom: 48px;
+}
+
+.label {
+  font-weight: 700;
+  color: #9CA3AF;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: var(--font-poppins);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 56px;
+  letter-spacing: -0.02em;
+  color: $color-text-800;
+  max-width: 800px;
+  margin: 0 auto 16px;
+}
+
+.date {
+  font-size: 15px;
+  color: $color-text-500;
+}
+
+.contentContainer {
+  padding-bottom: 64px;
+}
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.sidebar {
+  position: sticky;
+  top: 96px;
+  width: 200px;
+  flex-shrink: 0;
+  // Pull sidebar into the left margin without affecting article centering
+  margin-left: -248px;
+  padding-right: 48px;
+}
+
+.article {
+  max-width: 720px;
+  width: 100%;
+}
+
+@include tablet-horizontal {
+  .title {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  .sidebar {
+    margin-left: -232px;
+    width: 180px;
+    padding-right: 32px;
+  }
+}
+
+@include tablet-vertical {
+  .title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: static;
+    width: 100%;
+    margin-left: 0;
+    padding-right: 0;
+    margin-bottom: 32px;
+  }
+}
