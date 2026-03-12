@@ -1,8 +1,6 @@
-import Link from "next/link"
-import Image from "next/image"
-import { IconArrowRight } from "@tabler/icons-react"
 import Container from "@/components/elements/Container/Container"
 import CtaSection from "@/app/use-cases/_components/CtaSection/CtaSection"
+import BlogArticleCard from "@/components/blog/BlogArticleCard"
 import { client } from "@/lib/contentful"
 import { pageMetadata } from "../metadata"
 import styles from "./page.module.scss"
@@ -80,8 +78,8 @@ export default async function BlogPage() {
       <section className={styles.gridSection}>
         <Container>
           <div className={styles.grid}>
-            {articles.map((article) => (
-              <ArticleCard key={article.id} article={article} />
+            {articles.map((article, index) => (
+              <BlogArticleCard key={article.id} article={article} position={index + 1} />
             ))}
           </div>
         </Container>
@@ -92,41 +90,5 @@ export default async function BlogPage() {
         description="Automate creative uploads, bulk launch campaigns, and manage rules — all from one platform."
       />
     </div>
-  )
-}
-
-function ArticleCard({ article }) {
-  const { slug, title, excerpt, createdAt, coverUrl, coverWidth, coverHeight, coverAlt } = article
-
-  const date = new Date(createdAt).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  })
-
-  return (
-    <Link href={`/blog/${slug}`} className={styles.card}>
-      {coverUrl && (
-        <div className={styles.cardImage}>
-          <Image
-            src={coverUrl}
-            alt={coverAlt}
-            width={coverWidth}
-            height={coverHeight}
-            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          />
-        </div>
-      )}
-      <div className={styles.cardContent}>
-        <span className={styles.cardDash} />
-        <span className={styles.date}>{date}</span>
-        <h2 className={styles.cardTitle}>{title}</h2>
-        {excerpt && <p className={styles.cardExcerpt}>{excerpt}</p>}
-        <span className={styles.readMore}>
-          Read article
-          <IconArrowRight size={16} />
-        </span>
-      </div>
-    </Link>
   )
 }

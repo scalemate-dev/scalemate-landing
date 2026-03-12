@@ -22,6 +22,11 @@ const PAGE_CATEGORY_MAP: Record<string, string> = {
 
 export const getPageName = (pathname: string): string => {
   if (PAGE_NAME_MAP[pathname]) return PAGE_NAME_MAP[pathname]
+  if (pathname === '/blog') return 'Blog'
+  if (pathname.startsWith('/blog/')) {
+    const slug = pathname.replace('/blog/', '')
+    return `Blog: ${slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}`
+  }
   if (pathname.startsWith('/use-cases/')) {
     const slug = pathname.replace('/use-cases/', '')
     return `Use Case: ${slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}`
@@ -34,6 +39,7 @@ export const getPageName = (pathname: string): string => {
 
 export const getPageCategory = (pathname: string): string => {
   if (PAGE_CATEGORY_MAP[pathname]) return PAGE_CATEGORY_MAP[pathname]
+  if (pathname.startsWith('/blog')) return 'blog'
   if (pathname.startsWith('/use-cases/')) return 'use_case'
   if (pathname.startsWith('/customers/')) return 'social_proof'
   return 'other'

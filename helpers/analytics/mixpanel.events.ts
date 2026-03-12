@@ -31,4 +31,9 @@ export const EVENTS = {
   CASE_STUDY_CARD_CLICKED: 'case_study_card_clicked',
   NAV_ITEM_CLICKED: 'nav_item_clicked',
   NAV_DROPDOWN_OPENED: 'nav_dropdown_opened',
+
+  // ── Blog ──
+  BLOG_ARTICLE_VIEWED: 'blog_article_viewed',
+  BLOG_ARTICLE_CARD_CLICKED: 'blog_article_card_clicked',
+  BLOG_TOC_CLICKED: 'blog_toc_clicked',
 } as const

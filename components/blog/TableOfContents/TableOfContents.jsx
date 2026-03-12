@@ -1,10 +1,15 @@
 "use client"
 import { useState, useEffect } from "react"
+import { usePathname } from "next/navigation"
 import cn from "classnames"
 import { IconChevronDown } from "@tabler/icons-react"
+import { trackMixpanelEvent } from "@/helpers/analytics/mixpanel"
+import { EVENTS } from "@/helpers/analytics/mixpanel.events"
 import styles from "./TableOfContents.module.scss"
 
 export default function TableOfContents({ headings }) {
+  const pathname = usePathname()
+  const articleSlug = pathname.replace("/blog/", "")
   const [activeId, setActiveId] = useState("")
   const [isOpen, setIsOpen] = useState(false)
 
@@ -65,6 +70,10 @@ export default function TableOfContents({ headings }) {
               })}
               onClick={(e) => {
                 e.preventDefault()
+                trackMixpanelEvent(EVENTS.BLOG_TOC_CLICKED, {
+                  heading_text: heading.text,
+                  article_slug: articleSlug,
+                })
                 const el = document.getElementById(heading.id)
                 if (el) {
                   el.scrollIntoView({ behavior: "smooth", block: "start" })

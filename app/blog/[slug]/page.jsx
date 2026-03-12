@@ -4,6 +4,7 @@ import { IconArrowLeft } from "@tabler/icons-react"
 import Container from "@/components/elements/Container/Container"
 import RichTextElements from "@/components/contentful/RichText/RichTextElements"
 import TableOfContents from "@/components/blog/TableOfContents/TableOfContents"
+import BlogArticleTracker from "@/components/blog/BlogArticleTracker"
 import FAQ from "@/components/FAQ/FAQ"
 import CtaSection from "@/app/use-cases/_components/CtaSection/CtaSection"
 import { client, previewClient } from "@/lib/contentful"
@@ -180,6 +181,7 @@ export default async function ArticlePage({ params, searchParams }) {
 
   return (
     <div>
+      <BlogArticleTracker slug={slug} title={title} author={author} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
