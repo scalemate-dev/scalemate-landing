@@ -47,6 +47,7 @@ async function getArticle(slug, preview = false) {
 export async function generateMetadata({ params, searchParams }) {
   const { slug } = await params
   const { preview } = await searchParams
+  const isPreview = preview === previewAccessToken
   const article = await getArticle(slug, preview)
 
   if (!article) {
@@ -54,23 +55,33 @@ export async function generateMetadata({ params, searchParams }) {
   }
 
   const title = article.fields.title
+  const description =
+    article.fields.metaDescription || `Read about ${title.toLowerCase()} on the Scalemate blog.`
+
+  const cover = article.fields.imageCover?.fields?.file
+  const ogImage = cover?.url
+    ? cover.url.startsWith("//") ? `https:${cover.url}` : cover.url
+    : "/og-image.png"
 
   return {
     title: `${title} | Scalemate Blog`,
-    description: `Read about ${title.toLowerCase()} on the Scalemate blog.`,
+    description,
     alternates: {
       canonical: `https://www.scalemate.co/blog/${slug}`,
     },
+    ...(isPreview && { robots: { index: false, follow: false } }),
     openGraph: {
       url: `https://www.scalemate.co/blog/${slug}`,
       title: `${title} | Scalemate Blog`,
+      description,
       type: "article",
-      images: [{ url: "/og-image.png" }],
+      images: [{ url: ogImage }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${title} | Scalemate Blog`,
-      images: ["/og-image.png"],
+      description,
+      images: [ogImage],
     },
   }
 }
@@ -104,16 +115,23 @@ export default async function ArticlePage({ params, searchParams }) {
       answer: item.fields.answer,
     })) || []
 
+  const cover = article.fields.imageCover?.fields?.file
+  const coverUrl = cover?.url
+    ? cover.url.startsWith("//") ? `https:${cover.url}` : cover.url
+    : null
+
+  const isPersonAuthor = typeof authorField !== "string" && authorField?.fields?.name
+
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: title,
+    description: article.fields.metaDescription || undefined,
     url: `https://www.scalemate.co/blog/${slug}`,
-    author: {
-      "@type": "Organization",
-      name: "Scalemate",
-      url: "https://www.scalemate.co",
-    },
+    ...(coverUrl && { image: coverUrl }),
+    author: isPersonAuthor
+      ? { "@type": "Person", name: author }
+      : { "@type": "Organization", name: "Scalemate", url: "https://www.scalemate.co" },
     publisher: {
       "@type": "Organization",
       name: "Scalemate",

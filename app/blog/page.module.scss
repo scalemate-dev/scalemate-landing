@@ -201,6 +201,18 @@ $blog-shadow-hover: 0 2px 4px rgba(42, 39, 36, 0.03), 0 8px 24px rgba(42, 39, 36
   color: $blog-ink;
 }
 
+.cardExcerpt {
+  font-family: var(--font-inter);
+  font-size: 14px;
+  line-height: 1.6;
+  color: $blog-body;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .readMore {
   display: inline-flex;
   align-items: center;

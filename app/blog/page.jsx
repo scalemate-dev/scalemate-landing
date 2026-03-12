@@ -28,6 +28,7 @@ export default async function BlogPage() {
       id: item.sys.id,
       slug: item.fields.slug,
       title: item.fields.title,
+      excerpt: item.fields.metaDescription || null,
       createdAt: item.sys.createdAt,
       coverUrl,
       coverWidth,
@@ -71,7 +72,7 @@ export default async function BlogPage() {
 }
 
 function ArticleCard({ article }) {
-  const { slug, title, createdAt, coverUrl, coverWidth, coverHeight } = article
+  const { slug, title, excerpt, createdAt, coverUrl, coverWidth, coverHeight } = article
 
   const date = new Date(createdAt).toLocaleDateString("en-US", {
     year: "numeric",
@@ -96,6 +97,7 @@ function ArticleCard({ article }) {
         <span className={styles.cardDash} />
         <span className={styles.date}>{date}</span>
         <h2 className={styles.cardTitle}>{title}</h2>
+        {excerpt && <p className={styles.cardExcerpt}>{excerpt}</p>}
         <span className={styles.readMore}>
           Read article
           <IconArrowRight size={16} />

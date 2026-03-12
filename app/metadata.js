@@ -95,6 +95,7 @@ const blogMetadata = {
   title: "Scalemate Blog: Ad Automation Insights & Strategies",
   description:
     "Insights on ad automation, scaling strategies, and performance marketing from the Scalemate team.",
+  author: "Scalemate.co Team",
   alternates: { canonical: "https://www.scalemate.co/blog" },
   openGraph: {
     url: "https://www.scalemate.co/blog",
