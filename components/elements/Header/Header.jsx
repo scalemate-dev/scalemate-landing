@@ -120,7 +120,6 @@ const USE_CASES = [
 
 const NAV_LINKS = [
   { href: "/customers", label: "Customers" },
-  { href: "/blog", label: "Blog" },
   { href: "/pricing", label: "Pricing" },
 ]
 
