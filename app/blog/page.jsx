@@ -24,6 +24,11 @@ export default async function BlogPage() {
     const coverWidth = cover?.details?.image?.width || 800
     const coverHeight = cover?.details?.image?.height || 450
 
+    const coverAlt =
+      item.fields.imageCover?.fields?.description ||
+      item.fields.imageCover?.fields?.title ||
+      item.fields.title
+
     return {
       id: item.sys.id,
       slug: item.fields.slug,
@@ -33,6 +38,7 @@ export default async function BlogPage() {
       coverUrl,
       coverWidth,
       coverHeight,
+      coverAlt,
     }
   })
 
@@ -90,7 +96,7 @@ export default async function BlogPage() {
 }
 
 function ArticleCard({ article }) {
-  const { slug, title, excerpt, createdAt, coverUrl, coverWidth, coverHeight } = article
+  const { slug, title, excerpt, createdAt, coverUrl, coverWidth, coverHeight, coverAlt } = article
 
   const date = new Date(createdAt).toLocaleDateString("en-US", {
     year: "numeric",
@@ -104,7 +110,7 @@ function ArticleCard({ article }) {
         <div className={styles.cardImage}>
           <Image
             src={coverUrl}
-            alt={title}
+            alt={coverAlt}
             width={coverWidth}
             height={coverHeight}
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
