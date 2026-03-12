@@ -1,9 +1,11 @@
+import Link from "next/link"
 import { notFound } from "next/navigation"
+import { IconArrowLeft } from "@tabler/icons-react"
 import Container from "@/components/elements/Container/Container"
 import RichTextElements from "@/components/contentful/RichText/RichTextElements"
 import TableOfContents from "@/components/blog/TableOfContents/TableOfContents"
 import FAQ from "@/components/FAQ/FAQ"
-import WaitList from "@/components/home/WaitList/WaitList"
+import CtaSection from "@/app/use-cases/_components/CtaSection/CtaSection"
 import { client, previewClient } from "@/lib/contentful"
 import { extractHeadings } from "@/lib/richtext"
 import styles from "./page.module.scss"
@@ -83,6 +85,10 @@ export default async function ArticlePage({ params, searchParams }) {
   }
 
   const title = article.fields.title
+  const authorField = article.fields.author
+  const author = typeof authorField === "string"
+    ? authorField
+    : authorField?.fields?.name || "Scalemate Team"
 
   const date = new Date(article.sys.createdAt).toLocaleDateString("en-US", {
     year: "numeric",
@@ -92,10 +98,11 @@ export default async function ArticlePage({ params, searchParams }) {
 
   const headings = extractHeadings(article.fields.mainContent)
 
-  const faqItems = article.fields.faq?.map((item) => ({
-    question: item.fields.question,
-    answer: item.fields.answer,
-  })) || []
+  const faqItems =
+    article.fields.faq?.map((item) => ({
+      question: item.fields.question,
+      answer: item.fields.answer,
+    })) || []
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -116,21 +123,24 @@ export default async function ArticlePage({ params, searchParams }) {
     dateModified: article.sys.updatedAt,
   }
 
-  const faqSchema = faqItems.length > 0 ? {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqItems.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-  } : null
+  const faqSchema =
+    faqItems.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqItems.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: item.answer,
+            },
+          })),
+        }
+      : null
 
   return (
-    <div className={styles.wrapper}>
+    <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
@@ -142,35 +152,48 @@ export default async function ArticlePage({ params, searchParams }) {
         />
       )}
 
-      <Container className={styles.heroContainer}>
-        <p className={styles.label}>Blog</p>
-        <h1 className={styles.title}>{title}</h1>
-        <time className={styles.date} dateTime={article.sys.createdAt}>
-          {date}
-        </time>
-      </Container>
+      <section className={styles.hero}>
+        <Container>
+          <div className={styles.nav}>
+            <Link href="/blog" className={styles.backLink}>
+              <IconArrowLeft size={16} />
+              All posts
+            </Link>
+          </div>
+          <div className={styles.heroContent}>
+            <time className={styles.date} dateTime={article.sys.createdAt}>
+              {date}
+            </time>
+            <h1 className={styles.title}>{title}</h1>
+            <p className={styles.byline}>by {author}</p>
+          </div>
+        </Container>
+      </section>
 
-      <Container className={styles.contentContainer}>
-        <div className={styles.layout}>
-          {headings.length > 0 && (
-            <aside className={styles.sidebar}>
-              <TableOfContents headings={headings} />
-            </aside>
-          )}
-          <article className={styles.article}>
-            <RichTextElements
-              document={article.fields.mainContent}
-              withHeadingIds
-            />
-          </article>
-        </div>
-      </Container>
+      <section className={styles.contentSection}>
+        <Container>
+          <div className={styles.layout}>
+            {headings.length > 0 && (
+              <aside className={styles.sidebar}>
+                <TableOfContents headings={headings} />
+              </aside>
+            )}
+            <article className={styles.article}>
+              <RichTextElements
+                document={article.fields.mainContent}
+                withHeadingIds
+              />
+            </article>
+          </div>
+        </Container>
+      </section>
 
-      {faqItems.length > 0 && (
-        <FAQ faqItems={faqItems} theme="light" />
-      )}
+      {faqItems.length > 0 && <FAQ faqItems={faqItems} theme="light" />}
 
-      <WaitList href="/book-a-demo" buttonText="Book a demo" />
+      <CtaSection
+        title="Scale your ad launches today"
+        description="Automate creative uploads, bulk launch campaigns, and manage rules — all from one platform."
+      />
     </div>
   )
 }

@@ -1,10 +1,12 @@
 "use client"
 import { useState, useEffect } from "react"
 import cn from "classnames"
+import { IconChevronDown } from "@tabler/icons-react"
 import styles from "./TableOfContents.module.scss"
 
 export default function TableOfContents({ headings }) {
   const [activeId, setActiveId] = useState("")
+  const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
     const observers = []
@@ -40,8 +42,19 @@ export default function TableOfContents({ headings }) {
 
   return (
     <nav className={styles.toc} aria-label="Table of contents">
-      <p className={styles.title}>Contents</p>
-      <ul className={styles.list}>
+      <button
+        className={styles.toggle}
+        onClick={() => setIsOpen((prev) => !prev)}
+        aria-expanded={isOpen}
+      >
+        <span className={styles.toggleDash} />
+        <span className={styles.toggleLabel}>Contents</span>
+        <IconChevronDown
+          size={14}
+          className={cn(styles.chevron, { [styles.chevronOpen]: isOpen })}
+        />
+      </button>
+      <ul className={cn(styles.list, { [styles.listOpen]: isOpen })}>
         {headings.map((heading) => (
           <li key={heading.id}>
             <a

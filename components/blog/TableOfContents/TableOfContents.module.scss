@@ -1,60 +1,129 @@
+$toc-ink: #1a1614;
+$toc-body: #475467;
+$toc-stone: #9C9890;
+$toc-accent: #f97316;
+$toc-line: #DDD9D2;
+$toc-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
 .toc {
   width: 100%;
 }
 
-.title {
-  font-family: var(--font-poppins);
-  font-size: 14px;
-  font-weight: 600;
-  color: $color-text-800;
-  margin-bottom: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+// ─── Toggle button ───
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 0;
+  margin: 0 0 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
 }
+
+.toggleDash {
+  display: block;
+  width: 20px;
+  height: 2.5px;
+  background: $toc-accent;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.toggleLabel {
+  font-family: var(--font-inter);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: $toc-stone;
+  flex: 1;
+}
+
+.chevron {
+  color: $toc-stone;
+  transition: transform 0.35s $toc-ease;
+  flex-shrink: 0;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+// ─── Collapsible list ───
 
 .list {
   list-style: none;
   padding: 0;
   margin: 0;
-  border-left: 2px solid $color-bg-grey;
+  border-left: 1.5px solid $toc-line;
+  margin-left: 9px;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.45s $toc-ease, opacity 0.3s ease, margin-top 0.35s $toc-ease;
+  margin-top: 0;
 }
+
+.listOpen {
+  max-height: 600px;
+  opacity: 1;
+  margin-top: 16px;
+}
+
+// ─── Links ───
 
 .link {
   display: block;
-  padding: 6px 0 6px 16px;
-  font-size: 14px;
-  line-height: 1.4;
-  color: $color-text-500;
+  padding: 5px 0 5px 16px;
+  font-family: var(--font-inter);
+  font-size: 13px;
+  line-height: 1.5;
+  color: $toc-body;
   text-decoration: none;
-  border-left: 2px solid transparent;
-  margin-left: -2px;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  border-left: 1.5px solid transparent;
+  margin-left: -1.5px;
+  transition: color 0.2s ease, border-color 0.2s ease;
 
   &:hover {
-    color: $color-text-800;
+    color: $toc-ink;
   }
 }
 
 .h3 {
   padding-left: 28px;
-  font-size: 13px;
+  font-size: 12px;
+  color: $toc-stone;
+
+  &:hover {
+    color: $toc-body;
+  }
 }
 
 .active {
-  color: $color-accent-500;
-  border-left-color: $color-accent-500;
+  color: $toc-accent;
+  border-left-color: $toc-accent;
 
   &:hover {
-    color: $color-accent-500;
+    color: $toc-accent;
   }
 }
+
+// ─── Responsive ───
 
 @include tablet-vertical {
   .toc {
     position: static;
     max-width: 100%;
-    margin-bottom: 32px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid $color-bg-grey;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $toc-line;
+  }
+
+  .list {
+    margin-left: 9px;
   }
 }
