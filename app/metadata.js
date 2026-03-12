@@ -91,8 +91,32 @@ const pricingMetadata = {
   },
 }
 
+const blogMetadata = {
+  title: "Scalemate Blog: Ad Automation Insights & Strategies",
+  description:
+    "Insights on ad automation, scaling strategies, and performance marketing from the Scalemate team.",
+  author: "Scalemate.co Team",
+  alternates: { canonical: "https://www.scalemate.co/blog" },
+  openGraph: {
+    url: "https://www.scalemate.co/blog",
+    type: "website",
+    title: "Scalemate Blog: Ad Automation Insights & Strategies",
+    description:
+      "Insights on ad automation, scaling strategies, and performance marketing from the Scalemate team.",
+    images: [{ url: "/og-image.png" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Scalemate Blog: Ad Automation Insights & Strategies",
+    description:
+      "Insights on ad automation, scaling strategies, and performance marketing from the Scalemate team.",
+    images: ["/og-image.png"],
+  },
+}
+
 export const pageMetadata = {
   home: defaultMetadata,
+  blog: blogMetadata,
   launch: {
     title: "Scalemate: Bulk Ad Launch for Meta & TikTok, 3x Faster",
     alternates: { canonical: "https://www.scalemate.co/launch" },

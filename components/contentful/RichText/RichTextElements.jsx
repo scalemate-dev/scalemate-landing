@@ -3,7 +3,25 @@ import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer"
 import styles from "./RichText.module.scss"
 
-const RichTextElements = ({ document }) => {
+function getNodeText(node) {
+  if (node.nodeType === "text") return node.value
+  if (node.content) return node.content.map(getNodeText).join("")
+  return ""
+}
+
+function slugify(text) {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "")
+}
+
+const RichTextElements = ({ document, withHeadingIds = false }) => {
+  const headingRenderer = (tag, className) => (node, next) => {
+    const id = withHeadingIds ? ` id="${slugify(getNodeText(node))}"` : ""
+    return `<${tag}${id} class="${className}">${next(node.content)}</${tag}>`
+  }
+
   const options = {
     // Custom inline marks
     renderMark: {
@@ -14,12 +32,9 @@ const RichTextElements = ({ document }) => {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node, next) =>
         `<p class="${styles.paragraph}">${next(node.content)}</p>`,
-      [BLOCKS.HEADING_1]: (node, next) =>
-        `<h1 class="${styles.heading1}">${next(node.content)}</h1>`,
-      [BLOCKS.HEADING_2]: (node, next) =>
-        `<h2 class="${styles.heading2}">${next(node.content)}</h2>`,
-      [BLOCKS.HEADING_3]: (node, next) =>
-        `<h3 class="${styles.heading3}">${next(node.content)}</h3>`,
+      [BLOCKS.HEADING_1]: headingRenderer("h1", styles.heading1),
+      [BLOCKS.HEADING_2]: headingRenderer("h2", styles.heading2),
+      [BLOCKS.HEADING_3]: headingRenderer("h3", styles.heading3),
       [BLOCKS.UL_LIST]: (node, next) =>
         `<ul class="${styles.ulList}">${next(node.content)}</ul>`,
       [BLOCKS.OL_LIST]: (node, next) =>

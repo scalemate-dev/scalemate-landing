@@ -1,0 +1,271 @@
+// ── Article Page — editorial centered hero ──
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.08); }
+}
+
+$blog-ink: #1a1614;
+$blog-body: #475467;
+$blog-stone: #9C9890;
+$blog-accent: #f97316;
+$blog-line: #DDD9D2;
+$blog-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+// ─── Hero ───
+
+.hero {
+  position: relative;
+  padding: 140px 0 100px;
+  background: linear-gradient(168deg, #fefdfb 0%, #fff8f3 45%, #fefefe 100%);
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(0, 0, 0, 0.45) 0%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(0, 0, 0, 0.45) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: -5%;
+    right: -8%;
+    width: 560px;
+    height: 560px;
+    background: radial-gradient(circle, rgba($blog-accent, 0.06) 0%, rgba($blog-accent, 0.015) 45%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    animation: breathe 12s ease-in-out infinite;
+  }
+}
+
+// ─── Back navigation ───
+
+.nav {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 500;
+  color: $blog-stone;
+  text-decoration: none;
+  padding: 10px 24px;
+  border: 1.5px solid $blog-line;
+  border-radius: 100px;
+  transition: all 0.3s $blog-ease;
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    color: $blog-ink;
+    border-color: $blog-ink;
+  }
+}
+
+// ─── Hero content — centered editorial ───
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.date {
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 500;
+  color: $blog-stone;
+  letter-spacing: 0.04em;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-family: var(--font-poppins);
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: $blog-ink;
+  margin: 0 0 24px;
+}
+
+.byline {
+  font-family: var(--font-inter);
+  font-size: 15px;
+  color: $blog-stone;
+  margin: 0;
+}
+
+// ─── Content Area ───
+
+.contentSection {
+  padding: 64px 0 80px;
+  background: #ffffff;
+}
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.sidebar {
+  position: sticky;
+  top: 96px;
+  width: 220px;
+  flex-shrink: 0;
+  margin-left: -280px;
+  padding-right: 48px;
+}
+
+.article {
+  max-width: 720px;
+  width: 100%;
+}
+
+// ─── Responsive ───
+
+@include desktop-s {
+  .title {
+    font-size: 48px;
+  }
+
+  .sidebar {
+    margin-left: -260px;
+    width: 200px;
+    padding-right: 40px;
+  }
+}
+
+@include tablet-horizontal {
+  .hero {
+    padding: 130px 0 80px;
+
+    &::after {
+      width: 400px;
+      height: 400px;
+      top: 0;
+      right: -10%;
+    }
+  }
+
+  .title {
+    font-size: 42px;
+    line-height: 1.12;
+  }
+
+  .nav {
+    margin-bottom: 36px;
+  }
+
+  .sidebar {
+    margin-left: -240px;
+    width: 180px;
+    padding-right: 32px;
+  }
+}
+
+@include tablet-vertical {
+  .hero {
+    padding: 110px 0 56px;
+
+    &::before {
+      mask-image: radial-gradient(ellipse 90% 50% at 50% 25%, rgba(0, 0, 0, 0.4) 0%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse 90% 50% at 50% 25%, rgba(0, 0, 0, 0.4) 0%, transparent 70%);
+    }
+
+    &::after {
+      width: 280px;
+      height: 280px;
+      top: 5%;
+      right: -15%;
+    }
+  }
+
+  .title {
+    font-size: 34px;
+    line-height: 1.15;
+  }
+
+  .nav {
+    margin-bottom: 28px;
+  }
+
+  .contentSection {
+    padding: 40px 0 64px;
+  }
+
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: static;
+    width: 100%;
+    margin-left: 0;
+    padding-right: 0;
+    margin-bottom: 32px;
+  }
+}
+
+@include mobile {
+  .hero {
+    padding: 100px 0 44px;
+
+    &::before {
+      background-size: 28px 28px;
+    }
+
+    &::after {
+      width: 180px;
+      height: 180px;
+      top: 2%;
+      right: -20%;
+      opacity: 0.6;
+    }
+  }
+
+  .title {
+    font-size: 28px;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+  }
+
+  .nav {
+    margin-bottom: 24px;
+  }
+
+  .backLink {
+    font-size: 13px;
+    padding: 8px 20px;
+  }
+
+  .contentSection {
+    padding: 32px 0 48px;
+  }
+}

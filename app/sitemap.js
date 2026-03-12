@@ -1,13 +1,6 @@
-import { createClient } from "contentful"
+import { client } from "@/lib/contentful"
 
 export default async function sitemap() {
-  // Initialize Contentful client
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    environment: process.env.CONTENTFUL_ENVIRONMENT,
-    accessToken: process.env.CONTENTFUL_DELIVERY_ACCESS_TOKEN,
-  })
-
   // Fetch all case studies
   const response = await client.getEntries({
     content_type: "caseStudy",
@@ -23,6 +16,19 @@ export default async function sitemap() {
       priority: 0.8,
     }
   })
+
+  // Fetch all blog articles
+  const articlesResponse = await client.getEntries({
+    content_type: "blogpost",
+    locale: "en-US",
+  })
+
+  const articleEntries = articlesResponse.items.map((item) => ({
+    url: `https://www.scalemate.co/blog/${item.fields.slug}`,
+    lastModified: new Date(item.sys.updatedAt || item.sys.createdAt),
+    changeFrequency: "weekly",
+    priority: 0.8,
+  }))
 
   // Static pages
   const staticPages = [
@@ -110,8 +116,14 @@ export default async function sitemap() {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    {
+      url: "https://www.scalemate.co/blog",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
   ]
 
   // Combine static and dynamic entries
-  return [...staticPages, ...caseStudyEntries]
+  return [...staticPages, ...caseStudyEntries, ...articleEntries]
 }

@@ -12,12 +12,15 @@ export default function CtaSection({ title, description, secondaryCta }) {
             <p>{description}</p>
             <div className={styles.ctaButtons}>
               <Button
-                href={secondaryCta?.href ?? "https://app.scalemate.co/create-account"}
+                href={
+                  secondaryCta?.href ??
+                  "https://app.scalemate.co/create-account"
+                }
                 className={styles.ctaButton}
                 trackEvent="cta_clicked"
                 trackProps={{ cta_location: "use_case_cta_section" }}
               >
-                {secondaryCta?.label ?? "Start Free Trial"}
+                {secondaryCta?.label ?? "Try Scalemate"}
               </Button>
               <Button
                 href="/book-a-demo"

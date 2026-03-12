@@ -55,6 +55,9 @@ const Footer = () => {
             <Link className={styles.footerColLink} href="/customers">
               Customers
             </Link>
+            <Link className={styles.footerColLink} href="/blog">
+              Blog
+            </Link>
             <Link className={styles.footerColLink} href="/pricing">
               Pricing
             </Link>
