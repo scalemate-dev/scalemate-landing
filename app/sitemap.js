@@ -27,7 +27,7 @@ export default async function sitemap() {
     url: `https://www.scalemate.co/blog/${item.fields.slug}`,
     lastModified: new Date(item.sys.updatedAt || item.sys.createdAt),
     changeFrequency: "weekly",
-    priority: 0.7,
+    priority: 0.8,
   }))
 
   // Static pages
