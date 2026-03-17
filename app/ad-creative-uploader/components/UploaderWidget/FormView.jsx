@@ -97,6 +97,16 @@ const FormView = ({
         </div>
       )}
 
+      {pickerFiles.some((f) => f.rejected) && (
+        <div className={styles.warningBanner}>
+          <IconAlertCircle size={16} />
+          <span>
+            Some files have unsupported format. Accepted formats: JPG, PNG,
+            MP4.
+          </span>
+        </div>
+      )}
+
       <div className={styles.content}>
         {/* Left Column - File Selection */}
         <div className={styles.filesSection}>
@@ -129,11 +139,12 @@ const FormView = ({
             </span>
           </button>
 
-          {hasFiles && (
+          {pickerFiles.length > 0 && (
             <div className={styles.fileList}>
               <div className={styles.fileListHeader}>
                 <span className={styles.fileCount}>
-                  {pickerFiles.length} files selected
+                  {pickerFiles.filter((f) => !f.rejected).length} of{" "}
+                  {pickerFiles.length} files accepted
                 </span>
                 <button className={styles.clearBtn} onClick={clearFiles}>
                   Remove all
@@ -141,9 +152,21 @@ const FormView = ({
               </div>
               <div className={styles.files}>
                 {pickerFiles.map((file, index) => (
-                  <div key={file.id} className={styles.fileItem}>
+                  <div
+                    key={file.id}
+                    className={cn(styles.fileItem, {
+                      [styles.fileItemRejected]: file.rejected,
+                    })}
+                  >
                     <FileIcon fileName={file.name} size={18} />
-                    <span className={styles.fileName}>{file.name}</span>
+                    <div className={styles.fileInfo}>
+                      <span className={styles.fileName}>{file.name}</span>
+                      {file.rejected && (
+                        <span className={styles.fileError}>
+                          Unsupported file format
+                        </span>
+                      )}
+                    </div>
                     <button
                       className={styles.fileRemove}
                       onClick={() => removeFile(index)}

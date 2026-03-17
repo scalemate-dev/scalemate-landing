@@ -44,6 +44,18 @@
   color: #dc2626;
   font-size: 13px;
   font-weight: 500;
+}
+
+.warningBanner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: #fffbeb;
+  border-bottom: 1px solid #fed7aa;
+  color: #b45309;
+  font-size: 13px;
+  font-weight: 500;
 
   svg {
     flex-shrink: 0;
@@ -241,15 +253,45 @@
   }
 }
 
+.fileItemRejected {
+  background: #fef2f2;
+  border-color: #fca5a5;
+
+  &:hover {
+    border-color: #f87171;
+  }
+
+  .fileName {
+    color: #991b1b;
+  }
+
+  .fileRemove {
+    opacity: 1;
+    color: #ef4444;
+  }
+}
+
+.fileInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
 
 .fileName {
-  flex: 1;
   font-family: $font-body;
   font-size: 13px;
   color: #374151;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.fileError {
+  font-family: $font-body;
+  font-size: 11px;
+  color: #ef4444;
 }
 
 .fileRemove {
