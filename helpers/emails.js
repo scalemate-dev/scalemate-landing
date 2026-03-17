@@ -24,7 +24,7 @@ const businessEmailValidator = async (email) => {
 
 export const validateEmail = async (email) => {
   try {
-    await businessEmailValidator(email)
+    // await businessEmailValidator(email)
     await checkEmailValidity(email)
   } catch (error) {
     throw new Error(error.message)

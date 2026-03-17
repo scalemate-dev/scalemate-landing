@@ -258,10 +258,10 @@ const DemoFormWithParams = () => {
                   <Input
                     required
                     error={error}
-                    label="Work Email"
+                    label="Email"
                     name="email"
                     type="email"
-                    placeholder="your@work-email.com"
+                    placeholder="your@email.com"
                     value={formData.email}
                     onChange={handleChange("email")}
                   />

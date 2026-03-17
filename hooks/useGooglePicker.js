@@ -43,14 +43,22 @@ export function useGooglePicker({ onFilesSelected } = {}) {
         if (data.action === "cancel") return
 
         if (data.action === "picked" && data.docs) {
+          const ALLOWED_MIME_TYPES = [
+            "image/jpeg",
+            "image/png",
+            "video/mp4",
+          ]
+
           const files = data.docs.map((doc) => ({
             id: doc.id,
             name: doc.name,
             mimeType: doc.mimeType,
             url: doc.url,
+            rejected: !ALLOWED_MIME_TYPES.includes(doc.mimeType),
           }))
+
           setSelectedFiles(files)
-          onFilesSelected?.(files)
+          onFilesSelected?.(files.filter((f) => !f.rejected))
         }
       },
     }
@@ -81,11 +89,13 @@ export function useGooglePicker({ onFilesSelected } = {}) {
   }, [])
 
   const getFilesForApi = useCallback(() => {
-    return selectedFiles.map((file) => ({
-      hash: file.id,
-      name: file.name,
-      type: file.mimeType,
-    }))
+    return selectedFiles
+      .filter((file) => !file.rejected)
+      .map((file) => ({
+        hash: file.id,
+        name: file.name,
+        type: file.mimeType,
+      }))
   }, [selectedFiles])
 
   return {
@@ -94,7 +104,7 @@ export function useGooglePicker({ onFilesSelected } = {}) {
     selectedFiles,
     accessToken: authResponse?.access_token || getStoredToken(),
     error,
-    hasFiles: selectedFiles.length > 0,
+    hasFiles: selectedFiles.some((f) => !f.rejected),
 
     // Actions
     openPicker: handleOpenPicker,
