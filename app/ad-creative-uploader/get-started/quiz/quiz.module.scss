@@ -1,0 +1,592 @@
+@use '../../components/uc' as *;
+
+.quizPage {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(168deg, #fefdfb 0%, #fff8f3 45%, #fefefe 100%);
+  padding: 40px 24px;
+}
+
+.quizPanel {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 22px;
+  color: $uc-ink;
+  margin-bottom: 40px;
+}
+
+// ─── Progress bar ───
+
+.progressBar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.progressSegment {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: $uc-shape;
+  transition: background 0.4s $uc-ease;
+
+  &.active {
+    background: $uc-accent;
+  }
+}
+
+// ─── Title ───
+
+.title {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.2;
+  color: $uc-ink;
+  margin: 0 0 32px;
+  letter-spacing: -0.02em;
+}
+
+// ─── Options ───
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  background: #fff;
+  border: 1.5px solid $uc-shape;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: border-color 0.2s $uc-ease, background 0.2s $uc-ease;
+
+  &:hover {
+    border-color: $uc-dash;
+    background: #fefefe;
+  }
+
+  &.selected {
+    border-color: $uc-accent;
+    background: rgba($uc-accent, 0.03);
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+}
+
+.indicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid $uc-dash;
+  flex-shrink: 0;
+  position: relative;
+  transition: border-color 0.2s $uc-ease;
+
+  .selected & {
+    border-color: $uc-accent;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: $uc-accent;
+    }
+  }
+
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 2px solid $uc-dash;
+  flex-shrink: 0;
+  position: relative;
+  transition: border-color 0.2s $uc-ease, background 0.2s $uc-ease;
+
+  .selected & {
+    border-color: $uc-accent;
+    background: $uc-accent;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 6px;
+      width: 5px;
+      height: 9px;
+      border: solid #fff;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+  }
+}
+
+.optionText {
+  font-family: $font-body;
+  font-size: 15px;
+  font-weight: 450;
+  color: $uc-ink;
+}
+
+// ─── Slider step ───
+
+.sliderBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 48px;
+  padding: 32px 0 8px;
+}
+
+.sliderValueRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.sliderValue {
+  font-family: $font-heading;
+  font-weight: 800;
+  font-size: 56px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  transition: color 0.3s $uc-ease;
+}
+
+.sliderUnit {
+  font-family: $font-body;
+  font-size: 16px;
+  font-weight: 500;
+  color: $uc-stone;
+}
+
+.zoneBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 28px;
+  transition: background 0.3s $uc-ease;
+}
+
+// Track wrapper
+.sliderTrackWrapper {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  margin-bottom: 12px;
+}
+
+// Zone color segments behind the slider
+.sliderZones {
+  position: absolute;
+  inset: 0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.sliderZoneSegment {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: opacity 0.3s $uc-ease;
+
+  &:first-child {
+    border-radius: 4px 0 0 4px;
+  }
+
+  &:last-child {
+    border-radius: 0 4px 4px 0;
+  }
+}
+
+// Range input
+.sliderInput {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 8px;
+  background: transparent;
+  cursor: pointer;
+  margin: 0;
+
+  // Thumb — WebKit
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--thumb-color, $uc-accent);
+    border: 3px solid #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: grab;
+    transition: transform 0.15s $uc-ease, box-shadow 0.15s $uc-ease;
+    position: relative;
+    z-index: 2;
+
+    &:hover {
+      transform: scale(1.15);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    &:active {
+      cursor: grabbing;
+      transform: scale(1.05);
+    }
+  }
+
+  // Thumb — Firefox
+  &::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--thumb-color, $uc-accent);
+    border: 3px solid #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: grab;
+    transition: transform 0.15s $uc-ease;
+
+    &:hover {
+      transform: scale(1.15);
+    }
+  }
+
+  // Track — Firefox
+  &::-moz-range-track {
+    background: transparent;
+    height: 8px;
+  }
+}
+
+// Zone labels
+.sliderLabels {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.sliderLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  padding-top: 8px;
+  opacity: 0.35;
+  transition: opacity 0.3s $uc-ease;
+}
+
+.sliderLabelActive {
+  opacity: 1;
+}
+
+.sliderLabelText {
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 600;
+  color: $uc-ink;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.sliderLabelRange {
+  font-family: $font-body;
+  font-size: 10px;
+  color: $uc-stone;
+  margin-top: 1px;
+}
+
+// ─── Processing step ───
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes statusFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.processingScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0 80px;
+  text-align: center;
+}
+
+.processingLoader {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 32px;
+}
+
+.processingSpinner {
+  width: 100%;
+  height: 100%;
+  animation: spin 1.2s linear infinite;
+}
+
+.processingTrack {
+  stroke: $uc-shape;
+}
+
+.processingArc {
+  stroke: $uc-accent;
+  stroke-dasharray: 80, 126;
+}
+
+.processingTitle {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 22px;
+  color: $uc-ink;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+
+.processingStatus {
+  font-family: $font-body;
+  font-size: 14px;
+  color: $uc-stone;
+  margin: 0 0 24px;
+  animation: statusFade 0.4s $uc-ease;
+}
+
+.processingDots {
+  display: flex;
+  gap: 8px;
+}
+
+.processingDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $uc-shape;
+  transition: background 0.4s $uc-ease, transform 0.4s $uc-ease;
+}
+
+.processingDotActive {
+  background: $uc-accent;
+  transform: scale(1.2);
+}
+
+// ─── Email step ───
+
+.subtitle {
+  font-family: $font-body;
+  font-size: 16px;
+  line-height: 1.65;
+  color: $uc-body;
+  margin: -16px 0 36px;
+}
+
+.emailForm {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  margin-bottom: 48px;
+}
+
+.inputWrapper {
+  margin-bottom: 20px;
+}
+
+.emailInput {
+  width: 100%;
+  padding: 16px 20px;
+  font-family: $font-body;
+  font-size: 15px;
+  color: $uc-ink;
+  background: #fff;
+  border: 1.5px solid $uc-shape;
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.2s $uc-ease, box-shadow 0.2s $uc-ease;
+
+  &::placeholder {
+    color: $uc-stone;
+  }
+
+  &:focus {
+    border-color: $uc-accent;
+    box-shadow: 0 0 0 3px rgba($uc-accent, 0.1);
+  }
+
+  &.inputError {
+    border-color: #e55;
+    box-shadow: 0 0 0 3px rgba(#e55, 0.08);
+  }
+}
+
+.errorText {
+  display: block;
+  font-family: $font-body;
+  font-size: 13px;
+  color: #e55;
+  margin-top: 8px;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 16px;
+  font-family: $font-body;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background: $uc-accent;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s $uc-ease, transform 0.2s $uc-ease;
+  box-shadow: 0 4px 16px rgba($uc-accent, 0.25);
+  margin-bottom: 16px;
+
+  &:hover:not(.disabled) {
+    background: $uc-accent-deep;
+    transform: translateY(-1px);
+  }
+
+  &:active:not(.disabled) {
+    transform: translateY(0);
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
+
+.microCopy {
+  font-family: $font-body;
+  font-size: 13px;
+  line-height: 1.5;
+  color: $uc-stone;
+  text-align: center;
+}
+
+// ─── Navigation ───
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.backButton {
+  font-family: $font-body;
+  font-size: 15px;
+  font-weight: 500;
+  color: $uc-stone;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 12px 0;
+  transition: color 0.2s $uc-ease;
+
+  &:hover:not(:disabled) {
+    color: $uc-ink;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+}
+
+.nextButton {
+  font-family: $font-body;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  background: $uc-accent;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 36px;
+  cursor: pointer;
+  transition: background 0.2s $uc-ease, transform 0.2s $uc-ease,
+    opacity 0.2s $uc-ease;
+
+  &:hover:not(:disabled) {
+    background: $uc-accent-deep;
+    transform: translateY(-1px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
+
+// ─── Responsive ───
+
+@include mobile {
+  .quizPage {
+    padding: 24px 16px;
+    align-items: flex-start;
+    padding-top: 60px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .option {
+    padding: 14px 16px;
+  }
+
+  .nextButton {
+    padding: 14px 28px;
+  }
+}

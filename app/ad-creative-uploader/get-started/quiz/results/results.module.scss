@@ -1,0 +1,789 @@
+@use '../../../components/uc' as *;
+
+// ─── Animations ───
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba($uc-accent, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba($uc-accent, 0);
+  }
+}
+
+@keyframes gaugeDraw {
+  from {
+    stroke-dashoffset: 251.33;
+  }
+}
+
+@keyframes lineGrow {
+  from {
+    stroke-dashoffset: 200;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+// ─── Page ───
+
+.page {
+  min-height: 100vh;
+  background: linear-gradient(168deg, #fefdfb 0%, #fff8f3 45%, #fefefe 100%);
+  padding: 40px 24px 80px;
+}
+
+.container {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 22px;
+  color: $uc-ink;
+  margin-bottom: 32px;
+}
+
+.eyebrow {
+  display: block;
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: $uc-stone;
+  margin-bottom: 20px;
+}
+
+// ─── Cards base ───
+
+.card {
+  border-radius: 16px;
+  margin-bottom: 16px;
+  opacity: 0;
+  transform: translateY(24px);
+
+  &.visible {
+    animation: fadeUp 0.6s $uc-ease forwards;
+
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i + 2}) {
+        animation-delay: #{$i * 0.1}s;
+      }
+    }
+  }
+}
+
+// ═══════════════════════════════════════════
+// Block 1: Big Number Hero
+// ═══════════════════════════════════════════
+
+.heroCard {
+  background: #fff;
+  border: 1.5px solid $uc-shape;
+  padding: 40px 32px 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heroLabel {
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: $uc-stone;
+  margin-bottom: 16px;
+}
+
+.bigNumber {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.bigNumberValue {
+  font-family: $font-heading;
+  font-weight: 800;
+  font-size: 80px;
+  color: #dc4a3a;
+  line-height: 0.85;
+  letter-spacing: -0.045em;
+}
+
+.bigNumberUnit {
+  font-family: $font-body;
+  font-size: 18px;
+  font-weight: 500;
+  color: $uc-body;
+  letter-spacing: 0.02em;
+}
+
+.bigNumberSlash {
+  color: $uc-dash;
+  margin: 0 1px;
+}
+
+.heroDivider {
+  width: 40px;
+  height: 2.5px;
+  background: $uc-accent;
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+
+.heroSub {
+  font-family: $font-body;
+  font-size: 14px;
+  line-height: 1.7;
+  color: $uc-body;
+  margin: 0;
+  max-width: 380px;
+
+  strong {
+    color: $uc-ink;
+    font-weight: 600;
+  }
+}
+
+// ═══════════════════════════════════════════
+// Block 2: Two Impact Cards
+// ═══════════════════════════════════════════
+
+.impactRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+  opacity: 0;
+  transform: translateY(24px);
+
+  &.visible {
+    animation: fadeUp 0.6s $uc-ease forwards;
+    animation-delay: 0.2s;
+  }
+}
+
+.impactCard {
+  background: #fff;
+  border: 1.5px solid $uc-shape;
+  padding: 20px 16px;
+  text-align: center;
+  margin-bottom: 0;
+
+  // Override staggered animation from .card — use parent row timing
+  &.visible {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.impactCardDanger {
+  // subtle danger tint
+}
+
+.impactIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  color: $uc-stone;
+
+  svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.impactHeader {
+  font-family: $font-heading;
+  font-weight: 600;
+  font-size: 13px;
+  color: $uc-ink;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.impactValue {
+  font-family: $font-heading;
+  font-weight: 800;
+  font-size: 28px;
+  color: #dc4a3a;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 4px;
+}
+
+.impactGreen {
+  color: #22c55e;
+}
+
+.impactDanger {
+  color: #dc4a3a;
+}
+
+.impactPeriod {
+  font-size: 14px;
+  font-weight: 500;
+  color: $uc-body;
+}
+
+.impactSub {
+  font-family: $font-body;
+  font-size: 11px;
+  color: $uc-stone;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+}
+
+.impactFootnote {
+  font-family: $font-body;
+  font-size: 11px;
+  color: $uc-body;
+  line-height: 1.4;
+  padding-top: 10px;
+  border-top: 1px solid $uc-shape;
+}
+
+// ═══════════════════════════════════════════
+// Block 3: Collapsible Math Breakdown
+// ═══════════════════════════════════════════
+
+.breakdownCard {
+  background: #fff;
+  border: 1.5px solid $uc-shape;
+  overflow: hidden;
+}
+
+.breakdownToggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s $uc-ease;
+
+  &:hover {
+    background: rgba($uc-shape, 0.3);
+  }
+}
+
+.breakdownToggleText {
+  font-family: $font-heading;
+  font-weight: 600;
+  font-size: 15px;
+  color: $uc-ink;
+  letter-spacing: -0.01em;
+}
+
+.chevron {
+  color: $uc-stone;
+  transition: transform 0.35s $uc-ease;
+  flex-shrink: 0;
+
+  &.chevronOpen {
+    transform: rotate(180deg);
+  }
+}
+
+// Collapsible body
+
+.breakdownBody {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s $uc-ease;
+
+  &.open {
+    max-height: 900px;
+  }
+}
+
+.breakdownIntro {
+  font-family: $font-body;
+  font-size: 14px;
+  color: $uc-body;
+  margin: 0;
+  padding: 0 24px 16px;
+  line-height: 1.6;
+
+  strong {
+    color: $uc-ink;
+  }
+}
+
+// Audit log rows
+
+.auditLog {
+  display: flex;
+  flex-direction: column;
+}
+
+.auditRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 24px;
+  border-top: 1px solid rgba($uc-shape, 0.6);
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: rgba($uc-shape, 0.2);
+  }
+}
+
+.auditIcon {
+  font-size: 18px;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.auditInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.auditLabel {
+  font-family: $font-body;
+  font-size: 14px;
+  font-weight: 550;
+  color: $uc-ink;
+  line-height: 1.3;
+}
+
+.auditFormula {
+  font-family: $font-body;
+  font-size: 12px;
+  color: $uc-stone;
+  margin-top: 2px;
+}
+
+.auditNote {
+  font-family: $font-body;
+  font-size: 11px;
+  color: $uc-body-faded;
+  font-style: italic;
+  margin-top: 2px;
+}
+
+.auditHours {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 15px;
+  color: #dc4a3a;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+// Total row
+
+.auditTotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-top: 2px solid $uc-ink;
+  margin: 0;
+
+  span {
+    font-family: $font-body;
+    font-size: 14px;
+    font-weight: 500;
+    color: $uc-ink;
+  }
+
+  strong {
+    font-family: $font-heading;
+    font-size: 18px;
+    font-weight: 700;
+    color: #dc4a3a;
+    letter-spacing: -0.02em;
+  }
+}
+
+// ═══════════════════════════════════════════
+// Block 3.5: Real Cost (standalone card)
+// ═══════════════════════════════════════════
+
+.realCostCard {
+  background: #fff;
+  border: 1.5px solid $uc-shape;
+  padding: 28px 24px;
+}
+
+.realCostTitle {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 16px;
+  color: $uc-ink;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.realCostBody {
+  font-family: $font-body;
+  font-size: 14px;
+  line-height: 1.6;
+  color: $uc-body;
+  margin: 0 0 12px;
+}
+
+.realCostList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  li {
+    font-family: $font-body;
+    font-size: 13px;
+    line-height: 1.5;
+    color: $uc-ink-soft;
+    padding-left: 20px;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+    }
+  }
+}
+
+.realCostPunch {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 15px;
+  color: $uc-ink;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+// ═══════════════════════════════════════════
+// Block 4: Audit Log Table
+// ═══════════════════════════════════════════
+
+.tableCard {
+  background: #fff;
+  border: 1.5px solid $uc-shape;
+  padding: 24px;
+  overflow-x: auto;
+}
+
+.tableTitle {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 16px;
+  color: $uc-ink;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.comparisonTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: $font-body;
+  font-size: 12px;
+
+  th {
+    text-align: left;
+    font-weight: 600;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $uc-stone;
+    padding: 0 8px 10px 0;
+    border-bottom: 1px solid $uc-shape;
+  }
+
+  td {
+    padding: 10px 8px 10px 0;
+    border-bottom: 1px solid rgba($uc-shape, 0.5);
+    color: $uc-ink;
+    font-weight: 450;
+    vertical-align: top;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+.cellManual {
+  color: #dc4a3a !important;
+}
+
+.cellAuto {
+  color: #22c55e !important;
+  font-weight: 600 !important;
+}
+
+.cellBoost {
+  font-weight: 700 !important;
+  color: $uc-accent !important;
+  white-space: nowrap;
+}
+
+.cellNote {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+.totalRow {
+  td {
+    border-top: 2px solid $uc-ink;
+    border-bottom: none;
+    font-weight: 700;
+    padding-top: 12px;
+  }
+}
+
+// ═══════════════════════════════════════════
+// Block 5: Dark Challenger with mini chart
+// ═══════════════════════════════════════════
+
+.darkCard {
+  background: $uc-card-dark;
+  padding: 28px 24px;
+}
+
+.darkContent {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.darkText {
+  flex: 1;
+
+  p {
+    font-family: $font-body;
+    font-size: 16px;
+    line-height: 1.65;
+    color: rgba(#fff, 0.7);
+    margin: 0;
+
+    strong {
+      color: #fff;
+    }
+  }
+}
+
+.miniChart {
+  flex-shrink: 0;
+  width: 140px;
+}
+
+.miniChartSvg {
+  width: 100%;
+  height: auto;
+}
+
+.lineManual {
+  fill: none;
+  stroke: rgba(#fff, 0.25);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.lineScalemate {
+  fill: none;
+  stroke: #22c55e;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+
+  &.lineAnimate {
+    animation: lineGrow 1.8s cubic-bezier(0.22, 1, 0.36, 1) 0.8s forwards;
+  }
+}
+
+.chartLabel {
+  font-size: 6px;
+  fill: rgba(#fff, 0.35);
+  font-family: $font-body;
+}
+
+.chartLabelGreen {
+  font-size: 6px;
+  fill: #22c55e;
+  font-family: $font-body;
+}
+
+// ═══════════════════════════════════════════
+// Block 6: CTA
+// ═══════════════════════════════════════════
+
+.ctaCard {
+  background: #fff;
+  border: 1.5px solid $uc-shape;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.pulseButton {
+  width: 100%;
+  padding: 18px;
+  font-family: $font-body;
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  background: $uc-accent;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  animation: pulse 2s ease-in-out infinite;
+  transition: background 0.2s $uc-ease, transform 0.2s $uc-ease;
+
+  &:hover {
+    background: $uc-accent-deep;
+    transform: translateY(-2px);
+    animation: none;
+    box-shadow: 0 8px 32px rgba($uc-accent, 0.35);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.ctaMicro {
+  font-family: $font-body;
+  font-size: 13px;
+  color: $uc-stone;
+  text-align: center;
+  line-height: 1.5;
+}
+
+// ═══════════════════════════════════════════
+// Responsive
+// ═══════════════════════════════════════════
+
+@include tablet-vertical {
+  .bigNumberValue {
+    font-size: 68px;
+  }
+
+  .impactValue {
+    font-size: 24px;
+  }
+}
+
+@include mobile {
+  .page {
+    padding: 24px 16px 64px;
+  }
+
+  .heroCard {
+    padding: 32px 20px 24px;
+  }
+
+  .bigNumberValue {
+    font-size: 64px;
+  }
+
+  .bigNumberUnit {
+    font-size: 15px;
+  }
+
+  .heroSub {
+    font-size: 13px;
+  }
+
+  .impactRow {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .impactCard {
+    padding: 16px 12px;
+  }
+
+  .impactValue {
+    font-size: 22px;
+  }
+
+  .impactHeader {
+    font-size: 12px;
+  }
+
+  .breakdownToggle {
+    padding: 16px 20px;
+  }
+
+  .auditRow {
+    padding: 10px 20px;
+  }
+
+  .auditTotal {
+    padding: 14px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .realCost {
+    padding: 20px;
+  }
+
+  .comparisonTable {
+    font-size: 11px;
+
+    th {
+      font-size: 9px;
+    }
+  }
+
+  .darkContent {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .darkText p {
+    font-size: 15px;
+  }
+
+  .miniChart {
+    width: 100%;
+    max-width: 200px;
+  }
+}
