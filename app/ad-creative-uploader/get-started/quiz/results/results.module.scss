@@ -544,6 +544,144 @@
 }
 
 // ═══════════════════════════════════════════
+// Success Screen
+// ═══════════════════════════════════════════
+
+@keyframes successFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes circlePop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes checkDraw {
+  from {
+    stroke-dashoffset: 40;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.successScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 60px 0 40px;
+  animation: successFadeIn 0.7s $uc-ease forwards;
+}
+
+.successIcon {
+  margin-bottom: 32px;
+}
+
+.successCircle {
+  fill: $uc-success;
+  animation: circlePop 0.5s $uc-ease forwards;
+}
+
+.successCheck {
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+  animation: checkDraw 0.4s $uc-ease 0.35s forwards;
+}
+
+.successTitle {
+  font-family: $font-heading;
+  font-weight: 800;
+  font-size: 36px;
+  color: $uc-ink;
+  letter-spacing: -0.035em;
+  margin: 0 0 16px;
+  line-height: 1.1;
+}
+
+.successBody {
+  font-family: $font-body;
+  font-size: 16px;
+  line-height: 1.7;
+  color: $uc-body;
+  max-width: 380px;
+  margin: 0 0 32px;
+
+  strong {
+    color: $uc-ink;
+    font-weight: 600;
+  }
+}
+
+.successHints {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.successHint {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: $font-body;
+  font-size: 13px;
+  color: $uc-stone;
+}
+
+.successHintIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: rgba($uc-shape, 0.5);
+  color: $uc-stone;
+  flex-shrink: 0;
+}
+
+.resendButton {
+  font-family: $font-body;
+  font-size: 14px;
+  font-weight: 600;
+  color: $uc-accent;
+  background: none;
+  border: 1.5px solid $uc-shape;
+  border-radius: 12px;
+  padding: 12px 28px;
+  cursor: pointer;
+  transition: all 0.2s $uc-ease;
+
+  &:hover {
+    border-color: $uc-accent;
+    background: rgba($uc-accent, 0.04);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// ═══════════════════════════════════════════
 // Block 6: CTA
 // ═══════════════════════════════════════════
 
@@ -684,5 +822,17 @@
   .miniChart {
     width: 100%;
     max-width: 200px;
+  }
+
+  .successScreen {
+    padding: 40px 0 24px;
+  }
+
+  .successTitle {
+    font-size: 28px;
+  }
+
+  .successBody {
+    font-size: 14px;
   }
 }

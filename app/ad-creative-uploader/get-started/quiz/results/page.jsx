@@ -128,6 +128,104 @@ export default function ResultsPage() {
     }
   }
 
+  const email =
+    typeof window !== "undefined" ? sessionStorage.getItem("quiz_email") : ""
+
+  // ── Success Screen ──
+  if (ctaSent) {
+    return (
+      <div className={styles.page}>
+        <div className={styles.container}>
+          <div className={styles.logo}>Scalemate.</div>
+
+          <div className={styles.successScreen}>
+            <div className={styles.successIcon}>
+              <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+                <circle
+                  cx="28"
+                  cy="28"
+                  r="28"
+                  className={styles.successCircle}
+                />
+                <path
+                  d="M18 28.5L25 35.5L38 21.5"
+                  stroke="#fff"
+                  strokeWidth="3.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className={styles.successCheck}
+                />
+              </svg>
+            </div>
+
+            <h1 className={styles.successTitle}>Check Your Inbox</h1>
+
+            <p className={styles.successBody}>
+              We sent a login link to {email && <strong>{email}</strong>}
+              {!email && <strong>your email</strong>}. Click the link to access
+              your Scalemate workspace and start automating your ad launches.
+            </p>
+
+            <div className={styles.successHints}>
+              <div className={styles.successHint}>
+                <span className={styles.successHintIcon}>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path
+                      d="M2 4l6 4.5L14 4"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <rect
+                      x="1.5"
+                      y="3"
+                      width="13"
+                      height="10"
+                      rx="2"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                    />
+                  </svg>
+                </span>
+                <span>The link expires in 60 minutes</span>
+              </div>
+              <div className={styles.successHint}>
+                <span className={styles.successHintIcon}>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path
+                      d="M4 8h8M8 4v8"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                    />
+                    <circle
+                      cx="8"
+                      cy="8"
+                      r="6.5"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                    />
+                  </svg>
+                </span>
+                <span>Check spam if you don't see it</span>
+              </div>
+            </div>
+
+            <button
+              className={styles.resendButton}
+              onClick={handleTryFree}
+              disabled={ctaLoading}
+            >
+              {ctaLoading ? "Resending..." : "Resend Link"}
+            </button>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  // ── Results Screen ──
   return (
     <div className={styles.page}>
       <div className={styles.container}>
@@ -282,33 +380,22 @@ export default function ResultsPage() {
             </tfoot>
           </table>
         </div>
-
       </div>
 
       {/* ── Sticky CTA ── */}
       <div className={styles.stickyCta}>
         <div className={styles.stickyCtaInner}>
-          {ctaSent ? (
-            <span className={styles.ctaMicro}>
-              Check your email for a magic link to get started.
-            </span>
+          <button
+            className={styles.pulseButton}
+            onClick={handleTryFree}
+            disabled={ctaLoading}
+          >
+            {ctaLoading ? "Sending..." : "Try It Free"}
+          </button>
+          {ctaError ? (
+            <span className={styles.ctaMicro}>{ctaError}</span>
           ) : (
-            <>
-              <button
-                className={styles.pulseButton}
-                onClick={handleTryFree}
-                disabled={ctaLoading}
-              >
-                {ctaLoading ? "Sending..." : "Try It Free"}
-              </button>
-              {ctaError ? (
-                <span className={styles.ctaMicro}>{ctaError}</span>
-              ) : (
-                <span className={styles.ctaMicro}>
-                  No credit card required.
-                </span>
-              )}
-            </>
+            <span className={styles.ctaMicro}>No credit card required.</span>
           )}
         </div>
       </div>
