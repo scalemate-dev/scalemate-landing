@@ -3,6 +3,7 @@ import { Inter, Poppins } from "next/font/google"
 import styles from "./page.module.scss"
 import Footer from "@/components/elements/Footer/Footer"
 import Header from "@/components/elements/Header/Header"
+import MarketingShell from "@/components/elements/MarketingShell/MarketingShell"
 import "./globals.css"
 import MixpanelProvider from "@/components/MixpanelProvider"
 
@@ -57,11 +58,15 @@ export default function RootLayout({ children }) {
 
       <body className={`${inter.variable} ${poppins.variable}`}>
         <MixpanelProvider />
-        <Header />
+        <MarketingShell>
+          <Header />
+        </MarketingShell>
         <main className={styles.main}>{children}</main>
-        <footer className={styles.fixed}>
-          <Footer />
-        </footer>
+        <MarketingShell>
+          <footer className={styles.fixed}>
+            <Footer />
+          </footer>
+        </MarketingShell>
       </body>
     </html>
   )
