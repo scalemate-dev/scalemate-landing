@@ -42,7 +42,7 @@
 .page {
   min-height: 100vh;
   background: linear-gradient(168deg, #fefdfb 0%, #fff8f3 45%, #fefefe 100%);
-  padding: 40px 24px 80px;
+  padding: 40px 24px 140px;
 }
 
 .container {
@@ -56,17 +56,6 @@
   font-size: 22px;
   color: $uc-ink;
   margin-bottom: 32px;
-}
-
-.eyebrow {
-  display: block;
-  font-family: $font-body;
-  font-size: 12px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: $uc-stone;
-  margin-bottom: 20px;
 }
 
 // ─── Cards base ───
@@ -89,41 +78,43 @@
 }
 
 // ═══════════════════════════════════════════
-// Block 1: Big Number Hero
+// Hero: borderless big number
 // ═══════════════════════════════════════════
 
-.heroCard {
-  background: #fff;
-  border: 1.5px solid $uc-shape;
-  padding: 40px 32px 32px;
+.hero {
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 8px 0 28px;
+  opacity: 0;
+  transform: translateY(24px);
+
+  &.visible {
+    animation: fadeUp 0.6s $uc-ease forwards;
+  }
 }
 
-.heroLabel {
+.eyebrow {
+  display: block;
   font-family: $font-body;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: $uc-stone;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 
 .bigNumber {
   display: flex;
   align-items: baseline;
   justify-content: center;
-  gap: 8px;
-  margin-bottom: 24px;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .bigNumberValue {
   font-family: $font-heading;
   font-weight: 800;
-  font-size: 80px;
+  font-size: 84px;
   color: #dc4a3a;
   line-height: 0.85;
   letter-spacing: -0.045em;
@@ -131,31 +122,18 @@
 
 .bigNumberUnit {
   font-family: $font-body;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 500;
-  color: $uc-body;
+  color: $uc-stone;
   letter-spacing: 0.02em;
-}
-
-.bigNumberSlash {
-  color: $uc-dash;
-  margin: 0 1px;
-}
-
-.heroDivider {
-  width: 40px;
-  height: 2.5px;
-  background: $uc-accent;
-  border-radius: 2px;
-  margin-bottom: 20px;
 }
 
 .heroSub {
   font-family: $font-body;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.7;
   color: $uc-body;
-  margin: 0;
+  margin: 0 auto;
   max-width: 380px;
 
   strong {
@@ -165,7 +143,7 @@
 }
 
 // ═══════════════════════════════════════════
-// Block 2: Two Impact Cards
+// Impact Cards (minimal)
 // ═══════════════════════════════════════════
 
 .impactRow {
@@ -178,155 +156,79 @@
 
   &.visible {
     animation: fadeUp 0.6s $uc-ease forwards;
-    animation-delay: 0.2s;
+    animation-delay: 0.15s;
   }
 }
 
 .impactCard {
   background: #fff;
   border: 1.5px solid $uc-shape;
-  padding: 20px 16px;
+  border-radius: 16px;
+  padding: 24px 16px 20px;
   text-align: center;
-  margin-bottom: 0;
-
-  // Override staggered animation from .card — use parent row timing
-  &.visible {
-    animation: none;
-    opacity: 1;
-    transform: none;
-  }
-}
-
-.impactCardDanger {
-  // subtle danger tint
-}
-
-.impactIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 12px;
-  color: $uc-stone;
-
-  svg {
-    width: 28px;
-    height: 28px;
-  }
-}
-
-.impactHeader {
-  font-family: $font-heading;
-  font-weight: 600;
-  font-size: 13px;
-  color: $uc-ink;
-  margin-bottom: 8px;
-  letter-spacing: -0.01em;
 }
 
 .impactValue {
   font-family: $font-heading;
   font-weight: 800;
-  font-size: 28px;
+  font-size: 32px;
   color: #dc4a3a;
   line-height: 1;
   letter-spacing: -0.03em;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .impactGreen {
-  color: #22c55e;
-}
-
-.impactDanger {
-  color: #dc4a3a;
+  color: $uc-success;
 }
 
 .impactPeriod {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   color: $uc-body;
 }
 
-.impactSub {
+.impactLabel {
   font-family: $font-body;
-  font-size: 11px;
+  font-size: 13px;
+  font-weight: 450;
   color: $uc-stone;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 10px;
-}
-
-.impactFootnote {
-  font-family: $font-body;
-  font-size: 11px;
-  color: $uc-body;
-  line-height: 1.4;
-  padding-top: 10px;
-  border-top: 1px solid $uc-shape;
+  letter-spacing: 0.01em;
 }
 
 // ═══════════════════════════════════════════
 // Block 3: Collapsible Math Breakdown
 // ═══════════════════════════════════════════
 
+.breakdownTitle {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 17px;
+  color: $uc-ink;
+  letter-spacing: -0.01em;
+  margin: 8px 0 12px;
+  opacity: 0;
+  transform: translateY(24px);
+
+  &.visible {
+    animation: fadeUp 0.6s $uc-ease forwards;
+    animation-delay: 0.25s;
+  }
+}
+
 .breakdownCard {
   background: #fff;
   border: 1.5px solid $uc-shape;
+  padding: 24px;
   overflow: hidden;
-}
-
-.breakdownToggle {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s $uc-ease;
-
-  &:hover {
-    background: rgba($uc-shape, 0.3);
-  }
-}
-
-.breakdownToggleText {
-  font-family: $font-heading;
-  font-weight: 600;
-  font-size: 15px;
-  color: $uc-ink;
-  letter-spacing: -0.01em;
-}
-
-.chevron {
-  color: $uc-stone;
-  transition: transform 0.35s $uc-ease;
-  flex-shrink: 0;
-
-  &.chevronOpen {
-    transform: rotate(180deg);
-  }
-}
-
-// Collapsible body
-
-.breakdownBody {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s $uc-ease;
-
-  &.open {
-    max-height: 900px;
-  }
 }
 
 .breakdownIntro {
   font-family: $font-body;
   font-size: 14px;
   color: $uc-body;
-  margin: 0;
-  padding: 0 24px 16px;
+  margin: 0 0 16px;
+  padding: 0 20px;
   line-height: 1.6;
 
   strong {
@@ -345,13 +247,8 @@
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  padding: 12px 24px;
+  padding: 12px 20px;
   border-top: 1px solid rgba($uc-shape, 0.6);
-  transition: background 0.15s ease;
-
-  &:hover {
-    background: rgba($uc-shape, 0.2);
-  }
 }
 
 .auditIcon {
@@ -405,8 +302,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 24px;
-  border-top: 2px solid $uc-ink;
+  padding: 16px 20px 0;
+  border-top: 1px solid $uc-ink;
   margin: 0;
 
   span {
@@ -650,14 +547,29 @@
 // Block 6: CTA
 // ═══════════════════════════════════════════
 
-.ctaCard {
+// ─── Sticky CTA ───
+
+.stickyCta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
   background: #fff;
-  border: 1.5px solid $uc-shape;
-  padding: 28px 24px;
+  border-top: 1px solid $uc-shape;
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.06);
+  padding: 16px 24px 24px;
+  pointer-events: none;
+}
+
+.stickyCtaInner {
+  max-width: 560px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
+  pointer-events: auto;
 }
 
 .pulseButton {
@@ -688,10 +600,10 @@
 
 .ctaMicro {
   font-family: $font-body;
-  font-size: 13px;
+  font-size: 11px;
   color: $uc-stone;
   text-align: center;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 // ═══════════════════════════════════════════
@@ -700,21 +612,21 @@
 
 @include tablet-vertical {
   .bigNumberValue {
-    font-size: 68px;
+    font-size: 72px;
   }
 
   .impactValue {
-    font-size: 24px;
+    font-size: 28px;
   }
 }
 
 @include mobile {
   .page {
-    padding: 24px 16px 64px;
+    padding: 24px 16px 130px;
   }
 
-  .heroCard {
-    padding: 32px 20px 24px;
+  .hero {
+    padding: 4px 0 20px;
   }
 
   .bigNumberValue {
@@ -722,7 +634,7 @@
   }
 
   .bigNumberUnit {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .heroSub {
@@ -735,34 +647,21 @@
   }
 
   .impactCard {
-    padding: 16px 12px;
+    padding: 20px 12px 16px;
   }
 
   .impactValue {
-    font-size: 22px;
+    font-size: 24px;
   }
 
-  .impactHeader {
-    font-size: 12px;
-  }
-
-  .breakdownToggle {
-    padding: 16px 20px;
-  }
-
-  .auditRow {
-    padding: 10px 20px;
+  .breakdownCard {
+    padding:  20px 0;
   }
 
   .auditTotal {
-    padding: 14px 20px;
     flex-direction: column;
     align-items: flex-start;
     gap: 4px;
-  }
-
-  .realCost {
-    padding: 20px;
   }
 
   .comparisonTable {
