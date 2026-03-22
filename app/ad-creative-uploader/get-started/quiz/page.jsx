@@ -2,6 +2,8 @@
 
 import { useState, useMemo, useEffect } from "react"
 import { useRouter } from "next/navigation"
+import { validateEmail } from "../../../../helpers/emails"
+import { submitQuizAnswers } from "../../../../lib/api/quizApi"
 import styles from "./quiz.module.scss"
 
 const steps = [
@@ -74,6 +76,7 @@ export default function QuizPage() {
   })
   const [email, setEmail] = useState("")
   const [emailError, setEmailError] = useState("")
+  const [submitting, setSubmitting] = useState(false)
   const [processingStatus, setProcessingStatus] = useState(0)
   const router = useRouter()
 
@@ -152,16 +155,31 @@ export default function QuizPage() {
     }
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
     if (!isValidEmail) {
       setEmailError("Please enter a valid business email.")
       return
     }
     setEmailError("")
-    // TODO: send answers + email to backend
-    console.log("Quiz submitted:", { ...answers, email })
-    router.push(`/ad-creative-uploader/get-started/quiz/results?ads=${answers.adsPerWeek}`)
+    setSubmitting(true)
+
+    try {
+      await validateEmail(email)
+    } catch (err) {
+      setEmailError(err.message)
+      setSubmitting(false)
+      return
+    }
+
+    try {
+      await submitQuizAnswers(email, answers)
+      sessionStorage.setItem("quiz_email", email)
+      router.push(`/ad-creative-uploader/get-started/quiz/results?ads=${answers.adsPerWeek}`)
+    } catch (err) {
+      setEmailError(err.message || "Something went wrong. Please try again.")
+      setSubmitting(false)
+    }
   }
 
   // Slider fill percentage (0-500)
@@ -252,9 +270,10 @@ export default function QuizPage() {
 
               <button
                 type="submit"
-                className={`${styles.submitButton} ${!isValidEmail ? styles.disabled : ""}`}
+                className={`${styles.submitButton} ${!isValidEmail || submitting ? styles.disabled : ""}`}
+                disabled={submitting}
               >
-                Unlock My Report
+                {submitting ? "Submitting..." : "Unlock My Report"}
               </button>
 
               <span className={styles.microCopy}>

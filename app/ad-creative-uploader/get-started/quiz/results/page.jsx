@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useMemo } from "react"
 import { useSearchParams } from "next/navigation"
+import { requestMagicLink } from "../../../../../lib/api/quizApi"
 import styles from "./results.module.scss"
 
 const HOURLY_RATE = 45 // €/hr avg media buyer wage
@@ -96,6 +97,9 @@ function fmtEur(n) {
 
 export default function ResultsPage() {
   const [animateIn, setAnimateIn] = useState(false)
+  const [ctaLoading, setCtaLoading] = useState(false)
+  const [ctaSent, setCtaSent] = useState(false)
+  const [ctaError, setCtaError] = useState("")
   const searchParams = useSearchParams()
 
   const adsPerWeek = Number(searchParams.get("ads")) || 50
@@ -105,6 +109,24 @@ export default function ResultsPage() {
     const timer = setTimeout(() => setAnimateIn(true), 100)
     return () => clearTimeout(timer)
   }, [])
+
+  async function handleTryFree() {
+    const email = sessionStorage.getItem("quiz_email")
+    if (!email) {
+      setCtaError("No email found. Please retake the quiz.")
+      return
+    }
+    setCtaLoading(true)
+    setCtaError("")
+    try {
+      await requestMagicLink(email)
+      setCtaSent(true)
+    } catch (err) {
+      setCtaError(err.message || "Something went wrong. Please try again.")
+    } finally {
+      setCtaLoading(false)
+    }
+  }
 
   return (
     <div className={styles.page}>
@@ -266,10 +288,28 @@ export default function ResultsPage() {
       {/* ── Sticky CTA ── */}
       <div className={styles.stickyCta}>
         <div className={styles.stickyCtaInner}>
-          <button className={styles.pulseButton}>Try It Free</button>
-          <span className={styles.ctaMicro}>
-            No credit card required.
-          </span>
+          {ctaSent ? (
+            <span className={styles.ctaMicro}>
+              Check your email for a magic link to get started.
+            </span>
+          ) : (
+            <>
+              <button
+                className={styles.pulseButton}
+                onClick={handleTryFree}
+                disabled={ctaLoading}
+              >
+                {ctaLoading ? "Sending..." : "Try It Free"}
+              </button>
+              {ctaError ? (
+                <span className={styles.ctaMicro}>{ctaError}</span>
+              ) : (
+                <span className={styles.ctaMicro}>
+                  No credit card required.
+                </span>
+              )}
+            </>
+          )}
         </div>
       </div>
     </div>
