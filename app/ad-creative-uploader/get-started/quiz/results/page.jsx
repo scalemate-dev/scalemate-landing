@@ -1,43 +1,128 @@
 "use client"
 
-import { useEffect, useState, useMemo } from "react"
+import { Suspense, useEffect, useState, useMemo } from "react"
 import { useSearchParams } from "next/navigation"
 import { requestMagicLink } from "../../../../../lib/api/quizApi"
 import styles from "./results.module.scss"
 
 const HOURLY_RATE = 45 // €/hr avg media buyer wage
 
-// Calculate all metrics from ads per week
+// Profile content definitions
+const PROFILES = {
+  "manual-grinder": {
+    label: "YOUR AD OPS PROFILE",
+    headline: "You're spending more time on uploads than on optimization.",
+    diagnosis:
+      "Your workflow right now: download files, re-upload to each platform, set up every ad manually, repeat. Based on your answers, your team is absorbing all of this by hand — no tools, no shortcuts, just patience. That worked at lower volumes. At yours, it's a time trap.",
+    priceOfInaction: (adsPerWeek, totalHours) =>
+      `Every hour spent on file management is an hour not spent on creative testing. At your volume, that's ${Math.round(totalHours)} hours per month of work that requires zero human judgment.`,
+    darkChallenger: (adsPerWeek, totalHours) => ({
+      before: `You're spending ${Math.round(totalHours)} hours/month on work that needs zero creative thinking. That's ${Math.round(totalHours)} hours your team could spend`,
+      highlights: [
+        "testing new angles",
+        "finding winners",
+        "actually improving ROAS",
+      ],
+      after: "— instead of downloading and re-uploading files.",
+    }),
+    solution:
+      "Scalemate automates the operational layer — creative uploads, campaign setup, bulk launches across platforms and accounts. Your team drops files in once. The system handles the rest. No more downloading, re-uploading, or setting up ads from scratch.",
+    cta: "Stop the manual grind — try Scalemate free.",
+    tableTitle: "Audit Log",
+    hoursLabel:
+      "Time your team spends on operational ad work instead of testing new angles and scaling winners.",
+  },
+  "scaling-bottleneck": {
+    label: "YOUR AD OPS PROFILE",
+    headline: "Your operations can't keep up with your scaling pace.",
+    diagnosis:
+      "You want to test more creatives, scale across more accounts, move faster — but every new campaign multiplies the manual steps. Based on your answers, your team is either delaying launches or cutting the number of creatives you test. The bottleneck isn't your strategy. It's the operational work between the idea and the live ad.",
+    priceOfInaction: (adsPerWeek) =>
+      `At ${adsPerWeek} ads per week, every creative you don't test is a winning angle you'll never find. Your setup process is the speed limit on your scaling — and it gets worse the more platforms and accounts you add.`,
+    darkChallenger: (adsPerWeek) => ({
+      before: `Your setup process is the speed limit on your scaling. At ${adsPerWeek} ads/week, you're leaving`,
+      highlights: ["untested creatives on the table"],
+      after: "every month — not because you don't have ideas, but because launching them takes too long.",
+    }),
+    solution:
+      "Scalemate removes the multiplier. Bulk creative uploads, automated campaign setup across platforms and accounts, zero redundant steps. Scale the output without scaling the workload. More creatives tested, more winners found, same team.",
+    cta: "Unblock your scaling — try Scalemate free.",
+    tableTitle: "Audit Log",
+    hoursLabel:
+      "Time locked in operational setup that could go toward scaling and testing.",
+  },
+  "error-prone": {
+    label: "YOUR AD OPS PROFILE",
+    headline: "Manual processes break performance. Automation protects it.",
+    diagnosis:
+      "When your team rushes through 20+ creative setups, things slip — wrong targeting, duplicated ads, naming inconsistencies. You're relying on scripts or spreadsheets that work most of the time, but break when it matters most. It's not a people problem. It's a process problem.",
+    priceOfInaction: (adsPerWeek, totalHours, monthly) =>
+      `Errors don't just waste time fixing them — they waste ad spend and pollute your data. You end up optimizing on top of inconsistent execution. At ${adsPerWeek} ads per week, even a 5% error rate means ${Math.round(monthly * 0.05)} broken ads per month.`,
+    darkChallenger: (adsPerWeek, totalHours, monthly) => ({
+      before: `At ${adsPerWeek} ads/week, even a small error rate means ${Math.round(monthly * 0.05)} broken ads per month —`,
+      highlights: [
+        "wrong settings",
+        "inconsistent naming",
+        "duplicated setups",
+      ],
+      after: ". Every fix takes time. Every unfixed mistake costs ad spend.",
+    }),
+    solution:
+      "Scalemate standardizes your operational layer. Every creative goes to the right platform, right account, right setup — automatically. Consistent naming, correct post IDs, no manual duplication. Same execution quality at 50 ads or 500.",
+    cta: "Take errors out of the equation — try Scalemate free.",
+    tableTitle: "Audit Log",
+    hoursLabel: "Time spent on manual work where errors compound.",
+  },
+  "decision-maker": {
+    label: "YOUR AD OPS PROFILE",
+    headline: "Scale your output without scaling your headcount.",
+    diagnosis:
+      "Your team's capacity is your most expensive constraint. Right now, a significant chunk of it goes to work that doesn't require human judgment — uploading files, duplicating campaigns, managing naming conventions. You've been solving this by adding people. But headcount scales linearly. Your ad volume doesn't.",
+    priceOfInaction: (adsPerWeek, totalHours) =>
+      `At an average operational cost of €${HOURLY_RATE}/hr, that's €${Math.round(totalHours * HOURLY_RATE).toLocaleString("en-US")}/month on tasks that should be automated. Every month you wait, you're paying for manual work that a system handles in minutes.`,
+    darkChallenger: (adsPerWeek, totalHours) => ({
+      before: `Your team spends ${Math.round(totalHours)} hours/month on operational tasks that don't require strategic judgment. At €${HOURLY_RATE}/hr average cost, that's`,
+      highlights: [
+        `€${Math.round(totalHours * HOURLY_RATE).toLocaleString("en-US")}/month on work a system handles in minutes`,
+      ],
+      after: ". Same budget, zero output.",
+    }),
+    solution:
+      "Scalemate is the operational layer that lets your team do more without adding more people. Automated creative distribution, bulk campaign setup, zero redundant steps. Same team, higher output, lower operational cost per ad launched.",
+    cta: "See the impact on your team's output — try Scalemate free.",
+    tableTitle: "Operational Cost Comparison",
+    hoursLabel: "Operational hours that don't require strategic thinking.",
+    hoursHeading: "YOUR TEAM'S OPERATIONAL OVERHEAD",
+    totalLabel: "Total Operational Overhead",
+  },
+}
+
 function calcMetrics(adsPerWeek) {
   const monthly = adsPerWeek * 4
-  const winners = Math.round(monthly * 0.2) // 20% success rate
+  const winners = Math.round(monthly * 0.2)
 
-  const uploading = (monthly * 2) / 60 // 2 min per ad
-  const launching = (monthly * 4) / 60 // 4 min per ad
-  const pushingBAU = (winners * 4) / 60 // 4 min per winner
-  const naming = (monthly * 1.35) / 60 // ~1.35 min per ad
+  const uploading = (monthly * 2) / 60
+  const launching = (monthly * 4) / 60
+  const pushingBAU = (winners * 4) / 60
+  const naming = (monthly * 1.35) / 60
 
   const totalHours = uploading + launching + pushingBAU + naming
   const totalCost = totalHours * HOURLY_RATE
 
-  // Audit table costs (proportional to time breakdown)
   const uploadCost = uploading * HOURLY_RATE
   const launchCost = launching * HOURLY_RATE
   const scaleCost = pushingBAU * HOURLY_RATE
   const namingCost = naming * HOURLY_RATE
 
-  // Scalemate time: 0.5 min per ad for upload, launch, and winners. Naming = 0
   const smUploadTime = (monthly * 0.5) / 60
   const smLaunchTime = (monthly * 0.5) / 60
   const smScaleTime = (winners * 0.5) / 60
   const smTotalHours = smUploadTime + smLaunchTime + smScaleTime
 
-  // Automation potential: % of manual time that can be cut
   const automationPotential = Math.round(
     ((totalHours - smTotalHours) / totalHours) * 100,
   )
 
-  // Scalemate costs: €0.50 per ad for launching + scaling winners
   const smLaunchCost = monthly * 0.5
   const smScaleCost = winners * 0.5
   const smTotalCost = smLaunchCost + smScaleCost
@@ -96,6 +181,14 @@ function fmtEur(n) {
 }
 
 export default function ResultsPage() {
+  return (
+    <Suspense fallback={<div className={styles.page} />}>
+      <ResultsContent />
+    </Suspense>
+  )
+}
+
+function ResultsContent() {
   const [animateIn, setAnimateIn] = useState(false)
   const [ctaLoading, setCtaLoading] = useState(false)
   const [ctaSent, setCtaSent] = useState(false)
@@ -103,12 +196,16 @@ export default function ResultsPage() {
   const searchParams = useSearchParams()
 
   const adsPerWeek = Number(searchParams.get("ads")) || 50
+  const profileKey = searchParams.get("profile") || "manual-grinder"
+  const profile = PROFILES[profileKey] || PROFILES["manual-grinder"]
   const m = useMemo(() => calcMetrics(adsPerWeek), [adsPerWeek])
 
   useEffect(() => {
     const timer = setTimeout(() => setAnimateIn(true), 100)
     return () => clearTimeout(timer)
   }, [])
+
+  const vis = animateIn ? styles.visible : ""
 
   async function handleTryFree() {
     const email = sessionStorage.getItem("quiz_email")
@@ -225,32 +322,40 @@ export default function ResultsPage() {
     )
   }
 
+  const isDecisionMaker = profileKey === "decision-maker"
+  const efficiencyLabel = isDecisionMaker ? "Savings" : "Efficiency"
+  const dark = profile.darkChallenger(adsPerWeek, m.totalHours, m.monthly)
+
   // ── Results Screen ──
   return (
     <div className={styles.page}>
       <div className={styles.container}>
         <div className={styles.logo}>Scalemate.</div>
 
-        {/* ── Hero: Big Number (no card wrapper) ── */}
-        <div className={`${styles.hero} ${animateIn ? styles.visible : ""}`}>
-          <span className={styles.eyebrow}>
-            Your Ad Launch Efficiency Audit
+        {/* ── 1. Hero: Profile Diagnosis ── */}
+        <div className={`${styles.hero} ${vis}`}>
+          <span className={styles.eyebrow}>{profile.label}</span>
+          <h1 className={styles.profileHeadline}>{profile.headline}</h1>
+          <p className={styles.diagnosis}>{profile.diagnosis}</p>
+        </div>
+
+        {/* ── 2. Hours Calculation ── */}
+        <div className={`${styles.hoursBlock} ${vis}`}>
+          <span className={styles.hoursBlockLabel}>
+            {profile.hoursHeading || "YOUR MANUAL HOURS ESTIMATE"}
           </span>
           <div className={styles.bigNumber}>
             <span className={styles.bigNumberValue}>{fmt(m.totalHours)}</span>
             <span className={styles.bigNumberUnit}>hrs/mo</span>
           </div>
-          <p className={styles.heroSub}>
-            Time lost to manual launching instead of testing new angles and
-            scaling winners. Based on <strong>{adsPerWeek} ads/week</strong>{" "}
-            volume.
+          <p className={styles.hoursBlockSub}>
+            {profile.hoursLabel} Based on{" "}
+            <strong>{adsPerWeek} ads/week</strong> volume.
           </p>
         </div>
 
-        {/* ── Impact Cards (simplified) ── */}
-        <div
-          className={`${styles.impactRow} ${animateIn ? styles.visible : ""}`}
-        >
+        {/* ── 3. Impact Cards ── */}
+        <div className={`${styles.impactRow} ${vis}`}>
           <div className={styles.impactCard}>
             <div className={`${styles.impactValue} ${styles.impactGreen}`}>
               {m.automationPotential}%
@@ -265,16 +370,15 @@ export default function ResultsPage() {
             <div className={styles.impactLabel}>manual cost</div>
           </div>
         </div>
+        <p className={`${styles.impactHint} ${vis}`}>
+          Based on €{HOURLY_RATE}/hr avg. media buyer rate
+        </p>
 
-        {/* ── Block 3: Breakdown ── */}
-        <h3
-          className={`${styles.breakdownTitle} ${animateIn ? styles.visible : ""}`}
-        >
+        {/* ── 4. Breakdown ── */}
+        <h3 className={`${styles.breakdownTitle} ${vis}`}>
           How we calculated your {fmt(m.totalHours)} hours
         </h3>
-        <div
-          className={`${styles.card} ${styles.breakdownCard} ${animateIn ? styles.visible : ""}`}
-        >
+        <div className={`${styles.card} ${styles.breakdownCard} ${vis}`}>
           <p className={styles.breakdownIntro}>
             We analyzed your workflow based on{" "}
             <strong>{adsPerWeek} weekly new ads</strong>:
@@ -291,21 +395,33 @@ export default function ResultsPage() {
                     <div className={styles.auditNote}>{item.note}</div>
                   )}
                 </div>
-                <span className={styles.auditHours}>{fmt(item.hours)} hrs</span>
+                <span className={styles.auditHours}>
+                  {fmt(item.hours)} hrs
+                </span>
               </div>
             ))}
           </div>
 
           <div className={styles.auditTotal}>
-            <span>Total Manual Waste:</span>
+            <span>{profile.totalLabel || "Total Manual Work"}:</span>
             <strong>{fmt(m.totalHours)} Hours / Month</strong>
           </div>
         </div>
 
-        {/* ── Block 4: Dark Challenger ── */}
-        <div
-          className={`${styles.card} ${styles.darkCard} ${animateIn ? styles.visible : ""}`}
-        >
+        {/* ── 5. Price of Inaction ── */}
+        <div className={`${styles.card} ${styles.inactionCard} ${vis}`}>
+          <p className={styles.inactionText}>
+            {profile.priceOfInaction(adsPerWeek, m.totalHours, m.monthly)}
+          </p>
+        </div>
+
+        {/* ── 6. Solution ── */}
+        <div className={`${styles.card} ${styles.solutionCard} ${vis}`}>
+          <p className={styles.solutionText}>{profile.solution}</p>
+        </div>
+
+        {/* ── 7. Dark Challenger ── */}
+        <div className={`${styles.card} ${styles.darkCard} ${vis}`}>
           <div className={styles.darkContent}>
             <div className={styles.miniChart}>
               <svg viewBox="0 0 120 60" className={styles.miniChartSvg}>
@@ -321,53 +437,67 @@ export default function ResultsPage() {
             </div>
             <div className={styles.darkText}>
               <p>
-                You are currently <strong>capping your own growth.</strong>{" "}
-                Instead of 500 manual clicks, you could have scripted{" "}
-                <strong>5+ fresh creative concepts</strong> and scaled{" "}
-                <strong>3 more accounts</strong> this month.
+                {dark.before}{" "}
+                {dark.highlights.map((h, i) => (
+                  <span key={i}>
+                    <strong>{h}</strong>
+                    {i < dark.highlights.length - 1 ? ", " : ""}
+                  </span>
+                ))}
+                {dark.after}
               </p>
             </div>
           </div>
         </div>
 
-        {/* ── Block 5: Audit Log Table ── */}
-        <div
-          className={`${styles.card} ${styles.tableCard} ${animateIn ? styles.visible : ""}`}
-        >
-          <div className={styles.tableTitle}>Audit Log</div>
+        {/* ── 8. Audit Log Table ── */}
+        <div className={`${styles.card} ${styles.tableCard} ${vis}`}>
+          <div className={styles.tableTitle}>{profile.tableTitle}</div>
           <table className={styles.comparisonTable}>
             <thead>
               <tr>
                 <th>Item</th>
-                <th>Manual Cost (mo)</th>
-                <th>Scalemate</th>
-                <th>Efficiency</th>
+                <th>Manual Cost/mo</th>
+                <th>{isDecisionMaker ? "With Scalemate" : "Scalemate"}</th>
+                <th>{efficiencyLabel}</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Creative Uploading</td>
+                <td>Creative Upload</td>
                 <td className={styles.cellManual}>{fmtEur(m.uploadCost)}</td>
                 <td className={styles.cellAuto}>€0</td>
-                <td className={styles.cellBoost}>Instant</td>
+                <td className={styles.cellBoost}>
+                  {isDecisionMaker ? "100%" : "Instant"}
+                </td>
               </tr>
               <tr>
-                <td>Launching in Ads Manager</td>
+                <td>Launching Ads</td>
                 <td className={styles.cellManual}>{fmtEur(m.launchCost)}</td>
                 <td className={styles.cellAuto}>{fmtEur(m.smLaunchCost)}</td>
-                <td className={styles.cellBoost}>30x Faster</td>
+                <td className={styles.cellBoost}>
+                  {isDecisionMaker
+                    ? `${Math.round((1 - m.smLaunchCost / m.launchCost) * 100)}%`
+                    : "30x Faster"}
+                </td>
               </tr>
               <tr>
-                <td>Scaling Winning Ads</td>
+                <td>Scaling Winners</td>
                 <td className={styles.cellManual}>{fmtEur(m.scaleCost)}</td>
                 <td className={styles.cellAuto}>{fmtEur(m.smScaleCost)}</td>
-                <td className={styles.cellBoost}>30x Faster</td>
+                <td className={styles.cellBoost}>
+                  {isDecisionMaker
+                    ? `${Math.round((1 - m.smScaleCost / m.scaleCost) * 100)}%`
+                    : "30x Faster"}
+                </td>
               </tr>
               <tr>
-                <td>Naming & Data Integrity</td>
+                <td>Naming & Data</td>
                 <td className={styles.cellManual}>{fmtEur(m.namingCost)}</td>
                 <td className={styles.cellAuto}>€0</td>
-                <td className={styles.cellBoost}>Automated</td>
+                <td className={styles.cellBoost}>
+                  {isDecisionMaker ? "100%" : "Automated"}
+                </td>
               </tr>
             </tbody>
             <tfoot>
@@ -375,7 +505,11 @@ export default function ResultsPage() {
                 <td>Total</td>
                 <td className={styles.cellManual}>{fmtEur(m.totalCost)}</td>
                 <td className={styles.cellAuto}>{fmtEur(m.smTotalCost)}</td>
-                <td className={styles.cellBoost}>98% Effective</td>
+                <td className={styles.cellBoost}>
+                  {isDecisionMaker
+                    ? `€${Math.round((m.totalCost - m.smTotalCost) * 12).toLocaleString("en-US")}/yr`
+                    : `${m.automationPotential}% Effective`}
+                </td>
               </tr>
             </tfoot>
           </table>
@@ -395,7 +529,9 @@ export default function ResultsPage() {
           {ctaError ? (
             <span className={styles.ctaMicro}>{ctaError}</span>
           ) : (
-            <span className={styles.ctaMicro}>No credit card required.</span>
+            <span className={styles.ctaMicro}>
+              {profile.cta} No credit card required.
+            </span>
           )}
         </div>
       </div>
