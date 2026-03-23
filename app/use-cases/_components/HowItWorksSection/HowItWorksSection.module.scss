@@ -181,6 +181,16 @@
   line-height: 1.7;
   color: $uc-body;
   margin: 0;
+
+  a {
+    color: $uc-ink;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+
+    &:hover {
+      color: $uc-accent;
+    }
+  }
 }
 
 .stepDetail {
