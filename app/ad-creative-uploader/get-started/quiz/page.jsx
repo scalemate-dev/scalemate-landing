@@ -1,8 +1,8 @@
 "use client"
 
 import { useState, useMemo, useEffect } from "react"
-import { useRouter } from "next/navigation"
 import { useQuizTracking } from "@/hooks/useQuizTracking"
+import { useQuizSubmit } from "@/hooks/useQuizSubmit"
 import styles from "../quiz-v1/quiz.module.scss"
 
 const steps = [
@@ -86,12 +86,18 @@ export default function QuizV1Page() {
     timeWasted: null,
     frustration: [],
   })
-  const [email, setEmail] = useState("")
-  const [emailError, setEmailError] = useState("")
   const [processingStatus, setProcessingStatus] = useState(0)
-  const router = useRouter()
   const { trackStart, trackStepCompleted, trackStepBack, trackSubmitted, trackError } =
     useQuizTracking({ quizId: QUIZ_ID, totalSteps: steps.length })
+  const { email, setEmail, emailError, setEmailError, submitting, isValidEmail, handleSubmit } =
+    useQuizSubmit({
+      totalSteps: steps.length,
+      stepTitle: "Your audit is ready.",
+      buildRedirectUrl: (a) => `/ad-creative-uploader/get-started/quiz/results?ads=${a.adsPerWeek}`,
+      trackStepCompleted,
+      trackSubmitted,
+      trackError,
+    })
 
   const isProcessingStep = currentStep === steps.length
   const isEmailStep = currentStep === steps.length + 1
@@ -134,8 +140,6 @@ export default function QuizV1Page() {
         : step.type === "multi"
           ? answers[step.key]?.length > 0
           : answers[step.key] !== null
-  const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-
   const currentZone = useMemo(
     () => getZone(answers.adsPerWeek),
     [answers.adsPerWeek],
@@ -181,33 +185,6 @@ export default function QuizV1Page() {
       setEmailError("")
       setCurrentStep((s) => s - 1)
     }
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault()
-    if (!isValidEmail) {
-      setEmailError("Please enter a valid business email.")
-      trackError({
-        stepNumber: steps.length + 2,
-        stepName: "email",
-        errorType: "validation",
-        errorMessage: "Invalid email address",
-      })
-      return
-    }
-    setEmailError("")
-    trackStepCompleted({
-      stepNumber: steps.length + 2,
-      stepName: "email",
-      stepTitle: "Your audit is ready.",
-      stepType: "email",
-      answer: email.split("@")[1],
-    })
-    trackSubmitted(email)
-    sessionStorage.setItem("quiz_email", email)
-    router.push(
-      `/ad-creative-uploader/get-started/quiz/results?ads=${answers.adsPerWeek}`,
-    )
   }
 
   const sliderPercent = (answers.adsPerWeek / 500) * 100
@@ -275,7 +252,7 @@ export default function QuizV1Page() {
               Enter your work email to view your personalized results.
             </p>
 
-            <form className={styles.emailForm} onSubmit={handleSubmit}>
+            <form className={styles.emailForm} onSubmit={(e) => handleSubmit(e, answers)}>
               <div className={styles.inputWrapper}>
                 <input
                   type="email"
@@ -295,9 +272,10 @@ export default function QuizV1Page() {
 
               <button
                 type="submit"
-                className={`${styles.submitButton} ${!isValidEmail ? styles.disabled : ""}`}
+                className={`${styles.submitButton} ${!isValidEmail || submitting ? styles.disabled : ""}`}
+                disabled={submitting}
               >
-                Unlock My Report
+                {submitting ? "Submitting..." : "Unlock My Report"}
               </button>
 
               <span className={styles.microCopy}>

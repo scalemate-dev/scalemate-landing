@@ -1,10 +1,8 @@
 "use client"
 
 import { useState, useMemo, useEffect } from "react"
-import { useRouter } from "next/navigation"
-import { validateEmail } from "../../../../helpers/emails"
-import { submitQuizAnswers } from "../../../../lib/api/quizApi"
 import { useQuizTracking } from "@/hooks/useQuizTracking"
+import { useQuizSubmit } from "@/hooks/useQuizSubmit"
 import styles from "./quiz.module.scss"
 
 const steps = [
@@ -146,13 +144,24 @@ export default function QuizPage() {
     workaround: null,
     role: null,
   })
-  const [email, setEmail] = useState("")
-  const [emailError, setEmailError] = useState("")
-  const [submitting, setSubmitting] = useState(false)
   const [processingStatus, setProcessingStatus] = useState(0)
-  const router = useRouter()
   const { trackStart, trackStepCompleted, trackStepBack, trackSubmitted, trackError } =
     useQuizTracking({ quizId: QUIZ_ID, totalSteps: steps.length })
+  const { email, setEmail, emailError, setEmailError, submitting, isValidEmail, handleSubmit } =
+    useQuizSubmit({
+      totalSteps: steps.length,
+      stepTitle: "Your ad ops assessment is ready",
+      buildRedirectUrl: (a) => {
+        const profile = determineProfile(a)
+        return `/ad-creative-uploader/get-started/quiz-v1/results?ads=${a.adsPerWeek}&profile=${profile}`
+      },
+      onBeforeRedirect: (a) => {
+        sessionStorage.setItem("quiz_answers", JSON.stringify(a))
+      },
+      trackStepCompleted,
+      trackSubmitted,
+      trackError,
+    })
 
   const isProcessingStep = currentStep === steps.length
   const isEmailStep = currentStep === steps.length + 1
@@ -193,8 +202,6 @@ export default function QuizPage() {
     : step.type === "slider"
       ? true
       : answers[step.key] !== null
-  const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-
   const currentZone = useMemo(
     () => getZone(answers.adsPerWeek),
     [answers.adsPerWeek]
@@ -229,63 +236,6 @@ export default function QuizPage() {
       })
       setEmailError("")
       setCurrentStep((s) => s - 1)
-    }
-  }
-
-  async function handleSubmit(e) {
-    e.preventDefault()
-    if (!isValidEmail) {
-      setEmailError("Please enter a valid business email.")
-      trackError({
-        stepNumber: steps.length + 2,
-        stepName: "email",
-        errorType: "validation",
-        errorMessage: "Invalid email address",
-      })
-      return
-    }
-    setEmailError("")
-    setSubmitting(true)
-
-    try {
-      await validateEmail(email)
-    } catch (err) {
-      trackError({
-        stepNumber: steps.length + 2,
-        stepName: "email",
-        errorType: "api",
-        errorMessage: err.message,
-      })
-      setEmailError(err.message)
-      setSubmitting(false)
-      return
-    }
-
-    try {
-      await submitQuizAnswers(email, answers)
-      trackStepCompleted({
-        stepNumber: steps.length + 2,
-        stepName: "email",
-        stepTitle: "Your ad ops assessment is ready",
-        stepType: "email",
-        answer: email.split("@")[1],
-      })
-      trackSubmitted(email)
-      sessionStorage.setItem("quiz_email", email)
-      sessionStorage.setItem("quiz_answers", JSON.stringify(answers))
-      const profile = determineProfile(answers)
-      router.push(
-        `/ad-creative-uploader/get-started/quiz-v1/results?ads=${answers.adsPerWeek}&profile=${profile}`
-      )
-    } catch (err) {
-      trackError({
-        stepNumber: steps.length + 2,
-        stepName: "email",
-        errorType: "api",
-        errorMessage: err.message || "Submission failed",
-      })
-      setEmailError(err.message || "Something went wrong. Please try again.")
-      setSubmitting(false)
     }
   }
 
@@ -357,7 +307,7 @@ export default function QuizPage() {
               See where your workflow is leaking time — and how to fix it.
             </p>
 
-            <form className={styles.emailForm} onSubmit={handleSubmit}>
+            <form className={styles.emailForm} onSubmit={(e) => handleSubmit(e, answers)}>
               <div className={styles.inputWrapper}>
                 <input
                   type="email"
