@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect } from "react"
 import { useRouter } from "next/navigation"
+import { useQuizTracking } from "@/hooks/useQuizTracking"
 import styles from "../quiz-v1/quiz.module.scss"
 
 const steps = [
@@ -73,6 +74,8 @@ function getZone(value) {
 
 const TOTAL_SEGMENTS = steps.length + 2
 
+const QUIZ_ID = "ad-uploader-quiz"
+
 export default function QuizV1Page() {
   const [currentStep, setCurrentStep] = useState(0)
   const [answers, setAnswers] = useState({
@@ -87,6 +90,8 @@ export default function QuizV1Page() {
   const [emailError, setEmailError] = useState("")
   const [processingStatus, setProcessingStatus] = useState(0)
   const router = useRouter()
+  const { trackStart, trackStepCompleted, trackStepBack, trackSubmitted, trackError } =
+    useQuizTracking({ quizId: QUIZ_ID, totalSteps: steps.length })
 
   const isProcessingStep = currentStep === steps.length
   const isEmailStep = currentStep === steps.length + 1
@@ -100,6 +105,10 @@ export default function QuizV1Page() {
     "Benchmarking against industry averages...",
     "Generating your personalized audit...",
   ]
+
+  useEffect(() => {
+    trackStart()
+  }, [trackStart])
 
   useEffect(() => {
     if (!isProcessingStep) return
@@ -153,11 +162,22 @@ export default function QuizV1Page() {
   function handleNext() {
     if (isEmailStep) return
     if (!hasAnswer) return
+    trackStepCompleted({
+      stepNumber: currentStep + 1,
+      stepName: step.key,
+      stepTitle: step.title,
+      stepType: step.type === "multi" ? "multi_select" : step.type,
+      answer: step.type === "slider" ? answers.adsPerWeek : answers[step.key],
+    })
     setCurrentStep((s) => s + 1)
   }
 
   function handleBack() {
     if (!isFirst) {
+      trackStepBack({
+        stepNumber: currentStep + 1,
+        stepName: step?.key || (isEmailStep ? "email" : "processing"),
+      })
       setEmailError("")
       setCurrentStep((s) => s - 1)
     }
@@ -167,9 +187,23 @@ export default function QuizV1Page() {
     e.preventDefault()
     if (!isValidEmail) {
       setEmailError("Please enter a valid business email.")
+      trackError({
+        stepNumber: steps.length + 2,
+        stepName: "email",
+        errorType: "validation",
+        errorMessage: "Invalid email address",
+      })
       return
     }
     setEmailError("")
+    trackStepCompleted({
+      stepNumber: steps.length + 2,
+      stepName: "email",
+      stepTitle: "Your audit is ready.",
+      stepType: "email",
+      answer: email.split("@")[1],
+    })
+    trackSubmitted(email)
     sessionStorage.setItem("quiz_email", email)
     router.push(
       `/ad-creative-uploader/get-started/quiz/results?ads=${answers.adsPerWeek}`,

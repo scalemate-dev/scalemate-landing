@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { validateEmail } from "../../../../helpers/emails"
 import { submitQuizAnswers } from "../../../../lib/api/quizApi"
+import { useQuizTracking } from "@/hooks/useQuizTracking"
 import styles from "./quiz.module.scss"
 
 const steps = [
@@ -134,6 +135,7 @@ function determineProfile(answers) {
 }
 
 const TOTAL_SEGMENTS = steps.length + 2 // quiz steps + processing + email step
+const QUIZ_ID = "ad-uploader-quiz-v1"
 
 export default function QuizPage() {
   const [currentStep, setCurrentStep] = useState(0)
@@ -149,6 +151,8 @@ export default function QuizPage() {
   const [submitting, setSubmitting] = useState(false)
   const [processingStatus, setProcessingStatus] = useState(0)
   const router = useRouter()
+  const { trackStart, trackStepCompleted, trackStepBack, trackSubmitted, trackError } =
+    useQuizTracking({ quizId: QUIZ_ID, totalSteps: steps.length })
 
   const isProcessingStep = currentStep === steps.length
   const isEmailStep = currentStep === steps.length + 1
@@ -162,6 +166,10 @@ export default function QuizPage() {
     "Benchmarking against industry averages...",
     "Generating your personalized audit...",
   ]
+
+  useEffect(() => {
+    trackStart()
+  }, [trackStart])
 
   // Processing step auto-advance
   useEffect(() => {
@@ -203,11 +211,22 @@ export default function QuizPage() {
   function handleNext() {
     if (isEmailStep) return
     if (!hasAnswer) return
+    trackStepCompleted({
+      stepNumber: currentStep + 1,
+      stepName: step.key,
+      stepTitle: step.title,
+      stepType: step.type,
+      answer: step.type === "slider" ? answers.adsPerWeek : answers[step.key],
+    })
     setCurrentStep((s) => s + 1)
   }
 
   function handleBack() {
     if (!isFirst) {
+      trackStepBack({
+        stepNumber: currentStep + 1,
+        stepName: step?.key || (isEmailStep ? "email" : "processing"),
+      })
       setEmailError("")
       setCurrentStep((s) => s - 1)
     }
@@ -217,6 +236,12 @@ export default function QuizPage() {
     e.preventDefault()
     if (!isValidEmail) {
       setEmailError("Please enter a valid business email.")
+      trackError({
+        stepNumber: steps.length + 2,
+        stepName: "email",
+        errorType: "validation",
+        errorMessage: "Invalid email address",
+      })
       return
     }
     setEmailError("")
@@ -225,6 +250,12 @@ export default function QuizPage() {
     try {
       await validateEmail(email)
     } catch (err) {
+      trackError({
+        stepNumber: steps.length + 2,
+        stepName: "email",
+        errorType: "api",
+        errorMessage: err.message,
+      })
       setEmailError(err.message)
       setSubmitting(false)
       return
@@ -232,6 +263,14 @@ export default function QuizPage() {
 
     try {
       await submitQuizAnswers(email, answers)
+      trackStepCompleted({
+        stepNumber: steps.length + 2,
+        stepName: "email",
+        stepTitle: "Your ad ops assessment is ready",
+        stepType: "email",
+        answer: email.split("@")[1],
+      })
+      trackSubmitted(email)
       sessionStorage.setItem("quiz_email", email)
       sessionStorage.setItem("quiz_answers", JSON.stringify(answers))
       const profile = determineProfile(answers)
@@ -239,6 +278,12 @@ export default function QuizPage() {
         `/ad-creative-uploader/get-started/quiz-v1/results?ads=${answers.adsPerWeek}&profile=${profile}`
       )
     } catch (err) {
+      trackError({
+        stepNumber: steps.length + 2,
+        stepName: "email",
+        errorType: "api",
+        errorMessage: err.message || "Submission failed",
+      })
       setEmailError(err.message || "Something went wrong. Please try again.")
       setSubmitting(false)
     }

@@ -3,6 +3,7 @@
 import { Suspense, useEffect, useState, useMemo } from "react"
 import { useSearchParams } from "next/navigation"
 import { requestMagicLink } from "../../../../../lib/api/quizApi"
+import { trackMixpanelEvent } from "@/helpers/analytics/mixpanel"
 import styles from "../../quiz-v1/results/results.module.scss"
 
 const HOURLY_RATE = 45
@@ -112,7 +113,13 @@ function ResultsV1Content() {
   const adsPerWeek = Number(searchParams.get("ads")) || 50
   const m = useMemo(() => calcMetrics(adsPerWeek), [adsPerWeek])
 
+  const quizId = "ad-uploader-quiz"
+
   useEffect(() => {
+    trackMixpanelEvent("results_viewed", {
+      quiz_id: quizId,
+      ads_per_week: adsPerWeek,
+    })
     const timer = setTimeout(() => setAnimateIn(true), 120)
     return () => clearTimeout(timer)
   }, [])
@@ -125,14 +132,31 @@ function ResultsV1Content() {
     const email = sessionStorage.getItem("quiz_email")
     if (!email) {
       setCtaError("No email found. Please retake the quiz.")
+      trackMixpanelEvent("quiz_error", {
+        quiz_id: quizId,
+        step_name: "results",
+        error_type: "validation",
+        error_message: "No email found in session",
+      })
       return
     }
+    trackMixpanelEvent("results_cta_clicked", {
+      quiz_id: quizId,
+      ads_per_week: adsPerWeek,
+    })
     setCtaLoading(true)
     setCtaError("")
     try {
       await requestMagicLink(email)
+      trackMixpanelEvent("magic_link_success", { quiz_id: quizId })
       setCtaSent(true)
     } catch (err) {
+      trackMixpanelEvent("quiz_error", {
+        quiz_id: quizId,
+        step_name: "results",
+        error_type: "api",
+        error_message: err.message || "Magic link request failed",
+      })
       setCtaError(err.message || "Something went wrong. Please try again.")
     } finally {
       setCtaLoading(false)
