@@ -7,3 +7,12 @@ export const trackDemoFormSubmit = (userData) => {
     console.error("Failed to track demo form submit:", error)
   }
 }
+
+export const trackQuizLead = () => {
+  try {
+    window.dataLayer = window.dataLayer || []
+    window.dataLayer.push({ event: "funnel_1_quiz_lead" })
+  } catch (error) {
+    console.error("Failed to track quiz lead:", error)
+  }
+}

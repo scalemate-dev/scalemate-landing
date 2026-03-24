@@ -4,6 +4,7 @@ import { Suspense, useEffect, useState, useMemo } from "react"
 import { useSearchParams } from "next/navigation"
 import { requestMagicLink } from "../../../../../lib/api/quizApi"
 import { trackMixpanelEvent } from "@/helpers/analytics/mixpanel"
+import { trackQuizLead } from "@/helpers/trackGTM"
 import styles from "../../quiz-v1/results/results.module.scss"
 
 const HOURLY_RATE = 45
@@ -144,6 +145,7 @@ function ResultsV1Content() {
       quiz_id: quizId,
       ads_per_week: adsPerWeek,
     })
+    trackQuizLead()
     setCtaLoading(true)
     setCtaError("")
     try {

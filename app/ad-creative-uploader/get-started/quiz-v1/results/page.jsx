@@ -4,6 +4,7 @@ import { Suspense, useEffect, useState, useMemo } from "react"
 import { useSearchParams } from "next/navigation"
 import { requestMagicLink } from "../../../../../lib/api/quizApi"
 import { trackMixpanelEvent } from "@/helpers/analytics/mixpanel"
+import { trackQuizLead } from "@/helpers/trackGTM"
 import styles from "./results.module.scss"
 
 const HOURLY_RATE = 45 // €/hr avg media buyer wage
@@ -241,6 +242,7 @@ function ResultsContent() {
       ads_per_week: adsPerWeek,
       profile_type: profileKey,
     })
+    trackQuizLead()
     setCtaLoading(true)
     setCtaError("")
     try {
