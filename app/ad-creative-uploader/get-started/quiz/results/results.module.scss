@@ -355,7 +355,7 @@ $content-width: 540px;
 // ═══════════════════════════════════════════
 
 .breakdownSection {
-  padding: 40px 0 0;
+  padding: 40px 0 40px;
   opacity: 0;
   transform: translateY(24px);
 
@@ -466,23 +466,22 @@ $content-width: 540px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 18px;
-  margin-top: 4px;
-  background: $uc-ink;
-  border-radius: 14px;
+  padding: 16px 0 0;
+  margin: 8px 18px 0;
+  border-top: 1px solid $uc-shape;
 
   span {
     font-family: vars.$font-body;
     font-size: 14px;
-    font-weight: 500;
-    color: rgba(#fff, 0.6);
+    font-weight: 600;
+    color: $uc-ink;
   }
 
   strong {
     font-family: vars.$font-heading;
-    font-size: 18px;
-    font-weight: 700;
-    color: #fff;
+    font-size: 17px;
+    font-weight: 800;
+    color: #dc4a3a;
     letter-spacing: -0.02em;
   }
 }
@@ -1155,11 +1154,7 @@ $content-width: 540px;
   }
 
   .breakdownTotal {
-    padding: 14px 14px;
-
-    strong {
-      font-size: 16px;
-    }
+    margin: 8px 14px 0;
   }
 
   .insightPair {
