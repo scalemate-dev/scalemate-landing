@@ -12,8 +12,8 @@ sleep 3
 echo "🚀 Pushing to origin..."
 git push
 
-echo "⏳ Waiting 5s for Vercel to pick up the deploy..."
-sleep 5
+echo "⏳ Waiting 10s for Vercel to pick up the deploy..."
+sleep 10
 
 echo "🔒 Making $REPO private..."
 gh repo edit "$REPO" --visibility private --accept-visibility-change-consequences
