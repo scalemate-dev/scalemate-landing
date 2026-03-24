@@ -29,7 +29,7 @@ const steps = [
     type: "radio",
     options: [
       "Last-minute urgent launches",
-      "Waiting for assets to start the routine",
+      "Waiting for assets from design to run campaign",
       "Urgent scaling/cutting during weekends",
       "Downloading/uploading creative files",
     ],
@@ -87,17 +87,30 @@ export default function QuizV1Page() {
     frustration: [],
   })
   const [processingStatus, setProcessingStatus] = useState(0)
-  const { trackStart, trackStepCompleted, trackStepBack, trackSubmitted, trackError } =
-    useQuizTracking({ quizId: QUIZ_ID, totalSteps: steps.length })
-  const { email, setEmail, emailError, setEmailError, submitting, isValidEmail, handleSubmit } =
-    useQuizSubmit({
-      totalSteps: steps.length,
-      stepTitle: "Your audit is ready.",
-      buildRedirectUrl: (a) => `/ad-creative-uploader/get-started/quiz/results?ads=${a.adsPerWeek}`,
-      trackStepCompleted,
-      trackSubmitted,
-      trackError,
-    })
+  const {
+    trackStart,
+    trackStepCompleted,
+    trackStepBack,
+    trackSubmitted,
+    trackError,
+  } = useQuizTracking({ quizId: QUIZ_ID, totalSteps: steps.length })
+  const {
+    email,
+    setEmail,
+    emailError,
+    setEmailError,
+    submitting,
+    isValidEmail,
+    handleSubmit,
+  } = useQuizSubmit({
+    totalSteps: steps.length,
+    stepTitle: "Your audit is ready.",
+    buildRedirectUrl: (a) =>
+      `/ad-creative-uploader/get-started/quiz/results?ads=${a.adsPerWeek}`,
+    trackStepCompleted,
+    trackSubmitted,
+    trackError,
+  })
 
   const isProcessingStep = currentStep === steps.length
   const isEmailStep = currentStep === steps.length + 1
@@ -252,7 +265,10 @@ export default function QuizV1Page() {
               Enter your work email to view your personalized results.
             </p>
 
-            <form className={styles.emailForm} onSubmit={(e) => handleSubmit(e, answers)}>
+            <form
+              className={styles.emailForm}
+              onSubmit={(e) => handleSubmit(e, answers)}
+            >
               <div className={styles.inputWrapper}>
                 <input
                   type="email"
