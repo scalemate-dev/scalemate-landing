@@ -1,11 +1,43 @@
 @use '../../../components/uc' as *;
+@use 'variables' as vars;
 
 // ─── Animations ───
 
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeScale {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes ringReveal {
+  from {
+    stroke-dashoffset: var(--ring-circumference);
+  }
+  to {
+    stroke-dashoffset: var(--ring-offset);
+  }
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -15,10 +47,10 @@
 
 @keyframes pulse {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba($uc-accent, 0.35);
+    box-shadow: 0 0 0 0 rgba($uc-accent, 0.3);
   }
   50% {
-    box-shadow: 0 0 0 12px rgba($uc-accent, 0);
+    box-shadow: 0 0 0 14px rgba($uc-accent, 0);
   }
 }
 
@@ -31,152 +63,235 @@
   }
 }
 
-// Stagger helper — each .animBlock gets a sequential delay
+@keyframes shimmerSlide {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes subtleBreathe {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+// Stagger helper
 @mixin stagger($index) {
-  animation-delay: #{$index * 0.08 + 0.05}s;
+  animation-delay: #{$index * 0.1 + 0.1}s;
 }
 
 // ─── Page Shell ───
 
 .page {
   min-height: 100vh;
-  background: linear-gradient(168deg, #fefdfb 0%, #fff8f3 45%, #fefefe 100%);
-  padding: 40px 24px 140px;
+  background: #fefdfb;
+  padding: 0 24px 160px;
+  position: relative;
+  overflow-x: hidden;
+
+  // Subtle warm gradient orb behind hero
+  &::before {
+    content: '';
+    position: absolute;
+    top: -120px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba($uc-accent, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
 }
 
 .container {
-  max-width: 560px;
+  max-width: 600px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .logo {
-  font-family: $font-heading;
+  font-family: vars.$font-heading;
   font-weight: 700;
-  font-size: 22px;
+  font-size: 20px;
   color: $uc-ink;
-  margin-bottom: 36px;
+  padding: 28px 0;
+  letter-spacing: -0.02em;
 }
 
-// ─── Shared card base ───
+// ─── Shared animate-in ───
 
-.card {
-  border-radius: 16px;
-  margin-bottom: 16px;
-}
-
-// Animate-in wrapper — applied per-block with explicit delays
 .animBlock {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(28px);
 
   &.visible {
-    animation: fadeUp 0.55s $uc-ease forwards;
+    animation: fadeUp 0.7s $uc-ease forwards;
   }
 }
 
 // ═══════════════════════════════════════════
-// Hero — profile diagnosis (left-aligned)
+// Hero — cinematic profile diagnosis
 // ═══════════════════════════════════════════
 
 .hero {
-  padding: 0 0 12px;
+  padding: 8px 0 40px;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(28px);
 
   &.visible {
-    animation: fadeUp 0.55s $uc-ease forwards;
+    animation: fadeUp 0.7s $uc-ease forwards;
   }
 }
 
 .eyebrow {
-  display: inline-block;
-  font-family: $font-body;
-  font-size: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: vars.$font-body;
+  font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   color: $uc-accent;
-  margin-bottom: 20px;
-  padding: 5px 10px;
-  background: rgba($uc-accent, 0.08);
-  border-radius: 5px;
+  margin-bottom: 24px;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: $uc-accent;
+    border-radius: 1px;
+  }
 }
 
 .profileHeadline {
-  font-family: $font-heading;
+  font-family: vars.$font-heading;
   font-weight: 800;
-  font-size: 30px;
-  line-height: 1.18;
+  font-size: 36px;
+  line-height: 1.12;
   color: $uc-ink;
-  letter-spacing: -0.03em;
-  margin: 0 0 14px;
+  letter-spacing: -0.035em;
+  margin: 0 0 20px;
+  max-width: 520px;
 }
 
 .diagnosis {
-  font-family: $font-body;
-  font-size: 15px;
-  line-height: 1.72;
+  font-family: vars.$font-body;
+  font-size: 16px;
+  line-height: 1.75;
   color: $uc-body;
   margin: 0;
+  max-width: 480px;
 }
 
 // ═══════════════════════════════════════════
-// Hours block — centered data display
+// Ring Gauge — hours visualization
 // ═══════════════════════════════════════════
 
-.hoursBlock {
+.gaugeSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  padding: 28px 0 20px;
-  margin-bottom: 4px;
-  border-top: 1px solid $uc-shape;
+  padding: 48px 0 44px;
+  position: relative;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(28px);
 
   &.visible {
-    animation: fadeUp 0.55s $uc-ease forwards;
+    animation: fadeUp 0.7s $uc-ease forwards;
     @include stagger(1);
   }
 }
 
-.hoursBlockLabel {
-  display: block;
-  font-family: $font-body;
+.gaugeSectionLabel {
+  font-family: vars.$font-body;
   font-size: 10px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   color: $uc-stone;
-  margin-bottom: 14px;
+  margin-bottom: 32px;
 }
 
-.bigNumber {
+.gaugeWrapper {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 28px;
+}
+
+.gaugeSvg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.gaugeTrack {
+  fill: none;
+  stroke: $uc-shape;
+  stroke-width: 6;
+}
+
+.gaugeFill {
+  fill: none;
+  stroke: url(#gaugeGradient);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: var(--ring-circumference);
+  stroke-dashoffset: var(--ring-circumference);
+  transition: stroke-dashoffset 0s;
+
+  &.gaugeAnimate {
+    animation: ringReveal 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+  }
+}
+
+.gaugeCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 14px;
+  flex-direction: column;
+  align-items: center;
 }
 
-.bigNumberValue {
-  font-family: $font-heading;
+.gaugeValue {
+  font-family: vars.$font-heading;
   font-weight: 800;
-  font-size: 76px;
-  color: #dc4a3a;
-  line-height: 0.9;
+  font-size: 52px;
+  color: $uc-ink;
+  line-height: 1;
   letter-spacing: -0.04em;
+  opacity: 0;
+
+  &.gaugeValueAnimate {
+    animation: countUp 0.6s $uc-ease 0.5s forwards;
+  }
 }
 
-.bigNumberUnit {
-  font-family: $font-body;
-  font-size: 16px;
+.gaugeUnit {
+  font-family: vars.$font-body;
+  font-size: 13px;
   font-weight: 500;
   color: $uc-stone;
+  margin-top: 4px;
+  letter-spacing: 0.04em;
 }
 
-.hoursBlockSub {
-  font-family: $font-body;
-  font-size: 14px;
-  line-height: 1.6;
+.gaugeSub {
+  font-family: vars.$font-body;
+  font-size: 15px;
+  line-height: 1.65;
   color: $uc-body;
   margin: 0 auto;
   max-width: 400px;
@@ -188,106 +303,140 @@
 }
 
 // ═══════════════════════════════════════════
-// Impact Cards
+// Impact Cards — floating glass metrics
 // ═══════════════════════════════════════════
 
 .impactRow {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 20px;
+  gap: 14px;
+  margin-bottom: 12px;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(28px);
 
   &.visible {
-    animation: fadeUp 0.55s $uc-ease forwards;
+    animation: fadeUp 0.7s $uc-ease forwards;
     @include stagger(2);
   }
 }
 
 .impactCard {
   background: #fff;
-  border: 1.5px solid $uc-shape;
-  border-radius: 14px;
-  padding: 22px 16px 18px;
+  border: 1px solid rgba($uc-shape, 0.8);
+  border-radius: 20px;
+  padding: 28px 20px 24px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 8px 24px rgba(0, 0, 0, 0.03);
+  transition: transform 0.4s $uc-ease, box-shadow 0.4s $uc-ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03), 0 12px 32px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.impactCardGreen {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, $uc-success, lighten($uc-success, 12%));
+    border-radius: 20px 20px 0 0;
+  }
+}
+
+.impactCardRed {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #dc4a3a, #e8725f);
+    border-radius: 20px 20px 0 0;
+  }
 }
 
 .impactValue {
-  font-family: $font-heading;
+  font-family: vars.$font-heading;
   font-weight: 800;
-  font-size: 30px;
-  color: #dc4a3a;
+  font-size: 32px;
+  color: $uc-ink;
   line-height: 1;
   letter-spacing: -0.03em;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .impactGreen {
   color: $uc-success;
 }
 
+.impactRed {
+  color: #dc4a3a;
+}
+
 .impactPeriod {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
-  color: $uc-body;
+  color: $uc-stone;
 }
 
 .impactLabel {
-  font-family: $font-body;
+  font-family: vars.$font-body;
   font-size: 12px;
-  font-weight: 450;
+  font-weight: 500;
   color: $uc-stone;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
 }
 
 .impactHint {
-  font-family: $font-body;
+  font-family: vars.$font-body;
   font-size: 11px;
   color: $uc-body-faded;
   text-align: right;
-  margin: -12px 0 20px;
+  margin: 0 0 48px;
+  opacity: 0;
+
+  &.visible {
+    animation: fadeUp 0.5s $uc-ease 0.4s forwards;
+  }
 }
 
 // ═══════════════════════════════════════════
-// Breakdown card
+// Breakdown — refined timeline
 // ═══════════════════════════════════════════
 
-.breakdownTitle {
-  font-family: $font-heading;
-  font-weight: 700;
-  font-size: 17px;
-  color: $uc-ink;
-  letter-spacing: -0.01em;
-  margin: 4px 0 12px;
+.breakdownSection {
+  margin-bottom: 48px;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(28px);
 
   &.visible {
-    animation: fadeUp 0.55s $uc-ease forwards;
+    animation: fadeUp 0.7s $uc-ease forwards;
     @include stagger(3);
   }
 }
 
-.breakdownCard {
-  background: #fff;
-  border: 1.5px solid $uc-shape;
-  padding: 24px;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(20px);
-
-  &.visible {
-    animation: fadeUp 0.55s $uc-ease forwards;
-    @include stagger(4);
-  }
+.breakdownTitle {
+  font-family: vars.$font-heading;
+  font-weight: 700;
+  font-size: 18px;
+  color: $uc-ink;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
 }
 
 .breakdownIntro {
-  font-family: $font-body;
+  font-family: vars.$font-body;
   font-size: 14px;
   color: $uc-body;
-  margin: 0 0 16px;
+  margin: 0 0 24px;
   line-height: 1.6;
 
   strong {
@@ -295,80 +444,110 @@
   }
 }
 
-.auditLog {
+.timeline {
   display: flex;
   flex-direction: column;
+  gap: 0;
+  position: relative;
+
+  // Vertical line connecting items
+  &::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 24px;
+    bottom: 24px;
+    width: 1px;
+    background: linear-gradient(to bottom, $uc-shape, rgba($uc-shape, 0.3));
+  }
 }
 
-.auditRow {
+.timelineItem {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  padding: 12px 0;
-  border-top: 1px solid rgba($uc-shape, 0.7);
+  gap: 16px;
+  padding: 14px 0;
+  position: relative;
 }
 
-.auditIcon {
-  font-size: 17px;
-  line-height: 1;
+.timelineDot {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid $uc-shape;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
   flex-shrink: 0;
-  margin-top: 2px;
+  position: relative;
+  z-index: 1;
+  transition: border-color 0.3s $uc-ease, box-shadow 0.3s $uc-ease;
+
+  .timelineItem:hover & {
+    border-color: $uc-accent-light;
+    box-shadow: 0 0 0 4px rgba($uc-accent, 0.06);
+  }
 }
 
-.auditInfo {
+.timelineContent {
   flex: 1;
   min-width: 0;
+  padding-top: 4px;
 }
 
-.auditLabel {
-  font-family: $font-body;
+.timelineLabel {
+  font-family: vars.$font-body;
   font-size: 14px;
-  font-weight: 550;
+  font-weight: 600;
   color: $uc-ink;
   line-height: 1.3;
+  margin-bottom: 2px;
 }
 
-.auditFormula {
-  font-family: $font-body;
+.timelineFormula {
+  font-family: vars.$font-body;
   font-size: 12px;
   color: $uc-stone;
-  margin-top: 2px;
 }
 
-.auditNote {
-  font-family: $font-body;
+.timelineNote {
+  font-family: vars.$font-body;
   font-size: 11px;
   color: $uc-body-faded;
   font-style: italic;
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
-.auditHours {
-  font-family: $font-heading;
+.timelineHours {
+  font-family: vars.$font-heading;
   font-weight: 700;
   font-size: 15px;
   color: #dc4a3a;
   white-space: nowrap;
   flex-shrink: 0;
-  margin-top: 1px;
+  padding-top: 5px;
 }
 
-.auditTotal {
+.timelineTotal {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 0 0;
-  border-top: 1.5px solid $uc-ink;
+  padding: 18px 0 0;
+  margin-top: 4px;
+  border-top: 2px solid $uc-ink;
+  margin-left: 46px;
 
   span {
-    font-family: $font-body;
+    font-family: vars.$font-body;
     font-size: 14px;
     font-weight: 500;
     color: $uc-ink;
   }
 
   strong {
-    font-family: $font-heading;
+    font-family: vars.$font-heading;
     font-size: 17px;
     font-weight: 700;
     color: #dc4a3a;
@@ -377,94 +556,147 @@
 }
 
 // ═══════════════════════════════════════════
-// Price of Inaction & Solution cards
+// Insight Cards — inaction & solution
 // ═══════════════════════════════════════════
 
-.inactionCard {
-  background: rgba(#dc4a3a, 0.04);
-  border: 1.5px solid rgba(#dc4a3a, 0.12);
-  padding: 22px 24px;
+.insightPair {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 16px;
+  border-radius: 22px;
+  overflow: hidden;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(28px);
 
   &.visible {
-    animation: fadeUp 0.55s $uc-ease forwards;
-    @include stagger(5);
+    animation: fadeUp 0.7s $uc-ease forwards;
+    @include stagger(4);
   }
 }
 
-.inactionText {
-  font-family: $font-body;
+.insightCard {
+  padding: 28px 28px;
+  position: relative;
+}
+
+.insightCardPain {
+  background: linear-gradient(135deg, #fef5f3 0%, #fff9f7 100%);
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 16px;
+    bottom: 16px;
+    width: 3px;
+    background: #dc4a3a;
+    border-radius: 0 2px 2px 0;
+  }
+}
+
+.insightCardGain {
+  background: linear-gradient(135deg, #f2faf4 0%, #f8fcf9 100%);
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 16px;
+    bottom: 16px;
+    width: 3px;
+    background: $uc-success;
+    border-radius: 0 2px 2px 0;
+  }
+}
+
+.insightLabel {
+  display: inline-block;
+  font-family: vars.$font-body;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 10px;
+}
+
+.insightLabelPain {
+  color: #dc4a3a;
+}
+
+.insightLabelGain {
+  color: darken($uc-success, 8%);
+}
+
+.insightText {
+  font-family: vars.$font-body;
   font-size: 15px;
-  line-height: 1.7;
+  line-height: 1.72;
   color: $uc-ink;
   margin: 0;
   font-weight: 450;
 }
 
-.solutionCard {
-  background: rgba(#22c55e, 0.04);
-  border: 1.5px solid rgba(#22c55e, 0.15);
-  padding: 22px 24px;
-  opacity: 0;
-  transform: translateY(20px);
-
-  &.visible {
-    animation: fadeUp 0.55s $uc-ease forwards;
-    @include stagger(6);
-  }
-}
-
-.solutionText {
-  font-family: $font-body;
-  font-size: 15px;
-  line-height: 1.7;
-  color: $uc-ink;
-  margin: 0;
-  font-weight: 450;
-}
-
 // ═══════════════════════════════════════════
-// Dark Challenger with mini chart
+// Dark Challenger — cinematic section
 // ═══════════════════════════════════════════
 
 .darkCard {
   background: $uc-card-dark;
-  padding: 28px 24px;
+  border-radius: 22px;
+  padding: 36px 28px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(28px);
+
+  // Subtle gradient overlay for depth
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(ellipse at 80% 50%, rgba($uc-accent, 0.04) 0%, transparent 60%);
+    pointer-events: none;
+  }
 
   &.visible {
-    animation: fadeUp 0.55s $uc-ease forwards;
-    @include stagger(7);
+    animation: fadeUp 0.7s $uc-ease forwards;
+    @include stagger(5);
   }
 }
 
 .darkContent {
   display: flex;
-  gap: 20px;
+  gap: 28px;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .darkText {
   flex: 1;
 
   p {
-    font-family: $font-body;
+    font-family: vars.$font-body;
     font-size: 15px;
-    line-height: 1.65;
-    color: rgba(#fff, 0.65);
+    line-height: 1.7;
+    color: rgba(#fff, 0.55);
     margin: 0;
 
     strong {
       color: #fff;
+      font-weight: 600;
     }
   }
 }
 
 .miniChart {
   flex-shrink: 0;
-  width: 120px;
+  width: 130px;
 }
 
 .miniChartSvg {
@@ -474,7 +706,7 @@
 
 .lineManual {
   fill: none;
-  stroke: rgba(#fff, 0.2);
+  stroke: rgba(#fff, 0.12);
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -482,64 +714,79 @@
 
 .lineScalemate {
   fill: none;
-  stroke: #22c55e;
+  stroke: $uc-success;
   stroke-width: 2.5;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-dasharray: 200;
   stroke-dashoffset: 200;
+  filter: drop-shadow(0 0 6px rgba($uc-success, 0.3));
 
   &.lineAnimate {
-    animation: lineGrow 1.8s cubic-bezier(0.22, 1, 0.36, 1) 0.8s forwards;
+    animation: lineGrow 2s cubic-bezier(0.22, 1, 0.36, 1) 0.9s forwards;
   }
 }
 
+.chartLabel {
+  font-family: vars.$font-body;
+  font-size: 9px;
+  fill: rgba(#fff, 0.3);
+  letter-spacing: 0.05em;
+}
+
+.chartLabelGreen {
+  fill: rgba($uc-success, 0.7);
+}
+
 // ═══════════════════════════════════════════
-// Audit Log Table
+// Comparison Table — refined
 // ═══════════════════════════════════════════
 
 .tableCard {
   background: #fff;
-  border: 1.5px solid $uc-shape;
-  padding: 24px;
+  border: 1px solid rgba($uc-shape, 0.8);
+  border-radius: 22px;
+  padding: 28px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 8px 24px rgba(0, 0, 0, 0.03);
   overflow-x: auto;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(28px);
 
   &.visible {
-    animation: fadeUp 0.55s $uc-ease forwards;
-    @include stagger(8);
+    animation: fadeUp 0.7s $uc-ease forwards;
+    @include stagger(6);
   }
 }
 
 .tableTitle {
-  font-family: $font-heading;
+  font-family: vars.$font-heading;
   font-weight: 700;
   font-size: 16px;
   color: $uc-ink;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   letter-spacing: -0.01em;
 }
 
 .comparisonTable {
   width: 100%;
   border-collapse: collapse;
-  font-family: $font-body;
-  font-size: 12px;
+  font-family: vars.$font-body;
+  font-size: 13px;
 
   th {
     text-align: left;
     font-weight: 600;
     font-size: 10px;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     color: $uc-stone;
-    padding: 0 8px 10px 0;
+    padding: 0 12px 14px 0;
     border-bottom: 1px solid $uc-shape;
   }
 
   td {
-    padding: 10px 8px 10px 0;
+    padding: 14px 12px 14px 0;
     border-bottom: 1px solid rgba($uc-shape, 0.5);
     color: $uc-ink;
     font-weight: 450;
@@ -549,14 +796,24 @@
   tr:last-child td {
     border-bottom: none;
   }
+
+  // Subtle row hover
+  tbody tr {
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: rgba($uc-bg-warm, 0.5);
+    }
+  }
 }
 
 .cellManual {
   color: #dc4a3a !important;
+  font-weight: 500 !important;
 }
 
 .cellAuto {
-  color: #22c55e !important;
+  color: $uc-success !important;
   font-weight: 600 !important;
 }
 
@@ -568,10 +825,10 @@
 
 .totalRow {
   td {
-    border-top: 1.5px solid $uc-ink;
-    border-bottom: none;
+    border-top: 2px solid $uc-ink;
+    border-bottom: none !important;
     font-weight: 700;
-    padding-top: 12px;
+    padding-top: 16px;
   }
 }
 
@@ -596,7 +853,7 @@
     opacity: 0;
   }
   60% {
-    transform: scale(1.15);
+    transform: scale(1.12);
     opacity: 1;
   }
   100% {
@@ -619,12 +876,12 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 60px 0 40px;
-  animation: successFadeIn 0.7s $uc-ease forwards;
+  padding: 80px 0 40px;
+  animation: successFadeIn 0.8s $uc-ease forwards;
 }
 
 .successIcon {
-  margin-bottom: 32px;
+  margin-bottom: 36px;
 }
 
 .successCircle {
@@ -639,22 +896,22 @@
 }
 
 .successTitle {
-  font-family: $font-heading;
+  font-family: vars.$font-heading;
   font-weight: 800;
-  font-size: 36px;
+  font-size: 40px;
   color: $uc-ink;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.04em;
   margin: 0 0 16px;
   line-height: 1.1;
 }
 
 .successBody {
-  font-family: $font-body;
+  font-family: vars.$font-body;
   font-size: 16px;
   line-height: 1.7;
   color: $uc-body;
   max-width: 380px;
-  margin: 0 0 32px;
+  margin: 0 0 36px;
 
   strong {
     color: $uc-ink;
@@ -665,15 +922,15 @@
 .successHints {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-bottom: 36px;
+  gap: 14px;
+  margin-bottom: 40px;
 }
 
 .successHint {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-family: $font-body;
+  gap: 12px;
+  font-family: vars.$font-body;
   font-size: 13px;
   color: $uc-stone;
 }
@@ -682,29 +939,30 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 10px;
-  background: rgba($uc-shape, 0.5);
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: rgba($uc-shape, 0.4);
   color: $uc-stone;
   flex-shrink: 0;
 }
 
 .resendButton {
-  font-family: $font-body;
+  font-family: vars.$font-body;
   font-size: 14px;
   font-weight: 600;
   color: $uc-accent;
   background: none;
   border: 1.5px solid $uc-shape;
-  border-radius: 12px;
-  padding: 12px 28px;
+  border-radius: 14px;
+  padding: 14px 32px;
   cursor: pointer;
-  transition: all 0.2s $uc-ease;
+  transition: all 0.3s $uc-ease;
 
   &:hover {
     border-color: $uc-accent;
     background: rgba($uc-accent, 0.04);
+    transform: translateY(-1px);
   }
 
   &:disabled {
@@ -714,7 +972,7 @@
 }
 
 // ═══════════════════════════════════════════
-// Sticky CTA
+// Sticky CTA — premium glass bar
 // ═══════════════════════════════════════════
 
 .stickyCta {
@@ -723,53 +981,96 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(#fff, 0.92);
-  backdrop-filter: blur(12px);
-  border-top: 1px solid $uc-shape;
-  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.05);
-  padding: 14px 24px 22px;
+  padding: 0 24px;
   pointer-events: none;
 }
 
-.stickyCtaInner {
-  max-width: 560px;
+.stickyCtaGlass {
+  max-width: 600px;
   margin: 0 auto;
+  background: rgba(#fff, 0.85);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid rgba($uc-shape, 0.6);
+  border-bottom: none;
+  border-radius: 20px 20px 0 0;
+  padding: 18px 24px 24px;
+  box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.04), 0 -8px 40px rgba(0, 0, 0, 0.02);
+  pointer-events: auto;
+}
+
+.stickyCtaInner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  pointer-events: auto;
+  gap: 8px;
 }
 
 .pulseButton {
   width: 100%;
-  padding: 16px;
-  font-family: $font-body;
+  padding: 17px;
+  font-family: vars.$font-body;
   font-size: 16px;
   font-weight: 700;
   color: #fff;
   background: $uc-accent;
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
   cursor: pointer;
-  animation: pulse 2.5s ease-in-out infinite;
-  transition: background 0.2s $uc-ease, transform 0.2s $uc-ease;
+  animation: pulse 2.8s ease-in-out infinite;
+  transition: background 0.3s $uc-ease, transform 0.3s $uc-ease, box-shadow 0.3s $uc-ease;
+  position: relative;
+  overflow: hidden;
+
+  // Subtle shimmer effect
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 40%,
+      rgba(#fff, 0.12) 50%,
+      transparent 60%
+    );
+    animation: shimmerSlide 3s ease-in-out infinite;
+    pointer-events: none;
+  }
 
   &:hover {
     background: $uc-accent-deep;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
     animation: none;
-    box-shadow: 0 6px 28px rgba($uc-accent, 0.3);
+    box-shadow: 0 8px 32px rgba($uc-accent, 0.35);
+
+    &::after {
+      animation: none;
+      opacity: 0;
+    }
   }
 
   &:active {
     transform: translateY(0);
+    box-shadow: 0 4px 16px rgba($uc-accent, 0.25);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    animation: none;
+
+    &::after {
+      animation: none;
+    }
   }
 }
 
 .ctaMicro {
-  font-family: $font-body;
-  font-size: 11px;
+  font-family: vars.$font-body;
+  font-size: 12px;
   color: $uc-stone;
   text-align: center;
   line-height: 1.4;
@@ -780,78 +1081,129 @@
 // ═══════════════════════════════════════════
 
 @include tablet-vertical {
-  .bigNumberValue {
-    font-size: 64px;
+  .gaugeWrapper {
+    width: 180px;
+    height: 180px;
+  }
+
+  .gaugeValue {
+    font-size: 44px;
   }
 
   .impactValue {
-    font-size: 26px;
+    font-size: 28px;
   }
 }
 
 @include mobile {
   .page {
-    padding: 24px 16px 130px;
+    padding: 0 16px 150px;
+
+    &::before {
+      width: 400px;
+      height: 400px;
+      top: -80px;
+      right: -160px;
+    }
   }
 
   .logo {
-    margin-bottom: 28px;
+    padding: 20px 0;
+    font-size: 18px;
+  }
+
+  .hero {
+    padding: 4px 0 32px;
   }
 
   .profileHeadline {
-    font-size: 24px;
+    font-size: 28px;
+    margin-bottom: 16px;
   }
 
   .diagnosis {
+    font-size: 15px;
+  }
+
+  .gaugeSection {
+    padding: 36px 0 32px;
+  }
+
+  .gaugeWrapper {
+    width: 160px;
+    height: 160px;
+    margin-bottom: 24px;
+  }
+
+  .gaugeValue {
+    font-size: 40px;
+  }
+
+  .gaugeUnit {
+    font-size: 12px;
+  }
+
+  .gaugeSub {
     font-size: 14px;
-  }
-
-  .bigNumberValue {
-    font-size: 56px;
-  }
-
-  .bigNumberUnit {
-    font-size: 14px;
-  }
-
-  .hoursBlock {
-    padding: 20px 0 16px;
-  }
-
-  .hoursBlockSub {
-    font-size: 13px;
   }
 
   .impactRow {
-    gap: 8px;
+    gap: 10px;
   }
 
   .impactCard {
-    padding: 18px 12px 14px;
+    padding: 24px 14px 20px;
+    border-radius: 16px;
   }
 
   .impactValue {
-    font-size: 22px;
+    font-size: 24px;
   }
 
-  .breakdownCard {
-    padding: 20px 16px;
+  .breakdownSection {
+    margin-bottom: 36px;
   }
 
-  .auditTotal {
+  .breakdownTitle {
+    font-size: 16px;
+  }
+
+  .timeline::before {
+    left: 13px;
+  }
+
+  .timelineDot {
+    width: 26px;
+    height: 26px;
+    font-size: 11px;
+  }
+
+  .timelineLabel {
+    font-size: 13px;
+  }
+
+  .timelineTotal {
+    margin-left: 42px;
     flex-direction: column;
     align-items: flex-start;
     gap: 4px;
   }
 
-  .inactionCard,
-  .solutionCard {
-    padding: 18px 20px;
+  .insightCard {
+    padding: 22px 22px;
+  }
+
+  .insightText {
+    font-size: 14px;
+  }
+
+  .darkCard {
+    padding: 28px 22px;
   }
 
   .darkContent {
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
   }
 
   .darkText p {
@@ -860,26 +1212,41 @@
 
   .miniChart {
     width: 100%;
-    max-width: 180px;
+    max-width: 200px;
+  }
+
+  .tableCard {
+    padding: 22px 18px;
+    border-radius: 18px;
   }
 
   .comparisonTable {
-    font-size: 11px;
+    font-size: 12px;
 
     th {
       font-size: 9px;
+      padding-right: 8px;
+    }
+
+    td {
+      padding: 12px 8px 12px 0;
     }
   }
 
+  .stickyCtaGlass {
+    padding: 16px 20px 22px;
+    border-radius: 18px 18px 0 0;
+  }
+
   .successScreen {
-    padding: 40px 0 24px;
+    padding: 48px 0 24px;
   }
 
   .successTitle {
-    font-size: 28px;
+    font-size: 32px;
   }
 
   .successBody {
-    font-size: 14px;
+    font-size: 15px;
   }
 }

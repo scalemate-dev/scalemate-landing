@@ -188,6 +188,12 @@ export default function ResultsPage() {
   )
 }
 
+// Ring gauge constants
+const RING_RADIUS = 80
+const RING_CIRCUMFERENCE = 2 * Math.PI * RING_RADIUS
+// Max hours for gauge scale (100% = 80 hrs)
+const GAUGE_MAX = 80
+
 function ResultsContent() {
   const [animateIn, setAnimateIn] = useState(false)
   const [ctaLoading, setCtaLoading] = useState(false)
@@ -201,11 +207,15 @@ function ResultsContent() {
   const m = useMemo(() => calcMetrics(adsPerWeek), [adsPerWeek])
 
   useEffect(() => {
-    const timer = setTimeout(() => setAnimateIn(true), 100)
+    const timer = setTimeout(() => setAnimateIn(true), 150)
     return () => clearTimeout(timer)
   }, [])
 
   const vis = animateIn ? styles.visible : ""
+
+  // Gauge fill calculation
+  const gaugeFraction = Math.min(m.totalHours / GAUGE_MAX, 1)
+  const gaugeOffset = RING_CIRCUMFERENCE * (1 - gaugeFraction)
 
   async function handleTryFree() {
     const email = sessionStorage.getItem("quiz_email")
@@ -237,15 +247,15 @@ function ResultsContent() {
 
           <div className={styles.successScreen}>
             <div className={styles.successIcon}>
-              <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+              <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
                 <circle
-                  cx="28"
-                  cy="28"
-                  r="28"
+                  cx="32"
+                  cy="32"
+                  r="32"
                   className={styles.successCircle}
                 />
                 <path
-                  d="M18 28.5L25 35.5L38 21.5"
+                  d="M20 32.5L28 40.5L44 23.5"
                   stroke="#fff"
                   strokeWidth="3.5"
                   strokeLinecap="round"
@@ -339,16 +349,46 @@ function ResultsContent() {
           <p className={styles.diagnosis}>{profile.diagnosis}</p>
         </div>
 
-        {/* ── 2. Hours Calculation ── */}
-        <div className={`${styles.hoursBlock} ${vis}`}>
-          <span className={styles.hoursBlockLabel}>
+        {/* ── 2. Ring Gauge — Hours Visualization ── */}
+        <div className={`${styles.gaugeSection} ${vis}`}>
+          <span className={styles.gaugeSectionLabel}>
             {profile.hoursHeading || "YOUR MANUAL HOURS ESTIMATE"}
           </span>
-          <div className={styles.bigNumber}>
-            <span className={styles.bigNumberValue}>{fmt(m.totalHours)}</span>
-            <span className={styles.bigNumberUnit}>hrs/mo</span>
+
+          <div className={styles.gaugeWrapper}>
+            <svg viewBox="0 0 200 200" className={styles.gaugeSvg}>
+              <defs>
+                <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#dc4a3a" />
+                  <stop offset="100%" stopColor="#f97316" />
+                </linearGradient>
+              </defs>
+              <circle
+                cx="100"
+                cy="100"
+                r={RING_RADIUS}
+                className={styles.gaugeTrack}
+              />
+              <circle
+                cx="100"
+                cy="100"
+                r={RING_RADIUS}
+                className={`${styles.gaugeFill} ${animateIn ? styles.gaugeAnimate : ""}`}
+                style={{
+                  "--ring-circumference": RING_CIRCUMFERENCE,
+                  "--ring-offset": gaugeOffset,
+                }}
+              />
+            </svg>
+            <div className={styles.gaugeCenter}>
+              <span className={`${styles.gaugeValue} ${animateIn ? styles.gaugeValueAnimate : ""}`}>
+                {fmt(m.totalHours)}
+              </span>
+              <span className={styles.gaugeUnit}>hrs / mo</span>
+            </div>
           </div>
-          <p className={styles.hoursBlockSub}>
+
+          <p className={styles.gaugeSub}>
             {profile.hoursLabel} Based on{" "}
             <strong>{adsPerWeek} ads/week</strong> volume.
           </p>
@@ -356,14 +396,14 @@ function ResultsContent() {
 
         {/* ── 3. Impact Cards ── */}
         <div className={`${styles.impactRow} ${vis}`}>
-          <div className={styles.impactCard}>
+          <div className={`${styles.impactCard} ${styles.impactCardGreen}`}>
             <div className={`${styles.impactValue} ${styles.impactGreen}`}>
               {m.automationPotential}%
             </div>
             <div className={styles.impactLabel}>automatable</div>
           </div>
-          <div className={styles.impactCard}>
-            <div className={styles.impactValue}>
+          <div className={`${styles.impactCard} ${styles.impactCardRed}`}>
+            <div className={`${styles.impactValue} ${styles.impactRed}`}>
               {fmtEur(m.totalCost)}
               <span className={styles.impactPeriod}>/mo</span>
             </div>
@@ -374,63 +414,71 @@ function ResultsContent() {
           Based on €{HOURLY_RATE}/hr avg. media buyer rate
         </p>
 
-        {/* ── 4. Breakdown ── */}
-        <h3 className={`${styles.breakdownTitle} ${vis}`}>
-          How we calculated your {fmt(m.totalHours)} hours
-        </h3>
-        <div className={`${styles.card} ${styles.breakdownCard} ${vis}`}>
+        {/* ── 4. Breakdown — Timeline ── */}
+        <div className={`${styles.breakdownSection} ${vis}`}>
+          <h3 className={styles.breakdownTitle}>
+            How we calculated your {fmt(m.totalHours)} hours
+          </h3>
           <p className={styles.breakdownIntro}>
             We analyzed your workflow based on{" "}
             <strong>{adsPerWeek} weekly new ads</strong>:
           </p>
 
-          <div className={styles.auditLog}>
+          <div className={styles.timeline}>
             {m.breakdown.map((item) => (
-              <div key={item.label} className={styles.auditRow}>
-                <span className={styles.auditIcon}>{item.icon}</span>
-                <div className={styles.auditInfo}>
-                  <div className={styles.auditLabel}>{item.label}</div>
-                  <div className={styles.auditFormula}>{item.formula}</div>
+              <div key={item.label} className={styles.timelineItem}>
+                <span className={styles.timelineDot}>{item.icon}</span>
+                <div className={styles.timelineContent}>
+                  <div className={styles.timelineLabel}>{item.label}</div>
+                  <div className={styles.timelineFormula}>{item.formula}</div>
                   {item.note && (
-                    <div className={styles.auditNote}>{item.note}</div>
+                    <div className={styles.timelineNote}>{item.note}</div>
                   )}
                 </div>
-                <span className={styles.auditHours}>
+                <span className={styles.timelineHours}>
                   {fmt(item.hours)} hrs
                 </span>
               </div>
             ))}
           </div>
 
-          <div className={styles.auditTotal}>
+          <div className={styles.timelineTotal}>
             <span>{profile.totalLabel || "Total Manual Work"}:</span>
             <strong>{fmt(m.totalHours)} Hours / Month</strong>
           </div>
         </div>
 
-        {/* ── 5. Price of Inaction ── */}
-        <div className={`${styles.card} ${styles.inactionCard} ${vis}`}>
-          <p className={styles.inactionText}>
-            {profile.priceOfInaction(adsPerWeek, m.totalHours, m.monthly)}
-          </p>
-        </div>
-
-        {/* ── 6. Solution ── */}
-        <div className={`${styles.card} ${styles.solutionCard} ${vis}`}>
-          <p className={styles.solutionText}>{profile.solution}</p>
+        {/* ── 5 & 6. Insight Pair — Inaction + Solution ── */}
+        <div className={`${styles.insightPair} ${vis}`}>
+          <div className={`${styles.insightCard} ${styles.insightCardPain}`}>
+            <span className={`${styles.insightLabel} ${styles.insightLabelPain}`}>
+              The cost of inaction
+            </span>
+            <p className={styles.insightText}>
+              {profile.priceOfInaction(adsPerWeek, m.totalHours, m.monthly)}
+            </p>
+          </div>
+          <div className={`${styles.insightCard} ${styles.insightCardGain}`}>
+            <span className={`${styles.insightLabel} ${styles.insightLabelGain}`}>
+              With Scalemate
+            </span>
+            <p className={styles.insightText}>{profile.solution}</p>
+          </div>
         </div>
 
         {/* ── 7. Dark Challenger ── */}
-        <div className={`${styles.card} ${styles.darkCard} ${vis}`}>
+        <div className={`${styles.darkCard} ${vis}`}>
           <div className={styles.darkContent}>
             <div className={styles.miniChart}>
-              <svg viewBox="0 0 120 60" className={styles.miniChartSvg}>
+              <svg viewBox="0 0 130 70" className={styles.miniChartSvg}>
+                <text x="4" y="10" className={styles.chartLabel}>Manual</text>
+                <text x="4" y="65" className={`${styles.chartLabel} ${styles.chartLabelGreen}`}>Scalemate</text>
                 <polyline
-                  points="10,52 30,49 50,46 70,43 80,45 90,40 100,37 110,34"
+                  points="10,52 30,49 50,46 70,43 80,45 90,40 100,37 110,34 120,32"
                   className={styles.lineManual}
                 />
                 <polyline
-                  points="10,55 25,46 35,42 50,32 60,28 70,20 80,16 90,11 100,7 110,3"
+                  points="10,55 25,46 35,42 50,32 60,28 70,20 80,16 90,11 100,7 110,3 120,1"
                   className={`${styles.lineScalemate} ${animateIn ? styles.lineAnimate : ""}`}
                 />
               </svg>
@@ -450,8 +498,8 @@ function ResultsContent() {
           </div>
         </div>
 
-        {/* ── 8. Audit Log Table ── */}
-        <div className={`${styles.card} ${styles.tableCard} ${vis}`}>
+        {/* ── 8. Comparison Table ── */}
+        <div className={`${styles.tableCard} ${vis}`}>
           <div className={styles.tableTitle}>{profile.tableTitle}</div>
           <table className={styles.comparisonTable}>
             <thead>
@@ -518,21 +566,23 @@ function ResultsContent() {
 
       {/* ── Sticky CTA ── */}
       <div className={styles.stickyCta}>
-        <div className={styles.stickyCtaInner}>
-          <button
-            className={styles.pulseButton}
-            onClick={handleTryFree}
-            disabled={ctaLoading}
-          >
-            {ctaLoading ? "Sending..." : "Try It Free"}
-          </button>
-          {ctaError ? (
-            <span className={styles.ctaMicro}>{ctaError}</span>
-          ) : (
-            <span className={styles.ctaMicro}>
-              {profile.cta} No credit card required.
-            </span>
-          )}
+        <div className={styles.stickyCtaGlass}>
+          <div className={styles.stickyCtaInner}>
+            <button
+              className={styles.pulseButton}
+              onClick={handleTryFree}
+              disabled={ctaLoading}
+            >
+              {ctaLoading ? "Sending..." : "Try It Free"}
+            </button>
+            {ctaError ? (
+              <span className={styles.ctaMicro}>{ctaError}</span>
+            ) : (
+              <span className={styles.ctaMicro}>
+                {profile.cta} No credit card required.
+              </span>
+            )}
+          </div>
         </div>
       </div>
     </div>
