@@ -28,7 +28,7 @@ const PROFILES = {
     solution:
       "Scalemate automates the operational layer — creative uploads, campaign setup, bulk launches across platforms and accounts. Your team drops files in once. The system handles the rest. No more downloading, re-uploading, or setting up ads from scratch.",
     cta: "Stop the manual grind — try Scalemate free.",
-    tableTitle: "Audit Log",
+    tableTitle: "Savings Breakdown",
     hoursLabel:
       "Time your team spends on operational ad work instead of testing new angles and scaling winners.",
   },
@@ -47,7 +47,7 @@ const PROFILES = {
     solution:
       "Scalemate removes the multiplier. Bulk creative uploads, automated campaign setup across platforms and accounts, zero redundant steps. Scale the output without scaling the workload. More creatives tested, more winners found, same team.",
     cta: "Unblock your scaling — try Scalemate free.",
-    tableTitle: "Audit Log",
+    tableTitle: "Savings Breakdown",
     hoursLabel:
       "Time locked in operational setup that could go toward scaling and testing.",
   },
@@ -70,7 +70,7 @@ const PROFILES = {
     solution:
       "Scalemate standardizes your operational layer. Every creative goes to the right platform, right account, right setup — automatically. Consistent naming, correct post IDs, no manual duplication. Same execution quality at 50 ads or 500.",
     cta: "Take errors out of the equation — try Scalemate free.",
-    tableTitle: "Audit Log",
+    tableTitle: "Savings Breakdown",
     hoursLabel: "Time spent on manual work where errors compound.",
   },
   "decision-maker": {
@@ -153,7 +153,7 @@ function calcMetrics(adsPerWeek) {
       },
       {
         icon: "📂",
-        label: "Naming Conventions & Data Integrity",
+        label: "Naming & Data Integrity",
         formula: `${monthly} ads/mo × 1.35 min/ea`,
         hours: naming,
       },
@@ -189,9 +189,8 @@ export default function ResultsPage() {
 }
 
 // Ring gauge constants
-const RING_RADIUS = 80
+const RING_RADIUS = 78
 const RING_CIRCUMFERENCE = 2 * Math.PI * RING_RADIUS
-// Max hours for gauge scale (100% = 80 hrs)
 const GAUGE_MAX = 80
 
 function ResultsContent() {
@@ -207,13 +206,13 @@ function ResultsContent() {
   const m = useMemo(() => calcMetrics(adsPerWeek), [adsPerWeek])
 
   useEffect(() => {
-    const timer = setTimeout(() => setAnimateIn(true), 150)
+    const timer = setTimeout(() => setAnimateIn(true), 120)
     return () => clearTimeout(timer)
   }, [])
 
   const vis = animateIn ? styles.visible : ""
 
-  // Gauge fill calculation
+  // Gauge
   const gaugeFraction = Math.min(m.totalHours / GAUGE_MAX, 1)
   const gaugeOffset = RING_CIRCUMFERENCE * (1 - gaugeFraction)
 
@@ -244,18 +243,12 @@ function ResultsContent() {
       <div className={styles.page}>
         <div className={styles.container}>
           <div className={styles.logo}>Scalemate.</div>
-
           <div className={styles.successScreen}>
             <div className={styles.successIcon}>
-              <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-                <circle
-                  cx="32"
-                  cy="32"
-                  r="32"
-                  className={styles.successCircle}
-                />
+              <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                <circle cx="30" cy="30" r="30" className={styles.successCircle} />
                 <path
-                  d="M20 32.5L28 40.5L44 23.5"
+                  d="M19 30.5L27 38.5L41 23.5"
                   stroke="#fff"
                   strokeWidth="3.5"
                   strokeLinecap="round"
@@ -264,35 +257,18 @@ function ResultsContent() {
                 />
               </svg>
             </div>
-
             <h1 className={styles.successTitle}>Check Your Inbox</h1>
-
             <p className={styles.successBody}>
               We sent a login link to {email && <strong>{email}</strong>}
               {!email && <strong>your email</strong>}. Click the link to access
               your Scalemate workspace and start automating your ad launches.
             </p>
-
             <div className={styles.successHints}>
               <div className={styles.successHint}>
                 <span className={styles.successHintIcon}>
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path
-                      d="M2 4l6 4.5L14 4"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <rect
-                      x="1.5"
-                      y="3"
-                      width="13"
-                      height="10"
-                      rx="2"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                    />
+                    <path d="M2 4l6 4.5L14 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <rect x="1.5" y="3" width="13" height="10" rx="2" stroke="currentColor" strokeWidth="1.5" />
                   </svg>
                 </span>
                 <span>The link expires in 60 minutes</span>
@@ -300,30 +276,14 @@ function ResultsContent() {
               <div className={styles.successHint}>
                 <span className={styles.successHintIcon}>
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path
-                      d="M4 8h8M8 4v8"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                    />
-                    <circle
-                      cx="8"
-                      cy="8"
-                      r="6.5"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                    />
+                    <path d="M4 8h8M8 4v8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                    <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.5" />
                   </svg>
                 </span>
                 <span>Check spam if you don't see it</span>
               </div>
             </div>
-
-            <button
-              className={styles.resendButton}
-              onClick={handleTryFree}
-              disabled={ctaLoading}
-            >
+            <button className={styles.resendButton} onClick={handleTryFree} disabled={ctaLoading}>
               {ctaLoading ? "Resending..." : "Resend Link"}
             </button>
           </div>
@@ -333,8 +293,39 @@ function ResultsContent() {
   }
 
   const isDecisionMaker = profileKey === "decision-maker"
-  const efficiencyLabel = isDecisionMaker ? "Savings" : "Efficiency"
   const dark = profile.darkChallenger(adsPerWeek, m.totalHours, m.monthly)
+
+  // Savings data for card-based comparison
+  const savingsItems = [
+    {
+      label: "Creative Upload",
+      manual: m.uploadCost,
+      auto: 0,
+      boost: isDecisionMaker ? "100%" : "Instant",
+    },
+    {
+      label: "Launching Ads",
+      manual: m.launchCost,
+      auto: m.smLaunchCost,
+      boost: isDecisionMaker
+        ? `${Math.round((1 - m.smLaunchCost / m.launchCost) * 100)}%`
+        : "30x Faster",
+    },
+    {
+      label: "Scaling Winners",
+      manual: m.scaleCost,
+      auto: m.smScaleCost,
+      boost: isDecisionMaker
+        ? `${Math.round((1 - m.smScaleCost / m.scaleCost) * 100)}%`
+        : "30x Faster",
+    },
+    {
+      label: "Naming & Data",
+      manual: m.namingCost,
+      auto: 0,
+      boost: isDecisionMaker ? "100%" : "Automated",
+    },
+  ]
 
   // ── Results Screen ──
   return (
@@ -342,19 +333,20 @@ function ResultsContent() {
       <div className={styles.container}>
         <div className={styles.logo}>Scalemate.</div>
 
-        {/* ── 1. Hero: Profile Diagnosis ── */}
+        {/* ── 1. Hero ── */}
         <div className={`${styles.hero} ${vis}`}>
           <span className={styles.eyebrow}>{profile.label}</span>
           <h1 className={styles.profileHeadline}>{profile.headline}</h1>
           <p className={styles.diagnosis}>{profile.diagnosis}</p>
         </div>
 
-        {/* ── 2. Ring Gauge — Hours Visualization ── */}
+        <hr className={styles.divider} />
+
+        {/* ── 2. Ring Gauge ── */}
         <div className={`${styles.gaugeSection} ${vis}`}>
           <span className={styles.gaugeSectionLabel}>
             {profile.hoursHeading || "YOUR MANUAL HOURS ESTIMATE"}
           </span>
-
           <div className={styles.gaugeWrapper}>
             <svg viewBox="0 0 200 200" className={styles.gaugeSvg}>
               <defs>
@@ -363,12 +355,7 @@ function ResultsContent() {
                   <stop offset="100%" stopColor="#f97316" />
                 </linearGradient>
               </defs>
-              <circle
-                cx="100"
-                cy="100"
-                r={RING_RADIUS}
-                className={styles.gaugeTrack}
-              />
+              <circle cx="100" cy="100" r={RING_RADIUS} className={styles.gaugeTrack} />
               <circle
                 cx="100"
                 cy="100"
@@ -387,10 +374,9 @@ function ResultsContent() {
               <span className={styles.gaugeUnit}>hrs / mo</span>
             </div>
           </div>
-
           <p className={styles.gaugeSub}>
             {profile.hoursLabel} Based on{" "}
-            <strong>{adsPerWeek} ads/week</strong> volume.
+            <strong>{adsPerWeek} ads/week</strong>.
           </p>
         </div>
 
@@ -414,43 +400,49 @@ function ResultsContent() {
           Based on €{HOURLY_RATE}/hr avg. media buyer rate
         </p>
 
-        {/* ── 4. Breakdown — Timeline ── */}
+        {/* ── 4. Breakdown ── */}
         <div className={`${styles.breakdownSection} ${vis}`}>
-          <h3 className={styles.breakdownTitle}>
-            How we calculated your {fmt(m.totalHours)} hours
-          </h3>
-          <p className={styles.breakdownIntro}>
-            We analyzed your workflow based on{" "}
-            <strong>{adsPerWeek} weekly new ads</strong>:
-          </p>
+          <div className={styles.breakdownHeader}>
+            <h3 className={styles.breakdownTitle}>
+              How we calculated {fmt(m.totalHours)} hours
+            </h3>
+            <p className={styles.breakdownIntro}>
+              Based on <strong>{adsPerWeek} weekly new ads</strong>:
+            </p>
+          </div>
 
-          <div className={styles.timeline}>
+          <div className={styles.breakdownList}>
             {m.breakdown.map((item) => (
-              <div key={item.label} className={styles.timelineItem}>
-                <span className={styles.timelineDot}>{item.icon}</span>
-                <div className={styles.timelineContent}>
-                  <div className={styles.timelineLabel}>{item.label}</div>
-                  <div className={styles.timelineFormula}>{item.formula}</div>
+              <div key={item.label} className={styles.breakdownItem}>
+                <div className={styles.breakdownIcon}>{item.icon}</div>
+                <div className={styles.breakdownInfo}>
+                  <div className={styles.breakdownLabel}>{item.label}</div>
+                  <div className={styles.breakdownFormula}>{item.formula}</div>
                   {item.note && (
-                    <div className={styles.timelineNote}>{item.note}</div>
+                    <div className={styles.breakdownNote}>{item.note}</div>
                   )}
                 </div>
-                <span className={styles.timelineHours}>
+                <span className={styles.breakdownHours}>
                   {fmt(item.hours)} hrs
                 </span>
               </div>
             ))}
-          </div>
 
-          <div className={styles.timelineTotal}>
-            <span>{profile.totalLabel || "Total Manual Work"}:</span>
-            <strong>{fmt(m.totalHours)} Hours / Month</strong>
+            <div className={styles.breakdownTotal}>
+              <span>{profile.totalLabel || "Total Manual Work"}</span>
+              <strong>{fmt(m.totalHours)} hrs/mo</strong>
+            </div>
           </div>
         </div>
 
-        {/* ── 5 & 6. Insight Pair — Inaction + Solution ── */}
+        {/* ── 5 & 6. Insight Pair ── */}
         <div className={`${styles.insightPair} ${vis}`}>
           <div className={`${styles.insightCard} ${styles.insightCardPain}`}>
+            <div className={`${styles.insightIcon} ${styles.insightIconPain}`}>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M8 3v6M8 11.5v.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </div>
             <span className={`${styles.insightLabel} ${styles.insightLabelPain}`}>
               The cost of inaction
             </span>
@@ -459,6 +451,11 @@ function ResultsContent() {
             </p>
           </div>
           <div className={`${styles.insightCard} ${styles.insightCardGain}`}>
+            <div className={`${styles.insightIcon} ${styles.insightIconGain}`}>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M4 8l3 3 5-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
             <span className={`${styles.insightLabel} ${styles.insightLabelGain}`}>
               With Scalemate
             </span>
@@ -470,18 +467,28 @@ function ResultsContent() {
         <div className={`${styles.darkCard} ${vis}`}>
           <div className={styles.darkContent}>
             <div className={styles.miniChart}>
-              <svg viewBox="0 0 130 70" className={styles.miniChartSvg}>
-                <text x="4" y="10" className={styles.chartLabel}>Manual</text>
-                <text x="4" y="65" className={`${styles.chartLabel} ${styles.chartLabelGreen}`}>Scalemate</text>
+              <svg viewBox="0 0 140 65" className={styles.miniChartSvg}>
+                {/* Manual: flat/slow growth — bottom line */}
                 <polyline
-                  points="10,52 30,49 50,46 70,43 80,45 90,40 100,37 110,34 120,32"
+                  points="10,52 30,49 50,46 70,43 80,45 90,40 100,37 110,34 130,32"
                   className={styles.lineManual}
                 />
+                {/* Scalemate: steep growth — top line */}
                 <polyline
-                  points="10,55 25,46 35,42 50,32 60,28 70,20 80,16 90,11 100,7 110,3 120,1"
+                  points="10,55 25,46 35,42 50,32 60,28 70,20 80,16 90,11 100,7 110,3 130,1"
                   className={`${styles.lineScalemate} ${animateIn ? styles.lineAnimate : ""}`}
                 />
               </svg>
+              <div className={styles.chartLegend}>
+                <div className={`${styles.chartLegendItem} ${styles.chartLegendScalemate}`}>
+                  <span className={styles.chartLegendDot} />
+                  Scalemate
+                </div>
+                <div className={`${styles.chartLegendItem} ${styles.chartLegendManual}`}>
+                  <span className={styles.chartLegendDot} />
+                  Manual
+                </div>
+              </div>
             </div>
             <div className={styles.darkText}>
               <p>
@@ -500,63 +507,37 @@ function ResultsContent() {
 
         {/* ── 8. Comparison Table ── */}
         <div className={`${styles.tableCard} ${vis}`}>
-          <div className={styles.tableTitle}>{profile.tableTitle}</div>
+          <div className={styles.tableHeader}>
+            <div className={styles.tableTitle}>{profile.tableTitle}</div>
+          </div>
           <table className={styles.comparisonTable}>
             <thead>
               <tr>
-                <th>Item</th>
-                <th>Manual Cost/mo</th>
-                <th>{isDecisionMaker ? "With Scalemate" : "Scalemate"}</th>
-                <th>{efficiencyLabel}</th>
+                <th></th>
+                <th>Manual</th>
+                <th>Scalemate</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Creative Upload</td>
-                <td className={styles.cellManual}>{fmtEur(m.uploadCost)}</td>
-                <td className={styles.cellAuto}>€0</td>
-                <td className={styles.cellBoost}>
-                  {isDecisionMaker ? "100%" : "Instant"}
-                </td>
-              </tr>
-              <tr>
-                <td>Launching Ads</td>
-                <td className={styles.cellManual}>{fmtEur(m.launchCost)}</td>
-                <td className={styles.cellAuto}>{fmtEur(m.smLaunchCost)}</td>
-                <td className={styles.cellBoost}>
-                  {isDecisionMaker
-                    ? `${Math.round((1 - m.smLaunchCost / m.launchCost) * 100)}%`
-                    : "30x Faster"}
-                </td>
-              </tr>
-              <tr>
-                <td>Scaling Winners</td>
-                <td className={styles.cellManual}>{fmtEur(m.scaleCost)}</td>
-                <td className={styles.cellAuto}>{fmtEur(m.smScaleCost)}</td>
-                <td className={styles.cellBoost}>
-                  {isDecisionMaker
-                    ? `${Math.round((1 - m.smScaleCost / m.scaleCost) * 100)}%`
-                    : "30x Faster"}
-                </td>
-              </tr>
-              <tr>
-                <td>Naming & Data</td>
-                <td className={styles.cellManual}>{fmtEur(m.namingCost)}</td>
-                <td className={styles.cellAuto}>€0</td>
-                <td className={styles.cellBoost}>
-                  {isDecisionMaker ? "100%" : "Automated"}
-                </td>
-              </tr>
+              {savingsItems.map((item) => (
+                <tr key={item.label}>
+                  <td className={styles.cellItem}>{item.label}</td>
+                  <td className={styles.cellManual}>{fmtEur(item.manual)}<span>/mo</span></td>
+                  <td className={styles.cellAuto}>{fmtEur(item.auto)}<span>/mo</span></td>
+                  <td className={styles.cellBoost}>{item.boost}</td>
+                </tr>
+              ))}
             </tbody>
             <tfoot>
               <tr className={styles.totalRow}>
-                <td>Total</td>
-                <td className={styles.cellManual}>{fmtEur(m.totalCost)}</td>
-                <td className={styles.cellAuto}>{fmtEur(m.smTotalCost)}</td>
+                <td className={styles.cellItem}>Total</td>
+                <td className={styles.cellManual}>{fmtEur(m.totalCost)}<span>/mo</span></td>
+                <td className={styles.cellAuto}>{fmtEur(m.smTotalCost)}<span>/mo</span></td>
                 <td className={styles.cellBoost}>
                   {isDecisionMaker
-                    ? `€${Math.round((m.totalCost - m.smTotalCost) * 12).toLocaleString("en-US")}/yr`
-                    : `${m.automationPotential}% Effective`}
+                    ? `${fmtEur((m.totalCost - m.smTotalCost) * 12)}/yr saved`
+                    : `${m.automationPotential}%`}
                 </td>
               </tr>
             </tfoot>
