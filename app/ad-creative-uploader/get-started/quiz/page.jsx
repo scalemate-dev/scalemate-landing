@@ -23,6 +23,17 @@ const steps = [
     ],
   },
   {
+    title: 'What\'s your most common "overtime" trigger?',
+    key: "overtimeTrigger",
+    type: "radio",
+    options: [
+      "Last-minute urgent launches",
+      "Waiting for assets to start the routine",
+      "Urgent scaling/cutting during weekends",
+      "Downloading/uploading creative files",
+    ],
+  },
+  {
     title: "How many new ads do you launch per week?",
     key: "adsPerWeek",
     type: "slider",
@@ -67,6 +78,7 @@ export default function QuizV1Page() {
   const [answers, setAnswers] = useState({
     spend: null,
     niche: null,
+    overtimeTrigger: null,
     adsPerWeek: 25,
     timeWasted: null,
     frustration: [],
