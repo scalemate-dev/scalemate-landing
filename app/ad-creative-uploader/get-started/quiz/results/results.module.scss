@@ -1,0 +1,1245 @@
+@use '../../../components/uc' as *;
+@use 'variables' as vars;
+
+// ─── Animations ───
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ringReveal {
+  from { stroke-dashoffset: var(--ring-circumference); }
+  to { stroke-dashoffset: var(--ring-offset); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba($uc-accent, 0.28); }
+  50% { box-shadow: 0 0 0 12px rgba($uc-accent, 0); }
+}
+
+@keyframes lineGrow {
+  from { stroke-dashoffset: 200; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes shimmerSlide {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+// Stagger helper
+@mixin stagger($index) {
+  animation-delay: #{$index * 0.12 + 0.08}s;
+}
+
+$content-width: 540px;
+
+// ─── Page Shell ───
+
+.page {
+  min-height: 100vh;
+  background: #FDFCFA;
+  padding: 0 0 180px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: $content-width;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.logo {
+  font-family: vars.$font-heading;
+  font-weight: 700;
+  font-size: 19px;
+  color: $uc-ink;
+  padding: 24px 0 8px;
+  letter-spacing: -0.02em;
+}
+
+// ─── Shared animate-in ───
+
+.animBlock {
+  opacity: 0;
+  transform: translateY(24px);
+
+  &.visible {
+    animation: fadeUp 0.65s $uc-ease forwards;
+  }
+}
+
+// ═══════════════════════════════════════════
+// Hero
+// ═══════════════════════════════════════════
+
+.hero {
+  padding: 24px 0 0;
+  opacity: 0;
+  transform: translateY(24px);
+
+  &.visible {
+    animation: fadeUp 0.65s $uc-ease forwards;
+  }
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: vars.$font-body;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $uc-accent;
+  margin-bottom: 20px;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: $uc-accent;
+    border-radius: 1px;
+  }
+}
+
+.profileHeadline {
+  font-family: vars.$font-heading;
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 1.15;
+  color: $uc-ink;
+  letter-spacing: -0.03em;
+  margin: 0 0 16px;
+}
+
+.diagnosis {
+  font-family: vars.$font-body;
+  font-size: 15px;
+  line-height: 1.7;
+  color: $uc-body;
+  margin: 0;
+}
+
+// ═══════════════════════════════════════════
+// Divider
+// ═══════════════════════════════════════════
+
+.divider {
+  height: 1px;
+  background: $uc-shape;
+  margin: 36px 0;
+  border: none;
+}
+
+// ═══════════════════════════════════════════
+// Ring Gauge
+// ═══════════════════════════════════════════
+
+.gaugeSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 8px 0 40px;
+  opacity: 0;
+  transform: translateY(24px);
+
+  &.visible {
+    animation: fadeUp 0.65s $uc-ease forwards;
+    @include stagger(1);
+  }
+}
+
+.gaugeSectionLabel {
+  font-family: vars.$font-body;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: $uc-stone;
+  margin-bottom: 28px;
+}
+
+.gaugeWrapper {
+  position: relative;
+  width: 192px;
+  height: 192px;
+  margin-bottom: 24px;
+}
+
+.gaugeSvg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.gaugeTrack {
+  fill: none;
+  stroke: rgba($uc-shape, 0.7);
+  stroke-width: 8;
+}
+
+.gaugeFill {
+  fill: none;
+  stroke: url(#gaugeGradient);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: var(--ring-circumference);
+  stroke-dashoffset: var(--ring-circumference);
+
+  &.gaugeAnimate {
+    animation: ringReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+  }
+}
+
+.gaugeCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gaugeValue {
+  font-family: vars.$font-heading;
+  font-weight: 800;
+  font-size: 48px;
+  color: $uc-ink;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  opacity: 0;
+
+  &.gaugeValueAnimate {
+    animation: countUp 0.5s $uc-ease 0.6s forwards;
+  }
+}
+
+.gaugeUnit {
+  font-family: vars.$font-body;
+  font-size: 12px;
+  font-weight: 500;
+  color: $uc-stone;
+  margin-top: 4px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.gaugeSub {
+  font-family: vars.$font-body;
+  font-size: 14px;
+  line-height: 1.65;
+  color: $uc-body;
+  margin: 0 auto;
+  max-width: 380px;
+
+  strong {
+    color: $uc-ink;
+    font-weight: 600;
+  }
+}
+
+// ═══════════════════════════════════════════
+// Impact Cards
+// ═══════════════════════════════════════════
+
+.impactRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 8px;
+  opacity: 0;
+  transform: translateY(24px);
+
+  &.visible {
+    animation: fadeUp 0.65s $uc-ease forwards;
+    @include stagger(2);
+  }
+}
+
+.impactCard {
+  background: #fff;
+  border: 1px solid $uc-shape;
+  border-radius: 16px;
+  padding: 24px 18px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.impactCardGreen {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: $uc-success;
+  }
+}
+
+.impactCardRed {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #dc4a3a;
+  }
+}
+
+.impactValue {
+  font-family: vars.$font-heading;
+  font-weight: 800;
+  font-size: 30px;
+  color: $uc-ink;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 6px;
+}
+
+.impactGreen { color: $uc-success; }
+
+.impactRed { color: #dc4a3a; }
+
+.impactPeriod {
+  font-size: 14px;
+  font-weight: 500;
+  color: $uc-stone;
+}
+
+.impactLabel {
+  font-family: vars.$font-body;
+  font-size: 12px;
+  font-weight: 500;
+  color: $uc-stone;
+  letter-spacing: 0.01em;
+}
+
+.impactHint {
+  font-family: vars.$font-body;
+  font-size: 11px;
+  color: $uc-body-faded;
+  text-align: right;
+  margin: 0;
+  opacity: 0;
+
+  &.visible {
+    animation: fadeUp 0.5s $uc-ease 0.4s forwards;
+  }
+}
+
+// ═══════════════════════════════════════════
+// Breakdown — clean card rows
+// ═══════════════════════════════════════════
+
+.breakdownSection {
+  padding: 40px 0 0;
+  opacity: 0;
+  transform: translateY(24px);
+
+  &.visible {
+    animation: fadeUp 0.65s $uc-ease forwards;
+    @include stagger(3);
+  }
+}
+
+.breakdownHeader {
+  margin-bottom: 20px;
+}
+
+.breakdownTitle {
+  font-family: vars.$font-heading;
+  font-weight: 700;
+  font-size: 18px;
+  color: $uc-ink;
+  letter-spacing: -0.02em;
+  margin: 0 0 4px;
+}
+
+.breakdownIntro {
+  font-family: vars.$font-body;
+  font-size: 13px;
+  color: $uc-stone;
+  margin: 0;
+  line-height: 1.5;
+
+  strong {
+    color: $uc-ink;
+    font-weight: 600;
+  }
+}
+
+.breakdownList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.breakdownItem {
+  background: #fff;
+  border: 1px solid $uc-shape;
+  border-radius: 14px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: $uc-dash;
+  }
+}
+
+.breakdownIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: $uc-bg-warm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.breakdownInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.breakdownLabel {
+  font-family: vars.$font-body;
+  font-size: 14px;
+  font-weight: 600;
+  color: $uc-ink;
+  line-height: 1.3;
+}
+
+.breakdownFormula {
+  font-family: vars.$font-body;
+  font-size: 12px;
+  color: $uc-stone;
+  margin-top: 1px;
+}
+
+.breakdownNote {
+  font-family: vars.$font-body;
+  font-size: 11px;
+  color: $uc-body-faded;
+  font-style: italic;
+  margin-top: 1px;
+}
+
+.breakdownHours {
+  font-family: vars.$font-heading;
+  font-weight: 700;
+  font-size: 16px;
+  color: #dc4a3a;
+  white-space: nowrap;
+  flex-shrink: 0;
+  letter-spacing: -0.01em;
+}
+
+.breakdownTotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 18px;
+  margin-top: 4px;
+  background: $uc-ink;
+  border-radius: 14px;
+
+  span {
+    font-family: vars.$font-body;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(#fff, 0.6);
+  }
+
+  strong {
+    font-family: vars.$font-heading;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.02em;
+  }
+}
+
+// ═══════════════════════════════════════════
+// Insight Cards
+// ═══════════════════════════════════════════
+
+.insightPair {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 40px 0;
+  opacity: 0;
+  transform: translateY(24px);
+
+  &.visible {
+    animation: fadeUp 0.65s $uc-ease forwards;
+    @include stagger(4);
+  }
+}
+
+.insightCard {
+  padding: 24px;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.insightCardPain {
+  background: #FEF3F2;
+  border: 1px solid rgba(#dc4a3a, 0.1);
+}
+
+.insightCardGain {
+  background: #F0FAF1;
+  border: 1px solid rgba($uc-success, 0.15);
+}
+
+.insightIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.insightIconPain {
+  background: rgba(#dc4a3a, 0.1);
+  color: #dc4a3a;
+}
+
+.insightIconGain {
+  background: rgba($uc-success, 0.12);
+  color: darken($uc-success, 10%);
+}
+
+.insightLabel {
+  display: block;
+  font-family: vars.$font-body;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.insightLabelPain {
+  color: #dc4a3a;
+}
+
+.insightLabelGain {
+  color: darken($uc-success, 10%);
+}
+
+.insightText {
+  font-family: vars.$font-body;
+  font-size: 14px;
+  line-height: 1.7;
+  color: $uc-ink-soft;
+  margin: 0;
+  font-weight: 450;
+}
+
+// ═══════════════════════════════════════════
+// Dark Challenger
+// ═══════════════════════════════════════════
+
+.darkCard {
+  background: $uc-card-dark;
+  border-radius: 20px;
+  padding: 32px 24px;
+  margin-bottom: 12px;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(24px);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -30%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba($uc-success, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  &.visible {
+    animation: fadeUp 0.65s $uc-ease forwards;
+    @include stagger(5);
+  }
+}
+
+.darkContent {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.darkText {
+  flex: 1;
+
+  p {
+    font-family: vars.$font-body;
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(#fff, 0.5);
+    margin: 0;
+
+    strong {
+      color: #fff;
+      font-weight: 600;
+    }
+  }
+}
+
+.miniChart {
+  flex-shrink: 0;
+  width: 140px;
+}
+
+.miniChartSvg {
+  width: 100%;
+  height: auto;
+}
+
+.lineManual {
+  fill: none;
+  stroke: rgba(#fff, 0.15);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.lineScalemate {
+  fill: none;
+  stroke: $uc-success;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  filter: drop-shadow(0 0 8px rgba($uc-success, 0.4));
+
+  &.lineAnimate {
+    animation: lineGrow 1.8s cubic-bezier(0.22, 1, 0.36, 1) 1s forwards;
+  }
+}
+
+.chartLegend {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.chartLegendItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: vars.$font-body;
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.chartLegendDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.chartLegendManual {
+  color: rgba(#fff, 0.3);
+
+  .chartLegendDot {
+    background: rgba(#fff, 0.2);
+  }
+}
+
+.chartLegendScalemate {
+  color: rgba($uc-success, 0.8);
+
+  .chartLegendDot {
+    background: $uc-success;
+    box-shadow: 0 0 6px rgba($uc-success, 0.5);
+  }
+}
+
+// ═══════════════════════════════════════════
+// Comparison Table
+// ═══════════════════════════════════════════
+
+.tableCard {
+  background: #fff;
+  border: 1px solid $uc-shape;
+  border-radius: 16px;
+  padding: 24px 24px 28px;
+  opacity: 0;
+  transform: translateY(24px);
+
+  &.visible {
+    animation: fadeUp 0.65s $uc-ease forwards;
+    @include stagger(6);
+  }
+}
+
+.tableHeader {
+  margin-bottom: 18px;
+}
+
+.tableTitle {
+  font-family: vars.$font-heading;
+  font-weight: 700;
+  font-size: 18px;
+  color: $uc-ink;
+  letter-spacing: -0.02em;
+}
+
+.comparisonTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: vars.$font-body;
+
+  th {
+    text-align: left;
+    font-weight: 600;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $uc-stone;
+    padding: 0 0 12px;
+    border-bottom: 1px solid $uc-shape;
+
+    &:nth-child(2) { color: rgba(#dc4a3a, 0.6); }
+    &:nth-child(3) { color: rgba(darken($uc-success, 5%), 0.7); }
+  }
+
+  td {
+    padding: 14px 0;
+    border-bottom: 1px solid rgba($uc-shape, 0.5);
+    font-size: 13px;
+    color: $uc-ink;
+    font-weight: 450;
+    vertical-align: middle;
+
+    span {
+      font-size: 10px;
+      font-weight: 400;
+      color: $uc-stone;
+      margin-left: 1px;
+    }
+  }
+
+  // Column widths
+  th, td {
+    &:first-child { width: 32%; padding-right: 8px; }
+    &:nth-child(2) { width: 22%; }
+    &:nth-child(3) { width: 22%; }
+    &:nth-child(4) { width: 24%; text-align: right; padding-right: 2px; }
+  }
+
+  // Only remove border on the actual last row (tfoot total)
+  tfoot tr:last-child td {
+    border-bottom: none;
+  }
+
+  tbody tr {
+    transition: background 0.15s ease;
+
+    &:hover {
+      background: rgba($uc-bg-warm, 0.5);
+    }
+  }
+}
+
+.cellItem {
+  font-weight: 550 !important;
+  color: $uc-ink !important;
+}
+
+.cellManual {
+  color: #dc4a3a !important;
+  font-weight: 600 !important;
+  font-variant-numeric: tabular-nums;
+}
+
+.cellAuto {
+  color: darken($uc-success, 5%) !important;
+  font-weight: 600 !important;
+  font-variant-numeric: tabular-nums;
+}
+
+.cellBoost {
+  font-weight: 700 !important;
+  color: $uc-accent !important;
+  white-space: nowrap;
+  font-size: 12px !important;
+  text-align: right !important;
+}
+
+.totalRow {
+  td {
+    border-top: 2px solid $uc-ink-soft !important;
+    border-bottom: none !important;
+    font-weight: 700 !important;
+    padding-top: 16px !important;
+    padding-bottom: 4px !important;
+    font-size: 14px !important;
+  }
+
+  .cellItem {
+    font-weight: 700 !important;
+  }
+
+  .cellBoost {
+    font-size: 13px !important;
+    font-weight: 800 !important;
+  }
+}
+
+// ═══════════════════════════════════════════
+// Success Screen
+// ═══════════════════════════════════════════
+
+@keyframes successFadeIn {
+  from { opacity: 0; transform: translateY(32px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes circlePop {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes checkDraw {
+  from { stroke-dashoffset: 40; }
+  to { stroke-dashoffset: 0; }
+}
+
+.successScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 72px 0 40px;
+  animation: successFadeIn 0.7s $uc-ease forwards;
+}
+
+.successIcon { margin-bottom: 32px; }
+
+.successCircle {
+  fill: $uc-success;
+  animation: circlePop 0.5s $uc-ease forwards;
+}
+
+.successCheck {
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+  animation: checkDraw 0.4s $uc-ease 0.35s forwards;
+}
+
+.successTitle {
+  font-family: vars.$font-heading;
+  font-weight: 800;
+  font-size: 36px;
+  color: $uc-ink;
+  letter-spacing: -0.035em;
+  margin: 0 0 14px;
+  line-height: 1.1;
+}
+
+.successBody {
+  font-family: vars.$font-body;
+  font-size: 15px;
+  line-height: 1.7;
+  color: $uc-body;
+  max-width: 360px;
+  margin: 0 0 32px;
+
+  strong {
+    color: $uc-ink;
+    font-weight: 600;
+  }
+}
+
+.successHints {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.successHint {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: vars.$font-body;
+  font-size: 13px;
+  color: $uc-stone;
+}
+
+.successHintIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: $uc-bg-warm;
+  color: $uc-stone;
+  flex-shrink: 0;
+}
+
+.resendButton {
+  font-family: vars.$font-body;
+  font-size: 14px;
+  font-weight: 600;
+  color: $uc-accent;
+  background: none;
+  border: 1.5px solid $uc-shape;
+  border-radius: 12px;
+  padding: 12px 28px;
+  cursor: pointer;
+  transition: all 0.25s $uc-ease;
+
+  &:hover {
+    border-color: $uc-accent;
+    background: rgba($uc-accent, 0.04);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// ═══════════════════════════════════════════
+// Sticky CTA
+// ═══════════════════════════════════════════
+
+.stickyCta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 0 24px;
+  pointer-events: none;
+}
+
+.stickyCtaGlass {
+  max-width: $content-width;
+  margin: 0 auto;
+  background: rgba(#FDFCFA, 0.88);
+  backdrop-filter: blur(24px) saturate(1.6);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  border: 1px solid rgba($uc-shape, 0.5);
+  border-bottom: none;
+  border-radius: 20px 20px 0 0;
+  padding: 16px 20px 24px;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.02), 0 -8px 32px rgba(0, 0, 0, 0.04);
+  pointer-events: auto;
+}
+
+.stickyCtaInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.pulseButton {
+  width: 100%;
+  padding: 16px;
+  font-family: vars.$font-body;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  background: $uc-accent;
+  border: none;
+  border-radius: 13px;
+  cursor: pointer;
+  animation: pulse 2.8s ease-in-out infinite;
+  transition: background 0.25s $uc-ease, transform 0.25s $uc-ease, box-shadow 0.25s $uc-ease;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(
+      105deg,
+      transparent 0%,
+      rgba(#fff, 0.1) 50%,
+      transparent 100%
+    );
+    animation: shimmerSlide 4s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  &:hover {
+    background: $uc-accent-deep;
+    transform: translateY(-1px);
+    animation: none;
+    box-shadow: 0 6px 24px rgba($uc-accent, 0.3);
+
+    &::after {
+      animation: none;
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    animation: none;
+    &::after { animation: none; }
+  }
+}
+
+.ctaMicro {
+  font-family: vars.$font-body;
+  font-size: 11px;
+  color: $uc-stone;
+  text-align: center;
+  line-height: 1.4;
+}
+
+// ═══════════════════════════════════════════
+// Responsive
+// ═══════════════════════════════════════════
+
+@include tablet-vertical {
+  .gaugeWrapper {
+    width: 172px;
+    height: 172px;
+  }
+
+  .gaugeValue {
+    font-size: 42px;
+  }
+
+  .impactValue {
+    font-size: 26px;
+  }
+}
+
+@include mobile {
+  .page {
+    padding: 0 0 160px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .logo {
+    padding: 20px 0 4px;
+    font-size: 17px;
+  }
+
+  .hero {
+    padding: 20px 0 0;
+  }
+
+  .profileHeadline {
+    font-size: 26px;
+  }
+
+  .diagnosis {
+    font-size: 14px;
+  }
+
+  .divider {
+    margin: 28px 0;
+  }
+
+  .gaugeSection {
+    padding: 4px 0 32px;
+  }
+
+  .gaugeWrapper {
+    width: 152px;
+    height: 152px;
+    margin-bottom: 20px;
+  }
+
+  .gaugeValue {
+    font-size: 36px;
+  }
+
+  .gaugeSub {
+    font-size: 13px;
+  }
+
+  .impactRow {
+    gap: 8px;
+  }
+
+  .impactCard {
+    padding: 20px 14px 18px;
+    border-radius: 14px;
+  }
+
+  .impactValue {
+    font-size: 24px;
+  }
+
+  .breakdownSection {
+    padding: 32px 0 0;
+  }
+
+  .breakdownTitle {
+    font-size: 16px;
+  }
+
+  .breakdownItem {
+    padding: 14px 14px;
+    gap: 10px;
+  }
+
+  .breakdownIcon {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .breakdownLabel {
+    font-size: 13px;
+  }
+
+  .breakdownHours {
+    font-size: 14px;
+  }
+
+  .breakdownTotal {
+    padding: 14px 14px;
+
+    strong {
+      font-size: 16px;
+    }
+  }
+
+  .insightPair {
+    padding: 32px 0;
+    gap: 10px;
+  }
+
+  .insightCard {
+    padding: 20px;
+  }
+
+  .insightText {
+    font-size: 13px;
+  }
+
+  .darkCard {
+    padding: 24px 18px;
+    border-radius: 16px;
+  }
+
+  .darkContent {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .darkText p {
+    font-size: 13px;
+  }
+
+  .miniChart {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .tableCard {
+    padding: 18px 14px;
+    border-radius: 14px;
+  }
+
+  .comparisonTable {
+    td {
+      font-size: 12px;
+      padding: 11px 0;
+    }
+
+    th {
+      font-size: 9px;
+      padding-bottom: 10px;
+    }
+  }
+
+  .cellBoost {
+    font-size: 11px !important;
+  }
+
+  .totalRow .cellBoost {
+    font-size: 11px !important;
+    padding: 3px 8px;
+  }
+
+  .stickyCtaGlass {
+    padding: 14px 16px 20px;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .pulseButton {
+    padding: 15px;
+    font-size: 15px;
+    border-radius: 12px;
+  }
+
+  .successScreen {
+    padding: 48px 0 24px;
+  }
+
+  .successTitle {
+    font-size: 30px;
+  }
+
+  .successBody {
+    font-size: 14px;
+  }
+}
