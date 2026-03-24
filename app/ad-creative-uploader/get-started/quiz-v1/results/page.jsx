@@ -225,7 +225,7 @@ function ResultsContent() {
   const gaugeFraction = Math.min(m.totalHours / GAUGE_MAX, 1)
   const gaugeOffset = RING_CIRCUMFERENCE * (1 - gaugeFraction)
 
-  async function handleTryFree() {
+  async function handleTryFree({ isResend = false } = {}) {
     const email = sessionStorage.getItem("quiz_email")
     if (!email) {
       setCtaError("No email found. Please retake the quiz.")
@@ -237,12 +237,12 @@ function ResultsContent() {
       })
       return
     }
-    trackMixpanelEvent("results_cta_clicked", {
+    trackMixpanelEvent(isResend ? "magic_link_resend" : "results_cta_clicked", {
       quiz_id: quizId,
       ads_per_week: adsPerWeek,
       profile_type: profileKey,
     })
-    trackQuizLead()
+    if (!isResend) trackQuizLead()
     setCtaLoading(true)
     setCtaError("")
     try {
@@ -311,7 +311,7 @@ function ResultsContent() {
                 <span>Check spam if you don't see it</span>
               </div>
             </div>
-            <button className={styles.resendButton} onClick={handleTryFree} disabled={ctaLoading}>
+            <button className={styles.resendButton} onClick={() => handleTryFree({ isResend: true })} disabled={ctaLoading}>
               {ctaLoading ? "Resending..." : "Resend Link"}
             </button>
           </div>

@@ -129,7 +129,7 @@ function ResultsV1Content() {
   const gaugeFraction = Math.min(m.totalHours / GAUGE_MAX, 1)
   const gaugeOffset = RING_CIRCUMFERENCE * (1 - gaugeFraction)
 
-  async function handleTryFree() {
+  async function handleTryFree({ isResend = false } = {}) {
     const email = sessionStorage.getItem("quiz_email")
     if (!email) {
       setCtaError("No email found. Please retake the quiz.")
@@ -141,11 +141,11 @@ function ResultsV1Content() {
       })
       return
     }
-    trackMixpanelEvent("results_cta_clicked", {
+    trackMixpanelEvent(isResend ? "magic_link_resend" : "results_cta_clicked", {
       quiz_id: quizId,
       ads_per_week: adsPerWeek,
     })
-    trackQuizLead()
+    if (!isResend) trackQuizLead()
     setCtaLoading(true)
     setCtaError("")
     try {
@@ -245,7 +245,7 @@ function ResultsV1Content() {
             </div>
             <button
               className={styles.resendButton}
-              onClick={handleTryFree}
+              onClick={() => handleTryFree({ isResend: true })}
               disabled={ctaLoading}
             >
               {ctaLoading ? "Resending..." : "Resend Link"}
