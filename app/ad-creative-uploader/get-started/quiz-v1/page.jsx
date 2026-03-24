@@ -2,24 +2,20 @@
 
 import { useState, useMemo, useEffect } from "react"
 import { useRouter } from "next/navigation"
-import styles from "../quiz/quiz.module.scss"
+import { validateEmail } from "../../../../helpers/emails"
+import { submitQuizAnswers } from "../../../../lib/api/quizApi"
+import styles from "./quiz.module.scss"
 
 const steps = [
   {
-    title: "What's your average monthly spend on Meta, Google and TikTok?",
-    key: "spend",
-    type: "radio",
-    options: ["<$10k", "$10k–$50k", "$50k–$250k", "$250k+"],
-  },
-  {
-    title: "What's your main niche?",
-    key: "niche",
+    title: "What slows your team down the most when launching new creatives?",
+    key: "bottleneck",
     type: "radio",
     options: [
-      "Marketing Agency",
-      "Mobile Apps",
-      "E-commerce / DTC",
-      "Freelance Marketer",
+      "Uploading files to each platform manually",
+      "Setting up campaigns and ad sets from scratch every time",
+      "Coordinating creatives across multiple ad accounts",
+      "All of the above — it's the whole process",
     ],
   },
   {
@@ -28,20 +24,36 @@ const steps = [
     type: "slider",
   },
   {
-    title: "How much time do you spend on campaign setup and creative uploads?",
-    key: "timeWasted",
+    title: "What happens when your team has to launch 20+ creatives at once?",
+    key: "consequence",
     type: "radio",
-    options: ["< 1hr/week", "2–5 hrs/week", ">5 hrs/week"],
+    options: [
+      "We just push through it manually — it takes forever",
+      "Things get rushed, and mistakes slip through",
+      "We delay the launch because setup takes too long",
+      "We limit how many creatives we test",
+    ],
   },
   {
-    title: "What's the №1 Frustration with Meta Ads Manager?",
-    key: "frustration",
-    type: "multi",
+    title: "How does your team handle ad ops today?",
+    key: "workaround",
+    type: "radio",
     options: [
-      "Interface lag & platform bugs",
-      "Endless copy-pasting ads",
-      "Manual naming & Post ID setup",
-      "Downloading & re-uploading ads",
+      "Manually — no tools, just hands and patience",
+      "Internal scripts or spreadsheets",
+      "We hired more people to keep up",
+      "We've tried tools, but nothing covered the full workflow",
+    ],
+  },
+  {
+    title: "What best describes your role?",
+    key: "role",
+    type: "radio",
+    options: [
+      "I run ads hands-on every day",
+      "I manage a performance team",
+      "I'm responsible for marketing growth and scaling",
+      "I'm a founder handling ads myself",
     ],
   },
 ]
@@ -60,19 +72,81 @@ function getZone(value) {
   return SLIDER_ZONES[0]
 }
 
-const TOTAL_SEGMENTS = steps.length + 2
+// Determine result profile based on quiz answers
+function determineProfile(answers) {
+  const { bottleneck, consequence, workaround, role, adsPerWeek } = answers
 
-export default function QuizV1Page() {
+  // Decision Maker: manages team/growth + hired people
+  if (
+    (role === "I manage a performance team" ||
+      role === "I'm responsible for marketing growth and scaling") &&
+    workaround === "We hired more people to keep up"
+  ) {
+    return "decision-maker"
+  }
+
+  // Error-Prone Operator: mistakes + fragile scripts
+  if (
+    consequence === "Things get rushed, and mistakes slip through" &&
+    workaround === "Internal scripts or spreadsheets"
+  ) {
+    return "error-prone"
+  }
+
+  // Scaling Bottleneck: multi-account + delays/limits + scaling/high volume
+  if (
+    bottleneck === "Coordinating creatives across multiple ad accounts" &&
+    (consequence === "We delay the launch because setup takes too long" ||
+      consequence === "We limit how many creatives we test") &&
+    adsPerWeek >= 30
+  ) {
+    return "scaling-bottleneck"
+  }
+
+  // Manual Grinder: upload pain / everything painful + push through + no tools
+  if (
+    (bottleneck === "Uploading files to each platform manually" ||
+      bottleneck === "All of the above — it's the whole process") &&
+    consequence === "We just push through it manually — it takes forever" &&
+    workaround === "Manually — no tools, just hands and patience"
+  ) {
+    return "manual-grinder"
+  }
+
+  // Fallback: determine by strongest signals
+  if (
+    consequence === "Things get rushed, and mistakes slip through" ||
+    workaround === "Internal scripts or spreadsheets"
+  ) {
+    return "error-prone"
+  }
+
+  if (
+    bottleneck === "Coordinating creatives across multiple ad accounts" ||
+    consequence === "We delay the launch because setup takes too long" ||
+    consequence === "We limit how many creatives we test"
+  ) {
+    return "scaling-bottleneck"
+  }
+
+  // Default to manual grinder
+  return "manual-grinder"
+}
+
+const TOTAL_SEGMENTS = steps.length + 2 // quiz steps + processing + email step
+
+export default function QuizPage() {
   const [currentStep, setCurrentStep] = useState(0)
   const [answers, setAnswers] = useState({
-    spend: null,
-    niche: null,
+    bottleneck: null,
     adsPerWeek: 25,
-    timeWasted: null,
-    frustration: [],
+    consequence: null,
+    workaround: null,
+    role: null,
   })
   const [email, setEmail] = useState("")
   const [emailError, setEmailError] = useState("")
+  const [submitting, setSubmitting] = useState(false)
   const [processingStatus, setProcessingStatus] = useState(0)
   const router = useRouter()
 
@@ -89,6 +163,7 @@ export default function QuizV1Page() {
     "Generating your personalized audit...",
   ]
 
+  // Processing step auto-advance
   useEffect(() => {
     if (!isProcessingStep) return
     setProcessingStatus(0)
@@ -105,33 +180,20 @@ export default function QuizV1Page() {
     return () => clearInterval(interval)
   }, [isProcessingStep])
 
-  const hasAnswer =
-    isEmailStep || isProcessingStep
-      ? false
-      : step.type === "slider"
-        ? true
-        : step.type === "multi"
-          ? answers[step.key]?.length > 0
-          : answers[step.key] !== null
+  const hasAnswer = isEmailStep || isProcessingStep
+    ? false
+    : step.type === "slider"
+      ? true
+      : answers[step.key] !== null
   const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 
   const currentZone = useMemo(
     () => getZone(answers.adsPerWeek),
-    [answers.adsPerWeek],
+    [answers.adsPerWeek]
   )
 
   function handleSelect(option) {
     setAnswers((prev) => ({ ...prev, [step.key]: option }))
-  }
-
-  function handleMultiSelect(option) {
-    setAnswers((prev) => {
-      const current = prev[step.key] || []
-      const next = current.includes(option)
-        ? current.filter((o) => o !== option)
-        : [...current, option]
-      return { ...prev, [step.key]: next }
-    })
   }
 
   function handleSliderChange(e) {
@@ -151,19 +213,38 @@ export default function QuizV1Page() {
     }
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
     if (!isValidEmail) {
       setEmailError("Please enter a valid business email.")
       return
     }
     setEmailError("")
-    sessionStorage.setItem("quiz_email", email)
-    router.push(
-      `/ad-creative-uploader/get-started/quiz-v1/results?ads=${answers.adsPerWeek}`,
-    )
+    setSubmitting(true)
+
+    try {
+      await validateEmail(email)
+    } catch (err) {
+      setEmailError(err.message)
+      setSubmitting(false)
+      return
+    }
+
+    try {
+      await submitQuizAnswers(email, answers)
+      sessionStorage.setItem("quiz_email", email)
+      sessionStorage.setItem("quiz_answers", JSON.stringify(answers))
+      const profile = determineProfile(answers)
+      router.push(
+        `/ad-creative-uploader/get-started/quiz-v1/results?ads=${answers.adsPerWeek}&profile=${profile}`
+      )
+    } catch (err) {
+      setEmailError(err.message || "Something went wrong. Please try again.")
+      setSubmitting(false)
+    }
   }
 
+  // Slider fill percentage (0-500)
   const sliderPercent = (answers.adsPerWeek / 500) * 100
 
   return (
@@ -224,9 +305,11 @@ export default function QuizV1Page() {
           </div>
         ) : isEmailStep ? (
           <>
-            <h1 className={styles.title}>Your audit is ready.</h1>
+            <h1 className={styles.title}>
+              Your ad ops assessment is ready
+            </h1>
             <p className={styles.subtitle}>
-              Enter your work email to view your personalized results.
+              See where your workflow is leaking time — and how to fix it.
             </p>
 
             <form className={styles.emailForm} onSubmit={handleSubmit}>
@@ -249,9 +332,10 @@ export default function QuizV1Page() {
 
               <button
                 type="submit"
-                className={`${styles.submitButton} ${!isValidEmail ? styles.disabled : ""}`}
+                className={`${styles.submitButton} ${!isValidEmail || submitting ? styles.disabled : ""}`}
+                disabled={submitting}
               >
-                Unlock My Report
+                {submitting ? "Submitting..." : "See my results"}
               </button>
 
               <span className={styles.microCopy}>
@@ -271,6 +355,7 @@ export default function QuizV1Page() {
             <h1 className={styles.title}>{step.title}</h1>
 
             <div className={styles.sliderBlock}>
+              {/* Value display */}
               <div className={styles.sliderValueRow}>
                 <span
                   className={styles.sliderValue}
@@ -281,14 +366,19 @@ export default function QuizV1Page() {
                 <span className={styles.sliderUnit}>ads / week</span>
               </div>
 
+              {/* Zone badge */}
               <div
                 className={styles.zoneBadge}
-                style={{ background: currentZone.color }}
+                style={{
+                  background: currentZone.color,
+                }}
               >
                 {currentZone.label}
               </div>
 
+              {/* Slider track */}
               <div className={styles.sliderTrackWrapper}>
+                {/* Zone color segments */}
                 <div className={styles.sliderZones}>
                   {SLIDER_ZONES.map((zone) => (
                     <div
@@ -298,12 +388,14 @@ export default function QuizV1Page() {
                         left: `${(zone.min / 500) * 100}%`,
                         width: `${((zone.max - zone.min) / 500) * 100}%`,
                         background: zone.color,
-                        opacity: answers.adsPerWeek >= zone.min ? 1 : 0.15,
+                        opacity:
+                          answers.adsPerWeek >= zone.min ? 1 : 0.15,
                       }}
                     />
                   ))}
                 </div>
 
+                {/* Actual range input */}
                 <input
                   type="range"
                   min="0"
@@ -319,6 +411,7 @@ export default function QuizV1Page() {
                 />
               </div>
 
+              {/* Zone labels under track */}
               <div className={styles.sliderLabels}>
                 {SLIDER_ZONES.map((zone) => (
                   <div
@@ -329,7 +422,9 @@ export default function QuizV1Page() {
                         : ""
                     }`}
                   >
-                    <span className={styles.sliderLabelText}>{zone.label}</span>
+                    <span className={styles.sliderLabelText}>
+                      {zone.label}
+                    </span>
                     <span className={styles.sliderLabelRange}>
                       {zone.min}–{zone.max}
                     </span>
@@ -346,47 +441,9 @@ export default function QuizV1Page() {
               >
                 Back
               </button>
-              <button className={styles.nextButton} onClick={handleNext}>
-                Next
-              </button>
-            </div>
-          </>
-        ) : step.type === "multi" ? (
-          <>
-            <h1 className={styles.title}>{step.title}</h1>
-
-            <div className={styles.options}>
-              {step.options.map((option) => (
-                <label
-                  key={option}
-                  className={`${styles.option} ${
-                    answers[step.key]?.includes(option) ? styles.selected : ""
-                  }`}
-                >
-                  <input
-                    type="checkbox"
-                    name={step.key}
-                    checked={answers[step.key]?.includes(option) || false}
-                    onChange={() => handleMultiSelect(option)}
-                  />
-                  <span className={styles.checkbox} />
-                  <span className={styles.optionText}>{option}</span>
-                </label>
-              ))}
-            </div>
-
-            <div className={styles.nav}>
               <button
-                className={styles.backButton}
-                onClick={handleBack}
-                disabled={isFirst}
-              >
-                Back
-              </button>
-              <button
-                className={`${styles.nextButton} ${!hasAnswer ? styles.disabled : ""}`}
+                className={styles.nextButton}
                 onClick={handleNext}
-                disabled={!hasAnswer}
               >
                 Next
               </button>
