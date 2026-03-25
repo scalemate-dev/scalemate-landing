@@ -11,7 +11,7 @@ export const trackDemoFormSubmit = (userData) => {
 export const trackAuditStarted = () => {
   try {
     window.dataLayer = window.dataLayer || []
-    window.dataLayer.push({ event: "Funnel_1_Quiz_Click_AuditStarted" })
+    window.dataLayer.push({ event: "funnel_1_audit_started" })
   } catch (error) {
     console.error("Failed to track audit started:", error)
   }
