@@ -128,58 +128,12 @@
   animation: shimmer 5s ease-in-out infinite alternate;
 }
 
-// ─── Video placeholder ───
+// ─── Audit Preview ───
 
 .videoWrapper {
   width: 100%;
   max-width: 720px;
   margin-bottom: 32px;
-}
-
-.videoPlaceholder {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 2 / 1;
-  background: $uc-panel-bg;
-  border: 2px dashed $uc-dash;
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  cursor: pointer;
-  transition: border-color 0.3s $uc-ease, box-shadow 0.3s $uc-ease;
-
-  &:hover {
-    border-color: $uc-accent;
-    box-shadow: $uc-shadow-panel-hover;
-
-    .playButton {
-      background: $uc-accent;
-      transform: scale(1.08);
-    }
-  }
-}
-
-.playButton {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background: $uc-accent-deep;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s $uc-ease, transform 0.3s $uc-ease;
-  box-shadow: 0 4px 24px rgba($uc-accent, 0.3);
-}
-
-.videoLabel {
-  font-family: $font-body;
-  font-size: 15px;
-  font-weight: 500;
-  color: $uc-stone;
 }
 
 // ─── CTA Button ───
@@ -323,7 +277,7 @@
 
 @include mobile {
   .hero {
-    padding: 100px 0 44px;
+    padding: 120px 0 48px;
 
     &::before {
       background-size: 28px 28px;
@@ -339,7 +293,8 @@
   }
 
   .heroHeader {
-    margin-bottom: 32px;
+    margin-bottom: 28px;
+    order: 1;
 
     h1 {
       font-size: 28px;
@@ -351,15 +306,29 @@
     }
   }
 
+  .ctaButton {
+    order: 2;
+    padding: 16px 32px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .microCopy {
+    order: 3;
+    margin-bottom: 36px;
+    margin-top: 14px;
+  }
+
   .videoWrapper {
+    order: 4;
     margin: 0 -16px;
     width: calc(100% + 32px);
   }
 
-  .ctaButton {
-    padding: 16px 32px;
-    font-size: 16px;
-    width: 100%;
+  .platforms {
+    order: 5;
+    margin-top: 8px;
   }
 
   .platformLogos {

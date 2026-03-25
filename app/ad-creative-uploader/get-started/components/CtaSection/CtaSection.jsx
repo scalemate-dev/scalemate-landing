@@ -1,4 +1,7 @@
+"use client"
+
 import Container from "@/components/elements/Container/Container"
+import { trackAuditStarted } from "@/helpers/trackGTM"
 import styles from "./CtaSection.module.scss"
 
 export default function CtaSection() {
@@ -12,7 +15,11 @@ export default function CtaSection() {
               Skip the manual workflow. Upload ad creatives from Google Drive to
               Meta Ads and TikTok Ads in clicks.
             </p>
-            <a href="/ad-creative-uploader/get-started/quiz" className={styles.ctaButton}>
+            <a
+              href="/ad-creative-uploader/get-started/quiz"
+              className={styles.ctaButton}
+              onClick={trackAuditStarted}
+            >
               Get Free Access
             </a>
           </div>

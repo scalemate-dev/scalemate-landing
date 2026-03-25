@@ -8,6 +8,15 @@ export const trackDemoFormSubmit = (userData) => {
   }
 }
 
+export const trackAuditStarted = () => {
+  try {
+    window.dataLayer = window.dataLayer || []
+    window.dataLayer.push({ event: "Funnel_1_Quiz_Click_AuditStarted" })
+  } catch (error) {
+    console.error("Failed to track audit started:", error)
+  }
+}
+
 export const trackQuizLead = () => {
   try {
     window.dataLayer = window.dataLayer || []

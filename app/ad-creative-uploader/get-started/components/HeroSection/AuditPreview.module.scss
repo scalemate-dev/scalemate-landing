@@ -1,0 +1,667 @@
+@use '../../../components/uc' as *;
+
+// ─── Animations ───
+
+@keyframes previewFadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes previewRingReveal {
+  from { stroke-dashoffset: var(--rc); }
+  to { stroke-dashoffset: var(--ro); }
+}
+
+@keyframes previewCountUp {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes badgePulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.6); opacity: 0; }
+}
+
+@keyframes rowSlideIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+// ─── Preview Container ───
+
+.preview {
+  position: relative;
+  width: 100%;
+  background: #fff;
+  border: 1px solid $uc-shape;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 1px 3px rgba(#1a1510, 0.04),
+    0 8px 32px rgba(#1a1510, 0.06),
+    0 24px 64px rgba(#1a1510, 0.04);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s $uc-ease, transform 0.6s $uc-ease;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(to top, rgba(#fff, 1) 0%, rgba(#fff, 0) 100%);
+    pointer-events: none;
+    z-index: 3;
+  }
+}
+
+// ─── Top Bar (browser-like) ───
+
+.topBar {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  background: $uc-bg-warm;
+  border-bottom: 1px solid $uc-shape;
+}
+
+.dots {
+  display: flex;
+  gap: 5px;
+
+  span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: $uc-dash;
+
+    &:first-child { background: #F87171; }
+    &:nth-child(2) { background: #FBBF24; }
+    &:last-child { background: #34D399; }
+  }
+}
+
+.topBarLabel {
+  flex: 1;
+  text-align: center;
+  font-family: $font-body;
+  font-size: 10px;
+  font-weight: 600;
+  color: $uc-stone;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+
+// ─── Body Layout (Desktop: 2 columns) ───
+
+.body {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 20px;
+  padding: 20px 20px 32px;
+  min-height: 260px;
+}
+
+// ─── Left: Ring Gauge ───
+
+.gaugeCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 4px;
+  opacity: 0;
+
+  &.visible {
+    animation: previewFadeUp 0.6s $uc-ease 0.2s forwards;
+  }
+}
+
+.gaugeLabel {
+  font-family: $font-body;
+  font-size: 7px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: $uc-stone;
+  margin-bottom: 8px;
+}
+
+.gaugeWrap {
+  position: relative;
+  width: 110px;
+  height: 110px;
+}
+
+.gaugeSvg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.gaugeTrack {
+  fill: none;
+  stroke: rgba($uc-shape, 0.7);
+  stroke-width: 5;
+}
+
+.gaugeFill {
+  fill: none;
+  stroke: url(#previewGaugeGrad);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-dasharray: var(--rc);
+  stroke-dashoffset: var(--rc);
+
+  &.gaugeAnimate {
+    animation: previewRingReveal 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+  }
+}
+
+.gaugeCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gaugeVal {
+  font-family: $font-heading;
+  font-weight: 800;
+  font-size: 22px;
+  color: $uc-ink;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  opacity: 0;
+
+  &.gaugeValAnim {
+    animation: previewCountUp 0.5s $uc-ease 0.8s forwards;
+  }
+}
+
+.gaugeUnit {
+  font-family: $font-body;
+  font-size: 7px;
+  font-weight: 600;
+  color: $uc-stone;
+  margin-top: 2px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.gaugeNote {
+  font-family: $font-body;
+  font-size: 6px;
+  font-weight: 500;
+  color: $uc-body-faded;
+  margin-top: 1px;
+  letter-spacing: 0.03em;
+  font-style: italic;
+}
+
+// ─── Right: Metrics ───
+
+.metricsCol {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+// ─── Impact Cards ───
+
+.impactRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  opacity: 0;
+
+  &.visible {
+    animation: previewFadeUp 0.55s $uc-ease 0.4s forwards;
+  }
+}
+
+.impactCard {
+  background: #fff;
+  border: 1px solid $uc-shape;
+  border-radius: 10px;
+  padding: 10px 10px 8px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+  }
+}
+
+.impactGreen::before {
+  background: $uc-success;
+}
+
+.impactRed::before {
+  background: #dc4a3a;
+}
+
+.impactVal {
+  display: block;
+  font-family: $font-heading;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 3px;
+
+  .impactGreen & { color: $uc-success; }
+  .impactRed & { color: #dc4a3a; }
+
+  small {
+    font-size: 9px;
+    font-weight: 500;
+    color: $uc-stone;
+  }
+}
+
+.impactLbl {
+  font-family: $font-body;
+  font-size: 8px;
+  font-weight: 600;
+  color: $uc-stone;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+// ─── Mini Breakdown ───
+
+.breakdownMini {
+  background: $uc-bg-warm;
+  border-radius: 10px;
+  padding: 6px 0;
+  opacity: 0;
+
+  &.visible {
+    animation: previewFadeUp 0.55s $uc-ease 0.55s forwards;
+  }
+}
+
+.breakdownRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  opacity: 0;
+
+  .visible & {
+    animation: rowSlideIn 0.4s $uc-ease forwards;
+
+    &:nth-child(1) { animation-delay: 0.7s; }
+    &:nth-child(2) { animation-delay: 0.82s; }
+    &:nth-child(3) { animation-delay: 0.94s; }
+    &:nth-child(4) { animation-delay: 1.06s; }
+  }
+}
+
+.breakdownIcon {
+  font-size: 10px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+.breakdownName {
+  flex: 1;
+  font-family: $font-body;
+  font-size: 9px;
+  font-weight: 600;
+  color: $uc-ink;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.breakdownHrs {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 9px;
+  color: #dc4a3a;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+// ─── Mini Comparison ───
+
+.comparisonMini {
+  border: 1px solid $uc-shape;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  opacity: 0;
+
+  &.visible {
+    animation: previewFadeUp 0.55s $uc-ease 0.7s forwards;
+  }
+}
+
+.compRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 5px 10px;
+  font-family: $font-body;
+  font-size: 9px;
+  color: $uc-ink;
+  border-bottom: 1px solid rgba($uc-shape, 0.5);
+  align-items: center;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  > span:first-child {
+    font-weight: 600;
+    font-size: 8px;
+  }
+}
+
+.compHdr {
+  font-weight: 700 !important;
+  font-size: 7px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: $uc-stone !important;
+}
+
+.compManual {
+  color: #dc4a3a !important;
+  font-weight: 700 !important;
+  font-variant-numeric: tabular-nums;
+}
+
+.compAuto {
+  color: darken($uc-success, 8%) !important;
+  font-weight: 700 !important;
+  font-variant-numeric: tabular-nums;
+}
+
+.compTotal {
+  background: rgba($uc-bg-warm, 0.6);
+  font-weight: 700 !important;
+
+  > span:first-child {
+    font-weight: 800 !important;
+  }
+}
+
+// ─── Personalization Badge (inline in top bar) ───
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: $uc-card-dark;
+  color: rgba(#fff, 0.88);
+  font-family: $font-body;
+  font-size: 9px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  opacity: 0;
+
+  &.visible {
+    animation: previewFadeUp 0.45s $uc-ease 0.6s forwards;
+  }
+}
+
+.badgePulse {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: $uc-success;
+  position: relative;
+  flex-shrink: 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: $uc-success;
+    animation: badgePulse 2s ease-in-out infinite;
+  }
+}
+
+// ═══════════════════════════════════════════
+// Responsive
+// ═══════════════════════════════════════════
+
+@include tablet-horizontal {
+  .body {
+    grid-template-columns: 160px 1fr;
+    gap: 16px;
+    padding: 16px 16px 28px;
+  }
+
+  .gaugeWrap {
+    width: 96px;
+    height: 96px;
+  }
+
+  .gaugeVal {
+    font-size: 19px;
+  }
+}
+
+// ─── Tablet vertical: compact horizontal ───
+
+@include tablet-vertical {
+  .body {
+    grid-template-columns: 140px 1fr;
+    gap: 14px;
+    padding: 14px 14px 28px;
+  }
+
+  .gaugeWrap {
+    width: 90px;
+    height: 90px;
+  }
+
+  .gaugeVal {
+    font-size: 18px;
+  }
+
+  .gaugeLabel {
+    font-size: 6px;
+  }
+}
+
+// ═══════════════════════════════════════════
+// Mobile: Full portrait layout with big numbers
+// ═══════════════════════════════════════════
+
+@include mobile {
+  .preview {
+    border-radius: 14px;
+
+    &::after {
+      height: 48px;
+    }
+  }
+
+  .topBar {
+    padding: 8px 14px;
+  }
+
+  .dots span {
+    width: 7px;
+    height: 7px;
+  }
+
+  .topBarLabel {
+    font-size: 9px;
+  }
+
+  // ── Portrait: single column, everything stacked ──
+
+  .body {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 20px 16px 36px;
+    min-height: auto;
+  }
+
+  // ── Gauge: centered, large ──
+
+  .gaugeCol {
+    align-items: center;
+    padding-top: 0;
+  }
+
+  .gaugeLabel {
+    font-size: 8px;
+    letter-spacing: 0.14em;
+    margin-bottom: 12px;
+  }
+
+  .gaugeWrap {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 4px;
+  }
+
+  .gaugeVal {
+    font-size: 32px;
+    letter-spacing: -0.04em;
+  }
+
+  .gaugeUnit {
+    font-size: 9px;
+    margin-top: 3px;
+  }
+
+  .gaugeNote {
+    font-size: 8px;
+    margin-top: 2px;
+  }
+
+  // ── Impact cards: bigger ──
+
+  .impactRow {
+    gap: 10px;
+  }
+
+  .impactCard {
+    padding: 14px 12px 12px;
+    border-radius: 12px;
+
+    &::before {
+      height: 3px;
+    }
+  }
+
+  .impactVal {
+    font-size: 22px;
+    margin-bottom: 4px;
+
+    small {
+      font-size: 11px;
+    }
+  }
+
+  .impactLbl {
+    font-size: 10px;
+    letter-spacing: 0.03em;
+  }
+
+  // ── Breakdown: bigger rows ──
+
+  .breakdownMini {
+    border-radius: 12px;
+    padding: 4px 0;
+  }
+
+  .breakdownRow {
+    padding: 6px 14px;
+    gap: 8px;
+  }
+
+  .breakdownIcon {
+    font-size: 13px;
+    width: 24px;
+    height: 24px;
+    border-radius: 7px;
+  }
+
+  .breakdownName {
+    font-size: 12px;
+  }
+
+  .breakdownHrs {
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  // ── Comparison: bigger ──
+
+  .comparisonMini {
+    border-radius: 12px;
+  }
+
+  .compRow {
+    padding: 7px 14px;
+    font-size: 12px;
+
+    > span:first-child {
+      font-size: 11px;
+    }
+  }
+
+  .compHdr {
+    font-size: 9px !important;
+  }
+
+  .compTotal {
+    padding: 8px 14px;
+  }
+
+  // ── Badge in top bar ──
+
+  .topBar {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .topBarLabel {
+    order: -1;
+    flex-basis: 100%;
+    text-align: center;
+    font-size: 8px;
+    margin-bottom: -2px;
+  }
+
+  .badge {
+    font-size: 8px;
+    padding: 3px 8px;
+    margin-left: auto;
+  }
+}

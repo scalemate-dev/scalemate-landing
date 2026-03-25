@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation"
 
 const BARE_ROUTES = [
-  "/ad-creative-uploader/get-started/quiz",
+  "/ad-creative-uploader/get-started",
 ]
 
 export default function MarketingShell({ children }) {

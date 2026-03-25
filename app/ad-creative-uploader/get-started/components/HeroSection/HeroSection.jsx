@@ -7,7 +7,8 @@ import styles from "./HeroSection.module.scss"
 import metaIcon from "@/assets/icons/meta-icon.svg"
 import tiktokIcon from "@/assets/icons/tiktok-icon.svg"
 import googleDriveIcon from "@/assets/icons/google-drive-icon.svg"
-import { IconPlayerPlayFilled } from "@tabler/icons-react"
+import AuditPreview from "./AuditPreview"
+import { trackAuditStarted } from "@/helpers/trackGTM"
 
 export default function HeroSection() {
   return (
@@ -27,18 +28,14 @@ export default function HeroSection() {
           </div>
 
           <div className={styles.videoWrapper}>
-            <div className={styles.videoPlaceholder}>
-              <div className={styles.playButton}>
-                <IconPlayerPlayFilled size={32} />
-              </div>
-              <span className={styles.videoLabel}>See how it works</span>
-            </div>
+            <AuditPreview />
           </div>
 
           <Button
             href="/ad-creative-uploader/get-started/quiz"
             className={styles.ctaButton}
             trackEvent="funnel_hero_cta_click"
+            onClick={trackAuditStarted}
           >
             Start Audit
           </Button>
