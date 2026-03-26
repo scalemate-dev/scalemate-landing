@@ -499,10 +499,7 @@ function ResultsV1Content() {
             {ctaError ? (
               <span className={styles.ctaMicro}>{ctaError}</span>
             ) : (
-              <span className={styles.ctaMicro}>
-                Get a magic link and start launching from Google Drive. No
-                credit card required.
-              </span>
+              <span className={styles.ctaMicro}>No credit card required.</span>
             )}
           </div>
         </div>

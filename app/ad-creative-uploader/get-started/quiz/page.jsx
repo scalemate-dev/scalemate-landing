@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useMemo, useEffect } from "react"
+import { useState, useMemo, useEffect, useRef } from "react"
 import { useQuizTracking } from "@/hooks/useQuizTracking"
 import { useQuizSubmit } from "@/hooks/useQuizSubmit"
 import styles from "../quiz-v1/quiz.module.scss"
@@ -78,6 +78,7 @@ const QUIZ_ID = "ad-uploader-quiz"
 
 export default function QuizV1Page() {
   const [currentStep, setCurrentStep] = useState(0)
+  const autoAdvancing = useRef(false)
   const [answers, setAnswers] = useState({
     spend: null,
     niche: null,
@@ -159,7 +160,20 @@ export default function QuizV1Page() {
   )
 
   function handleSelect(option) {
+    if (autoAdvancing.current) return
     setAnswers((prev) => ({ ...prev, [step.key]: option }))
+    autoAdvancing.current = true
+    setTimeout(() => {
+      trackStepCompleted({
+        stepNumber: currentStep + 1,
+        stepName: step.key,
+        stepTitle: step.title,
+        stepType: step.type,
+        answer: option,
+      })
+      setCurrentStep((s) => s + 1)
+      autoAdvancing.current = false
+    }, 350)
   }
 
   function handleMultiSelect(option) {
@@ -299,12 +313,6 @@ export default function QuizV1Page() {
               </span>
             </form>
 
-            <div className={styles.nav}>
-              <button className={styles.backButton} onClick={handleBack}>
-                Back
-              </button>
-              <span />
-            </div>
           </>
         ) : step.type === "slider" ? (
           <>
