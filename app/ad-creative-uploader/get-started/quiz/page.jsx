@@ -7,12 +7,6 @@ import styles from "../quiz-v1/quiz.module.scss"
 
 const steps = [
   {
-    title: "What's your average monthly spend on Meta, Google and TikTok?",
-    key: "spend",
-    type: "radio",
-    options: ["<$10k", "$10k–$50k", "$50k–$250k", "$250k+"],
-  },
-  {
     title: "What's your main niche?",
     key: "niche",
     type: "radio",
@@ -21,6 +15,17 @@ const steps = [
       "Mobile Apps",
       "E-commerce / DTC",
       "Freelance Marketer",
+    ],
+  },
+  {
+    title: "What's the №1 Frustration with Meta Ads Manager?",
+    key: "frustration",
+    type: "multi",
+    options: [
+      "Interface lag & platform bugs",
+      "Endless copy-pasting ads",
+      "Manual naming & Post ID setup",
+      "Downloading & re-uploading ads",
     ],
   },
   {
@@ -46,15 +51,10 @@ const steps = [
     options: ["< 1hr/week", "2–5 hrs/week", ">5 hrs/week"],
   },
   {
-    title: "What's the №1 Frustration with Meta Ads Manager?",
-    key: "frustration",
-    type: "multi",
-    options: [
-      "Interface lag & platform bugs",
-      "Endless copy-pasting ads",
-      "Manual naming & Post ID setup",
-      "Downloading & re-uploading ads",
-    ],
+    title: "What's your average monthly spend on Meta, Google and TikTok?",
+    key: "spend",
+    type: "radio",
+    options: ["<$10k", "$10k–$50k", "$50k–$250k", "$250k+"],
   },
 ]
 
