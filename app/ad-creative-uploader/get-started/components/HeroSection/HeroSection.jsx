@@ -7,7 +7,7 @@ import styles from "./HeroSection.module.scss"
 import metaIcon from "@/assets/icons/meta-icon.svg"
 import tiktokIcon from "@/assets/icons/tiktok-icon.svg"
 import googleDriveIcon from "@/assets/icons/google-drive-icon.svg"
-import AuditPreview from "./AuditPreview"
+// import AuditPreview from "./AuditPreview"
 import { trackAuditStarted } from "@/helpers/trackGTM"
 
 export default function HeroSection() {
@@ -26,9 +26,9 @@ export default function HeroSection() {
             </p>
           </div>
 
-          <div className={styles.videoWrapper}>
+          {/* <div className={styles.videoWrapper}>
             <AuditPreview />
-          </div>
+          </div> */}
 
           <Button
             href="/ad-creative-uploader/get-started/quiz"
