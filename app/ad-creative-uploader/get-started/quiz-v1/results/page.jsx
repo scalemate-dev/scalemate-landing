@@ -7,7 +7,7 @@ import { trackMixpanelEvent } from "@/helpers/analytics/mixpanel"
 import { trackQuizLead } from "@/helpers/trackGTM"
 import styles from "./results.module.scss"
 
-const HOURLY_RATE = 45 // €/hr avg media buyer wage
+const HOURLY_RATE = 45 // $/hr avg media buyer wage
 
 // Profile content definitions
 const PROFILES = {
@@ -81,11 +81,11 @@ const PROFILES = {
     diagnosis:
       "Your team's capacity is your most expensive constraint. Right now, a significant chunk of it goes to work that doesn't require human judgment — uploading files, duplicating campaigns, managing naming conventions. You've been solving this by adding people. But headcount scales linearly. Your ad volume doesn't.",
     priceOfInaction: (adsPerWeek, totalHours) =>
-      `At an average operational cost of €${HOURLY_RATE}/hr, that's €${Math.round(totalHours * HOURLY_RATE).toLocaleString("en-US")}/month on tasks that should be automated. Every month you wait, you're paying for manual work that a system handles in minutes.`,
+      `At an average operational cost of $${HOURLY_RATE}/hr, that's $${Math.round(totalHours * HOURLY_RATE).toLocaleString("en-US")}/month on tasks that should be automated. Every month you wait, you're paying for manual work that a system handles in minutes.`,
     darkChallenger: (adsPerWeek, totalHours) => ({
-      before: `Your team spends ${Math.round(totalHours)} hours/month on operational tasks that don't require strategic judgment. At €${HOURLY_RATE}/hr average cost, that's`,
+      before: `Your team spends ${Math.round(totalHours)} hours/month on operational tasks that don't require strategic judgment. At $${HOURLY_RATE}/hr average cost, that's`,
       highlights: [
-        `€${Math.round(totalHours * HOURLY_RATE).toLocaleString("en-US")}/month on work a system handles in minutes`,
+        `$${Math.round(totalHours * HOURLY_RATE).toLocaleString("en-US")}/month on work a system handles in minutes`,
       ],
       after: ". Same budget, zero output.",
     }),
@@ -179,7 +179,7 @@ function fmt(n) {
 }
 
 function fmtEur(n) {
-  return `€${Math.trunc(n).toLocaleString("en-US")}`
+  return `$${Math.trunc(n).toLocaleString("en-US")}`
 }
 
 export default function ResultsPage() {
@@ -425,7 +425,7 @@ function ResultsContent() {
           </div>
         </div>
         <p className={`${styles.impactHint} ${vis}`}>
-          Based on €{HOURLY_RATE}/hr avg. media buyer rate
+          Based on ${HOURLY_RATE}/hr avg. media buyer rate
         </p>
 
         {/* ── 4. Breakdown ── */}

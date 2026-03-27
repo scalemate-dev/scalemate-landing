@@ -16,14 +16,13 @@ export default function HeroSection() {
       <Container>
         <div className={styles.heroContent}>
           <div className={styles.heroHeader}>
-            <span className={styles.label}>Ad Launch Efficiency Audit</span>
+            <span className={styles.label}>Ad ops Efficiency</span>
             <h1>
-              Stop Manual{" "}
-              <span className={styles.accent}>Ad Publishing.</span>
+              Stop Manual <span className={styles.accent}>Ad Publishing</span>
             </h1>
             <p>
-              Calculate how much you spend on manual launches and measure
-              Automation Efficiency for your accounts.
+              Take a quick quiz to get personalized recommendations to speed up
+              your ad operations
             </p>
           </div>
 
@@ -37,12 +36,8 @@ export default function HeroSection() {
             trackEvent="funnel_hero_cta_click"
             onClick={trackAuditStarted}
           >
-            Start Audit
+            Start now for free
           </Button>
-
-          <span className={styles.microCopy}>
-            Takes 30 seconds. No credit card required.
-          </span>
 
           <div className={styles.platforms}>
             <span>Works with:</span>

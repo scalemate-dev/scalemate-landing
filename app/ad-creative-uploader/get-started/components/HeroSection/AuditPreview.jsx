@@ -39,11 +39,7 @@ export default function AuditPreview() {
           <span />
           <span />
         </div>
-        <span className={styles.topBarLabel}>Your Ad Launch Audit</span>
-        <div className={`${styles.badge} ${vis}`}>
-          <span className={styles.badgePulse} />
-          Personalized for your volume
-        </div>
+        <span className={styles.topBarLabel}>Preview</span>
       </div>
 
       <div className={styles.body}>
@@ -82,7 +78,9 @@ export default function AuditPreview() {
               />
             </svg>
             <div className={styles.gaugeCenter}>
-              <span className={`${styles.gaugeVal} ${visible ? styles.gaugeValAnim : ""}`}>
+              <span
+                className={`${styles.gaugeVal} ${visible ? styles.gaugeValAnim : ""}`}
+              >
                 50.0
               </span>
               <span className={styles.gaugeUnit}>hrs / mo</span>
@@ -101,7 +99,7 @@ export default function AuditPreview() {
             </div>
             <div className={`${styles.impactCard} ${styles.impactRed}`}>
               <span className={styles.impactVal}>
-                &euro;2,250<small>/mo</small>
+                $2,250<small>/mo</small>
               </span>
               <span className={styles.impactLbl}>manual cost per buyer</span>
             </div>
@@ -140,23 +138,22 @@ export default function AuditPreview() {
             </div>
             <div className={styles.compRow}>
               <span>Launch</span>
-              <span className={styles.compManual}>&euro;1,094</span>
-              <span className={styles.compAuto}>&euro;100</span>
+              <span className={styles.compManual}>$1,094</span>
+              <span className={styles.compAuto}>$100</span>
             </div>
             <div className={styles.compRow}>
               <span>Scale</span>
-              <span className={styles.compManual}>&euro;351</span>
-              <span className={styles.compAuto}>&euro;20</span>
+              <span className={styles.compManual}>$351</span>
+              <span className={styles.compAuto}>$20</span>
             </div>
             <div className={`${styles.compRow} ${styles.compTotal}`}>
               <span>Total</span>
-              <span className={styles.compManual}>&euro;2,250</span>
-              <span className={styles.compAuto}>&euro;120</span>
+              <span className={styles.compManual}>$2,250</span>
+              <span className={styles.compAuto}>$120</span>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   )
 }

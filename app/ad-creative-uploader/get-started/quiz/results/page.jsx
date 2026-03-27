@@ -89,7 +89,7 @@ function fmt(n) {
 }
 
 function fmtEur(n) {
-  return `€${Math.trunc(n).toLocaleString("en-US")}`
+  return `$${Math.trunc(n).toLocaleString("en-US")}`
 }
 
 export default function ResultsV1Page() {
@@ -329,7 +329,7 @@ function ResultsV1Content() {
           </div>
         </div>
         <p className={`${styles.impactHint} ${vis}`}>
-          Based on €{HOURLY_RATE}/hr avg. media buyer rate
+          Based on ${HOURLY_RATE}/hr avg. media buyer rate
         </p>
 
         {/* ── Breakdown ── */}
@@ -427,7 +427,7 @@ function ResultsV1Content() {
                   <span>/mo</span>
                 </td>
                 <td className={styles.cellAuto}>
-                  €0<span>/mo</span>
+                  $0<span>/mo</span>
                 </td>
                 <td className={styles.cellBoost}>Instant</td>
               </tr>
@@ -462,7 +462,7 @@ function ResultsV1Content() {
                   <span>/mo</span>
                 </td>
                 <td className={styles.cellAuto}>
-                  €0<span>/mo</span>
+                  $0<span>/mo</span>
                 </td>
                 <td className={styles.cellBoost}>Automated</td>
               </tr>
