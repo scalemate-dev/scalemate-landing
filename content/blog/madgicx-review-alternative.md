@@ -24,9 +24,11 @@ faq:
 
 Madgicx is a solid Meta optimization tool. AI audiences, creative scoring, automation rules, cross-channel reporting — all in one dashboard on top of Ads Manager. For e-commerce teams running Meta ads, it handles the "what should we run" side well.
 
-But at some point the bottleneck shifts. Your team knows what works — but 50 creatives are sitting in Drive waiting to be uploaded, 15 markets need localized ads, and ad spend is spread across Meta, TikTok, and other platforms. Depending on your setup, Madgicx might not cover that part of the workflow.
+But once your team starts scaling and volumes grow — creatives burn out faster than your team finds new winners, your campaigns run across Meta and TikTok — not just one platform, your ad spend is primarily on mobile apps, and you need API access to plug ad operations into your existing BI and internal tools rather than switching to another closed platform.
 
-Here's where it works, where it stops, what it costs, and what to look at when you need operational infrastructure instead of optimization intelligence.
+Madgicx doesn't cover that — it's built for web-based Meta optimization, not multi-platform ad operations at scale.
+
+This Madgicx review covers where it works, where it stops, what it costs, and what to look at when you need operational infrastructure instead of optimization intelligence.
 
 *Based on hands-on platform analysis and 50+ verified user reviews from [G2](https://www.g2.com/products/madgicx/reviews){rel="nofollow noopener" target="_blank"}, [Capterra](https://www.capterra.com/p/198aborede/Madgicx/reviews/){rel="nofollow noopener" target="_blank"}, and [TrustRadius](https://www.trustradius.com/products/madgicx/reviews){rel="nofollow noopener" target="_blank"}.*
 
@@ -46,11 +48,13 @@ On the market since ~2018. Positions itself as an "Agentic AI Ads Manager." Core
 
 ## Madgicx Features — What Actually Works
 
+A fair Madgicx review starts with what actually works.
+
 **AI Audiences.** 100+ pre-built audiences — eRFM segments, Super Lookalikes blended up to 20%. Useful for finding audience pockets you wouldn't test manually. Does the segmentation work in hours, not days.
 
 **Creative Intelligence.** AI tags visual elements and shows what drives performance. Creative Matrix maps spend vs revenue across all creatives. Creative Clusters auto-combine top copy with top visuals. You see what's working — fast.
 
-**Automation Rules.** Custom rules with AND/OR logic. Conditions on ROAS, spend, conversions — then actions: pause, adjust budgets, set bid caps, optimize by age/gender/location/placement/device, duplicate assets. Pre-built tactics (Surf, Sunsetting) for quick setup. Meta only.
+**Automation Rules.** Custom rules with AND/OR logic. Conditions on ROAS, spend, conversions — then actions: pause, adjust budgets, set bid caps, optimize by age/gender/location/placement/device, duplicate assets. Pre-built tactics (Surf, Sunsetting) for quick setup. As a facebook ads automation tool, Meta only.
 
 **Audience Launcher + Ad Launcher.** Two tools that work together. Audience Launcher creates new campaigns with new ad sets and audiences. Ad Launcher pushes ads into existing ad sets.Creatives must be uploaded to Madgicx first — no direct sync from cloud storage.
 
@@ -78,13 +82,13 @@ Single plan — "Madgicx Pro Complete with AI." Price scales with ad spend:
 
 Add-ons: Tracking Pro (server-side, CAPI) — $49/mo per ad account. Extra ad accounts — $9/mo each.
 
-At $5–20K/mo spend, the price makes sense — AI audiences, creative scoring, automation, reporting, all included. At higher spend with multiple accounts, costs stack up and the value stays limited to Meta. Scalemate pricing is structured around operational volume, not ad spend — [details here](/pricing).
+At $5–20K/mo spend, Madgicx pricing makes sense — AI audiences, creative scoring, automation, reporting, all included. At higher spend with multiple accounts, costs stack up and the value stays limited to Meta. Scalemate pricing is structured around operational volume, not ad spend — [details here](/pricing).
 
 ---
 
 ## Madgicx Pros and Cons
 
-From G2, Capterra, and TrustRadius:
+Every Madgicx review worth reading should present both sides. Based on Madgicx reviews from G2, Capterra, and TrustRadius:
 
 **Pros:**
 
@@ -105,22 +109,25 @@ From G2, Capterra, and TrustRadius:
 - Pricing scales with spend — more expensive at higher tiers
 - Cloud Tracking built for web/Shopify. No Adjust, AppsFlyer, or MMP integrations
 - Audience Launcher capped at 76 audiences per launch. No reusable templates or multi-language/GEO matrix
+- AI Bidding offers limited manual control — if your team already has specific optimization approaches, the AI overrides them. Users report it applies the same bids regardless of ad set or performance history ([G2 reviews](https://www.g2.com/products/madgicx/reviews){rel="nofollow noopener" target="_blank"})
 
 ---
 
 ## Where Madgicx Stops
 
-Not where it fails. Where its scope ends — and your operational needs begin.
+Understanding where a tool stops is as important as knowing what it does. Here's where Madgicx's scope ends, and why teams start looking for a Madgicx alternative.
 
-**Execution at scale.** Madgicx has Audience Launcher for new campaigns and Ad Launcher for pushing ads into existing structures — both Meta only. Custom setups like 1 ad set = 1 ad are possible but require a multi-step workaround each time. There are no reusable templates — when you need to launch across 15 GEOs with localized creatives, the setup is manual every launch.
+**Execution at scale.** Madgicx splits campaign launches into two separate tools. Audience Launcher creates new audiences and ad sets. Ad Launcher pushes creatives into existing ad sets, but can't create new ones. So to launch a full campaign from scratch, you go through two tools in sequence. There's no way to save the whole setup as a template for next time, and audience or GEO configurations can't be set up in bulk. For teams that launch often with repeating structures, the setup stays manual every time.
 
 **Beyond Meta.** Campaign management is Meta only. If TikTok is 30–40% of your spend, you need a separate tool for operations there. Seeing TikTok data in a dashboard isn't the same as managing campaigns.
 
 **The creative pipeline.** Your design team puts 50 new assets in Google Drive. Somebody still downloads them, uploads to Madgicx Creative Studio, assigns to campaigns, launches. Every week. Madgicx support confirmed it directly: *"files need to be in our system first, not pulled directly from Google Drive."*
 
+**AI Bidding control.** Madgicx AI Bidding manages bids automatically, but doesn't give you control over bid strategy per ad set. If your team already has tested optimization approaches, the AI overrides them. Users report it applies the same bids regardless of ad set or performance history.
+
 **Mobile app teams.** Cloud Tracking is built for web — Shopify, server-side CAPI. If your attribution runs through Adjust or AppsFlyer, there's no integration. Different tracking architecture.
 
-These aren't bugs — they're scope boundaries. And they're the reason teams start searching for a Madgicx alternative.
+These aren't bugs — they're scope boundaries. Teams looking for tools like Madgicx but with operational focus end up searching for a Madgicx alternative.
 
 ---
 
@@ -128,13 +135,12 @@ These aren't bugs — they're scope boundaries. And they're the reason teams sta
 
 | | Madgicx | Scalemate |
 |---|---|---|
-| **Focus** | Meta ads optimization — audiences, creatives, reporting | Ad operations at scale — launches, creative pipeline, multi-platform |
-| **Bulk launch** | Audience Launcher (new campaigns) + Ad Launcher (into existing ad sets, up to 76 audiences), Meta only | Templates: any structure (concept × lang × GEO), Meta + TikTok, no limit |
+| **Focus** | Meta ads optimization — audiences, creatives, reporting | Ad ops automation — bulk launches, campaign auto-optimization |
+| **Bulk launch** | Two separate tools (Audience Launcher + Ad Launcher), no saved templates, Meta only | One flow with reusable templates, any structure, Meta + TikTok |
 | **Campaign structure** | Within Madgicx UI | Fully customizable via reusable templates |
 | **Creative upload** | Manual upload to Creative Studio | Google Drive sync (auto, no duplicates) |
 | **Automation rules** | Custom + pre-built, wide range of actions, Meta only | Custom, multi-action rules, Meta only |
 | **Analytics** | Cross-channel dashboard (Meta, Google, TikTok, GA4, Shopify, Klaviyo) | BI integration + AI Chat (analysis and bulk actions) |
-| **Attribution** | Cloud Tracking — web/Shopify | Adjust integration, other MMPs on request |
 | **API** | Closed (Shopify, GA, Facebook) | Open API with documentation |
 | **Platforms (management)** | Meta only | Meta + TikTok, others on request |
 | **Creative AI** | AI generation + scoring | No |
@@ -148,9 +154,11 @@ Scalemate doesn't do AI audiences. Doesn't score creatives. Doesn't build report
 
 It automates the part between "we know what to run" and "it's live across all markets." The operational layer.
 
-**Launch templates.** Define any campaign structure once — one campaign per concept, one ad set per ad, localized creatives per GEO, or whatever setup your team uses. Save it as a template. Next launch: pick the template, add creatives, go. No rebuilding the structure manually each time. No limit on ad sets. Separate templates for different workflows — one for creative testing, another for scaling winners. Meta and TikTok.
+**Bulk ad launch.** Upload creatives to Google Drive, pick a saved template with the campaign structure you need, and launch ads in any combination of creatives, audiences, and placements at once. Templates are reusable: set up once, launch again next week without rebuilding anything. Once ads are live, automation rules take over: pause what underperforms, scale what works. The full cycle from creative to live ad to optimized campaign runs without manual steps in between.
 
 **Drive sync.** Connect a Google Drive folder. New assets sync automatically — no duplicates, no re-uploading. Creatives go straight to your library or directly into campaigns. The download-upload-rename cycle? Gone.
+
+**Automation rules.** Set performance thresholds once: ROAS floor, CPI cap, spend limit. Rules run 24/7 and auto-pause underperformers, scale winners, or adjust bids without manual checks. Built-in rollback reverses scaling if performance drops after a budget increase. Budget protection that works anytime, not just during office hours.
 
 **Open API.** Documented, ready to connect. Launch ads from your creative library in Airtable. Trigger campaigns from internal analytics. Build workflows around how your team already operates — not around someone else's UI.
 
@@ -168,7 +176,7 @@ The trade-off is real: no AI-driven audience discovery, no creative generation, 
 
 ## Revealbot (Birch) — Quick Note
 
-Comes up in Madgicx comparisons. Short version: Birch focuses on rule-based automation across Meta, Google, Snap, and TikTok. From $49/mo. No AI audiences, no creative generation — automation rules engine. If cross-platform rules are the primary need, worth evaluating. Birch published [their own Madgicx comparison](https://bir.ch/blog/birch-vs-madgicx){rel="nofollow noopener" target="_blank"}.
+Comes up when evaluating Madgicx alternatives and competitors. In a Madgicx vs Revealbot comparison, the key difference is scope: Birch focuses on rule-based automation across Meta, Google, Snap, and TikTok. From $49/mo. No AI audiences, no creative generation — automation rules engine. If cross-platform rules are the primary need, worth evaluating. Birch published [their own Madgicx comparison](https://bir.ch/blog/birch-vs-madgicx){rel="nofollow noopener" target="_blank"}.
 
 ---
 
