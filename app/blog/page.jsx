@@ -1,44 +1,14 @@
 import Container from "@/components/elements/Container/Container"
 import CtaSection from "@/app/use-cases/_components/CtaSection/CtaSection"
 import BlogArticleCard from "@/components/blog/BlogArticleCard"
-import { client } from "@/lib/contentful"
+import { getAllArticles } from "@/lib/blog"
 import { pageMetadata } from "../metadata"
 import styles from "./page.module.scss"
 
 export const metadata = pageMetadata.blog
 
-export const revalidate = 3600
-
-export default async function BlogPage() {
-  const response = await client.getEntries({
-    content_type: "blogpost",
-    locale: "en-US",
-    order: ["-sys.createdAt"],
-  })
-
-  const articles = response.items.map((item) => {
-    const cover = item.fields.imageCover?.fields?.file
-    const coverUrl = cover?.url ? (cover.url.startsWith("//") ? `https:${cover.url}` : cover.url) : null
-    const coverWidth = cover?.details?.image?.width || 800
-    const coverHeight = cover?.details?.image?.height || 450
-
-    const coverAlt =
-      item.fields.imageCover?.fields?.description ||
-      item.fields.imageCover?.fields?.title ||
-      item.fields.title
-
-    return {
-      id: item.sys.id,
-      slug: item.fields.slug,
-      title: item.fields.title,
-      excerpt: item.fields.metaDescription || null,
-      createdAt: item.sys.createdAt,
-      coverUrl,
-      coverWidth,
-      coverHeight,
-      coverAlt,
-    }
-  })
+export default function BlogPage() {
+  const articles = getAllArticles()
 
   const blogSchema = {
     "@context": "https://schema.org",

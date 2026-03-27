@@ -1,4 +1,5 @@
 import { client } from "@/lib/contentful"
+import { getAllArticles } from "@/lib/blog"
 
 export default async function sitemap() {
   // Fetch all case studies
@@ -17,15 +18,10 @@ export default async function sitemap() {
     }
   })
 
-  // Fetch all blog articles
-  const articlesResponse = await client.getEntries({
-    content_type: "blogpost",
-    locale: "en-US",
-  })
-
-  const articleEntries = articlesResponse.items.map((item) => ({
-    url: `https://www.scalemate.co/blog/${item.fields.slug}`,
-    lastModified: new Date(item.sys.updatedAt || item.sys.createdAt),
+  // Blog articles from local markdown files
+  const articleEntries = getAllArticles().map((article) => ({
+    url: `https://www.scalemate.co/blog/${article.slug}`,
+    lastModified: new Date(article.updatedAt || article.createdAt),
     changeFrequency: "weekly",
     priority: 0.8,
   }))

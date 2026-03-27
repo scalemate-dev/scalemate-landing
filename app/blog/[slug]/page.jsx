@@ -2,72 +2,31 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { IconArrowLeft } from "@tabler/icons-react"
 import Container from "@/components/elements/Container/Container"
-import RichTextElements from "@/components/contentful/RichText/RichTextElements"
+import MarkdownContent from "@/components/blog/MarkdownContent"
 import TableOfContents from "@/components/blog/TableOfContents/TableOfContents"
 import BlogArticleTracker from "@/components/blog/BlogArticleTracker"
 import FAQ from "@/components/FAQ/FAQ"
 import CtaSection from "@/app/use-cases/_components/CtaSection/CtaSection"
-import { client, previewClient } from "@/lib/contentful"
-import { extractHeadings } from "@/lib/richtext"
+import { getArticleBySlug, getAllSlugs } from "@/lib/blog"
 import styles from "./page.module.scss"
 
-const previewAccessToken = process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
-
-export const revalidate = 3600
-
-export async function generateStaticParams() {
-  const entries = await client.getEntries({
-    content_type: "blogpost",
-    locale: "en-US",
-    select: "fields.slug",
-  })
-
-  return entries.items.map((item) => ({
-    slug: item.fields.slug,
-  }))
+export function generateStaticParams() {
+  return getAllSlugs().map((slug) => ({ slug }))
 }
 
-async function getArticle(slug, preview = false) {
-  const isPreview = preview === previewAccessToken
-  const currentClient = isPreview ? previewClient : client
-
-  const entries = await currentClient.getEntries({
-    content_type: "blogpost",
-    "fields.slug": slug,
-    locale: "en-US",
-    include: 10,
-  })
-
-  if (!entries.items.length) {
-    return null
-  }
-
-  return entries.items[0]
-}
-
-export async function generateMetadata({ params, searchParams }) {
-  const { slug } = await params
-  const { preview } = await searchParams
-  const isPreview = preview === previewAccessToken
-  const article = await getArticle(slug, preview)
+export async function generateMetadata({ params }) {
+  const { slug } = (await params)
+  const article = getArticleBySlug(slug)
 
   if (!article) {
     return {}
   }
 
-  const title = article.fields.title
+  const title = article.title
   const description =
-    article.fields.metaDescription || `Read about ${title.toLowerCase()} on the Scalemate blog.`
+    article.metaDescription || `Read about ${title.toLowerCase()} on the Scalemate blog.`
 
-  const authorField = article.fields.author
-  const author = typeof authorField === "string"
-    ? authorField
-    : authorField?.fields?.name || "Scalemate Team"
-
-  const cover = article.fields.imageCover?.fields?.file
-  const ogImage = cover?.url
-    ? cover.url.startsWith("//") ? `https:${cover.url}` : cover.url
-    : "/og-image.png"
+  const ogImage = article.coverImage || "/og-image.png"
 
   return {
     title: `${title} | Scalemate Blog`,
@@ -75,15 +34,14 @@ export async function generateMetadata({ params, searchParams }) {
     alternates: {
       canonical: `https://www.scalemate.co/blog/${slug}`,
     },
-    ...(isPreview && { robots: { index: false, follow: false } }),
     openGraph: {
       url: `https://www.scalemate.co/blog/${slug}`,
       title: `${title} | Scalemate Blog`,
       description,
       type: "article",
-      publishedTime: article.sys.createdAt,
-      modifiedTime: article.sys.updatedAt,
-      authors: [author],
+      publishedTime: article.createdAt,
+      modifiedTime: article.updatedAt,
+      authors: [article.author],
       images: [{ url: ogImage }],
     },
     twitter: {
@@ -95,51 +53,31 @@ export async function generateMetadata({ params, searchParams }) {
   }
 }
 
-export default async function ArticlePage({ params, searchParams }) {
-  const { slug } = await params
-  const { preview } = await searchParams
-  const article = await getArticle(slug, preview)
+export default async function ArticlePage({ params }) {
+  const { slug } = (await params)
+  const article = getArticleBySlug(slug)
 
   if (!article) {
     return notFound()
   }
 
-  const title = article.fields.title
-  const authorField = article.fields.author
-  const author = typeof authorField === "string"
-    ? authorField
-    : authorField?.fields?.name || "Scalemate Team"
-
-  const date = new Date(article.sys.createdAt).toLocaleDateString("en-US", {
+  const date = new Date(article.createdAt).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
   })
 
-  const headings = extractHeadings(article.fields.mainContent)
-
-  const faqItems =
-    article.fields.faq?.map((item) => ({
-      question: item.fields.question,
-      answer: item.fields.answer,
-    })) || []
-
-  const cover = article.fields.imageCover?.fields?.file
-  const coverUrl = cover?.url
-    ? cover.url.startsWith("//") ? `https:${cover.url}` : cover.url
-    : null
-
-  const isPersonAuthor = typeof authorField !== "string" && authorField?.fields?.name
+  const isPersonAuthor = article.author !== "Scalemate Team"
 
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: title,
-    description: article.fields.metaDescription || undefined,
+    headline: article.title,
+    description: article.metaDescription || undefined,
     url: `https://www.scalemate.co/blog/${slug}`,
-    ...(coverUrl && { image: coverUrl }),
+    ...(article.coverImage && { image: article.coverImage }),
     author: isPersonAuthor
-      ? { "@type": "Person", name: author }
+      ? { "@type": "Person", name: article.author }
       : { "@type": "Organization", name: "Scalemate", url: "https://www.scalemate.co" },
     publisher: {
       "@type": "Organization",
@@ -150,8 +88,8 @@ export default async function ArticlePage({ params, searchParams }) {
         url: "https://www.scalemate.co/logo.png",
       },
     },
-    datePublished: article.sys.createdAt,
-    dateModified: article.sys.updatedAt,
+    datePublished: article.createdAt,
+    dateModified: article.updatedAt,
   }
 
   const breadcrumbSchema = {
@@ -159,16 +97,16 @@ export default async function ArticlePage({ params, searchParams }) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Blog", item: "https://www.scalemate.co/blog" },
-      { "@type": "ListItem", position: 2, name: title, item: `https://www.scalemate.co/blog/${slug}` },
+      { "@type": "ListItem", position: 2, name: article.title, item: `https://www.scalemate.co/blog/${slug}` },
     ],
   }
 
   const faqSchema =
-    faqItems.length > 0
+    article.faqItems.length > 0
       ? {
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          mainEntity: faqItems.map((item) => ({
+          mainEntity: article.faqItems.map((item) => ({
             "@type": "Question",
             name: item.question,
             acceptedAnswer: {
@@ -181,7 +119,7 @@ export default async function ArticlePage({ params, searchParams }) {
 
   return (
     <div>
-      <BlogArticleTracker slug={slug} title={title} author={author} />
+      <BlogArticleTracker slug={slug} title={article.title} author={article.author} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
@@ -206,11 +144,11 @@ export default async function ArticlePage({ params, searchParams }) {
             </Link>
           </div>
           <div className={styles.heroContent}>
-            <time className={styles.date} dateTime={article.sys.createdAt}>
+            <time className={styles.date} dateTime={article.createdAt}>
               {date}
             </time>
-            <h1 className={styles.title}>{title}</h1>
-            <p className={styles.byline}>by {author}</p>
+            <h1 className={styles.title}>{article.title}</h1>
+            <p className={styles.byline}>by {article.author}</p>
           </div>
         </Container>
       </section>
@@ -218,22 +156,19 @@ export default async function ArticlePage({ params, searchParams }) {
       <section className={styles.contentSection}>
         <Container>
           <div className={styles.layout}>
-            {headings.length > 0 && (
+            {article.headings.length > 0 && (
               <aside className={styles.sidebar}>
-                <TableOfContents headings={headings} />
+                <TableOfContents headings={article.headings} />
               </aside>
             )}
             <article className={styles.article}>
-              <RichTextElements
-                document={article.fields.mainContent}
-                withHeadingIds
-              />
+              <MarkdownContent html={article.html} />
             </article>
           </div>
         </Container>
       </section>
 
-      {faqItems.length > 0 && <FAQ faqItems={faqItems} theme="light" />}
+      {article.faqItems.length > 0 && <FAQ faqItems={article.faqItems} theme="light" />}
 
       <CtaSection
         title="Scale your ad launches today"
