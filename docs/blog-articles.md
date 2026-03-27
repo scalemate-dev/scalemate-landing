@@ -29,13 +29,48 @@ faq:
 ---
 ```
 
+## Supported elements
+
+Standard GFM markdown. Renderer (`lib/blog.js`) + styles (`RichText.module.scss`).
+
+**Headings:** `## H2` and `### H3` only in body. Auto-generate TOC, get anchor IDs. Don't use `# H1` — rendered from frontmatter `title`.
+
+**Paragraphs:** Plain text separated by blank lines.
+
+**Bold / italic:** `**bold**` renders with darker ink color. `*italic*` as expected.
+
+**Links:**
+- External: `[text](https://example.com)` — auto-adds `target="_blank" rel="noopener noreferrer nofollow"`
+- Internal: `[text](/pricing)` — plain link, no target
+- Do NOT use `{rel="nofollow" target="_blank"}` after links — not standard markdown, renders as visible text
+
+**Lists:**
+- Unordered: `- item` — orange dot bullets, no native disc
+- Ordered: `1. item` — orange numbered markers
+
+**Blockquotes:** `> text` — orange left border, warm background. Supports bold/links inside.
+
+**Tables:** Standard GFM pipe syntax. Responsive with horizontal scroll on mobile.
+
+```
+| Header 1 | Header 2 |
+|---|---|
+| Cell | Cell |
+```
+
+**Images:** `![alt](url)` — rounded corners, full width. Place images in `public/blog/` and reference as `/blog/filename.jpg`.
+
+**Code blocks:** Triple backticks. Dark background, monospace font.
+
+**Horizontal rules:** `---` — thin divider line.
+
+**Not supported:** HTML tags, footnotes, custom attributes (`{.class}`), embeds, iframes.
+
 ## Rules
 
 - `slug` must match filename (e.g. `my-post.md` → `slug: my-post`)
 - `metaDescription` < 160 chars
 - FAQ answers are plain text (used in JSON-LD schema)
-- External links: standard markdown `[text](url)` — renderer adds `target="_blank"` automatically
-- Internal links: `[text](/path)` — no target added
-- Tables use standard GFM markdown syntax
-- Headings H2/H3 auto-generate TOC and get anchor IDs
-- Don't use H1 in body — it's rendered from `title` field
+- Headings H2/H3 auto-generate TOC — keep heading text concise for sidebar readability
+- One blank line between all block elements
+- No trailing spaces or tabs
