@@ -11,7 +11,7 @@ faq:
   - question: "Is Madgicx worth it?"
     answer: "For e-commerce teams on Meta at $5–20K/mo — yes. AI audiences and creative intelligence cover the optimization side well. For teams with high volumes across multiple platforms, the value is limited. Madgicx doesn't automate execution at scale or manage campaigns beyond Meta."
   - question: "What is the best Madgicx alternative?"
-    answer: "Depends on the gap. Birch for cross-platform automation rules. Scalemate for bulk execution, creative pipeline, and multi-platform campaign management. Triple Whale or Supermetrics for reporting. Each one addresses a different Madgicx limitation."
+    answer: "Depends on the gap. Birch for cross-platform automation rules. Scalemate for bulk ad launches, campaign auto-optimization, and multi-platform ad operations. Triple Whale or Supermetrics for reporting. Each one addresses a different Madgicx limitation."
   - question: "Does Madgicx work with TikTok?"
     answer: "Reporting only. TikTok data shows in dashboards, but campaign management — creating ads, running rules, adjusting budgets — is Meta only."
   - question: "How much does Madgicx cost?"
