@@ -17,6 +17,15 @@ export const trackAuditStarted = () => {
   }
 }
 
+export const trackQuizEmailSent = () => {
+  try {
+    window.dataLayer = window.dataLayer || []
+    window.dataLayer.push({ event: "funnel_1_quiz_email_sent" })
+  } catch (error) {
+    console.error("Failed to track quiz email sent:", error)
+  }
+}
+
 export const trackQuizLead = () => {
   try {
     window.dataLayer = window.dataLayer || []

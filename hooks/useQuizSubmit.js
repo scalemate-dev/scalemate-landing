@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { validateEmail } from "@/helpers/emails"
 import { submitQuizAnswers } from "@/lib/api/quizApi"
+import { trackQuizEmailSent } from "@/helpers/trackGTM"
 
 export function useQuizSubmit({
   totalSteps,
@@ -59,6 +60,7 @@ export function useQuizSubmit({
         answer: email.split("@")[1],
       })
       trackSubmitted(email)
+      trackQuizEmailSent()
       sessionStorage.setItem("quiz_email", email)
       onBeforeRedirect?.(answers)
       router.push(buildRedirectUrl(answers))
