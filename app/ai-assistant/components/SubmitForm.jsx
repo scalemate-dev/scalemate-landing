@@ -31,7 +31,7 @@ function FormWithSearchParams({
   return (
     <form onSubmit={handleSubmit} className={styles.heroForm}>
       <Input
-        placeholder="Enter your business email"
+        placeholder="Enter your email"
         className={styles.heroFormInput}
         darkTheme
         value={email}
@@ -45,7 +45,7 @@ function FormWithSearchParams({
             <IconCheck size={20} />
           </>
         ) : (
-          "Get early access"
+          "Try for free"
         )}
       </Button>
     </form>
