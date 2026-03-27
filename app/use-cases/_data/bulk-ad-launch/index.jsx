@@ -4,24 +4,24 @@ import { SyncVisual, ConfigVisual, LaunchVisual } from "./HowItWorksVisuals"
 export const data = {
   metadata: {
     title:
-      "Automate Facebook Ads Launch – Hundreds of Ads in Minutes | Scalemate",
+      "Bulk Ad Launch Tool – Launch Hundreds of Ads in Minutes | Scalemate",
     description:
-      "Automate facebook ads launch. Deploy hundreds of ad sets from one setup instead of building each by hand. Fight ad fatigue with faster creative testing.",
+      "Bulk ad launch tool that removes the manual grind from campaign deployment. Deploy hundreds of ad sets from one setup instead of building each by hand.",
     alternates: {
       canonical: "https://www.scalemate.co/use-cases/bulk-ad-launch",
     },
     openGraph: {
       title:
-        "Automate Facebook Ads Launch — Hundreds of Ads in Minutes | Scalemate",
+        "Bulk Ad Launch Tool — Launch Hundreds of Ads in Minutes | Scalemate",
       description:
-        "A creative automation platform that removes the manual grind from campaign deployment. Bulk-create hundreds of ad sets and launch at scale.",
+        "A bulk ad launch tool that removes the manual grind from campaign deployment. Bulk-create hundreds of ad sets and launch at scale.",
       url: "https://www.scalemate.co/use-cases/bulk-ad-launch",
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
       title:
-        "Automate Facebook Ads Launch — Hundreds of Ads in Minutes | Scalemate",
+        "Bulk Ad Launch Tool — Launch Hundreds of Ads in Minutes | Scalemate",
       description:
         "Bulk-create hundreds of ad sets, sync creatives from cloud storage, and launch at scale with Scalemate.",
     },
@@ -29,10 +29,10 @@ export const data = {
 
   hero: {
     label: "Ads launcher",
-    title: "Automate Facebook Ads:",
-    titleAccent: "Launch Hundreds of Ads in Minutes",
+    title: "Launch Hundreds of Ads with",
+    titleAccent: "Bulk Ad Launch Tool",
     description:
-      "One setup replaces hours of manual work. Automate facebook ads launch and go from \"creative is ready\" to live campaigns in minutes. The full workflow covers:",
+      "One setup replaces hours of manual work. Go from \"creative is ready\" to live campaigns in minutes. The full workflow covers:",
     features: [
       "Hundreds of ad sets from one setup",
       "Sync creatives from cloud storage",
@@ -69,7 +69,7 @@ export const data = {
 
   beforeAfter: {
     eyebrow: "The Difference",
-    title: "What Changes When You Automate Facebook Ads",
+    title: "What Changes with Bulk Ad Launch",
     subtitle: "The gap between manual and automated deployment is measurable.",
     before: {
       title: "Manual setup eats entire week",
@@ -79,7 +79,7 @@ export const data = {
       title: "Hundreds of Ads from one setup",
       text: (
         <>
-          Scalemate&apos;s <strong>creative automation platform</strong> automates the
+          Scalemate&apos;s <strong>bulk ad launch tool</strong> automates the
           entire deployment – creatives sync from cloud storage, campaign
           structures configured once, applied across hundreds of ad sets.
         </>
@@ -95,12 +95,12 @@ export const data = {
       },
     ],
     leadIn:
-      "Teams used to spend hours setting up each campaign and ad manually. Now they automate facebook ads in minutes, and invest that time into creative analytics instead.",
+      "Teams used to spend hours setting up each campaign and ad manually. Now bulk ad launch handles the deployment in minutes, and the time goes back to creative analytics and strategy.",
   },
 
   howItWorks: {
     eyebrow: "How It Works",
-    title: "How to Automate Facebook Ads Launch",
+    title: "How the Bulk Ad Launch Tool Works",
     subtitle:
       "Three steps replace the manual pipeline — from cloud storage to live campaigns across Meta & TikTok.",
     steps: [
@@ -130,7 +130,7 @@ export const data = {
         number: "03",
         title: "Launch all Ads at once",
         description:
-          "Deploy hundreds of ads in one action — use it as an ad testing tool to get performance data fast, then scale what works. Campaigns go live across Meta and TikTok instantly — no platform switching.",
+          "Deploy hundreds of ads in one action. Campaigns go live across Meta and TikTok instantly — no platform switching, no building each ad set by hand.",
         Visual: LaunchVisual,
       },
     ],
@@ -138,8 +138,8 @@ export const data = {
 
   results: {
     eyebrow: "Proven Results",
-    title: "Proven Results: Faster Ad Testing,",
-    titleAccent: "Less Manual Work",
+    title: "Results Teams Get With the",
+    titleAccent: "Bulk Ad Launch Tool",
     subtitle:
       "Two examples — from education to gaming, across web and mobile apps.",
     caseStudies: [
@@ -175,14 +175,13 @@ export const data = {
   audience: {
     title: "Who Bulk Ad Launch Is For",
     subtitle:
-      "Built for teams where campaign volume outpaces capacity – a creative automation platform removes a different bottleneck for each function.",
+      "Built for teams where campaign volume outpaces capacity – bulk ad launch removes a different bottleneck for each function.",
     roles: [
       {
         role: "Media Buyers & Performance Managers",
         description: (
           <>
-            Spend less time on manual setup and more on facebook ads reporting
-            and optimization.{" "}
+            Spend less time on manual setup, more on optimization and strategy.{" "}
             <Link href="/solutions/media-buyers">
               See how media buyers use Scalemate →
             </Link>
@@ -214,6 +213,11 @@ export const data = {
   },
 
   faq: [
+    {
+      question: "What is a bulk ad launch tool?",
+      answer:
+        "A bulk ad launch tool automates the creation and deployment of multiple ad sets simultaneously, replacing the manual process of building each campaign element by hand inside an ad platform. Instead of configuring each ad set individually \u2014 selecting creatives, setting targeting, assigning budgets \u2014 the tool applies one configuration across hundreds of ad sets at once. This is especially valuable for teams running multi-language, multi-concept campaigns where combinations multiply quickly.",
+    },
     {
       question: "How many ads can Scalemate launch at once?",
       answer:
@@ -270,6 +274,6 @@ export const data = {
   cta: {
     title: "Get Started Free",
     description:
-      "Automate facebook ads at scale with a tool built for high-volume marketing teams.",
+      "Replace slow campaign launches with a bulk ad launch tool built for high-volume marketing teams.",
   },
 }
