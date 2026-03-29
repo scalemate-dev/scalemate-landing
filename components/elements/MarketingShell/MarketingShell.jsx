@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation"
 
 const BARE_ROUTES = [
   "/ad-creative-uploader/get-started",
+  "/lp",
 ]
 
 export default function MarketingShell({ children }) {

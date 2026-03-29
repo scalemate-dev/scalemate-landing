@@ -1,0 +1,1121 @@
+@use "variables" as vars;
+
+// ── Tokens (from use-cases design system) ──
+$lp-ink: #1a1614;
+$lp-body: #475467;
+$lp-stone: #9C9890;
+$lp-accent: #f97316;
+$lp-accent-hover: #fb923c;
+$lp-accent-light: #fdba74;
+$lp-accent-deep: #ea580c;
+$lp-bg-warm: #faf9f6;
+$lp-bg-sand: #F3F0EB;
+$lp-card-dark: #171412;
+$lp-line: #DDD9D2;
+$lp-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+// ── Animations ──
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba($lp-accent, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba($lp-accent, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba($lp-accent, 0);
+  }
+}
+
+// ── Page ──
+
+.page {
+  background: $lp-bg-warm;
+}
+
+// ═══════════════════════════════════════════
+// Screen 1 — Hero + Video
+// ═══════════════════════════════════════════
+
+.hero {
+  position: relative;
+  padding: 80px 0 100px;
+  background: linear-gradient(168deg, #fefdfb 0%, #fff8f3 45%, #fefefe 100%);
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+      circle,
+      rgba(0, 0, 0, 0.03) 1px,
+      transparent 1px
+    );
+    background-size: 32px 32px;
+    mask-image: radial-gradient(
+      ellipse 65% 55% at 50% 30%,
+      rgba(0, 0, 0, 0.45) 0%,
+      transparent 70%
+    );
+    -webkit-mask-image: radial-gradient(
+      ellipse 65% 55% at 50% 30%,
+      rgba(0, 0, 0, 0.45) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: -5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(
+      circle,
+      rgba($lp-accent, 0.06) 0%,
+      rgba($lp-accent, 0.02) 40%,
+      transparent 65%
+    );
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    animation: breathe 12s ease-in-out infinite;
+  }
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: vars.$font-body;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: $lp-stone;
+  margin-bottom: 20px;
+}
+
+.heroTitle {
+  font-family: vars.$font-heading;
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: $lp-ink;
+  margin: 0 0 24px;
+}
+
+.heroAccent {
+  background: linear-gradient(
+    90deg,
+    $lp-accent-deep 0%,
+    $lp-accent 25%,
+    $lp-accent-light 50%,
+    $lp-accent 75%,
+    $lp-accent-deep 100%
+  );
+  background-size: 300% 100%;
+  background-position: 200% center;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 5s ease-in-out infinite alternate;
+}
+
+.heroSub {
+  font-family: vars.$font-body;
+  font-size: 18px;
+  line-height: 1.7;
+  color: $lp-body;
+  margin: 0 0 32px;
+  max-width: 520px;
+}
+
+.heroCta {
+  display: inline-flex;
+  align-items: center;
+  padding: 16px 40px;
+  background: $lp-accent;
+  min-width: 256px;
+  color: #ffffff;
+  border-radius: 10px;
+  font-family: vars.$font-body;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s $lp-ease, transform 0.3s $lp-ease;
+  margin-bottom: 12px;
+  animation: pulse 2.4s ease-out infinite;
+
+  &:hover {
+    background: $lp-accent-hover;
+    transform: translateY(-2px);
+    animation: none;
+  }
+}
+
+.heroMicro {
+  font-family: vars.$font-body;
+  font-size: 13px;
+  color: $lp-stone;
+  margin: 0 0 44px;
+}
+
+// ── Video card button ──
+
+.videoCard {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto 44px;
+  padding: 16px 32px 16px 16px;
+  background: linear-gradient(168deg, #FFFFFF 0%, #FBF8F4 100%);
+  border: 1px solid $lp-line;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.4s $lp-ease;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(42, 39, 36, 0.04),
+    0 8px 32px rgba(42, 39, 36, 0.06);
+
+  &:hover {
+    border-color: #C5C1BA;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 16px rgba(42, 39, 36, 0.06),
+      0 16px 48px rgba(42, 39, 36, 0.1);
+  }
+}
+
+.videoThumb {
+  position: relative;
+  flex-shrink: 0;
+  width: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+
+  video {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.playOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.25);
+  transition: background 0.3s ease;
+
+  .videoCard:hover & {
+    background: rgba(0, 0, 0, 0.35);
+  }
+}
+
+.videoCardText {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.videoCardTitle {
+  font-family: vars.$font-heading;
+  font-weight: 700;
+  font-size: 22px;
+  color: $lp-ink;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.videoCardSub {
+  font-family: vars.$font-body;
+  font-size: 15px;
+  color: $lp-stone;
+}
+
+// ── Trust bar ──
+
+.trustBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.trustLabel {
+  font-family: vars.$font-body;
+  font-size: 13px;
+  color: $lp-stone;
+  font-weight: 500;
+}
+
+.trustItems {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.trustIcon {
+  flex-shrink: 0;
+}
+
+.trustItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: vars.$font-body;
+  font-size: 13px;
+  font-weight: 600;
+  color: $lp-ink;
+  letter-spacing: -0.01em;
+}
+
+.trustDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: $lp-line;
+  flex-shrink: 0;
+}
+
+// ═══════════════════════════════════════════
+// Screen 2 — Social Proof (ResultsSection style)
+// ═══════════════════════════════════════════
+
+.proof {
+  position: relative;
+  padding: 148px 0;
+  background: $lp-bg-sand;
+  overflow: hidden;
+}
+
+.proofHeader {
+  margin-bottom: 72px;
+}
+
+.proofEyebrow {
+  display: block;
+  font-family: vars.$font-body;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: $lp-stone;
+  margin-bottom: 32px;
+}
+
+.proofHeaderGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+}
+
+.proofTitle {
+  font-family: vars.$font-heading;
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  color: $lp-ink;
+  margin: 0;
+  font-style: normal;
+}
+
+.proofTitleAccent {
+  font-style: italic;
+  color: $lp-accent;
+}
+
+.proofHeaderAside {
+  font-family: vars.$font-body;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.7;
+  color: $lp-body;
+  margin: 0;
+  max-width: 400px;
+  margin-left: auto;
+}
+
+.proofCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.proofCard {
+  background: $lp-card-dark;
+  border-radius: 22px;
+  padding: 40px 40px 36px;
+  display: flex;
+  flex-direction: column;
+}
+
+.proofCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.proofCompany {
+  font-family: vars.$font-heading;
+  font-weight: 700;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.proofVertical {
+  font-family: vars.$font-body;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.proofCardText {
+  font-family: vars.$font-body;
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0 0 28px;
+  flex-grow: 1;
+}
+
+.proofMetrics {
+  display: flex;
+  gap: 0;
+  margin-bottom: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 24px;
+}
+
+.proofMetric {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-right: 16px;
+
+  &:not(:first-child) {
+    padding-left: 16px;
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+.proofValue {
+  font-family: vars.$font-heading;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+
+.proofMetricLabel {
+  font-family: vars.$font-body;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.35);
+  line-height: 1.4;
+}
+
+.proofCardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: vars.$font-body;
+  font-size: 14px;
+  font-weight: 500;
+  color: $lp-accent;
+  text-decoration: none;
+  width: fit-content;
+  transition: color 0.3s ease;
+
+  svg {
+    transition: transform 0.4s $lp-ease;
+  }
+
+  &:hover {
+    color: $lp-accent-hover;
+
+    svg {
+      transform: translateX(4px);
+    }
+  }
+}
+
+// ═══════════════════════════════════════════
+// Screen 3 — CTA (use-cases style)
+// ═══════════════════════════════════════════
+
+.ctaWrapper {
+  background: vars.$color-jet-black;
+}
+
+.cta {
+  padding: 100px 0;
+  background: linear-gradient(
+      45deg,
+      rgba(50, 45, 47, 0.2) 50%,
+      rgba(251, 214, 119, 0.2) 100%
+    ),
+    vars.$color-jet-black;
+  border-radius: 0px 0px 60px 60px;
+}
+
+.ctaContent {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+
+  h2 {
+    font-family: vars.$font-heading;
+    font-weight: 700;
+    font-size: 42px;
+    color: #ffffff;
+    margin: 0 0 12px;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    font-family: vars.$font-body;
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0 0 36px;
+    line-height: 1.6;
+  }
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  background: $lp-accent;
+  color: #ffffff;
+  border-radius: 10px;
+  font-family: vars.$font-body;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s $lp-ease;
+
+  &:hover {
+    background: $lp-accent-hover;
+    transform: translateY(-2px);
+  }
+}
+
+.ctaMicro {
+  font-family: vars.$font-body;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.35);
+  margin: 0;
+}
+
+// ═══════════════════════════════════════════
+// Screen 4 — FAQ
+// ═══════════════════════════════════════════
+
+.faq {
+  padding: 80px 0 120px;
+  background: $lp-bg-warm;
+}
+
+// ═══════════════════════════════════════════
+// Video Modal
+// ═══════════════════════════════════════════
+
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: vars.$color-jet-black;
+  box-shadow: 0 32px 100px rgba(0, 0, 0, 0.6);
+}
+
+.modalClose {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 3;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.75);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.modalVideo {
+  position: relative;
+  background: #000;
+
+  video {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.modalBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 24px;
+  background: vars.$color-jet-black;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.modalBarText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.modalBarTitle {
+  font-family: vars.$font-body;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.4;
+}
+
+.modalBarSub {
+  font-family: vars.$font-body;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.4;
+}
+
+.modalBarCta {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: $lp-accent;
+  color: #ffffff;
+  border-radius: 10px;
+  font-family: vars.$font-body;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.3s $lp-ease;
+
+  &:hover {
+    background: $lp-accent-hover;
+    transform: translateY(-1px);
+  }
+}
+
+// ═══════════════════════════════════════════
+// Responsive
+// ═══════════════════════════════════════════
+
+@include vars.desktop-s {
+  .heroTitle {
+    font-size: 48px;
+  }
+
+  .ctaContent h2 {
+    font-size: 38px;
+  }
+}
+
+@include vars.tablet-horizontal {
+  .hero {
+    padding: 64px 0 80px;
+
+    &::after {
+      width: 500px;
+      height: 500px;
+    }
+  }
+
+  .heroTitle {
+    font-size: 40px;
+  }
+
+  .heroSub {
+    font-size: 16px;
+  }
+
+  .videoCard {
+    gap: 24px;
+    padding: 14px 28px 14px 14px;
+  }
+
+  .videoThumb {
+    width: 170px;
+  }
+
+  .videoCardTitle {
+    font-size: 19px;
+  }
+
+  .modalBarCta {
+    padding: 11px 20px;
+    font-size: 13px;
+  }
+
+  .proof {
+    padding: 112px 0 104px;
+  }
+
+  .proofHeader {
+    margin-bottom: 52px;
+  }
+
+  .proofHeaderGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .proofTitle {
+    font-size: 40px;
+  }
+
+  .proofHeaderAside {
+    font-size: 15px;
+    max-width: 480px;
+  }
+
+  .proofCards {
+    gap: 20px;
+  }
+
+  .proofCard {
+    padding: 32px 32px 28px;
+    border-radius: 18px;
+  }
+
+  .proofValue {
+    font-size: 18px;
+  }
+
+  .proofMetric {
+    padding-right: 12px;
+
+    &:not(:first-child) {
+      padding-left: 12px;
+    }
+  }
+
+  .cta {
+    padding: 80px 0;
+    border-radius: 0px 0px 30px 30px;
+  }
+
+  .ctaContent h2 {
+    font-size: 34px;
+  }
+}
+
+@include vars.tablet-vertical {
+  .modalBackdrop {
+    padding: 20px;
+  }
+
+  .modal {
+    border-radius: 12px;
+  }
+
+  .modalBar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 16px 20px;
+  }
+
+  .modalBarCta {
+    justify-content: center;
+    padding: 14px 24px;
+  }
+
+  .hero {
+    padding: 48px 0 60px;
+
+    &::after {
+      width: 350px;
+      height: 350px;
+    }
+  }
+
+  .heroTitle {
+    font-size: 34px;
+  }
+
+  .heroSub {
+    font-size: 15px;
+    margin-bottom: 28px;
+  }
+
+  .heroCta {
+    margin-bottom: 36px;
+  }
+
+  .videoCard {
+    gap: 20px;
+    padding: 12px 20px 12px 12px;
+    margin-bottom: 32px;
+    border-radius: 16px;
+  }
+
+  .videoThumb {
+    width: 140px;
+    border-radius: 10px;
+  }
+
+  .videoCardTitle {
+    font-size: 17px;
+  }
+
+  .videoCardSub {
+    font-size: 13px;
+  }
+
+  .proof {
+    padding: 88px 0 80px;
+  }
+
+  .proofHeader {
+    margin-bottom: 44px;
+  }
+
+  .proofEyebrow {
+    margin-bottom: 24px;
+  }
+
+  .proofTitle {
+    font-size: 34px;
+  }
+
+  .proofCards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .proofCard {
+    padding: 28px 28px 24px;
+  }
+
+  .proofCardTop {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .proofMetrics {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .proofMetric {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 12px;
+    padding-right: 0;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+    &:not(:first-child) {
+      padding-left: 0;
+      border-left: none;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+
+  .proofValue {
+    font-size: 20px;
+    min-width: 72px;
+    flex-shrink: 0;
+  }
+
+  .proofMetricLabel {
+    font-size: 13px;
+  }
+
+  .cta {
+    padding: 64px 0;
+  }
+
+  .ctaContent {
+    h2 {
+      font-size: 26px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+  }
+
+  .ctaButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .faq {
+    padding: 60px 0 80px;
+  }
+}
+
+@include vars.mobile {
+  .modalBackdrop {
+    padding: 12px;
+    align-items: center;
+  }
+
+  .modal {
+    border-radius: 10px;
+  }
+
+  .modalClose {
+    width: 32px;
+    height: 32px;
+    top: 8px;
+    right: 8px;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .modalBar {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .modalBarTitle {
+    font-size: 13px;
+  }
+
+  .modalBarSub {
+    font-size: 12px;
+  }
+
+  .modalBarCta {
+    padding: 12px 20px;
+    font-size: 13px;
+  }
+
+  .hero {
+    padding: 36px 0 44px;
+
+    &::before {
+      background-size: 28px 28px;
+    }
+
+    &::after {
+      width: 240px;
+      height: 240px;
+      opacity: 0.6;
+    }
+  }
+
+  .heroTitle {
+    font-size: 28px;
+    letter-spacing: -0.025em;
+  }
+
+  .heroSub {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .heroCta {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+
+  .videoCard {
+    border-radius: 14px;
+    margin-bottom: 28px;
+  }
+
+  .videoCardTitle {
+    font-size: 16px;
+  }
+
+  .videoCardSub {
+    font-size: 13px;
+  }
+
+  .trustBar {
+    gap: 8px;
+  }
+
+  .trustLabel,
+  .trustItem {
+    font-size: 12px;
+  }
+
+  .proof {
+    padding: 64px 0;
+  }
+
+  .proofHeader {
+    margin-bottom: 36px;
+  }
+
+  .proofEyebrow {
+    font-size: 10px;
+    margin-bottom: 20px;
+  }
+
+  .proofTitle {
+    font-size: 28px;
+  }
+
+  .proofHeaderAside {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .proofCard {
+    padding: 24px;
+    border-radius: 16px;
+  }
+
+  .proofCardTop {
+    margin-bottom: 16px;
+  }
+
+  .proofCompany {
+    font-size: 16px;
+  }
+
+  .proofCardText {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .proofMetrics {
+    padding-top: 20px;
+    margin-bottom: 24px;
+  }
+
+  .proofValue {
+    font-size: 20px;
+    min-width: 80px;
+  }
+
+  .proofMetricLabel {
+    font-size: 13px;
+  }
+
+  .proofCards {
+    gap: 14px;
+  }
+
+  .cta {
+    padding: 56px 0;
+  }
+
+  .ctaContent h2 {
+    font-size: 24px;
+  }
+
+  .faq {
+    padding: 48px 0 64px;
+  }
+}
