@@ -3,6 +3,7 @@
 import cn from "classnames"
 import Link from "next/link"
 import { trackMixpanelEvent } from "@/helpers/analytics/mixpanel"
+import { appendTrackingParams } from "@/helpers/forwardParams"
 import Spinner from "../Spinner/Spinner"
 import styles from "./Button.module.scss"
 
@@ -50,9 +51,14 @@ const Button = ({
     onClick?.(e)
   }
 
+  const resolvedHref =
+    href && typeof href === "string" && href.includes("app.scalemate.co")
+      ? appendTrackingParams(href)
+      : href
+
   if (href) {
     return (
-      <Link href={href} className={classNames} onClick={handleClick}>
+      <Link href={resolvedHref} className={classNames} onClick={handleClick}>
         {children}
       </Link>
     )
