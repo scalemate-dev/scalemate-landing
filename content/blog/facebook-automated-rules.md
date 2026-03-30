@@ -2,7 +2,7 @@
 title: "Facebook Automated Rules — Setup Guide + How to Scale Beyond Limits"
 slug: facebook-automated-rules
 metaDescription: "How to set up Facebook automated rules in Meta Ads Manager. Step-by-step examples, native limitations, and what to use when rules stop being enough."
-author: "Scalemate Team"
+author: "Nataliia Bondar"
 coverImage: null
 coverAlt: null
 createdAt: "2026-03-27"

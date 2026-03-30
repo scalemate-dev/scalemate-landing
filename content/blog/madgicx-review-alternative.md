@@ -2,7 +2,7 @@
 title: "Madgicx Review 2026 — Features, Pricing + Alternative for Scale"
 slug: madgicx-review-alternative
 metaDescription: "Madgicx review 2026: AI audiences, creative scoring, automation rules, pricing from $69/mo. See where it stops — and what to use when you need operational scale across platforms."
-author: "Scalemate Team"
+author: "Nataliia Bondar"
 coverImage: null
 coverAlt: null
 createdAt: "2026-03-01"
