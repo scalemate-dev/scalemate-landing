@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react"
 import { trackMixpanelEvent } from "@/helpers/analytics/mixpanel"
+import { trackAuditStarted } from "@/helpers/trackGTM"
 import Link from "next/link"
 import Image from "next/image"
 import { IconArrowRight } from "@tabler/icons-react"
@@ -123,6 +124,7 @@ export default function LandingPage() {
               className={styles.heroCta}
               trackEvent="cta_clicked"
               trackProps={{ cta_location: "lp_hero" }}
+              onClick={trackAuditStarted}
             >
               Start for Free
             </Button>
@@ -261,6 +263,7 @@ export default function LandingPage() {
                   className={styles.ctaButton}
                   trackEvent="cta_clicked"
                   trackProps={{ cta_location: "lp_bottom_cta" }}
+                  onClick={trackAuditStarted}
                 >
                   Start for Free
                 </Button>
@@ -323,6 +326,7 @@ export default function LandingPage() {
                 className={styles.modalBarCta}
                 trackEvent="cta_clicked"
                 trackProps={{ cta_location: "lp_video_modal" }}
+                onClick={trackAuditStarted}
               >
                 Start for Free
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
