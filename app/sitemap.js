@@ -41,12 +41,6 @@ export default async function sitemap() {
       priority: 0.9,
     },
     {
-      url: "https://www.scalemate.co/launch",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
       url: "https://www.scalemate.co/book-a-demo",
       lastModified: new Date(),
       changeFrequency: "monthly",

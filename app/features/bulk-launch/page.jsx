@@ -18,7 +18,7 @@ export const metadata = {
   description:
     "Create multiple ads at once on Meta and TikTok. Scalemate\u2019s bulk campaign builder deploys hundreds of ad variations from templates \u2014 no manual setup, no duplicate campaign creation.",
   alternates: {
-    canonical: "https://www.scalemate.co/features/bulk-launch",
+    canonical: "https://www.scalemate.co/use-cases/bulk-ad-launch",
   },
   openGraph: {
     url: "https://www.scalemate.co/features/bulk-launch",

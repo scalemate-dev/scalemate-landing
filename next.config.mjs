@@ -33,6 +33,11 @@ const nextConfig = {
         destination: "/",
         permanent: false,
       },
+      {
+        source: "/launch",
+        destination: "/use-cases/bulk-ad-launch",
+        permanent: true,
+      },
     ]
   },
   async rewrites() {
