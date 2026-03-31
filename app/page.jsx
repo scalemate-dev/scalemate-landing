@@ -45,7 +45,7 @@ export default function Home() {
 
   const badge = {
     link: "/ad-creative-uploader",
-    text: "Free Ad Creative Uploader",
+    text: "Free Ad Uploader",
   }
   return (
     <div className={cn(styles.main, styles.home)}>

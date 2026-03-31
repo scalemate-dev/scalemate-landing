@@ -10,34 +10,39 @@ import CtaSection from "./components/CtaSection/CtaSection"
 import styles from "./page.module.scss"
 
 export const metadata = {
-  title: "Free Ad Creative Uploader — Google Drive to Meta & TikTok Ads",
+  title: "Free Ad Uploader — Google Drive to Meta & TikTok Ads",
   description:
-    "Free ad creative upload tool. Upload creatives from Google Drive directly to Meta Ads and TikTok Ads. Bulk upload to multiple ad accounts — no downloads needed.",
+    "Free ad uploader tool. Upload creatives from Google Drive directly to Meta Ads and TikTok Ads. Bulk upload to multiple ad accounts — no downloads needed.",
   alternates: {
     canonical: "https://www.scalemate.co/ad-creative-uploader",
   },
   openGraph: {
     url: "https://www.scalemate.co/ad-creative-uploader",
-    title: "Free Ad Creative Uploader — Google Drive to Meta & TikTok Ads",
+    title: "Free Ad Uploader — Google Drive to Meta & TikTok Ads",
     description:
-      "Free ad creative upload tool. Upload creatives from Google Drive directly to Meta Ads and TikTok Ads. Bulk upload to multiple ad accounts — no downloads needed.",
+      "Free ad uploader tool. Upload creatives from Google Drive directly to Meta Ads and TikTok Ads. Bulk upload to multiple ad accounts — no downloads needed.",
     type: "website",
     images: [{ url: "/og-creative-uploader.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Ad Creative Uploader — Google Drive to Meta & TikTok Ads",
+    title: "Free Ad Uploader — Google Drive to Meta & TikTok Ads",
     description:
-      "Free ad creative upload tool. Upload creatives from Google Drive directly to Meta Ads and TikTok Ads. Bulk upload to multiple ad accounts — no downloads needed.",
+      "Free ad uploader tool. Upload creatives from Google Drive directly to Meta Ads and TikTok Ads. Bulk upload to multiple ad accounts — no downloads needed.",
     images: ["/og-creative-uploader.png"],
   },
 }
 
 const faqItems = [
   {
+    question: "What is an ad uploader?",
+    answer:
+      "An ad uploader is a tool that lets you send ad creatives directly from cloud storage (like Google Drive) to ad platforms (like Meta Ads and TikTok Ads) without downloading and re-uploading files manually. It eliminates the repetitive upload workflow and lets teams bulk upload creatives to multiple ad accounts at once.",
+  },
+  {
     question: "Is this tool really free?",
     answer:
-      "Yes, 100% free. No credit card required, no hidden fees, no upload limits. We built this ad creative uploader to help media buyers and marketing teams work faster.",
+      "Yes, 100% free. No credit card required, no hidden fees, no upload limits. We built this ad uploader to help media buyers and marketing teams work faster.",
   },
   {
     question: "How is this different from uploading manually?",
@@ -76,7 +81,7 @@ const softwareSchema = {
   "@type": "SoftwareApplication",
   name: "Scalemate Ad Creative Uploader",
   description:
-    "Free ad creative upload tool. Upload creatives from Google Drive directly to Meta Ads and TikTok Ads. Bulk upload to multiple ad accounts — no downloads needed.",
+    "Free ad uploader tool. Upload creatives from Google Drive directly to Meta Ads and TikTok Ads. Bulk upload to multiple ad accounts — no downloads needed.",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   url: "https://www.scalemate.co/ad-creative-uploader",

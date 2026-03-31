@@ -40,9 +40,9 @@ export default function FeaturesSection() {
       <Container>
         <div className={styles.header}>
           <span className={styles.eyebrow}>Why This Tool</span>
-          <h2>Why use this ad creative uploader?</h2>
+          <h2>Why use this ad uploader?</h2>
           <p className={styles.subtitle}>
-            A creative uploader tool built to eliminate repetitive ad operations
+            An ad uploader built to eliminate repetitive ad operations
           </p>
         </div>
         <div className={styles.featuresGrid}>

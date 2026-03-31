@@ -47,7 +47,7 @@ export default function AudienceSection() {
           </h2>
           <p className={styles.subtitle}>
             If you upload creatives to <strong>Meta Ads</strong> or{" "}
-            <strong>TikTok Ads</strong>, this ad creative uploader was made for
+            <strong>TikTok Ads</strong>, this ad uploader was made for
             you
           </p>
         </div>

@@ -13,7 +13,7 @@ export default function HeroSection() {
       <Container>
         <div className={styles.heroContent}>
           <div className={styles.heroHeader}>
-            <span className={styles.label}>Free Ad Creative Uploader</span>
+            <span className={styles.label}>Free Ad Uploader</span>
             <h1>
               Google Drive to Meta & TikTok Ads —{" "}
               <span className={styles.accent}>in one click</span>
