@@ -23,7 +23,7 @@ import { EVENTS } from "@/helpers/analytics/mixpanel.events"
 
 const SOLUTIONS = [
   {
-    label: "Ad Creative Uploader",
+    label: "Ad Uploader",
     description: "Upload ad creatives from Google Drive to Meta and Tiktok",
     icon: (
       <Icon style={{ backgroundColor: "#E6FCF5" }}>

@@ -41,7 +41,7 @@ const Footer = () => {
             <div className={styles.footerColTitle}>Product</div>
 
             <Link className={styles.footerColLink} href="/ad-creative-uploader">
-              Free Ad Creative Uploader
+              Free Ad Uploader
             </Link>
             <Link className={styles.footerColLink} href="/features/bulk-launch">
               Bulk Ad Launch

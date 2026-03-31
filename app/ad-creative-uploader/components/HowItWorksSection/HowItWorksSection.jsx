@@ -13,7 +13,7 @@ export default function HowItWorksSection() {
     <section className={styles.howItWorks}>
       <Container>
         <div className={styles.sectionHeader}>
-          <h2>How the ad creative uploader works</h2>
+          <h2>How the ad uploader works</h2>
           <p>
             Three steps to upload creatives from Google Drive to your ad
             accounts
