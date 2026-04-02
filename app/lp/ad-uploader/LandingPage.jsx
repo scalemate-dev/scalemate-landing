@@ -120,7 +120,7 @@ export default function LandingPage() {
             </p>
 
             <Button
-              href="https://app.scalemate.co/create-account"
+              href="https://app.scalemate.co/create-account?utm_source=scalemate_landing&utm_medium=lp&utm_campaign=ad-uploader&utm_content=hero"
               className={styles.heroCta}
               trackEvent="cta_clicked"
               trackProps={{ cta_location: "lp_hero" }}
@@ -259,7 +259,7 @@ export default function LandingPage() {
               </p>
               <div className={styles.ctaButtons}>
                 <Button
-                  href="https://app.scalemate.co/create-account"
+                  href="https://app.scalemate.co/create-account?utm_source=scalemate_landing&utm_medium=lp&utm_campaign=ad-uploader&utm_content=bottom_cta"
                   className={styles.ctaButton}
                   trackEvent="cta_clicked"
                   trackProps={{ cta_location: "lp_bottom_cta" }}
@@ -322,7 +322,7 @@ export default function LandingPage() {
                 </span>
               </div>
               <Button
-                href="https://app.scalemate.co/create-account"
+                href="https://app.scalemate.co/create-account?utm_source=scalemate_landing&utm_medium=lp&utm_campaign=ad-uploader&utm_content=video_modal"
                 className={styles.modalBarCta}
                 trackEvent="cta_clicked"
                 trackProps={{ cta_location: "lp_video_modal" }}
