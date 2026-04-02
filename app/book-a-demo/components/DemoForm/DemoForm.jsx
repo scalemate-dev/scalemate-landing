@@ -200,7 +200,7 @@ const DemoFormWithParams = () => {
 
           <div className={styles.trustBadge}>
             <span className={styles.trustDot} />
-            <span>30 minutes. No commitment. Come with your workflow.</span>
+            <span>30 minutes. No commitment. </span>
           </div>
         </div>
 
