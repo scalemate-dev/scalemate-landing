@@ -1328,6 +1328,41 @@ $p-panel-bg: linear-gradient(168deg, #ffffff 0%, #fefcfa 100%);
   margin-bottom: 16px;
 }
 
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  font-family: $font-heading;
+  font-weight: 600;
+  font-size: 16px;
+  color: #ffffff;
+  background: linear-gradient(
+    120deg,
+    $p-accent 0%,
+    $p-accent 40%,
+    lighten($p-accent, 18%) 50%,
+    $p-accent 60%,
+    $p-accent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-btn 3s ease-in-out infinite;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  margin-bottom: 48px;
+  transition: transform 0.15s;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+@keyframes shimmer-btn {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
 .ctaContact {
   padding-top: 40px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);

@@ -45,9 +45,9 @@ function HeroSlide() {
           </div>
 
           <p className={styles.heroSub}>
-            Ad ops automation that plugs into your platform. Your tech team
-            can focus on what matters, and your clients get the features they
-            need now.
+            Ad ops automation that plugs into your platform. Your tech team can
+            focus on what matters, and your clients get the features they need
+            now.
           </p>
           <div className={styles.heroPills}>
             <span className={styles.pill}>
@@ -63,9 +63,7 @@ function HeroSlide() {
               <IconPlugConnected size={15} stroke={2} /> API-First
             </span>
           </div>
-          <p className={styles.heroContact}>
-            scalemate.co
-          </p>
+          <p className={styles.heroContact}>scalemate.co</p>
         </div>
       </Container>
     </section>
@@ -83,8 +81,7 @@ function IntroSlide() {
         <div className={styles.introGrid}>
           <div className={styles.introText}>
             <h2 className={styles.sectionTitle}>
-              Operational automation for{" "}
-              <em>performance marketing</em>
+              Operational automation for <em>performance marketing</em>
             </h2>
             <p className={styles.bodyText}>
               Scalemate removes manual work from campaign operations. Not
@@ -95,7 +92,6 @@ function IntroSlide() {
               Validated Meta technology partner. Direct API integrations with
               TikTok, and Snapchat.
             </p>
-
           </div>
           <div className={styles.introStats}>
             {[
@@ -116,10 +112,26 @@ function IntroSlide() {
           <span className={styles.platformLabel}>Integrated with</span>
           <div className={styles.platformRow}>
             {/* eslint-disable @next/next/no-img-element */}
-            <img src="/meta-ads-logo.svg" alt="Meta Ads" className={styles.platformLogo} />
-            <img src="/tiktok-logo.png" alt="TikTok for Business" className={styles.platformLogo} />
-            <img src="/google-drive-logo.svg" alt="Google Drive" className={styles.platformLogoTall} />
-            <img src="/nextcloud-logo.svg" alt="Nextcloud" className={styles.platformLogoNc} />
+            <img
+              src="/meta-ads-logo.svg"
+              alt="Meta Ads"
+              className={styles.platformLogo}
+            />
+            <img
+              src="/tiktok-logo.png"
+              alt="TikTok for Business"
+              className={styles.platformLogo}
+            />
+            <img
+              src="/google-drive-logo.svg"
+              alt="Google Drive"
+              className={styles.platformLogoTall}
+            />
+            <img
+              src="/nextcloud-logo.svg"
+              alt="Nextcloud"
+              className={styles.platformLogoNc}
+            />
             {/* eslint-enable @next/next/no-img-element */}
           </div>
         </div>
@@ -251,7 +263,10 @@ function CoPilotVisual() {
         </div>
         <div className={styles.chatMsgBot}>
           <span className={styles.chatMsgBotName}>Scalemate</span>
-          <span>ROAS up <strong>12%</strong>, CPI down <strong>6%</strong>. Top creative: UGC_hook_v3.</span>
+          <span>
+            ROAS up <strong>12%</strong>, CPI down <strong>6%</strong>. Top
+            creative: UGC_hook_v3.
+          </span>
           <span className={styles.chatMsgRec}>Scale top 3 adsets by 20%?</span>
         </div>
         <div className={styles.chatMsgUser}>
@@ -331,7 +346,8 @@ function UseCasesSlide() {
       tag: "Custom setup",
       tagColor: "amber",
       title: "AI Data Processing & Insights",
-      subtitle: "AI can't process large campaign datasets alone. We prepare the data.",
+      subtitle:
+        "AI can't process large campaign datasets alone. We prepare the data.",
       features: [
         "Data pipeline: pull, normalize, aggregate across platforms",
         "Pre-processing for AI: structured datasets that fit within context windows",
@@ -347,10 +363,11 @@ function UseCasesSlide() {
       tag: "Custom setup",
       tagColor: "amber",
       title: "White-Label AI Co-Pilot",
-      subtitle: "An AI chat assistant embedded in your platform. Analyze and act.",
+      subtitle:
+        "An AI chat assistant embedded in your platform. Analyze and act.",
       features: [
-        "Analysis: \"Show top 5 creatives this week\", \"Why did CPI spike?\"",
-        "Actions: \"Pause campaigns with CPI above $5\", \"Scale top adsets by 20%\"",
+        'Analysis: "Show top 5 creatives this week", "Why did CPI spike?"',
+        'Actions: "Pause campaigns with CPI above $5", "Scale top adsets by 20%"',
         "White-label: appears as Point2Web's own feature",
         "Customizable: restrict actions, add approval flows, limit per client",
       ],
@@ -375,7 +392,7 @@ function UseCasesSlide() {
           {cases.map((c) => (
             <div
               key={c.id}
-              className={`${styles.caseCard} ${(c.id === "rules" || c.id === "launches" || c.id === "ai-copilot") ? styles.caseCardWithVisual : ""}`}
+              className={`${styles.caseCard} ${c.id === "rules" || c.id === "launches" || c.id === "ai-copilot" ? styles.caseCardWithVisual : ""}`}
             >
               <div className={styles.caseContent}>
                 <div className={styles.caseHeader}>
@@ -472,7 +489,10 @@ function TimelineSlide() {
       items: [
         { name: "Bulk ad launches", platform: "Meta Ads, TikTok Ads" },
         { name: "Bulk files upload", platform: "Meta Ads, TikTok Ads" },
-        { name: "Auto-rules (multi-condition, flexible)", platform: "Meta Ads" },
+        {
+          name: "Auto-rules (multi-condition, flexible)",
+          platform: "Meta Ads",
+        },
         {
           name: "Rules templates (creative testing, health monitor, GEO expansion)",
           platform: "Meta Ads",
@@ -496,7 +516,8 @@ function TimelineSlide() {
         },
         {
           name: "Custom ad platform integrations",
-          platform: "If your clients use platforms we don't support yet, we can connect them on request",
+          platform:
+            "If your clients use platforms we don't support yet, we can connect them on request",
         },
       ],
       note: "Faster than building from scratch, but requires platform-specific integration work.",
@@ -509,7 +530,8 @@ function TimelineSlide() {
       items: [
         {
           name: "White-Label AI Co-Pilot (insights, actions, recommendations)",
-          platform: "Engine exists. White-label embedding takes time for data mapping, task definition, UI integration",
+          platform:
+            "Engine exists. White-label embedding takes time for data mapping, task definition, UI integration",
         },
       ],
       note: "Most powerful, but longest to implement. Start with ready-now features → prove value → expand.",
@@ -524,8 +546,8 @@ function TimelineSlide() {
           What's ready <em>now</em> vs. what takes time
         </h2>
         <p className={styles.sectionSub}>
-          Start with proven features today. Expand into custom AI solutions
-          when you're ready.
+          Start with proven features today. Expand into custom AI solutions when
+          you're ready.
         </p>
 
         <div className={styles.timelineTiers}>
@@ -622,17 +644,51 @@ function ProofSlide() {
         </div>
 
         <div className={styles.clientApps}>
-          <span className={styles.clientAppsLabel}>Some of the apps powered by Scalemate</span>
+          <span className={styles.clientAppsLabel}>
+            Some of the apps powered by Scalemate
+          </span>
           <div className={styles.clientAppsRow}>
             {/* eslint-disable @next/next/no-img-element */}
-            <img src="/client-zeptolab.webp" alt="ZeptoLab" className={styles.clientAppIcon} />
-            <img src="/client-kitup.webp" alt="KitUp" className={styles.clientAppIcon} />
-            <img src="/client-cut-the-rope.webp" alt="Cut the Rope" className={styles.clientAppIcon} />
-            <img src="/client-bullet-echo.webp" alt="Bullet Echo" className={styles.clientAppIcon} />
-            <img src="/client-growthers.png" alt="Growthers" className={styles.clientAppIcon} />
-            <img src="/client-manifestation.png" alt="Manifestation" className={styles.clientAppIcon} />
-            <img src="/client-mindguru.png" alt="MindGuru" className={styles.clientAppIcon} />
-            <img src="/client-ouromedia.png" alt="OuroMedia" className={styles.clientAppIcon} />
+            <img
+              src="/client-zeptolab.webp"
+              alt="ZeptoLab"
+              className={styles.clientAppIcon}
+            />
+            <img
+              src="/client-kitup.webp"
+              alt="KitUp"
+              className={styles.clientAppIcon}
+            />
+            <img
+              src="/client-cut-the-rope.webp"
+              alt="Cut the Rope"
+              className={styles.clientAppIcon}
+            />
+            <img
+              src="/client-bullet-echo.webp"
+              alt="Bullet Echo"
+              className={styles.clientAppIcon}
+            />
+            <img
+              src="/client-growthers.png"
+              alt="Growthers"
+              className={styles.clientAppIcon}
+            />
+            <img
+              src="/client-manifestation.png"
+              alt="Manifestation"
+              className={styles.clientAppIcon}
+            />
+            <img
+              src="/client-mindguru.png"
+              alt="MindGuru"
+              className={styles.clientAppIcon}
+            />
+            <img
+              src="/client-ouromedia.png"
+              alt="OuroMedia"
+              className={styles.clientAppIcon}
+            />
             {/* eslint-enable @next/next/no-img-element */}
           </div>
         </div>
@@ -701,7 +757,9 @@ function CompareSlide() {
             <div key={r.label} className={styles.compareRow}>
               <div className={styles.compareLabel}>{r.label}</div>
               <div className={styles.compareCell}>{r.build}</div>
-              <div className={`${styles.compareCell} ${styles.compareCellAccent}`}>
+              <div
+                className={`${styles.compareCell} ${styles.compareCellAccent}`}
+              >
                 {r.scalemate}
               </div>
             </div>
@@ -796,21 +854,16 @@ function ReferralSlide() {
           </div>
           <span className={styles.eyebrow}>Referral Partnership</span>
           <h2 className={styles.sectionTitle}>
-            Separate from integration.{" "}
-            <em>Can start immediately</em>
+            Separate from integration. <em>Can start immediately</em>
           </h2>
           <div className={styles.referralGrid}>
             <div className={styles.referralItem}>
               <span className={styles.referralArrow}>→</span>
-              <p>
-                Your clients need automation, you recommend Scalemate
-              </p>
+              <p>Your clients need automation, you recommend Scalemate</p>
             </div>
             <div className={styles.referralItem}>
               <span className={styles.referralArrow}>←</span>
-              <p>
-                Our clients need accounts/support, we recommend Point2Web
-              </p>
+              <p>Our clients need accounts/support, we recommend Point2Web</p>
             </div>
           </div>
           <p className={styles.referralNote}>
@@ -831,7 +884,7 @@ function CtaSlide() {
     <section className={styles.ctaSection}>
       <Container>
         <div className={styles.ctaInner}>
-          <h2 className={styles.ctaTitle}>Next Steps</h2>
+          <h2 className={styles.ctaTitle}>What's Next?</h2>
           <div className={styles.ctaSteps}>
             <div className={styles.ctaStep}>
               <span className={styles.ctaStepNum}>1</span>
@@ -839,16 +892,20 @@ function CtaSlide() {
             </div>
             <div className={styles.ctaStep}>
               <span className={styles.ctaStepNum}>2</span>
-              <p>Schedule a demo. We'll walk through the specific flow</p>
+              <p>Schedule a call. We'll walk through the specific flow</p>
             </div>
             <div className={styles.ctaStep}>
               <span className={styles.ctaStepNum}>3</span>
               <p>Pilot with 1–2 clients on a specific use case</p>
             </div>
           </div>
+          <a href="/book-a-demo" className={styles.ctaButton}>
+            Book a call
+            <IconArrowRight size={18} stroke={2} />
+          </a>
           <div className={styles.ctaContact}>
             <p className={styles.ctaContactName}>Natalia Bondar</p>
-            <p className={styles.ctaContactDetail}>scalemate.co</p>
+            <p className={styles.ctaContactDetail}>nataliia.b@scalemate.co</p>
           </div>
         </div>
       </Container>
