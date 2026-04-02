@@ -1,5 +1,7 @@
 import Container from "@/components/elements/Container/Container"
 import Logo from "@/components/elements/Logo"
+import { ThresholdVisual } from "@/app/use-cases/_data/ad-campaign-automation-rules/HowItWorksVisuals"
+import { SyncVisual } from "@/app/use-cases/_data/bulk-ad-launch/HowItWorksVisuals"
 import {
   IconBolt,
   IconClock,
@@ -93,6 +95,7 @@ function IntroSlide() {
               Validated Meta technology partner. Direct API integrations with
               TikTok, and Snapchat.
             </p>
+
           </div>
           <div className={styles.introStats}>
             {[
@@ -106,6 +109,18 @@ function IntroSlide() {
                 <span className={styles.introStatLabel}>{s.label}</span>
               </div>
             ))}
+          </div>
+        </div>
+
+        <div className={styles.platformLogos}>
+          <span className={styles.platformLabel}>Integrated with</span>
+          <div className={styles.platformRow}>
+            {/* eslint-disable @next/next/no-img-element */}
+            <img src="/meta-ads-logo.svg" alt="Meta Ads" className={styles.platformLogo} />
+            <img src="/tiktok-logo.png" alt="TikTok for Business" className={styles.platformLogo} />
+            <img src="/google-drive-logo.svg" alt="Google Drive" className={styles.platformLogoTall} />
+            <img src="/nextcloud-logo.svg" alt="Nextcloud" className={styles.platformLogoNc} />
+            {/* eslint-enable @next/next/no-img-element */}
           </div>
         </div>
       </Container>
@@ -221,6 +236,40 @@ function SituationSlide() {
 }
 
 /* ───────────────────────────────────────────
+   Co-Pilot Chat Visual
+   ─────────────────────────────────────────── */
+function CoPilotVisual() {
+  return (
+    <div className={styles.chatMock}>
+      <div className={styles.chatHeader}>
+        <div className={styles.chatHeaderDot} />
+        <span className={styles.chatHeaderTitle}>Scalemate AI</span>
+      </div>
+      <div className={styles.chatBody}>
+        <div className={styles.chatMsgUser}>
+          <span>Summarize Facebook performance this week</span>
+        </div>
+        <div className={styles.chatMsgBot}>
+          <span className={styles.chatMsgBotName}>Scalemate</span>
+          <span>ROAS up <strong>12%</strong>, CPI down <strong>6%</strong>. Top creative: UGC_hook_v3.</span>
+          <span className={styles.chatMsgRec}>Scale top 3 adsets by 20%?</span>
+        </div>
+        <div className={styles.chatMsgUser}>
+          <span>Yes, apply changes</span>
+        </div>
+        <div className={styles.chatMsgBot}>
+          <span className={styles.chatMsgBotName}>Scalemate</span>
+          <span>Done. 3 adsets scaled. Budget: $450 → $540.</span>
+        </div>
+      </div>
+      <div className={styles.chatInput}>
+        <span>What do you want to do?</span>
+      </div>
+    </div>
+  )
+}
+
+/* ───────────────────────────────────────────
    Section 3 — Use Cases
    ─────────────────────────────────────────── */
 function UseCasesSlide() {
@@ -324,63 +373,84 @@ function UseCasesSlide() {
 
         <div className={styles.casesList}>
           {cases.map((c) => (
-            <div key={c.id} className={styles.caseCard}>
-              <div className={styles.caseHeader}>
-                <div className={styles.caseIconWrap}>{c.icon}</div>
-                <div className={styles.caseHeaderText}>
-                  <div className={styles.caseTitleRow}>
-                    <h3 className={styles.caseTitle}>{c.title}</h3>
-                    <span
-                      className={`${styles.caseTag} ${
-                        c.tagColor === "green"
-                          ? styles.caseTagGreen
-                          : styles.caseTagAmber
-                      }`}
-                    >
-                      {c.tag}
-                    </span>
+            <div
+              key={c.id}
+              className={`${styles.caseCard} ${(c.id === "rules" || c.id === "launches" || c.id === "ai-copilot") ? styles.caseCardWithVisual : ""}`}
+            >
+              <div className={styles.caseContent}>
+                <div className={styles.caseHeader}>
+                  <div className={styles.caseIconWrap}>{c.icon}</div>
+                  <div className={styles.caseHeaderText}>
+                    <div className={styles.caseTitleRow}>
+                      <h3 className={styles.caseTitle}>{c.title}</h3>
+                      <span
+                        className={`${styles.caseTag} ${
+                          c.tagColor === "green"
+                            ? styles.caseTagGreen
+                            : styles.caseTagAmber
+                        }`}
+                      >
+                        {c.tag}
+                      </span>
+                    </div>
+                    <p className={styles.caseSub}>{c.subtitle}</p>
                   </div>
-                  <p className={styles.caseSub}>{c.subtitle}</p>
+                </div>
+
+                <ul className={styles.caseFeatures}>
+                  {c.features.map((f) => (
+                    <li key={f} className={styles.caseFeature}>
+                      <IconCheck
+                        size={16}
+                        stroke={2.5}
+                        className={styles.caseCheckIcon}
+                      />
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {c.advanced.length > 0 && (
+                  <div className={styles.caseAdvanced}>
+                    <span className={styles.caseAdvancedLabel}>
+                      Advanced: Rule Chains
+                    </span>
+                    <ul className={styles.caseFeatures}>
+                      {c.advanced.map((a) => (
+                        <li key={a} className={styles.caseFeature}>
+                          <IconBolt
+                            size={14}
+                            stroke={2}
+                            className={styles.caseBoltIcon}
+                          />
+                          <span>{a}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                <div className={styles.casePlatforms}>
+                  <span className={styles.casePlatformsLabel}>Platforms:</span>{" "}
+                  {c.platforms}
                 </div>
               </div>
 
-              <ul className={styles.caseFeatures}>
-                {c.features.map((f) => (
-                  <li key={f} className={styles.caseFeature}>
-                    <IconCheck
-                      size={16}
-                      stroke={2.5}
-                      className={styles.caseCheckIcon}
-                    />
-                    <span>{f}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {c.advanced.length > 0 && (
-                <div className={styles.caseAdvanced}>
-                  <span className={styles.caseAdvancedLabel}>
-                    Advanced: Rule Chains
-                  </span>
-                  <ul className={styles.caseFeatures}>
-                    {c.advanced.map((a) => (
-                      <li key={a} className={styles.caseFeature}>
-                        <IconBolt
-                          size={14}
-                          stroke={2}
-                          className={styles.caseBoltIcon}
-                        />
-                        <span>{a}</span>
-                      </li>
-                    ))}
-                  </ul>
+              {c.id === "rules" && (
+                <div className={styles.caseVisual}>
+                  <ThresholdVisual />
                 </div>
               )}
-
-              <div className={styles.casePlatforms}>
-                <span className={styles.casePlatformsLabel}>Platforms:</span>{" "}
-                {c.platforms}
-              </div>
+              {c.id === "launches" && (
+                <div className={styles.caseVisual}>
+                  <SyncVisual />
+                </div>
+              )}
+              {c.id === "ai-copilot" && (
+                <div className={styles.caseVisual}>
+                  <CoPilotVisual />
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -549,6 +619,22 @@ function ProofSlide() {
               <p className={styles.proofQuote}>{c.quote}</p>
             </div>
           ))}
+        </div>
+
+        <div className={styles.clientApps}>
+          <span className={styles.clientAppsLabel}>Some of the apps powered by Scalemate</span>
+          <div className={styles.clientAppsRow}>
+            {/* eslint-disable @next/next/no-img-element */}
+            <img src="/client-zeptolab.webp" alt="ZeptoLab" className={styles.clientAppIcon} />
+            <img src="/client-kitup.webp" alt="KitUp" className={styles.clientAppIcon} />
+            <img src="/client-cut-the-rope.webp" alt="Cut the Rope" className={styles.clientAppIcon} />
+            <img src="/client-bullet-echo.webp" alt="Bullet Echo" className={styles.clientAppIcon} />
+            <img src="/client-growthers.png" alt="Growthers" className={styles.clientAppIcon} />
+            <img src="/client-manifestation.png" alt="Manifestation" className={styles.clientAppIcon} />
+            <img src="/client-mindguru.png" alt="MindGuru" className={styles.clientAppIcon} />
+            <img src="/client-ouromedia.png" alt="OuroMedia" className={styles.clientAppIcon} />
+            {/* eslint-enable @next/next/no-img-element */}
+          </div>
         </div>
       </Container>
     </section>
