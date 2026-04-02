@@ -292,7 +292,7 @@ function UseCasesSlide() {
         "Auto-scale budgets in steps (20% → 50% → 2×) with rollback",
         "Creative rotation when fatigue detected (IPM drop)",
       ],
-      platforms: "Meta, TikTok",
+      platforms: "Meta Ads",
     },
     {
       id: "templates",
@@ -307,7 +307,7 @@ function UseCasesSlide() {
         "GEO Expansion: identify winner → duplicate to new GEOs → conservative budget → auto-kill non-performers",
       ],
       advanced: [],
-      platforms: "Meta, TikTok",
+      platforms: "Meta Ads",
     },
     {
       id: "launches",
@@ -323,7 +323,7 @@ function UseCasesSlide() {
         "No manual downloads, no folder dragging. Automated pipeline",
       ],
       advanced: [],
-      platforms: "Meta, TikTok",
+      platforms: "Meta Ads, TikTok Ads",
     },
     {
       id: "ai-insights",
@@ -355,7 +355,7 @@ function UseCasesSlide() {
         "Customizable: restrict actions, add approval flows, limit per client",
       ],
       advanced: [],
-      platforms: "All connected platforms",
+      platforms: "Meta Ads",
     },
   ]
 
@@ -470,12 +470,12 @@ function TimelineSlide() {
       color: "green",
       icon: <IconBolt size={20} stroke={2} />,
       items: [
-        { name: "Bulk ad launches", platform: "Meta, TikTok" },
-        { name: "Bulk files upload", platform: "Meta, TikTok" },
-        { name: "Auto-rules (multi-condition, flexible)", platform: "Meta, TikTok" },
+        { name: "Bulk ad launches", platform: "Meta Ads, TikTok Ads" },
+        { name: "Bulk files upload", platform: "Meta Ads, TikTok Ads" },
+        { name: "Auto-rules (multi-condition, flexible)", platform: "Meta Ads" },
         {
           name: "Rules templates (creative testing, health monitor, GEO expansion)",
-          platform: "Meta, TikTok",
+          platform: "Meta Ads",
         },
       ],
       note: "Can be used via Scalemate platform immediately, or connected via API with minimal effort.",
@@ -488,7 +488,7 @@ function TimelineSlide() {
       items: [
         {
           name: "Rule chains (duplicate campaigns, auto-scale)",
-          platform: "Meta, TikTok. Requires setup",
+          platform: "Meta Ads. Requires setup",
         },
         {
           name: "Additional ad platforms (Snapchat, etc.)",
