@@ -51,7 +51,25 @@ $p-panel-bg: linear-gradient(168deg, #ffffff 0%, #fefcfa 100%);
   em {
     font-style: normal;
     color: $p-accent;
+    background: linear-gradient(
+      120deg,
+      $p-accent 0%,
+      $p-accent 40%,
+      #fde68a 50%,
+      $p-accent 60%,
+      $p-accent 100%
+    );
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s ease-in-out infinite;
   }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
 }
 
 .sectionSub {
@@ -300,6 +318,53 @@ $p-panel-bg: linear-gradient(168deg, #ffffff 0%, #fefcfa 100%);
   color: $p-body;
 }
 
+// ── Platform logos ──
+
+.platformLogos {
+  margin-top: 64px;
+  padding-top: 36px;
+  border-top: 1px solid $p-line;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.platformLabel {
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: $p-stone;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.platformRow {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.platformLogo {
+  height: 16px;
+  width: auto;
+  opacity: 0.7;
+}
+
+.platformLogoTall {
+  height: 20px;
+  width: auto;
+  opacity: 0.7;
+}
+
+.platformLogoNc {
+  height: 28px;
+  width: auto;
+  opacity: 0.55;
+}
+
 // ════════════════════════════════════════════
 // COMPETENCIES
 // ════════════════════════════════════════════
@@ -440,6 +505,132 @@ $p-panel-bg: linear-gradient(168deg, #ffffff 0%, #fefcfa 100%);
 
   &:hover {
     box-shadow: $p-shadow-panel;
+  }
+}
+
+.caseCardWithVisual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.caseContent {
+  min-width: 0;
+}
+
+.caseVisual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  background: rgba($p-ink, 0.015);
+  padding: 16px;
+}
+
+// ── Co-Pilot Chat Mock (light, matching UC visuals) ──
+
+.chatMock {
+  width: 100%;
+  background: $p-panel-bg;
+  border-radius: 16px;
+  overflow: hidden;
+  font-family: $font-body;
+  border: 1px solid rgba($p-ink, 0.06);
+  box-shadow: $p-shadow-panel;
+}
+
+.chatHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-bottom: 1px solid rgba($p-ink, 0.05);
+}
+
+.chatHeaderDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $p-accent;
+}
+
+.chatHeaderTitle {
+  font-size: 12px;
+  font-weight: 600;
+  color: $p-ink;
+  letter-spacing: -0.01em;
+}
+
+.chatBody {
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chatMsgUser {
+  align-self: flex-end;
+  max-width: 78%;
+  background: $p-bg-sand;
+  border: 1px solid rgba($p-ink, 0.05);
+  border-radius: 12px 12px 4px 12px;
+  padding: 8px 14px;
+
+  span {
+    font-size: 12px;
+    line-height: 1.5;
+    color: $p-ink;
+  }
+}
+
+.chatMsgBot {
+  align-self: flex-start;
+  max-width: 88%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  span {
+    font-size: 12px;
+    line-height: 1.55;
+    color: $p-body;
+  }
+
+  strong {
+    color: $p-ink;
+    font-weight: 600;
+  }
+}
+
+.chatMsgBotName {
+  font-size: 10px !important;
+  font-weight: 600;
+  color: $p-stone !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.chatMsgRec {
+  margin-top: 4px;
+  padding: 7px 12px;
+  background: rgba($p-accent, 0.05);
+  border: 1px solid rgba($p-accent, 0.12);
+  border-radius: 8px;
+  color: $p-accent-deep !important;
+  font-size: 11.5px !important;
+  font-weight: 500;
+}
+
+.chatInput {
+  padding: 12px 18px;
+  border-top: 1px solid rgba($p-ink, 0.05);
+
+  span {
+    font-size: 12px;
+    color: $p-stone;
   }
 }
 
@@ -787,6 +978,41 @@ $p-panel-bg: linear-gradient(168deg, #ffffff 0%, #fefcfa 100%);
   color: rgba(255, 255, 255, 0.5);
   margin: 0;
   font-style: italic;
+}
+
+// ── Client app icons ──
+
+.clientApps {
+  margin-top: 64px;
+  padding-top: 40px;
+  border-top: 1px solid rgba($p-ink, 0.06);
+  text-align: center;
+}
+
+.clientAppsLabel {
+  display: block;
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: $p-stone;
+  margin-bottom: 24px;
+}
+
+.clientAppsRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.clientAppIcon {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.75;
 }
 
 // ════════════════════════════════════════════
@@ -1284,6 +1510,14 @@ $p-panel-bg: linear-gradient(168deg, #ffffff 0%, #fefcfa 100%);
 
   .competencyCard {
     padding: 24px 22px;
+  }
+
+  .caseCardWithVisual {
+    grid-template-columns: 1fr;
+  }
+
+  .caseVisual {
+    display: none;
   }
 
   .caseHeader {
