@@ -1,7 +1,7 @@
 ---
-title: "Best MCP Servers for Meta & Google Ads (2026 Comparison)"
+title: "Best MCP Servers for Meta & Google Ads (2026)"
 slug: best-mcp-servers-meta-google-ads
-metaDescription: "The best MCP servers for Meta and Google Ads — connect your ad accounts to AI for campaign analysis, optimization, and reporting. Free and paid options compared."
+metaDescription: "Compare MCP servers that connect Meta Ads and Google Ads to AI. Setup guides, free options, and what each tool actually does. Updated for 2026."
 author: "Nataliia Bondar"
 coverImage: null
 coverAlt: null

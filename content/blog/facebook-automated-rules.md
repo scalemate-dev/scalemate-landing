@@ -1,5 +1,5 @@
 ---
-title: "Facebook Automated Rules — Setup Guide + How to Scale Beyond Limits"
+title: "Facebook Automated Rules: Complete Setup Guide [2026]"
 slug: facebook-automated-rules
 metaDescription: "How to set up Facebook automated rules in Meta Ads Manager. Step-by-step examples, native limitations, and what to use when rules stop being enough."
 author: "Nataliia Bondar"

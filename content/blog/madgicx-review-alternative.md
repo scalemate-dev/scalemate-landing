@@ -1,7 +1,7 @@
 ---
-title: "Madgicx Review 2026 — Features, Pricing + Alternative for Scale"
+title: "Madgicx Review 2026: Pricing, Features + Alternative"
 slug: madgicx-review-alternative
-metaDescription: "Madgicx review 2026: AI audiences, creative scoring, automation rules, pricing from $69/mo. See where it stops — and what to use when you need operational scale across platforms."
+metaDescription: "Madgicx pricing starts at $69/mo. Full review: AI audiences, automation rules, creative scoring. See where it stops and what to use for operational scale."
 author: "Nataliia Bondar"
 coverImage: null
 coverAlt: null

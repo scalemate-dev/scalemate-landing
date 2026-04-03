@@ -7,27 +7,27 @@ import {
 export const data = {
   metadata: {
     title:
-      "Ad Campaign Automation Rules – Auto-Pause & Scale | Scalemate",
+      "Ad Automation Rules: Auto-Pause by ROAS & Scale | Scalemate",
     description:
-      "Ad campaign automation rules replace manual optimization with logic that runs 24/7. Auto-pause ads by ROAS, scale winners, and protect budgets automatically.",
+      "Set rules to auto-pause losers by ROAS, scale winners, and roll back if performance drops. Runs 24/7 on Meta and TikTok. No manual checks needed.",
     alternates: {
       canonical:
         "https://www.scalemate.co/use-cases/ad-campaign-automation-rules",
     },
     openGraph: {
       title:
-        "Ad Campaign Automation Rules – Auto-Pause & Scale | Scalemate",
+        "Ad Automation Rules: Auto-Pause by ROAS & Scale | Scalemate",
       description:
-        "Auto-pause ads by ROAS, scale winners automatically, and protect budgets 24/7 with ad campaign automation rules built for high-volume teams.",
+        "Set rules to auto-pause losers by ROAS, scale winners, and roll back if performance drops. Runs 24/7 on Meta and TikTok.",
       url: "https://www.scalemate.co/use-cases/ad-campaign-automation-rules",
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
       title:
-        "Ad Campaign Automation Rules – Auto-Pause & Scale | Scalemate",
+        "Ad Automation Rules: Auto-Pause by ROAS & Scale | Scalemate",
       description:
-        "Replace manual optimization with automation rules that pause losers, scale winners, and protect budgets around the clock.",
+        "Set rules to auto-pause losers by ROAS, scale winners, and roll back if performance drops. Runs 24/7 on Meta and TikTok.",
     },
   },
 

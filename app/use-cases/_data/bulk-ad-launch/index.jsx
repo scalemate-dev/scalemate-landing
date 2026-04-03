@@ -4,9 +4,9 @@ import { SyncVisual, ConfigVisual, LaunchVisual } from "./HowItWorksVisuals"
 export const data = {
   metadata: {
     title:
-      "Bulk Ad Launch Tool – Launch Hundreds of Ads in Minutes | Scalemate",
+      "Bulk Launch Hundreds of Meta & TikTok Ads in Minutes | Scalemate",
     description:
-      "Bulk ad launch tool that removes the manual grind from campaign deployment. Deploy hundreds of ad sets from one setup instead of building each by hand.",
+      "Deploy hundreds of ad sets from one template. Define budget, targeting, and naming once \u2014 Scalemate generates every combination. Used by mobile publishers, marketing agencies and e-commerce teams.",
     alternates: {
       canonical: "https://www.scalemate.co/use-cases/bulk-ad-launch",
     },
