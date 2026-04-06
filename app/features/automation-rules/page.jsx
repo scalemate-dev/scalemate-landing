@@ -16,7 +16,7 @@ export const metadata = {
   description:
     "Set conditions on ROAS, CPI, or any metric. Scalemate's automation rules pause, scale, and adjust bids 24/7 across Meta Ads, with built-in budget safeguards.",
   alternates: {
-    canonical: "https://www.scalemate.co/features/automation-rules",
+    canonical: "https://www.scalemate.co/use-cases/ad-campaign-automation-rules",
   },
   openGraph: {
     url: "https://www.scalemate.co/features/automation-rules",

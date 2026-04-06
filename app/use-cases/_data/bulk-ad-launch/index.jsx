@@ -40,6 +40,11 @@ export const data = {
     ],
     aside:
       "The entire process, from Drive to live campaigns, runs in minutes. The time goes back to creative strategy and performance analysis, not repetitive setup.",
+    platforms: [
+      { src: "/meta-ads-logo.svg", alt: "Meta Ads", height: 14 },
+      { src: "/tiktok-logo.png", alt: "TikTok Ads", height: 15 },
+      { src: "/google-drive-logo.svg", alt: "Google Drive", height: 20 },
+    ],
   },
 
   problem: {
@@ -170,6 +175,19 @@ export const data = {
         ],
       },
     ],
+    clientApps: {
+      label: "Apps powered by Scalemate",
+      logos: [
+        { src: "/client-zeptolab.webp", alt: "ZeptoLab" },
+        { src: "/client-kitup.webp", alt: "KitUp" },
+        { src: "/client-cut-the-rope.webp", alt: "Cut the Rope" },
+        { src: "/client-bullet-echo.webp", alt: "Bullet Echo" },
+        { src: "/client-growthers.png", alt: "Growthers" },
+        { src: "/client-manifestation.png", alt: "Manifestation" },
+        { src: "/client-mindguru.png", alt: "MindGuru" },
+        { src: "/client-ouromedia.png", alt: "OuroMedia" },
+      ],
+    },
   },
 
   audience: {

@@ -3,6 +3,7 @@ import {
   ActionVisual,
   MonitorVisual,
 } from "./HowItWorksVisuals"
+import HeroVisual from "./HeroVisual"
 
 export const data = {
   metadata: {
@@ -33,8 +34,9 @@ export const data = {
 
   hero: {
     label: "Automation Rules",
-    title: "Stop Babysitting, Start Scaling with",
-    titleAccent: "Ad Campaign Automation Rules",
+    title: "That Work While You Don't",
+    titleAccent: "Ad Automation Rules",
+    accentFirst: true,
     description:
       "Ad campaign automation rules replace manual optimization with logic that runs 24/7 – conditions defined once, applied across every campaign:",
     features: [
@@ -44,6 +46,12 @@ export const data = {
     ],
     aside:
       "Rules catch budget leaks at 2 AM and scale winners before the team logs in.",
+    platforms: [
+      { src: "/meta-ads-logo.svg", alt: "Meta Ads", height: 14 },
+      { src: "/tiktok-logo.png", alt: "TikTok Ads", height: 15 },
+      { src: "/google-drive-logo.svg", alt: "Google Drive", height: 20 },
+    ],
+    Visual: HeroVisual,
   },
 
   problem: {
@@ -166,6 +174,19 @@ export const data = {
           "Whether teams auto pause ads ROAS-based or automate budget scaling ads on winners, the pattern holds: less manual work, better outcomes.",
       },
     ],
+    clientApps: {
+      label: "Apps powered by Scalemate",
+      logos: [
+        { src: "/client-zeptolab.webp", alt: "ZeptoLab" },
+        { src: "/client-kitup.webp", alt: "KitUp" },
+        { src: "/client-cut-the-rope.webp", alt: "Cut the Rope" },
+        { src: "/client-bullet-echo.webp", alt: "Bullet Echo" },
+        { src: "/client-growthers.png", alt: "Growthers" },
+        { src: "/client-manifestation.png", alt: "Manifestation" },
+        { src: "/client-mindguru.png", alt: "MindGuru" },
+        { src: "/client-ouromedia.png", alt: "OuroMedia" },
+      ],
+    },
   },
 
   audience: {

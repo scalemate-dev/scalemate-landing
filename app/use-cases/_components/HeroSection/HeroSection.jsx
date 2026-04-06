@@ -10,16 +10,32 @@ export default function HeroSection({
   features,
   aside,
   secondaryCta,
+  platforms,
+  Visual,
+  accentFirst,
 }) {
   return (
     <section className={styles.hero}>
       <Container>
         <div className={styles.content}>
-          <span className={styles.label}>{label}</span>
+          <div className={Visual ? styles.heroTop : undefined}>
+            <div>
+              <span className={styles.label}>{label}</span>
+              <h1>
+                {accentFirst ? (
+                  <><span className={styles.accent}>{titleAccent}</span> {title}</>
+                ) : (
+                  <>{title} <span className={styles.accent}>{titleAccent}</span></>
+                )}
+              </h1>
+            </div>
 
-          <h1>
-            {title} <span className={styles.accent}>{titleAccent}</span>
-          </h1>
+            {Visual && (
+              <div className={styles.heroVisual} aria-hidden="true">
+                <Visual />
+              </div>
+            )}
+          </div>
 
           <p className={styles.description}>{description}</p>
 
@@ -53,6 +69,23 @@ export default function HeroSection({
               Book a Demo
             </Button>
           </div>
+
+          {platforms && (
+            <div className={styles.platforms}>
+              <span className={styles.platformsLabel}>Works with</span>
+              <div className={styles.platformsLogos}>
+                {platforms.map((p) => (
+                  <img
+                    key={p.alt}
+                    src={p.src}
+                    alt={p.alt}
+                    className={styles.platformLogo}
+                    style={p.height ? { height: p.height } : undefined}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </Container>
     </section>

@@ -100,6 +100,25 @@
   }
 }
 
+// ─── Hero Top (H1 left, visual right) ───
+
+.heroTop {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.heroVisual {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  max-width: 340px;
+  padding-top: 72px;
+}
+
 // ─── Label pill ───
 
 .label {
@@ -210,6 +229,44 @@
   }
 }
 
+// ─── Platforms ───
+
+.platforms {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.platformsLabel {
+  font-family: $font-body;
+  font-size: 13px;
+  font-weight: 500;
+  color: $uc-stone;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.platformsLogos {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  line-height: 0;
+}
+
+.platformLogo {
+  width: auto;
+  object-fit: contain;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
 // ─── Responsive ───
 
 @include desktop-s {
@@ -217,9 +274,21 @@
     font-size: 52px;
     text-align: left;
   }
+
+  .heroVisual {
+    max-width: 280px;
+  }
 }
 
 @include tablet-horizontal {
+  .heroVisual {
+    display: none;
+  }
+
+  .heroTop {
+    grid-template-columns: 1fr;
+  }
+
   .hero {
     padding: 150px 0 80px;
 

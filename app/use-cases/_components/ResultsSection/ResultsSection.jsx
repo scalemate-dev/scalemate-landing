@@ -3,7 +3,7 @@ import Container from "@/components/elements/Container/Container"
 import { IconArrowRight } from "@tabler/icons-react"
 import styles from "./ResultsSection.module.scss"
 
-export default function ResultsSection({ eyebrow = "Proven Results", title, titleAccent, subtitle, caseStudies }) {
+export default function ResultsSection({ eyebrow = "Proven Results", title, titleAccent, subtitle, caseStudies, clients, clientApps }) {
   const isSingle = caseStudies.length === 1
 
   return (
@@ -45,6 +45,22 @@ export default function ResultsSection({ eyebrow = "Proven Results", title, titl
             </article>
           ))}
         </div>
+
+        {clientApps && (
+          <div className={styles.clientApps}>
+            <span className={styles.clientAppsLabel}>{clientApps.label}</span>
+            <div className={styles.clientAppsRow}>
+              {clientApps.logos.map((logo) => (
+                <img
+                  key={logo.alt}
+                  src={logo.src}
+                  alt={logo.alt}
+                  className={styles.clientAppIcon}
+                />
+              ))}
+            </div>
+          </div>
+        )}
       </Container>
     </section>
   )

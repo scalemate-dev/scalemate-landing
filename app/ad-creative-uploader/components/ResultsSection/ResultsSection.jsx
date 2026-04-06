@@ -70,6 +70,22 @@ export default function ResultsSection() {
             </article>
           ))}
         </div>
+
+        <div className={styles.clientApps}>
+          <span className={styles.clientAppsLabel}>Apps powered by Scalemate</span>
+          <div className={styles.clientAppsRow}>
+            {/* eslint-disable @next/next/no-img-element */}
+            <img src="/client-zeptolab.webp" alt="ZeptoLab" className={styles.clientAppIcon} />
+            <img src="/client-kitup.webp" alt="KitUp" className={styles.clientAppIcon} />
+            <img src="/client-cut-the-rope.webp" alt="Cut the Rope" className={styles.clientAppIcon} />
+            <img src="/client-bullet-echo.webp" alt="Bullet Echo" className={styles.clientAppIcon} />
+            <img src="/client-growthers.png" alt="Growthers" className={styles.clientAppIcon} />
+            <img src="/client-manifestation.png" alt="Manifestation" className={styles.clientAppIcon} />
+            <img src="/client-mindguru.png" alt="MindGuru" className={styles.clientAppIcon} />
+            <img src="/client-ouromedia.png" alt="OuroMedia" className={styles.clientAppIcon} />
+            {/* eslint-enable @next/next/no-img-element */}
+          </div>
+        </div>
       </Container>
     </section>
   )
