@@ -1,0 +1,45 @@
+<svg width="720" height="200" viewBox="0 0 720 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .label-title { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 13px; font-weight: 600; fill: #1a1a1a; }
+    .label-desc { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 11px; fill: #888; }
+    .label-pct { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 32px; font-weight: 800; }
+    .label-small { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 11px; font-weight: 500; fill: #999; text-anchor: middle; }
+  </style>
+
+  <!-- Donut chart -->
+  <g transform="translate(100, 100)">
+    <!-- 70% arc (orange) — 252 degrees -->
+    <circle cx="0" cy="0" r="70" fill="none" stroke="#FFF7ED" stroke-width="28"/>
+    <circle cx="0" cy="0" r="70" fill="none" stroke="#F97316" stroke-width="28"
+      stroke-dasharray="307.9 440"
+      stroke-dashoffset="110"
+      stroke-linecap="round"/>
+    <!-- 30% arc (grey) — 108 degrees -->
+    <circle cx="0" cy="0" r="70" fill="none" stroke="#e5e5e5" stroke-width="28"
+      stroke-dasharray="131.9 440"
+      stroke-dashoffset="-197.9"
+      stroke-linecap="round"/>
+    <!-- Center text -->
+    <text x="0" y="-6" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="16" font-weight="700" fill="#1a1a1a">70 / 30</text>
+    <text x="0" y="12" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="10" fill="#999">creative mix</text>
+  </g>
+
+  <!-- Right side: labels -->
+  <!-- 70% block -->
+  <g transform="translate(240, 30)">
+    <rect width="6" height="60" rx="3" fill="#F97316"/>
+    <text x="20" y="8" class="label-pct" fill="#F97316">70%</text>
+    <text x="20" y="30" class="label-title">New Concepts</text>
+    <text x="20" y="44" class="label-desc">Different angles, formats, visual styles, creators</text>
+    <text x="20" y="58" class="label-desc">Purpose: find the NEXT winner</text>
+  </g>
+
+  <!-- 30% block -->
+  <g transform="translate(240, 115)">
+    <rect width="6" height="60" rx="3" fill="#d4d4d4"/>
+    <text x="20" y="8" class="label-pct" fill="#737373">30%</text>
+    <text x="20" y="30" class="label-title">Variations on Winners</text>
+    <text x="20" y="44" class="label-desc">New hook on proven format, different CTA, adjusted copy</text>
+    <text x="20" y="58" class="label-desc">Purpose: scale current winners longer</text>
+  </g>
+</svg>

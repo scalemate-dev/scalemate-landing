@@ -1,0 +1,116 @@
+<svg width="720" height="180" viewBox="0 0 720 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .bg { fill: #1a1a1a; rx: 16; }
+    .figure { fill: #333; }
+    .figure-winner { fill: #F97316; }
+    .big-num { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 72px; font-weight: 800; fill: #ffffff; }
+    .label { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 14px; font-weight: 500; fill: #999; }
+    .sublabel { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 12px; fill: #666; }
+    .divider { stroke: #333; stroke-width: 1; }
+  </style>
+
+  <!-- Background -->
+  <rect width="720" height="180" class="bg" rx="16"/>
+
+  <!-- Left side: big number -->
+  <text x="60" y="115" class="big-num">5%</text>
+  <text x="60" y="142" class="label">average winner rate</text>
+  <text x="60" y="160" class="sublabel">1 in 20 creatives becomes a real winner</text>
+
+  <!-- Divider -->
+  <line x1="280" y1="30" x2="280" y2="150" class="divider"/>
+
+  <!-- Right side: 20 figures, 1 highlighted -->
+  <!-- Row 1 (10 figures) -->
+  <g transform="translate(310, 40)">
+    <!-- Figure 1-10 -->
+    <g transform="translate(0, 0)">
+      <circle cx="8" cy="6" r="5" class="figure"/>
+      <path d="M2 16 C2 12, 14 12, 14 16 L14 28 L2 28Z" class="figure" rx="2"/>
+    </g>
+    <g transform="translate(36, 0)">
+      <circle cx="8" cy="6" r="5" class="figure"/>
+      <path d="M2 16 C2 12, 14 12, 14 16 L14 28 L2 28Z" class="figure"/>
+    </g>
+    <g transform="translate(72, 0)">
+      <circle cx="8" cy="6" r="5" class="figure"/>
+      <path d="M2 16 C2 12, 14 12, 14 16 L14 28 L2 28Z" class="figure"/>
+    </g>
+    <g transform="translate(108, 0)">
+      <circle cx="8" cy="6" r="5" class="figure"/>
+      <path d="M2 16 C2 12, 14 12, 14 16 L14 28 L2 28Z" class="figure"/>
+    </g>
+    <g transform="translate(144, 0)">
+      <circle cx="8" cy="6" r="5" class="figure"/>
+      <path d="M2 16 C2 12, 14 12, 14 16 L14 28 L2 28Z" class="figure"/>
+    </g>
+    <g transform="translate(180, 0)">
+      <circle cx="8" cy="6" r="5" class="figure"/>
+      <path d="M2 16 C2 12, 14 12, 14 16 L14 28 L2 28Z" class="figure"/>
+    </g>
+    <g transform="translate(216, 0)">
+      <circle cx="8" cy="6" r="5" class="figure"/>
+      <path d="M2 16 C2 12, 14 12, 14 16 L14 28 L2 28Z" class="figure"/>
+    </g>
+    <g transform="translate(252, 0)">
+      <circle cx="8" cy="6" r="5" class="figure"/>
+      <path d="M2 16 C2 12, 14 12, 14 16 L14 28 L2 28Z" class="figure"/>
+    </g>
+    <g transform="translate(288, 0)">
+      <circle cx="8" cy="6" r="5" class="figure"/>
+      <path d="M2 16 C2 12, 14 12, 14 16 L14 28 L2 28Z" class="figure"/>
+    </g>
+    <g transform="translate(324, 0)">
+      <circle cx="8" cy="6" r="5" class="figure"/>
+      <path d="M2 16 C2 12, 14 12, 14 16 L14 28 L2 28Z" class="figure"/>
+    </g>
+  </g>
+
+  <!-- Row 2 (10 figures, first one is WINNER) -->
+  <g transform="translate(310, 95)">
+    <!-- Figure 11 - WINNER -->
+    <g transform="translate(0, 0)">
+      <circle cx="8" cy="6" r="5" class="figure-winner"/>
+      <path d="M2 16 C2 12, 14 12, 14 16 L14 28 L2 28Z" class="figure-winner"/>
+    </g>
+    <g transform="translate(36, 0)">
+      <circle cx="8" cy="6" r="5" class="figure"/>
+      <path d="M2 16 C2 12, 14 12, 14 16 L14 28 L2 28Z" class="figure"/>
+    </g>
+    <g transform="translate(72, 0)">
+      <circle cx="8" cy="6" r="5" class="figure"/>
+      <path d="M2 16 C2 12, 14 12, 14 16 L14 28 L2 28Z" class="figure"/>
+    </g>
+    <g transform="translate(108, 0)">
+      <circle cx="8" cy="6" r="5" class="figure"/>
+      <path d="M2 16 C2 12, 14 12, 14 16 L14 28 L2 28Z" class="figure"/>
+    </g>
+    <g transform="translate(144, 0)">
+      <circle cx="8" cy="6" r="5" class="figure"/>
+      <path d="M2 16 C2 12, 14 12, 14 16 L14 28 L2 28Z" class="figure"/>
+    </g>
+    <g transform="translate(180, 0)">
+      <circle cx="8" cy="6" r="5" class="figure"/>
+      <path d="M2 16 C2 12, 14 12, 14 16 L14 28 L2 28Z" class="figure"/>
+    </g>
+    <g transform="translate(216, 0)">
+      <circle cx="8" cy="6" r="5" class="figure"/>
+      <path d="M2 16 C2 12, 14 12, 14 16 L14 28 L2 28Z" class="figure"/>
+    </g>
+    <g transform="translate(252, 0)">
+      <circle cx="8" cy="6" r="5" class="figure"/>
+      <path d="M2 16 C2 12, 14 12, 14 16 L14 28 L2 28Z" class="figure"/>
+    </g>
+    <g transform="translate(288, 0)">
+      <circle cx="8" cy="6" r="5" class="figure"/>
+      <path d="M2 16 C2 12, 14 12, 14 16 L14 28 L2 28Z" class="figure"/>
+    </g>
+    <g transform="translate(324, 0)">
+      <circle cx="8" cy="6" r="5" class="figure"/>
+      <path d="M2 16 C2 12, 14 12, 14 16 L14 28 L2 28Z" class="figure"/>
+    </g>
+  </g>
+
+  <!-- Winner label -->
+  <text x="318" y="148" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="10" fill="#F97316" font-weight="600">↑ winner</text>
+</svg>

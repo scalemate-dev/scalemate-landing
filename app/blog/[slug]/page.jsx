@@ -26,22 +26,36 @@ export async function generateMetadata({ params }) {
   const description =
     article.metaDescription || `Read about ${title.toLowerCase()} on the Scalemate blog.`
 
-  const ogImage = article.coverImage || "/og-image.png"
+  const ogImage = article.ogImage || article.coverImage || "/og-image.png"
+  const articleUrl = `https://www.scalemate.co/blog/${slug}`
 
   return {
     title: `${title} | Scalemate Blog`,
     description,
+    robots: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
     alternates: {
-      canonical: `https://www.scalemate.co/blog/${slug}`,
+      canonical: articleUrl,
+      languages: {
+        en: articleUrl,
+        "x-default": articleUrl,
+      },
     },
     openGraph: {
-      url: `https://www.scalemate.co/blog/${slug}`,
+      url: articleUrl,
       title: `${title} | Scalemate Blog`,
       description,
+      locale: "en_US",
       type: "article",
       publishedTime: article.createdAt,
       modifiedTime: article.updatedAt,
       authors: [article.author],
+      ...(article.section && { section: article.section }),
+      ...(article.tags.length > 0 && { tags: article.tags }),
       images: [{ url: ogImage }],
     },
     twitter: {
@@ -69,12 +83,14 @@ export default async function ArticlePage({ params }) {
 
   const isPersonAuthor = article.author !== "Scalemate Team"
 
+  const articleUrl = `https://www.scalemate.co/blog/${slug}`
+
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: article.title,
     description: article.metaDescription || undefined,
-    url: `https://www.scalemate.co/blog/${slug}`,
+    url: articleUrl,
     ...(article.coverImage && { image: article.coverImage }),
     author: isPersonAuthor
       ? { "@type": "Person", name: article.author }
@@ -90,6 +106,18 @@ export default async function ArticlePage({ params }) {
     },
     datePublished: article.createdAt,
     dateModified: article.updatedAt,
+    ...(article.tags.length > 0 && {
+      about: article.tags.slice(0, 3).map((tag) => ({
+        "@type": "Thing",
+        name: tag,
+      })),
+    }),
+    ...(article.tags.length > 0 && { keywords: article.tags.join(", ") }),
+    inLanguage: "en",
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", ".article p:first-of-type", ".faq-answer"],
+    },
   }
 
   const breadcrumbSchema = {

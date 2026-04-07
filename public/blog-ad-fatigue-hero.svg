@@ -1,0 +1,101 @@
+<svg width="720" height="320" viewBox="0 0 720 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .hero-bg { fill: #fafafa; }
+    .battery-body { fill: #fff; stroke: #e5e5e5; stroke-width: 2; rx: 12; }
+    .battery-cap { fill: #e5e5e5; rx: 4; }
+    .charge-full { fill: #16A34A; opacity: 0.8; rx: 6; }
+    .charge-mid { fill: #F97316; opacity: 0.8; rx: 6; }
+    .charge-low { fill: #DC2626; opacity: 0.6; rx: 6; }
+    .charge-empty { fill: #f5f5f5; rx: 6; }
+    .bat-label { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 12px; font-weight: 600; text-anchor: middle; }
+    .bat-sublabel { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 10px; fill: #999; text-anchor: middle; }
+    .metric-up { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 11px; font-weight: 600; fill: #16A34A; }
+    .metric-mid { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 11px; font-weight: 600; fill: #F97316; }
+    .metric-down { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 11px; font-weight: 600; fill: #DC2626; }
+    .title-text { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 11px; fill: #999; text-anchor: middle; }
+    .arrow-right { fill: #d4d4d4; }
+  </style>
+
+  <!-- Background -->
+  <rect width="720" height="320" class="hero-bg" rx="16"/>
+
+  <!-- Battery 1: Full (Week 1) -->
+  <g transform="translate(80, 50)">
+    <!-- Cap -->
+    <rect x="26" y="-8" width="28" height="10" class="battery-cap"/>
+    <!-- Body -->
+    <rect x="0" y="0" width="80" height="130" class="battery-body"/>
+    <!-- Charge bars (full) -->
+    <rect x="8" y="10" width="64" height="24" class="charge-full"/>
+    <rect x="8" y="38" width="64" height="24" class="charge-full"/>
+    <rect x="8" y="66" width="64" height="24" class="charge-full"/>
+    <rect x="8" y="94" width="64" height="24" class="charge-full"/>
+    <!-- Label -->
+    <text x="40" y="160" class="bat-label" fill="#16A34A">Week 1</text>
+    <text x="40" y="176" class="bat-sublabel">Fresh creative</text>
+    <text x="40" y="200" class="metric-up">CTR 2.8%</text>
+    <text x="40" y="216" class="metric-up">CPA $12</text>
+  </g>
+
+  <!-- Arrow -->
+  <g transform="translate(190, 110)">
+    <line x1="0" y1="0" x2="40" y2="0" stroke="#d4d4d4" stroke-width="1.5"/>
+    <polygon points="40,-4 48,0 40,4" class="arrow-right"/>
+  </g>
+
+  <!-- Battery 2: 50% (Week 3) -->
+  <g transform="translate(270, 50)">
+    <rect x="26" y="-8" width="28" height="10" class="battery-cap"/>
+    <rect x="0" y="0" width="80" height="130" class="battery-body"/>
+    <rect x="8" y="10" width="64" height="24" class="charge-empty"/>
+    <rect x="8" y="38" width="64" height="24" class="charge-empty"/>
+    <rect x="8" y="66" width="64" height="24" class="charge-mid"/>
+    <rect x="8" y="94" width="64" height="24" class="charge-mid"/>
+    <text x="40" y="160" class="bat-label" fill="#F97316">Week 3</text>
+    <text x="40" y="176" class="bat-sublabel">Signs of fatigue</text>
+    <text x="40" y="200" class="metric-mid">CTR 1.9%</text>
+    <text x="40" y="216" class="metric-mid">CPA $18</text>
+  </g>
+
+  <!-- Arrow -->
+  <g transform="translate(380, 110)">
+    <line x1="0" y1="0" x2="40" y2="0" stroke="#d4d4d4" stroke-width="1.5"/>
+    <polygon points="40,-4 48,0 40,4" class="arrow-right"/>
+  </g>
+
+  <!-- Battery 3: Low (Week 5) -->
+  <g transform="translate(460, 50)">
+    <rect x="26" y="-8" width="28" height="10" class="battery-cap"/>
+    <rect x="0" y="0" width="80" height="130" class="battery-body"/>
+    <rect x="8" y="10" width="64" height="24" class="charge-empty"/>
+    <rect x="8" y="38" width="64" height="24" class="charge-empty"/>
+    <rect x="8" y="66" width="64" height="24" class="charge-empty"/>
+    <rect x="8" y="94" width="64" height="24" class="charge-low"/>
+    <rect x="8" y="94" width="64" height="24" fill="#DC2626" opacity="0.3" rx="6">
+      <animate attributeName="opacity" values="0.3;0.6;0.3" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <text x="40" y="160" class="bat-label" fill="#DC2626">Week 5</text>
+    <text x="40" y="176" class="bat-sublabel">Ad fatigue</text>
+    <text x="40" y="200" class="metric-down">CTR 1.1%</text>
+    <text x="40" y="216" class="metric-down">CPA $28</text>
+  </g>
+
+  <!-- Arrow -->
+  <g transform="translate(570, 110)">
+    <line x1="0" y1="0" x2="40" y2="0" stroke="#d4d4d4" stroke-width="1.5"/>
+    <polygon points="40,-4 48,0 40,4" class="arrow-right"/>
+  </g>
+
+  <!-- Refresh icon -->
+  <g transform="translate(640, 85)">
+    <circle cx="20" cy="20" r="28" fill="#FFF7ED" stroke="#F97316" stroke-width="2"/>
+    <!-- Circular arrow -->
+    <path d="M12 14 A12 12 0 1 1 8 24" fill="none" stroke="#F97316" stroke-width="2.5" stroke-linecap="round"/>
+    <polygon points="6,20 8,26 13,22" fill="#F97316"/>
+    <text x="20" y="65" class="bat-label" fill="#F97316">Refresh</text>
+    <text x="20" y="81" class="bat-sublabel">New creatives</text>
+  </g>
+
+  <!-- Bottom tagline -->
+  <text x="360" y="296" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="13px" fill="#999" text-anchor="middle" font-style="italic">Every ad has an expiration date. The question is whether the team is ready when it hits.</text>
+</svg>

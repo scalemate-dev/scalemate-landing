@@ -1,0 +1,90 @@
+<svg width="720" height="200" viewBox="0 0 720 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .step-circle { fill: #fff; stroke: #e5e5e5; stroke-width: 1.5; }
+    .step-circle-active { fill: #FFF7ED; stroke: #F97316; stroke-width: 2; }
+    .step-icon { fill: none; stroke: #F97316; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .step-label { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 12px; font-weight: 600; fill: #1a1a1a; text-anchor: middle; }
+    .step-num { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 10px; font-weight: 500; fill: #F97316; text-anchor: middle; }
+    .arrow { fill: none; stroke: #d4d4d4; stroke-width: 1.5; stroke-linecap: round; }
+    .arrow-head { fill: #d4d4d4; }
+  </style>
+
+  <!-- Step 1: Analyze -->
+  <circle cx="60" cy="70" r="32" class="step-circle-active"/>
+  <text x="60" y="34" class="step-num">01</text>
+  <!-- magnifying glass icon -->
+  <circle cx="56" cy="66" r="8" class="step-icon"/>
+  <line x1="62" y1="72" x2="68" y2="78" class="step-icon"/>
+  <text x="60" y="120" class="step-label">Analyze</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="96" y1="70" x2="128" y2="70" class="arrow"/>
+  <polygon points="128,65 136,70 128,75" class="arrow-head"/>
+
+  <!-- Step 2: Hypothesize -->
+  <circle cx="180" cy="70" r="32" class="step-circle"/>
+  <text x="180" y="34" class="step-num">02</text>
+  <!-- lightbulb icon -->
+  <path d="M176 60 C176 54, 184 54, 184 60 C184 64, 181 66, 181 70 L179 70 C179 66, 176 64, 176 60Z" class="step-icon"/>
+  <line x1="178" y1="73" x2="182" y2="73" class="step-icon"/>
+  <line x1="178" y1="76" x2="182" y2="76" class="step-icon"/>
+  <text x="180" y="120" class="step-label">Hypothesize</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="216" y1="70" x2="248" y2="70" class="arrow"/>
+  <polygon points="248,65 256,70 248,75" class="arrow-head"/>
+
+  <!-- Step 3: Produce -->
+  <circle cx="300" cy="70" r="32" class="step-circle"/>
+  <text x="300" y="34" class="step-num">03</text>
+  <!-- pencil/create icon -->
+  <path d="M290 78 L296 60 L310 60 L304 78Z" class="step-icon"/>
+  <line x1="296" y1="60" x2="300" y2="54" class="step-icon"/>
+  <text x="300" y="120" class="step-label">Produce</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="336" y1="70" x2="368" y2="70" class="arrow"/>
+  <polygon points="368,65 376,70 368,75" class="arrow-head"/>
+
+  <!-- Step 4: Launch -->
+  <circle cx="420" cy="70" r="32" class="step-circle-active"/>
+  <text x="420" y="34" class="step-num">04</text>
+  <!-- rocket icon -->
+  <path d="M416 78 L420 58 L424 78" class="step-icon"/>
+  <line x1="414" y1="74" x2="418" y2="70" class="step-icon"/>
+  <line x1="426" y1="74" x2="422" y2="70" class="step-icon"/>
+  <text x="420" y="120" class="step-label">Launch</text>
+
+  <!-- Arrow 4→5 -->
+  <line x1="456" y1="70" x2="488" y2="70" class="arrow"/>
+  <polygon points="488,65 496,70 488,75" class="arrow-head"/>
+
+  <!-- Step 5: Optimize -->
+  <circle cx="540" cy="70" r="32" class="step-circle-active"/>
+  <text x="540" y="34" class="step-num">05</text>
+  <!-- settings/gear icon -->
+  <circle cx="540" cy="70" r="7" class="step-icon"/>
+  <line x1="540" y1="59" x2="540" y2="63" class="step-icon"/>
+  <line x1="540" y1="77" x2="540" y2="81" class="step-icon"/>
+  <line x1="529" y1="70" x2="533" y2="70" class="step-icon"/>
+  <line x1="547" y1="70" x2="551" y2="70" class="step-icon"/>
+  <text x="540" y="120" class="step-label">Optimize</text>
+
+  <!-- Arrow 5→6 -->
+  <line x1="576" y1="70" x2="608" y2="70" class="arrow"/>
+  <polygon points="608,65 616,70 608,75" class="arrow-head"/>
+
+  <!-- Step 6: Report -->
+  <circle cx="660" cy="70" r="32" class="step-circle"/>
+  <text x="660" y="34" class="step-num">06</text>
+  <!-- chart/report icon -->
+  <rect x="650" y="62" width="4" height="14" rx="1" class="step-icon" fill="#F97316" stroke="none" opacity="0.4"/>
+  <rect x="656" y="58" width="4" height="18" rx="1" class="step-icon" fill="#F97316" stroke="none" opacity="0.6"/>
+  <rect x="662" y="65" width="4" height="11" rx="1" class="step-icon" fill="#F97316" stroke="none" opacity="0.8"/>
+  <text x="660" y="120" class="step-label">Report</text>
+
+  <!-- Return arrow (Report → Analyze) -->
+  <path d="M660 140 C660 170, 60 170, 60 140" class="arrow" stroke-dasharray="4 4" opacity="0.5"/>
+  <polygon points="56,140 60,148 64,140" class="arrow-head" opacity="0.5"/>
+  <text x="360" y="166" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="11" fill="#999" text-anchor="middle" font-style="italic">repeat weekly</text>
+</svg>

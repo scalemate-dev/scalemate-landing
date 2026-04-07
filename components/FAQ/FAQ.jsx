@@ -5,6 +5,10 @@ import { trackMixpanelEvent } from "@/helpers/analytics/mixpanel"
 import { EVENTS } from "@/helpers/analytics/mixpanel.events"
 import styles from "./FAQ.module.scss"
 
+function slugifyQuestion(text) {
+  return "faq-" + text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "").slice(0, 60)
+}
+
 const FAQ = ({
   faqItems = FAQ_ITEMS,
   title = "Frequently Asked Questions",
@@ -48,7 +52,7 @@ const FAQ = ({
               })}
               onClick={() => toggleAccordion(index)}
               aria-expanded={openIndexes.has(index)}
-              aria-controls={`faq-answer-${index}`}
+              aria-controls={slugifyQuestion(item.question)}
               type="button"
             >
               {item.question}
@@ -76,7 +80,7 @@ const FAQ = ({
               </span>
             </button>
             <div
-              id={`faq-answer-${index}`}
+              id={slugifyQuestion(item.question)}
               className={cn(styles.answer, {
                 [styles.open]: openIndexes.has(index),
                 [styles.closed]: !openIndexes.has(index),
