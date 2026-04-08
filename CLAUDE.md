@@ -12,10 +12,11 @@ Next.js 16 app (App Router), SCSS modules, deployed on Vercel.
 When asked to deploy:
 
 1. Check if there are unpushed commits (`git status` or `git log origin/main..HEAD`).
-2. If no unpushed commits exist, ask the user to commit relevant files before deploying.
-3. If still no unpushed commits after that, create an empty commit: `git commit --allow-empty -m "trigger deploy"`.
-4. Do NOT run `git push` — the deploy script handles pushing.
-5. Run `bash deploy.sh`.
+   - If there are unpushed commits — proceed directly to step 2.
+   - If no unpushed commits — ask the user to commit relevant files. If the user declines, create an empty commit: `git commit --allow-empty -m "trigger deploy"`.
+2. Run `git pull --rebase` to sync with remote before deploying.
+3. Do NOT run `git push` — the deploy script handles pushing.
+4. Run `bash deploy.sh`.
 
 ## Brand & Content
 
