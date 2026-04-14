@@ -195,4 +195,7 @@ Tools handle the execution, but they do not replace a testing process. A [creati
 
 The basics: define kill and scale thresholds before launch, not after. Allocate roughly 70% of testing budget to new concepts and 30% to iterations on proven winners. Run weekly cycles — analyze results, brief the next round, launch, optimize, report. Teams that follow a structured cycle consistently outperform those that test reactively.
 
+![Scalemate automated ad testing flow: bulk launch, auto-pause losers at 2x CPA, scale winners, with decision logic for kill and scale rules](/blog/images/scalemate-testing-flow.png)
+*Scalemate's automated testing flow — from creative handoff to winner scaling.*
+
 For a complete walkthrough with checklists and campaign structures, read the [full framework guide](/blog/creative-testing-framework). Related reading: [what is ad fatigue](/blog/what-is-ad-fatigue) and [AdCreative.ai alternatives](/blog/adcreative-ai-alternative) for creative production options.
