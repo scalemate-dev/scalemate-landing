@@ -23,6 +23,7 @@ export async function generateMetadata({ params }) {
   }
 
   const title = article.title
+  const fullTitle = article.absoluteTitle ? title : `${title} | Scalemate Blog`
   const description =
     article.metaDescription || `Read about ${title.toLowerCase()} on the Scalemate blog.`
 
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }) {
   const articleUrl = `https://www.scalemate.co/blog/${slug}`
 
   return {
-    title: `${title} | Scalemate Blog`,
+    title: fullTitle,
     description,
     robots: {
       index: true,
@@ -47,7 +48,7 @@ export async function generateMetadata({ params }) {
     },
     openGraph: {
       url: articleUrl,
-      title: `${title} | Scalemate Blog`,
+      title: fullTitle,
       description,
       locale: "en_US",
       type: "article",
@@ -60,7 +61,7 @@ export async function generateMetadata({ params }) {
     },
     twitter: {
       card: "summary_large_image",
-      title: `${title} | Scalemate Blog`,
+      title: fullTitle,
       description,
       images: [ogImage],
     },
