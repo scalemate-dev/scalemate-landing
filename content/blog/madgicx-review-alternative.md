@@ -157,7 +157,7 @@ It automates the part between "we know what to run" and "it's live across all ma
 
 **Bulk ad launch.** Upload creatives to Google Drive, pick a saved template with the campaign structure you need, and launch ads in any combination of creatives, audiences, and placements at once. Templates are reusable: set up once, launch again next week without rebuilding anything. Once ads are live, automation rules take over: pause what underperforms, scale what works. The full cycle from creative to live ad to optimized campaign runs without manual steps in between.
 
-**Drive sync.** Connect a Google Drive folder. New assets sync automatically — no duplicates, no re-uploading. Creatives go straight to your library or directly into campaigns. The download-upload-rename cycle? Gone.
+**Drive sync.** Connect a Google Drive folder. New assets sync automatically — no duplicates, no re-uploading. Creatives go straight to your library or directly into campaigns. The download-upload-rename cycle? Gone. Teams can start with the [free bulk ad creative uploader](/ad-creative-uploader) to test the workflow.
 
 **Automation rules.** Set performance thresholds once: ROAS floor, CPI cap, spend limit. Rules run 24/7 and auto-pause underperformers, scale winners, or adjust bids without manual checks. Built-in rollback reverses scaling if performance drops after a budget increase. Budget protection that works anytime, not just during office hours.
 

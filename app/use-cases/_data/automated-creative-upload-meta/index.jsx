@@ -5,46 +5,54 @@ import { UploadVisual } from "./UploadVisual"
 
 export const data = {
   metadata: {
-    title: "Automate Creative Upload to Meta Ads | Scalemate",
+    title:
+      "Bulk Upload Creatives to Meta & TikTok — Save 35hrs/Month",
     description:
-      "Automate creative upload meta ads with a direct cloud-to-platform sync. No download-reupload cycle, automatic deduplication – from cloud storage to live campaigns.",
+      "Stop dragging files into Ads Manager one by one. See how teams bulk upload creatives to Meta & TikTok from Google Drive — free tool, no downloads needed.",
     alternates: {
       canonical:
         "https://www.scalemate.co/use-cases/automated-creative-upload-meta",
     },
     openGraph: {
-      title: "Automate Creative Upload to Meta Ads | Scalemate",
+      title:
+        "Bulk Upload Creatives to Meta & TikTok — Save 35hrs/Month",
       description:
-        "Automate creative upload meta ads with a direct cloud-to-platform sync. No download-reupload cycle, automatic deduplication – from cloud storage to live campaigns.",
+        "Stop dragging files into Ads Manager one by one. See how teams bulk upload creatives to Meta & TikTok from Google Drive — free tool, no downloads needed.",
       url: "https://www.scalemate.co/use-cases/automated-creative-upload-meta",
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: "Automate Creative Upload to Meta Ads | Scalemate",
+      title:
+        "Bulk Upload Creatives to Meta & TikTok — Save 35hrs/Month",
       description:
-        "Automate creative upload meta ads with a direct cloud-to-platform sync. No download-reupload cycle, automatic deduplication.",
+        "Stop dragging files into Ads Manager one by one. See how teams bulk upload creatives to Meta & TikTok from Google Drive — free tool, no downloads needed.",
     },
   },
 
   hero: {
     label: "Creative uploader",
-    title: "Automate Creative Upload Meta Ads",
+    title: "Bulk Upload Creatives to Meta & TikTok",
     titleAccent: "without manual drag-and-drop",
     description: (
       <>
         Creatives stuck in cloud storage, campaigns waiting. Scalemate lets
-        teams automate creative upload meta ads with a direct cloud-to-platform
-        sync:
+        teams bulk upload ad creatives from Google Drive to Meta and TikTok
+        — no downloads, no drag-and-drop:
       </>
     ),
     features: [
-      "Google Drive to Meta Media Library uploads ",
+      "Google Drive to Meta Media Library — direct sync",
       "No download → re-upload cycle",
       "Automatic deduplication, only new files transfer",
     ],
     aside:
-      "From cloud storage to live campaigns – without dragging creatives into Facebook.",
+      "From cloud storage to live campaigns – without dragging creatives into Ads Manager one by one.",
+    platforms: [
+      { src: "/meta-ads-logo.svg", alt: "Meta Ads", height: 14 },
+      { src: "/tiktok-logo.png", alt: "TikTok Ads", height: 15 },
+      { src: "/google-drive-logo.svg", alt: "Google Drive", height: 20 },
+    ],
     secondaryCta: {
       label: "Try Free Uploader ",
       href: "/ad-creative-uploader",
@@ -57,8 +65,8 @@ export const data = {
     titleAccent: "Drain Your Team",
     subtitle: (
       <>
-        As creative volume grows, teams that don&apos;t automate creative upload
-        meta ads hit the same bottleneck: repetitive manual steps, messy media
+        As creative volume grows, teams without a bulk creative upload workflow
+        hit the same bottleneck: repetitive manual steps, messy media
         libraries, and a stalled pipeline.
       </>
     ),
@@ -92,10 +100,10 @@ export const data = {
       text: "Google Drive → Download → Open Ads Manager → Select files → Wait → Repeat for each account. Sixty weekly creatives, four accounts – the cycles compound fast.",
     },
     after: {
-      title: "Automated creative upload Meta Ads in One click",
+      title: "Bulk Upload Creatives to Meta in One Click",
       text: (
         <>
-          Scalemate lets teams auto sync creatives to Meta Ads from Google
+          Scalemate lets teams bulk upload creatives to Meta Ads from Google
           Drive, Dropbox, or NextCloud – without local downloads
         </>
       ),
@@ -119,16 +127,16 @@ export const data = {
     ],
     leadIn: (
       <>
-        The repetitive upload workflow disappears. Teams that automate creative
-        upload meta ads move creatives from storage to ad accounts through a
-        direct connection
+        The repetitive upload workflow disappears. Teams that bulk upload
+        creatives move files from storage to ad accounts through a direct
+        connection
       </>
     ),
   },
 
   howItWorks: {
     eyebrow: "How It Works",
-    title: "How Teams Automate Creative Upload Meta Ads",
+    title: "How Teams Bulk Upload Creatives to Meta & TikTok",
     subtitle:
       "Three steps replace the manual transfer pipeline – from cloud storage connection to live assets in ad accounts.",
     steps: [
@@ -157,10 +165,9 @@ export const data = {
         description: (
           <>
             Hundreds of files land in Meta Media Library in one batch – no
-            downloads, no drag-and-drop. For mobile apps teams that need to bulk
-            upload creatives meta ads across multiple accounts, everything runs
-            from one screen. Same workflow for TikTok. YouTube is available on
-            request.
+            downloads, no drag-and-drop. For teams that need to bulk upload
+            ad creatives across multiple accounts, everything runs from one
+            screen. Same workflow for TikTok. YouTube is available on request.
           </>
         ),
         Visual: UploadVisual,
@@ -174,9 +181,9 @@ export const data = {
     titleAccent: "Automated Creative Upload",
     subtitle: (
       <>
-        Two teams chose to automate creative upload meta ads with Scalemate.
-        Both faced the same challenge – scaling creative delivery without
-        scaling headcount
+        Two teams switched to bulk uploading creatives with Scalemate. Both
+        faced the same challenge – scaling creative delivery without scaling
+        headcount
       </>
     ),
     caseStudies: [
@@ -187,8 +194,8 @@ export const data = {
         description: (
           <>
             ZeptoLab (Cut the Rope, 2B+ downloads) used NextCloud.
-            Scalemate&apos;s integration functions as a dedicated meta ads
-            creative uploader:
+            Scalemate&apos;s integration handles bulk creative uploads
+            directly from cloud storage:
           </>
         ),
         href: "/customers/zeptolab",
@@ -207,7 +214,7 @@ export const data = {
         description: (
           <>
             KitUp (education, 1M+ users) needed to{" "}
-            <strong>automate facebook ad uploads</strong> at scale. Over 15,000
+            <strong>bulk upload ad creatives</strong> at scale. Over 15,000
             creatives added with Creative Uploader:
           </>
         ),
@@ -221,10 +228,23 @@ export const data = {
         //   "Faster uploads free up time the team reinvests into analysis and optimization.",
       },
     ],
+    clientApps: {
+      label: "Apps powered by Scalemate",
+      logos: [
+        { src: "/client-zeptolab.webp", alt: "ZeptoLab" },
+        { src: "/client-kitup.webp", alt: "KitUp" },
+        { src: "/client-cut-the-rope.webp", alt: "Cut the Rope" },
+        { src: "/client-bullet-echo.webp", alt: "Bullet Echo" },
+        { src: "/client-growthers.png", alt: "Growthers" },
+        { src: "/client-manifestation.png", alt: "Manifestation" },
+        { src: "/client-mindguru.png", alt: "MindGuru" },
+        { src: "/client-ouromedia.png", alt: "OuroMedia" },
+      ],
+    },
   },
 
   audience: {
-    title: "Who Automated Creative Upload is for",
+    title: "Who Bulk Creative Upload Is For",
     subtitle:
       "Built for teams where creative volume outpaces the manual upload process – whether the bottleneck is with buyers or creative ops.",
     roles: [
@@ -233,9 +253,8 @@ export const data = {
         description: (
           <>
             For <Link href="/solutions/media-buyers">media buyers</Link> who
-            bulk upload creatives facebook ads across multiple accounts, auto
-            sync creatives to meta ads from cloud storage removes the most
-            repetitive weekly task.
+            bulk upload creatives across multiple ad accounts, syncing from
+            Google Drive to Meta removes the most repetitive weekly task.
           </>
         ),
       },
@@ -244,8 +263,8 @@ export const data = {
         description: (
           <>
             Direct sync shrinks the pipeline: designer saves file → file appears
-            in Meta. Teams that automate facebook ad uploads get faster feedback
-            and tighter cycles
+            in Meta. Teams that bulk upload creatives get faster feedback and
+            tighter creative testing cycles
           </>
         ),
       },
@@ -262,17 +281,16 @@ export const data = {
     footer: (
       <>
         High output plus manual uploads equals a bottleneck – teams that
-        automate creative upload meta ads break free and scale without adding
-        headcount
+        bulk upload creatives break free and scale without adding headcount
       </>
     ),
   },
 
   faq: [
     {
-      question: "What is automated creative upload for Meta Ads?",
+      question: "What does bulk upload creatives mean for Meta Ads?",
       answer:
-        "Automated creative upload connects cloud storage (Google Drive, Dropbox, NextCloud) directly to Meta's advertising infrastructure, eliminating the manual download-reupload cycle and slow creative deployment. Files transfer from storage to ad accounts without local downloads or browser-based drag-and-drop. The entire process runs from a single interface – select files, choose destination accounts, push.",
+        "Bulk uploading creatives means sending multiple ad files from cloud storage (Google Drive, Dropbox, NextCloud) directly to Meta's Media Library in one batch, skipping the manual download-reupload cycle. Files transfer from storage to ad accounts without local downloads or browser-based drag-and-drop. The entire process runs from a single interface – select files, choose destination accounts, push.",
     },
     {
       question:
@@ -298,10 +316,10 @@ export const data = {
     {
       question: "Is there a free version of the creative uploader?",
       answerText:
-        "Yes. As a meta ads creative uploader, Scalemate offers a free uploader tool that handles up to 20 files per day – a functional entry point for smaller teams or for testing the workflow before committing to the full Cloud Sync feature. The free tier includes the same direct API connection and deduplication logic, with the only limit being daily file count.",
+        "Yes. Scalemate offers a free bulk ad uploader that handles up to 20 files per day – a functional entry point for smaller teams or for testing the workflow before committing to the full Cloud Sync feature. The free tier includes the same direct API connection and deduplication logic, with the only limit being daily file count.",
       answer: (
         <>
-          Yes. As a meta ads creative uploader, Scalemate offers a{" "}
+          Yes. Scalemate offers a{" "}
           <Link href="/ad-creative-uploader">free uploader tool</Link> that
           handles up to 20 files per day – a functional entry point for smaller
           teams or for testing the workflow before committing to the full Cloud
@@ -314,12 +332,12 @@ export const data = {
       question:
         "How is this different from uploading directly in Meta Ads Manager?",
       answer:
-        "Meta's native upload interface handles individual files or small batches through browser drag-and-drop. It offers no cloud storage integration, no deduplication, and no multi-account upload capability. Scalemate is built for teams that need to automate creative upload meta ads at scale – moving large volumes from production storage to ad platforms without manual steps.",
+        "Meta's native upload interface handles individual files or small batches through browser drag-and-drop. It offers no cloud storage integration, no deduplication, and no multi-account upload capability. Scalemate is built for teams that need to bulk upload creatives at scale – moving large volumes from production storage to ad platforms without manual steps.",
     },
   ],
 
   cta: {
-    title: "Automate Creative Upload Meta Ads",
+    title: "Bulk Upload Creatives to Meta & TikTok",
     description: (
       <>From cloud storage to live campaigns, without the manual grind.</>
     ),

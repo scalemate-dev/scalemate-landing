@@ -176,3 +176,5 @@ The practical results across Scalemate users show a **32% reduction in wasted bu
 For a closer look at how rule-based automation compares to other platforms on the market, the [Madgicx review and alternatives breakdown](/blog/madgicx-review-alternative) covers the landscape in detail.
 
 Teams that have outgrown native rules but want to keep the same logic-based approach can explore the [ad campaign automation rules use cases](/use-cases/ad-campaign-automation-rules) page for specific workflow templates. And for a full feature breakdown, the [Scalemate automation rules overview](/features/automation-rules) covers everything from rollback configuration to cross-platform rule management.
+
+If the bottleneck is creative delivery rather than rules — uploading dozens of assets to Meta every week — the [free bulk ad creative uploader](/ad-creative-uploader) handles Google Drive to Meta sync without downloads.

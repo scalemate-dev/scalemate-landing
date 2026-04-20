@@ -1,3 +1,4 @@
+import Link from "next/link"
 import Container from "@/components/elements/Container/Container"
 import FAQ from "@/components/FAQ/FAQ"
 import HeroSection from "./components/HeroSection/HeroSection"
@@ -10,25 +11,25 @@ import CtaSection from "./components/CtaSection/CtaSection"
 import styles from "./page.module.scss"
 
 export const metadata = {
-  title: "Free Ad Uploader — Google Drive to Meta & TikTok Ads",
+  title: "Bulk Upload Ad Creatives to Meta & TikTok — Free Tool",
   description:
-    "Free ad uploader tool. Upload creatives from Google Drive directly to Meta Ads and TikTok Ads. Bulk upload to multiple ad accounts — no downloads needed.",
+    "Free tool to bulk upload ad creatives from Google Drive to Meta and TikTok Ads. No downloads, multi-account support. Over 2M ads launched on the platform.",
   alternates: {
     canonical: "https://www.scalemate.co/ad-creative-uploader",
   },
   openGraph: {
     url: "https://www.scalemate.co/ad-creative-uploader",
-    title: "Free Ad Uploader — Google Drive to Meta & TikTok Ads",
+    title: "Bulk Upload Ad Creatives to Meta & TikTok — Free Tool",
     description:
-      "Free ad uploader tool. Upload creatives from Google Drive directly to Meta Ads and TikTok Ads. Bulk upload to multiple ad accounts — no downloads needed.",
+      "Free tool to bulk upload ad creatives from Google Drive to Meta and TikTok Ads. No downloads, multi-account support. Over 2M ads launched on the platform.",
     type: "website",
     images: [{ url: "/og-creative-uploader.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Ad Uploader — Google Drive to Meta & TikTok Ads",
+    title: "Bulk Upload Ad Creatives to Meta & TikTok — Free Tool",
     description:
-      "Free ad uploader tool. Upload creatives from Google Drive directly to Meta Ads and TikTok Ads. Bulk upload to multiple ad accounts — no downloads needed.",
+      "Free tool to bulk upload ad creatives from Google Drive to Meta and TikTok Ads. No downloads, multi-account support. Over 2M ads launched on the platform.",
     images: ["/og-creative-uploader.png"],
   },
 }
@@ -46,8 +47,21 @@ const faqItems = [
   },
   {
     question: "How is this different from uploading manually?",
-    answer:
-      "Instead of downloading files and re-uploading them one by one, you pick files from Google Drive and send them straight to your ad account in one click. Bulk upload ad creatives to multiple accounts at once — the bigger the batch, the more time you save.",
+    answerText:
+      "Instead of downloading files and re-uploading them one by one, you pick files from Google Drive and send them straight to your ad account in one click. Bulk upload ad creatives to multiple accounts at once — the bigger the batch, the more time you save. See how teams use this workflow at scale in the bulk creative upload use case.",
+    answer: (
+      <>
+        Instead of downloading files and re-uploading them one by one, you pick
+        files from Google Drive and send them straight to your ad account in one
+        click. Bulk upload ad creatives to multiple accounts at once — the bigger
+        the batch, the more time you save. See how teams use this workflow at
+        scale in the{" "}
+        <Link href="/use-cases/automated-creative-upload-meta">
+          bulk creative upload use case
+        </Link>
+        .
+      </>
+    ),
   },
   {
     question: "Who is this built for?",
@@ -100,7 +114,7 @@ const faqSchema = {
     name: item.question,
     acceptedAnswer: {
       "@type": "Answer",
-      text: item.answer,
+      text: item.answerText || (typeof item.answer === "string" ? item.answer : ""),
     },
   })),
 }

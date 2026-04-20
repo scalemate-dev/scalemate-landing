@@ -1,7 +1,7 @@
 ---
-title: "Best MCP Servers for Meta & Google Ads (2026)"
+title: "Best MCP Servers for Meta & Google Ads — Ban Risk Warning"
 slug: best-mcp-servers-meta-google-ads
-metaDescription: "Compare MCP servers that connect Meta Ads and Google Ads to AI. Setup guides, free options, and what each tool actually does. Updated for 2026."
+metaDescription: "Meta is banning ad accounts that connect unverified MCP servers. Compare verified vs unverified options for Meta & Google Ads — setup guides, free tools, and what's safe."
 author: "Nataliia Bondar"
 coverImage: null
 coverAlt: null
@@ -20,6 +20,8 @@ faq:
     answer: "It depends on the server. Tools like Pipeboard require zero technical skills — paste a URL into Claude and start asking questions. Open-source options like GoMarble require cloning a repo, installing dependencies, and configuring API keys in a JSON file. If terminal commands feel foreign, stick with remote MCP servers or platforms that have built-in AI chat without MCP setup at all."
   - question: "Is there a way to manage Meta Ads with AI without setting up an MCP server?"
     answer: "Yes. Scalemate AI Chat connects to Meta Ads accounts directly — no MCP server installation, no config files, no GitHub repos. Teams connect their Facebook account through the platform and immediately get AI-powered analysis, budget changes, campaign pausing, and ad launches through a chat interface. It skips the protocol layer entirely while delivering the same core benefit: talking to your ad data through AI."
+  - question: "Can MCP servers get my Meta ad account banned?"
+    answer: "Yes. Meta is permanently banning ad accounts that connect through unverified apps. Most open-source MCP servers use your personal access token without rate limiting or app review — Meta flags this as unauthorized bot access. Before connecting any tool, check if it's a verified Meta app (not just 'works with Meta'), whether it has rate limiting, and whether it requires your personal access token. Verified platforms like Scalemate go through Meta's official app review process, which means scoped permissions and zero ban risk."
 ---
 
 MCP servers are changing how performance marketers interact with their ad accounts. Instead of pulling reports manually or navigating complex dashboards, a **meta ads MCP** or **google ads MCP** server lets you query live campaign data through AI. Ask a question, get an answer with real numbers behind it. This article covers every major option available in 2026, with honest comparisons so you can pick the right one for your stack.
@@ -27,6 +29,7 @@ MCP servers are changing how performance marketers interact with their ad accoun
 **In this article:**
 - [Why Marketers Are Looking at MCP for Ads](#why-marketers-are-looking-at-mcp-for-ads)
 - [What Is an MCP Server for Ads?](#what-is-an-mcp-server-for-ads)
+- [Verified vs Unverified: Why It Matters for Your Ad Account](#verified-vs-unverified-why-it-matters-for-your-ad-account)
 - [Best MCP Servers for Meta Ads](#best-mcp-servers-for-meta-ads)
 - [Best MCP Servers for Google Ads](#best-mcp-servers-for-google-ads)
 - [Comparison Table](#comparison-table)
@@ -61,6 +64,26 @@ What MCP enables in practice:
 - **Cross-platform comparison.** Query Meta and Google data in the same conversation
 
 The limitation worth knowing: most MCP servers are read-only. They pull data and let AI analyze it, but they don't write back to the platform. Pausing campaigns, changing budgets, launching new ads: that still happens in the ad platform itself, unless you're using a tool that goes beyond the MCP layer.
+
+---
+
+## Verified vs Unverified: Why It Matters for Your Ad Account
+
+Before comparing tools — this is the most important thing in this article.
+
+**Meta is permanently banning ad accounts that connect through unverified apps.** Not for running bad ads. For connecting the wrong tools.
+
+Most MCP servers on GitHub work like this: you clone a repo, paste your personal access token, and start firing API calls. No rate limiting. No app review. No permission scoping. Meta's security systems see this as unauthorized access — the same signal as a bot attack. The result: permanent account ban, no appeal.
+
+A verified Meta app is different. It passed Meta's official review process. It has scoped permissions — only requests what it needs. It has rate limiting so it doesn't flood the API. Meta trusts it because it went through months of compliance work.
+
+**Before you connect anything to your ad accounts, check three things:**
+
+1. **Is the app verified by Meta?** Not "works with Meta" — reviewed and approved through Meta's app review.
+2. **Does it have rate limiting?** If it can fire unlimited API requests, one bad AI prompt can trigger a ban.
+3. **Are you passing your personal access token directly?** That's the biggest red flag for Meta's security systems.
+
+Keep these checks in mind as you evaluate the tools below. We'll note the verification status of each one.
 
 ---
 
@@ -101,13 +124,16 @@ Composio positions its **meta ads MCP** integration as part of a broader AI agen
 
 <a href="https://mcp.composio.dev/metaads" rel="nofollow noopener" target="_blank">Composio Meta Ads</a>
 
-### 4. Scalemate AI Chat — A Different Approach
+### 4. Scalemate AI Chat — Verified Meta Integration
 
 Most MCP servers stop at analysis. Scalemate AI Chat goes further: it analyzes campaign data *and* takes actions directly. Pause underperforming ad sets, scale budgets, launch new ads from creatives, set [automation rules](/features/automation-rules). All through a chat interface, no MCP configuration required.
+
+The key difference: **Scalemate is a verified Meta app.** Official API access, elevated rate limits, rate limiting on every request, scoped permissions. It took months of compliance work to get through Meta's review process. The result: zero account bans across all Scalemate users.
 
 - **Setup:** Connect a Facebook account through the platform. No repos, no JSON, no terminal
 - **Platforms:** Meta Ads + TikTok Ads (Google Ads in development)
 - **Pricing:** Paid with free trial
+- **Verified Meta app:** Official API, scoped permissions, rate limiting built in. No ban risk
 - **Actions, not just analysis:** Budget changes, campaign pausing, bulk ad launches, [how to set up Facebook automated rules](/blog/facebook-automated-rules). Things MCP servers typically can't do
 - **MCP integration coming soon.** For teams that want to connect Scalemate's capabilities through Claude or Cursor
 - **Used by:** ZeptoLab (2B+ downloads), KitUp (1M+ users), and other performance teams running at scale
