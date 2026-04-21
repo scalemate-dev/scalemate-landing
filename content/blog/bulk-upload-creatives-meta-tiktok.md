@@ -17,6 +17,10 @@ faq:
     answer: "Yes. Scalemate offers a free ad creative uploader that syncs files from Google Drive to Meta and TikTok Ads. The free tier supports up to 20 files per day with the same deduplication and multi-account features as paid plans. Meta's native bulk import via Excel is also free but only handles campaign structure, not creative files."
   - question: "Can bulk upload tools get my ad account banned?"
     answer: "Some can. Open-source MCP servers and API scripts that use personal access tokens without rate limiting can trigger Meta's security systems, leading to permanent account bans. Before connecting any tool, check if it's a verified Meta app with scoped permissions and rate limiting. Scalemate is a verified Meta app — zero account bans across all users."
+  - question: "Can you bulk upload creatives to Meta and TikTok at the same time?"
+    answer: "Most tools only support Meta. Scalemate uploads creatives to Meta and TikTok simultaneously from the same batch. Select your files in Google Drive, choose both platforms as destinations, and push once. No need to switch between Ads Managers or repeat the process for each platform."
+  - question: "How many creatives can you upload at once?"
+    answer: "Meta's native bulk import handles campaign structure but not creative files directly. Paid tools like admanage.ai support batches of 100-200+ ads. Scalemate has no practical cap on batch size — ZeptoLab has delivered over 2,000 files through the platform. The upload runs server-side, so large batches aren't limited by browser timeouts."
 ---
 
 A media buyer on Reddit put it simply: "What tools do you use to bulk upload 100+ weekly Facebook ads?" The thread got 30 comments in two days. Another one ("Is there a tool to bulk upload ads to Facebook?") pulled 21 comments. The same question keeps coming up because the same problem keeps wasting time.
@@ -103,6 +107,10 @@ This is our tool. We built it because we ran into the same problem and none of t
 
 The workflow: connect Google Drive (one-time setup), select files, choose destination (Meta, TikTok, or both simultaneously), push. Files land in the platform's Media Library without downloading anything to your computer.
 
+Here's the workflow in action:
+
+<iframe width="450" height="800" src="https://www.youtube.com/embed/1aBueTUUIAQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:block;margin:0 auto;max-width:100%;border-radius:12px"></iframe>
+
 The difference from a pure upload tool: you can launch ads directly from those creatives into campaigns. Upload the files, set your campaign structure, go live. The full workflow from creative asset to running ad happens in one interface.
 
 The free tier covers up to 20 files per day. If your volume is small, it costs nothing. The same deduplication and multi-account features are included regardless of plan. And because Scalemate is a verified Meta app with official API access, scoped permissions, and rate limiting, there's zero ban risk. Across all users, zero accounts banned.
@@ -121,17 +129,17 @@ KitUp (education, 1M+ users) connected their internal creative pipeline to Scale
 
 ## 5 methods compared
 
-| | Meta Bulk Import | Sheets Templates | Paid Tools | API / MCP | Scalemate |
+| | Scalemate | Meta Bulk Import | Sheets Templates | Paid Tools | API / MCP |
 |---|---|---|---|---|---|
-| **Price** | Free | Free-$50 | $300-700/mo | Free (DIY) | Free tier + paid |
-| **Platforms** | Meta only | Meta only | Mostly Meta | Meta (custom) | Meta + TikTok |
-| **Source sync** | No | No | No | Custom build | Drive, Airtable, custom |
-| **Creative upload** | No (structure only) | No (structure only) | Yes | Yes | Yes |
-| **Launch ads** | No | Partial | Yes | Yes | Yes |
-| **Deduplication** | No | No | Varies | Custom build | Yes |
-| **Multi-account** | No | No | Yes | Custom build | Yes |
-| **Ban risk** | None | None | Low | High | None (verified) |
-| **Setup** | Minutes | Hours | Hours | Days-weeks | Minutes |
+| **Price** | ✓ Free tier + paid | Free | Free-$50 | $300-700/mo | Free (DIY) |
+| **Platforms** | ✓ Meta + TikTok | Meta only | Meta only | Mostly Meta | Meta (custom) |
+| **Source sync** | ✓ Drive, Airtable, custom | ✗ | ✗ | ✗ | Custom build |
+| **Creative upload** | ✓ | ✗ Structure only | ✗ Structure only | ✓ | ✓ |
+| **Launch ads** | ✓ | ✗ | Partial | ✓ | ✓ |
+| **Deduplication** | ✓ | ✗ | ✗ | Varies | Custom build |
+| **Multi-account** | ✓ | ✗ | ✗ | ✓ | Custom build |
+| **Ban risk** | ✓ None (verified) | None | None | Low | ✗ High |
+| **Setup** | ✓ Minutes | Minutes | Hours | Hours | Days-weeks |
 
 ---
 
@@ -146,25 +154,3 @@ KitUp (education, 1M+ users) connected their internal creative pipeline to Scale
 **Developer team available.** API or MCP scripts give maximum control. Verify the app with Meta first. The time investment is real and ongoing.
 
 ---
-
-## FAQ
-
-### Can you bulk upload creatives to Meta Ads?
-
-Yes. Meta's native bulk import lets you upload campaign structures via Excel, but it doesn't handle creative files directly. You still drag and drop media into Ads Manager. Third-party tools like Scalemate upload creative files from Google Drive to Meta's Media Library in one batch, skipping the download-reupload cycle. The [free tier](/ad-creative-uploader) handles up to 20 files per day.
-
-### What's the fastest way to upload creatives to Meta?
-
-A direct cloud-to-platform sync. Instead of downloading files and re-uploading them through Ads Manager, tools like Scalemate push creatives from Google Drive straight to Meta's Media Library, and to TikTok at the same time. Teams report going from 3-4 hours of manual uploads per week to under 30 minutes.
-
-### Is there a free bulk ad uploader?
-
-Yes. Scalemate has a [free ad creative uploader](/ad-creative-uploader) that syncs files from Google Drive to Meta and TikTok Ads. The free tier supports up to 20 files per day with deduplication and multi-account features included. Meta's native bulk import via Excel is also free but only handles campaign structure, not creative files.
-
-### Can bulk upload tools get my ad account banned?
-
-Some can. Open-source MCP servers and API scripts that use personal access tokens without rate limiting can trigger Meta's security systems, leading to permanent account bans. Before connecting any tool, check if it's a verified Meta app with scoped permissions and rate limiting. Read the full breakdown in our [MCP servers guide](/blog/best-mcp-servers-meta-google-ads). Scalemate is a verified Meta app with zero account bans across all users.
-
----
-
-*This article was drafted with AI assistance and reviewed, edited, and fact-checked by Nataliia Bondar before publishing.*
