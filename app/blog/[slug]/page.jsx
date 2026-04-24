@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { IconArrowLeft } from "@tabler/icons-react"
@@ -164,7 +165,16 @@ export default async function ArticlePage({ params }) {
         />
       )}
 
-      <section className={styles.hero}>
+      <section className={`${styles.hero} ${article.heroBg ? styles.heroWithBg : ""}`}>
+        {article.heroBg && (
+          <Image
+            src={article.heroBg}
+            alt=""
+            fill
+            priority
+            className={styles.heroBgImage}
+          />
+        )}
         <Container>
           <div className={styles.nav}>
             <Link href="/blog" className={styles.backLink}>
