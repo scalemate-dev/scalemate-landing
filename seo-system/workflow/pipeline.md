@@ -47,10 +47,7 @@
 
 > Draft написаний, чекає review і approve на QA.
 
-- creative-testing-pillar
-  artifact: topics/creative-testing-pillar/draft.md
-  agent-finished: 2026-04-27
-  notes: pillar для "creative testing" cluster, перевірити QA
+(порожньо)
 
 ---
 
