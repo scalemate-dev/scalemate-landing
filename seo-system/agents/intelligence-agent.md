@@ -222,7 +222,7 @@ mcp__serpapi__search: {"engine": "google", "q": "how to scale ad campaigns witho
 
 **6.5c. Маппінг болей на JTBD + Scalemate features**
 
-Кожну знайдену біль класифікувати по JTBD (з `scalemate content/JTBD + ICP + Messaging Map.md`):
+Кожну знайдену біль класифікувати по JTBD (з `seo-system/context/JTBD + ICP + Messaging Map.md`):
 
 | JTBD | Біль |
 |---|---|

@@ -11,10 +11,10 @@
 
 1. `seo-system/content-writing-rules.md` — **головний документ**, дотримуйся кожного правила
 2. Topic Brief (файл, переданий користувачем)
-3. `scalemate content/brand communications/brand-communication-content-guidelines.md` — brand voice
-4. `scalemate content/JTBD + ICP + Messaging Map.md` — messaging framework
-5. `scalemate content/SEO-Copywriting.md` — SEO copy guidelines
-6. Якщо case study — `scalemate content/Customer — *.md` відповідного клієнта
+3. `seo-system/context/brand-communication-content-guidelines.md` — brand voice
+4. `seo-system/context/JTBD + ICP + Messaging Map.md` — messaging framework
+5. `seo-system/context/SEO-Copywriting.md` — SEO copy guidelines
+6. Якщо case study — `seo-system/context/Customer — *.md` відповідного клієнта
 
 ## Workflow
 

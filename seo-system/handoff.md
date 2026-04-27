@@ -12,7 +12,7 @@
 - `review` — трекінг опублікованого
 
 **Remote pipeline (автоматичний):**
-- Інструкція: `seo-system/how-to-run-pipeline.md`
+- Інструкція: `seo-system/how-to-run-automatic-agent.md`
 - Approved queue: `seo-system/approved-queue.md`
 - Trigger ID: `trig_01NXngZzTqsviqftNeZWoauv`
 - Запуск: скажи Claude "запусти pipeline"

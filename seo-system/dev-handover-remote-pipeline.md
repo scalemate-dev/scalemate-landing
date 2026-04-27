@@ -208,6 +208,6 @@ Article body in markdown...
 
 ## Файли для контексту
 
-- `seo-system/how-to-run-pipeline.md` — інструкція для Natalia як користуватись
+- `seo-system/how-to-run-automatic-agent.md` — інструкція для Natalia як користуватись
 - `seo-system/handoff.md` — повний контекст SEO системи
 - `seo-system/agents/` — промпти агентів

@@ -22,6 +22,8 @@
   - Method 5: скрін Scalemate uploader workflow (Google Drive → Meta + TikTok)
 
 - [ ] **Follow up PointToWeb** — зафолоуапити по співпраці/задачах з PointToWeb
+- [ ] **YouTube: Creative Testing Frameworks** — відео де показуєш/розповідаєш різні системи тестування креативів (3-3-3, CBO testing, low-budget, high-volume). Показати frameworks в дії, не тільки теорія. На базі статті яку пишемо
+- [ ] **Product feature: Creative Testing Templates в Scalemate** — ready-made frameworks які користувач може одним кліком засетапити в платформі. Campaign structure, ad sets, rules — все по обраному framework. Обговорити з dev командою
 
 ## 🟡 Цього тижня
 
