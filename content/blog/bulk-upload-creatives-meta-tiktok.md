@@ -10,11 +10,11 @@ createdAt: "2026-04-21"
 updatedAt: "2026-04-21"
 faq:
   - question: "Can you bulk upload creatives to Meta Ads?"
-    answer: "Yes. Meta's native bulk import lets you upload campaign structures via Excel, but it doesn't handle creative files directly — you still drag and drop media into Ads Manager. Third-party tools like Scalemate upload creative files from Google Drive to Meta's Media Library in one batch, skipping the download-reupload cycle entirely. The free tier handles up to 20 files per day."
+    answer: "Yes. Meta's native bulk import lets you upload campaign structures via Excel, but it doesn't handle creative files directly — you still drag and drop media into Ads Manager. Third-party tools like Scalemate upload creative files from Google Drive to Meta's Media Library in one batch, skipping the download-reupload cycle entirely. The free tier includes unlimited uploads, 100 ad launches per month, and 2 active automation rules — no credit card required."
   - question: "What's the fastest way to upload creatives to Meta?"
     answer: "The fastest method is a direct cloud-to-platform sync. Instead of downloading files and re-uploading them through Ads Manager, tools like Scalemate push creatives from Google Drive straight to Meta's Media Library — and to TikTok at the same time. Teams report going from 3-4 hours of manual uploads per week to under 30 minutes."
   - question: "Is there a free bulk ad uploader?"
-    answer: "Yes. Scalemate offers a free ad creative uploader that syncs files from Google Drive to Meta and TikTok Ads. The free tier supports up to 20 files per day with the same deduplication and multi-account features as paid plans. Meta's native bulk import via Excel is also free but only handles campaign structure, not creative files."
+    answer: "Yes. Scalemate offers a free ad creative uploader that syncs files from Google Drive to Meta and TikTok Ads. The free tier supports unlimited uploads, 100 ad launches per month, and 2 active rules — no credit card required. Same deduplication as paid plans. Meta's native bulk import via Excel is also free but only handles campaign structure, not creative files."
   - question: "Can bulk upload tools get my ad account banned?"
     answer: "Some can. Open-source MCP servers and API scripts that use personal access tokens without rate limiting can trigger Meta's security systems, leading to permanent account bans. Before connecting any tool, check if it's a verified Meta app with scoped permissions and rate limiting. Scalemate is a verified Meta app — zero account bans across all users."
   - question: "Can you bulk upload creatives to Meta and TikTok at the same time?"
@@ -113,7 +113,7 @@ Here's the workflow in action:
 
 The difference from a pure upload tool: you can launch ads directly from those creatives into campaigns. Upload the files, set your campaign structure, go live. The full workflow from creative asset to running ad happens in one interface.
 
-The free tier covers up to 20 files per day. If your volume is small, it costs nothing. The same deduplication and multi-account features are included regardless of plan. And because Scalemate is a verified Meta app with official API access, scoped permissions, and rate limiting, there's zero ban risk. Across all users, zero accounts banned.
+The free tier includes unlimited uploads, 100 ad launches per month, and 2 active automation rules. No credit card required. If your volume fits one ad account, it costs nothing. And because Scalemate is a verified Meta app with official API access, scoped permissions, and rate limiting, there's zero ban risk. Across all users, zero accounts banned.
 
 **Beyond Google Drive.** Some teams don't keep creatives in Drive. Designers hand off assets through Airtable, an internal platform, or a shared Excel sheet with links. Scalemate connects to these sources too. Creatives flow automatically from wherever your design team puts them into Meta and TikTok's ad libraries. If your pipeline runs through a tool we don't support natively, the team builds the integration on request. Wherever your creatives live, they shouldn't require manual downloading and re-uploading to reach an ad platform.
 
