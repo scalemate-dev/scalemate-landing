@@ -6,7 +6,7 @@
 ## Що ми хочемо
 
 Автоматичний content pipeline який:
-1. Natalia додає topics в файл `seo-system/approved-queue.md`
+1. Natalia додає topics в файл `seo-system/workflow/pipeline.md`
 2. Запускає remote agent (manual trigger через Claude.ai)
 3. Agent читає queue, пише discovery briefs або full article drafts
 4. Комітить результат в repo
@@ -17,11 +17,11 @@
 ### 1. SEO система в repo
 Всі файли системи перенесені в `scalemate-landing/seo-system/`:
 - `agents/` — інструкції для кожного агента (discovery, content-creator, qa)
-- `content-writing-rules.md` — правила написання контенту
-- `approved-queue.md` — черга задач яку agent читає
+- `rules/content-writing.md` — правила написання контенту
+- `workflow/pipeline.md` — черга задач яку agent читає
 - `briefs/` — сюди agent кладе discovery briefs
 - `drafts/` — сюди agent кладе готові drafts
-- `handoff.md` — повний контекст проекту
+- `context/project-state.md` — стан проєкту (deployed, learnings, blocked)
 
 ### 2. Remote trigger створений
 - **Trigger ID:** `trig_01NXngZzTqsviqftNeZWoauv`
@@ -96,7 +96,7 @@ Discovery agent використовує Google Search Console для keyword va
 - Ahrefs GSC endpoints (є в MCP, але працюють нестабільно — internal server errors)
 - Google Search Console MCP connector (якщо існує — підключити)
 - Service account для GSC з токеном в repo (зашифрованим) або env variable
-- Або: Natalia збирає GSC дані локально в `approved-queue.md` разом з topic (як контекст для agent'а)
+- Або: Natalia збирає GSC дані локально в `workflow/pipeline.md` разом з topic (як контекст для agent'а)
 
 **Тимчасове рішення:** Natalia при додаванні topic в queue вказує GSC queries які вже ловимо, наприклад:
 ```
@@ -115,24 +115,24 @@ Agent використовує ці дані замість прямого GSC �
 
 ### Flow агента
 
-Agent читає `seo-system/approved-queue.md` і виконує задачі по черзі:
+Agent читає `seo-system/workflow/pipeline.md` і виконує задачі по черзі:
 
 **Якщо є topics в "Approved topics" → пише discovery briefs:**
-1. Читає інструкції з `seo-system/agents/discovery-agent.md`
-2. Читає правила контенту з `seo-system/content-writing-rules.md`
+1. Читає інструкції з `seo-system/agents/discovery.md`
+2. Читає правила контенту з `seo-system/rules/content-writing.md`
 3. Валідує keywords через Ahrefs MCP (volume, KD, trend)
 4. Перевіряє SERP — який intent, хто в top-10, чи можемо виграти
 5. Перевіряє GSC queries (якщо доступний) — які queries вже ловимо
 6. Оцінює funnel stage (BOFU > MOFU > TOFU) і conversion potential
 7. Робить ICP pain research (Reddit, communities)
-8. Формує Topic Brief по шаблону з discovery-agent.md
-9. Зберігає в `seo-system/briefs/[topic-slug].md`
+8. Формує Topic Brief по шаблону з agents/discovery.md
+9. Зберігає в `seo-system/topics/[topic-slug].md`
 10. Переносить item в "Done" секцію queue
 
 **Якщо є briefs в "Approved briefs" → пише full article drafts:**
 1. Читає approved brief
-2. Читає інструкції з `seo-system/agents/content-creator-agent.md`
-3. Читає `seo-system/content-writing-rules.md` — ВСІ правила обов'язкові
+2. Читає інструкції з `seo-system/agents/content-creator.md`
+3. Читає `seo-system/rules/content-writing.md` — ВСІ правила обов'язкові
 4. Пише draft по структурі з brief'у
 5. Self-check:
    - Primary keyword в H1 і перших 100 словах
@@ -144,10 +144,10 @@ Agent читає `seo-system/approved-queue.md` і виконує задачі �
    - First-hand experience marker (case studies)
    - Жодної stock phrase з blacklist (секція 6.3 content-writing-rules)
    - Anti-AI patterns check (секція 6)
-6. Зберігає в `seo-system/drafts/[date]-[slug].md` І в `content/blog/[slug].md`
+6. Зберігає в `seo-system/topics/[date]-[slug].md` І в `content/blog/[slug].md`
 7. Переносить item в "Done" секцію queue
 
-### Ключові правила контенту (з content-writing-rules.md)
+### Ключові правила контенту (з rules/content-writing.md)
 
 - **Pain-first підхід** (секція 2.2): стаття починається з болю ICP, не з продукту
 - **Anti-AI** (секція 6): без stock phrases, варіативні речення, конкретний перший рядок, без "In today's fast-paced world..."
@@ -184,10 +184,10 @@ Article body in markdown...
 
 | Файл | Що містить | Коли читати |
 |---|---|---|
-| `seo-system/agents/discovery-agent.md` | Повний workflow discovery: keyword validation, SERP, pain research, brief template | Перед написанням brief |
-| `seo-system/agents/content-creator-agent.md` | Workflow написання: outline → draft → self-check | Перед написанням draft |
-| `seo-system/content-writing-rules.md` | Всі правила: tone, structure, keywords, anti-AI, title/meta methodology | ЗАВЖДИ перед будь-яким writing |
-| `seo-system/agents/qa-pipeline.md` | Quality check: content-ops scoring, humanizer, copy-editing | Після написання draft |
+| `seo-system/agents/discovery.md` | Повний workflow discovery: keyword validation, SERP, pain research, brief template | Перед написанням brief |
+| `seo-system/agents/content-creator.md` | Workflow написання: outline → draft → self-check | Перед написанням draft |
+| `seo-system/rules/content-writing.md` | Всі правила: tone, structure, keywords, anti-AI, title/meta methodology | ЗАВЖДИ перед будь-яким writing |
+| `seo-system/agents/qa.md` | Quality check: content-ops scoring, humanizer, copy-editing | Після написання draft |
 
 ## Як перевірити що все працює
 
@@ -195,9 +195,9 @@ Article body in markdown...
 2. Натиснути Run
 3. Agent має:
    - Клонувати repo без помилок
-   - Прочитати `seo-system/approved-queue.md`
+   - Прочитати `seo-system/workflow/pipeline.md`
    - Побачити topic "Creative Testing Pillar"
-   - Написати brief і зберегти в `seo-system/briefs/creative-testing-pillar.md`
+   - Написати brief і зберегти в `seo-system/topics/creative-testing-pillar.md`
    - Закомітити і запушити в repo
 4. Після run — `git pull` має показати новий файл
 
@@ -208,6 +208,6 @@ Article body in markdown...
 
 ## Файли для контексту
 
-- `seo-system/how-to-run-automatic-agent.md` — інструкція для Natalia як користуватись
-- `seo-system/handoff.md` — повний контекст SEO системи
+- `seo-system/docs/how-to-run.md` — інструкція для Natalia як користуватись
+- `seo-system/context/project-state.md` — стан проєкту
 - `seo-system/agents/` — промпти агентів

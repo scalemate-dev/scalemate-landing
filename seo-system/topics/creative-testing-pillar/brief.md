@@ -262,24 +262,38 @@ Natalia's insight: якщо команда виробляє 5+ нових кре
 - **JTBD Group:** C (креативи як системний процес)
 
 ### H2: TL;DR
-- 30% креативів ніколи не доходять до тесту (handoff, бани, naming)
-- Більшість frameworks — Meta-only і теоретичні
-- Стаття покриває: operational process, multi-platform, team coordination, winner hierarchy
-- Мета тестування — знаходити winners системно, а не випадково. І мати pipeline де middle performers тримають акаунт між top winners
+- Більшість frameworks показують як запустити один тест, не як побудувати систему де тестування йде constantly
+- Стаття: повна система від handoff дизайнера до scale winners в BAU
+- Мета — знаходити winners системно і мати pipeline де middle performers тримають акаунт між top winners
 
-### H2: 30% of Your Creatives Never Get Tested
-- Де вони губляться: handoff designer → UA, бани без resubmit, Drive hell, naming chaos
+### H2: Why Creative Testing Breaks
+- 30% креативів не доходять до тесту: handoff, бани без resubmit, Drive hell, naming chaos
 - Verification gap: "launched" в spreadsheet ≠ реально запущений з показами
+- Існуючі frameworks — один тест, Meta-only, для solo buyer, без team ops
+- Performance turbulence: нові креативи крадуть spend у winner'а або навпаки не спендять нічого
+- *First-hand: приклади (20 крео в Drive в п'ятницю, бан 2 тижні, стара версія через naming)*
 - Quick audit: порахуйте скільки зроблено за квартал vs скільки реально протестовано
-- *First-hand experience: конкретні приклади (20 креативів в Drive в п'ятницю, бан 2 тижні без помітки, стара версія через naming)*
 
-### H2: Why Most Creative Testing Frameworks Don't Work
-- Вони показують як запустити один тест, але не як побудувати процес де тестування йде constantly і можна міряти різні підходи
-- Вони Meta-only — а команда ллє на 5+ платформ
-- Вони для solo buyer — а у тебе team 5-10 людей
-- Вони не враховують performance turbulence (нові креативи крадуть spend у winner'а)
+### H2: The Creative Testing System (Overview)
 
-### H2: 7 Creative Testing Frameworks (and When to Use Each)
+Візуальна структура системи від А до Я. Кожен наступний H2 розкриває окремий крок.
+
+1. **Handoff + launch setup** — дизайнер віддає крео пачками, UA має готові шаблони кампаній
+2. **Testing framework** — обираєте підхід (7 варіантів), запускаєте по шаблону
+3. **Multi-platform** — тестуєте окремо на social і ad networks
+4. **Measure** — 3 рівні: spend → engagement → performance
+5. **Winners → BAU** — автоматичний або ручний перехід winners в основні кампанії
+6. **Loop** — repeat щотижня, fatigue моніторимо, наступний winner вже в pipeline
+
+### H2: Step 1 — Handoff and Launch Setup
+- Дизайнер віддає креативи пачками (мін. 3-4). Чому: один креатив чекає інших для нового ad set, UA витрачає час кожного разу — по одному марна витрата часу
+- Система сповіщення UA коли пачка готова
+- UA заздалегідь сетапить шаблони: в яких кампаніях і по якій структурі тестуються нові креативи
+- Коли крео готові — обирається шаблон і запуск (автоматизовано або вручну по обраній стратегії)
+- Naming conventions cross-platform (приклад формату)
+- Ban management: хто моніторить, коли resubmit
+
+### H2: Step 2 — Testing Frameworks: Which One Fits Your Team
 - **3-3-3 (Pilothouse)** — 3 hooks × 3 bodies × 3 CTAs. Великий об'єм, Meta
 - **CBO Testing** — 1 CBO, 3 ad sets, 3-5 creatives. Budget і timing
 - **Low-budget ($100/day)** — 3 ad sets × $33. Для маленьких бюджетів
@@ -288,39 +302,37 @@ Natalia's insight: якщо команда виробляє 5+ нових кре
 - **Testing Pyramid** — broad → narrow layers. Концептуальний
 - **3-Phase (Test → Analyze → Scale)** — Motion/Ben & Vic
 - *Таблиця: framework × budget × team size × platforms → рекомендація*
+- Ідеально: мати систему де можна міряти різні підходи і знайти що працює для вашої команди
 
-### H2: The Operational Process Nobody Talks About
-- Handoff workflow: designer → asset manager → UA → launch
-- Naming conventions що працюють cross-platform (приклад формату)
-- Tracking: що де тестується, на якій платформі, яка версія файлу
-- Ban management: хто моніторить, коли resubmit, alert system
-- *POV: "Frameworks look great in slides. The real challenge is the handoff between your design team and your UA team."*
-
-### H2: Multi-Platform Testing: Why Winners Don't Transfer
+### H2: Step 3 — Multi-Platform: Why Winners Don't Transfer
 - Найчастіше тестують на social (Meta, TikTok)
 - **Контрінтуїтивне:** social winners ≠ ad network winners в 8/10 випадків
 - НЕ тестуйте тільки на Meta і не розливайте автоматично
 - Тестуйте окремо на кожному типі платформи
 - Коли можна "test on Meta first": тільки після 50+ тестів з підтвердженим збігом winners
 
-### H2: Winner Hierarchy: Top Performers, Middle Performers, and Why Both Matter
-- **Top winners (1-2 за півроку)** — 70-80% бюджету
-- **Middle performers** — тримають акаунт живим між top winners
-- Правило 10K views перед kill/keep рішенням
-- *POV: "Teams that only chase 'the one winner' end up with nothing when it fatigues."*
-- Лінк на `/blog/what-is-ad-fatigue`
-
-### H2: Test → BAU: Moving Winners Into Main Campaigns
-- Критерії переходу: spend threshold, ROAS, volume
-- Чим швидше winner в BAU — тим менше турбулентності
-- Manual vs automated transition, rules-based автоматизація
-- *Лінк на `/features/automation-rules`*
-
-### H2: How to Read Test Results (3 Levels)
+### H2: Step 4 — How to Read Test Results
 - **Level 1 — Spend:** платформа витрачає гроші? Якщо ні — все інше не має значення
 - **Level 2 — Engagement:** Mobile apps: IPM, CPI. Web: Cost per Registration/Trial, конверсія Imps → Regs (або інший mid-funnel event — add to cart, scroll > 30s). Hook rate, reach
 - **Level 3 — Performance:** CPA, ROAS, conversion rate (після 10K+ views)
 - Framework-level metrics: win rate, time to winner, creative velocity, fatigue cycle
+
+### H2: Step 5 — Winners to BAU
+- Критерії переходу: spend threshold, ROAS, volume
+- Чим швидше winner в BAU — тим менше турбулентності
+- Auto-rules: по якому принципу креативи зупиняються, по якому далі крутяться
+- Система відслідковує потенційних winners і сповіщає команду
+- Автоматичний статус кожного креативу в бібліотеку (як відпрацював)
+- Найуспішніші розливаються по BAU за узгодженням UA менеджера
+- *Лінк на `/features/automation-rules`*
+
+### H2: Winner Hierarchy: Why You Need More Than One Winner
+- **Top winners (1-2 за півроку)** — 70-80% бюджету
+- **Middle performers** — тримають акаунт живим між top winners
+- Правило 10K views перед kill/keep рішенням
+- Як зрозуміти що winner вигорає: падає IPM, росте CPM, потім негативні тренди в ROAS/CPI. Коли CPI виріс — вже пізно шукати заміну
+- *POV: "Teams that only chase 'the one winner' end up with nothing when it fatigues."*
+- Лінк на `/blog/what-is-ad-fatigue`
 
 ### H2: FAQ (6 питань)
 1. How many creatives should I test per week?

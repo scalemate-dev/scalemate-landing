@@ -1,8 +1,8 @@
 # Scalemate SEO — Prioritization Scorecard (Living Backlog)
 
 > **Живий беклог для всього SEO-roadmap'у.** Intelligence-agent оновлює щотижня (понеділок).
-> Formula і методологія — див. `seo-system-plan.md` Шар 1.5.
-> Ключові рішення виходять на твій approve — див. `seo-system-plan.md` Шар 1.7.
+> Formula і методологія — див. `docs/architecture.md` Шар 1.5.
+> Ключові рішення виходять на твій approve — див. `docs/architecture.md` Шар 1.7.
 
 ---
 
@@ -230,4 +230,4 @@ Score = (5 × 4 × 2 × 1) / 15 × 1 × 1 = 2.7
 
 - 2026-04-15 — template створений, готовий до першого заповнення після першої розвідки
 - 2026-04-15 — перший item approved: `/blog/madgicx-review-alternative` title+meta rewrite. Pairing A (refined) — content-ops panel 92.4/100. Baseline CTR 0.05%, pos 7.9, ~200 imp/day. Awaiting deploy by Natalia.
-- 2026-04-20 — масовий апдейт scorecard: додано 10 нових items з v2 brief + Ad Creative Uploader growth plan. Approved items from v2: #1 (automation-rules title fix), #2 (mcp-servers optimize), #3 (ad-uploader update), #4 (Creative Testing pillar), #5 (Ad Operations guide). Rejected: #6 (TikTok guide — not ICP), #7 (FB automation — monitor existing). Ad Uploader growth plan (6 agent tasks + 4 manual) збережено у `plans/ad-creative-uploader-growth.md`. Додано Monitoring секцію для deployed items. ICP Pain Discovery step додано в intelligence-agent.md.
+- 2026-04-20 — масовий апдейт scorecard: додано 10 нових items з v2 brief + Ad Creative Uploader growth plan. Approved items from v2: #1 (automation-rules title fix), #2 (mcp-servers optimize), #3 (ad-uploader update), #4 (Creative Testing pillar), #5 (Ad Operations guide). Rejected: #6 (TikTok guide — not ICP), #7 (FB automation — monitor existing). Ad Uploader growth plan (6 agent tasks + 4 manual) збережено у `plans/ad-creative-uploader-growth.md`. Додано Monitoring секцію для deployed items. ICP Pain Discovery step додано в agents/intelligence.md.

@@ -11,7 +11,7 @@
 - **Writing agents** (`content-creator`, `copywriting`) — читають усі розділи перед початком роботи
 - **QA agents** (`content-ops`, `copy-editing`) — використовують розділ 10 (Review & QA) як чекліст
 - **Discovery agents** (`seo-ops`) — посилаються на розділи 2 і 3 при формуванні брифа
-- При створенні брифа — кожен бриф має рядок `Rules compliance: content-writing-rules.md sections [list]`
+- При створенні брифа — кожен бриф має рядок `Rules compliance: rules/content-writing.md sections [list]`
 
 ---
 
@@ -126,7 +126,7 @@ SOLUTION (ICP identity — "I am a ...")
    - ❌ Робити Scalemate hero з першого абзацу — спочатку empathy, потім рішення
 
 4. **Discovery agent обов'язково включає:**
-   - Reddit/community scan (Step 6.5 в intelligence-agent.md)
+   - Reddit/community scan (Step 6.5 в agents/intelligence.md)
    - Pain language extraction — точні фрази якими ICP описує проблему
    - Ці фрази потім використовуються в H1, intro, problem section
 
@@ -600,7 +600,7 @@ Natalia обирає одну пару (або модифікує).
 **Step 6 — Deploy**
 - Update article (title, meta, OG tags — sinchronno)
 - GSC → Request Indexing
-- Log у `prioritization-scorecard.md` (date, before/after, expected impact)
+- Log у `workflow/scorecard.md` (date, before/after, expected impact)
 
 ---
 
@@ -614,7 +614,7 @@ Natalia обирає одну пару (або модифікує).
    - Position (30-day avg)
    - Clicks (30-day total)
 
-2. **Tracking у `prioritization-scorecard.md`:**
+2. **Tracking у `workflow/scorecard.md`:**
    ```
    | URL | Change Date | Baseline CTR | Baseline Pos | T+2wk CTR | T+4wk CTR | Decision |
    ```
@@ -985,7 +985,7 @@ You are a senior content writer for Scalemate, an automation OS for scaling ad c
 
 [CONTEXT]
 Load these files as context:
-- content-writing-rules.md (всі правила)
+- rules/content-writing.md (всі правила)
 - scalemate content/JTBD + ICP + Messaging Map.md
 - scalemate content/brand communications/* (brand voice)
 
@@ -1002,7 +1002,7 @@ Must include:
 Existing content check: [UPDATE /page-url OR CREATE NEW]
 
 [CONSTRAINTS]
-- Follow content-writing-rules.md sections [list relevant ones]
+- Follow rules/content-writing.md sections [list relevant ones]
 - Section 6 (Anti-AI) is MANDATORY
 - Section 5 (LLM-Visibility) — include TL;DR, FAQ, structured data
 
@@ -1199,7 +1199,7 @@ Messaging angle: [Core message з 8.2]
 ### 10.7 Brand Voice
 
 - [ ] Tone confident, pragmatic, operational (не corporate, не hype)
-- [ ] Відповідає Brand Persona Framework і brand-communication-content-guidelines
+- [ ] Відповідає Brand Persona Framework і `rules/brand-guidelines.md`
 - [ ] First person used appropriately (see 1.3)
 - [ ] No buzzwords / не trash-talk конкурентів
 - [ ] ICP language (media buyer / founder, залежно від angle)

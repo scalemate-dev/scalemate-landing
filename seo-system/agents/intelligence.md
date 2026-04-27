@@ -11,9 +11,10 @@
 
 ## Обов'язкові context files (завантажити перед роботою)
 
-1. `seo-system/seo-system-plan.md` — архітектура, принципи, scoring формула (Шар 1.5), approval checkpoints (Шар 1.7)
-2. `seo-system/content-writing-rules.md` — правила контенту, title/meta methodology
-3. `seo-system/prioritization-scorecard.md` — поточний беклог (читати для context, оновлювати з новими items)
+1. `seo-system/docs/architecture.md` — архітектура, принципи, scoring формула (Шар 1.5), approval checkpoints (Шар 1.7)
+2. `seo-system/rules/content-writing.md` — правила контенту, title/meta methodology
+3. `seo-system/workflow/scorecard.md` — поточний беклог (читати для context, оновлювати з новими items)
+4. `seo-system/context/project-state.md` — що вже задеплоєно, що заблоковано, learnings (обов'язково — щоб не пропонувати вже зроблене і враховувати learnings)
 
 ## Tools
 
@@ -222,7 +223,7 @@ mcp__serpapi__search: {"engine": "google", "q": "how to scale ad campaigns witho
 
 **6.5c. Маппінг болей на JTBD + Scalemate features**
 
-Кожну знайдену біль класифікувати по JTBD (з `seo-system/context/JTBD + ICP + Messaging Map.md`):
+Кожну знайдену біль класифікувати по JTBD (з `seo-system/context/icp/jtbd-messaging.md`):
 
 | JTBD | Біль |
 |---|---|
@@ -392,7 +393,7 @@ mcp__serpapi__search: {"engine": "google", "q": "site:scalemate.co/blog/[slug]"}
 
 ### Step 10 — Previous items tracking
 
-Прочитати `prioritization-scorecard.md` → для кожного `deployed` item перевірити через GSC:
+Прочитати `workflow/scorecard.md` → для кожного `deployed` item перевірити через GSC:
 - CTR змінився? Position змінилась? Impressions тренд?
 - Milestone decisions (T+2wk? T+4wk?)
 
@@ -404,7 +405,7 @@ mcp__serpapi__search: {"engine": "google", "q": "site:scalemate.co/blog/[slug]"}
 Score = (Traffic × ICP × Business × Confidence) / Effort × Urgency × Existing_bonus
 ```
 
-Factors (0-10, 0-5, 1-5, 0-3, 1-10, 1-3, ×1/×1.5) — як описано у seo-system-plan.md Шар 1.5.
+Factors (0-10, 0-5, 1-5, 0-3, 1-10, 1-3, ×1/×1.5) — як описано у docs/architecture.md Шар 1.5.
 
 Тегувати buckets: 🟢 Quick Win / 🟡 Strategic / 🔵 Foundation / 🔴 Risk / ⚪ Iceberg.
 
@@ -412,7 +413,7 @@ Factors (0-10, 0-5, 1-5, 0-3, 1-10, 1-3, ×1/×1.5) — як описано у s
 
 ### Step 11 — Generate Weekly Brief
 
-Записати у файл `seo-system/intelligence-briefs/YYYY-MM-DD.md`:
+Записати у файл `seo-system/intelligence/YYYY-MM-DD-recon.md`:
 
 ```markdown
 # Intelligence Brief — Week of YYYY-MM-DD
@@ -467,19 +468,36 @@ Factors (0-10, 0-5, 1-5, 0-3, 1-10, 1-3, ×1/×1.5) — як описано у s
 
 ### Step 12 — Update Scorecard
 
-Оновити `prioritization-scorecard.md`:
+Оновити `workflow/scorecard.md`:
 - Додати нові items з scores
 - Оновити статуси існуючих
 - Перемістити completed items
 
+### Step 13 — Update pipeline.md (CRITICAL)
+
+Для кожного **top-priority candidate** з recon brief — додати item в `workflow/pipeline.md` секцію `1. New (потребує discovery)`:
+
+```markdown
+- [topic-slug-kebab-case]
+  added: YYYY-MM-DD
+  source: weekly-recon
+  primary-keyword: [keyword]
+  context: [brief 1-2 line context — score, pain validation, why now]
+```
+
+**Не дублювати:** перевірити чи slug вже є в інших секціях pipeline.md (могли почати раніше). Якщо є — пропустити.
+
+Це потрібно щоб discovery agent (наступний крок) мав що читати. Без цього pipeline залишається порожнім і вся розвідка нікуди не йде.
+
 ## Output
 
 Після завершення:
-- Brief file створено у `intelligence-briefs/`
+- Brief file створено у `intelligence/YYYY-MM-DD-recon.md`
 - Scorecard оновлено
+- Pipeline.md `1. New` секція має нові candidate topics
 - Natalia отримує нотифікацію для review
 
-## Принципи (з seo-system-plan.md)
+## Принципи (з docs/architecture.md)
 
 1. **Data-first** — жодних гіпотез без Ahrefs/GSC/SERP даних
 2. **Existing-first** — перевіряти чи є existing page перед пропозицією нового контенту

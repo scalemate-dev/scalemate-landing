@@ -9,13 +9,15 @@
 
 ## Context files
 
-1. `seo-system/content-writing-rules.md` — головний checklist (Section 10)
+1. `seo-system/rules/content-writing.md` — головний checklist (Section 10)
 2. Draft file (переданий користувачем)
 3. Topic Brief (якщо доступний — для cross-check)
 
 ## Pipeline (4 етапи послідовно)
 
-### Етап 1 — Content-Ops Expert Panel (обов'язково)
+> **ВАЖЛИВО (remote agent):** Етапи 1 і 2 використовують Claude skills (`content-ops`, `copy-editing`) які доступні **тільки локально**. Remote agent у хмарі їх не має — пропустити ці етапи і робити тільки етапи 3-4 (Humanizer + SEO Technical) які можна виконати без skills. У такому випадку повернути QA result з позначкою `partial: skipped expert-panel and copy-editing (local-only skills)` — Natalia запустить етапи 1-2 локально перед deploy.
+
+### Етап 1 — Content-Ops Expert Panel (обов'язково, ЛОКАЛЬНО)
 
 Викликати skill `content-ops` на draft:
 - Зібрати панель 7-10 експертів
@@ -27,7 +29,7 @@
 → Повернути draft content-creator'у з конкретними issue pointers
 → НЕ пропускати далі
 
-### Етап 2 — Copy Editing (Seven Sweeps)
+### Етап 2 — Copy Editing (Seven Sweeps, ЛОКАЛЬНО)
 
 Викликати skill `copy-editing` на draft:
 - Clarity sweep
@@ -87,7 +89,21 @@
 
 ## Output
 
-### Якщо PASS (all 4 stages):
+### Save QA report
+
+Зберегти QA result у `seo-system/topics/[slug]/qa.md` (формат як нижче).
+
+### Update pipeline.md (CRITICAL)
+
+Оновити `workflow/pipeline.md`:
+
+**Якщо PASS:** перенести item з секції `6. Approved for QA` → `7. Pending Natalia deploy`. Додати `qa-passed: YYYY-MM-DD`.
+
+**Якщо FAIL:** перенести item з `6. Approved for QA` назад у `4. Approved for writing` (для нової ітерації content-creator) АБО `9. Rejected / Archived` якщо повністю відкинули. Додати `qa-failed: YYYY-MM-DD` + причина.
+
+### Format
+
+#### Якщо PASS (all 4 stages):
 
 ```markdown
 ## QA Result: PASS ✅
@@ -104,7 +120,7 @@ File: [path to final draft]
 Present to her with: "Ready for publish. Read draft at [path]. Approve / Changes / Reject."
 ```
 
-### Якщо FAIL:
+#### Якщо FAIL:
 
 ```markdown
 ## QA Result: NEEDS WORK ⚠️
