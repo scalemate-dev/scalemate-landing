@@ -5,15 +5,26 @@
 
 ## Keyword Data
 
-**Ahrefs cluster — 1,070/mo US, KD 1-7:**
+**Ahrefs cluster — 2,000+/mo US, KD 0-7:**
 
-| Keyword | Volume | KD | CPC |
-|---|---|---|---|
-| creative testing | 350 | 7 | $7 |
-| ad creative testing | 250 | 2 | $18 |
-| creative testing framework | 200 | 1 | $5 |
-| creative testing platform | 150 | — | — |
-| creative testing tools | 100 | — | — |
+| Keyword | Volume (US) | KD | CPC | Global |
+|---|---|---|---|---|
+| creative testing | 350 | 7 | $7 | 900 |
+| ad creative testing | 250 | 2 | $18 | 400 |
+| ad creative testing platforms | 250 | 0 | — | 250 |
+| creative testing framework | 200 | 1 | $5 | 400 |
+| creative testing platform | 150 | — | — | 200 |
+| creative testing tools | 100 | — | — | 100 |
+| creative testing methods | 80 | — | — | 90 |
+| dynamic creative testing | 80 | — | $2.50 | 100 |
+| creative concept testing | 70 | 1 | $9 | 200 |
+| facebook creative testing | 50 | 2 | $2.50 | 60 |
+| creative ab testing | 50 | — | — | 60 |
+| creative testing software | 40 | — | — | 40 |
+| meta creative testing | 30 | — | — | 90 |
+| meta ads creative testing | 30 | — | — | 50 |
+
+⚠️ "creative testing solutions" (500 vol) is polluted by mycts.org (unrelated company "Creative Testing Solutions") — exclude from targeting.
 
 **GSC — вже ловимо ~250 imp/28d:**
 - "ad creative testing platforms" 55 imp, pos 28
@@ -342,3 +353,59 @@ Natalia's insight: якщо команда виробляє 5+ нових кре
 - Operational reality (30% never tested, verification gap)
 - Team process (10 people, handoff chaos)
 - Winner hierarchy (top + middle performers)
+
+---
+
+## Ahrefs Validation (2026-04-27, automated agent)
+
+### SERP DR Analysis — winnability
+
+**"creative testing framework" (KD 1) — MOST WINNABLE:**
+
+| Pos | Domain | DR |
+|---|---|---|
+| 1 | takeflightmarketing.co | 3 |
+| 1 | bir.ch (Birch — competitor) | 72 |
+| 1 | celtra.com | 75 |
+| 3 | theperformers.io | 11 |
+| 4 | motionapp.com | 58 |
+| 6 | pilothouse.co | 35 |
+| 7 | dataally.ai | 41 |
+
+Low-DR sites (DR 3, 11, 35) ranking = opportunity despite Scalemate DR 0.2.
+
+**"ad creative testing" (KD 2):**
+
+| Pos | Domain | DR |
+|---|---|---|
+| 1 | qualtrics.com | 91 |
+| 2 | supermetrics.com | 79 |
+| 3 | appsflyer.com | 90 |
+| 4 | reddit.com (3 threads) | 95 |
+| 6 | kantar.com | 85 |
+| 9 | motionapp.com | 58 |
+
+Higher DR competition but Reddit ranking at pos 4 = Google values community/operational content here.
+
+**Competitor DR:** Birch 72, Motion 58, Scalemate 0.2.
+
+### Cannibalization Check
+- Scalemate does NOT rank for any "creative testing" keywords
+- Adjacent: `/blog/best-ad-testing-tools` ranks for "ad testing tools" (different intent — tool comparison)
+- Adjacent: `/blog/what-is-ad-fatigue` ranks for "ad fatigue" (different intent — diagnostic)
+- No cannibalization risk. These become internal link targets.
+
+### ICP Pain Research (web search, 2026-04-27)
+
+**Pain quotes from industry:**
+1. "Testing twenty creative variations means twenty separate upload sessions, each taking 5-10 minutes — that's 2-3 hours of repetitive clicking before your test even launches" (threechaptermedia.com)
+2. "3 creatives? You're not testing. You're hoping." (LinkedIn viral post, Evan Carroll, 2026)
+3. "If your account has had the same core ads running for three months or more, performance is almost certainly being limited by creative volume, not optimization skill" (searchengineland.com)
+4. "Without an effective process, marketers run into delivery delays and branding inconsistencies, making the feedback process a nightmare" (hunchads.com)
+5. "The biggest mistakes agencies make is treating creative testing as episodic — that approach is too slow for how fast platforms learn and audiences fatigue" (admiral.media)
+
+**Pain language:** "repetitive clicking," "manual uploads," "drowning in manual tasks," "creative bottleneck," "struggling to test at scale," "creative burnout," "treadmill where stopping means performance collapses"
+
+**Scale:** 2-6 hrs/week on manual ad creation (15+ ads/week), 15-25% ad spend wasted on fatigued creatives, 5% winner rate = need 20+ creatives per winner.
+
+**Reddit presence in SERP:** 3 r/FacebookAds threads ranking at position 4 for "ad creative testing" — confirms high community engagement on this topic.

@@ -5,7 +5,7 @@
 
 ## Approved topics (agent writes discovery briefs)
 
-- Creative Testing Pillar | 1000+ vol cluster, KD 0-8, pain-validated "testing 50+ creatives/week without burning out" | creative testing, ad creative testing, creative testing tools, ad testing framework
+<!-- No pending topics -->
 
 ## Approved briefs (agent writes full drafts)
 
@@ -14,4 +14,4 @@
 
 ## Done
 
-<!-- Agent переносить виконані items сюди з датою -->
+- 2026-04-27 | Creative Testing Pillar — discovery brief enriched with Ahrefs validation → `seo-system/briefs/creative-testing-pillar.md`
