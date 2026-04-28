@@ -134,9 +134,9 @@ options:
 ### Команди оркестрації (Remote mode)
 
 - `gh codespace list -R scalemate-dev/scalemate-landing` — активні codespaces
-- `gh codespace create -R scalemate-dev/scalemate-landing -b seo/<slug> -m basicLinux32gb --display-name seo-<slug>` — новий codespace. **Auto-run discovery:** `seo-system/scripts/codespace-autorun.sh` запуститься в `postCreateCommand` і, якщо гілка `seo/<slug>` без `topics/<slug>/brief.md`, сам запустить discovery agent у headless claude — commit + push робить агент. Manual SSH не потрібен.
-- `gh codespace ssh -c <name> -- "cd /workspaces/scalemate-landing && git checkout seo/<slug> && <agent command>"` — переключитись на гілку і запустити subagent (для не-discovery агентів або повторних запусків)
-- `gh codespace ssh -c <name> -- "tail -f /tmp/seo-autorun/<slug>.log"` — слідкувати за прогресом auto-run discovery
+- `gh codespace create -R scalemate-dev/scalemate-landing -b seo/<slug> -m basicLinux32gb --display-name seo-<slug>` — новий codespace. **Auto-run prompt:** перед створенням codespace покласти промпт у `seo-system/topics/<slug>/prompt.md` (commit+push на гілку `seo/<slug>`). У `postCreateCommand` скрипт `seo-system/scripts/codespace-autorun.sh` сам запустить headless claude з цим промптом. Промпт — будь-який (discovery / write / qa / комбінація). Manual SSH не потрібен. Якщо `prompt.md` відсутній — auto-run просто скіпається.
+- `gh codespace ssh -c <name> -- "cd /workspaces/scalemate-landing && git checkout seo/<slug> && <agent command>"` — переключитись на гілку і запустити будь-який агент вручну (для повторних запусків або коли prompt.md не використовується)
+- `gh codespace ssh -c <name> -- "tail -f /tmp/seo-autorun/<slug>.log"` — слідкувати за прогресом auto-run
 - `bash scripts/seo-status.sh` — список усіх SEO codespaces з тим що в pipeline.md кожного (де які items на якій стадії)
 
 ### Робота з існуючим codespace (edits, approvals, повторні runs)
