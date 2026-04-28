@@ -7,7 +7,11 @@
       "Bash(git status:*)",
       "Bash(git pull --rebase:*)",
       "Bash(git commit --allow-empty:*)",
-      "Bash(bash deploy.sh)"
+      "Bash(bash deploy.sh)",
+      "Bash(rm /Users/ruslan/Developer/scalemate/scalemate-landing/.claude/commands/research.md)",
+      "Bash(rmdir /Users/ruslan/Developer/scalemate/scalemate-landing/.claude/commands)",
+      "Bash(gh codespace:*)",
+      "Bash(bash scripts/seo-status.sh)"
     ]
   }
 }
