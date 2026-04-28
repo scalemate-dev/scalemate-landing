@@ -139,6 +139,24 @@ options:
 - `gh codespace ssh -c <name> -- "tail -f /tmp/seo-autorun/<slug>.log"` — слідкувати за прогресом auto-run
 - `bash scripts/seo-status.sh` — список усіх SEO codespaces з тим що в pipeline.md кожного (де які items на якій стадії)
 
+### Git workflow для агентів (commit / push / PR)
+
+Кожен агент після завершення свого кроку (артефакт записаний, pipeline.md оновлений) **обов'язково**:
+
+1. `git add` тільки артефакти що ти створив/змінив (не `git add -A`).
+2. `git commit -m "<agent>: <slug> <stage>"` (наприклад: `discovery: meta-automation-rules brief`).
+3. `git push origin <current-branch>`.
+4. Перевірити чи є відкритий PR для гілки: `gh pr list --head "$(git branch --show-current)" --state open --json number --jq '.[0].number'`.
+5. **Якщо PR відсутній (перший крок на цій гілці) — створити:**
+   ```bash
+   gh pr create --base main --head "$(git branch --show-current)" --title "SEO: <slug>" --body "Topic: <slug>. See seo-system/workflow/pipeline.md for state."
+   ```
+6. **Якщо PR вже існує — нічого додаткового, push достатньо** (новий комміт автоматично з'явиться у PR).
+
+Чому: Natalia рев'юить артефакти у GitHub UI; усі ітерації по темі живуть в одному PR; final approval = merge цього PR у main.
+
+Edge cases: якщо гілка не `seo/<slug>` — тільки commit+push без PR. Якщо `gh` недоступний — push + warning у лог, не падати. Merge conflict → зупинитись, не форсити.
+
 ### Робота з існуючим codespace (edits, approvals, повторні runs)
 
 Якщо користувач просить щось зробити **в конкретному codespace** ("зайди в codespace seo-X і ...") або по конкретній темі яка вже має активний codespace:
