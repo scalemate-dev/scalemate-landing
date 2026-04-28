@@ -1,47 +1,24 @@
-# SEO-Ops в Codespace — Setup
+# SEO Pipeline в Codespace — Setup
 
-> Як підняти GSC + trend_scout у GitHub Codespaces.
+> Як підняти GSC + Ahrefs MCP + trend_scout у GitHub Codespaces.
 > Локально все вже налаштовано (`~/.claude/skills/seo-ops/`). У codespace треба передати токени через Codespaces secrets.
 
 ---
 
 ## Налаштування Codespaces secrets (один раз)
 
-На GitHub: **Settings → Codespaces → Secrets** (для repo або акаунту).
+На GitHub: **Settings → Codespaces → Secrets** (для repo).
 
-### 1. `GSC_TOKEN_JSON` (обов'язково для GSC)
+### Обов'язкові
 
-Експортуй локальний токен у base64:
-
-```bash
-base64 < ~/.claude/skills/seo-ops/.gsc-token.json | pbcopy
-```
-
-Встав значення в Codespace secret `GSC_TOKEN_JSON`.
-
-### 2. `GOOGLE_CLIENT_ID` + `GOOGLE_CLIENT_SECRET` (обов'язково для GSC)
-
-Дістати з `~/.claude/skills/seo-ops/client_secret.json`:
-
-```bash
-cat ~/.claude/skills/seo-ops/client_secret.json
-```
-
-Скопіювати `client_id` і `client_secret` в окремі Codespaces secrets.
-
-### 3. `GSC_SITE_URL` (обов'язково для GSC)
-
-```
-sc-domain:scalemate.co
-```
-
-### 4. `AHREFS_TOKEN` (опціонально, для `content_attack_brief.py`)
-
-З Ahrefs дашборду → API.
-
-### 5. `BRAVE_API_KEY` (опціонально, для X/Twitter trends в `trend_scout.py`)
-
-З Brave Search API.
+| Secret | Значення | Звідки |
+|---|---|---|
+| `CLAUDE_CODE_OAUTH_TOKEN` | Long-lived OAuth token для Claude Code CLI | На Mac: `claude setup-token` → копіювати output |
+| `GSC_TOKEN_JSON` | base64 від `.gsc-token.json` | `base64 < ~/.claude/skills/seo-ops/.gsc-token.json \| pbcopy` |
+| `GOOGLE_CLIENT_ID` | OAuth client ID | поле `client_id` в `~/.claude/skills/seo-ops/client_secret.json` |
+| `GOOGLE_CLIENT_SECRET` | OAuth client secret | поле `client_secret` в тому ж файлі |
+| `GSC_SITE_URL` | `sc-domain:scalemate.co` | (literal) |
+| `AHREFS_MCP_KEY` | Ahrefs hosted MCP API key | claude.ai → Settings → Connectors → Ahrefs → MCP key |
 
 ---
 
@@ -50,10 +27,14 @@ sc-domain:scalemate.co
 `.devcontainer/devcontainer.json` запускає:
 
 1. `npm install` — Next.js deps
-2. `pip install -r seo-system/skills/seo-ops/requirements.txt` — Python deps (google-api, requests)
-3. `bash .devcontainer/setup-gsc.sh`:
+2. `npm install -g @anthropic-ai/claude-code` — Claude Code CLI
+3. `pip install -r seo-system/skills/seo-ops/requirements.txt` — Python deps (google-api, requests)
+4. `bash .devcontainer/setup-gsc.sh`:
    - Symlink **усіх** skills з `seo-system/skills/*` → `~/.claude/skills/` (тому агенти бачать ті самі шляхи що на Mac: content-ops, copy-editing, content-creator, copywriting, seo-audit, seo-ops)
    - Відновлює `.gsc-token.json` і `client_secret.json` з Codespaces secrets
+
+Claude Code підхоплює `CLAUDE_CODE_OAUTH_TOKEN` з env (працює через підписку, без API key billing).
+Ahrefs MCP підключається через `.claude/mcp.json` — Claude Code CLI автоматично підхоплює його при старті сесії.
 
 ---
 
@@ -62,18 +43,70 @@ sc-domain:scalemate.co
 В терміналі codespace:
 
 ```bash
-# GSC
-GSC_SITE_URL="sc-domain:scalemate.co" python3 seo-system/skills/seo-ops/gsc_client.py --sites
+# 1. Claude Code CLI встановлений
+claude --version
 
-# Trend scout (без BRAVE_API_KEY теж працює, без X scanning)
+# 2. GSC direct
+python3 seo-system/skills/seo-ops/gsc_client.py --sites
+# expect: Verified sites: ['sc-domain:scalemate.co']
+
+# 3. Trend scout (HN / Reddit / Google Trends RSS / YouTube)
 python3 seo-system/skills/seo-ops/trend_scout.py
 ```
 
-Якщо GSC видає `Verified sites: ['sc-domain:scalemate.co']` — все ок.
+В Claude Code сесії — Ahrefs MCP tools мають бути доступні (наприклад `mcp__ahrefs__keywords-explorer-overview`).
 
 ---
 
-## Якщо потрібно реавторизуватись з нуля в codespace
+## Як запускати Claude Code в codespace
+
+### Interactive (звичайний режим — рекомендую починати з нього)
+
+```bash
+claude
+```
+
+Відкривається REPL — пишеш що зробити, Claude відповідає, ти корегуєш, продовжуєш діалог. Ідеально для:
+- Розвідки нових тем (можна обговорити по ходу)
+- Написання чи редагування drafts
+- Налагодження агентських промптів
+- Будь-якого ітеративного workflow
+
+Приклади перших команд:
+```
+> прочитай seo-system/README.md і скажи що ми можемо зробити
+> запусти discovery для теми "creative testing tools"
+> подивись на approved-queue.md і обробі перший item
+```
+
+Перший раз спитає approve для Ahrefs MCP — say yes (це наш `.claude/mcp.json`).
+
+### Headless (one-shot, без діалогу)
+
+```bash
+claude --print "прочитай seo-system/workflow/pipeline.md і обробі перший approved item, закомить результат"
+```
+
+Виконує одну задачу від початку до кінця без participant input. Підходить для:
+- Bash скриптів автоматизації
+- CI/cron-style запусків (поки не використовуємо)
+- Швидких one-off запитів
+
+---
+
+## Як виглядає типовий workflow
+
+1. Створити codespace (з UI або `gh codespace create -R scalemate-dev/scalemate-landing -b main`)
+2. Зачекати 2-5 хв поки `postCreateCommand` доустановить deps
+3. Відкрити термінал у codespace, набрати `claude`
+4. Сказати що зробити
+5. Ревʼюити результат у файлах (VS Code editor)
+6. `git commit && git push` (або через VS Code UI)
+7. Закрити codespace (зберігається 30 днів) або видалити (`gh codespace delete`)
+
+---
+
+## Якщо потрібно реавторизуватись в GSC з нуля в codespace
 
 Codespaces підтримують port forwarding — можна авторизуватись через браузер:
 
@@ -82,7 +115,12 @@ cd seo-system/skills/seo-ops
 python3 gsc_auth.py
 ```
 
-Codespace автоматично прокине порт 8765 (callback) — клікнеш на URL у браузері, авторизуєшся, токен збережеться. Далі експортуй токен у Codespace secret щоб не повторювати при кожному relaunch.
+Codespace автоматично прокине порт 8765 (callback) — клікнеш на URL у браузері, авторизуєшся, токен збережеться. Далі оновити `GSC_TOKEN_JSON` в codespace secrets щоб не повторювати при кожному relaunch:
+
+```bash
+base64 < seo-system/skills/seo-ops/.gsc-token.json
+# скопіювати, вставити в GitHub Settings → Codespaces secrets → GSC_TOKEN_JSON
+```
 
 ---
 
@@ -91,3 +129,10 @@ Codespace автоматично прокине порт 8765 (callback) — к�
 - `.gsc-token.json` і `client_secret.json` **в `.gitignore`** — ніколи не коміттяться
 - Токени живуть тільки в memory codespace + Codespaces secrets vault
 - Якщо codespace знищується — токени теж зникають, відновлюються з secrets при наступному запуску
+
+---
+
+## Що **не** потрібно (на випадок якщо побачиш у старій документації)
+
+- ❌ `AHREFS_TOKEN` — використовувався для `content_attack_brief.py` (прямий REST API). Замінено на Ahrefs MCP — агенти викликають MCP tools.
+- ❌ `BRAVE_API_KEY` — `trend_scout.py` працює без нього (skip X/Twitter scan, інші джерела залишаються).

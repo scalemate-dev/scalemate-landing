@@ -208,32 +208,37 @@ Trends — **перше джерело ідей**, не останнє слов�
 | `copywriting` + `copy-editing` | Заголовки, meta, Seven Sweeps редактура |
 | `conversion-ops` | Оптимізація конверсії landing-сторінок |
 
-### Робочі артефакти (в `/Users/nataliabondar/claude-work/`)
+### Робочі артефакти (всі в repo)
 
-**`scalemate content/` — уже є багато готових інпутів для системи:**
-- `Content Framework + SEO пріоритети + Ключові слова + Промпт.md` — готовий контент-фреймворк і seed keywords
-- `JTBD + ICP + Messaging Map.md` — ICP, jobs-to-be-done, messaging (критично для визначення інтенту)
-- `rules/seo-copywriting.md` — guidelines під SEO-копірайтинг
-- `seo-query-optimization.md` — оптимізація запитів
-- `Мануал_Структуризація тексту_Copywriting Dep.md` — структура тексту
-- `scalemate_product_analysis.md` — аналіз продукту
-- `scalemate_use_cases_sitemap.md` — мапа use cases (основа для programmatic SEO)
-- `brand communications/` — **основний source-of-truth для бренд-голосу і контент-стратегії**:
-  - `Brand Guidlines.pdf` — офіційні бренд-гайдлайни
-  - `ICP_.pdf` — ідеальний клієнтський профіль
-  - `Scalemate_Brand_Persona_Framework.pdf` — персона/голос бренду
-  - `Scalemate_Content_Matrix.pdf` — контент-матриця (топіки × формати × стадії воронки)
-  - `rules/brand-guidelines.md` — практичні правила комунікацій
-  - `content-seo-strategy.md` — **уже існуюча SEO-контент стратегія** (обов'язково прочитати і врахувати, не переписувати з нуля)
-  - `audit-document.md` — аудит
-  - Усі ці файли мають feed-итися як context у content-creator, copywriting, content-ops, seo-ops скіли
-- `page-speed_technical-seo-tasks-for-dev.md` — вже наявний список технічних задач для dev
-- `context/icp/customer-kitup.md`, `context/icp/customer-zeptolab.md` — кейси клієнтів (для соціальних доказів в статтях)
-- `features/`, `use cases/`, `solutions/`, `funnels/`, `main page/`, `linkedin posts/`, `outreach/` — структурований контент по напрямках
+**`seo-system/rules/` — стандарти всіх агентів:**
+- `content-writing.md` — головні правила написання контенту
+- `brand-guidelines.md` — brand voice, tone, communication rules
+- `seo-copywriting.md` — SEO copy patterns, headlines, structure
 
-**`scalemate-landing/`** — продуктовий лендинг (brand voice reference, джерело внутрішніх лінків)
+**`seo-system/context/` — reference data:**
+- `project-state.md` — deployed items, learnings, blocked
+- `icp/jtbd-messaging.md` — JTBD framework + ICP + messaging map
+- `icp/customer-kitup.md`, `icp/customer-zeptolab.md` — кейси клієнтів (для соціальних доказів в статтях)
 
-> **Важливо:** всі три ядра (brand voice / JTBD+ICP / content framework) треба підключити як `context files` для content-creator, copywriting, content-ops скілів — щоб не винаходити заново і не дрейфувати від бренд-тону.
+**`docs/` (root проєкту) — продуктові і brand документи:**
+- `brand-persona-framework.md` — brand persona, tone of voice
+- `content_framework.md` — контент-фреймворк (JTBD + performance positioning)
+- `blog-articles.md` — формат і правила blog статей
+- `facebook-attribution-and-capi.md` — продуктовий контекст по attribution
+
+**`app/` — продуктовий лендинг (single source of truth для product info):**
+- `app/use-cases/_data/` + `app/use-cases/[slug]/` — всі use cases (мапа для programmatic SEO)
+- `app/customers/[slug]/` — case studies клієнтів (живі продуктові сторінки)
+- `app/features/{automation-rules, bulk-launch}/` — feature pages
+- `app/solutions/media-buyers/` — solutions pages
+- `app/pricing/`, `app/pricing-v2/` — pricing
+- `content/blog/` — existing blog статті (для anti-cannibalization checks)
+
+**`seo-system/skills/` — Python tools:**
+- `seo-ops/` — `gsc_client.py`, `trend_scout.py`, `content_attack_brief.py`
+- `content-creator/`, `content-ops/`, `copywriting/`, `copy-editing/`, `seo-audit/` — Skill packs (промпти + scripts)
+
+> **Важливо:** всі три ядра (brand voice / JTBD+ICP / content framework) треба підключити як `context files` для content-creator, copywriting, content-ops скілів — щоб не винаходити заново і не дрейфувати від бренд-тону. Усі файли — в repo, нічого external.
 
 ---
 
@@ -719,13 +724,12 @@ Discovery видає **одну чергу брифів**, але production м�
 
 1. ✅ Відповісти на відкриті питання (секція 1) — зроблено
 2. **Прочитати існуючі стратегічні документи** (щоб не винаходити заново):
-   - `scalemate content/brand communications/content-seo-strategy.md`
-   - `scalemate content/brand communications/Brand Guidlines.pdf`
-   - `scalemate content/brand communications/ICP_.pdf`
-   - `scalemate content/brand communications/Scalemate_Brand_Persona_Framework.pdf`
-   - `scalemate content/brand communications/Scalemate_Content_Matrix.pdf`
-   - `scalemate content/JTBD + ICP + Messaging Map.md`
-   - `scalemate content/Content Framework + SEO пріоритети + Ключові слова + Промпт.md`
+   - [seo-system/rules/brand-guidelines.md](../rules/brand-guidelines.md) — brand voice
+   - [seo-system/rules/seo-copywriting.md](../rules/seo-copywriting.md) — SEO copy patterns
+   - [seo-system/rules/content-writing.md](../rules/content-writing.md) — content rules
+   - [seo-system/context/icp/jtbd-messaging.md](../context/icp/jtbd-messaging.md) — JTBD + ICP + messaging
+   - [docs/brand-persona-framework.md](../../docs/brand-persona-framework.md) — brand persona
+   - [docs/content_framework.md](../../docs/content_framework.md) — content framework
 3. Запустити **діагностику поточного стану** (1-2 години):
    - Прогнати сайт через Ahrefs + GSC
    - Які ключі вже ранжуються, де striking distance
