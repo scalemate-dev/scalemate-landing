@@ -1,6 +1,8 @@
 # Scalemate Landing
-
 Next.js 16 app (App Router), SCSS modules, deployed on Vercel.
+
+## Main instrucitons for this file
+ - Any updates to this file should be in English language.
 
 ## Key commands
 
@@ -26,3 +28,7 @@ When asked to deploy:
 ## Blog
 
 Local markdown files, not CMS. See [docs/blog-articles.md](docs/blog-articles.md) for format, rules, and how to add articles.
+
+## SEO Pipeline
+
+For any SEO task (research, brief, draft, QA, review, "run research", "what's in pipeline", "update brief", "reject X") — instructions live in [seo-system/README.md](seo-system/README.md). Read it before doing any SEO work.
