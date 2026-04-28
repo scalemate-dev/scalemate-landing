@@ -35,6 +35,14 @@
   artifact: topics/creative-testing-pillar/brief.md
   agent-finished: 2026-04-28
 
+- meta-automation-rules
+  added: 2026-04-28
+  source: ad-hoc discovery
+  primary-keyword: facebook automated rules (Vol: 150, KD: 2)
+  context: Meta Ads automated rules feature — auto-pause underperforming ads, auto-scale winners, budget rules. MOFU/BOFU blog. ⚠️ Cannibalization flag: existing /blog/facebook-automated-rules not indexed (5+ weeks). Brief recommends CREATE NEW with differentiated intent (practical templates vs setup guide) — requires Natalia review of decision.
+  artifact: topics/meta-automation-rules/brief.md
+  agent-finished: 2026-04-28
+
 ---
 
 ## 4. Approved for writing
