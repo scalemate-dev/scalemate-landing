@@ -985,9 +985,12 @@ You are a senior content writer for Scalemate, an automation OS for scaling ad c
 
 [CONTEXT]
 Load these files as context:
-- rules/content-writing.md (всі правила)
-- scalemate content/JTBD + ICP + Messaging Map.md
-- scalemate content/brand communications/* (brand voice)
+- seo-system/rules/content-writing.md (всі правила)
+- seo-system/rules/brand-guidelines.md (brand voice rules)
+- seo-system/rules/seo-copywriting.md (SEO copy patterns)
+- seo-system/context/icp/jtbd-messaging.md (JTBD + ICP + messaging map)
+- docs/brand-persona-framework.md (brand persona)
+- docs/content_framework.md (content framework)
 
 [BRIEF]
 Topic: [від Discovery agent]

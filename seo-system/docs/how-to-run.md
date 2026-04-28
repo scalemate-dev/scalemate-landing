@@ -71,6 +71,6 @@ Detail про remote (тригер, MCP підключення, обмеженн
 
 Дивись [README.md](../README.md) — там повна мапа структури і покажчик "куди дивитись першим".
 
-Інструменти і MCP конектори — описані в `/Users/nataliabondar/claude-work/CLAUDE.md` (root проєкту).
+Інструменти і MCP конектори — описані в [CLAUDE.md](../../CLAUDE.md) (root проєкту) і [seo-system/skills/seo-ops/CODESPACE-SETUP.md](../skills/seo-ops/CODESPACE-SETUP.md).
 
 Принципи і scoring — [architecture.md](architecture.md).

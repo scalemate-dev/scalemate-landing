@@ -13,7 +13,7 @@
 ## 🟠 Дизайн / контент
 
 - [ ] **Hero image для `/use-cases/automated-creative-upload-meta`** — зараз hero без картинки, виглядає порожньо. Додати скріншот або ілюстрацію workflow (Google Drive → Scalemate → Meta). Аналогічно до інших use-case сторінок (15-30 min)
-- [ ] **Картинки з каруселі в MCP блог-пост** — зарендерити HTML каруселі (`linkedin-carousel-all.html`) в PNG і додати в `/blog/best-mcp-servers-meta-google-ads`. Слайди: cover, tools comparison, warning про бани. Файли: `/Users/nataliabondar/claude-work/linkedin-carousel-all.html` (15-30 min)
+- [ ] **Картинки з каруселі в MCP блог-пост** — зарендерити HTML каруселі (`linkedin-carousel-all.html`) в PNG і додати в `/blog/best-mcp-servers-meta-google-ads`. Слайди: cover, tools comparison, warning про бани. **TODO:** скопіювати `linkedin-carousel-all.html` з локального компа в `seo-system/assets/` щоб був у repo (15-30 min)
 - [ ] **Video для bulk upload статті** — додати озвучку до існуючого відео. Потім: (1) upload на YouTube з SEO title/description/tags, (2) embed YouTube відео в blog post. YouTube first — дає video SERP carousel + YouTube search. Озвучка важлива для engagement + YouTube auto-transcript (1-2h)
 - [ ] **Скріншоти для bulk upload статті** — 4 зображення для кожного методу (1-2h):
   - Method 1: скрін Meta Ads Manager bulk import Excel template (з https://www.facebook.com/business/help/122918328469908)
