@@ -100,6 +100,7 @@
 | 16 | `/contact` page | copywriting | `backlog` |
 | 17 | Author pages for blog | content-creator (template) | `backlog` |
 | 18 | Organization schema | content-creator | `backlog` |
+| 19 | Blog article: "Autonomous Creative Testing Workflows" — як налаштувати workflow де launches → first-step evaluation → status assignment → move to BAU працюють автоматично 24/7. Future internal link target з `/blog/creative-testing-framework`. | content-creator | `backlog` |
 
 ---
 

@@ -1,0 +1,46 @@
+{
+  "name": "scalemate-landing",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.11"
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "postCreateCommand": "npm install && pip install -r seo-system/skills/seo-ops/requirements.txt && bash .devcontainer/setup-gsc.sh",
+  "forwardPorts": [3000, 8765],
+  "portsAttributes": {
+    "3000": {
+      "label": "Next.js dev server"
+    },
+    "8765": {
+      "label": "GSC OAuth callback"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint"
+      ]
+    }
+  },
+  "secrets": {
+    "GOOGLE_CLIENT_ID": {
+      "description": "Google OAuth Client ID for GSC API"
+    },
+    "GOOGLE_CLIENT_SECRET": {
+      "description": "Google OAuth Client Secret for GSC API"
+    },
+    "GSC_TOKEN_JSON": {
+      "description": "Pre-authenticated GSC token (paste contents of .gsc-token.json from local machine, base64-encoded)"
+    },
+    "AHREFS_TOKEN": {
+      "description": "Ahrefs API token (optional, for content_attack_brief.py)"
+    },
+    "BRAVE_API_KEY": {
+      "description": "Brave Search API key (optional, for trend_scout.py X/Twitter scanning)"
+    }
+  }
+}

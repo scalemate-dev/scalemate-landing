@@ -1,0 +1,19 @@
+# OAuth tokens — NEVER commit
+.gsc-token.json
+*.gsc-token*
+
+# Google OAuth client credentials — NEVER commit
+client_secret.json
+
+# Local env file
+.env
+
+# Generated outputs
+output/
+*.cache.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
