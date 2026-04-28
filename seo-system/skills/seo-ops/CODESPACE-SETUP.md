@@ -51,7 +51,9 @@ sc-domain:scalemate.co
 
 1. `npm install` — Next.js deps
 2. `pip install -r seo-system/skills/seo-ops/requirements.txt` — Python deps (google-api, requests)
-3. `bash .devcontainer/setup-gsc.sh` — відновлює `.gsc-token.json` і `client_secret.json` з Codespaces secrets
+3. `bash .devcontainer/setup-gsc.sh`:
+   - Symlink **усіх** skills з `seo-system/skills/*` → `~/.claude/skills/` (тому агенти бачать ті самі шляхи що на Mac: content-ops, copy-editing, content-creator, copywriting, seo-audit, seo-ops)
+   - Відновлює `.gsc-token.json` і `client_secret.json` з Codespaces secrets
 
 ---
 

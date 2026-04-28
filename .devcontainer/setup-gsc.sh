@@ -1,19 +1,29 @@
 #!/bin/bash
-# Setup GSC auth in Codespace from Codespaces secrets
-# Runs after devcontainer creation
+# Setup Codespace environment for SEO system:
+#  - Symlink all bundled skills (~/.claude/skills/X) so agent prompts work unchanged
+#  - Restore GSC OAuth token + Google client_secret.json from Codespace secrets
+# Runs once after devcontainer creation.
 
 set -e
 
 # Resolve absolute path so commands work regardless of cwd
 DEVCONTAINER_DIR="$(cd "$(dirname "$0")" && pwd)"
-SKILL_DIR="$DEVCONTAINER_DIR/../seo-system/skills/seo-ops"
+SKILLS_BUNDLE_DIR="$DEVCONTAINER_DIR/../seo-system/skills"
+SKILL_DIR="$SKILLS_BUNDLE_DIR/seo-ops"
 
-# Create symlink so ~/.claude/skills/seo-ops/ works in codespace (same as local Mac)
+# Symlink every skill bundled in seo-system/skills/* into ~/.claude/skills/
+# so agent prompts that reference ~/.claude/skills/X work the same as on Mac.
 mkdir -p ~/.claude/skills
-if [ ! -e ~/.claude/skills/seo-ops ]; then
-  ln -sf "$(cd "$SKILL_DIR" && pwd)" ~/.claude/skills/seo-ops
-  echo "✅ Symlink created: ~/.claude/skills/seo-ops → $SKILL_DIR"
-fi
+for skill_path in "$SKILLS_BUNDLE_DIR"/*; do
+  [ -d "$skill_path" ] || continue
+  skill_name="$(basename "$skill_path")"
+  target="$HOME/.claude/skills/$skill_name"
+  if [ -e "$target" ] || [ -L "$target" ]; then
+    rm -rf "$target"
+  fi
+  ln -sf "$(cd "$skill_path" && pwd)" "$target"
+  echo "✅ Symlink: ~/.claude/skills/$skill_name → seo-system/skills/$skill_name"
+done
 
 # Recreate .gsc-token.json from base64-encoded Codespace secret
 if [ -n "$GSC_TOKEN_JSON" ]; then
