@@ -32,7 +32,7 @@ The available actions include four categories: **auto-pause** ads or ad sets, **
 
 To find them, open [Meta Ads Manager](https://www.facebook.com/business/help/644860419002064){rel="nofollow noopener" target="_blank"}, navigate to the campaign, ad set, or ad level, and select "Rules" from the toolbar. From there, you can create a new rule or manage existing ones.
 
-![Automated Rules location in Meta Ads Manager All Tools menu](/fb-rules-navigation.png)
+![Automated Rules location in Meta Ads Manager All Tools menu](/blog/images/facebook-automated-rules/rules-navigation.png)
 
 This feature is most useful for media buyers managing 10 or more campaigns. Below that threshold, manual checks may be faster than the time spent configuring rules. Above it, facebook campaign optimization automation becomes essential just to keep up.
 
@@ -54,7 +54,7 @@ Conditions define what triggers the rule. Meta offers 41 condition options, incl
 
 There is one constraint worth noting early: rules use **AND logic only**, and each rule supports **one condition**. If you want to pause an ad set when ROAS is below 1.2 AND frequency is above 3, you need two separate rules. There is no OR logic available — you cannot say "pause if ROAS is low OR if CPA is high" in a single rule.
 
-![Conditions dropdown in Facebook automated rules setup](/fb-rules-conditions.png)
+![Conditions dropdown in Facebook automated rules setup](/blog/images/facebook-automated-rules/rules-conditions.png)
 
 Choose a **time window** for the condition carefully. A 1-day window reacts fast but can trigger on noisy data. A 7-day window is more stable but slower to act. For most facebook ad rules setup configurations, a 3-day window strikes a reasonable balance.
 
@@ -67,7 +67,7 @@ Four actions are available:
 - **Adjust the bid** by a set amount or percentage
 - **Send notification only** — no changes made
 
-![Action options for automated rules including budget and bid adjustments](/fb-rules-actions.png)
+![Action options for automated rules including budget and bid adjustments](/blog/images/facebook-automated-rules/rules-actions.png)
 
 A practical tip: start every new rule with **notification only** for the first few days. This lets you verify the rule triggers when expected before giving it permission to change anything. Automated budget management meta ads workflows should be tested before they run live.
 
@@ -92,7 +92,7 @@ Use this to auto pause facebook ads based on roas when performance falls below b
 - **Schedule:** Continuous
 - **When to use:** On prospecting campaigns where you need to cut losses fast. Adjust the 0.3 threshold to match your actual breakeven ROAS.
 
-![Configured automated rule to turn off ad sets when ROAS drops below threshold](/fb-rules-roas-example.png)
+![Configured automated rule to turn off ad sets when ROAS drops below threshold](/blog/images/facebook-automated-rules/rules-roas-example.png)
 
 **2. Increase budget on winning ad sets**
 
@@ -163,13 +163,13 @@ Several patterns signal that native rules are no longer enough:
 
 The comparison between native rules vs third party tools comes down to complexity and scale. Meta's built-in rules cover the basics. Third-party tools cover the exceptions, edge cases, and multi-step logic that native cannot handle.
 
-![Scalemate automation rules dashboard with multiple active rules](/scalemate-rules-dashboard.png)
+![Scalemate automation rules dashboard with multiple active rules](/blog/images/facebook-automated-rules/scalemate-rules-dashboard.png)
 
 **What Scalemate adds on top of native rules:**
 
 [Scalemate's automation rules](/features/automation-rules) are built specifically for the gaps listed above. Rules run **24/7 with built-in rollback** — if a budget increase causes performance to drop, the system reverses it automatically within the window you define. Multi-action logic supports conditions beyond simple AND, and rules work across **Meta and TikTok from a single dashboard**.
 
-![Scalemate multi-task rule with budget scaling and rollback conditions](/scalemate-rules-multitask.png)
+![Scalemate multi-task rule with budget scaling and rollback conditions](/blog/images/facebook-automated-rules/scalemate-rules-multitask.png)
 
 The practical results across Scalemate users show a **32% reduction in wasted budget** and **62% less time spent on manual ad management**. An open API supports custom workflows for teams that need deeper integration.
 

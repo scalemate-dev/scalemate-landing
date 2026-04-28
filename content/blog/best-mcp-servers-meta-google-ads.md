@@ -3,8 +3,9 @@ title: "Best MCP Servers for Meta & Google Ads — Ban Risk Warning"
 slug: best-mcp-servers-meta-google-ads
 metaDescription: "Meta is banning ad accounts that connect unverified MCP servers. Compare verified vs unverified options for Meta & Google Ads — setup guides, free tools, and what's safe."
 author: "Nataliia Bondar"
-coverImage: null
-coverAlt: null
+coverImage: /blog/images/best-mcp-servers-meta-google-ads/mcp-servers-cover.svg
+coverAlt: "MCP servers for Meta and Google Ads — AI connection layer illustration"
+heroBg: /blog/images/best-mcp-servers-meta-google-ads/mcp-servers-hero.svg
 createdAt: "2026-03-30"
 updatedAt: "2026-03-30"
 faq:
@@ -54,6 +55,10 @@ MCP stands for Model Context Protocol, an open standard developed by Anthropic t
 
 For advertising, an MCP server sits between your ad platform (Meta, Google, TikTok) and your AI assistant (Claude, Cursor, or any MCP-compatible client). The server handles authentication, pulls campaign data through the platform's API, and formats it so the AI can understand and analyze it.
 
+![MCP architecture: AI assistant connects through MCP server to Meta Ads, Google Ads, and TikTok Ads — authentication, data pull, and formatting handled by the server](/blog/images/best-mcp-servers-meta-google-ads/mcp-architecture-diagram.svg)
+
+*MCP sits between your AI assistant and your ad accounts. One protocol, any platform, no CSV exports.*
+
 Why did this become relevant for marketers in 2026? Two reasons. First, Claude Desktop and Cursor both added native MCP support, making setup dramatically easier. Second, several teams released **mcp server facebook** and Google Ads implementations that actually work reliably, not just proof-of-concept demos.
 
 What MCP enables in practice:
@@ -95,6 +100,10 @@ The **meta ads MCP** landscape includes both open-source and commercial options.
 
 Pipeboard takes the easiest approach to **meta MCP** connectivity. It runs as a remote MCP server. No local installation, no dependencies, no terminal commands. You get a URL, paste it into Claude Desktop's MCP settings, and your Meta Ads data is available immediately.
 
+![Pipeboard MCP — Claude analyzing Meta Ads campaign data, generating performance dashboard with spend, impressions, CTR and click-through rate](/blog/images/best-mcp-servers-meta-google-ads/piperboat.png)
+
+*Pipeboard connects Meta and Google Ads to Claude. Ask questions, get answers from live data.*
+
 - **Setup:** Paste a remote URL into your AI client. Takes under 2 minutes
 - **Platforms:** Meta Ads + Google Ads from one connection
 - **Pricing:** Free tier available, paid plans for higher usage
@@ -105,6 +114,10 @@ Pipeboard takes the easiest approach to **meta MCP** connectivity. It runs as a 
 ### 2. GoMarble (Open Source)
 
 GoMarble's open-source **facebook ads MCP** server gives full transparency and control. The code is on GitHub, so you can inspect exactly what data it accesses and how it formats responses. The trade-off is setup complexity: you'll need Node.js, API credentials from Meta, and comfort with the command line.
+
+![GoMarble facebook-ads-mcp-server GitHub repository — open source Meta Ads MCP server, MIT license, 263 stars](/blog/images/best-mcp-servers-meta-google-ads/gomarble-github.png)
+
+*GoMarble's open-source Facebook Ads MCP server on GitHub. MIT license, 263 stars, 6 active branches.*
 
 - **Setup:** Clone repo, install dependencies, configure Meta API keys in JSON
 - **Platforms:** Meta Ads only
@@ -149,6 +162,10 @@ The **google ads MCP** ecosystem has one major advantage: an official server fro
 ### 1. Google Ads MCP (Official)
 
 Google's own MCP server bridges the Google Ads API with AI assistants. Because it comes from the platform team, it has the deepest API coverage and the most reliable data access. The downside is setup: it requires Google Ads API credentials, a developer token, and familiarity with Google's authentication flow.
+
+![Google Ads MCP Server official documentation page — Developer integration guide on Google Ads API developer portal](/blog/images/best-mcp-servers-meta-google-ads/google-ads-mcp-server.png)
+
+*Google's official MCP server documentation. Deepest API coverage, but requires developer setup and OAuth configuration.*
 
 - **Setup:** Technical. API credentials, OAuth configuration, developer token
 - **Platforms:** Google Ads only
@@ -200,6 +217,10 @@ A few things stand out. If budget is the constraint, GoMarble and Flyweel are bo
 Most MCP servers give you a read-only window into your ad data. That's valuable for analysis, but it leaves the actual work (pausing losers, scaling winners, adjusting budgets, launching new tests) in the ad platform's UI. Scalemate AI Chat closes that gap.
 
 The difference in practice: instead of asking Claude "which ad sets have a CPA above $20?" and then manually going to Ads Manager to pause them, Scalemate lets you say "pause all ad sets with CPA above $20" and it executes. Budget adjustments, creative launches, campaign restructuring: these happen through the same chat interface that does analysis.
+
+![Scalemate AI Chat interface — TikTok budget reallocation executed through chat with creative-level recommendations, no Ads Manager needed](/blog/images/best-mcp-servers-meta-google-ads/scalemate-ai-chat.png)
+
+*Budget reallocation, creative swaps, campaign analysis — all through chat. No Ads Manager tab required.*
 
 There's no MCP server to install. No Claude Desktop configuration. No GitHub repos to clone. Teams connect their Facebook ad account through Scalemate's platform and start working immediately. The AI has full context — account history, creative performance, audience data, without any protocol layer in between.
 

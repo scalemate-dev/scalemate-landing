@@ -3,10 +3,10 @@ title: "How to Automate Facebook Ads: Full Guide (2026)"
 slug: facebook-ads-automation
 metaDescription: "How to automate Facebook ads at every level: native Meta tools, third-party platforms, and AI. Includes tool comparison, decision framework, and real examples."
 author: "Nataliia Bondar"
-coverImage: /blog/covers/facebook-ads-automation-listing.svg
+coverImage: /blog/images/facebook-ads-automation/listing.svg
 coverAlt: "Facebook ads automation: from manual work to full AI autopilot — before and after comparison"
-ogImage: /blog/covers/facebook-ads-automation-hero.png
-heroBg: /blog/covers/facebook-ads-automation-hero-bg.svg
+ogImage: /blog/images/facebook-ads-automation/hero.png
+heroBg: /blog/images/facebook-ads-automation/hero-bg.svg
 createdAt: "2026-04-06"
 updatedAt: "2026-04-06"
 faq:
@@ -28,7 +28,7 @@ Most Facebook ad teams automate less than they think. They set up a few rules in
 
 This guide breaks facebook advertising automation into three levels — native tools, third-party platforms, and full AI autopilot — so you can see exactly where your team sits and what the next step looks like.
 
-![Three levels of Facebook ads automation: Level 1 native Meta tools free, Level 2 third-party platforms, Level 3 full AI autopilot](/blog/images/automation-levels-overview.png)
+![Three levels of Facebook ads automation: Level 1 native Meta tools free, Level 2 third-party platforms, Level 3 full AI autopilot](/blog/images/facebook-ads-automation/automation-levels-overview.png)
 
 *Most teams operate at Level 1. The gap between Level 1 and Level 3 is where the real time savings live.*
 
@@ -60,7 +60,7 @@ Before picking tools, it helps to map which parts of ad management eat the most 
 
 Each of these areas can be automated independently. In our experience, most teams start with rules (the easiest win) and leave creative uploads manual for too long — even though that is often where the biggest time drain hides.
 
-![Six areas of Facebook ad automation: campaign launching, creative uploads, budget optimization, reporting and analysis, creative rotation and fatigue detection, internal systems integration](/blog/images/what-you-can-automate-map.svg)
+![Six areas of Facebook ad automation: campaign launching, creative uploads, budget optimization, reporting and analysis, creative rotation and fatigue detection, internal systems integration](/blog/images/facebook-ads-automation/what-you-can-automate-map.svg)
 
 *Each area can be automated independently. Start with whichever costs the most hours.*
 
@@ -200,7 +200,7 @@ Not every team needs full autopilot on day one. The right starting point depends
 
 The framework below matches automation priorities to common team profiles.
 
-![Automation priority framework: under $5K use native Meta tools, $5K–$20K add advanced rules with rollback, $20K-plus full stack bulk launch and sync, 50-plus creatives per week prioritize Drive sync first](/blog/images/automation-priority-framework.svg)
+![Automation priority framework: under $5K use native Meta tools, $5K–$20K add advanced rules with rollback, $20K-plus full stack bulk launch and sync, 50-plus creatives per week prioritize Drive sync first](/blog/images/facebook-ads-automation/automation-priority-framework.svg)
 
 *Start with the area where the team loses the most hours. Automate that first.*
 

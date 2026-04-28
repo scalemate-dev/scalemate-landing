@@ -178,7 +178,7 @@ Scalemate covers steps three through five. AdCreative.ai covers step two. They d
 
 Rather than picking one AdCreative.ai alternative, the practical move is building a pipeline where each stage has the right tool.
 
-![Summary table rating 20+ AI ad tools across Research & Scripts, Production, and Testing & Scaling categories — rated Weak, OK, or Great](/blog/images/ai-tools-summary-table.png)
+![Summary table rating 20+ AI ad tools across Research & Scripts, Production, and Testing & Scaling categories — rated Weak, OK, or Great](/blog/images/adcreative-ai-alternative/ai-tools-summary-table.png)
 *20+ AI tools rated by stage: research, production, and testing.*
 
 **Research and Analysis**

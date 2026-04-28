@@ -30,7 +30,7 @@ faq:
     answer: "It depends on budget. Teams spending $20,000 or more per month benefit from dedicated testing campaigns that isolate new creatives from BAU performance. This gives cleaner data and prevents untested ads from pulling budget away from proven performers. Teams under $20,000 per month typically get better results adding new creatives directly into existing campaigns, since there is not enough budget to sustain a separate testing environment."
 ---
 
-![Ad fatigue visualized: battery draining from full (Week 1) to empty (Week 5) with declining CTR and rising CPA](/blog-ad-fatigue-hero.svg)
+![Ad fatigue visualized: battery draining from full (Week 1) to empty (Week 5) with declining CTR and rising CPA](/blog/images/what-is-ad-fatigue/hero.svg)
 
 Every ad has an expiration date. It does not matter how strong the creative is, how precise the targeting is, or how well the funnel converts. At some point, performance starts to slide — CTR drops, CPA rises, ROAS compresses. This is ad fatigue, and it is not a bug in the system. It is a built-in feature of every paid media platform. The question is not whether it will happen. The question is whether the team has a system ready when it does.
 
@@ -49,7 +49,7 @@ This article covers what ad fatigue actually means in practice, how to recognize
 
 ## What Is Ad Fatigue?
 
-![Ad fatigue lifecycle: Learning phase → Peak Performance → Fatigue Zone where CTR drops, CPA rises, ROAS falls](/blog-fatigue-lifecycle.svg)
+![Ad fatigue lifecycle: Learning phase → Peak Performance → Fatigue Zone where CTR drops, CPA rises, ROAS falls](/blog/images/what-is-ad-fatigue/fatigue-lifecycle.svg)
 
 Ad fatigue is what happens when the same audience sees the same ad too many times, causing engagement and conversion metrics to decline. The ad fatigue meaning is straightforward: the creative stops being effective not because it was poorly made, but because the audience has been overexposed to it. CTR falls. CPA climbs. ROAS shrinks. The ad did its job — then it ran out of road.
 
@@ -99,7 +99,7 @@ The creative diversity rate determines how much distribution a new creative rece
 
 This is why minor variations fail to solve creative fatigue. The creative fatigue meaning extends beyond audience perception to platform mechanics. Even if users cannot articulate why an ad feels stale, the platform's scoring system has already flagged it.
 
-![70/30 Creative Mix: 70% new concepts, 30% variations on winners](/blog-70-30-creative-mix.svg)
+![70/30 Creative Mix: 70% new concepts, 30% variations on winners](/blog/images/what-is-ad-fatigue/70-30-creative-mix.svg)
 
 The practical framework:
 
@@ -117,7 +117,7 @@ TikTok's [creative best practices](https://ads.tiktok.com/help/article/tiktok-cr
 
 ## The 5% Winner Rate Reality
 
-![Only 5% of creatives become winners — 1 in 20](/blog-5-percent-winner-rate.svg)
+![Only 5% of creatives become winners — 1 in 20](/blog/images/what-is-ad-fatigue/5-percent-winner-rate.svg)
 
 Here is the number that reframes the entire creative testing conversation: roughly 5% of creatives become genuine winners. One in twenty. That means launching two or three new ads and hoping for a hit is not a strategy — it is a coin flip with bad odds.
 
@@ -137,7 +137,7 @@ The difference between teams that struggle with ad fatigue and teams that treat 
 
 The cycle:
 
-![Weekly creative testing cycle: Analyze → Hypothesize → Produce → Launch → Optimize → Report](/blog-weekly-cycle-flow.svg)
+![Weekly creative testing cycle: Analyze → Hypothesize → Produce → Launch → Optimize → Report](/blog/images/what-is-ad-fatigue/weekly-cycle-flow.svg)
 
 | Step | What happens | Tools |
 |------|-------------|-------|
