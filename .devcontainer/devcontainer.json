@@ -8,7 +8,7 @@
     "ghcr.io/devcontainers/features/github-cli:1": {},
     "ghcr.io/devcontainers/features/sshd:1": {}
   },
-  "postCreateCommand": "npm install && npm install -g @anthropic-ai/claude-code && pip install -r seo-system/skills/seo-ops/requirements.txt && bash .devcontainer/setup-gsc.sh",
+  "postCreateCommand": "npm install && npm install -g @anthropic-ai/claude-code && pip install -r seo-system/skills/seo-ops/requirements.txt && bash .devcontainer/setup-gsc.sh && bash seo-system/scripts/codespace-autorun.sh",
   "forwardPorts": [3000, 8765],
   "portsAttributes": {
     "3000": {
