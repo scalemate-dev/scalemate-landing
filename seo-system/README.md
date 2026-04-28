@@ -139,6 +139,26 @@ options:
 - `gh codespace ssh -c <name> -- "tail -f /tmp/seo-autorun/<slug>.log"` — слідкувати за прогресом auto-run
 - `bash scripts/seo-status.sh` — список усіх SEO codespaces з тим що в pipeline.md кожного (де які items на якій стадії)
 
+### ВАЖЛИВО: після `gh codespace create` — НЕ чекати, не SSH-ити, не tail-ити логи
+
+Як тільки `gh codespace create` повернув ім'я codespace — робота orchestrator'а завершена. Auto-run запускається сам у `postCreateCommand`, агент сам комітить + пушить + відкриває PR. Не потрібно:
+
+- ❌ `gh codespace ssh ... tail -f ...` для перевірки що запустилось
+- ❌ `ls /tmp/seo-autorun/` через SSH
+- ❌ `ScheduleWakeup` / `loop` / sleep щоб «зайти пізніше і перевірити»
+- ❌ Будь-яке очікування результату
+
+Замість цього — одразу віддати користувачу посилання щоб він сам перевірив:
+
+```
+✅ Codespace: https://github.com/codespaces/<codespace-name>
+   Branch: seo/<slug>
+   PR (з'явиться після першого пушу агента): https://github.com/scalemate-dev/scalemate-landing/pulls?q=head%3Aseo%2F<slug>
+   Прогрес логу (опційно): gh codespace ssh -c <codespace-name> -- "tail -f /tmp/seo-autorun/<slug>.log"
+```
+
+Користувач сам зайде у codespace / PR коли захоче. Orchestrator завершує тред після видачі посилань.
+
 ### Git workflow для агентів (commit / push / PR)
 
 Кожен агент після завершення свого кроку (артефакт записаний, pipeline.md оновлений) **обов'язково**:
