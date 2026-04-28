@@ -11,11 +11,7 @@
 
 > Items додаються сюди з `розвідка` або вручну. Чекають approve від Natalia щоб піти в discovery.
 
-- creative-testing-pillar
-  added: 2026-04-25
-  source: weekly-recon
-  primary-keyword: creative testing
-  context: 1000+ vol cluster, KD 0-8, pain-validated "testing 50+ creatives/week without burning out"
+(порожньо)
 
 ---
 
@@ -31,7 +27,13 @@
 
 > Brief написаний, чекає approve.
 
-(порожньо)
+- creative-testing-pillar
+  added: 2026-04-25
+  source: weekly-recon
+  primary-keyword: creative testing
+  context: 1000+ vol cluster, KD 0-8, pain-validated "testing 50+ creatives/week without burning out"
+  artifact: topics/creative-testing-pillar/brief.md
+  agent-finished: 2026-04-28
 
 ---
 
