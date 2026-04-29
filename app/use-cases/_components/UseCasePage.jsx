@@ -56,6 +56,7 @@ export default function UseCasePage({ data }) {
                 videoId={video.videoId}
                 title={video.name}
                 thumbnailUrl={video.thumbnailUrl}
+                priority
               />
             </div>
           </Container>

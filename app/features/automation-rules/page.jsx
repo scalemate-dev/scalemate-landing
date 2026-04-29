@@ -208,6 +208,7 @@ export default function AutomationRulesPage() {
             <VideoEmbed
               videoId="R6gn5zSILwM"
               title="Facebook Ad Automation Rules — Auto-Pause & Scale (Scalemate Demo)"
+              priority
             />
           </div>
         </Container>

@@ -25,11 +25,14 @@ export default function VideoEmbed({
   videoId,
   title,
   thumbnailUrl,
+  priority = false,
   className,
 }) {
-  const [isPlaying, setIsPlaying] = useState(false)
-  const poster =
+  const maxresPoster =
     thumbnailUrl ?? `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`
+  const fallbackPoster = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [posterSrc, setPosterSrc] = useState(maxresPoster)
   const embedSrc = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`
 
   return (
@@ -51,11 +54,17 @@ export default function VideoEmbed({
           aria-label={`Play video: ${title}`}
         >
           <img
-            src={poster}
+            src={posterSrc}
             alt=""
+            width={1280}
+            height={720}
             className={styles.poster}
-            loading="lazy"
+            loading={priority ? "eager" : "lazy"}
+            fetchPriority={priority ? "high" : "auto"}
             decoding="async"
+            onError={() => {
+              if (posterSrc !== fallbackPoster) setPosterSrc(fallbackPoster)
+            }}
           />
           <span className={styles.playWrap}>
             <PlayIcon />
