@@ -179,7 +179,7 @@ $cream-3: #fefefe;
 
 .platformLogo {
   display: block;
-  width: auto;
+  object-fit: contain;
 }
 
 .platformConnect {
