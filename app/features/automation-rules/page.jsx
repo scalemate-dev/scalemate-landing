@@ -45,8 +45,21 @@ const faqItems = [
   },
   {
     question: "How do Scalemate's rules differ from Meta's built-in rules?",
-    answer:
-      "Meta's native rules handle basic conditions within one platform: no budget safeguards, no scaling logic, no advanced automation. Scalemate adds automated scaling with auto-cut rules, budget protection, and Slack/email alerts. Teams that automate facebook ads rules beyond basic pause-on-threshold see the difference at scale.",
+    answerText:
+      "Meta's native rules handle basic conditions within one platform: no budget safeguards, no scaling logic, no advanced automation. Scalemate adds automated scaling with auto-cut rules, budget protection, and Slack/email alerts. Teams that automate facebook ads rules beyond basic pause-on-threshold see the difference at scale. For specifics on when native rules aren't enough, see the full setup guide.",
+    answer: (
+      <>
+        Meta's native rules handle basic conditions within one platform: no
+        budget safeguards, no scaling logic, no advanced automation. Scalemate
+        adds automated scaling with auto-cut rules, budget protection, and
+        Slack/email alerts. Teams that automate facebook ads rules beyond
+        basic pause-on-threshold see the difference at scale. For specifics on{" "}
+        <Link href="/blog/facebook-automated-rules">
+          when native rules aren't enough
+        </Link>
+        , see the full setup guide.
+      </>
+    ),
   },
   {
     question: "Can rules auto-pause ads based on ROAS?",
@@ -120,7 +133,7 @@ const faqSchema = {
     name: item.question,
     acceptedAnswer: {
       "@type": "Answer",
-      text: item.answer,
+      text: item.answerText ?? item.answer,
     },
   })),
 }

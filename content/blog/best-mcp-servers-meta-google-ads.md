@@ -147,7 +147,7 @@ The key difference: **Scalemate is a verified Meta app.** Official API access, e
 - **Platforms:** Meta Ads + TikTok Ads (Google Ads in development)
 - **Pricing:** Paid with free trial
 - **Verified Meta app:** Official API, scoped permissions, rate limiting built in. No ban risk
-- **Actions, not just analysis:** Budget changes, campaign pausing, bulk ad launches, [how to set up Facebook automated rules](/blog/facebook-automated-rules). Things MCP servers typically can't do
+- **Actions, not just analysis:** Budget changes, campaign pausing, bulk ad launches, [how to set up Facebook automated rules](/blog/facebook-automated-rules), or the broader [Facebook ads automation guide](/blog/facebook-ads-automation) covering manual through tool-based tiers. Things MCP servers typically can't do
 - **MCP integration coming soon.** For teams that want to connect Scalemate's capabilities through Claude or Cursor
 - **Used by:** ZeptoLab (2B+ downloads), KitUp (1M+ users), and other performance teams running at scale
 

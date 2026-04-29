@@ -173,7 +173,7 @@ The comparison between native rules vs third party tools comes down to complexit
 
 The practical results across Scalemate users show a **32% reduction in wasted budget** and **62% less time spent on manual ad management**. An open API supports custom workflows for teams that need deeper integration.
 
-For a closer look at how rule-based automation compares to other platforms on the market, the [Madgicx review and alternatives breakdown](/blog/madgicx-review-alternative) covers the landscape in detail.
+For a closer look at how rule-based automation compares to other platforms on the market, the [Madgicx review and alternatives breakdown](/blog/madgicx-review-alternative) covers the landscape in detail. For the broader picture beyond rules — including AI-driven automation and operational tooling — see [Beyond rules: full Facebook ads automation](/blog/facebook-ads-automation).
 
 Teams that have outgrown native rules but want to keep the same logic-based approach can explore the [ad campaign automation rules use cases](/use-cases/ad-campaign-automation-rules) page for specific workflow templates. And for a full feature breakdown, the [Scalemate automation rules overview](/features/automation-rules) covers everything from rollback configuration to cross-platform rule management.
 

@@ -1,3 +1,4 @@
+import Link from "next/link"
 import {
   ThresholdVisual,
   ActionVisual,
@@ -221,14 +222,46 @@ export const data = {
   faq: [
     {
       question: "What are ad campaign automation rules?",
-      answer:
-        "Automation rules are conditional triggers that execute predefined actions on campaigns based on performance metrics. When a metric crosses a set threshold, the system automatically pauses, scales, adjusts bids, or sends an alert – without manual intervention. Rules run continuously – covering nights, weekends, and holidays – replacing the manual check-and-react cycle that most marketing teams repeat daily.",
+      answerText:
+        "Automation rules are conditional triggers that execute predefined actions on campaigns based on performance metrics. When a metric crosses a set threshold, the system automatically pauses, scales, adjusts bids, or sends an alert – without manual intervention. Rules run continuously – covering nights, weekends, and holidays – replacing the manual check-and-react cycle that most marketing teams repeat daily. For step-by-step setup of native Meta automated rules, see the Facebook automated rules guide.",
+      answer: (
+        <>
+          Automation rules are conditional triggers that execute predefined
+          actions on campaigns based on performance metrics. When a metric
+          crosses a set threshold, the system automatically pauses, scales,
+          adjusts bids, or sends an alert – without manual intervention. Rules
+          run continuously – covering nights, weekends, and holidays –
+          replacing the manual check-and-react cycle that most marketing teams
+          repeat daily. For step-by-step setup of native Meta automated rules,
+          see the{" "}
+          <Link href="/blog/facebook-automated-rules">
+            How to set up Facebook automated rules
+          </Link>{" "}
+          guide.
+        </>
+      ),
     },
     {
       question:
         "How do Scalemate\u2019s rules differ from Meta\u2019s built-in rules?",
-      answer:
-        "Meta\u2019s native rules cover basic conditions within a single account. Scalemate extends this with cross-account management, automated scaling with rollback, and budget safeguards across the entire portfolio. For teams seeking a comprehensive facebook ads automation rules tool, the difference is most visible at scale: native rules require per-account configuration while Scalemate applies logic across the full portfolio from one interface.",
+      answerText:
+        "Meta\u2019s native rules cover basic conditions within a single account. Scalemate extends this with cross-account management, automated scaling with rollback, and budget safeguards across the entire portfolio. For teams seeking a comprehensive facebook ads automation rules tool, the difference is most visible at scale: native rules require per-account configuration while Scalemate applies logic across the full portfolio from one interface. For broader context, the three levels of Facebook ads automation cover the full taxonomy from manual to third-party.",
+      answer: (
+        <>
+          Meta&rsquo;s native rules cover basic conditions within a single
+          account. Scalemate extends this with cross-account management,
+          automated scaling with rollback, and budget safeguards across the
+          entire portfolio. For teams seeking a comprehensive facebook ads
+          automation rules tool, the difference is most visible at scale:
+          native rules require per-account configuration while Scalemate
+          applies logic across the full portfolio from one interface. For
+          broader context,{" "}
+          <Link href="/blog/facebook-ads-automation">
+            three levels of Facebook ads automation
+          </Link>{" "}
+          covers the full taxonomy from manual to third-party.
+        </>
+      ),
     },
     {
       question: "Can rules automatically pause ads based on ROAS?",
