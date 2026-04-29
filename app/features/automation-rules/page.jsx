@@ -1,6 +1,8 @@
 import Link from "next/link"
 import Container from "@/components/elements/Container/Container"
 import FAQ from "@/components/FAQ/FAQ"
+import VideoEmbed from "@/components/elements/VideoEmbed/VideoEmbed"
+import VideoObjectSchema from "@/components/elements/VideoEmbed/VideoObjectSchema"
 import HeroSection from "./components/HeroSection/HeroSection"
 import ProblemSection from "./components/ProblemSection/ProblemSection"
 import BottleneckSection from "./components/BottleneckSection/BottleneckSection"
@@ -181,7 +183,35 @@ export default function AutomationRulesPage() {
         }}
       />
 
+      <VideoObjectSchema
+        videoId="R6gn5zSILwM"
+        name="Facebook Ad Automation Rules — Auto-Pause & Scale (Scalemate Demo)"
+        description="Demo of Scalemate's automation rules engine: rule conditions, action types, and rollback. Pause low-ROAS ads, scale winners, protect daily budget across Meta and TikTok."
+        uploadDate="2026-04-29"
+        duration="PT1M"
+      />
+
       <HeroSection />
+
+      <section className={styles.video}>
+        <Container>
+          <div className={styles.videoInner}>
+            <span className={styles.videoEyebrow}>60-second demo</span>
+            <h2 className={styles.videoHeading}>
+              Rule conditions, actions, and rollback in motion
+            </h2>
+            <p className={styles.videoSub}>
+              Watch how rule conditions trigger pause and scale actions, with
+              rollback safeguarding budget if performance drops.
+            </p>
+            <VideoEmbed
+              videoId="R6gn5zSILwM"
+              title="Facebook Ad Automation Rules — Auto-Pause & Scale (Scalemate Demo)"
+            />
+          </div>
+        </Container>
+      </section>
+
       <ProblemSection />
       <BottleneckSection />
       <SolutionSection />
