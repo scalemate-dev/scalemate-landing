@@ -19,12 +19,7 @@
 
 > Discovery agent працює над цими.
 
-- automation-rules-cluster
-  added: 2026-04-29
-  source: natalia-request
-  primary-keyword: automation rules / ad rules cluster
-  context: investigate як збільшити traffic від людей що шукають "rules". Cluster з 4 сторінок: /features/automation-rules (124 imp, pos 30), /use-cases/ad-campaign-automation-rules (186 imp, pos 7.6), /blog/facebook-automated-rules (0 imp), /blog/facebook-ads-automation (0 imp). Use-case ранжує добре, блог-пости відсутні в SERP. Потрібен cluster strategy — keyword research, intent map, cannibalization analysis, gap, action plan.
-  artifact: topics/automation-rules-cluster/brief.md (TBD)
+(порожньо)
 
 ---
 
@@ -39,6 +34,14 @@
   context: 1000+ vol cluster, KD 0-8, pain-validated "testing 50+ creatives/week without burning out"
   artifact: topics/creative-testing-pillar/brief.md
   agent-finished: 2026-04-28
+
+- automation-rules-cluster
+  added: 2026-04-29
+  source: natalia-request
+  primary-keyword: facebook automated rules / facebook ads automation (cluster strategy)
+  context: cluster з 4 сторінок (/features/automation-rules, /use-cases/ad-campaign-automation-rules, /blog/facebook-automated-rules, /blog/facebook-ads-automation). Brief — повна cluster strategy: cannibalization analysis, keyword map, SERP intent, ICP pain Reddit research, action plan (Quick Wins / Mid-term / Restructure / Linking / Title-Meta). Головний висновок: existing pages OK, головний blocker = 2 unindexed blog posts (5 weeks). Action: indexation push + use-case title fix + internal linking refresh + feature page repositioning.
+  artifact: topics/automation-rules-cluster/brief.md
+  agent-finished: 2026-04-29
 
 ---
 
