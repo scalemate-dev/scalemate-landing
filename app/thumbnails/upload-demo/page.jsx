@@ -42,9 +42,10 @@ export default function UploadDemoThumbnail() {
             <span className={styles.platform}>
               <img
                 src="/google-drive-logo.svg"
-                alt=""
+                alt="Google Drive"
                 className={styles.platformLogo}
-                style={{ height: 28 }}
+                width={134}
+                height={28}
               />
             </span>
             <span className={styles.platformConnect} aria-hidden>
@@ -53,9 +54,10 @@ export default function UploadDemoThumbnail() {
             <span className={styles.platform}>
               <img
                 src="/meta-ads-logo.svg"
-                alt=""
+                alt="Meta Ads"
                 className={styles.platformLogo}
-                style={{ height: 22 }}
+                width={100}
+                height={22}
               />
             </span>
             <span className={styles.platformPlus} aria-hidden>
@@ -64,9 +66,10 @@ export default function UploadDemoThumbnail() {
             <span className={styles.platform}>
               <img
                 src="/tiktok-logo.png"
-                alt=""
+                alt="TikTok Ads"
                 className={styles.platformLogo}
-                style={{ height: 24 }}
+                width={186}
+                height={20}
               />
             </span>
           </div>
