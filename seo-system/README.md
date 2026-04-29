@@ -209,9 +209,58 @@ Local edits теж працюють (checkout гілки `seo/<slug>` локал
 
 ---
 
+## Data sources — коли що використовувати
+
+> **GSC = source of truth для нашого сайту.** Ahrefs корисний для зовнішнього бенчмарку (competitors, SERP, backlinks, keyword volumes), але для діагностики СВОЇХ сторінок завжди йти спочатку в GSC напряму.
+
+### GSC (Google Search Console) — primary
+
+Прямий доступ через `seo-system/skills/seo-ops/gsc_client.py` (CLI + Python lib). Працює з повним GSC API, дає точні impressions/clicks/CTR/position для будь-якої URL.
+
+```bash
+cd seo-system/skills/seo-ops
+GSC_SITE_URL="sc-domain:scalemate.co" python3 gsc_client.py --pages 200 --days 28 --json
+GSC_SITE_URL="sc-domain:scalemate.co" python3 gsc_client.py --striking --days 28
+```
+
+Для фільтрації по конкретній URL — використовувати `GSCClient.query()` як library з `filters=[{"dimension":"page","operator":"contains","expression":"<slug>"}]`.
+
+**Коли використовувати:**
+- Діагностика "чому ця сторінка не отримує impressions"
+- Список keywords для конкретного URL
+- Striking distance keywords (pos 4-20)
+- Trend / drop analysis по своїх сторінках
+- Будь-яке питання про реальну performance scalemate.co
+
+### Ahrefs MCP — secondary
+
+Tools під префіксом `mcp__claude_ai_Ahrefs__*`. Корисний для того що **виходить за межі GSC**: competitors, SERP, keyword volumes, backlinks, brand radar.
+
+**Коли використовувати:**
+- Keyword research до написання (volumes, KD, related/matching terms)
+- SERP overview, competitor pages
+- Backlinks / referring domains
+- Site Audit issues (crawl errors, tech SEO)
+- Brand Radar (AI mentions)
+
+**НЕ використовувати замість GSC:**
+- `gsc-pages` через Ahrefs MCP повертає sample (top by clicks). Сторінки з тисячами impressions але 0 кліків випадуть із списку. Завжди йти в `gsc_client.py` для GSC даних.
+
+### Порядок дій для SEO-діагностики
+
+Коли користувач каже "сторінка не індексується / не ранжує / щось не так":
+
+1. **GSC напряму** через `gsc_client.py` — зібрати реальні impressions/queries за 28-90 днів для конкретних URL
+2. **Якщо в GSC є дані** — проблема в ranking/CTR/intent, не в індексації. Копати в content/keywords/cannibalization
+3. **Якщо в GSC 0 impressions** — перевірити robots/canonical/sitemap/internal links, потім URL Inspection в GSC UI
+4. **Ahrefs** підключати тільки коли потрібно зовнішнє: SERP analysis, competitor pages, keyword volumes для нових тем
+5. **Якщо дані дивні / неповні** — зупинитися і запитати користувача "ти бачиш у себе в GSC X чи ні", а не будувати теорії на основі неповних даних
+
+---
+
 ## Ключові принципи
 
-1. **Data-first** — жодних гіпотез без Ahrefs/GSC/SERP даних
+1. **Data-first** — жодних гіпотез без GSC/Ahrefs/SERP даних. GSC = source of truth для нашого сайту, Ahrefs = зовнішній бенчмарк.
 2. **Quality** — content-ops score >= 90, Anti-AI level = Low
 3. **Existing-first** — перевірити existing pages перед новим контентом
 4. **Human-in-the-loop** — 4 checkpoints від Natalia, все інше автоматично
