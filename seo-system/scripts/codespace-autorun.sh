@@ -59,7 +59,11 @@ mkdir -p "$TOPIC_DIR"
 } >> "$LOG"
 
 # Wrap claude so we can mark .autorun.done on success and clean PIDFILE.
-nohup bash -c "
+# Use `bash -lc` (login shell) so codespace secrets like CLAUDE_CODE_OAUTH_TOKEN
+# (injected via /etc/profile.d/) are loaded — postStartCommand runs in a
+# non-login shell where those env vars are absent, which makes claude exit
+# immediately with "Not logged in".
+nohup bash -lc "
   set -o pipefail
   claude --print --permission-mode bypassPermissions \"\$(cat '$PROMPT_FILE')\" >> '$LOG' 2>&1
   status=\$?
