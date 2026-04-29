@@ -92,7 +92,7 @@ $cream-3: #fefefe;
 .headline {
   font-family: var(--font-anton), "Anton", "Bebas Neue", system-ui, sans-serif;
   font-weight: 400;
-  font-size: 132px;
+  font-size: 112px;
   line-height: 0.9;
   letter-spacing: -0.015em;
   text-transform: uppercase;
@@ -107,6 +107,7 @@ $cream-3: #fefefe;
 
 .headlineLine {
   display: block;
+  white-space: nowrap;
 }
 
 .headlineLine:nth-of-type(1) {
