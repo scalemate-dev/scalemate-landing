@@ -156,11 +156,11 @@ $cream-3: #fefefe;
 }
 
 .platforms {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 14px;
   margin-top: 4px;
-  width: fit-content;
+  flex-wrap: nowrap;
 }
 
 .platform {
