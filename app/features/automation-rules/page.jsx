@@ -198,11 +198,12 @@ export default function AutomationRulesPage() {
           <div className={styles.videoInner}>
             <span className={styles.videoEyebrow}>60-second demo</span>
             <h2 className={styles.videoHeading}>
-              Rule conditions, actions, and rollback in motion
+              Pause losers, scale winners, protect daily budget
             </h2>
             <p className={styles.videoSub}>
-              Watch how rule conditions trigger pause and scale actions, with
-              rollback safeguarding budget if performance drops.
+              Set ROAS, CPI, or spend thresholds once. Rules fire pause and
+              scale actions automatically — running 24/7 with no manual
+              checks.
             </p>
             <VideoEmbed
               videoId="R6gn5zSILwM"
