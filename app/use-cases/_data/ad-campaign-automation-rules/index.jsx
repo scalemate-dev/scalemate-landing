@@ -8,27 +8,27 @@ import HeroVisual from "./HeroVisual"
 export const data = {
   metadata: {
     title:
-      "Ad Automation Rules: Auto-Pause by ROAS & Scale | Scalemate",
+      "Facebook Ad Automation Rules: Pause Losers, Scale Winners",
     description:
-      "Set rules to auto-pause losers by ROAS, scale winners, and roll back if performance drops. Runs 24/7 on Meta and TikTok. No manual checks needed.",
+      "Facebook ad automation rules — pause low-ROAS ads, scale winners, protect daily budget. Runs 24/7 on Meta and TikTok. Stop checking your dashboard.",
     alternates: {
       canonical:
         "https://www.scalemate.co/use-cases/ad-campaign-automation-rules",
     },
     openGraph: {
       title:
-        "Ad Automation Rules: Auto-Pause by ROAS & Scale | Scalemate",
+        "Facebook Ad Automation Rules: Pause Losers, Scale Winners | Scalemate",
       description:
-        "Set rules to auto-pause losers by ROAS, scale winners, and roll back if performance drops. Runs 24/7 on Meta and TikTok.",
+        "Facebook ad automation rules — pause low-ROAS ads, scale winners, protect daily budget. Runs 24/7 on Meta and TikTok. Stop checking your dashboard.",
       url: "https://www.scalemate.co/use-cases/ad-campaign-automation-rules",
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
       title:
-        "Ad Automation Rules: Auto-Pause by ROAS & Scale | Scalemate",
+        "Facebook Ad Automation Rules: Pause Losers, Scale Winners | Scalemate",
       description:
-        "Set rules to auto-pause losers by ROAS, scale winners, and roll back if performance drops. Runs 24/7 on Meta and TikTok.",
+        "Facebook ad automation rules — pause low-ROAS ads, scale winners, protect daily budget. Runs 24/7 on Meta and TikTok. Stop checking your dashboard.",
     },
   },
 
