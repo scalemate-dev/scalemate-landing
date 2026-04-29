@@ -17,10 +17,12 @@ $cream-3: #fefefe;
   color: $ink;
   isolation: isolate;
 
-  &, *, *::before, *::after {
-    animation: none !important;
-    animation-delay: 0s !important;
-    animation-duration: 0s !important;
+  *, *::before, *::after {
+    animation-delay: -100s !important;
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    animation-fill-mode: both !important;
+    animation-play-state: paused !important;
     transition: none !important;
   }
 }
@@ -52,9 +54,9 @@ $cream-3: #fefefe;
   z-index: 1;
   display: grid;
   grid-template-columns: 540px 1fr;
-  gap: 56px;
+  gap: 96px;
   height: 100%;
-  padding: 88px 80px 96px;
+  padding: 88px 72px 96px 80px;
   align-items: center;
 }
 
@@ -159,7 +161,7 @@ $cream-3: #fefefe;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  transform: scale(1.18) translateX(-12px);
+  transform: scale(1.04);
   transform-origin: center right;
   filter: drop-shadow(0 32px 56px rgba($ink, 0.14)) drop-shadow(0 8px 16px rgba($ink, 0.06));
 }
