@@ -100,7 +100,7 @@ Not every tool covers all five. Here is what each major option delivers and wher
 
 ### Scalemate
 
-Scalemate combines [bulk ad launch from templates](/use-cases/bulk-ad-launch), Google Drive sync for creative uploads, and [automation rules with built-in rollback](/use-cases/ad-campaign-automation-rules) in one platform. The bulk launch system uses reusable templates with any combination of creatives, audiences, and placements — launch once, then swap assets and go again.
+Scalemate combines [bulk ad launch from templates](/use-cases/bulk-ad-launch), Google Drive sync for creative uploads, and [automated rules that protect your daily budget](/use-cases/ad-campaign-automation-rules) in one platform. The bulk launch system uses reusable templates with any combination of creatives, audiences, and placements — launch once, then swap assets and go again.
 
 Google Drive sync runs automatically. Drop creatives into a synced folder, and they appear in the ad account without downloads, re-uploads, or duplicate files. Automation rules run 24/7 with rollback, meaning a scaling rule that pushes budget too high can automatically revert if performance drops below threshold.
 
