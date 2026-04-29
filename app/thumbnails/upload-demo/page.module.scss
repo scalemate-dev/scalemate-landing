@@ -155,6 +155,52 @@ $cream-3: #fefefe;
   max-width: 480px;
 }
 
+.platforms {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 4px;
+  width: fit-content;
+}
+
+.platform {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  padding: 0 22px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow:
+    0 12px 24px rgba($ink, 0.08),
+    0 2px 6px rgba($ink, 0.05),
+    inset 0 0 0 1px rgba($ink, 0.04);
+}
+
+.platformLogo {
+  display: block;
+  width: auto;
+}
+
+.platformConnect {
+  font-family: var(--font-anton), "Anton", system-ui, sans-serif;
+  font-size: 36px;
+  line-height: 1;
+  color: $accent;
+  font-weight: 400;
+  margin: 0 -2px;
+  filter: drop-shadow(0 2px 6px rgba($accent, 0.25));
+}
+
+.platformPlus {
+  font-family: var(--font-anton), "Anton", system-ui, sans-serif;
+  font-size: 28px;
+  line-height: 1;
+  color: rgba($ink, 0.4);
+  font-weight: 400;
+  margin: 0 -2px;
+}
+
 .visualWrap {
   position: relative;
   align-self: center;

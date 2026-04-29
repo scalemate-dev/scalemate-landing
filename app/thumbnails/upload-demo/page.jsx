@@ -37,6 +37,39 @@ export default function UploadDemoThumbnail() {
           <p className={styles.subhead}>
             Meta + TikTok ad creatives, in seconds.
           </p>
+
+          <div className={styles.platforms}>
+            <span className={styles.platform}>
+              <img
+                src="/google-drive-logo.svg"
+                alt=""
+                className={styles.platformLogo}
+                style={{ height: 28 }}
+              />
+            </span>
+            <span className={styles.platformConnect} aria-hidden>
+              →
+            </span>
+            <span className={styles.platform}>
+              <img
+                src="/meta-ads-logo.svg"
+                alt=""
+                className={styles.platformLogo}
+                style={{ height: 22 }}
+              />
+            </span>
+            <span className={styles.platformPlus} aria-hidden>
+              +
+            </span>
+            <span className={styles.platform}>
+              <img
+                src="/tiktok-logo.png"
+                alt=""
+                className={styles.platformLogo}
+                style={{ height: 24 }}
+              />
+            </span>
+          </div>
         </div>
 
         <div className={styles.visualWrap}>
