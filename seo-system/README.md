@@ -134,9 +134,9 @@ options:
 ### Команди оркестрації (Remote mode)
 
 - `gh codespace list -R scalemate-dev/scalemate-landing` — активні codespaces
-- `gh codespace create -R scalemate-dev/scalemate-landing -b seo/<slug> -m basicLinux32gb --display-name seo-<slug>` — новий codespace. **Auto-run prompt:** перед створенням codespace покласти промпт у `seo-system/topics/<slug>/prompt.md` (commit+push на гілку `seo/<slug>`). У `postCreateCommand` скрипт `seo-system/scripts/codespace-autorun.sh` сам запустить headless claude з цим промптом. Промпт — будь-який (discovery / write / qa / комбінація). Manual SSH не потрібен. Якщо `prompt.md` відсутній — auto-run просто скіпається.
+- `gh codespace create -R scalemate-dev/scalemate-landing -b seo/<slug> -m basicLinux32gb --display-name seo-<slug>` — новий codespace. **Auto-run prompt:** перед створенням codespace покласти промпт у `seo-system/topics/<slug>/prompt.md` (commit+push на гілку `seo/<slug>`). У `postStartCommand` (запускається на КОЖЕН start, не лише на create) скрипт `seo-system/scripts/codespace-autorun.sh` сам запустить headless claude з цим промптом. Промпт — будь-який (discovery / write / qa / комбінація). Manual SSH не потрібен. Якщо `prompt.md` відсутній — auto-run просто скіпається. Idempotency: повторно НЕ запуститься якщо процес ще живий (`.autorun.pid`) або вже завершився успішно (`.autorun.done` у топік-папці — видалити цей файл щоб ре-ран). Лог пишеться у `seo-system/topics/<slug>/.autorun.log` (переживає stop codespace, на відміну від `/tmp`).
 - `gh codespace ssh -c <name> -- "cd /workspaces/scalemate-landing && git checkout seo/<slug> && <agent command>"` — переключитись на гілку і запустити будь-який агент вручну (для повторних запусків або коли prompt.md не використовується)
-- `gh codespace ssh -c <name> -- "tail -f /tmp/seo-autorun/<slug>.log"` — слідкувати за прогресом auto-run
+- `gh codespace ssh -c <name> -- "tail -f seo-system/topics/<slug>/.autorun.log"` — слідкувати за прогресом auto-run
 - `bash scripts/seo-status.sh` — список усіх SEO codespaces з тим що в pipeline.md кожного (де які items на якій стадії)
 
 ### ВАЖЛИВО: після `gh codespace create` — НЕ чекати, не SSH-ити, не tail-ити логи
@@ -154,7 +154,7 @@ options:
 ✅ Codespace: https://github.com/codespaces/<codespace-name>
    Branch: seo/<slug>
    PR (з'явиться після першого пушу агента): https://github.com/scalemate-dev/scalemate-landing/pulls?q=head%3Aseo%2F<slug>
-   Прогрес логу (опційно): gh codespace ssh -c <codespace-name> -- "tail -f /tmp/seo-autorun/<slug>.log"
+   Прогрес логу (опційно): gh codespace ssh -c <codespace-name> -- "tail -f seo-system/topics/<slug>/.autorun.log"
 ```
 
 Користувач сам зайде у codespace / PR коли захоче. Orchestrator завершує тред після видачі посилань.

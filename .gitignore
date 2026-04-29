@@ -40,3 +40,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# seo-system autorun runtime files (per-topic, never commit)
+seo-system/topics/*/.autorun.log
+seo-system/topics/*/.autorun.pid
+seo-system/topics/*/.autorun.done
