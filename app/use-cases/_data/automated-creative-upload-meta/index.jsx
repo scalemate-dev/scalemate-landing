@@ -30,6 +30,19 @@ export const data = {
     },
   },
 
+  video: {
+    videoId: "i8JMFCR-lho",
+    eyebrow: "15-second demo",
+    heading: "See it in action",
+    subheading:
+      "Auto-sync ad creatives from Google Drive straight to Meta and TikTok ad libraries — no downloads, no re-uploads, no manual file picker.",
+    name: "Bulk Upload Meta & TikTok Ad Creatives from Google Drive (Scalemate Demo)",
+    description:
+      "How Scalemate auto-syncs creatives from Google Drive to Meta and TikTok ad libraries. Bulk upload happens in seconds, not hours — built for media buyers managing high-volume creative pipelines.",
+    uploadDate: "2026-04-29",
+    duration: "PT15S",
+  },
+
   hero: {
     label: "Creative uploader",
     title: "Bulk Upload Creatives to Meta & TikTok",
