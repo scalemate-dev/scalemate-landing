@@ -11,7 +11,23 @@
 
 > Items додаються сюди з `розвідка` або вручну. Чекають approve від Natalia щоб піти в discovery.
 
-(порожньо)
+- ad-creative-automation
+  added: 2026-04-29
+  source: weekly-recon
+  primary-keyword: ad creative automation
+  context: Score ~42 🟡 Strategic. Vol 150, KD 0, traffic_potential 7,000 — exceptional. No competitor owns this. Scalemate IS the solution. Pain validated: Meta AI exhausts creatives faster → need more ad creative volume. Angle: "What Ad Creative Automation Means in 2026 (And Why Meta AI Makes It Essential)".
+
+- best-ad-testing-tools-ctr-fix
+  added: 2026-04-29
+  source: weekly-recon
+  primary-keyword: ad testing software
+  context: Score ~180 🟢 Quick Win. 2,533 imp (28d) / 0 clicks / pos 16.2. Title "10 Best Ad Testing Tools & Software (2026 Comparison)" not converting. Cluster: 600+ imp total from "ad testing software"/"ad performance testing tool"/"ad testing tools". Need SERP analysis → new title/meta + content depth check to confirm 10+ tools listed.
+
+- meta-advantage-plus-vs-rules
+  added: 2026-04-29
+  source: weekly-recon
+  primary-keyword: meta advantage plus vs automated rules
+  context: Emerging topic. Meta moving to fully AI ads by end of 2026 → advertisers losing control → need rule-based guardrails. No volume confirmed yet but industry signal very strong (Marketing Brew, Social Media Examiner, Segwise, April 2026). BOFU framing: "When to Use Advantage+ vs Automation Rules (And How to Run Both)". Validate volume before commissioning.
 
 ---
 
