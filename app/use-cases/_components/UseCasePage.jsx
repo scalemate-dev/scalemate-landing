@@ -1,5 +1,7 @@
 import Container from "@/components/elements/Container/Container"
 import FAQ from "@/components/FAQ/FAQ"
+import VideoEmbed from "@/components/elements/VideoEmbed/VideoEmbed"
+import VideoObjectSchema from "@/components/elements/VideoEmbed/VideoObjectSchema"
 import HeroSection from "./HeroSection/HeroSection"
 import ProblemSection from "./ProblemSection/ProblemSection"
 import BeforeAfterSection from "./BeforeAfterSection/BeforeAfterSection"
@@ -31,10 +33,35 @@ function FaqJsonLd({ items }) {
 }
 
 export default function UseCasePage({ data }) {
+  const { video } = data
   return (
     <div className={styles.main}>
       <FaqJsonLd items={data.faq} />
+      {video ? <VideoObjectSchema {...video} /> : null}
       <HeroSection {...data.hero} />
+      {video ? (
+        <section className={styles.video}>
+          <Container>
+            <div className={styles.videoInner}>
+              {video.eyebrow ? (
+                <span className={styles.videoEyebrow}>{video.eyebrow}</span>
+              ) : null}
+              {video.heading ? (
+                <h2 className={styles.videoHeading}>{video.heading}</h2>
+              ) : null}
+              {video.subheading ? (
+                <p className={styles.videoSub}>{video.subheading}</p>
+              ) : null}
+              <VideoEmbed
+                videoId={video.videoId}
+                title={video.name}
+                thumbnailUrl={video.thumbnailUrl}
+                priority
+              />
+            </div>
+          </Container>
+        </section>
+      ) : null}
       <ProblemSection {...data.problem} />
       <BeforeAfterSection {...data.beforeAfter} />
       <HowItWorksSection {...data.howItWorks} />

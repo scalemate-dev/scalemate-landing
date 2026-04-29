@@ -3,6 +3,46 @@
   background: #ffffff;
 }
 
+.video {
+  padding: 56px 0 24px;
+  background: #ffffff;
+}
+
+.videoInner {
+  max-width: 920px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  text-align: center;
+}
+
+.videoEyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #F63D68;
+}
+
+.videoHeading {
+  font-size: 32px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: #1D2939;
+  margin: 0;
+  font-weight: 600;
+}
+
+.videoSub {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #475467;
+  max-width: 640px;
+  margin: 0 0 16px;
+}
+
 .faq {
   padding: 80px 0 0;
   background: #ffffff;

@@ -33,6 +33,19 @@ export const data = {
     },
   },
 
+  video: {
+    videoId: "R6gn5zSILwM",
+    eyebrow: "60-second demo",
+    heading: "See it in action",
+    subheading:
+      "Auto-pause low-ROAS ads, scale winners, and protect daily budget — running 24/7 across Meta and TikTok.",
+    name: "Facebook Ad Automation Rules — Auto-Pause & Scale (Scalemate Demo)",
+    description:
+      "How Scalemate's automation rules pause low-ROAS ads, scale winners, and protect daily budget across Meta and TikTok. 24/7 monitoring with built-in rollback.",
+    uploadDate: "2026-04-29",
+    duration: "PT1M",
+  },
+
   hero: {
     label: "Automation Rules",
     title: "That Work While You Don't",
