@@ -391,6 +391,7 @@ Related content (блог-пости по темі)
 > Ця секція — повний workflow для створення або зміни title + meta description на будь-якій сторінці.
 > **Правило:** жодна title/meta зміна не робиться "по інтуїції". Тільки через цю методику.
 
+<a id="title-meta-prework"></a>
 #### 4.1.1 Mandatory Pre-Work (ДО написання)
 
 **Без цих 5 кроків агент не має права починати писати:**
@@ -604,6 +605,7 @@ Natalia обирає одну пару (або модифікує).
 
 ---
 
+<a id="post-publish-tracking"></a>
 #### 4.1.8 Post-Publish Tracking
 
 **Обов'язково після deploy:**
@@ -825,6 +827,7 @@ Google застосовує суворіші standards до такого кон�
 
 ---
 
+<a id="anti-ai-rules"></a>
 ## 6. Anti-AI Content Rules (КРИТИЧНО)
 
 > Поточний стан (Ahrefs AI content level): 6 Low / 3 Moderate / 0 High.
@@ -1137,6 +1140,7 @@ Messaging angle: [Core message з 8.2]
 
 ---
 
+<a id="self-check-checklist"></a>
 ## 10. Review & QA Checklist
 
 > Цей чекліст виконує `content-ops` agent перед кожним approve. Стаття не публікується, поки всі boxes checked.

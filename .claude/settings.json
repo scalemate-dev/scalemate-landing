@@ -11,7 +11,12 @@
       "Bash(rm /Users/ruslan/Developer/scalemate/scalemate-landing/.claude/commands/research.md)",
       "Bash(rmdir /Users/ruslan/Developer/scalemate/scalemate-landing/.claude/commands)",
       "Bash(gh codespace:*)",
-      "Bash(bash scripts/seo-status.sh)"
+      "Bash(bash scripts/seo-status.sh)",
+      "Bash(mkdir -p /Users/ruslan/Developer/scalemate/scalemate-landing/.claude/skills)",
+      "Bash(cp -R /Users/ruslan/Developer/scalemate/scalemate-landing/seo-system/skills/seo-ops /Users/ruslan/Developer/scalemate/scalemate-landing/.claude/skills/)"
+    ],
+    "additionalDirectories": [
+      "/Users/ruslan/Developer/scalemate/scalemate-landing/.claude"
     ]
   }
 }

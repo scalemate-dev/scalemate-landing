@@ -8,7 +8,7 @@
 # re-launches. postStartCommand fires on every start, so a stopped codespace
 # resumes the prompt automatically — gated by an idempotency sentinel.
 #
-# Convention: put the prompt at seo-system/topics/<slug>/prompt.md on the
+# Convention: put the prompt at seo-system-v1/output/topics/<slug>/prompt.md on the
 # seo/<slug> branch before creating the codespace.
 #
 # Idempotency:
@@ -25,7 +25,7 @@ if [[ ! "$BRANCH" =~ ^seo/(.+)$ ]]; then
   exit 0
 fi
 SLUG="${BASH_REMATCH[1]}"
-TOPIC_DIR="seo-system/topics/$SLUG"
+TOPIC_DIR="seo-system-v1/output/topics/$SLUG"
 PROMPT_FILE="$TOPIC_DIR/prompt.md"
 LOG="$TOPIC_DIR/.autorun.log"
 PIDFILE="$TOPIC_DIR/.autorun.pid"
