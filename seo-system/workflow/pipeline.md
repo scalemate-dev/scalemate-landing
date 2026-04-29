@@ -19,7 +19,12 @@
 
 > Discovery agent працює над цими.
 
-(порожньо)
+- automation-rules-cluster
+  added: 2026-04-29
+  source: natalia-request
+  primary-keyword: automation rules / ad rules cluster
+  context: investigate як збільшити traffic від людей що шукають "rules". Cluster з 4 сторінок: /features/automation-rules (124 imp, pos 30), /use-cases/ad-campaign-automation-rules (186 imp, pos 7.6), /blog/facebook-automated-rules (0 imp), /blog/facebook-ads-automation (0 imp). Use-case ранжує добре, блог-пости відсутні в SERP. Потрібен cluster strategy — keyword research, intent map, cannibalization analysis, gap, action plan.
+  artifact: topics/automation-rules-cluster/brief.md (TBD)
 
 ---
 
