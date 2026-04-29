@@ -26,7 +26,7 @@ export default function UploadDemoThumbnail() {
         <div className={styles.copy}>
           <span className={styles.eyebrow}>
             <span className={styles.eyebrowDot} aria-hidden />
-            Live Demo · 60s
+            Live Demo · 15s
           </span>
           <h1 className={styles.headline}>
             <span className={styles.headlineLine}>Bulk Upload</span>
