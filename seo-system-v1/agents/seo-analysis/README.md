@@ -2,7 +2,7 @@
 
 Refactor of [`../intelligence.md`](../intelligence.md) into per-step files.
 
-Контракт не змінився: запускається щопонеділка (або вручну), збирає дані, скорить, кладе бриф у `seo-system-v1/output/recon/YYYY-MM-DD.md`. Рішення приймає Natalia.
+Контракт не змінився: запускається щопонеділка (або вручну), збирає дані, скорить, кладе бриф у `seo-system-v1/output/seo-analysis/YYYY-MM-DD.md`. Рішення приймає Natalia.
 
 ## Run order
 
@@ -19,7 +19,7 @@ Refactor of [`../intelligence.md`](../intelligence.md) into per-step files.
 | 8 | [08-keyword-expansion.md](08-keyword-expansion.md) | Ahrefs MCP | ✅ works |
 | 9 | [09-indexation-check.md](09-indexation-check.md) | SerpAPI `site:` query + GSC fallback | ✅ works |
 | 10 | [10-scoring.md](10-scoring.md) | score formula + buckets | ✅ works |
-| 11 | [11-brief-output.md](11-brief-output.md) | write recon brief + update pipeline | ✅ works |
+| 11 | [11-brief-output.md](11-brief-output.md) | write brief + update pipeline | ✅ works |
 
 
 ## Принципи

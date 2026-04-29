@@ -1,26 +1,39 @@
 ---
-description: Start an SEO v1 agent run — creates topic dir + prompt.md + suggests codespace launch. Usage `/sm:run <agent> [slug]` where agent = recon | discovery | content-creator | qa | review
+description: Start an SEO v1 agent run — creates topic dir + prompt.md + suggests codespace launch. Usage `/sm:run <agent> [slug]` where agent = seo-analysis | discovery | content-creator | qa | review
 ---
 
 You are the launcher for SEO v1 agents. User wants to start an agent run with input:
 
 $ARGUMENTS
 
-## Step 1 — Parse args
+## Step 1 — Parse args (interactive if missing)
 
 Format: `<agent> [slug]`
 
-- `recon` — slug auto-generated as `recon-YYYY-MM-DD` (today's date)
-- `review` — slug auto-generated as `review-YYYY-MM-DD`
-- `discovery` — requires explicit `<slug>` (kebab-case topic name)
-- `content-creator` — requires explicit `<slug>` (must match an existing topic with brief.md)
-- `qa` — requires explicit `<slug>` (must match an existing topic with draft.md)
+**If `$ARGUMENTS` is empty** — call `AskUserQuestion` with:
+- header: "Agent"
+- question: "Which agent to run?"
+- multiSelect: false
+- options: одна на кожен агент:
+  - `seo-analysis` — "Weekly SEO analysis (recon over GSC + Ahrefs + Trends)"
+  - `discovery` — "Per-topic validation → Topic Brief"
+  - `content-creator` — "Per-topic draft writing from approved brief"
+  - `qa` — "Per-topic 4-stage QA on draft"
+  - `review` — "Post-publish tracking of deployed items"
 
-If args are insufficient (e.g. user typed just `/sm:run discovery` without slug) — ask what topic.
+**If user picked a per-topic agent (discovery/content-creator/qa) and slug is missing** — call `AskUserQuestion` again:
+- header: "Topic slug"
+- question: "Which topic? (kebab-case slug, must match `output/topics/<slug>/`)"
+- multiSelect: false
+- options: list existing slugs from `seo-system-v1/output/topics/*` (читай через `Bash: ls`) + опція "_new_" для нового (тоді ask follow-up free-text)
+
+**Auto-slug rules** (агенти що не потребують topic):
+- `seo-analysis` — `seo-analysis-YYYY-MM-DD` (today's date)
+- `review` — `review-YYYY-MM-DD`
 
 ## Step 2 — Validate
 
-- Confirm agent name is one of: `recon` (= seo-analysis), `discovery`, `content-creator`, `qa`, `review`.
+- Confirm agent name is one of: `seo-analysis`, `discovery`, `content-creator`, `qa`, `review`.
 - For per-topic agents (discovery/content-creator/qa): check `seo-system-v1/output/topics/<slug>/` and confirm the expected input file exists:
   - discovery: prompt typically created from scratch — no prerequisite
   - content-creator: needs `brief.md` (otherwise the agent can't run)
@@ -62,8 +75,8 @@ Per agent's `06-...` / `10-...` / `11-...` step (varies by agent). Update [pipel
 ```
 
 Mapping:
-- `recon` → `<AGENT_DIR>` = `seo-analysis`, `<INPUT_DESC>` = "Weekly recon, no per-topic input. Use today's date for output."
-- `discovery <slug>` → `<AGENT_DIR>` = `discovery`, `<INPUT_DESC>` = "Topic slug: `<slug>`. Read intel brief in `output/recon/` for context if available; otherwise proceed as ad-hoc."
+- `seo-analysis` → `<AGENT_DIR>` = `seo-analysis`, `<INPUT_DESC>` = "Weekly run, no per-topic input. Use today's date for output."
+- `discovery <slug>` → `<AGENT_DIR>` = `discovery`, `<INPUT_DESC>` = "Topic slug: `<slug>`. Read latest brief in `output/seo-analysis/` for context if available; otherwise proceed as ad-hoc."
 - `content-creator <slug>` → `<AGENT_DIR>` = `content-creator`, `<INPUT_DESC>` = "Brief at `seo-system-v1/output/topics/<slug>/brief.md`. Trust the brief — don't re-decide content type / track."
 - `qa <slug>` → `<AGENT_DIR>` = `qa`, `<INPUT_DESC>` = "Draft at `seo-system-v1/output/topics/<slug>/draft.md`. Brief at `<slug>/brief.md` available for cross-check."
 - `review` → `<AGENT_DIR>` = `review`, `<INPUT_DESC>` = "No per-topic input. Read all deployed items from pipeline.md `8. Published`."

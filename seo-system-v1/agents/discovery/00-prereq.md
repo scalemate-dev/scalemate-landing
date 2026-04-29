@@ -18,19 +18,19 @@
 
 Discovery викликається у двох контекстах:
 
-### A. Inheriting from intel brief
+### A. Inheriting from seo-analysis brief
 
-Intelligence agent пройшов recon → у `seo-system-v1/output/recon/YYYY-MM-DD.md` лежить кандидат у топ-priorities. Pipeline.md секція `1. New` має item:
+seo-analysis agent пройшов weekly run → у `seo-system-v1/output/seo-analysis/YYYY-MM-DD.md` лежить кандидат у топ-priorities. Pipeline.md секція `1. New` має item:
 
 ```
 - topic-slug
   added: YYYY-MM-DD
-  source: weekly-recon
+  source: weekly-seo-analysis
   primary-keyword: [keyword]
   context: [score, pain validation, why now]
 ```
 
-**Якщо у intel brief'і є pain-validated context** (Reddit quotes, JTBD mapping, Confidence +1) — наслідуємо його у [Step 6](06-icp-pain-research.md), не дублюємо research. Discovery читає `intelligence/[date]-recon.md` для цього topic'у і witha references quotes.
+**Якщо у brief'і є pain-validated context** (Reddit quotes, JTBD mapping, Confidence +1) — наслідуємо його у [Step 6](06-icp-pain-research.md), не дублюємо research. Discovery читає `output/seo-analysis/[date].md` для цього topic'у з references quotes.
 
 ### B. Ad-hoc / manual input
 

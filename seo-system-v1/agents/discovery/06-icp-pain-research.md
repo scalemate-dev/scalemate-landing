@@ -6,7 +6,7 @@
 
 Перед стартом — перевірити input context з [Step 0](00-prereq.md):
 
-- **A. Inheriting from intel brief** — у `output/recon/[date].md` для цього topic'у вже є pain quotes / JTBD mapping / Reddit links. **Наслідуємо as-is, переходимо до 6c (translation у queries).**
+- **A. Inheriting from seo-analysis brief** — у `output/seo-analysis/[date].md` для цього topic'у вже є pain quotes / JTBD mapping / Reddit links. **Наслідуємо as-is, переходимо до 6c (translation у queries).**
 - **B. Ad-hoc input** — pain context відсутній. Робимо full research (6a + 6b + 6c).
 
 ## 6a. Reddit / Community scan (SerpAPI)

@@ -28,7 +28,7 @@
 ```
 - topic-slug
   added: YYYY-MM-DD          (existing)
-  source: weekly-recon       (existing)
+  source: weekly-seo-analysis  (existing)
   primary-keyword: [keyword] (existing)
   context: [...]             (existing)
   agent-started: YYYY-MM-DD HH:MM  (NEW — для guard проти паралельних прогонів)

@@ -4,7 +4,7 @@
 
 ## 11a. Generate weekly brief
 
-Записати у `seo-system-v1/output/recon/YYYY-MM-DD.md`:
+Записати у `seo-system-v1/output/seo-analysis/YYYY-MM-DD.md`:
 
 ```markdown
 # Intelligence Brief — Week of YYYY-MM-DD
@@ -68,12 +68,12 @@
 
 ## 11c. Update pipeline.md (CRITICAL)
 
-Для кожного **top-priority candidate** з recon brief — додати item у [`workflow/pipeline.md`](../../workflow/pipeline.md) секцію `1. New (потребує discovery)`:
+Для кожного **top-priority candidate** з seo-analysis brief — додати item у [`workflow/pipeline.md`](../../workflow/pipeline.md) секцію `1. New (потребує discovery)`:
 
 ```markdown
 - [topic-slug-kebab-case]
   added: YYYY-MM-DD
-  source: weekly-recon
+  source: weekly-seo-analysis
   primary-keyword: [keyword]
   context: [1-2 line context — score, pain validation, why now]
 ```
@@ -86,7 +86,7 @@
 
 ## Done criteria
 
-- ✅ Brief file створено у `output/recon/YYYY-MM-DD.md`
+- ✅ Brief file створено у `output/seo-analysis/YYYY-MM-DD.md`
 - ✅ Scorecard оновлено
 - ✅ `pipeline.md` секція `1. New` має нові candidate topics
 - ✅ Natalia отримує нотифікацію для review

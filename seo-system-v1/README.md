@@ -1,16 +1,16 @@
 # SEO System v1
 
-Pipeline of 5 agents that run weekly recon → discover topics → write drafts → QA them → review post-publish performance.
+Pipeline of 5 agents that run weekly SEO analysis → discover topics → write drafts → QA them → review post-publish performance.
 
 ## Agents (in pipeline order)
 
 | Agent | Trigger | Reads | Writes |
 |---|---|---|---|
-| [seo-analysis](agents/seo-analysis/) (recon) | weekly | GSC, Ahrefs, SerpAPI Trends, trend_scout | `output/recon/YYYY-MM-DD.md`, adds candidates to `workflow/pipeline.md` `1. New` |
-| [discovery](agents/discovery/) | per-topic from pipeline `1. New` | recon brief, scorecard, rules | `output/topics/<slug>/brief.md`, moves item `1` → `2` → `3. Pending review` |
+| [seo-analysis](agents/seo-analysis/) | weekly | GSC, Ahrefs, SerpAPI Trends, trend_scout | `output/seo-analysis/YYYY-MM-DD.md`, adds candidates to `workflow/pipeline.md` `1. New` |
+| [discovery](agents/discovery/) | per-topic from pipeline `1. New` | latest seo-analysis brief, scorecard, rules | `output/topics/<slug>/brief.md`, moves item `1` → `2` → `3. Pending review` |
 | [content-creator](agents/content-creator/) | per-topic from pipeline `4. Approved for writing` | brief, rules | `output/topics/<slug>/draft.md`, moves item `4` → `5. Pending review` |
 | [qa](agents/qa/) | per-topic from pipeline `6. Approved for QA` | draft, brief, rules | `output/topics/<slug>/qa.md` (+ optional `revision-notes.md`), moves `6` → `7` (PASS) or `4`/`9` (FAIL) |
-| [review](agents/review/) | manual (no cadence) | scorecard, pipeline, rules | `output/reviews/YYYY-MM-DD.md`, `output/topics/<slug>/tracking.md`, updates pipeline `8. Published` items |
+| [review](agents/review/) | manual (no cadence) | scorecard, pipeline, rules | `output/review/YYYY-MM-DD.md`, `output/topics/<slug>/tracking.md`, updates pipeline `8. Published` items |
 
 ## Layout
 
@@ -29,8 +29,8 @@ seo-system-v1/
       revision-notes.md      QA fail (optional)
       tracking.md            Review history (append-only)
       review-deepdive.md     Review escalation (optional)
-    recon/YYYY-MM-DD.md      Weekly recon snapshots
-    reviews/YYYY-MM-DD.md    Weekly review snapshots
+    seo-analysis/YYYY-MM-DD.md   Weekly SEO analysis brief snapshots
+    review/YYYY-MM-DD.md         Weekly review snapshots
     trends/flash-trends-*.md trend_scout dumps
   scripts/
     codespace-autorun.sh     Headless agent launch for `seo/<slug>` branches
@@ -67,13 +67,13 @@ These are read by v1 agents but не у v1:
 /sm:run <agent> [slug]
 ```
 
-де `<agent>` = `recon | discovery | content-creator | qa | review`. Slug потрібен для discovery/content-creator/qa (per-topic). Для recon/review — генерується з дати автоматично.
+де `<agent>` = `seo-analysis | discovery | content-creator | qa | review`. Slug потрібен для discovery/content-creator/qa (per-topic). Для seo-analysis/review — генерується з дати автоматично.
 
 Slash-команда створить topic dir з prompt.md і запропонує git-команди для autorun.
 
 ### Codespace (headless)
 
-1. Create branch `seo/<slug>` (де slug = `recon-YYYY-MM-DD`, `review-YYYY-MM-DD`, або topic slug)
+1. Create branch `seo/<slug>` (де slug = `seo-analysis-YYYY-MM-DD`, `review-YYYY-MM-DD`, або topic slug)
 2. Place prompt at `seo-system-v1/output/topics/<slug>/prompt.md`
 3. Push branch → start/restart codespace
 4. `postStartCommand` runs `seo-system-v1/scripts/codespace-autorun.sh` → reads prompt → triggers Claude Code headless
@@ -87,7 +87,7 @@ Idempotency:
 
 ```
 1. New (потребує discovery)
-   ↓ recon adds, Natalia approves
+   ↓ seo-analysis adds, Natalia approves
 2. Discovery in progress
    ↓ discovery agent locks, processes
 3. Pending Natalia review (brief)

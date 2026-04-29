@@ -1,8 +1,8 @@
 # Step 6 — Generate review report
 
-**Single source of truth — один файл за прогін:** `seo-system-v1/output/reviews/YYYY-MM-DD.md`.
+**Single source of truth — один файл за прогін:** `seo-system-v1/output/review/YYYY-MM-DD.md`.
 
-Mirror до [recon brief](../seo-analysis/11-brief-output.md) — обидва weekly snapshots живуть у `output/`, дата у назві файла.
+Mirror до [seo-analysis brief](../seo-analysis/11-brief-output.md) — обидва weekly snapshots живуть у `output/`, дата у назві файла.
 
 ## Формат
 
@@ -31,7 +31,7 @@ Mirror до [recon brief](../seo-analysis/11-brief-output.md) — обидва w
 ### [slug 2] — ...
 
 ## Feedback for next intelligence cycle
-- [Insight 1 — actionable для recon, e.g. «madgicx article CTR rises — consider expanding to full comparison page»]
+- [Insight 1 — actionable для seo-analysis, e.g. «madgicx article CTR rises — consider expanding to full comparison page»]
 - [Insight 2]
 
 ## Anomalies
