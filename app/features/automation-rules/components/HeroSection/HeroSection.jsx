@@ -53,7 +53,7 @@ const CalendarIcon = () => (
   </svg>
 )
 
-function RuleEngine() {
+export function RuleEngine() {
   return (
     <div className={styles.engine}>
       {/* Card stack — scale card behind, pause card in front */}

@@ -6,6 +6,7 @@ const BARE_ROUTES = [
   "/ad-creative-uploader/get-started",
   "/lp",
   "/pitch",
+  "/thumbnails",
 ]
 
 export default function MarketingShell({ children }) {
