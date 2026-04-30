@@ -3,27 +3,24 @@ import { SyncVisual, ConfigVisual, LaunchVisual } from "./HowItWorksVisuals"
 
 export const data = {
   metadata: {
-    title:
-      "Bulk Launch Hundreds of Meta & TikTok Ads in Minutes | Scalemate",
+    title: "Bulk Ad Launch for Meta & TikTok in Minutes | Scalemate",
     description:
-      "Deploy hundreds of ad sets from one template. Define budget, targeting, and naming once \u2014 Scalemate generates every combination. Used by mobile publishers, marketing agencies and e-commerce teams.",
+      "Deploy hundreds of Meta and TikTok ad sets from one setup. Define budget, targeting, and naming once \u2014 used by mobile publishers, agencies, and DTC teams.",
     alternates: {
       canonical: "https://www.scalemate.co/use-cases/bulk-ad-launch",
     },
     openGraph: {
-      title:
-        "Bulk Ad Launch Tool — Launch Hundreds of Ads in Minutes | Scalemate",
+      title: "Bulk Ad Launch for Meta & TikTok in Minutes | Scalemate",
       description:
-        "A bulk ad launch tool that removes the manual grind from campaign deployment. Bulk-create hundreds of ad sets and launch at scale.",
+        "Deploy hundreds of Meta and TikTok ad sets from one setup. Define budget, targeting, and naming once \u2014 used by mobile publishers, agencies, and DTC teams.",
       url: "https://www.scalemate.co/use-cases/bulk-ad-launch",
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title:
-        "Bulk Ad Launch Tool — Launch Hundreds of Ads in Minutes | Scalemate",
+      title: "Bulk Ad Launch for Meta & TikTok in Minutes | Scalemate",
       description:
-        "Bulk-create hundreds of ad sets, sync creatives from cloud storage, and launch at scale with Scalemate.",
+        "Deploy hundreds of Meta and TikTok ad sets from one setup. Define budget, targeting, and naming once \u2014 used by mobile publishers, agencies, and DTC teams.",
     },
   },
 

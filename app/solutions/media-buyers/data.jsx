@@ -3,27 +3,24 @@ import { SyncVisual, BulkLaunchVisual, RulesVisual } from "./HowItWorksVisuals"
 
 export const data = {
   metadata: {
-    title:
-      "Tools for Media Buyers Automation – Scale Results, Not Hours | Scalemate",
+    title: "Media Buyer Automation Tools for Meta & TikTok | Scalemate",
     description:
-      "Tools for media buyers automation that handle the grind: auto-upload creatives, bulk-launch hundreds of ad sets, automation rules that optimize 24/7, and an AI agent for reports.",
+      "Auto-upload creatives, bulk-launch hundreds of ad sets, run automation rules 24/7 on Meta and TikTok, plus an AI agent for reports — all in one stack.",
     alternates: {
       canonical: "https://www.scalemate.co/solutions/media-buyers",
     },
     openGraph: {
-      title:
-        "Media Buying Workflow Automation – Scale Results, Not Hours | Scalemate",
+      title: "Media Buyer Automation Tools for Meta & TikTok | Scalemate",
       description:
-        "Tools for media buyers automation: auto-upload creatives to Meta and TikTok, bulk-launch hundreds of ad sets, and automation rules that optimize 24/7.",
+        "Auto-upload creatives, bulk-launch hundreds of ad sets, run automation rules 24/7 on Meta and TikTok, plus an AI agent for reports — all in one stack.",
       url: "https://www.scalemate.co/solutions/media-buyers",
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title:
-        "Media Buying Workflow Automation – Scale Results, Not Hours | Scalemate",
+      title: "Media Buyer Automation Tools for Meta & TikTok | Scalemate",
       description:
-        "Tools for media buyers automation: auto-upload creatives, bulk-launch ads, and rules that optimize 24/7.",
+        "Auto-upload creatives, bulk-launch hundreds of ad sets, run automation rules 24/7 on Meta and TikTok, plus an AI agent for reports — all in one stack.",
     },
   },
 

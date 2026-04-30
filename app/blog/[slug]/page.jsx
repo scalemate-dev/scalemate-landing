@@ -169,7 +169,7 @@ export default async function ArticlePage({ params }) {
         {article.heroBg && (
           <Image
             src={article.heroBg}
-            alt=""
+            alt={article.heroBgAlt || article.coverAlt || `${article.title} — illustration`}
             fill
             priority
             className={styles.heroBgImage}

@@ -8,14 +8,14 @@ import styles from "./page.module.scss"
 export const metadata = {
   title: "Free Ad Automation Tool for Meta & TikTok – Scalemate Pricing",
   description:
-    "Automate Meta and TikTok ad campaigns for free – 1 ad account, 2 rules, 100 launches/month, unlimited creative uploads. No credit card. Custom plans with API access and dedicated support for teams at scale.",
+    "Automate Meta and TikTok ads free: 1 ad account, 2 rules, 100 launches/month, 50 AI messages, unlimited uploads. No credit card. Custom plans available.",
   alternates: {
     canonical: "https://www.scalemate.co/pricing",
   },
   openGraph: {
     title: "Free Ad Automation for Meta & TikTok – Scalemate Pricing",
     description:
-      "Automate Meta and TikTok ad campaigns for free – 1 ad account, 2 rules, 100 launches/month, unlimited creative uploads. No credit card. Custom plans with API access and dedicated support for teams at scale.",
+      "Automate Meta and TikTok ads free: 1 ad account, 2 rules, 100 launches/month, 50 AI messages, unlimited uploads. No credit card. Custom plans available.",
     url: "https://www.scalemate.co/pricing",
     type: "website",
     images: [{ url: "/og-pricing.png" }],
@@ -24,7 +24,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Free Ad Automation for Meta & TikTok – Scalemate Pricing",
     description:
-      "Automate Meta and TikTok ad campaigns for free – 1 ad account, 2 rules, 100 launches/month, unlimited creative uploads. No credit card. Custom plans with API access and dedicated support for teams at scale.",
+      "Automate Meta and TikTok ads free: 1 ad account, 2 rules, 100 launches/month, 50 AI messages, unlimited uploads. No credit card. Custom plans available.",
     images: ["/og-pricing.png"],
   },
 }
