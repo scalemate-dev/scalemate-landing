@@ -1,6 +1,8 @@
 import Link from "next/link"
 import Container from "@/components/elements/Container/Container"
 import FAQ from "@/components/FAQ/FAQ"
+import VideoEmbed from "@/components/elements/VideoEmbed/VideoEmbed"
+import VideoObjectSchema from "@/components/elements/VideoEmbed/VideoObjectSchema"
 import HeroSection from "./components/HeroSection/HeroSection"
 import ProblemSection from "./components/ProblemSection/ProblemSection"
 import BottleneckSection from "./components/BottleneckSection/BottleneckSection"
@@ -183,7 +185,37 @@ export default function BulkLaunchPage() {
         }}
       />
 
+      <VideoObjectSchema
+        videoId="qM4rEFX7pBo"
+        name="Bulk Launch Facebook Ads — 100s in Minutes (Scalemate Demo)"
+        description="Demo of Scalemate's bulk ad launch tool: launch hundreds of Meta and TikTok ad sets from one campaign template. Sync creatives from Google Drive, set targeting once, deploy at scale."
+        uploadDate="2026-04-30T00:00:00+00:00"
+        duration="PT55S"
+      />
+
       <HeroSection />
+
+      <section className={styles.video}>
+        <Container>
+          <div className={styles.videoInner}>
+            <span className={styles.videoEyebrow}>55-second demo</span>
+            <h2 className={styles.videoHeading}>
+              Launch hundreds of ads in minutes, not days
+            </h2>
+            <p className={styles.videoSub}>
+              One campaign template, hundreds of ad sets across Meta and
+              TikTok. Creatives sync straight from Google Drive — no manual
+              setup, no platform switching.
+            </p>
+            <VideoEmbed
+              videoId="qM4rEFX7pBo"
+              title="Bulk Launch Facebook Ads — 100s in Minutes (Scalemate Demo)"
+              priority
+            />
+          </div>
+        </Container>
+      </section>
+
       <ProblemSection />
       <BottleneckSection />
       <SolutionSection />

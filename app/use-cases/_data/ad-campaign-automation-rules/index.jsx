@@ -42,7 +42,7 @@ export const data = {
     name: "Facebook Ad Automation Rules — Auto-Pause & Scale (Scalemate Demo)",
     description:
       "How Scalemate's automation rules pause low-ROAS ads, scale winners, and protect daily budget across Meta and TikTok. 24/7 monitoring with built-in rollback.",
-    uploadDate: "2026-04-29",
+    uploadDate: "2026-04-29T00:00:00+00:00",
     duration: "PT1M",
   },
 

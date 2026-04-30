@@ -1,0 +1,341 @@
+$accent: #F63D68;
+$accent-deep: #C8254F;
+$ink: #1D2939;
+$ink-soft: #475467;
+$ink-mute: #98A2B3;
+$cream-1: #fefdfb;
+$cream-2: #fff8f3;
+$cream-3: #fefefe;
+
+.canvas {
+  position: relative;
+  width: 1280px;
+  height: 720px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 78% 18%, rgba($accent, 0.12) 0%, rgba($accent, 0.02) 36%, transparent 62%),
+    linear-gradient(168deg, $cream-1 0%, $cream-2 45%, $cream-3 100%);
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  color: $ink;
+  isolation: isolate;
+
+  *, *::before, *::after {
+    animation-delay: -100s !important;
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    animation-fill-mode: both !important;
+    animation-play-state: paused !important;
+    transition: none !important;
+  }
+}
+
+.glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(680px 420px at 92% 76%, rgba($accent, 0.10) 0%, transparent 60%),
+    radial-gradient(540px 360px at 6% 90%, rgba(#6B5CE7, 0.06) 0%, transparent 60%);
+  z-index: 0;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba($ink, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba($ink, 0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 90% 80% at 30% 50%, #000 30%, transparent 78%);
+  z-index: 0;
+}
+
+.dots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba($ink, 0.18) 1px, transparent 1.4px);
+  background-size: 16px 16px;
+  mask-image:
+    linear-gradient(105deg, transparent 0%, transparent 38%, #000 44%, #000 58%, transparent 64%, transparent 100%),
+    radial-gradient(ellipse 70% 60% at 50% 50%, #000 0%, transparent 70%);
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+  opacity: 0.55;
+  z-index: 0;
+}
+
+.diagonal {
+  position: absolute;
+  top: -40px;
+  bottom: -40px;
+  left: 56%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent 0%, rgba($accent, 0.45) 28%, rgba($accent, 0.45) 72%, transparent 100%);
+  transform: rotate(8deg);
+  transform-origin: top center;
+  z-index: 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 38%;
+    left: -4px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: $accent;
+    box-shadow: 0 0 0 5px rgba($accent, 0.18), 0 4px 12px rgba($accent, 0.4);
+  }
+}
+
+.layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 680px 1fr;
+  gap: 32px;
+  height: 100%;
+  padding: 76px 56px 96px 80px;
+  align-items: center;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+/* ── Eyebrow ───────────────────────────────── */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px 8px 12px;
+  border-radius: 999px;
+  background: rgba($accent, 0.10);
+  color: $accent;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.eyebrowDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $accent;
+  box-shadow: 0 0 0 4px rgba($accent, 0.18);
+}
+
+.eyebrowText {
+  font-family: var(--font-poppins), system-ui, sans-serif;
+}
+
+.eyebrowDivider {
+  color: rgba($accent, 0.5);
+  font-weight: 400;
+}
+
+.eyebrowMono {
+  font-family: var(--font-mono), "JetBrains Mono", monospace;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: $accent-deep;
+}
+
+/* ── Headline (2-row, family-consistent with rules/upload demos) ── */
+.headline {
+  font-family: var(--font-anton), "Anton", "Bebas Neue", system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 200px;
+  line-height: 0.86;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin: 0;
+  color: $ink;
+  display: grid;
+  grid-template-columns: auto;
+  gap: 4px;
+  position: relative;
+  max-width: 680px;
+}
+
+.lineOne {
+  display: block;
+  white-space: nowrap;
+  margin-left: -4px;
+  background: linear-gradient(180deg, $ink 0%, #344054 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lineTwo {
+  display: block;
+  white-space: nowrap;
+  margin-left: 120px;
+  color: $accent;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: -4px;
+    right: -4px;
+    bottom: 16px;
+    height: 20px;
+    background: rgba($accent, 0.20);
+    z-index: -1;
+    transform: skewX(-6deg);
+  }
+}
+
+.headlineArrow {
+  position: absolute;
+  top: 132px;
+  left: 22px;
+  font-family: var(--font-anton), "Anton", system-ui, sans-serif;
+  font-size: 116px;
+  line-height: 1;
+  color: $accent;
+  font-weight: 400;
+  transform: rotate(-8deg);
+  text-shadow: 0 4px 14px rgba($accent, 0.30);
+  z-index: 1;
+}
+
+/* ── Strapline ─────────────────────────────── */
+.strapline {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-family: var(--font-mono), "JetBrains Mono", monospace;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: $ink-soft;
+  margin: 4px 0 0 0;
+  text-transform: uppercase;
+
+  span {
+    white-space: nowrap;
+  }
+}
+
+.strapKey {
+  color: $ink;
+  font-weight: 700;
+}
+
+.strapDivider {
+  color: $accent;
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+/* ── Visual ────────────────────────────────── */
+.visualWrap {
+  position: relative;
+  align-self: center;
+  justify-self: end;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  :global([class*="flowDot"]) {
+    display: none !important;
+  }
+}
+
+.visualFrame {
+  position: relative;
+  width: 460px;
+  height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(#ffffff, 0.55);
+  border: 1px solid rgba($ink, 0.08);
+  border-radius: 28px;
+  box-shadow:
+    0 32px 64px rgba($ink, 0.10),
+    0 12px 24px rgba($ink, 0.06),
+    inset 0 0 0 1px rgba(#ffffff, 0.6);
+  backdrop-filter: blur(8px);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 14px;
+    border-radius: 22px;
+    background-image:
+      linear-gradient(to right, rgba($ink, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba($ink, 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, #000 30%, transparent 78%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  > :global(*) {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.visualBadge {
+  position: absolute;
+  top: -14px;
+  left: 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px 7px 11px;
+  background: $ink;
+  color: #ffffff;
+  border-radius: 999px;
+  font-family: var(--font-mono), "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 18px rgba($ink, 0.20);
+  z-index: 2;
+}
+
+.visualBadgeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #12B76A;
+  box-shadow: 0 0 0 3px rgba(#12B76A, 0.25);
+}
+
+/* ── Brand pill (bottom-right, family-consistent) ─ */
+.brand {
+  position: absolute;
+  bottom: 36px;
+  right: 40px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  padding: 14px 22px;
+  border-radius: 14px;
+  background: $ink;
+  box-shadow: 0 12px 28px rgba($ink, 0.18);
+}
+
+.logo {
+  width: 132px;
+  height: auto;
+  display: block;
+}

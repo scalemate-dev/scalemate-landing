@@ -187,7 +187,7 @@ export default function AutomationRulesPage() {
         videoId="R6gn5zSILwM"
         name="Facebook Ad Automation Rules — Auto-Pause & Scale (Scalemate Demo)"
         description="Demo of Scalemate's automation rules engine: rule conditions, action types, and rollback. Pause low-ROAS ads, scale winners, protect daily budget across Meta and TikTok."
-        uploadDate="2026-04-29"
+        uploadDate="2026-04-29T00:00:00+00:00"
         duration="PT1M"
       />
 

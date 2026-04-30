@@ -39,7 +39,7 @@ export const data = {
     name: "Bulk Upload Meta & TikTok Ad Creatives from Google Drive (Scalemate Demo)",
     description:
       "How Scalemate auto-syncs creatives from Google Drive to Meta and TikTok ad libraries. Bulk upload happens in seconds, not hours — built for media buyers managing high-volume creative pipelines.",
-    uploadDate: "2026-04-29",
+    uploadDate: "2026-04-29T00:00:00+00:00",
     duration: "PT15S",
   },
 

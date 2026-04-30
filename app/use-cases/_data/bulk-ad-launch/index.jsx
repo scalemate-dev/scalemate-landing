@@ -27,6 +27,19 @@ export const data = {
     },
   },
 
+  video: {
+    videoId: "qM4rEFX7pBo",
+    eyebrow: "55-second demo",
+    heading: "See bulk ad launch in action",
+    subheading:
+      "Launch hundreds of Meta and TikTok ad sets from one campaign template — creatives synced straight from Google Drive, no manual setup, no platform switching.",
+    name: "Bulk Launch Facebook Ads — 100s in Minutes (Scalemate Demo)",
+    description:
+      "Demo of Scalemate's bulk ad launch tool: launch hundreds of Meta and TikTok ad sets from one campaign template. Sync creatives from Google Drive, set targeting once, deploy at scale.",
+    uploadDate: "2026-04-30T00:00:00+00:00",
+    duration: "PT55S",
+  },
+
   hero: {
     label: "Ads launcher",
     title: "Launch Hundreds of Ads with",
