@@ -11,7 +11,11 @@
 
 > Items додаються сюди з `розвідка` або вручну. Чекають approve від Natalia щоб піти в discovery.
 
-(порожньо)
+- how-to-automate-facebook-ads
+  added: 2026-04-30
+  source: weekly-seo-analysis
+  primary-keyword: facebook ad automation (150/mo, KD 7)
+  context: Pain-validated — r/FacebookAds "losing hours uploading ads one by one" (50+ comments, 2 weeks ago). adstellar.ai entering this space (Feb 2026). Our angle: verified Meta app = automate without ban risk. Score ~100. Check if /blog/facebook-ads-automation (currently non-indexed) can be rescued first.
 
 ---
 

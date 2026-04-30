@@ -32,7 +32,7 @@
 
 | # | Item | Type | Traffic | ICP | Biz | Conf | Effort | Urg | Bonus | **Score** | Bucket | Status | Notes |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | Rewrite title+meta `/blog/madgicx-review-alternative` | blog | 6 | 5 | 5 | 3 | 2 | 3 | ×1.5 | **~50** | 🟢 Quick Win | ✅ `deployed` | Pairing A (content-ops 92.4/100). Deployed 2026-04-16 commit `6d3141e`. Baseline CTR 0.05% / pos 7.9 / ~200 imp/day. Revisit T+7d (2026-04-23 indexation), T+2wk (2026-04-30 CTR milestone), T+4wk (2026-05-14 final). |
+| 1 | Rewrite title+meta `/blog/madgicx-review-alternative` | blog | 6 | 5 | 5 | 3 | 2 | 3 | ×1.5 | **~50** | 🟢 Quick Win | ✅ `deployed` | Pairing A (content-ops 92.4/100). Deployed 2026-04-16 commit `6d3141e`. Baseline CTR 0.05% / pos 7.9 / ~200 imp/day. T+2wk (2026-04-30): **2,493 imp, 2 clicks, 0.1% CTR, pos 9.6 — title fix NOT working. Escalate → see item #22.** |
 | 2 | Brand entity authority plan (Organization schema + sameAs) | technical | 4 | 4 | 4 | 2 | 4 | 2 | — | **~38** | 🟡 Strategic | `backlog` | Scalemate.co vs scalemate.io vs scalemates.com namespace conflict |
 | 3 | Investigate `/blog/best-mcp-s*` | blog | — | — | — | — | 2 | — | — | **TBD** | 🟡 Strategic | `backlog` | 2079 imp/0.4% CTR. Decide: deindex / repurpose / leverage |
 | 4 | Title/meta fix `/ad-creative-uploader` (додати "bulk", "creatives") | product | 3 | 5 | 4 | 3 | 2 | 2 | ×1.5 | **~40** | 🟢 Quick Win | `backlog` | pos 7-12 для "ad uploader" variants, 79 imp/28d, 1 click. Додати "bulk" і "creatives" в title — це те що люди шукають. |
@@ -41,7 +41,7 @@
 | 7 | Internal linking refresh (uploader cluster) | technical | — | — | — | — | 2 | — | — | — | 🔵 Foundation | `backlog` | З existing articles (facebook-ads-automation, facebook-automated-rules, best-ad-testing-tools) → лінки на `/ad-creative-uploader`. Cross-link tool page ↔ use-case page. |
 | 8 | Add "vs Competitors" section to use-case page | product | 3 | 5 | 5 | 2 | 4 | 2 | ×1.5 | **~30** | 🟢 Quick Win | `backlog` | Порівняльна таблиця: Scalemate (FREE) vs admanage ($700/mo) vs Birch vs kitchn.io vs manual Ads Manager. Killer angle: price + Google Drive + multi-platform. |
 | 9 | Listicle "Best Bulk Ad Upload Tools 2026 (Free & Paid)" | blog | 3 | 5 | 5 | 2 | 9 | 2 | ×1 | **~35** | 🟡 Strategic | `backlog` | 5 competitor listicles in top-10, нас нема в жодному. Own listicle де Scalemate = best free option. Detail plan: `plans/ad-creative-uploader-growth.md` |
-| 10 | Title/meta fix `/use-cases/ad-campaign-automation-rules` | product | 4 | 5 | 4 | 3 | 3 | 3 | ×1.5 | **~300** | 🟢 Quick Win | `backlog` | pos 8.8 (page 1!), 170 imp, 0 clicks = pure CTR fix. From v2 brief item #1. |
+| 10 | Title/meta fix `/use-cases/ad-campaign-automation-rules` | product | 4 | 5 | 4 | 3 | 3 | 3 | ×1.5 | **~300** | 🟢 Quick Win | `backlog` | **UNDEFERRED 2026-04-30.** pos 7.8, 193 imp/28d, 0 clicks = pure CTR fix. Deferred blogs still not indexed after 5 weeks — no longer a blocker. |
 | 11 | Optimize `/blog/best-mcp-servers` | blog | 5 | 2 | 2 | 2 | 4 | 2 | ×1.5 | **~150** | 🟢 Quick Win | `backlog` | 2296 imp, 11 clicks, pos 10.3. Edge of page 1. From v2 brief item #2. |
 | 12 | Write "Creative Testing" pillar page | hub | 6 | 5 | 4 | 2 | 10 | 2 | ×1 | **~200** | 🟡 Strategic | `backlog` | Keyword cluster 1000+ vol, KD 0-8, CPC $7-12. Pain-validated: "Testing 50+ creatives/week without burning out". From v2 brief item #4. |
 | 13 | Write "Ad Operations: The Complete Guide" | blog | 5 | 5 | 4 | 2 | 10 | 1 | ×1 | **~150** | 🟡 Strategic | `backlog` | "ad operations" 250 vol, KD 1. Literally what Scalemate IS. From v2 brief item #5. |
@@ -53,6 +53,10 @@
 | 19 | Case study: Appflame (rules feature) | case-study | 3 | 5 | 5 | 2 | 8 | 2 | ×1 | **~40** | 🟡 Strategic | `backlog` | Немає сирих даних — Input needed від Natalia: метрики, challenge, solution, results. Шаблон: `/customers/kitup` format. |
 | 20 | Case study: Promin Agency (rules feature) | case-study | 3 | 5 | 5 | 2 | 8 | 2 | ×1 | **~40** | 🟡 Strategic | `backlog` | Є часткові згадки в content (automation-rules, media-buyers). Input needed від Natalia: повні метрики, quote. Шаблон: `/customers/kitup` format. |
 | 21 | Update Tier-1 use case pages (bulk-ad-launch, automation-rules etc) | product | — | — | — | — | 10+ | — | — | **TBD** | 🟡 Strategic | `backlog` | pos 18-22, не в top-10. Re-audit seed keywords spersh |
+| 22 | Investigate CTR failure `/blog/madgicx-review-alternative` | blog | 8 | 5 | 5 | 3 | 3 | 3 | ×1.5 | **~900** | 🟢 Quick Win | `backlog` | 2,493 imp, 2 clicks, 0.1% CTR, pos 9.6 — 2 weeks post title fix, no improvement. Investigate: title still mismatched? Meta description weak? Snippet cannibalization? Structured data? Added 2026-04-30. |
+| 23 | Title/meta fix `/blog/adcreative-ai-alternative` | blog | 5 | 4 | 5 | 3 | 2 | 2 | ×1.5 | **~450** | 🟢 Quick Win | `backlog` | 451 imp, 1 click, 0.2% CTR, pos 10.8 — page 1 with terrible CTR. Quick meta fix. Added 2026-04-30. |
+| 24 | Submit Request Indexing: facebook-ads-automation + facebook-automated-rules | technical | — | — | — | — | 1 | — | — | — | 🔴 Risk | `backlog` | Both 5+ weeks non-indexed ("Discovered - not crawled"). Action: GSC Request Indexing + share externally (LinkedIn/Telegram). Added 2026-04-30. |
+| 25 | Write "How to Automate Facebook Ads in 2026" | blog | 5 | 5 | 4 | 3 | 6 | 2 | ×1 | **~100** | 🟡 Strategic | `backlog` | "facebook ad automation" 150/mo KD 7. Pain-validated: r/FacebookAds 50+ comments "losing hours uploading ads one by one" (2 weeks ago). adstellar.ai entering this space. Our angle: verified Meta app = automate without ban risk. Added 2026-04-30. |
 
 ---
 
@@ -140,14 +144,16 @@
 
 | Item | Deployed | Baseline | Current (2026-04-27) | Next check | Notes |
 |---|---|---|---|---|---|
-| Madgicx article title/meta | 2026-04-16 | CTR 0.05%, pos 7.9 | 2551 imp, 3 clicks, 0.1% CTR, pos 9.7 | 2026-04-30 (T+2wk) | CTR low, pos stable |
-| `facebook-ads-automation` indexation | 2026-03-27 | Not indexed | 🚨 **Still not indexed** (Discovered - not crawled) | 2026-05-04 | Re-submit + share externally |
-| `facebook-automated-rules` indexation | 2026-04-06 | Not indexed | 🚨 **Still not indexed** (Discovered - not crawled) | 2026-05-04 | Re-submit + share externally |
-| `/ad-creative-uploader` title/meta | 2026-04-20 | 96 imp, 1 click, pos 8.9 | ✅ **240 imp, 6 clicks, pos 12.8** (+150% imp, +500% clicks) | 2026-05-04 | Title fix working! |
-| `/use-cases/automated-creative-upload-meta` rewire | 2026-04-20 | 3 imp/90d | ✅ **63 imp/28d, pos 10.8** (+2000% imp) | 2026-05-04 | Keyword rewire massive impact |
-| `/blog/best-mcp-servers` ban warning | 2026-04-20 | 2296 imp, 11 clicks, pos 10.3 | ✅ 2421 imp, 13 clicks, pos 10.1 | 2026-05-04 | Steady growth |
-| `/blog/best-ad-testing-tools` title fix | 2026-04-20 | 1420 imp, 0 clicks, pos 14.7 | ⚠️ 2260 imp, 0 clicks, pos 15.7 | 2026-05-04 | Imp up but pos dropped. Needs time |
-| `/blog/bulk-upload-creatives` (NEW) | 2026-04-21 | N/A | ✅ **79 imp, 1 click, pos 11.1** — indexed in 6 days | 2026-05-04 | New article performing |
+| Madgicx article title/meta | 2026-04-16 | CTR 0.05%, pos 7.9 | 🚨 **2,493 imp, 2 clicks, 0.1% CTR, pos 9.6** | 2026-05-07 | T+2wk: title fix NOT working — escalate (see item #22) |
+| `facebook-ads-automation` indexation | 2026-03-27 | Not indexed | 🚨 **Still not indexed** (5+ weeks) | 2026-05-07 | Submit Request Indexing NOW + external link |
+| `facebook-automated-rules` indexation | 2026-04-06 | Not indexed | 🚨 **Still not indexed** (5+ weeks) | 2026-05-07 | Submit Request Indexing NOW + external link |
+| `/ad-creative-uploader` title/meta | 2026-04-20 | 96 imp, 1 click, pos 8.9 | ✅ **273 imp, 7 clicks, pos 12.4** (+184% imp, +600% clicks) | 2026-05-07 | Strong growth |
+| `/use-cases/automated-creative-upload-meta` rewire | 2026-04-20 | 3 imp/90d | ✅ **82 imp/28d est., pos 9.8** (+2000%+ imp) | 2026-05-07 | Still strong |
+| `/blog/best-mcp-servers` ban warning | 2026-04-20 | 2296 imp, 11 clicks, pos 10.3 | ✅ **2,597 imp, 15 clicks, pos 9.9** | 2026-05-07 | Steady growth |
+| `/blog/best-ad-testing-tools` title fix | 2026-04-20 | 1420 imp, 0 clicks, pos 14.7 | ⚠️ **2,619 imp, 0 clicks, pos 16.2** | 2026-05-07 | Imp up, pos drifted deeper, 0 clicks — needs content + CTR push |
+| `/blog/bulk-upload-creatives` (NEW) | 2026-04-21 | N/A | ✅ **177 imp, 2 clicks, pos 10.5** | 2026-05-07 | Growing |
+| Listicle "Best Bulk Ad Launch Tools" (NEW) | 2026-04-27 | N/A | 12 imp, 0 clicks — too early | 2026-05-07 | Too early to assess |
+| `/blog/adcreative-ai-alternative` | pre-2026-04-20 | N/A | ⚠️ **451 imp, 1 click, 0.2% CTR, pos 10.8** | 2026-05-07 | Page 1 with terrible CTR — see item #23 |
 
 ---
 
@@ -232,3 +238,4 @@ Score = (5 × 4 × 2 × 1) / 15 × 1 × 1 = 2.7
 - 2026-04-15 — template створений, готовий до першого заповнення після першої розвідки
 - 2026-04-15 — перший item approved: `/blog/madgicx-review-alternative` title+meta rewrite. Pairing A (refined) — content-ops panel 92.4/100. Baseline CTR 0.05%, pos 7.9, ~200 imp/day. Awaiting deploy by Natalia.
 - 2026-04-20 — масовий апдейт scorecard: додано 10 нових items з v2 brief + Ad Creative Uploader growth plan. Approved items from v2: #1 (automation-rules title fix), #2 (mcp-servers optimize), #3 (ad-uploader update), #4 (Creative Testing pillar), #5 (Ad Operations guide). Rejected: #6 (TikTok guide — not ICP), #7 (FB automation — monitor existing). Ad Uploader growth plan (6 agent tasks + 4 manual) збережено у `plans/ad-creative-uploader-growth.md`. Додано Monitoring секцію для deployed items. ICP Pain Discovery step додано в agents/intelligence.md.
+- 2026-04-30 — weekly seo-analysis: додано items #22-25 (madgicx CTR failure, adcreative-alt CTR fix, indexation fix, fb ads automation article). Item #10 undeferred. Monitoring updated with T+2wk data. Madgicx title fix confirmed NOT working at T+2wk — escalated. Brief: `output/seo-analysis/2026-04-30.md`.
