@@ -1,0 +1,184 @@
+{
+  "trends": {
+    "timestamp": "2026-04-30T11:18:23.938175",
+    "verticals": [
+      "AI marketing automation",
+      "AI agents for business",
+      "SEO trends",
+      "content marketing AI",
+      "marketing agency transformation",
+      "programmatic SEO",
+      "AI search optimization AEO",
+      "startup growth strategy"
+    ],
+    "google_trends": [
+      {
+        "topic": "cat stock",
+        "traffic": "200+",
+        "news_titles": [
+          "Caterpillar Profit Beats Estimates as AI Boom Spurs Power Sales",
+          "Caterpillar: Q1 Earnings Snapshot"
+        ],
+        "news_urls": [
+          "https://www.bloomberg.com/news/articles/2026-04-30/caterpillar-profit-beats-estimates-as-ai-boom-spurs-power-sales",
+          "https://www.10tv.com/article/syndication/associatedpress/caterpillar-q1-earnings-snapshot/616-50a3b8a8-d519-49ce-af11-0c3eb23cbb06"
+        ]
+      },
+      {
+        "topic": "alexander blockx",
+        "traffic": "200+",
+        "news_titles": [
+          "Madrid Open LIVE: Ruud facing Blockx in quarters, Andreeva vs Baptiste to follow",
+          "Tennis Best Bets Today: Mutua Madrid Open picks for Thursday, April 30"
+        ],
+        "news_urls": [
+          "https://www.flashscore.co.za/news/tennis-madrid-atp-wta-singles-live-scores-updates-results-april-30-2026/SW5PX3ge/",
+          "https://vsin.com/tennis/tennis-best-bets-today-mutua-madrid-open-picks-for-thursday-april-30/"
+        ]
+      },
+      {
+        "topic": "cambria county",
+        "traffic": "100+",
+        "news_titles": [
+          "Cambria County OKs sale of two long-vacant Ebensburg buildings to help cut costs",
+          "Cambria County commissioners approve building sales"
+        ],
+        "news_urls": [
+          "https://wjactv.com/news/local/cambria-county-oks-sale-of-two-long-vacant-ebensburg-buildings-to-help-cut-costs",
+          "https://www.tribdem.com/news/local_news/cambria-county-commissioners-approve-building-sales/article_81e8ae4b-ba2c-47f2-9c40-a980b08d3781.html"
+        ]
+      },
+      {
+        "topic": "david harbour rambo prequel casting",
+        "traffic": "100+",
+        "news_titles": [
+          "New Rambo Movie Is \"Entirely Respectful\" To Sylvester Stallone's Action Franchise As Production Begins",
+          "David Harbour Joins \u2018John Rambo\u2019 as Major Trautman"
+        ],
+        "news_urls": [
+          "https://www.imdb.com/news/ni65814449/?ref_=nmnw_art_perm",
+          "https://www.imdb.com/de/news/ni65802006/?ref_=nwc_art_perm"
+        ]
+      },
+      {
+        "topic": "bernie sanders",
+        "traffic": "100+",
+        "news_titles": [
+          "Bernie Sanders urges international cooperation to halt AI\u2019s \u2018runaway train\u2019",
+          "Bernie Sanders faces backlash over AI talks with Chinese scientists"
+        ],
+        "news_urls": [
+          "https://www.theguardian.com/us-news/2026/apr/29/bernie-sanders-ai-panel",
+          "https://www.foxnews.com/video/6394243095112"
+        ]
+      },
+      {
+        "topic": "lly stock",
+        "traffic": "5000+",
+        "news_titles": [
+          "Eli Lilly will report first quarter earnings before the bell. Here's what Wall Street expects",
+          "Lilly reports first-quarter 2026 financial results, raises full year guidance, and highlights momentum of new medicines"
+        ],
+        "news_urls": [
+          "https://www.cnbc.com/2026/04/30/eli-lilly-lly-earnings-q1-2026.html",
+          "https://investor.lilly.com/news-releases/news-release-details/lilly-reports-first-quarter-2026-financial-results-raises-full"
+        ]
+      },
+      {
+        "topic": "tariff refund",
+        "traffic": "1000+",
+        "news_titles": [
+          "Ford raises 2026 guidance as $1.3 billion tariff refund assists in offsetting higher costs",
+          "Ford beats on Q1 results as tariff repeal boosts profits and guidance; rising commodity costs will weigh on second half"
+        ],
+        "news_urls": [
+          "https://www.cnbc.com/2026/04/29/ford-motor-f-earnings-q1-2026.html",
+          "https://finance.yahoo.com/markets/stocks/article/ford-beats-on-q1-results-as-tariff-repeal-boosts-profits-and-guidance-rising-commodity-costs-will-weigh-on-second-half-132246380.html"
+        ]
+      },
+      {
+        "topic": "ronnie jersey shore",
+        "traffic": "200+",
+        "news_titles": [],
+        "news_urls": []
+      },
+      {
+        "topic": "ana de armas",
+        "traffic": "200+",
+        "news_titles": [
+          "Ana de Armas\u2019 Louis Vuitton Dress Has the Biggest Cutout You\u2019ve Ever Seen",
+          "Ana de Armas\u2019 Louis Vuitton Dress Has the Biggest Cutout You\u2019ve Ever Seen"
+        ],
+        "news_urls": [
+          "https://www.yahoo.com/entertainment/celebrity/articles/ana-armas-louis-vuitton-dress-045751344.html",
+          "https://www.aol.com/articles/ana-armas-louis-vuitton-dress-045634070.html"
+        ]
+      },
+      {
+        "topic": "tribune review",
+        "traffic": "100+",
+        "news_titles": [
+          "Marilyn Greenawalt Obituary (1951 - 2026-04-24) - Ruffsdale, PA - Tribune Review",
+          "Emmett McArdle Obituary (1942 - 2026-04-27) - North Huntingdon, PA - Tribune Review"
+        ],
+        "news_urls": [
+          "https://www.legacy.com/us/obituaries/triblive-tribune-review/name/marilyn-greenawalt-obituary?id=61347512",
+          "https://www.legacy.com/us/obituaries/triblive-tribune-review/name/emmett-mcardle-obituary?id=61356682"
+        ]
+      }
+    ],
+    "hackernews": [
+      {
+        "title": "The Zig project's rationale for their anti-AI contribution policy",
+        "url": "https://simonwillison.net/2026/Apr/30/zig-anti-ai/",
+        "score": 329,
+        "comments": 158
+      },
+      {
+        "title": "Copy Fail",
+        "url": "https://copy.fail/",
+        "score": 1038,
+        "comments": 370
+      },
+      {
+        "title": "Craig Venter has died",
+        "url": "https://www.jcvi.org/media-center/j-craig-venter-genomics-pioneer-and-founder-jcvi-and-diploid-genomics-inc-dies-79",
+        "score": 248,
+        "comments": 44
+      },
+      {
+        "title": "Alignment whack-a-mole: Finetuning activates recall of copyrighted books in LLMs",
+        "url": "https://github.com/cauchy221/Alignment-Whack-a-Mole-Code",
+        "score": 145,
+        "comments": 111
+      },
+      {
+        "title": "Mike: open-source legal AI",
+        "url": "https://mikeoss.com/",
+        "score": 112,
+        "comments": 44
+      },
+      {
+        "title": "DataCenter.FM \u2013 background noise app featuring the sound of the AI bubble",
+        "url": "https://datacenter.fm/",
+        "score": 22,
+        "comments": 5
+      },
+      {
+        "title": "Joby kicks off NYC electric air taxi demos with historic JFK flight",
+        "url": "https://www.flyingmag.com/joby-nyc-electric-air-taxi-jfk-airport/",
+        "score": 54,
+        "comments": 149
+      },
+      {
+        "title": "Gooseworks (YC W23) Is Hiring a Founding Growth Engineer",
+        "url": "https://www.ycombinator.com/companies/gooseworks/jobs/ztgY6bD-founding-growth-engineer",
+        "score": 1,
+        "comments": 0
+      }
+    ],
+    "reddit": [],
+    "x_twitter": []
+  },
+  "angles": []
+}

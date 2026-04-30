@@ -11,7 +11,17 @@
 
 > Items додаються сюди з `розвідка` або вручну. Чекають approve від Natalia щоб піти в discovery.
 
-(порожньо)
+- scale-meta-ads-without-hiring
+  added: 2026-04-30
+  source: seo-analysis-2026-04-30
+  primary-keyword: how to scale meta ads (TBD via discovery)
+  context: Pain-validated Reddit ("scaling Meta spend with 3-person team"). AdStellar AI emerging content threat detected in SERP. Angle: Scalemate rules + uploader = hands-off scaling. Score 187 (🟡 Strategic Bet).
+
+- facebook-ad-automation-guide
+  added: 2026-04-30
+  source: seo-analysis-2026-04-30
+  primary-keyword: facebook ad automation (150 vol, KD 7)
+  context: Multiple Reddit threads, pain-validated. Non-indexed /blog/facebook-ads-automation may conflict — discovery must evaluate: target different angle or consolidate. Score ~187 (🟡 Strategic Bet).
 
 ---
 

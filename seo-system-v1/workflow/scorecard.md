@@ -53,6 +53,11 @@
 | 19 | Case study: Appflame (rules feature) | case-study | 3 | 5 | 5 | 2 | 8 | 2 | ×1 | **~40** | 🟡 Strategic | `backlog` | Немає сирих даних — Input needed від Natalia: метрики, challenge, solution, results. Шаблон: `/customers/kitup` format. |
 | 20 | Case study: Promin Agency (rules feature) | case-study | 3 | 5 | 5 | 2 | 8 | 2 | ×1 | **~40** | 🟡 Strategic | `backlog` | Є часткові згадки в content (automation-rules, media-buyers). Input needed від Natalia: повні метрики, quote. Шаблон: `/customers/kitup` format. |
 | 21 | Update Tier-1 use case pages (bulk-ad-launch, automation-rules etc) | product | — | — | — | — | 10+ | — | — | **TBD** | 🟡 Strategic | `backlog` | pos 18-22, не в top-10. Re-audit seed keywords spersh |
+| 22 | Fix indexation: `/blog/facebook-ads-automation` + `/blog/facebook-automated-rules` + check `/blog/what-is-ad-fatigue` | technical | — | — | — | — | 2 | 3 | — | — | 🔴 Risk/Urgent | `backlog` | Confirmed not indexed 2026-04-30 via SerpAPI site: query (24-34 days). Action: (1) add internal links FROM best-mcp-servers + best-ad-testing-tools TO non-indexed articles; (2) GSC Request Indexing re-submit for all 3. |
+| 23 | Madgicx title iteration → target "madgicx pricing 2026" | blog | 5 | 4 | 4 | 3 | 2 | 3 | ×1.5 | **~1,350** | 🟢 Quick Win | `backlog` | T+2wk milestone (2026-04-30): CTR still 0.1%, no improvement. "madgicx pricing 2026": 169 imp, pos 7.2, 0 clicks. New title: "Madgicx Pricing 2026: Full Breakdown + Cheaper Alternative". |
+| 24 | Aggressive fix `/blog/best-ad-testing-tools`: title+meta+intro | blog | 5 | 4 | 4 | 3 | 3 | 3 | ×1.5 | **~1,080** | 🟢 Quick Win | `backlog` | 2,619 imp/28d, 0 clicks — title not matching query intent. New title: "Best Ad Testing Software in 2026: 10 Tools Compared (Free & Paid)". Content expansion: add "what is ad testing software" section + comparison table. Moved out of Deferred. |
+| 25 | NEW blog "How to Scale Meta Ads Without Hiring More People" | blog | 4 | 5 | 5 | 2 | 10 | 2 | ×1 | **~187** | 🟡 Strategic Bet | `backlog` | Pain-validated Reddit. AdStellar AI emerging threat targeting same ICP pain language. Angle: Scalemate rules + uploader = hands-off scaling at any spend level. → pipeline as `scale-meta-ads-without-hiring`. |
+| 26 | NEW blog "Complete Guide to Facebook Ad Automation (2026)" | blog | 4 | 5 | 5 | 2 | 10 | 2 | ×1 | **~187** | 🟡 Strategic Bet | `backlog` | 150 vol, KD 7. Multiple Reddit pain threads. Discovery must resolve conflict with non-indexed /blog/facebook-ads-automation. → pipeline as `facebook-ad-automation-guide`. |
 
 ---
 
@@ -110,8 +115,8 @@
 
 | Item | Score | Reason deferred | Revisit |
 |---|---|---|---|
-| `best-ad-testing-tools` (1282 imp, pos 14.7) | — | Включимо у Creative Testing cluster (#12). Не окремий fix. | При роботі над #12 |
-| `what-is-ad-fatigue` (396 imp, pos 21.9) | — | Far from top-10, low priority | Наступна розвідка |
+| ~~`best-ad-testing-tools`~~ | — | **Promoted to Active Backlog #24** (2026-04-30): 2619 imp, 0 clicks — no longer speculative, needs urgent fix. | → item #24 |
+| `what-is-ad-fatigue` (396 imp, pos 21.9) | — | Far from top-10, low priority. May not be indexed — check GSC. | → item #22 indexation check |
 | Meta Ad Sizes guide / Meta Pixel Helper guide | — | Validated by competitors але lower priority ніж core topics | Наступна розвідка |
 
 ---
@@ -122,7 +127,8 @@
 
 | Item | Risk | Detected | Status |
 |---|---|---|---|
-| — | — | — | — |
+| 3 pages not indexed after 24-34 days: `/blog/facebook-ads-automation`, `/blog/facebook-automated-rules`, `/blog/what-is-ad-fatigue` | Low DR crawl budget starvation — Google not crawling. 0 traffic for 34 days. | 2026-04-30 | `backlog` — item #22. Action: internal links from indexed pages + GSC re-submit. |
+| AdStellar AI publishing content targeting Scalemate ICP pain language | Emerging content threat: "automate without extra headcount" angle now contested | 2026-04-30 | Monitoring — accelerate `scale-meta-ads-without-hiring` content. |
 
 ---
 
@@ -138,15 +144,16 @@
 
 ## 📊 Monitoring (deployed items tracking)
 
-| Item | Deployed | Baseline | Current (2026-04-27) | Next check | Notes |
+| Item | Deployed | Baseline | Current (2026-04-30) | Next check | Notes |
 |---|---|---|---|---|---|
-| Madgicx article title/meta | 2026-04-16 | CTR 0.05%, pos 7.9 | 2551 imp, 3 clicks, 0.1% CTR, pos 9.7 | 2026-04-30 (T+2wk) | CTR low, pos stable |
-| `facebook-ads-automation` indexation | 2026-03-27 | Not indexed | 🚨 **Still not indexed** (Discovered - not crawled) | 2026-05-04 | Re-submit + share externally |
-| `facebook-automated-rules` indexation | 2026-04-06 | Not indexed | 🚨 **Still not indexed** (Discovered - not crawled) | 2026-05-04 | Re-submit + share externally |
+| Madgicx article title/meta | 2026-04-16 | CTR 0.05%, pos 7.9 | ⚠️ 2551 imp, 3 clicks, **0.1% CTR**, pos 9.7 | 2026-05-14 (T+4wk) | T+2wk milestone: no CTR improvement. Title iteration needed → item #23. |
+| `facebook-ads-automation` indexation | 2026-03-27 | Not indexed | 🚨 **Still not indexed** (confirmed via site: query 2026-04-30, 34 days) | 2026-05-07 | Add internal links + re-submit GSC. → item #22 |
+| `facebook-automated-rules` indexation | 2026-04-06 | Not indexed | 🚨 **Still not indexed** (confirmed via site: query 2026-04-30, 24 days) | 2026-05-07 | Add internal links + re-submit GSC. → item #22 |
+| `/blog/what-is-ad-fatigue` indexation | unknown | Not indexed | 🚨 **Not indexed** (suspected, not in GSC data) | 2026-05-07 | Check via GSC manually. → item #22 |
 | `/ad-creative-uploader` title/meta | 2026-04-20 | 96 imp, 1 click, pos 8.9 | ✅ **240 imp, 6 clicks, pos 12.8** (+150% imp, +500% clicks) | 2026-05-04 | Title fix working! |
 | `/use-cases/automated-creative-upload-meta` rewire | 2026-04-20 | 3 imp/90d | ✅ **63 imp/28d, pos 10.8** (+2000% imp) | 2026-05-04 | Keyword rewire massive impact |
 | `/blog/best-mcp-servers` ban warning | 2026-04-20 | 2296 imp, 11 clicks, pos 10.3 | ✅ 2421 imp, 13 clicks, pos 10.1 | 2026-05-04 | Steady growth |
-| `/blog/best-ad-testing-tools` title fix | 2026-04-20 | 1420 imp, 0 clicks, pos 14.7 | ⚠️ 2260 imp, 0 clicks, pos 15.7 | 2026-05-04 | Imp up but pos dropped. Needs time |
+| `/blog/best-ad-testing-tools` title fix | 2026-04-20 | 1420 imp, 0 clicks, pos 14.7 | ⚠️ **2619 imp, 0 clicks**, pos 15.7 | 2026-05-04 | Imp growing but 0 CTR — title still wrong. Needs aggressive fix → item #24. |
 | `/blog/bulk-upload-creatives` (NEW) | 2026-04-21 | N/A | ✅ **79 imp, 1 click, pos 11.1** — indexed in 6 days | 2026-05-04 | New article performing |
 
 ---
@@ -232,3 +239,4 @@ Score = (5 × 4 × 2 × 1) / 15 × 1 × 1 = 2.7
 - 2026-04-15 — template створений, готовий до першого заповнення після першої розвідки
 - 2026-04-15 — перший item approved: `/blog/madgicx-review-alternative` title+meta rewrite. Pairing A (refined) — content-ops panel 92.4/100. Baseline CTR 0.05%, pos 7.9, ~200 imp/day. Awaiting deploy by Natalia.
 - 2026-04-20 — масовий апдейт scorecard: додано 10 нових items з v2 brief + Ad Creative Uploader growth plan. Approved items from v2: #1 (automation-rules title fix), #2 (mcp-servers optimize), #3 (ad-uploader update), #4 (Creative Testing pillar), #5 (Ad Operations guide). Rejected: #6 (TikTok guide — not ICP), #7 (FB automation — monitor existing). Ad Uploader growth plan (6 agent tasks + 4 manual) збережено у `plans/ad-creative-uploader-growth.md`. Додано Monitoring секцію для deployed items. ICP Pain Discovery step додано в agents/intelligence.md.
+- 2026-04-30 — weekly analysis seo-analysis-2026-04-30: додано items #22-26 (indexation fix, madgicx iteration, best-ad-testing-tools aggressive fix, 2 new strategic articles). Monitoring оновлено до 2026-04-30. best-ad-testing-tools переміщено з Deferred в Active Backlog (#24). Urgent queue: 3 non-indexed pages + AdStellar threat. Pipeline: `scale-meta-ads-without-hiring` + `facebook-ad-automation-guide` додано в секцію 1.
