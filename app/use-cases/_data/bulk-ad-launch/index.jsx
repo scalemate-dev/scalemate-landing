@@ -6,7 +6,7 @@ export const data = {
     title:
       "Bulk Launch Hundreds of Meta & TikTok Ads in Minutes | Scalemate",
     description:
-      "Deploy hundreds of ad sets from one template. Define budget, targeting, and naming once \u2014 Scalemate generates every combination. Used by mobile publishers, marketing agencies and e-commerce teams.",
+      "Deploy hundreds of Meta & TikTok ad sets from one template. Define budget, targeting, and naming once \u2014 Scalemate generates every combination at scale.",
     alternates: {
       canonical: "https://www.scalemate.co/use-cases/bulk-ad-launch",
     },

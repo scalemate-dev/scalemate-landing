@@ -1,7 +1,7 @@
 ---
-title: "Best MCP Servers for Meta & Google Ads — Ban Risk Warning"
+title: "Best MCP Servers for Meta & Google Ads (2026)"
 slug: best-mcp-servers-meta-google-ads
-metaDescription: "Meta is banning ad accounts that connect unverified MCP servers. Compare verified vs unverified options for Meta & Google Ads — setup guides, free tools, and what's safe."
+metaDescription: "Meta is banning accounts that connect unverified MCP servers. Compare verified vs unverified options for Meta & Google Ads — setup guides and free tools."
 author: "Nataliia Bondar"
 coverImage: /blog/images/best-mcp-servers-meta-google-ads/mcp-servers-cover.svg
 coverAlt: "MCP servers for Meta and Google Ads — AI connection layer illustration"

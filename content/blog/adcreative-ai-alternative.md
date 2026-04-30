@@ -56,7 +56,7 @@ An honest ad creative ai review starts with what the tool actually delivers. AdC
 | Starter | $29/mo | Core AI generation, limited credits |
 | Professional | $209/mo | Higher volume, more credits, priority |
 
-*AdCreative.ai pricing scales with usage. Both plans include creative scoring and generation. Source: [adcreative.ai](https://adcreative.ai)*
+*AdCreative.ai pricing scales with usage. Both plans include creative scoring and generation. Source: [adcreative.ai](https://www.adcreative.ai)*
 
 **What it does and what it does not:**
 
@@ -84,11 +84,11 @@ These are tools like AdCreative.ai that focus on the same job: producing ad crea
 
 AI image generation built into a design platform everyone already knows. Templates for ad formats, brand kits, and quick resizing across placements. The AI features add background generation, text-to-image, and smart resize. Broad market tool — not specialized for performance ads, but accessible and fast for teams that need volume without learning a new platform.
 
-[Canva](https://canva.com)
+[Canva](https://www.canva.com)
 
 ### Pencil (by Smartly.io)
 
-AI video ad generation with performance prediction. Pencil analyzes past creative performance and generates new video variations optimized for specific platforms. Predicts which variations will perform before they launch — useful for reducing wasted spend on testing. Enterprise pricing makes it a better fit for larger teams. Now part of [Smartly.io](https://smartly.io).
+AI video ad generation with performance prediction. Pencil analyzes past creative performance and generates new video variations optimized for specific platforms. Predicts which variations will perform before they launch — useful for reducing wasted spend on testing. Enterprise pricing makes it a better fit for larger teams. Now part of [Smartly.io](https://www.smartly.io).
 
 ### Creatify
 
@@ -102,7 +102,7 @@ AI UGC video ads with realistic AI avatars. Among AdCreative.ai competitors focu
 
 > "Best avatars I've tested. Natural enough that viewers don't register them as AI in the first few seconds." — Creative Marketing Manager
 
-[Arcads](https://arcads.ai)
+[Arcads](https://www.arcads.ai)
 
 ### AI Video Generation (Veo 3, Sora, Kling)
 

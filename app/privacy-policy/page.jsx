@@ -751,11 +751,11 @@ export default function PrivacyPolicy() {
               <p>
                 <strong>Privacy terms:</strong>{" "}
                 <a
-                  href="https://www.hotjar.com/legal/policies/privacy"
+                  href="https://www.hotjar.com/legal/policies/privacy/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  https://www.hotjar.com/legal/policies/privacy
+                  https://www.hotjar.com/legal/policies/privacy/
                 </a>
               </p>
             </div>
@@ -841,11 +841,11 @@ export default function PrivacyPolicy() {
               <p>
                 <strong>Privacy terms:</strong>{" "}
                 <a
-                  href="https://rollbar.com/privacy/"
+                  href="https://docs.rollbar.com/docs/privacy-policy"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  https://rollbar.com/privacy/
+                  https://docs.rollbar.com/docs/privacy-policy
                 </a>
               </p>
             </div>
@@ -864,11 +864,11 @@ export default function PrivacyPolicy() {
               <p>
                 <strong>Privacy terms:</strong>{" "}
                 <a
-                  href="https://www.digitalocean.com/legal/privacy-policy/"
+                  href="https://www.digitalocean.com/legal/privacy-policy"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  https://www.digitalocean.com/legal/privacy-policy/
+                  https://www.digitalocean.com/legal/privacy-policy
                 </a>
               </p>
             </div>

@@ -50,7 +50,7 @@ const WithScalemate = ({ cards = DEFAULT_CARDS, title }) => {
       <Image
         className={styles.withScalemateBackground}
         src={background}
-        alt=""
+        alt="Decorative background pattern"
         aria-hidden="true"
         width={500}
         height={500}

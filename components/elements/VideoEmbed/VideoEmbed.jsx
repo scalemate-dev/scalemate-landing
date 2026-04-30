@@ -55,7 +55,7 @@ export default function VideoEmbed({
         >
           <img
             src={posterSrc}
-            alt=""
+            alt={title ? `${title} – video thumbnail` : "Video thumbnail"}
             width={1280}
             height={720}
             className={styles.poster}

@@ -4,9 +4,9 @@ import { SyncVisual, BulkLaunchVisual, RulesVisual } from "./HowItWorksVisuals"
 export const data = {
   metadata: {
     title:
-      "Tools for Media Buyers Automation – Scale Results, Not Hours | Scalemate",
+      "Media Buyer Automation Tools – Scale Results, Not Hours | Scalemate",
     description:
-      "Tools for media buyers automation that handle the grind: auto-upload creatives, bulk-launch hundreds of ad sets, automation rules that optimize 24/7, and an AI agent for reports.",
+      "Media buyer automation tools: auto-upload creatives, bulk-launch hundreds of ad sets, and automation rules that optimize Meta & TikTok campaigns 24/7.",
     alternates: {
       canonical: "https://www.scalemate.co/solutions/media-buyers",
     },

@@ -110,7 +110,7 @@ Scalemate supports Meta and TikTok. A [free ad uploader](/ad-creative-uploader) 
 
 ### Kitchn.io
 
-<a href="https://kitchn.io" rel="nofollow">Kitchn.io</a> takes a spreadsheet-first approach to bulk ad launching. Teams prepare campaigns in a structured spreadsheet, and Kitchn pushes them to Meta, TikTok, or Snapchat. It supports Google Drive sync for creative uploads.
+<a href="https://www.kitchn.io" rel="nofollow">Kitchn.io</a> takes a spreadsheet-first approach to bulk ad launching. Teams prepare campaigns in a structured spreadsheet, and Kitchn pushes them to Meta, TikTok, or Snapchat. It supports Google Drive sync for creative uploads.
 
 Kitchn does not offer rule-based automation or AI features. It solves one problem — getting ads built and launched fast — and does it well. Pricing is custom.
 

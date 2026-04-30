@@ -51,20 +51,20 @@ const assistantMetadata = {
   title: "Scalemate: AI Marketing Agent for Ads & Reporting",
   alternates: { canonical: "https://www.scalemate.co/ai-assistant" },
   description:
-    "Experience next-generation Ads management with Scalemate AI Assistant. Control budgets, launch campaigns, upload creatives, generate reports, get smart recommendations and unlock insights. All via an AI-powered chat",
+    "Manage Meta & TikTok ads through AI chat. Control budgets, launch campaigns, upload creatives and generate reports — all via an AI-powered assistant.",
   openGraph: {
     url: "https://www.scalemate.co/ai-assistant",
     type: "website",
     title: "Scalemate: AI Marketing Agent for Ads & Reporting",
     description:
-      "Experience next-generation Ads management with Scalemate AI Assistant. Control budgets, launch campaigns, upload creatives, generate reports, get smart recommendations and unlock insights. All via an AI-powered chat",
+      "Manage Meta & TikTok ads through AI chat. Control budgets, launch campaigns, upload creatives and generate reports — all via an AI-powered assistant.",
     images: ["/og-image-assistant.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Scalemate: AI Marketing Agent for Ads & Reporting",
     description:
-      "Experience next-generation Ads management with Scalemate AI Assistant. Control budgets, launch campaigns, upload creatives, generate reports, get smart recommendations and unlock insights. All via an AI-powered chat",
+      "Manage Meta & TikTok ads through AI chat. Control budgets, launch campaigns, upload creatives and generate reports — all via an AI-powered assistant.",
     images: ["/og-image-assistant.png"],
   },
 }
@@ -73,20 +73,20 @@ const pricingMetadata = {
   title: "Free Ad Automation Tool for Meta & TikTok – Scalemate Pricing",
   alternates: { canonical: "https://www.scalemate.co/pricing" },
   description:
-    "Automate Meta and TikTok ad campaigns for free – 1 ad account, 2 rules, 100 launches/month, unlimited creative uploads. No credit card. Custom plans with API access and dedicated support for teams at scale.",
+    "Automate Meta and TikTok ad campaigns free: 1 account, 2 rules, 100 launches/month, unlimited uploads. No credit card. Custom plans for teams at scale.",
   openGraph: {
     url: "https://www.scalemate.co/pricing",
     type: "website",
     title: "Free Ad Automation for Meta & TikTok – Scalemate Pricing",
     description:
-      "Automate Meta and TikTok ad campaigns for free – 1 ad account, 2 rules, 100 launches/month, unlimited creative uploads. No credit card. Custom plans with API access and dedicated support for teams at scale.",
+      "Automate Meta and TikTok ad campaigns free: 1 account, 2 rules, 100 launches/month, unlimited uploads. No credit card. Custom plans for teams at scale.",
     images: [{ url: "/og-pricing.png" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Free Ad Automation for Meta & TikTok – Scalemate Pricing",
     description:
-      "Automate Meta and TikTok ad campaigns for free – 1 ad account, 2 rules, 100 launches/month, unlimited creative uploads. No credit card. Custom plans with API access and dedicated support for teams at scale.",
+      "Automate Meta and TikTok ad campaigns free: 1 account, 2 rules, 100 launches/month, unlimited uploads. No credit card. Custom plans for teams at scale.",
     images: ["/og-pricing.png"],
   },
 }
@@ -94,7 +94,7 @@ const pricingMetadata = {
 const blogMetadata = {
   title: "Scalemate Blog: Ad Automation Insights & Strategies",
   description:
-    "Insights on ad automation, scaling strategies, and performance marketing from the Scalemate team.",
+    "Practical insights on Meta and TikTok ad automation, bulk launching, scaling strategies, and performance marketing — from the team building Scalemate.",
   author: "Scalemate.co Team",
   alternates: { canonical: "https://www.scalemate.co/blog" },
   openGraph: {
@@ -102,14 +102,14 @@ const blogMetadata = {
     type: "website",
     title: "Scalemate Blog: Ad Automation Insights & Strategies",
     description:
-      "Insights on ad automation, scaling strategies, and performance marketing from the Scalemate team.",
+      "Practical insights on Meta and TikTok ad automation, bulk launching, scaling strategies, and performance marketing — from the team building Scalemate.",
     images: [{ url: "/og-image.png" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Scalemate Blog: Ad Automation Insights & Strategies",
     description:
-      "Insights on ad automation, scaling strategies, and performance marketing from the Scalemate team.",
+      "Practical insights on Meta and TikTok ad automation, bulk launching, scaling strategies, and performance marketing — from the team building Scalemate.",
     images: ["/og-image.png"],
   },
 }
@@ -142,20 +142,20 @@ export const pageMetadata = {
     title: "Book a Demo – Automate Meta & TikTok Ad Campaigns | Scalemate",
     alternates: { canonical: "https://www.scalemate.co/book-a-demo" },
     description:
-      "Book a 30-minute Scalemate demo. See how performance teams automate campaign setup, creative uploads, and scaling rules across Meta and TikTok — without adding headcount.",
+      "Book a 30-minute Scalemate demo. See how performance teams automate campaign setup, creative uploads, and scaling rules across Meta and TikTok.",
     openGraph: {
       url: "https://www.scalemate.co/book-a-demo",
       type: "website",
       title: "Book a Demo – Automate Meta & TikTok Ad Campaigns | Scalemate",
       description:
-        "Book a 30-minute Scalemate demo. See how performance teams automate campaign setup, creative uploads, and scaling rules across Meta and TikTok — without adding headcount.",
+        "Book a 30-minute Scalemate demo. See how performance teams automate campaign setup, creative uploads, and scaling rules across Meta and TikTok.",
       images: [{ url: "/og-image-demo.png" }],
     },
     twitter: {
       card: "summary_large_image",
       title: "Book a Demo – Automate Meta & TikTok Ad Campaigns | Scalemate",
       description:
-        "Book a 30-minute Scalemate demo. See how performance teams automate campaign setup, creative uploads, and scaling rules across Meta and TikTok — without adding headcount.",
+        "Book a 30-minute Scalemate demo. See how performance teams automate campaign setup, creative uploads, and scaling rules across Meta and TikTok.",
       images: ["/og-image-demo.png"],
     },
   },

@@ -299,7 +299,7 @@ const ROICalculator = () => {
               >
                 <Image
                   src={ship}
-                  alt=""
+                  alt="Demo rocket icon"
                   aria-hidden="true"
                   width={24}
                   height={24}

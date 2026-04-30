@@ -93,7 +93,7 @@ Scalemate does not include creative analytics or AI creative generation. It solv
 
 ### 3. AdCreative.ai
 
-[AdCreative.ai](https://adcreative.ai) uses AI to generate ad creative variations with performance scoring. It produces images, headlines, and copy variations that teams can feed into testing workflows. The scoring system predicts which variations are more likely to perform, helping prioritize what to test first.
+[AdCreative.ai](https://www.adcreative.ai) uses AI to generate ad creative variations with performance scoring. It produces images, headlines, and copy variations that teams can feed into testing workflows. The scoring system predicts which variations are more likely to perform, helping prioritize what to test first.
 
 It is a creative generation tool, not an ad testing platform. There is no bulk launch, no automation rules, and no campaign management. For a detailed comparison, see [AdCreative.ai alternatives](/blog/adcreative-ai-alternative).
 
@@ -120,7 +120,7 @@ Like Motion, Superads is analytics-only. It does not launch ads or automate camp
 
 ### 6. Smartly.io
 
-[Smartly.io](https://smartly.io) is an enterprise creative automation platform that handles dynamic creative templates, automated production, and cross-platform publishing. It is strong on the creative production side — generating variations at scale from templates and data feeds.
+[Smartly.io](https://www.smartly.io) is an enterprise creative automation platform that handles dynamic creative templates, automated production, and cross-platform publishing. It is strong on the creative production side — generating variations at scale from templates and data feeds.
 
 For testing specifically, the launch interface mirrors Ads Manager and is not built for fast bulk testing. Teams looking for rapid creative testing velocity may find the workflow slower than expected despite the platform's depth. Smartly works best for large organizations that need creative production automation more than testing speed.
 
@@ -147,7 +147,7 @@ Madgicx is Meta-focused. Other platforms are supported for reporting only, not c
 
 ### 9. Marpipe
 
-[Marpipe](https://marpipe.com) specializes in multivariate ad testing. Upload creative components — headlines, images, CTAs, backgrounds — and Marpipe auto-generates every possible combination, then reports on which individual elements drive performance. This structured approach to ad creative testing reveals insights that standard A/B tests miss.
+[Marpipe](https://www.marpipe.com) specializes in multivariate ad testing. Upload creative components — headlines, images, CTAs, backgrounds — and Marpipe auto-generates every possible combination, then reports on which individual elements drive performance. This structured approach to ad creative testing reveals insights that standard A/B tests miss.
 
 The trade-off is that Marpipe focuses on Meta and the testing structure is rigid. It works best for teams that want disciplined, element-level testing rather than rapid iteration.
 
