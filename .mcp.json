@@ -6,6 +6,10 @@
       "headers": {
         "Authorization": "Bearer ${AHREFS_MCP_KEY}"
       }
+    },
+    "serpapi": {
+      "type": "http",
+      "url": "https://mcp.serpapi.com/effbb781b0dc858dfb7806cbd0a4944aa6b9c2b181c6698df6f30ced8e98572b/mcp"
     }
   }
 }

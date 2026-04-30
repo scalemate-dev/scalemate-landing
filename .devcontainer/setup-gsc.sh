@@ -1,29 +1,14 @@
 #!/bin/bash
 # Setup Codespace environment for SEO system:
-#  - Symlink all bundled skills (~/.claude/skills/X) so agent prompts work unchanged
 #  - Restore GSC OAuth token + Google client_secret.json from Codespace secrets
-# Runs once after devcontainer creation.
+#
+# Skills live in project-level .claude/skills/ and are auto-discovered by
+# Claude Code (no symlinks needed — same path local + codespace).
 
 set -e
 
-# Resolve absolute path so commands work regardless of cwd
 DEVCONTAINER_DIR="$(cd "$(dirname "$0")" && pwd)"
-SKILLS_BUNDLE_DIR="$DEVCONTAINER_DIR/../seo-system/skills"
-SKILL_DIR="$SKILLS_BUNDLE_DIR/seo-ops"
-
-# Symlink every skill bundled in seo-system/skills/* into ~/.claude/skills/
-# so agent prompts that reference ~/.claude/skills/X work the same as on Mac.
-mkdir -p ~/.claude/skills
-for skill_path in "$SKILLS_BUNDLE_DIR"/*; do
-  [ -d "$skill_path" ] || continue
-  skill_name="$(basename "$skill_path")"
-  target="$HOME/.claude/skills/$skill_name"
-  if [ -e "$target" ] || [ -L "$target" ]; then
-    rm -rf "$target"
-  fi
-  ln -sf "$(cd "$skill_path" && pwd)" "$target"
-  echo "✅ Symlink: ~/.claude/skills/$skill_name → seo-system/skills/$skill_name"
-done
+SKILL_DIR="$DEVCONTAINER_DIR/../.claude/skills/seo-ops"
 
 # Recreate .gsc-token.json from base64-encoded Codespace secret
 if [ -n "$GSC_TOKEN_JSON" ]; then
@@ -32,7 +17,7 @@ if [ -n "$GSC_TOKEN_JSON" ]; then
   echo "✅ GSC token restored from Codespace secret"
 else
   echo "⚠️  GSC_TOKEN_JSON secret not set — GSC auth not configured"
-  echo "   To set: gh codespace secret set GSC_TOKEN_JSON < <(base64 < ~/.claude/skills/seo-ops/.gsc-token.json)"
+  echo "   To set: gh codespace secret set GSC_TOKEN_JSON < <(base64 < .claude/skills/seo-ops/.gsc-token.json)"
 fi
 
 # Recreate client_secret.json from Codespace secrets (Client ID + Secret)

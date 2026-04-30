@@ -29,10 +29,10 @@
 
 - creative-testing-pillar
   added: 2026-04-25
-  source: weekly-recon
+  source: weekly-seo-analysis
   primary-keyword: creative testing
   context: 1000+ vol cluster, KD 0-8, pain-validated "testing 50+ creatives/week without burning out"
-  artifact: topics/creative-testing-pillar/brief.md
+  artifact: output/topics/creative-testing-pillar/brief.md
   agent-finished: 2026-04-28
 
 ---
@@ -75,7 +75,7 @@
 
 - [2026-04-21] bulk-upload-creatives-meta-tiktok
   url: https://scalemate.co/blog/bulk-upload-creatives-meta-tiktok
-  artifact: topics/bulk-upload-creatives-meta-tiktok/draft.md
+  artifact: output/topics/bulk-upload-creatives-meta-tiktok/draft.md
   notes: Indexed in 6 days, 79 imp first week
 
 ---
