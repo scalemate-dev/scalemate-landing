@@ -65,6 +65,11 @@ $blog-ease: cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
 }
 
+// Narrow title container on heroBg variant so it fits between SVG side cards
+.heroWithBg .heroContent {
+  max-width: 540px;
+}
+
 // ─── Back navigation ───
 
 .nav {
@@ -173,6 +178,10 @@ $blog-ease: cubic-bezier(0.16, 1, 0.3, 1);
     font-size: 48px;
   }
 
+  .heroWithBg .heroContent {
+    max-width: 440px;
+  }
+
   .sidebar {
     margin-left: -260px;
     width: 200px;
@@ -190,6 +199,23 @@ $blog-ease: cubic-bezier(0.16, 1, 0.3, 1);
       top: 0;
       right: -10%;
     }
+  }
+
+  .heroWithBg {
+    background: linear-gradient(168deg, #fefdfb 0%, #fff8f3 45%, #fefefe 100%);
+
+    &::before,
+    &::after {
+      display: block;
+    }
+  }
+
+  .heroBgImage {
+    display: none;
+  }
+
+  .heroWithBg .heroContent {
+    max-width: 860px;
   }
 
   .title {

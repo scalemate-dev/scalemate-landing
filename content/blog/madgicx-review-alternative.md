@@ -4,7 +4,7 @@ absoluteTitle: true
 slug: madgicx-review-alternative
 metaDescription: "Running ads beyond Meta? See Madgicx pricing ($99–$329/mo), feature-by-feature comparison with Scalemate, and where Madgicx stops for multi-platform teams."
 author: "Nataliia Bondar"
-coverImage: null
+coverImage: /blog/images/madgicx-review-alternative/cover.svg
 coverAlt: "Madgicx alternative for TikTok and Meta: comparing ad automation platforms for scaling teams"
 heroBg: /blog/images/madgicx-review-alternative/hero.svg
 createdAt: "2026-03-01"
