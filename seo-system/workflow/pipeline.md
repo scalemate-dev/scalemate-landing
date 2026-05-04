@@ -91,45 +91,48 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
 - [https://www.scalemate.co/blog/adcreative-ai-alternative](https://www.scalemate.co/blog/adcreative-ai-alternative) — adcreative-ai-alternative
   - deployed: 2026-04-07
   - artifact: content/blog/adcreative-ai-alternative.md
-  - position-current: 10.7, ctr-current: 0.20%, imp-day: ~18 (497 imp / 27d)
-  - milestone: T+4wk (2026-05-05)
-  - decision: ⚠️ iterate — 27d at pos 10.7, 497 imp, тільки 1 click; CTR 0.20% під низом для page 1. Title/snippet потребують rework
+  - position-current: 10.6, ctr-current: 0.20%, imp-day: ~18 (512 imp / 28d)
+  - milestone: T+4wk (review 2026-05-04)
+  - decision: ❌ escalate — CTR 0.76% → 0.20% (0.26× baseline, далеко нижче 1.5× порогу). Position покращилась 13.0 → 10.6, але title/snippet не конвертять. Потрібен architectural rework — repositioning у comparison-page формат.
 - [https://www.scalemate.co/blog/best-ad-testing-tools](https://www.scalemate.co/blog/best-ad-testing-tools) — best-ad-testing-tools
   - deployed: 2026-04-07
   - artifact: content/blog/best-ad-testing-tools.md
-  - position-current: 16.9, ctr-current: 0.0%, imp-day: ~113 (3045 imp / 27d)
-  - milestone: T+4wk (2026-05-05)
-  - decision: ⚠️ iterate — title уже правлений 2026-04-20 (див. 📊 Monitoring); position просіла з 5.8 → 19.5 після правки; чекаємо T+4wk monitoring rev
+  - position-current: 16.9, ctr-current: 0.0%, imp-day: ~112 (3129 imp / 28d)
+  - milestone: T+4wk (review 2026-05-04)
+  - decision: ❌ escalate — 3,129 imp, 0 clicks за T+4wk. Confounded with metadata edit Apr 20 (pos 5.8→19.4). Спершу revert metadata (див. 📊 Monitoring) → переоцінити CTR через 14d → якщо все ще 0%, full architectural rework.
 - [https://www.scalemate.co/blog/what-is-ad-fatigue](https://www.scalemate.co/blog/what-is-ad-fatigue) — what-is-ad-fatigue
   - deployed: 2026-04-07
   - artifact: content/blog/what-is-ad-fatigue.md
-  - position-current: 24.2, ctr-current: 0.0%, imp-day: ~20 (551 imp / 27d)
-  - milestone: T+4wk (2026-05-05)
-  - decision: ⚠️ iterate — pos 24.2 (page 3), 0 clicks, але 551 imp = є інтерес. Треба on-page SEO + рев'ю title/intent
+  - position-current: 24.2, ctr-current: 0.0%, imp-day: ~20 (553 imp / 28d)
+  - milestone: T+4wk (review 2026-05-04)
+  - decision: ❌ escalate — pos 18.6 → 24.2 (-5.6 places, page 2 → page 3), imp/day тренд вниз, 0 clicks. CTR 0× baseline. Investigate intent — спробувати retitle ("ad fatigue signs" / "how to fix ad fatigue") або archive.
 - [https://www.scalemate.co/blog/facebook-ads-automation](https://www.scalemate.co/blog/facebook-ads-automation) — facebook-ads-automation
   - deployed: 2026-04-07
   - artifact: content/blog/facebook-ads-automation.md
-  - position-current: —, ctr-current: —, imp-day: ~0 (poza top 24 by impressions)
-  - milestone: T+4wk (2026-05-05)
-  - decision: ❌ escalate — не індексується 4+ тижнів (як і facebook-automated-rules). Confirms indexation bottleneck (project-state insight #8)
+  - position-current: —, ctr-current: —, imp-day: 0 (28d window — insufficient data)
+  - milestone: T+4wk (review 2026-05-04)
+  - indexation: blocked — SerpAPI `site:` returns 0 results at T+4wk
+  - decision: ❌ escalate / 🔄 re-index — не індексується 4+ тижнів (як і facebook-automated-rules). GSC URL Inspection → Request Indexing. Якщо все ще не indexed на T+5wk (2026-05-12) — investigate sitemap/canonical/orphan issue.
 - [https://www.scalemate.co/blog/bulk-upload-creatives-meta-tiktok](https://www.scalemate.co/blog/bulk-upload-creatives-meta-tiktok) — bulk-upload-creatives-meta-tiktok
   - deployed: 2026-04-21
   - artifact: content/blog/bulk-upload-creatives-meta-tiktok.md
-  - position-current: 9.6, ctr-current: 0.63%, imp-day: ~24 (319 imp / 13d)
-  - milestone: T+2wk (2026-05-05)
-  - decision: ✅ keep — pos 9.6 (page 1), 2 clicks, healthy ramp; продовжуємо моніторити до T+4wk
+  - position-current: 9.7, ctr-current: 0.59%, imp-day: ~24 (337 imp / 14d)
+  - milestone: T+2wk (review 2026-05-04)
+  - decision: ⚠️ iterate — flat. CTR 1.13% (week 1) → 0.59% (14d) = 0.52×, не росте. Position ↑ (10.5 → 9.7, page 1). Per spec — keep monitoring до T+4wk (2026-05-19); якщо все ще flat → snippet rewrite.
 - [https://www.scalemate.co/blog/best-bulk-ad-launch-tools](https://www.scalemate.co/blog/best-bulk-ad-launch-tools) — best-bulk-ad-launch-tools
   - deployed: 2026-04-27
   - artifact: content/blog/best-bulk-ad-launch-tools.md
-  - position-current: 8.6, ctr-current: 1.65%, imp-day: ~26 (182 imp / 7d)
-  - milestone: T+1wk (2026-05-04)
-  - decision: monitoring — strong start (page 1, 3 clicks first week); next check T+2wk = 2026-05-11
+  - position-current: 8.3, ctr-current: 1.44%, imp-day: ~30 (209 imp / 7d)
+  - milestone: T+1wk (review 2026-05-04)
+  - indexation: ✅ confirmed (SerpAPI site: returns position 1 with full snippet)
+  - decision: ✅ keep — strong start (page 1 з day one, CTR 1.44%, 3 clicks за week 1). Next check T+2wk = 2026-05-11.
 - [https://www.scalemate.co/blog/creative-testing-framework](https://www.scalemate.co/blog/creative-testing-framework) — creative-testing-framework
   - deployed: 2026-04-28
   - artifact: content/blog/creative-testing-framework.md
-  - position-current: 9.6, ctr-current: 0.0%, imp-day: ~48 (289 imp / 6d)
-  - milestone: T+1wk (2026-05-05)
-  - decision: monitoring — fast indexation, page 1 instantly, але 0 clicks за 6d; next check T+2wk = 2026-05-12
+  - position-current: 9.6, ctr-current: 0.0%, imp-day: ~58 (345 imp / 6d)
+  - milestone: T+1wk (review 2026-05-04, today is T+6d)
+  - indexation: ✅ confirmed (SerpAPI site: returns position 1, snippet renders)
+  - decision: ✅ keep / monitoring — fast indexation, page 1 instantly. CTR 0% але тільки 6d; reassess T+2wk (2026-05-12). Якщо 0 clicks залишається — snippet review.
 
 ---
 
@@ -168,7 +171,8 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
 
 | Item | Deployed | Baseline (-30d) | Current | Next check | Change | Decision |
 |---|---|---|---|---|---|---|
-| `/ad-creative-uploader` metadata | 2026-04-20 | 217 imp, 5 clk, 2.3% CTR, pos 11.2 | 149 imp, 6 clk, 4.03% CTR, pos 9.9 | 2026-05-18 (T+4wk) | title «Free Ad Uploader — Google Drive to Meta…» → «Bulk Upload Ad Creatives to Meta & TikT…» (24e5df9) | ✅ keep (T+2wk: CTR 2.3%→4.03%, pos 11.2→9.9 — tracking T+4wk) |
-| `/blog/best-ad-testing-tools` metadata | 2026-04-20 | 1561 imp, 0 clk, 0.0% CTR, pos 5.8 | 1568 imp, 0 clk, 0.0% CTR, pos 19.5 | 2026-05-18 (T+4wk) | title «Best Ad Testing Tools in 2026: 10 Tools…» → «10 Best Ad Testing Tools & Software (20…»; description «Compare the best ad testing tools and a…» → «Compare 10 ad testing tools and softwar…» (bcc4394, 24e5df9) | ❌ revert (T+2wk: pos 5.8→19.5, -13.7 places, CTR still 0%; revert title/meta до 2026-04-19 baseline) |
-| `/blog/best-mcp-servers-meta-google-ads` metadata | 2026-04-20 | 2304 imp, 11 clk, 0.48% CTR, pos 6.5 | 965 imp, 8 clk, 0.83% CTR, pos 6.9 | 2026-05-18 (T+4wk) | title (no change); description «Compare MCP servers that connect Meta A…» → «Meta is banning ad accounts that connec…» (24e5df9) | ⚠️ iterate (T+2wk: imp -58%, але CTR 0.48%→0.83% +73%; ban-warning hook працює, але новий description зменшив impressions — варіант B description) |
-| `/blog/madgicx-review-alternative` metadata | 2026-04-30 | 2599 imp, 2 clk, 0.08% CTR, pos 9.8 | 128 imp, 1 clk, 0.78% CTR, pos 8.8 | 2026-05-14 (T+2wk) | description «Madgicx pricing starts at $69/mo…» → «Running ads beyond Meta? See Madgicx pr…»; title «Madgicx Review 2026: Pricing, Features …» → «Is There a Real Madgicx Alternative for…» (6d3141e, 9a9bfe5) | monitoring |
+| `/ad-creative-uploader` metadata | 2026-04-20 | 217 imp, 5 clk, 2.30% CTR, pos 11.2 | 132 imp, 6 clk, 4.55% CTR, pos 9.7 | 2026-05-18 (T+4wk) | title «Free Ad Uploader — Google Drive to Meta…» → «Bulk Upload Ad Creatives to Meta & TikT…» (24e5df9) | ✅ keep (T+2wk: CTR 2.30%→4.55% = 1.98× baseline, pos 11.2→9.7 +1.5 places — edit працює; tracking T+4wk for confirmation) |
+| `/blog/best-ad-testing-tools` metadata | 2026-04-20 | 1561 imp, 0 clk, 0.0% CTR, pos 5.8 | 1308 imp, 0 clk, 0.0% CTR, pos 19.4 | 2026-05-18 (T+4wk) | title «Best Ad Testing Tools in 2026: 10 Tools…» → «10 Best Ad Testing Tools & Software (20…»; description «Compare the best ad testing tools and a…» → «Compare 10 ad testing tools and softwar…» (bcc4394, 24e5df9) | ❌ revert (T+2wk: pos 5.8→19.4 = -13.6 places, CTR still 0%; revert title/meta до 2026-04-19 baseline) |
+| `/blog/best-mcp-servers-meta-google-ads` metadata | 2026-04-20 | 2304 imp, 11 clk, 0.48% CTR, pos 6.5 | 949 imp, 8 clk, 0.84% CTR, pos 7.0 | 2026-05-18 (T+4wk) | title (no change); description «Compare MCP servers that connect Meta A…» → «Meta is banning ad accounts that connec…» (24e5df9) | ⚠️ iterate (T+2wk: imp -59%, але CTR 0.48%→0.84% = +75%; ban-warning hook працює, але description звузив query reach. Cooldown 14d → варіант B description: keep ban-warning hook + broaden до загального MCP comparison framing) |
+| `/blog/madgicx-review-alternative` metadata | 2026-04-30 | 2599 imp, 2 clk, 0.08% CTR, pos 9.8 | 128 imp, 1 clk, 0.78% CTR, pos 8.7 | 2026-05-14 (T+2wk) | description «Madgicx pricing starts at $69/mo…» → «Running ads beyond Meta? See Madgicx pr…»; title «Madgicx Review 2026: Pricing, Features …» → «Is There a Real Madgicx Alternative for…» (6d3141e, 9a9bfe5) | monitoring (T+4d: early signal positive — CTR 0.08%→0.78% ≈ 9.7×, pos +1.1; hold judgment until T+2wk) |
+| `/use-cases/ad-campaign-automation-rules` metadata | 2026-04-29 | 201 imp, 0 clk, 0.0% CTR, pos 7.8 | 78 imp, 0 clk, 0.0% CTR, pos 11.5 | 2026-05-13 (T+2wk) | title rewrite — Facebook + ROAS focus (0c3d863, PR #39) | monitoring (T+5d: pos -3.7 typical re-ranking after title change; reassess T+2wk. NOTE: row missed by detect-metadata-changes.py — added manually this review cycle) |
