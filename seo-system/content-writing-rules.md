@@ -600,7 +600,7 @@ Natalia обирає одну пару (або модифікує).
 **Step 6 — Deploy**
 - Update article (title, meta, OG tags — sinchronno)
 - GSC → Request Indexing
-- Log у `prioritization-scorecard.md` (date, before/after, expected impact)
+- Log у `workflow/pipeline.md` секція `📊 Monitoring` (запустити `python3 seo-system/scripts/detect-metadata-changes.py --days 30` — скрипт сам згенерує рядок)
 
 ---
 
@@ -614,10 +614,11 @@ Natalia обирає одну пару (або модифікує).
    - Position (30-day avg)
    - Clicks (30-day total)
 
-2. **Tracking у `prioritization-scorecard.md`:**
+2. **Tracking у `workflow/pipeline.md` секція `📊 Monitoring`:**
    ```
-   | URL | Change Date | Baseline CTR | Baseline Pos | T+2wk CTR | T+4wk CTR | Decision |
+   | Item | Deployed | Baseline (-30d) | Current | Next check | Change | Decision |
    ```
+   Запускати `python3 seo-system/scripts/detect-metadata-changes.py --days 30` — скрипт сам тягне baseline/current з GSC і генерує рядок.
 
 3. **Milestone decisions:**
    - **T+7 days:** Google переіндексував? (перевірити live SERP)

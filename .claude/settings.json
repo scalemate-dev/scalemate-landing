@@ -14,7 +14,14 @@
       "Bash(bash scripts/seo-status.sh)",
       "Bash(mkdir -p /Users/ruslan/Developer/scalemate/scalemate-landing/.claude/skills)",
       "Bash(cp -R /Users/ruslan/Developer/scalemate/scalemate-landing/seo-system/skills/seo-ops /Users/ruslan/Developer/scalemate/scalemate-landing/.claude/skills/)",
-      "Bash(chmod +x seo-system-v1/scripts/detect-metadata-changes.py)"
+      "Bash(chmod +x seo-system-v1/scripts/detect-metadata-changes.py)",
+      "mcp__ahrefs__subscription-info-limits-and-usage",
+      "mcp__ahrefs__doc",
+      "mcp__ahrefs__site-explorer-domain-rating",
+      "Bash(git -C /Users/nataliabondar/claude-work/scalemate/scalemate-landing show --stat 4f91175)",
+      "mcp__ahrefs__keywords-explorer-overview",
+      "Bash(GSC_SITE_URL=\"sc-domain:scalemate.co\" python3 seo-system/scripts/detect-metadata-changes.py --days 30)",
+      "Bash(GSC_SITE_URL=\"sc-domain:scalemate.co\" GSC_TOKEN_FILE=\"/Users/nataliabondar/.claude/skills/seo-ops/.gsc-token.json\" GOOGLE_CREDENTIALS_FILE=\"/Users/nataliabondar/.claude/skills/seo-ops/client_secret.json\" python3 seo-system/scripts/detect-metadata-changes.py --days 30)"
     ],
     "additionalDirectories": [
       "/Users/ruslan/Developer/scalemate/scalemate-landing/.claude"

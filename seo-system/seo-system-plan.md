@@ -339,9 +339,9 @@ Score = (Traffic × ICP × Business × Confidence) / Effort × Urgency
 
 #### Де живе беклог
 
-**Файл:** `seo-system/prioritization-scorecard.md`
+**Файл:** `seo-system/workflow/pipeline.md` секція `§1. New (потребує discovery)`
 
-Intelligence-agent щотижня оновлює цей файл — додає нові items, перераховує scores, перетегує buckets. Це живий backlog.
+Intelligence-agent щотижня оновлює цей файл — додає нові items зі score-колонками. Це живий backlog. Items рухаються у §2-§9 коли стартує робота.
 
 ---
 

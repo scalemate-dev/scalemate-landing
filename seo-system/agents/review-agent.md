@@ -10,15 +10,32 @@
 
 ## Context files
 
-1. `seo-system/prioritization-scorecard.md` — список deployed items з baseline метриками
-2. `seo-system/seo-system-plan.md` — tracking milestones (T+7d, T+2wk, T+4wk)
+1. **`seo-system/rules/data-integrity.md`** — fail-fast при відмові інтеграцій. ОБОВ'ЯЗКОВО прочитати ПЕРШИМ і зробити sanity check перед роботою.
+2. `seo-system/workflow/pipeline.md` — секція `§8 Published` (нові статті/сторінки) + `📊 Monitoring` (title/meta edits на існуючих URL)
+3. `seo-system/docs/architecture.md` — tracking milestones (T+7d, T+2wk, T+4wk)
+
+## Step 0 — Sanity check інтеграцій (ОБОВ'ЯЗКОВО)
+
+Перед будь-якою роботою — перевірити що GSC живий. SerpAPI потрібен лише для indexation check (Step 3 — для свіжих <7d items); якщо SerpAPI відвалився, можна продовжити без Step 3, зафіксувати "indexation check skipped" в звіті. Деталі: [`rules/data-integrity.md`](../rules/data-integrity.md).
 
 ## Workflow
 
 ### Step 1 — Зібрати deployed items
 
-Прочитати `prioritization-scorecard.md` → знайти всі items зі статусом `deployed`.
-Для кожного записати: URL, deploy date, baseline CTR, baseline position, baseline impressions.
+**Два джерела з одного файлу [`workflow/pipeline.md`](../workflow/pipeline.md), обидва обов'язкові:**
+
+1. **§8 Published** — нові статті/сторінки (повноцінні content launches).
+2. **📊 Monitoring (metadata edits tracking)** — title/meta правки на існуючих URL. Не пропускати — items звідси не дублюються в §8, бо це не нові топіки, а edits.
+
+Для кожного deployed item записати:
+- `slug` (для metadata edits — деривувати з URL, e.g. `/ad-creative-uploader` → `ad-creative-uploader`)
+- `url`
+- `deploy_date`
+- `event_type`: `content-launch` (з §8) або `metadata-edit` (з 📊 Monitoring) — впливає на формат у Step 6
+- baseline metrics (CTR, position, impressions/day, clicks/day) — за тиждень до deploy для metadata edits, за тиждень після deploy для content launches
+- остання milestone дата (з попереднього review якщо був)
+
+> **Якщо `📊 Monitoring` виглядає неповною** (наприклад, нещодавній commit з зміною `metadata.title` у `app/**/page.{jsx,tsx}` чи `content/blog/*.md` не відображений у таблиці) — запустити `python3 seo-system/scripts/detect-metadata-changes.py --days 30` і додати ряди до pipeline.md перед продовженням Step 2. Без цього review буде сліпим до недавніх metadata edits.
 
 ### Step 2 — GSC поточний стан
 
@@ -82,6 +99,7 @@ Week-over-week: total clicks, impressions, avg position trending up or down?
 ## Deployed Items Status
 
 ### [Item 1 — URL]
+- Event type: [content-launch / metadata-edit]
 - Deployed: [date]
 - Milestone: [T+7d / T+2wk / T+4wk]
 - Baseline → Current:
@@ -104,12 +122,21 @@ Week-over-week: total clicks, impressions, avg position trending up or down?
 - [Any unexpected drops, spikes, new queries appearing]
 ```
 
-### Step 7 — Update Scorecard
+### Step 7 — Update pipeline.md (CRITICAL)
 
-Оновити `prioritization-scorecard.md`:
-- Додати tracking data до deployed items
-- Змінити статус якщо milestone decision прийнято
-- Перемістити completed/escalated items
+Оновити `workflow/pipeline.md` — обидві секції що стосуються:
+
+**§8 Published** (для content-launch items):
+- Додати tracking metrics поряд з URL: `position-current`, `ctr-current`, `imp-day`
+- Якщо item failed milestone (CTR < 1.5x baseline at T+4wk) — додати `decision: escalate` + reason
+- Якщо item не індексується — додати `indexation: blocked, T+5wk`
+- Перемістити items у §9 Rejected / Archived якщо milestone остаточно failed
+
+**📊 Monitoring** (для metadata-edit items):
+- Оновити рядок: новий current snapshot, новий next check date
+- Поставити decision замість `monitoring`: `✅ keep` / `⚠️ iterate` / `❌ revert` / `🔄 re-index`
+
+Без цього кроку Natalia не побачить які published items потребують уваги.
 
 ## Принципи
 

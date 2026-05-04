@@ -11,7 +11,12 @@
 
 > Items додаються сюди з `розвідка` або вручну. Чекають approve від Natalia щоб піти в discovery.
 
-(порожньо)
+- ad-creative-automation
+  added: 2026-05-04
+  source: seo-analysis-2026-05-04
+  primary-keyword: ad creative automation
+  context: KD 0, vol 150, Traffic Potential 7,000/mo (Ahrefs). Zero Scalemate coverage. Direct product fit (creative uploader + automation rules). ICP: UA Manager testing 20+ creatives/week. Proposed angle: "launch, test, optimize creatives without manual work."
+  scorecard: item #23, score 64, bucket 🟡 Strategic Bet
 
 ---
 
