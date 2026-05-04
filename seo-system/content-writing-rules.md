@@ -11,7 +11,7 @@
 - **Writing agents** (`content-creator`, `copywriting`) — читають усі розділи перед початком роботи
 - **QA agents** (`content-ops`, `copy-editing`) — використовують розділ 10 (Review & QA) як чекліст
 - **Discovery agents** (`seo-ops`) — посилаються на розділи 2 і 3 при формуванні брифа
-- При створенні брифа — кожен бриф має рядок `Rules compliance: rules/content-writing.md sections [list]`
+- При створенні брифа — кожен бриф має рядок `Rules compliance: content-writing-rules.md sections [list]`
 
 ---
 
@@ -126,7 +126,7 @@ SOLUTION (ICP identity — "I am a ...")
    - ❌ Робити Scalemate hero з першого абзацу — спочатку empathy, потім рішення
 
 4. **Discovery agent обов'язково включає:**
-   - Reddit/community scan (Step 6.5 в agents/intelligence.md)
+   - Reddit/community scan (Step 6.5 в intelligence-agent.md)
    - Pain language extraction — точні фрази якими ICP описує проблему
    - Ці фрази потім використовуються в H1, intro, problem section
 
@@ -391,7 +391,6 @@ Related content (блог-пости по темі)
 > Ця секція — повний workflow для створення або зміни title + meta description на будь-якій сторінці.
 > **Правило:** жодна title/meta зміна не робиться "по інтуїції". Тільки через цю методику.
 
-<a id="title-meta-prework"></a>
 #### 4.1.1 Mandatory Pre-Work (ДО написання)
 
 **Без цих 5 кроків агент не має права починати писати:**
@@ -601,11 +600,10 @@ Natalia обирає одну пару (або модифікує).
 **Step 6 — Deploy**
 - Update article (title, meta, OG tags — sinchronno)
 - GSC → Request Indexing
-- Log у `workflow/scorecard.md` (date, before/after, expected impact)
+- Log у `prioritization-scorecard.md` (date, before/after, expected impact)
 
 ---
 
-<a id="post-publish-tracking"></a>
 #### 4.1.8 Post-Publish Tracking
 
 **Обов'язково після deploy:**
@@ -616,7 +614,7 @@ Natalia обирає одну пару (або модифікує).
    - Position (30-day avg)
    - Clicks (30-day total)
 
-2. **Tracking у `workflow/scorecard.md`:**
+2. **Tracking у `prioritization-scorecard.md`:**
    ```
    | URL | Change Date | Baseline CTR | Baseline Pos | T+2wk CTR | T+4wk CTR | Decision |
    ```
@@ -827,7 +825,6 @@ Google застосовує суворіші standards до такого кон�
 
 ---
 
-<a id="anti-ai-rules"></a>
 ## 6. Anti-AI Content Rules (КРИТИЧНО)
 
 > Поточний стан (Ahrefs AI content level): 6 Low / 3 Moderate / 0 High.
@@ -988,12 +985,9 @@ You are a senior content writer for Scalemate, an automation OS for scaling ad c
 
 [CONTEXT]
 Load these files as context:
-- seo-system/rules/content-writing.md (всі правила)
-- seo-system/rules/brand-guidelines.md (brand voice rules)
-- seo-system/rules/seo-copywriting.md (SEO copy patterns)
-- seo-system/context/icp/jtbd-messaging.md (JTBD + ICP + messaging map)
-- docs/brand-persona-framework.md (brand persona)
-- docs/content_framework.md (content framework)
+- content-writing-rules.md (всі правила)
+- scalemate content/JTBD + ICP + Messaging Map.md
+- scalemate content/brand communications/* (brand voice)
 
 [BRIEF]
 Topic: [від Discovery agent]
@@ -1008,7 +1002,7 @@ Must include:
 Existing content check: [UPDATE /page-url OR CREATE NEW]
 
 [CONSTRAINTS]
-- Follow rules/content-writing.md sections [list relevant ones]
+- Follow content-writing-rules.md sections [list relevant ones]
 - Section 6 (Anti-AI) is MANDATORY
 - Section 5 (LLM-Visibility) — include TL;DR, FAQ, structured data
 
@@ -1140,7 +1134,6 @@ Messaging angle: [Core message з 8.2]
 
 ---
 
-<a id="self-check-checklist"></a>
 ## 10. Review & QA Checklist
 
 > Цей чекліст виконує `content-ops` agent перед кожним approve. Стаття не публікується, поки всі boxes checked.
@@ -1206,7 +1199,7 @@ Messaging angle: [Core message з 8.2]
 ### 10.7 Brand Voice
 
 - [ ] Tone confident, pragmatic, operational (не corporate, не hype)
-- [ ] Відповідає Brand Persona Framework і `rules/brand-guidelines.md`
+- [ ] Відповідає Brand Persona Framework і brand-communication-content-guidelines
 - [ ] First person used appropriately (see 1.3)
 - [ ] No buzzwords / не trash-talk конкурентів
 - [ ] ICP language (media buyer / founder, залежно від angle)
@@ -1316,3 +1309,14 @@ Messaging angle: [Core message з 8.2]
 - **August 2023:** FAQPage rich results обмежені до health/gov sites. Для Scalemate — не з'являться.
 - **September 2023:** HowTo rich results повністю прибрані. Markup можна, але без очікування SERP-ефекту.
 - **2024:** додано **Scaled content abuse** як окрему spam-policy категорію. Масова генерація — новий red flag.
+
+---
+
+## Changelog
+
+- 2026-04-15 — перша версія документа. 10 розділів + 3 appendix'и. Заповнено розділи 1-2, 8-9 витяжкою з існуючих документів (Content Framework, JTBD+ICP, brand communications). Розділи 3, 4, 5, 6, 7, 10 написані з нуля. Критичний розділ 6 (Anti-AI) — основа на блекліст stock phrases + humanizer pass.
+- 2026-04-15 — Customer Quotes Library відкладено — матеріалу замало, клієнтів активно не опитували. Повернемось після 10-15 customer interviews. Поки що — тільки verified quotes з existing case studies.
+- 2026-04-15 — **Великий Google-compliance апдейт.** Додано: Appendix D (Google foundation + джерела), розділ 2.5 (Site-wide trust requirements з pricing transparency), розділ 4.5 (Spam Policies guardrails — 15 заборонених паттернів), розділ 4.6 (YMYL handling для ad spend/ROI теми), розділ 6.3 правило 7 (first-hand Experience marker) і правило 8 (AI disclosure). Оновлено: 4.1 (author byline + dateModified rules), 4.2 schema matrix (HowTo/FAQPage deprecation disclaimers), 10.2-10.3 QA (нові checks), 10.9 (15 Google self-assessment questions). Відкрита задача: прочитати повний SQRG PDF.
+- 2026-04-15 — **Розширено розділ 4.1 до повноцінної Title & Meta Writing Methodology.** 9 subsections: 4.1.1 Mandatory Pre-Work (read content + SERP + patterns + intent + angle), 4.1.2 Character Counts, 4.1.3 Brand Placement Rules (коли Scalemate у title, коли ні), 4.1.4 Mandatory Content Rules (honesty, reader benefit), 4.1.5 Power Elements (numbers, year, question, curiosity, audience, pain, comparison, credibility), 4.1.6 Banned Patterns (fabricated numbers, clickbait, attack, stuffing), 4.1.7 Selection Methodology (generate 5-6 → dropout → content-ops panel scoring 6 criteria × 5 балів → top 2-3 → Natalia approve), 4.1.8 Post-Publish Tracking (baseline → T+2wk → T+4wk decisions), 4.1.9 Author Bylines & Date Signals. **Привід:** спроба переписати title/meta для madgicx-review-alternative без методики призвела до fabricated "10 alternatives" (у статті насправді 3 tools). Тепер workflow обов'язковий.
+- 2026-04-15 — **Додано 3 нові banned patterns у 4.1.6** (промоція competitor'ів, B2B cliche "honest take inside", flat connector verbs) + **новий розділ 4.1.6.1 Allowed Competitor Mention Patterns** (neutral mention OK — "brief note on X", "X covered briefly"; active promotion banned — "where X fits best", "where X wins"). **Привід:** content-ops panel порекомендувала "where Birch fits best" у meta для madgicx статті — CTR-optimized, але активно steering traffic до competitor'a. Natalia flagged strategic misalignment. Тепер patterns explicit у правилах.
+- 2026-04-16 — **Додано 3 нові елементи щоб не повторити template-suffix помилку:** (1) 4.1.1 Step 6 "Template audit" — обов'язкова перевірка як title реально рендериться через template; (2) 4.1.3 блок про Scalemate-specific blog template + `absoluteTitle: true` flag; (3) новий розділ 4.1.10 "Pre-Deploy Verification" з curl-командами для перевірки title/meta/OG/Twitter/JSON-LD перед deploy. **Привід:** frontmatter title для madgicx статті був правильний ("Is There a Real Madgicx Alternative..."), але `app/blog/[slug]/page.jsx` template auto-append'ив "| Scalemate Blog" → порушення 4.1.3. Fixed code to support opt-out flag + updated rules.

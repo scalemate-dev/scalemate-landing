@@ -10,14 +10,14 @@
 
 ## Context files
 
-1. `seo-system/workflow/scorecard.md` — список deployed items з baseline метриками
-2. `seo-system/docs/architecture.md` — tracking milestones (T+7d, T+2wk, T+4wk)
+1. `seo-system/prioritization-scorecard.md` — список deployed items з baseline метриками
+2. `seo-system/seo-system-plan.md` — tracking milestones (T+7d, T+2wk, T+4wk)
 
 ## Workflow
 
 ### Step 1 — Зібрати deployed items
 
-Прочитати `workflow/scorecard.md` → знайти всі items зі статусом `deployed`.
+Прочитати `prioritization-scorecard.md` → знайти всі items зі статусом `deployed`.
 Для кожного записати: URL, deploy date, baseline CTR, baseline position, baseline impressions.
 
 ### Step 2 — GSC поточний стан
@@ -69,10 +69,7 @@ Week-over-week: total clicks, impressions, avg position trending up or down?
 
 ### Step 6 — Generate Review Report
 
-Зберегти review per topic у `seo-system/topics/[slug]/review.md` (по одному файлу на кожний deployed item що перевіряєш).
-Якщо хочеш загальний site-wide weekly огляд — зберегти у `seo-system/intelligence/YYYY-MM-DD-review.md`.
-
-Формат для topic review (`topics/[slug]/review.md`):
+Зберегти у `seo-system/review-reports/YYYY-MM-DD.md`:
 
 ```markdown
 # Review Report — YYYY-MM-DD
@@ -109,20 +106,10 @@ Week-over-week: total clicks, impressions, avg position trending up or down?
 
 ### Step 7 — Update Scorecard
 
-Оновити `workflow/scorecard.md`:
+Оновити `prioritization-scorecard.md`:
 - Додати tracking data до deployed items
 - Змінити статус якщо milestone decision прийнято
 - Перемістити completed/escalated items
-
-### Step 8 — Update pipeline.md (CRITICAL)
-
-Оновити `workflow/pipeline.md` секцію `8. Published`:
-- Додати tracking metrics до кожного reviewed item: `position-current`, `ctr-current`, `imp-day` поряд з URL
-- Якщо item failed milestone (CTR < 1.5x baseline at T+4wk) — додати `decision: escalate` + reason
-- Якщо item не індексується — додати `indexation: blocked, T+5wk`
-- Перемістити items в `9. Rejected / Archived` якщо milestone остаточно failed
-
-Без цього кроку Natalia не побачить які published items потребують уваги.
 
 ## Принципи
 

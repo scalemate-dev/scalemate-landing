@@ -62,7 +62,7 @@ Data:
 **Що означає "прикладний":**
 - Реальні приклади з цифрами (не "збільшує конверсію", а "збільшує на 23%, дані з X")
 - Конкретні кроки / screenshots / configs / code snippets / templates
-- Реальні use cases від клієнтів (Appflame, Promin, інші) — використовувати з `context/icp/customer-*.md`
+- Реальні use cases від клієнтів (Appflame, Promin, інші) — використовувати з `scalemate content/Customer — *.md`
 - Структуровані how-to з чіткими inputs → process → outputs
 - FAQ з реальними питаннями (не "чи добре це?", а ті, які дійсно питає ICP)
 
@@ -208,37 +208,32 @@ Trends — **перше джерело ідей**, не останнє слов�
 | `copywriting` + `copy-editing` | Заголовки, meta, Seven Sweeps редактура |
 | `conversion-ops` | Оптимізація конверсії landing-сторінок |
 
-### Робочі артефакти (всі в repo)
+### Робочі артефакти (в `/Users/nataliabondar/claude-work/`)
 
-**`seo-system/rules/` — стандарти всіх агентів:**
-- `content-writing.md` — головні правила написання контенту
-- `brand-guidelines.md` — brand voice, tone, communication rules
-- `seo-copywriting.md` — SEO copy patterns, headlines, structure
+**`scalemate content/` — уже є багато готових інпутів для системи:**
+- `Content Framework + SEO пріоритети + Ключові слова + Промпт.md` — готовий контент-фреймворк і seed keywords
+- `JTBD + ICP + Messaging Map.md` — ICP, jobs-to-be-done, messaging (критично для визначення інтенту)
+- `SEO-Copywriting.md` — guidelines під SEO-копірайтинг
+- `seo-query-optimization.md` — оптимізація запитів
+- `Мануал_Структуризація тексту_Copywriting Dep.md` — структура тексту
+- `scalemate_product_analysis.md` — аналіз продукту
+- `scalemate_use_cases_sitemap.md` — мапа use cases (основа для programmatic SEO)
+- `brand communications/` — **основний source-of-truth для бренд-голосу і контент-стратегії**:
+  - `Brand Guidlines.pdf` — офіційні бренд-гайдлайни
+  - `ICP_.pdf` — ідеальний клієнтський профіль
+  - `Scalemate_Brand_Persona_Framework.pdf` — персона/голос бренду
+  - `Scalemate_Content_Matrix.pdf` — контент-матриця (топіки × формати × стадії воронки)
+  - `brand-communication-content-guidelines.md` — практичні правила комунікацій
+  - `content-seo-strategy.md` — **уже існуюча SEO-контент стратегія** (обов'язково прочитати і врахувати, не переписувати з нуля)
+  - `audit-document.md` — аудит
+  - Усі ці файли мають feed-итися як context у content-creator, copywriting, content-ops, seo-ops скіли
+- `page-speed_technical-seo-tasks-for-dev.md` — вже наявний список технічних задач для dev
+- `Customer — KitUp.md`, `Customer — ZeptoLab.md` — кейси клієнтів (для соціальних доказів в статтях)
+- `features/`, `use cases/`, `solutions/`, `funnels/`, `main page/`, `linkedin posts/`, `outreach/` — структурований контент по напрямках
 
-**`seo-system/context/` — reference data:**
-- `project-state.md` — deployed items, learnings, blocked
-- `icp/jtbd-messaging.md` — JTBD framework + ICP + messaging map
-- `icp/customer-kitup.md`, `icp/customer-zeptolab.md` — кейси клієнтів (для соціальних доказів в статтях)
+**`scalemate-landing/`** — продуктовий лендинг (brand voice reference, джерело внутрішніх лінків)
 
-**`docs/` (root проєкту) — продуктові і brand документи:**
-- `brand-persona-framework.md` — brand persona, tone of voice
-- `content_framework.md` — контент-фреймворк (JTBD + performance positioning)
-- `blog-articles.md` — формат і правила blog статей
-- `facebook-attribution-and-capi.md` — продуктовий контекст по attribution
-
-**`app/` — продуктовий лендинг (single source of truth для product info):**
-- `app/use-cases/_data/` + `app/use-cases/[slug]/` — всі use cases (мапа для programmatic SEO)
-- `app/customers/[slug]/` — case studies клієнтів (живі продуктові сторінки)
-- `app/features/{automation-rules, bulk-launch}/` — feature pages
-- `app/solutions/media-buyers/` — solutions pages
-- `app/pricing/`, `app/pricing-v2/` — pricing
-- `content/blog/` — existing blog статті (для anti-cannibalization checks)
-
-**`seo-system/skills/` — Python tools:**
-- `seo-ops/` — `gsc_client.py`, `trend_scout.py`, `content_attack_brief.py`
-- `content-creator/`, `content-ops/`, `copywriting/`, `copy-editing/`, `seo-audit/` — Skill packs (промпти + scripts)
-
-> **Важливо:** всі три ядра (brand voice / JTBD+ICP / content framework) треба підключити як `context files` для content-creator, copywriting, content-ops скілів — щоб не винаходити заново і не дрейфувати від бренд-тону. Усі файли — в repo, нічого external.
+> **Важливо:** всі три ядра (brand voice / JTBD+ICP / content framework) треба підключити як `context files` для content-creator, copywriting, content-ops скілів — щоб не винаходити заново і не дрейфувати від бренд-тону.
 
 ---
 
@@ -344,7 +339,7 @@ Score = (Traffic × ICP × Business × Confidence) / Effort × Urgency
 
 #### Де живе беклог
 
-**Файл:** `seo-system/workflow/scorecard.md`
+**Файл:** `seo-system/prioritization-scorecard.md`
 
 Intelligence-agent щотижня оновлює цей файл — додає нові items, перераховує scores, перетегує buckets. Це живий backlog.
 
@@ -454,7 +449,7 @@ Alternative if no time:
 
 **🔹 Checkpoint 4 — Final Publish Approval (перед деплоєм)**
 
-Агент завершив повний draft, пройшов content-ops score ≥ 90, humanizer pass, всі QA checks (розділ 10 `rules/content-writing.md`).
+Агент завершив повний draft, пройшов content-ops score ≥ 90, humanizer pass, всі QA checks (розділ 10 `content-writing-rules.md`).
 
 Перед публікацією — фінальний read from Natalia.
 
@@ -653,7 +648,7 @@ Discovery видає **одну чергу брифів**, але production м�
 - **Мін. 40% unique content** на сторінці (screenshots, client names, specific data, кейси).
 - Near-duplicates — **merge у одну сторінку**, не publish обидві.
 - Якщо не можемо дати unique value на шаблонній сторінці — **не публікуємо**.
-- Детально — див. `rules/content-writing.md` розділ 4.5 (Spam Policies guardrails).
+- Детально — див. `content-writing-rules.md` розділ 4.5 (Spam Policies guardrails).
 
 **Для Scalemate гіпотеза:** сильний кандидат — у вас є use cases × industries × tools. Можна масштабувати на сотні сторінок, які кожна ловить 10-100 кліків/міс. **Але** — з guards вище, інакше ризик penalty.
 
@@ -724,12 +719,13 @@ Discovery видає **одну чергу брифів**, але production м�
 
 1. ✅ Відповісти на відкриті питання (секція 1) — зроблено
 2. **Прочитати існуючі стратегічні документи** (щоб не винаходити заново):
-   - [seo-system/rules/brand-guidelines.md](../rules/brand-guidelines.md) — brand voice
-   - [seo-system/rules/seo-copywriting.md](../rules/seo-copywriting.md) — SEO copy patterns
-   - [seo-system/rules/content-writing.md](../rules/content-writing.md) — content rules
-   - [seo-system/context/icp/jtbd-messaging.md](../context/icp/jtbd-messaging.md) — JTBD + ICP + messaging
-   - [docs/brand-persona-framework.md](../../docs/brand-persona-framework.md) — brand persona
-   - [docs/content_framework.md](../../docs/content_framework.md) — content framework
+   - `scalemate content/brand communications/content-seo-strategy.md`
+   - `scalemate content/brand communications/Brand Guidlines.pdf`
+   - `scalemate content/brand communications/ICP_.pdf`
+   - `scalemate content/brand communications/Scalemate_Brand_Persona_Framework.pdf`
+   - `scalemate content/brand communications/Scalemate_Content_Matrix.pdf`
+   - `scalemate content/JTBD + ICP + Messaging Map.md`
+   - `scalemate content/Content Framework + SEO пріоритети + Ключові слова + Промпт.md`
 3. Запустити **діагностику поточного стану** (1-2 години):
    - Прогнати сайт через Ahrefs + GSC
    - Які ключі вже ранжуються, де striking distance
@@ -742,3 +738,24 @@ Discovery видає **одну чергу брифів**, але production м�
 
 ---
 
+## 7. Changelog
+
+- 2026-04-15 — перша версія документу, зафіксовано напрям з 3 шарів і розширеною Discovery-фазою
+- 2026-04-15 — додано відповіді на вхідні питання (конкуренти, geo, стек, блог на проді); розписано модулі секції 5 (programmatic SEO, internal linking, refresh, LLM-visibility) + рекомендований пріоритет
+- 2026-04-15 — детально зафіксовано наявні активи в `scalemate content/` (JTBD+ICP, brand communications, content framework, SEO-copywriting, use cases sitemap, customer cases) як обов'язкові context-файли для content/copywriting скілів
+- 2026-04-15 — розширено scope системи: не тільки блог, а 4 типи контенту (блог / продуктові сторінки / case studies / landing-solution-use-case). Зафіксовано 4 production-треки. Відмічено план на 2 нові case studies по `rules` feature (Appflame, Promin Agency)
+- 2026-04-15 — scope розширено до 7 типів контенту: додано comparison pages (Scalemate vs X), hub/pillar pages, resources/templates. Додано треки E/F/G у Production
+- 2026-04-15 — додано секцію "Принципи системи": (1) data-first — жодних гіпотез без Ahrefs/GSC/SERP даних, (2) quality & practical — тільки прикладний контент, score ≥90 від content-ops, без AI-fluff
+- 2026-04-15 — підключено SerpAPI hosted MCP (Google Trends + live SERP + AI Overviews + News). Free tier 250/міс. Backup конфіга у `~/.claude.json.bak`
+- 2026-04-15 — зафіксовано роль SerpAPI Trends як **генератора нових ідей/тем** (rising/breakout/related/trending/autocomplete), а не тільки перевірки напрямку. 4 точки виклику: discovery нових тем, breakout hunting, trend direction, seasonality. Валідація обсягу — завжди через Ahrefs після Trends
+- 2026-04-15 — розширено Шар 1 (Intelligence): додано Google Trends і trend_scout як джерела, додано Brand Radar. Бриф має 5 секцій: Breakout opportunities / Striking distance / Competitor threats / AI visibility gaps / Technical issues
+- 2026-04-15 — змінено default джерело GSC: **напряму через `seo-ops/gsc_client.py`** (безкоштовно, сирі дані, без Ahrefs quota). Ahrefs GSC-endpoints залишаються як fallback для швидкого enrichment volume/KD
+- 2026-04-15 — виправлено `gsc_client.py`: автопідхоплення `client_secret.json` з папки скіла + підтримка стандартного Google-формату (`installed`/`web` wrapper). Перевірено: `sc-domain:scalemate.co` з `siteFullUser` правами, перші дані — striking distance по 3 запитах
+- 2026-04-15 — додано принцип №3 "Existing-first": перед пропозицією нового контенту обов'язкова перевірка існуючих сторінок (anti-cannibalization, захист накопиченої authority). Апдейт існуючого майже завжди кращий за нову сторінку. Chekliст з 4 кроків, формат "Existing content check" у кожному брифі
+- 2026-04-15 — **розширено MVP**: додано LLM-visibility/Brand Radar (Ahrefs уже підключений, нуль додаткових витрат) і **Internal linking rules** (не окремий агент, а правила для content-creator + перевірка в content-ops — 3-7 internal links на статтю, крос-лінки з релевантних старих статей, hub-like лінкінг на продуктові сторінки). Окремий Internal Linking Agent залишається на +2-3 міс як потужніша версія
+- 2026-04-15 — прочитано всі стратегічні документи Scalemate, зроблено критичний конспект: сильна legacy база (JTBD 4 групи A-D, cluster arch Feature→Use Case→Solution, tone, seed keywords). Викидаємо: perplexity-хак, абсолютне правило першої особи, жорсткий word count. Прогалини: comparison/case study/hub шаблони, LLM-visibility, schema, meta, internal linking map
+- 2026-04-15 — зафіксовано **розділ "Anti-AI Content Rules"** як окрему секцію майбутнього `content-writing-rules.md`. Привід: Ahrefs показує 3 сторінки Moderate AI level. Правила: конкретика замість generic, ≥3 факти/1000 слів, варіативна довжина речень, POV injection, customer language, 20+ stock phrases blacklist, humanizer pass перед публікацією. KPI: 100% Low AI level
+- 2026-04-15 — **HANDOFF для нового чату** зафіксовано на початку файлу. Наступний чат стартує зі створення `content-writing-rules.md`
+- 2026-04-15 — створено `content-writing-rules.md` і внесено великий Google-compliance апдейт (Appendix D з джерелами, 2.5 Site-wide trust, 4.5 Spam Policies, 4.6 YMYL, 6.3 first-hand Experience + AI disclosure, 10.9 Helpful Content 15-Q checklist). Додано Programmatic SEO guard у розділі 5.1 цього плану проти Scaled Content Abuse policy (Google 2024)
+- 2026-04-15 — додано **Шар 1.5 Prioritization Methodology** (SEO Priority Score формула з 7 факторів + 5 buckets) і **Шар 1.7 Human-in-the-Loop Approval Checkpoints** (4 обов'язкові checkpoints: Weekly priorities / Content structure / Input requests / Final publish + escalation rules). Створено `prioritization-scorecard.md` як живий беклог
+- 2026-04-15 — зафіксовано розподіл ролей інструментів (Ahrefs = волюм/KD; SerpAPI Trends = напрямок/breakout/сезонність; trend_scout = broad firehose). Валідація ключа завжди через Ahrefs, не Trends. Trends викликаємо лише в 3 точках: breakout discovery, trend direction check, seasonality
