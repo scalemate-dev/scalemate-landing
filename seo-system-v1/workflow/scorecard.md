@@ -141,6 +141,7 @@
 | Item | Deployed | Baseline | Current (2026-04-27) | Next check | Notes |
 |---|---|---|---|---|---|
 | Madgicx article title/meta | 2026-04-16 | CTR 0.05%, pos 7.9 | 2551 imp, 3 clicks, 0.1% CTR, pos 9.7 | 2026-04-30 (T+2wk) | CTR low, pos stable |
+| `/blog/madgicx-review-alternative` title+meta v2 | 2026-04-30 | (filled by next review run) | (filled by next review run) | 2026-05-14 (T+2wk) | Detected by `detect-metadata-changes.py`. Title: "Madgicx Review 2026..." → "Is There a Real Madgicx Alternative for TikTok + Meta?". Meta also rewritten. Commits 6d3141e, 9a9bfe5. Cooldown until 2026-05-28 — no further title/meta proposals before then. |
 | `facebook-ads-automation` indexation | 2026-03-27 | Not indexed | 🚨 **Still not indexed** (Discovered - not crawled) | 2026-05-04 | Re-submit + share externally |
 | `facebook-automated-rules` indexation | 2026-04-06 | Not indexed | 🚨 **Still not indexed** (Discovered - not crawled) | 2026-05-04 | Re-submit + share externally |
 | `/ad-creative-uploader` title/meta | 2026-04-20 | 96 imp, 1 click, pos 8.9 | ✅ **240 imp, 6 clicks, pos 12.8** (+150% imp, +500% clicks) | 2026-05-04 | Title fix working! |

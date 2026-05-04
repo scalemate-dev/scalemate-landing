@@ -33,8 +33,24 @@ seo-system-v1/
     review/YYYY-MM-DD.md         Weekly review snapshots
     trends/flash-trends-*.md trend_scout dumps
   scripts/
-    codespace-autorun.sh     Headless agent launch for `seo/<slug>` branches
+    codespace-autorun.sh             Headless agent launch for `seo/<slug>` branches
+    detect-metadata-changes.py       Scan git history for title/meta edits, fetch GSC
+                                     baseline + current, emit Markdown rows for
+                                     scorecard.md `📊 Monitoring` section
 ```
+
+### Detecting title / meta edits
+
+`scripts/detect-metadata-changes.py` is a manual command — run before a weekly seo-analysis or review when you suspect title/meta edits weren't logged:
+
+```
+python3 seo-system-v1/scripts/detect-metadata-changes.py --days 30
+python3 seo-system-v1/scripts/detect-metadata-changes.py --no-gsc   # git diff only, skip GSC
+```
+
+Parses `git log` for commits touching `app/**/page.{jsx,tsx}`, `app/**/layout.{jsx,tsx}`, `content/blog/*.md`. Filters out new files (those are content launches → `pipeline.md § 8`) and dev routes. For each detected edit, fetches GSC baseline (-30d to deploy_date) and current (deploy_date → today) via `.claude/skills/seo-ops/gsc_client.py`. Outputs ready-to-paste Markdown rows — paste into `scorecard.md` `📊 Monitoring` section, updating existing rows or appending new ones.
+
+Without this, agents have no way to see what title/meta edits already shipped → they re-suggest the same fix. The cooldown rule lives in `agents/seo-analysis/11-brief-output.md` § 11d.
 
 ## Soft-deps (legacy, lives in `seo-system/`)
 

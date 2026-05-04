@@ -13,7 +13,8 @@
       "Bash(gh codespace:*)",
       "Bash(bash scripts/seo-status.sh)",
       "Bash(mkdir -p /Users/ruslan/Developer/scalemate/scalemate-landing/.claude/skills)",
-      "Bash(cp -R /Users/ruslan/Developer/scalemate/scalemate-landing/seo-system/skills/seo-ops /Users/ruslan/Developer/scalemate/scalemate-landing/.claude/skills/)"
+      "Bash(cp -R /Users/ruslan/Developer/scalemate/scalemate-landing/seo-system/skills/seo-ops /Users/ruslan/Developer/scalemate/scalemate-landing/.claude/skills/)",
+      "Bash(chmod +x seo-system-v1/scripts/detect-metadata-changes.py)"
     ],
     "additionalDirectories": [
       "/Users/ruslan/Developer/scalemate/scalemate-landing/.claude"

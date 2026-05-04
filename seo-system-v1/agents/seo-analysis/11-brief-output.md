@@ -82,6 +82,16 @@
 
 Без цього кроку pipeline залишається порожнім і вся розвідка нікуди не йде — discovery agent (наступний у конвеєрі) не знає що читати.
 
+## 11d. Cooldown guard for title/meta proposals (CRITICAL)
+
+Перед тим як додати у `📊 Top 5 Priorities` будь-який item типу "title fix", "meta rewrite", "rewrite title+meta", "CTR fix через title" — звірити URL з `📊 Monitoring` секцією [`workflow/scorecard.md`](../../workflow/scorecard.md):
+
+- Якщо URL уже є в Monitoring і `Deployed` дата < 28 днів від сьогодні → **НЕ пропонувати повторну title/meta правку**. Замість цього — перенести у `Deferred Items` з причиною `cooldown — last edit YYYY-MM-DD, T+4wk milestone YYYY-MM-DD`.
+- Якщо `Deployed` ≥ 28 днів і метрики не показують lift (current CTR < 1.5x baseline) → пропозиція дозволена, але мусить зсилатись на minimum один новий signal (нова striking distance query, новий SERP pattern зі Step 7) — інакше це повторення тієї ж гіпотези.
+- Якщо URL ще не у Monitoring — `seo-system-v1/scripts/detect-metadata-changes.py` міг не запускатись після останнього deploy. Запустити вручну (`python3 seo-system-v1/scripts/detect-metadata-changes.py --no-gsc`) і повернутись до перевірки.
+
+**Чому:** title/meta правка індексується + проявляється в GSC за 14-28 днів. Пропозиція "знову переписати" до того = спалювання budget'у і втрачений сигнал чи попередня версія взагалі рухала метрики.
+
 ---
 
 ## Done criteria
@@ -89,4 +99,5 @@
 - ✅ Brief file створено у `output/seo-analysis/YYYY-MM-DD.md`
 - ✅ Scorecard оновлено
 - ✅ `pipeline.md` секція `1. New` має нові candidate topics
+- ✅ Cooldown guard (11d) застосовано — жодна title/meta пропозиція не дублює правку < 28d давності
 - ✅ Natalia отримує нотифікацію для review
