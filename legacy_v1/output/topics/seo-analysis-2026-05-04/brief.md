@@ -49,17 +49,24 @@ Top pages by impression (28d):
 
 | Page | Top Query | Pos | Imp | Clicks | CTR | Cooldown | Action |
 |---|---|---|---|---|---|---|---|
-| `/use-cases/ad-campaign-automation-rules` | automation rules | 8.4 | 239 | 0 | **0%** | None ✅ | 🟢 Title/meta fix — Priority 2 |
-| `/blog/best-ad-testing-tools` | ad testing software | 16.9 | 3,045 | 0 | **0%** | Until 2026-05-18 | Content enrichment now; title fix 2026-05-18 |
+| `/use-cases/ad-campaign-automation-rules` | automation rules | 8.4 | 239 | 0 | **0%** | Until 2026-05-27 ⚠️ | Wait — title/meta already rewritten 2026-04-29 (PR #39). Re-evaluate 2026-05-13 (14d post-deploy) |
+| `/blog/best-ad-testing-tools` | ad testing software | 16.9 | 3,045 | 0 | **0%** | Until 2026-05-18 | Skip title fix (pos too low). Minor FAQ edit only. Real lever = ranking position |
 | `/blog/best-mcp-servers` | best mcp servers | 10.1 | 2,421 | 13 | 0.5% | Until 2026-05-18 | Monitor — steady progress |
 | `/blog/madgicx-review-alternative` | madgicx alternative | 9.7 | 2,551 | 3 | 0.1% | Until 2026-05-28 | Monitor — cooldown in effect |
 
-**Key finding:** `/use-cases/ad-campaign-automation-rules` has been deferred since 2026-04-20 waiting for blog article indexation. Both blog articles confirmed still not indexed. Deferral no longer justified — CTR fix is independent of indexation. This is the top quick win this cycle.
+**Key finding (UPDATED 2026-05-04 post-review):** `/use-cases/ad-campaign-automation-rules` title/meta was **already rewritten on 2026-04-29** (PR #39, commit `0c3d863` / `4fba9d9`) — the cooldown guard missed it because the change wasn't in `detect-metadata-changes.py` monitoring file. GSC 28d window (2026-04-06 → 2026-05-04) is mostly pre-rewrite, so 0% CTR doesn't reflect the new snippet yet. **No action this cycle. Re-evaluate 2026-05-13 (14d post-deploy) to see if new title is moving CTR.**
+
+**2026-04-29 rewrite (commit `4fba9d9`):**
+- Title: `Ad Automation Rules: Auto-Pause by ROAS & Scale | Scalemate` → `Facebook Ad Automation Rules: Pause Losers, Scale Winners`
+- Meta: `Set rules to auto-pause losers by ROAS, scale winners, and roll back if performance drops. Runs 24/7 on Meta and TikTok. No manual checks needed.` → `Facebook ad automation rules — pause low-ROAS ads, scale winners, protect daily budget. Runs 24/7 on Meta and TikTok. Stop checking your dashboard.`
+- Rationale: added "Facebook" (vol 150), brand removed from title (60% top SERP omits brand), "Pause Losers, Scale Winners" = ICP media-buyer voice unused by competitors, "rollback" → "protect daily budget" (clearer for cold scanner).
 
 **Cooldown guard (ran `detect-metadata-changes.py --no-gsc` 2026-05-04):**
-- `/use-cases/ad-campaign-automation-rules` — NOT in monitoring file → no recent title/meta change → **title/meta fix ALLOWED**
+- `/use-cases/ad-campaign-automation-rules` — guard returned NOT in monitoring file → **FALSE NEGATIVE** (commit `4fba9d9` on 2026-04-29 not picked up). Real cooldown: until 2026-05-27.
 - All 2026-04-20 deploys → cooldown until 2026-05-18
 - Madgicx v2 (2026-04-30) → cooldown until 2026-05-28
+
+**Process gap to fix:** `detect-metadata-changes.py` missed the 2026-04-29 PR #39 title/meta change. Investigate why before next cycle (likely: file added to monitoring after PR merge, or grep pattern doesn't match this file structure).
 
 ---
 
@@ -99,28 +106,27 @@ Top pages by impression (28d):
 
 ## 5. Competitor Threats
 
-### Bir.ch (DR ~25 — same tier as Scalemate)
+> ⚠️ **SECTION INVALIDATED — 2026-05-04 post-review.** All DR values, top pages, and ranking positions in the original brief were unverifiable / likely hallucinated by the agent. Do NOT use this section for decisions. See Section 13 (Data Gaps) for process fix.
 
-Bir.ch outranks Scalemate for core terms while our articles sit non-indexed:
+### What was wrong in the auto-generated version
 
-| Query | Bir.ch | Scalemate |
-|---|---|---|
-| "how to automate facebook ads rules" | pos ~4 (`bir.ch/blog/facebook-ads-automation`) | ❌ Not indexed |
-| "facebook ads automation guide" | pos ~8 | ❌ Not indexed |
+1. **DR values fabricated.** "Bir.ch DR ~25", "Madgicx DR 60+" — no Ahrefs query was logged or persisted. Agent appears to have estimated rather than fetched.
+2. **Top pages / ranking positions unverified.** "Bir.ch pos ~4 for X", "Madgicx 6+ comparison articles" — no SerpAPI or Ahrefs run captured. Cannot reproduce.
+3. **Competitor universe artificially narrow.** Agent spec (`07-competitor-gap.md`) hard-codes only 3 targets: madgicx.com, bir.ch, admanage.ai. The actual organic-competitor list (via `mcp__ahrefs__site-explorer-organic-competitors` for scalemate.co) was never pulled. We're missing every other competitor that ranks against us.
 
-**Threat level: HIGH.** A same-DR competitor is ranking for our core terms while our content is invisible. Every week of non-indexation = backlinks and engagement going to bir.ch.
+### What to do instead this cycle
 
-### Madgicx (DR 60+)
+- Treat Section 5 as **null** for prioritization purposes.
+- Indexation crisis (Section 7 / P1) and product/content opportunities (P4) stand independent of competitor data — those decisions are unaffected.
 
-- Top pages: review/comparison articles, automation workflow guides, integration pages
-- 6+ comparison articles targeting "[tool] vs Madgicx" format
-- Not an immediate threat for our target keywords (DR gap too large)
-- Watch for: "madgicx alternative" queries where we have existing content
+### Required for next cycle (process fix)
 
-### admanage.ai
+Before next weekly run, agent spec must be amended:
 
-- Limited organic presence (DR too low)
-- Paid search dominant — not an organic threat this cycle
+1. **Discover competitors, don't hard-code.** Replace static list in `07-competitor-gap.md` with a `site-explorer-organic-competitors target=scalemate.co limit=15` call as Step 7.0. Use returned domains as input to 7a/7b/7c.
+2. **Persist raw Ahrefs JSON.** Every Ahrefs MCP response in steps 7a/7b/7c must be saved to `output/topics/<slug>/_raw/ahrefs-<endpoint>-<target>.json`. Without this, claims like "DR 25" can't be audited.
+3. **Fail-loud on missing data.** If an MCP call returns error or empty, the agent must note it explicitly in the brief (e.g. "❌ Ahrefs DR fetch failed — value unknown") rather than fall back to estimate. Banned: any DR / position / traffic figure that wasn't pulled this cycle.
+4. **Cite source per number.** Every metric in Section 5 must have an inline source tag like `(Ahrefs site-explorer-domain-rating, 2026-05-04)` so the next reviewer can re-run the exact query.
 
 ---
 
@@ -236,45 +242,50 @@ Two articles stuck "Discovered – not crawled" for 4–6 weeks. Competitor bir.
 
 ---
 
-### 🟢 PRIORITY 2 — Title/Meta Fix: `/use-cases/ad-campaign-automation-rules`
-**Score: 563 | Effort: 2h | Cooldown: None ✅ | Owner: copywriting agent**
+### ⚠️ PRIORITY 2 — REVOKED: `/use-cases/ad-campaign-automation-rules` already rewritten 2026-04-29
+**Status: BLOCKED by cooldown until 2026-05-27 | No action this cycle**
 
-Pos 8.4, 239 imp/28d, 0 clicks. Page-1 position with zero CTR = pure title/meta problem.
+Original brief flagged this as the top quick win (score 563, "cooldown: None"). **Post-review check found title/meta were already rewritten on 2026-04-29** (PR #39, commit `4fba9d9`). The cooldown guard returned a false negative — `detect-metadata-changes.py` did not pick up this change.
 
-**Proposed title:**
-```
-Automate Your Facebook & TikTok Ad Rules — No Code | Scalemate
-```
+**Current title/meta (live since 2026-04-29):**
+- Title: `Facebook Ad Automation Rules: Pause Losers, Scale Winners`
+- Meta: `Facebook ad automation rules — pause low-ROAS ads, scale winners, protect daily budget. Runs 24/7 on Meta and TikTok. Stop checking your dashboard.`
 
-**Proposed meta:**
-```
-Set automation rules for Meta, TikTok, and Google Ads. Pause low performers, scale winners, protect your budget — automatically. Free to start.
-```
+**GSC data caveat:** the 28d window (2026-04-06 → 2026-05-04) is dominated by the OLD title — 0% CTR is mostly pre-change. Need 14d post-deploy to evaluate the new snippet.
 
-**Action:** Assign to copywriting agent. Apply title + meta. Deploy. Record baseline in scorecard monitoring. Next check: 2026-05-11.
+**Action:** Skip this cycle. Re-evaluate 2026-05-13 with fresh GSC data. If CTR still 0% after 14d on the new snippet → escalate to a second rewrite or content-level fix.
+
+**Process fix:** Investigate why `detect-metadata-changes.py` missed PR #39 — pattern, file path, or post-merge ingestion bug. Fix before next weekly run to prevent the same false-positive priority next cycle.
 
 ---
 
-### 🟢 PRIORITY 3 — Content Enrichment: `/blog/best-ad-testing-tools`
-**Score: 252 | Effort: 3h | Title cooldown until 2026-05-18 | Owner: copywriting agent**
+### 🟢 PRIORITY 3 — Content Enrichment: `/blog/best-ad-testing-tools` (NO title fix)
+**Score: ~150 (revised down) | Effort: 1.5h | Owner: copywriting agent**
 
-3,045 imp/28d, 0 clicks, pos 16.9. Title fix blocked (deployed 2026-04-20). Body/H2 enrichment is allowed now.
+3,045 imp/28d, 0 clicks, pos 16.9. **Position is the problem, not the title.** At pos 16.9 (page 2) the page barely gets seen — title rewrites move CTR, but CTR can't help when the page isn't ranking. Focus this cycle on lifting ranking position, NOT on title.
 
-**Target keywords to add to H2s + body:**
-- "ad testing software" (250 vol, KD 8) — add to H2 + intro paragraph
-- "ad performance testing tool" (long-tail) — add to body
-- "creative performance testing" (50 vol, KD 2) — add to FAQ
+**Existing coverage check (post-review 2026-05-04):**
+- Live title already contains "Software": `10 Best Ad Testing Tools & Software (2026 Comparison)` — proposed rewrite is marginal reordering.
+- Body already covers `ad testing software` (lines 161, 197) and `multivariate` (Marpipe block at line 150–154, comparison table line 180).
+- FAQ already exists with 6 questions covering "ad testing tools", free options, scale, automation, fastest launch.
 
-**Add FAQ section:**
-- "What is ad testing software?" — answer: 2–3 sentences, include "ad testing software" 2×
-- "What's the difference between A/B testing and multivariate ad testing?" — unique, hard to copy
+**What to actually add (low effort, real gaps):**
 
-**Title fix plan (for 2026-05-18 after cooldown):**
-```
-10 Best Ad Testing Software Tools for 2026 (Free & Paid)
-```
+1. **FAQ #1 rewrite:** `"What are ad testing tools?"` → `"What are ad testing tools and software?"` — single-word edit, captures both phrases in one Q.
+2. **New FAQ:** `"What's the difference between A/B testing and multivariate ad testing?"` — unique angle (multivariate already in body via Marpipe, so it's contextually consistent). Hard to copy from competitors.
+3. *(Optional)* sprinkle "creative performance testing" once in an existing H2 or FAQ answer — minor KD 2 long-tail, no structural change.
 
-**Action:** Assign to copywriting agent. Enrich H2s + body. No title change now. Schedule title fix for 2026-05-18.
+**Do NOT:**
+- Rewrite the title now or after cooldown — pos 16.9 means title CTR is irrelevant. Title fix is a CTR lever; we need a ranking lever first.
+- Add a new tool-block on multivariate (Marpipe already covers).
+- Restructure H2s — they're fine.
+
+**Real ranking levers (defer to future cycles):**
+- Internal link refresh from higher-authority pages → `/blog/best-ad-testing-tools`
+- Backlink push (LinkedIn share, shoulder content)
+- Wait for indexation/authority lift on the broader cluster (2 stuck articles being unblocked = upstream link equity)
+
+**Action:** Assign FAQ edits (15min) to copywriting agent. Skip title fix entirely. Re-evaluate ranking position 2026-06-01 (28d window).
 
 ---
 
@@ -330,6 +341,8 @@ Brief complete (2026-04-28). 1,000+ vol cluster, KD 0–8. Pain-validated. In pi
 
 | Gap | Impact | Fix |
 |---|---|---|
+| 🔴 Section 5 (Competitors) data fabricated | Cannot use for prioritization — DR / pos / top pages unverifiable | Rewrite agent step `07-competitor-gap.md`: discover via `organic-competitors` API, persist raw JSON, fail-loud on errors, cite source per metric |
+| `detect-metadata-changes.py` false negative | Caused incorrect "cooldown: None" on `/use-cases/ad-campaign-automation-rules` (PR #39 missed) — could mislead future cycles | Audit the script's file-detection pattern + ingestion timing post-merge before next run |
 | Reddit API blocked (403) | Pain discovery incomplete — using prior validated pains | Try different UA or wait for unblock |
 | Brand Radar API error | AI share of voice unknown | Try `data_source: "web"` next cycle |
 | GSC direct API access | Still using Bash workaround via `gsc_client.py` | Low priority — workaround functional |
