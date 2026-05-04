@@ -88,7 +88,48 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
 >   - decision: [✅ keep / ⚠️ iterate / ❌ escalate]
 > ```
 
-- _empty (бекфіл зробимо разом)_
+- [https://www.scalemate.co/blog/adcreative-ai-alternative](https://www.scalemate.co/blog/adcreative-ai-alternative) — adcreative-ai-alternative
+  - deployed: 2026-04-07
+  - artifact: content/blog/adcreative-ai-alternative.md
+  - position-current: 10.7, ctr-current: 0.20%, imp-day: ~18 (497 imp / 27d)
+  - milestone: T+4wk (2026-05-05)
+  - decision: ⚠️ iterate — 27d at pos 10.7, 497 imp, тільки 1 click; CTR 0.20% під низом для page 1. Title/snippet потребують rework
+- [https://www.scalemate.co/blog/best-ad-testing-tools](https://www.scalemate.co/blog/best-ad-testing-tools) — best-ad-testing-tools
+  - deployed: 2026-04-07
+  - artifact: content/blog/best-ad-testing-tools.md
+  - position-current: 16.9, ctr-current: 0.0%, imp-day: ~113 (3045 imp / 27d)
+  - milestone: T+4wk (2026-05-05)
+  - decision: ⚠️ iterate — title уже правлений 2026-04-20 (див. 📊 Monitoring); position просіла з 5.8 → 19.5 після правки; чекаємо T+4wk monitoring rev
+- [https://www.scalemate.co/blog/what-is-ad-fatigue](https://www.scalemate.co/blog/what-is-ad-fatigue) — what-is-ad-fatigue
+  - deployed: 2026-04-07
+  - artifact: content/blog/what-is-ad-fatigue.md
+  - position-current: 24.2, ctr-current: 0.0%, imp-day: ~20 (551 imp / 27d)
+  - milestone: T+4wk (2026-05-05)
+  - decision: ⚠️ iterate — pos 24.2 (page 3), 0 clicks, але 551 imp = є інтерес. Треба on-page SEO + рев'ю title/intent
+- [https://www.scalemate.co/blog/facebook-ads-automation](https://www.scalemate.co/blog/facebook-ads-automation) — facebook-ads-automation
+  - deployed: 2026-04-07
+  - artifact: content/blog/facebook-ads-automation.md
+  - position-current: —, ctr-current: —, imp-day: ~0 (poza top 24 by impressions)
+  - milestone: T+4wk (2026-05-05)
+  - decision: ❌ escalate — не індексується 4+ тижнів (як і facebook-automated-rules). Confirms indexation bottleneck (project-state insight #8)
+- [https://www.scalemate.co/blog/bulk-upload-creatives-meta-tiktok](https://www.scalemate.co/blog/bulk-upload-creatives-meta-tiktok) — bulk-upload-creatives-meta-tiktok
+  - deployed: 2026-04-21
+  - artifact: content/blog/bulk-upload-creatives-meta-tiktok.md
+  - position-current: 9.6, ctr-current: 0.63%, imp-day: ~24 (319 imp / 13d)
+  - milestone: T+2wk (2026-05-05)
+  - decision: ✅ keep — pos 9.6 (page 1), 2 clicks, healthy ramp; продовжуємо моніторити до T+4wk
+- [https://www.scalemate.co/blog/best-bulk-ad-launch-tools](https://www.scalemate.co/blog/best-bulk-ad-launch-tools) — best-bulk-ad-launch-tools
+  - deployed: 2026-04-27
+  - artifact: content/blog/best-bulk-ad-launch-tools.md
+  - position-current: 8.6, ctr-current: 1.65%, imp-day: ~26 (182 imp / 7d)
+  - milestone: T+1wk (2026-05-04)
+  - decision: monitoring — strong start (page 1, 3 clicks first week); next check T+2wk = 2026-05-11
+- [https://www.scalemate.co/blog/creative-testing-framework](https://www.scalemate.co/blog/creative-testing-framework) — creative-testing-framework
+  - deployed: 2026-04-28
+  - artifact: content/blog/creative-testing-framework.md
+  - position-current: 9.6, ctr-current: 0.0%, imp-day: ~48 (289 imp / 6d)
+  - milestone: T+1wk (2026-05-05)
+  - decision: monitoring — fast indexation, page 1 instantly, але 0 clicks за 6d; next check T+2wk = 2026-05-12
 
 ---
 
@@ -127,7 +168,7 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
 
 | Item | Deployed | Baseline (-30d) | Current | Next check | Change | Decision |
 |---|---|---|---|---|---|---|
-| `/ad-creative-uploader` metadata | 2026-04-20 | 217 imp, 5 clk, 2.3% CTR, pos 11.2 | 149 imp, 6 clk, 4.03% CTR, pos 9.9 | 2026-05-04 (T+2wk) | title «Free Ad Uploader — Google Drive to Meta…» → «Bulk Upload Ad Creatives to Meta & TikT…» (24e5df9) | monitoring |
-| `/blog/best-ad-testing-tools` metadata | 2026-04-20 | 1561 imp, 0 clk, 0.0% CTR, pos 5.8 | 1568 imp, 0 clk, 0.0% CTR, pos 19.5 | 2026-05-04 (T+2wk) | title «Best Ad Testing Tools in 2026: 10 Tools…» → «10 Best Ad Testing Tools & Software (20…»; description «Compare the best ad testing tools and a…» → «Compare 10 ad testing tools and softwar…» (bcc4394, 24e5df9) | monitoring |
-| `/blog/best-mcp-servers-meta-google-ads` metadata | 2026-04-20 | 2304 imp, 11 clk, 0.48% CTR, pos 6.5 | 965 imp, 8 clk, 0.83% CTR, pos 6.9 | 2026-05-04 (T+2wk) | title (no change); description «Compare MCP servers that connect Meta A…» → «Meta is banning ad accounts that connec…» (24e5df9) | monitoring |
+| `/ad-creative-uploader` metadata | 2026-04-20 | 217 imp, 5 clk, 2.3% CTR, pos 11.2 | 149 imp, 6 clk, 4.03% CTR, pos 9.9 | 2026-05-18 (T+4wk) | title «Free Ad Uploader — Google Drive to Meta…» → «Bulk Upload Ad Creatives to Meta & TikT…» (24e5df9) | ✅ keep (T+2wk: CTR 2.3%→4.03%, pos 11.2→9.9 — tracking T+4wk) |
+| `/blog/best-ad-testing-tools` metadata | 2026-04-20 | 1561 imp, 0 clk, 0.0% CTR, pos 5.8 | 1568 imp, 0 clk, 0.0% CTR, pos 19.5 | 2026-05-18 (T+4wk) | title «Best Ad Testing Tools in 2026: 10 Tools…» → «10 Best Ad Testing Tools & Software (20…»; description «Compare the best ad testing tools and a…» → «Compare 10 ad testing tools and softwar…» (bcc4394, 24e5df9) | ❌ revert (T+2wk: pos 5.8→19.5, -13.7 places, CTR still 0%; revert title/meta до 2026-04-19 baseline) |
+| `/blog/best-mcp-servers-meta-google-ads` metadata | 2026-04-20 | 2304 imp, 11 clk, 0.48% CTR, pos 6.5 | 965 imp, 8 clk, 0.83% CTR, pos 6.9 | 2026-05-18 (T+4wk) | title (no change); description «Compare MCP servers that connect Meta A…» → «Meta is banning ad accounts that connec…» (24e5df9) | ⚠️ iterate (T+2wk: imp -58%, але CTR 0.48%→0.83% +73%; ban-warning hook працює, але новий description зменшив impressions — варіант B description) |
 | `/blog/madgicx-review-alternative` metadata | 2026-04-30 | 2599 imp, 2 clk, 0.08% CTR, pos 9.8 | 128 imp, 1 clk, 0.78% CTR, pos 8.8 | 2026-05-14 (T+2wk) | description «Madgicx pricing starts at $69/mo…» → «Running ads beyond Meta? See Madgicx pr…»; title «Madgicx Review 2026: Pricing, Features …» → «Is There a Real Madgicx Alternative for…» (6d3141e, 9a9bfe5) | monitoring |

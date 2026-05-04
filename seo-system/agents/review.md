@@ -10,8 +10,13 @@
 
 ## Context files
 
-1. `seo-system/workflow/pipeline.md` — секція `§8 Published` (нові статті/сторінки) + `📊 Monitoring` (title/meta edits на існуючих URL)
-2. `seo-system/docs/architecture.md` — tracking milestones (T+7d, T+2wk, T+4wk)
+1. **`seo-system/rules/data-integrity.md`** — fail-fast при відмові інтеграцій. ОБОВ'ЯЗКОВО прочитати ПЕРШИМ і зробити sanity check перед роботою.
+2. `seo-system/workflow/pipeline.md` — секція `§8 Published` (нові статті/сторінки) + `📊 Monitoring` (title/meta edits на існуючих URL)
+3. `seo-system/docs/architecture.md` — tracking milestones (T+7d, T+2wk, T+4wk)
+
+## Step 0 — Sanity check інтеграцій (ОБОВ'ЯЗКОВО)
+
+Перед будь-якою роботою — перевірити що GSC живий. SerpAPI потрібен лише для indexation check (Step 3 — для свіжих <7d items); якщо SerpAPI відвалився, можна продовжити без Step 3, зафіксувати "indexation check skipped" в звіті. Деталі: [`rules/data-integrity.md`](../rules/data-integrity.md).
 
 ## Workflow
 

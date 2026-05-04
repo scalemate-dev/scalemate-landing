@@ -11,10 +11,15 @@
 
 ## Обов'язкові context files (завантажити перед роботою)
 
-1. `seo-system/docs/architecture.md` — архітектура, принципи, scoring формула (Шар 1.5), approval checkpoints (Шар 1.7)
-2. `seo-system/rules/content-writing.md` — правила контенту, title/meta methodology
-3. `seo-system/workflow/pipeline.md` — поточний стан (§1 New для беклогу, §8 Published для tracking, §9 Rejected щоб не дублювати)
-4. `seo-system/context/project-state.md` — що вже задеплоєно, що заблоковано, learnings (обов'язково — щоб не пропонувати вже зроблене і враховувати learnings)
+1. **`seo-system/rules/data-integrity.md`** — fail-fast при відмові інтеграцій. ОБОВ'ЯЗКОВО прочитати ПЕРШИМ і зробити sanity check інтеграцій перед роботою.
+2. `seo-system/docs/architecture.md` — архітектура, принципи, scoring формула (Шар 1.5), approval checkpoints (Шар 1.7)
+3. `seo-system/rules/content-writing.md` — правила контенту, title/meta methodology
+4. `seo-system/workflow/pipeline.md` — поточний стан (§1 New для беклогу, §8 Published для tracking, §9 Rejected щоб не дублювати)
+5. `seo-system/context/project-state.md` — що вже задеплоєно, що заблоковано, learnings (обов'язково — щоб не пропонувати вже зроблене і враховувати learnings)
+
+## Step 0 — Sanity check інтеграцій (ОБОВ'ЯЗКОВО)
+
+Перед будь-якою роботою — перевірити що GSC, Ahrefs MCP, SerpAPI MCP працюють (одна команда на кожен). Якщо хоч щось НЕ відповідає — STOP, повідомити Natalia, не продовжувати. Деталі: [`rules/data-integrity.md`](../rules/data-integrity.md).
 
 ## Tools
 

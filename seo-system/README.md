@@ -19,6 +19,7 @@ seo-system/
 │   └── review.md                (post-publish tracking, command: review)
 │
 ├── rules/                       ← стандарти всіх агентів (обов'язкове для контенту)
+│   ├── data-integrity.md        (fail-fast при відмові інтеграцій — ОБОВ'ЯЗКОВО для всіх агентів)
 │   ├── content-writing.md       (головні правила контенту)
 │   ├── brand-guidelines.md      (brand voice, tone, communication rules)
 │   └── seo-copywriting.md       (SEO copy patterns, headlines, structure)
@@ -293,8 +294,9 @@ GOOGLE_CREDENTIALS_FILE="/path/to/client_secret.json"
 
 ## Ключові принципи
 
-1. **Data-first** — жодних гіпотез без GSC/Ahrefs/SERP даних. GSC = source of truth для нашого сайту, Ahrefs = зовнішній бенчмарк.
-2. **Quality** — content-ops score >= 90, Anti-AI level = Low
-3. **Existing-first** — перевірити existing pages перед новим контентом
-4. **Human-in-the-loop** — 4 checkpoints від Natalia, все інше автоматично
-5. **No competitor promotion** — neutral mention OK, active promotion banned
+1. **Data integrity > всі інші правила.** Якщо GSC / Ahrefs / SerpAPI / інша обов'язкова інтеграція не працює — STOP, повідомити Natalia, не продовжувати. Без даних research = вигадка. Деталі: [`rules/data-integrity.md`](rules/data-integrity.md).
+2. **Data-first** — жодних гіпотез без GSC/Ahrefs/SERP даних. GSC = source of truth для нашого сайту, Ahrefs = зовнішній бенчмарк.
+3. **Quality** — content-ops score >= 90, Anti-AI level = Low
+4. **Existing-first** — перевірити existing pages перед новим контентом
+5. **Human-in-the-loop** — 4 checkpoints від Natalia, все інше автоматично
+6. **No competitor promotion** — neutral mention OK, active promotion banned

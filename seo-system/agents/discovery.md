@@ -9,10 +9,15 @@
 
 ## Context files (завантажити перед роботою)
 
-1. `seo-system/docs/architecture.md` — принципи, scoring
-2. `seo-system/rules/content-writing.md` — правила (особливо 4.1 Title/Meta methodology)
-3. `seo-system/workflow/pipeline.md` — поточний стан (§1 New для беклогу, §📊 Monitoring для metadata edits, §8/§9 щоб не дублювати тему)
-4. `seo-system/context/project-state.md` — що вже задеплоєно, learnings, blocked items (щоб не валідувати тему яка вже зроблена або відкинута)
+1. **`seo-system/rules/data-integrity.md`** — fail-fast при відмові інтеграцій. ОБОВ'ЯЗКОВО прочитати ПЕРШИМ і зробити sanity check перед роботою.
+2. `seo-system/docs/architecture.md` — принципи, scoring
+3. `seo-system/rules/content-writing.md` — правила (особливо 4.1 Title/Meta methodology)
+4. `seo-system/workflow/pipeline.md` — поточний стан (§1 New для беклогу, §📊 Monitoring для metadata edits, §8/§9 щоб не дублювати тему)
+5. `seo-system/context/project-state.md` — що вже задеплоєно, learnings, blocked items (щоб не валідувати тему яка вже зроблена або відкинута)
+
+## Step 0 — Sanity check інтеграцій (ОБОВ'ЯЗКОВО)
+
+Перед будь-якою роботою — перевірити що GSC, Ahrefs MCP, SerpAPI MCP працюють. Якщо хоч щось НЕ відповідає — STOP, повідомити Natalia, не продовжувати. Деталі: [`rules/data-integrity.md`](../rules/data-integrity.md).
 
 ## Input
 
