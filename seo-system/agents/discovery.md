@@ -187,6 +187,23 @@ mcp__serpapi__search: {"engine": "google", "q": "site:reddit.com [topic keyword]
 - Маппінг до rules/content-writing.md section 2.2 (який template)
 - Target word count
 
+### Step 6.5 — Cooldown guard (title/meta re-suggestion)
+
+> Правило: не пропонувати title/meta правку на URL який ми вже правили <14 днів тому без свіжого сигналу.
+> Чому: title/meta зміни потребують часу щоб Google їх підхопив (T+2wk = baseline для оцінки). Повторна правка раніше затирає сигнал і ми ніколи не дізнаємось чи попередня спрацювала.
+
+**Перевірити перед формуванням title/meta direction:**
+
+1. Прочитати `seo-system/workflow/scorecard.md` секцію `📊 Monitoring (deployed items tracking)`.
+2. Знайти URL цієї теми в таблиці.
+3. Якщо є запис і `Deployed` дата < 14 днів тому → **defer** title/meta пропозицію:
+   - У brief записати: `Title/Meta direction: deferred — last edit YYYY-MM-DD (<14d cooldown). Re-evaluate on YYYY-MM-DD.`
+   - Решту brief заповнити нормально (keyword data, SERP, content plan і т.д.).
+4. Якщо `Deployed` ≥ 14 днів і Current метрики не виросли (CTR / impressions flat або gorszi) → можна пропонувати ТІЛЬКИ якщо у brief зацитовано **новий signal** який змінився (новий competitor у SERP, нові GSC queries, новий SERP feature, нові Reddit threads).
+5. Якщо запису немає в scorecard → cooldown не діє, продовжити Step 7.
+
+> Якщо scorecard виглядає застарілим — запустити `python3 seo-system/scripts/detect-metadata-changes.py --days 30` і оновити перед перевіркою.
+
 ### Step 7 — Title/Meta Pre-Work
 
 Виконати 4.1.1 Steps 1-5 (pre-work для title/meta):

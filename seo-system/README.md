@@ -32,8 +32,11 @@ seo-system/
 │
 ├── workflow/                    ← live state системи
 │   ├── pipeline.md              ← SOURCE OF TRUTH: статус всіх topics
-│   ├── scorecard.md             ← всі candidate topics зі score
+│   ├── scorecard.md             ← candidate topics + 📊 Monitoring (title/meta edits tracking)
 │   └── natalia-tasks.md         ← manual tasks
+│
+├── scripts/                     ← автоматизація
+│   └── detect-metadata-changes.py  ← парсить git → GSC → ряди для scorecard Monitoring
 │
 ├── topics/                      ← усі артефакти по topic (kebab-case slug)
 │   └── [slug]/
@@ -255,6 +258,37 @@ Tools під префіксом `mcp__claude_ai_Ahrefs__*`. Корисний д�
 3. **Якщо в GSC 0 impressions** — перевірити robots/canonical/sitemap/internal links, потім URL Inspection в GSC UI
 4. **Ahrefs** підключати тільки коли потрібно зовнішнє: SERP analysis, competitor pages, keyword volumes для нових тем
 5. **Якщо дані дивні / неповні** — зупинитися і запитати користувача "ти бачиш у себе в GSC X чи ні", а не будувати теорії на основі неповних даних
+
+---
+
+## Tracking title/meta edits (контекст по правках)
+
+Система тримає контекст по правках title/description на існуючих URL у двох місцях:
+
+1. **`workflow/scorecard.md` секція `📊 Monitoring`** — таблиця з кожною metadata-правкою: URL, deploy date, baseline (-30d) GSC метрики, current GSC метрики, next check date, decision.
+2. **`scripts/detect-metadata-changes.py`** — генератор рядків для цієї таблиці.
+
+**Як це працює:**
+
+```bash
+# Витягти всі title/meta зміни в коді за останні 30 днів + GSC baseline/current
+python3 seo-system/scripts/detect-metadata-changes.py --days 30
+```
+
+Скрипт парсить git history (`app/**/page.{jsx,tsx}`, `app/**/layout.{jsx,tsx}`, `content/blog/*.md`), знаходить зміни `title:` / `description:` / `metaDescription:`, тягне з GSC baseline (30d до deploy) і current (deploy → сьогодні), видає готові markdown-рядки. Нові файли (content launches) автоматично виключаються — вони трекаються в `pipeline.md §8 Published`.
+
+**Як це використовують агенти:**
+
+- **Discovery agent** перед пропозицією нової title/meta правки перевіряє Monitoring → cooldown 14 днів (див. `agents/discovery.md` Step 6.5). Не пропонує повторну правку якщо попередня <14d тому без свіжого сигналу.
+- **Review agent** Step 1 читає **обидва** джерела: `pipeline.md §8` (launches) + `scorecard.md §📊 Monitoring` (edits). Поле `event_type` розрізняє їх у фінальному звіті.
+
+**ENV для скрипта (тільки якщо токени не в дефолтних шляхах `.claude/skills/seo-ops/`):**
+
+```bash
+GSC_SITE_URL="sc-domain:scalemate.co"
+GSC_TOKEN_FILE="/path/to/.gsc-token.json"
+GOOGLE_CREDENTIALS_FILE="/path/to/client_secret.json"
+```
 
 ---
 

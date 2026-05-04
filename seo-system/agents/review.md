@@ -10,15 +10,28 @@
 
 ## Context files
 
-1. `seo-system/workflow/scorecard.md` — список deployed items з baseline метриками
-2. `seo-system/docs/architecture.md` — tracking milestones (T+7d, T+2wk, T+4wk)
+1. `seo-system/workflow/pipeline.md` — секція `8. Published` (нові статті/сторінки)
+2. `seo-system/workflow/scorecard.md` — секція `📊 Monitoring` (title/meta edits на існуючих URL)
+3. `seo-system/docs/architecture.md` — tracking milestones (T+7d, T+2wk, T+4wk)
 
 ## Workflow
 
 ### Step 1 — Зібрати deployed items
 
-Прочитати `workflow/scorecard.md` → знайти всі items зі статусом `deployed`.
-Для кожного записати: URL, deploy date, baseline CTR, baseline position, baseline impressions.
+**Два джерела, обидва обов'язкові:**
+
+1. **[`workflow/pipeline.md`](../workflow/pipeline.md) секція `8. Published`** — нові статті/сторінки (повноцінні content launches).
+2. **[`workflow/scorecard.md`](../workflow/scorecard.md) секція `📊 Monitoring (deployed items tracking)`** — title/meta правки на існуючих URL. Не пропускати — items звідси не дублюються в pipeline §8, бо це не нові топіки, а edits.
+
+Для кожного deployed item записати:
+- `slug` (для metadata edits — деривувати з URL, e.g. `/ad-creative-uploader` → `ad-creative-uploader`)
+- `url`
+- `deploy_date`
+- `event_type`: `content-launch` (з pipeline §8) або `metadata-edit` (зі scorecard Monitoring) — впливає на формат у Step 6
+- baseline metrics (CTR, position, impressions/day, clicks/day) — за тиждень до deploy для metadata edits, за тиждень після deploy для content launches
+- остання milestone дата (з попереднього review якщо був)
+
+> **Якщо `📊 Monitoring` виглядає неповною** (наприклад, нещодавній commit з зміною `metadata.title` у `app/**/page.{jsx,tsx}` чи `content/blog/*.md` не відображений у таблиці) — запустити `python3 seo-system/scripts/detect-metadata-changes.py --days 30` і додати ряди до scorecard перед продовженням Step 2. Без цього review буде сліпим до недавніх metadata edits.
 
 ### Step 2 — GSC поточний стан
 
@@ -85,6 +98,7 @@ Week-over-week: total clicks, impressions, avg position trending up or down?
 ## Deployed Items Status
 
 ### [Item 1 — URL]
+- Event type: [content-launch / metadata-edit]
 - Deployed: [date]
 - Milestone: [T+7d / T+2wk / T+4wk]
 - Baseline → Current:
