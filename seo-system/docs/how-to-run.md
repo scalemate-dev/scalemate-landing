@@ -10,7 +10,7 @@
 
 | Команда | Агент | Output |
 |---|---|---|
-| `розвідка` | [agents/intelligence.md](../agents/intelligence.md) | `intelligence/YYYY-MM-DD-recon.md` + scorecard update |
+| `розвідка` | [agents/intelligence.md](../agents/intelligence.md) | `intelligence/YYYY-MM-DD-recon.md` + pipeline §1 update |
 | `discovery [тема]` | [agents/discovery.md](../agents/discovery.md) | `topics/[slug]/brief.md` |
 | `write [brief-file]` | [agents/content-creator.md](../agents/content-creator.md) | `topics/[slug]/draft.md` |
 | `qa [draft-file]` | [agents/qa.md](../agents/qa.md) | `topics/[slug]/qa.md` |

@@ -31,12 +31,11 @@ seo-system/
 │       └── customer-zeptolab.md (case study)
 │
 ├── workflow/                    ← live state системи
-│   ├── pipeline.md              ← SOURCE OF TRUTH: статус всіх topics
-│   ├── scorecard.md             ← candidate topics + 📊 Monitoring (title/meta edits tracking)
+│   ├── pipeline.md              ← SINGLE SOURCE OF TRUTH: §1-§9 stages + 📊 Monitoring (title/meta edits)
 │   └── natalia-tasks.md         ← manual tasks
 │
 ├── scripts/                     ← автоматизація
-│   └── detect-metadata-changes.py  ← парсить git → GSC → ряди для scorecard Monitoring
+│   └── detect-metadata-changes.py  ← парсить git → GSC → ряди для pipeline.md §📊 Monitoring
 │
 ├── topics/                      ← усі артефакти по topic (kebab-case slug)
 │   └── [slug]/
@@ -82,7 +81,7 @@ State-машина через `workflow/pipeline.md` (на топік-гілці
 
 | Агент | Призначення | Output |
 |---|---|---|
-| [agents/intelligence.md](agents/intelligence.md) | Weekly recon, шукати нові теми | `intelligence/YYYY-MM-DD-recon.md` + scorecard update |
+| [agents/intelligence.md](agents/intelligence.md) | Weekly recon, шукати нові теми | `intelligence/YYYY-MM-DD-recon.md` + pipeline §1 update |
 | [agents/discovery.md](agents/discovery.md) | Validate тему — keyword data, SERP, ICP pain | `topics/<slug>/brief.md` |
 | [agents/content-creator.md](agents/content-creator.md) | Написати draft по brief'у | `topics/<slug>/draft.md` |
 | [agents/qa.md](agents/qa.md) | Quality gates — content-ops, anti-AI, SEO check | `topics/<slug>/qa.md` |
@@ -265,7 +264,7 @@ Tools під префіксом `mcp__claude_ai_Ahrefs__*`. Корисний д�
 
 Система тримає контекст по правках title/description на існуючих URL у двох місцях:
 
-1. **`workflow/scorecard.md` секція `📊 Monitoring`** — таблиця з кожною metadata-правкою: URL, deploy date, baseline (-30d) GSC метрики, current GSC метрики, next check date, decision.
+1. **`workflow/pipeline.md` секція `📊 Monitoring`** — таблиця з кожною metadata-правкою: URL, deploy date, baseline (-30d) GSC метрики, current GSC метрики, next check date, decision.
 2. **`scripts/detect-metadata-changes.py`** — генератор рядків для цієї таблиці.
 
 **Як це працює:**
@@ -280,7 +279,7 @@ python3 seo-system/scripts/detect-metadata-changes.py --days 30
 **Як це використовують агенти:**
 
 - **Discovery agent** перед пропозицією нової title/meta правки перевіряє Monitoring → cooldown 14 днів (див. `agents/discovery.md` Step 6.5). Не пропонує повторну правку якщо попередня <14d тому без свіжого сигналу.
-- **Review agent** Step 1 читає **обидва** джерела: `pipeline.md §8` (launches) + `scorecard.md §📊 Monitoring` (edits). Поле `event_type` розрізняє їх у фінальному звіті.
+- **Review agent** Step 1 читає **обидві** секції одного файлу: `pipeline.md §8` (launches) + `pipeline.md §📊 Monitoring` (edits). Поле `event_type` розрізняє їх у фінальному звіті.
 
 **ENV для скрипта (тільки якщо токени не в дефолтних шляхах `.claude/skills/seo-ops/`):**
 

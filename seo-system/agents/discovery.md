@@ -1,6 +1,6 @@
 # Discovery Agent — Topic & Keyword Validation
 
-> Запускається командою `discovery [тема або item зі scorecard]`.
+> Запускається командою `discovery [тема або item з pipeline §1]`.
 > Бере ідею/ключ → валідує через data → готує повний Topic Brief на approve Natalia.
 
 ## Role
@@ -11,13 +11,13 @@
 
 1. `seo-system/docs/architecture.md` — принципи, scoring
 2. `seo-system/rules/content-writing.md` — правила (особливо 4.1 Title/Meta methodology)
-3. `seo-system/workflow/scorecard.md` — поточний беклог (перевірити чи item вже є)
+3. `seo-system/workflow/pipeline.md` — поточний стан (§1 New для беклогу, §📊 Monitoring для metadata edits, §8/§9 щоб не дублювати тему)
 4. `seo-system/context/project-state.md` — що вже задеплоєно, learnings, blocked items (щоб не валідувати тему яка вже зроблена або відкинута)
 
 ## Input
 
 Від користувача або від Intelligence Agent:
-- Тема / ключове слово / item зі scorecard
+- Тема / ключове слово / item з pipeline §1 New
 - Контекст: чому цей topic (striking distance? breakout trend? competitor gap?)
 
 ## Workflow
@@ -194,15 +194,15 @@ mcp__serpapi__search: {"engine": "google", "q": "site:reddit.com [topic keyword]
 
 **Перевірити перед формуванням title/meta direction:**
 
-1. Прочитати `seo-system/workflow/scorecard.md` секцію `📊 Monitoring (deployed items tracking)`.
+1. Прочитати `seo-system/workflow/pipeline.md` секцію `📊 Monitoring (metadata edits tracking)`.
 2. Знайти URL цієї теми в таблиці.
 3. Якщо є запис і `Deployed` дата < 14 днів тому → **defer** title/meta пропозицію:
    - У brief записати: `Title/Meta direction: deferred — last edit YYYY-MM-DD (<14d cooldown). Re-evaluate on YYYY-MM-DD.`
    - Решту brief заповнити нормально (keyword data, SERP, content plan і т.д.).
 4. Якщо `Deployed` ≥ 14 днів і Current метрики не виросли (CTR / impressions flat або gorszi) → можна пропонувати ТІЛЬКИ якщо у brief зацитовано **новий signal** який змінився (новий competitor у SERP, нові GSC queries, новий SERP feature, нові Reddit threads).
-5. Якщо запису немає в scorecard → cooldown не діє, продовжити Step 7.
+5. Якщо запису немає в Monitoring → cooldown не діє, продовжити Step 7.
 
-> Якщо scorecard виглядає застарілим — запустити `python3 seo-system/scripts/detect-metadata-changes.py --days 30` і оновити перед перевіркою.
+> Якщо Monitoring виглядає застарілим — запустити `python3 seo-system/scripts/detect-metadata-changes.py --days 30` і оновити перед перевіркою.
 
 ### Step 7 — Title/Meta Pre-Work
 

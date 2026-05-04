@@ -41,7 +41,7 @@
 
 ## Next priorities (в роботі або беклог)
 
-**NEXT (по scorecard):**
+**NEXT (по pipeline §1):**
 - Pillar "Creative Testing" (1000+ vol cluster, KD 0-8) — найбільший volume, в роботі
 - "Ad Operations: The Complete Guide" (250 vol, KD 1) — backlog
 
@@ -51,7 +51,7 @@
 - Author pages for blog — backlog
 - Organization schema + sameAs — backlog
 
-Детально: див. [workflow/scorecard.md](../workflow/scorecard.md)
+Детально: див. [workflow/pipeline.md](../workflow/pipeline.md)
 
 ---
 

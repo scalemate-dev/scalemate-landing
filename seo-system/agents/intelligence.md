@@ -13,7 +13,7 @@
 
 1. `seo-system/docs/architecture.md` — архітектура, принципи, scoring формула (Шар 1.5), approval checkpoints (Шар 1.7)
 2. `seo-system/rules/content-writing.md` — правила контенту, title/meta methodology
-3. `seo-system/workflow/scorecard.md` — поточний беклог (читати для context, оновлювати з новими items)
+3. `seo-system/workflow/pipeline.md` — поточний стан (§1 New для беклогу, §8 Published для tracking, §9 Rejected щоб не дублювати)
 4. `seo-system/context/project-state.md` — що вже задеплоєно, що заблоковано, learnings (обов'язково — щоб не пропонувати вже зроблене і враховувати learnings)
 
 ## Tools
@@ -393,7 +393,7 @@ mcp__serpapi__search: {"engine": "google", "q": "site:scalemate.co/blog/[slug]"}
 
 ### Step 10 — Previous items tracking
 
-Прочитати `workflow/scorecard.md` → для кожного `deployed` item перевірити через GSC:
+Прочитати `workflow/pipeline.md` §8 Published + §📊 Monitoring → для кожного deployed item перевірити через GSC:
 - CTR змінився? Position змінилась? Impressions тренд?
 - Milestone decisions (T+2wk? T+4wk?)
 
@@ -466,26 +466,15 @@ Factors (0-10, 0-5, 1-5, 0-3, 1-10, 1-3, ×1/×1.5) — як описано у d
 [Status of previously deployed items]
 ```
 
-### Step 12 — Update Scorecard
+### Step 12 — Update pipeline.md (CRITICAL)
 
-Оновити `workflow/scorecard.md`:
-- Додати нові items з scores
-- Оновити статуси існуючих
-- Перемістити completed items
-
-### Step 13 — Update pipeline.md (CRITICAL)
-
-Для кожного **top-priority candidate** з recon brief — додати item в `workflow/pipeline.md` секцію `1. New (потребує discovery)`:
+Для кожного **top-priority candidate** з recon brief — додати item у `workflow/pipeline.md` секцію `§1. New (потребує discovery)`:
 
 ```markdown
-- [topic-slug-kebab-case]
-  added: YYYY-MM-DD
-  source: weekly-recon
-  primary-keyword: [keyword]
-  context: [brief 1-2 line context — score, pain validation, why now]
+| [topic-slug-kebab-case] | [volume] | [KD] | [GSC imp] | [TOFU/MOFU/BOFU] | [score] | [primary-keyword + 1-line context — pain validation, why now] |
 ```
 
-**Не дублювати:** перевірити чи slug вже є в інших секціях pipeline.md (могли почати раніше). Якщо є — пропустити.
+**Не дублювати:** перевірити чи slug вже є в інших секціях pipeline.md (могли почати раніше або вже задеплоїли / відкинули). Якщо є — пропустити.
 
 Це потрібно щоб discovery agent (наступний крок) мав що читати. Без цього pipeline залишається порожнім і вся розвідка нікуди не йде.
 

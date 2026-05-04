@@ -2,10 +2,10 @@
 """
 Detect title / meta description changes from git history, fetch GSC baseline
 (30d before deploy) + current (deploy → today) metrics, and emit ready-to-paste
-Markdown rows for `seo-system/workflow/scorecard.md` `📊 Monitoring` section.
+Markdown rows for `seo-system/workflow/pipeline.md` `📊 Monitoring` section.
 
 Why: prevents agents from re-suggesting title/meta fixes that were already
-deployed and lets `review` agent track impact via the same scorecard table.
+deployed and lets `review` agent track impact via the same pipeline table.
 
 Usage:
     python3 seo-system/scripts/detect-metadata-changes.py
@@ -221,7 +221,7 @@ def main():
 
     print(f"# Metadata changes — last {args.days} days (today: {today})")
     print()
-    print("Paste the rows below into `seo-system/workflow/scorecard.md` `📊 Monitoring` section.")
+    print("Paste the rows below into `seo-system/workflow/pipeline.md` `📊 Monitoring` section.")
     print("Update existing rows if URL already tracked; otherwise append new row.")
     print()
     print(f"| Item | Deployed | Baseline (-30d) | Current (to {today}) | Next check | Change | Decision |")
