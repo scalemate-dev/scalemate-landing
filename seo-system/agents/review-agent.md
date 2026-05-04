@@ -86,10 +86,7 @@ Week-over-week: total clicks, impressions, avg position trending up or down?
 
 ### Step 6 — Generate Review Report
 
-Зберегти review per topic у `seo-system/topics/[slug]/review.md` (по одному файлу на кожний deployed item що перевіряєш).
-Якщо хочеш загальний site-wide weekly огляд — зберегти у `seo-system/intelligence/YYYY-MM-DD-review.md`.
-
-Формат для topic review (`topics/[slug]/review.md`):
+Зберегти у `seo-system/review-reports/YYYY-MM-DD.md`:
 
 ```markdown
 # Review Report — YYYY-MM-DD

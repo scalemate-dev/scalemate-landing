@@ -152,7 +152,7 @@ mcp__serpapi__search: {"engine": "google", "q": "[keyword]", "location": "United
 
 ### Step 5.5 — ICP Pain Research (ОБОВ'ЯЗКОВИЙ)
 
-> Правило: стаття починається з болю ICP, не з keyword. Див. `rules/content-writing.md` секція 2.2.
+> Правило: стаття починається з болю ICP, не з keyword. Див. `content-writing-rules.md` секція 2.2.
 
 **Reddit/Community scan:**
 
@@ -189,7 +189,7 @@ mcp__serpapi__search: {"engine": "google", "q": "site:reddit.com [topic keyword]
 
 На базі steps 1-5 визначити:
 - **Який тип контенту** (blog / use-case / comparison / case-study / hub / resource)?
-- Маппінг до rules/content-writing.md section 2.2 (який template)
+- Маппінг до content-writing-rules.md section 2.2 (який template)
 - Target word count
 
 ### Step 6.5 — Cooldown guard (title/meta re-suggestion)
@@ -255,7 +255,7 @@ Output format:
 
 ## Content Plan
 - Type: [blog / comparison / case-study / etc]
-- Template: [rules/content-writing.md section 2.2 Track X]
+- Template: [content-writing-rules.md section 2.2 Track X]
 - Target length: [N words]
 - JTBD group: [A / B / C / D]
 - Funnel stage: [TOFU / MOFU / BOFU]
@@ -285,25 +285,6 @@ Output format:
 - [ ] [Specific input 2 — e.g. "Appflame case numbers"]
 - Or: "No input needed — can write from existing materials"
 ```
-
-### Step 9 — Save Brief
-
-Створити папку `seo-system/topics/[slug]/` (якщо ще немає).
-Зберегти Topic Brief у `seo-system/topics/[slug]/brief.md`.
-
-`[slug]` = kebab-case primary keyword (напр. `creative-testing-pillar`).
-
-### Step 10 — Update pipeline.md (CRITICAL)
-
-Оновити `workflow/pipeline.md`:
-- Знайти item з цим slug в секції `1. New (потребує discovery)`
-- Перенести в секцію `3. Pending Natalia review (brief)`
-- Додати `artifact: topics/[slug]/brief.md` поряд з item
-- Додати `agent-finished: YYYY-MM-DD`
-
-Якщо item відсутній (наприклад discovery запущена ad-hoc) — створити новий item у секції `3. Pending Natalia review (brief)`.
-
-Без цього кроку Natalia не побачить що brief готовий і чекає approve.
 
 ## Два потоки контенту
 

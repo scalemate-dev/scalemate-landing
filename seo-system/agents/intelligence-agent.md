@@ -228,7 +228,7 @@ mcp__serpapi__search: {"engine": "google", "q": "how to scale ad campaigns witho
 
 **6.5c. Маппінг болей на JTBD + Scalemate features**
 
-Кожну знайдену біль класифікувати по JTBD (з `seo-system/context/icp/jtbd-messaging.md`):
+Кожну знайдену біль класифікувати по JTBD (з `scalemate content/JTBD + ICP + Messaging Map.md`):
 
 | JTBD | Біль |
 |---|---|
@@ -410,7 +410,7 @@ mcp__serpapi__search: {"engine": "google", "q": "site:scalemate.co/blog/[slug]"}
 Score = (Traffic × ICP × Business × Confidence) / Effort × Urgency × Existing_bonus
 ```
 
-Factors (0-10, 0-5, 1-5, 0-3, 1-10, 1-3, ×1/×1.5) — як описано у docs/architecture.md Шар 1.5.
+Factors (0-10, 0-5, 1-5, 0-3, 1-10, 1-3, ×1/×1.5) — як описано у seo-system-plan.md Шар 1.5.
 
 Тегувати buckets: 🟢 Quick Win / 🟡 Strategic / 🔵 Foundation / 🔴 Risk / ⚪ Iceberg.
 
@@ -418,7 +418,7 @@ Factors (0-10, 0-5, 1-5, 0-3, 1-10, 1-3, ×1/×1.5) — як описано у d
 
 ### Step 11 — Generate Weekly Brief
 
-Записати у файл `seo-system/intelligence/YYYY-MM-DD-recon.md`:
+Записати у файл `seo-system/intelligence-briefs/YYYY-MM-DD.md`:
 
 ```markdown
 # Intelligence Brief — Week of YYYY-MM-DD
@@ -486,12 +486,11 @@ Factors (0-10, 0-5, 1-5, 0-3, 1-10, 1-3, ×1/×1.5) — як описано у d
 ## Output
 
 Після завершення:
-- Brief file створено у `intelligence/YYYY-MM-DD-recon.md`
+- Brief file створено у `intelligence-briefs/`
 - Scorecard оновлено
-- Pipeline.md `1. New` секція має нові candidate topics
 - Natalia отримує нотифікацію для review
 
-## Принципи (з docs/architecture.md)
+## Принципи (з seo-system-plan.md)
 
 1. **Data-first** — жодних гіпотез без Ahrefs/GSC/SERP даних
 2. **Existing-first** — перевіряти чи є existing page перед пропозицією нового контенту
