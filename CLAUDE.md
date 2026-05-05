@@ -32,3 +32,12 @@ Local markdown files, not CMS. See [docs/blog-articles.md](docs/blog-articles.md
 ## SEO Pipeline
 
 For any SEO task (research, brief, draft, QA, review, "run research", "what's in pipeline", "update brief", "reject X") — instructions live in [seo-system/README.md](seo-system/README.md). Read it before doing any SEO work.
+
+## Branching workflow (CRITICAL)
+
+**Default: Loose mode. Natalia works directly on `main`. Do NOT create local feature branches.**
+
+- Never run `git checkout -b seo/...` or any local branch creation when Natalia is editing locally. All edits to `seo-system/`, `content/blog/`, `app/` go directly to `main` with `git add` + `git commit` + `git push origin main`.
+- The only exception is **cloud agents in codespaces** — they own their own `seo/<slug>` branches for isolation. Natalia never switches to those branches locally; she reviews/merges them via GitHub UI.
+- **Race condition warning:** if a cloud agent has an open PR with stale base while Natalia edits the same files on main, merging that PR will revert her edits. Before merging any cloud-agent PR: `git fetch origin main && git rebase origin/main` on the topic branch (the cloud agent should do this; if it doesn't, abort merge until it does).
+- If you (the assistant) notice you're on a non-main branch when Natalia asks for a local edit (`git branch --show-current` returns something other than `main`), **stop and tell her** before editing. Don't silently work on a stale branch.

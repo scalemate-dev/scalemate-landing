@@ -58,15 +58,19 @@ seo-system/
 
 ## Як працює пайплайн
 
-State-машина через `workflow/pipeline.md` (на топік-гілці):
+> **Default mode: Loose. Усі стани pipeline.md живуть на `main`.** Natalia працює завжди на `main` — НЕ створювати локальні гілки `seo/*`, не switch branches, не `git checkout`. Branches/PRs — тільки для cloud agents (codespaces), де ізоляція потрібна для паралельності.
+
+State-машина через `workflow/pipeline.md` (завжди на `main`):
 
 1. Агент пише артефакт в `topics/<slug>/`
 2. Агент рухає item у наступну секцію pipeline.md
-3. Natalia рев'юить, рухає item далі (approve) або відправляє назад (reject/iterate)
+3. Natalia рев'юить, рухає item далі (approve) або відправляє назад (reject/iterate) — **редагуючи `pipeline.md` на main**
 4. Користувач сам обирає який агент запускати наступним — порядок не лінійний
 
-**On-branch approval** = редагування `pipeline.md` на топік-гілці (move item у наступну секцію).
-**Final approval** = merge PR `seo/<slug>` → main (item потрапляє у main з фінальним стейтом).
+**Local approval** = редагування `pipeline.md` на main (move item у наступну секцію). Просто edit + commit + push на main.
+**Cloud agent PR approval** = merge PR `seo/<slug>` → main (для робот, які робилися cloud agent у codespace).
+
+⚠️ **CRITICAL для orchestrator + cloud agents:** перед відкриттям PR проти main — **завжди** спершу `git fetch origin main && git rebase origin/main` на топік-гілці. Це уникає race condition коли два паралельні PRs (один з cloud agent, інший з local main edit) revert'ять один одного при merge. Симптом race: PR merged, але прохідні пов'язані файли raise back до старого state. Рішення: rebase before merge.
 
 Детально: [`docs/how-to-run.md`](docs/how-to-run.md)
 
@@ -108,31 +112,29 @@ options:
 
 ### Архітектура
 
-- **1 topic = 1 branch** `seo/<slug>` — завжди. Не змішувати теми в одній гілці.
-- **1 codespace = N topics** — у codespace доступні всі гілки `seo/*`. Робота з різними темами через `git checkout seo/<slug>` (або через окремі worktrees) — у тому ж терміналі чи у різних.
-- **1 subagent = 1 topic + 1 stage** — для кожної теми/етапу окремий subagent (Task tool). Кілька топіків можна обробляти паралельно — різні subagents у тому ж codespace, кожен на своїй гілці.
+- **Default: Loose mode. Все живе на `main`.** Natalia ніколи не switch'ить гілки локально, не робить `git checkout seo/*`.
+- **Cloud agents (codespaces) можуть мати свої гілки `seo/<slug>`** — це їхній deal для ізоляції паралельних runs. Користувач їх не торкає; merge PR через GitHub UI.
+- **1 codespace = 1 topic = 1 branch** (тільки для cloud agents). Не змішувати теми в одному codespace.
+- **1 subagent = 1 topic + 1 stage** — для кожної теми/етапу окремий subagent (Task tool).
 
-### Правило: main = тільки фінальні стани
+### Правило: усі стани живуть на main (Loose mode)
 
-`seo-system/workflow/pipeline.md` на гілці `main` може містити items **тільки в секціях**:
-- **8. Published**
-- **9. Rejected / Archived**
+`seo-system/workflow/pipeline.md` на гілці `main` містить items **в усіх 9 секціях** (1-9). Це SINGLE SOURCE OF TRUTH.
 
-Все що in-progress (секції 1-7) живе **тільки на топік-гілках** `seo/<slug>` всередині codespaces / local checkouts. Main — це чистий історичний журнал завершеної роботи.
+**Як це працює (для Local mode — Natalia на своїй машині):**
+1. **Нова задача** → відкрити `pipeline.md` на main → додати item у §1. Commit + push прямо на main.
+2. **Усі переходи 1→2→3→...→9** — edit `pipeline.md` на main, commit + push.
+3. **Жодних PR'ів локальних** — Natalia пише прямо в main.
+4. **Жодних `git checkout seo/*`** — все на main.
 
-**Як це працює:**
-1. **Нова задача створюється на топік-гілці**, не на main. Тобто: спочатку створити `seo/<slug>` з main → checkout → додати item у pipeline.md секцію "1. New" → commit на гілку. На main pipeline.md ця тема НЕ з'являється поки не Published/Rejected.
-2. **Усі переходи 1→2→3→...→7** відбуваються в pipeline.md топік-гілки.
-3. **Перед merge у main** — item має бути в "8. Published" або "9. Rejected" (видалений з секцій 1-7).
-4. **PR `seo/<slug>` → main мерджиться** — main отримує тільки фінальний стан.
+**Як це працює (для Remote mode — cloud agent у codespace):**
+1. Cloud agent створюється на гілці `seo/<slug>` у codespace (для ізоляції паралельних runs).
+2. Agent пише артефакти в `topics/<slug>/`, оновлює pipeline.md, відкриває PR проти main.
+3. **CRITICAL:** перед merge — agent має зробити `git fetch origin main && git rebase origin/main` на своїй гілці. Якщо local main вже містить items (Loose mode), без rebase merge може revert'ити Natalia's local edits.
+4. Natalia рев'юить PR в GitHub UI. Approve → merge → main отримує оновлення.
 
-Коли користувач починає нову тему:
-1. **Завжди спочатку** — створити гілку `seo/<slug>` з main, push. Гілка існує незалежно від режиму. Item у pipeline.md з'явиться пізніше — або користувач допише руками, або створить агент (intelligence/discovery) під час роботи.
-2. **Тільки після створення гілки** — `AskUserQuestion`: Local чи Remote.
-3. **Local** — checkout `seo/<slug>` локально, запустити subagent на цій гілці.
-4. **Remote** — використати існуючий codespace (`gh codespace list`) з checkout'ом потрібної гілки, або створити новий: `gh codespace create -b seo/<slug>`. Запустити subagent через SSH.
-5. Усі ітерації по темі — у тій же гілці. Перемикання агентів за вибором користувача.
-6. Фінал — item у "8. Published" або "9. Rejected", PR `seo/<slug>` → main, мердж.
+**Race condition warning** (важливо для cloud agents):
+Якщо Natalia робить edits на main locally, і паралельно cloud agent відкриває PR з base = stale main snapshot — merge цього PR може revert local edits. **Симптом:** Natalia бачить як її зміни "пропали" після merge. **Рішення:** cloud agent має rebase before merge; або orchestrator має перевіряти `git log origin/main..HEAD` перед merge і flag conflicts.
 
 ### Команди оркестрації (Remote mode)
 
@@ -190,7 +192,7 @@ Edge cases: якщо гілка не `seo/<slug>` — тільки commit+push �
    - **Approve (просунути item у pipeline.md):** edit `seo-system/workflow/pipeline.md` — перенести item у наступну секцію, commit + push
    - **Запустити інший агент** в цьому ж codespace: `gh codespace ssh -c <name> -- "bash -l -c 'cd /workspaces/scalemate-landing && git checkout seo/<slug> && claude --print --permission-mode bypassPermissions ...'"`
 
-Local edits теж працюють (checkout гілки `seo/<slug>` локально, edit, push) — codespace підхопить через `git pull` коли користувач туди зайде. Але якщо codespace вже відкритий і там є uncommitted changes — НЕ робити local edits, працювати через SSH у тому codespace.
+Local edits Natalia робить **на main** (Loose mode default), не на `seo/<slug>`. Якщо є активний codespace з uncommitted changes — НЕ робити local edits паралельно, чекати поки cloud agent запушить, потім pull main. Інакше race condition при merge PR з codespace може revert local edits.
 
 ### Типові запити від Natalia
 
@@ -204,11 +206,11 @@ Local edits теж працюють (checkout гілки `seo/<slug>` локал
 | "Що в pipeline?" | read [workflow/pipeline.md](workflow/pipeline.md) | ні |
 | "Що по темі X?" | read `topics/<slug>/{brief,draft,qa}.md` | ні |
 | **"Зайди в codespace seo-X і зроби Y"** | SSH у вказаний codespace, виконати Y, commit, push | ні (явний remote) |
-| **"Approve brief для X — просунь у наступний stage"** | edit pipeline.md (move item у "Approved"), commit, push (local або через SSH у активний codespace) | ні |
-| **"Approve draft для X — на QA"** | edit pipeline.md (move у "Approved for QA"), commit, push | ні |
-| "Обнови brief теми X — додай розділ Y" | edit (local або SSH в codespace якщо активний), commit, push | ні (quick edit) |
-| "Реджектни тему X" | edit pipeline.md (move у "9. Rejected/Archived"), commit, push, close PR | ні |
-| "Покажи останні зміни в темі X" | `git log seo/<slug>` | ні |
+| **"Approve brief для X — просунь у наступний stage"** | edit pipeline.md **на main** (move item у "Approved"), commit, push до main | ні |
+| **"Approve draft для X — на QA"** | edit pipeline.md **на main** (move у "Approved for QA"), commit, push до main | ні |
+| "Обнови brief теми X — додай розділ Y" | edit **на main** (або SSH в codespace якщо активний run), commit, push | ні (quick edit) |
+| "Реджектни тему X" | edit pipeline.md **на main** (move у "9. Rejected/Archived"), commit, push до main, close PR якщо є відкритий | ні |
+| "Покажи останні зміни в темі X" | `git log -- seo-system/topics/<slug>/` | ні |
 
 ---
 
