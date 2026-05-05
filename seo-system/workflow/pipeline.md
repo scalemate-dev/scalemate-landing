@@ -48,7 +48,7 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
 
 > Brief approved. Content-creator агент пише draft.
 
-- **meta-andromeda-update** — brief v2 approved 2026-05-05 (PR #59, branch `seo/meta-andromeda-update`). Brief: [`seo-system/topics/meta-andromeda-update/brief.md`](../topics/meta-andromeda-update/brief.md). Approval inputs from Natalia: author = Ruslan Dzhafarov (primary; 7/9 hacks his), Hook Rate 35/52/67% framed as illustrative pattern (no real-account vertical claim), MMP One Links cited as workflow convention only (AppsFlyer/Adjust/Branch — ScaleMate doesn't integrate), no AI Enhancements screenshot or Appflame/Kitup ROAS numbers (article works on Reddit quotes + cited engineering.fb.com stats). Primary CTA = `/use-cases/bulk-ad-launch` (operational answer to 10-20+ creatives per ad set), secondary = `/blog/creative-testing-framework`, `/ad-creative-uploader` demoted to one-mention tertiary. Content-creator next.
+- _empty_
 
 ---
 
@@ -56,7 +56,7 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
 
 > Draft готовий, чекає твого approve. Approve = рух у §6. Reject = назад у §4.
 
-- _empty_
+- **meta-andromeda-update** — draft completed 2026-05-05 by content-creator agent (PR #59). Draft: [`seo-system/topics/meta-andromeda-update/draft.md`](../topics/meta-andromeda-update/draft.md). Word count: 3,107 (body, within 2,800-3,200 target). Open inputs flagged: [TODO: AI Enhancements toggle screenshot from Natalia/Ruslan — would strengthen E-E-A-T but article works without]; [TODO: verify Reddit URL for "Andromeda is a myth" thread — placeholder URL used pending Natalia confirm or drop the citation]. Self-check: passed Section 10 (zero banned phrases, 7 FAQ entries, 4 unique internal links incl. product page, POV+experience markers per H2 except TL;DR-only, 5 mobile-UA references, illustrative hook-rate framing preserved, MMP cited as workflow convention not Scalemate integration, AI disclosure footer present). Ready for QA after Natalia review.
 
 ---
 
