@@ -2,6 +2,9 @@
 title: "Meta Andromeda Update: 10 Fixes for UA Teams (2026)"
 slug: meta-andromeda-update
 metaDescription: "What Meta's Andromeda update changed and 10 things to fix this week — broad Advantage+, creative diversity score, hook rate, 1-day click attribution."
+cta:
+  title: "Feed Andromeda 10-20 creatives per ad set in minutes"
+  description: "Bulk-launch from reusable templates and sync creatives straight from Drive. Hit Andromeda's volume floor without rebuilding ad sets every week."
 author: "Ruslan Dzhafarov"
 coverImage: null
 coverAlt: null

@@ -3,6 +3,9 @@ title: "Best Bulk Ad Launch Tools for Meta & TikTok (2026)"
 absoluteTitle: true
 slug: best-bulk-ad-launch-tools
 metaDescription: "Compare 10 bulk ad launch tools for Meta and TikTok. Pricing, platforms, what each one does. We make one of these tools — here's what we know the others don't share."
+cta:
+  title: "Bulk-launch Meta + TikTok ads on the free tier"
+  description: "100 launches a month, unlimited uploads from Drive, 2 active rules — no credit card. Reusable templates so next week's launch isn't a rebuild."
 author: "Nataliia Bondar"
 coverImage: null
 coverAlt: null

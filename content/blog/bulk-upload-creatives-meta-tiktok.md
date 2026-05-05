@@ -3,6 +3,9 @@ title: "How to Bulk Upload Creatives to Meta & TikTok (5 Methods)"
 absoluteTitle: true
 slug: bulk-upload-creatives-meta-tiktok
 metaDescription: "Stop uploading ads one by one. Compare 5 ways to bulk upload creatives to Meta and TikTok — from free tools to API scripts. Real case studies inside."
+cta:
+  title: "Push 100s of creatives from Drive to Meta + TikTok in one batch"
+  description: "Skip the download-reupload cycle. Same dedup as paid plans on the free tier — unlimited uploads, no credit card."
 author: "Nataliia Bondar"
 coverImage: /blog/images/bulk-upload-creatives-meta-tiktok/blog-card.svg
 coverAlt: "Bulk upload creatives to Meta and TikTok — guide cover"

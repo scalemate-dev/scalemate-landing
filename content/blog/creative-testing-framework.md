@@ -2,6 +2,9 @@
 title: "Ad Creative Testing System: Multi-Platform Playbook (2026)"
 slug: creative-testing-framework
 metaDescription: "30% of your creatives never get tested. Build a system that fixes the handoff, runs across 5+ platforms, and turns weekly testing into compounding wins."
+cta:
+  title: "Run the testing system across Meta + TikTok every week"
+  description: "Reusable templates for weekly batches, Drive sync, and rules that auto-pause creatives that miss spend or engagement thresholds in 24-48 hours."
 author: "Nataliia Bondar"
 coverImage: null
 coverAlt: null
