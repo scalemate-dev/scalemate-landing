@@ -1,5 +1,5 @@
 ---
-title: "Meta & Google Ads MCP Servers (2026): Official + Alternatives"
+title: "Meta Ads MCP vs Google Ads MCP: Official + Alternatives"
 slug: best-mcp-servers-meta-google-ads
 metaDescription: "Meta's official Ads MCP shipped April 29, 2026. Side-by-side: Meta MCP, Google's MCP, Pipeboard, GoMarble, plus where Scalemate fits as automation layer."
 author: "Nataliia Bondar"
