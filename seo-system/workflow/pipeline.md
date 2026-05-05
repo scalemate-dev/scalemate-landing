@@ -95,7 +95,8 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
   - artifact: content/blog/adcreative-ai-alternative.md
   - position-current: 10.6, ctr-current: 0.20%, imp-day: ~18 (512 imp / 28d)
   - milestone: T+4wk (review 2026-05-04)
-  - decision: ❌ escalate — CTR 0.76% → 0.20% (0.26× baseline, далеко нижче 1.5× порогу). Position покращилась 13.0 → 10.6, але title/snippet не конвертять. Потрібен architectural rework — repositioning у comparison-page формат.
+  - decision: ⏸️ DEFERRED 2026-05-05 → revisit 2026-05-19. Review-agent originally flagged ❌ escalate (CTR 0.76% → 0.20%, recommend rework to comparison-page format). Re-evaluation with Ahrefs (2026-05-05) overrides this: cluster `adcreative.ai alternative` Traffic Potential = 10 (even #1 ranking gets ~16 clicks/mo), SERP top-10 saturated by DR 84-95 aggregators (G2, Capterra, ProductHunt, Reddit DR 95). Effort 10h on cluster with ~50 clicks/mo ceiling = worst ROI. Defer rework. Revisit conditions: site DR > 30 / AI Overview shift / decide to convert to vendor `/pages/adcreative-ai-alternative` landing page (3-5h, like AdCopy.ai #7 DR 35) instead of full blog rework. See action-lists/2026-05-04.md S3.
+  - process note: review-agent escalate-to-rework decisions need TP threshold check (don't escalate if TP < 50 — low-ceiling cluster, not format problem). Logged for future agent fix (deferred per Natalia, not fixing now).
 - [https://www.scalemate.co/blog/best-ad-testing-tools](https://www.scalemate.co/blog/best-ad-testing-tools) — best-ad-testing-tools
   - deployed: 2026-04-07
   - artifact: content/blog/best-ad-testing-tools.md
@@ -155,6 +156,9 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
 - creative-fatigue-7-day-meta-andromeda
   - rejected: 2026-05-05
   - reason: Slug mixed two clusters — creative fatigue (already covered by `/blog/what-is-ad-fatigue`) + Andromeda (real gap, 3.5K vol/mo). Hyper-specific "7-day" = 0 vol. Repurposed as standalone `meta-andromeda-update` (now in §1 New) with creative fatigue as one sub-section + internal link to existing fatigue page. See action-lists/2026-05-04.md S2'.
+- ad-creative-automation
+  - rejected: 2026-05-05 (DEFERRED — keep in mind for later, not pushed back to §1 New)
+  - reason: Original score "KD 0, TP 7000, zero competition gap" misleading. TP=7000 inflated by adcreative.ai parent_topic spillover (real reachable ~200-400). Critical issue: SERP intent = production/generation tools (Celtra, Bannerflow, Hunch, Pencil, AdCreative.ai dominate top-10). Scalemate = launch+test+scale execution layer = poor product-SERP fit for this cluster. **Revisit trigger:** when Scalemate ships production/generation product OR when we pursue "Production vs Execution split" explainer angle (different framing — defines two layers, recommends tools for each — Scalemate natural fit on execution side). See action-lists/2026-05-04.md S4.
 
 ---
 
