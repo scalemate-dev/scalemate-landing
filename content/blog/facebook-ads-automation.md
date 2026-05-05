@@ -1,7 +1,7 @@
 ---
 title: "How to Automate Facebook Ads: Full Guide (2026)"
 slug: facebook-ads-automation
-metaDescription: "How to automate Facebook ads at every level: native Meta tools, third-party platforms, and AI. Includes tool comparison, decision framework, and real examples."
+absoluteTitle: truemetaDescription: "How to automate Facebook ads at every level: native Meta tools, third-party platforms, and AI. Includes tool comparison, decision framework, and real examples."
 author: "Nataliia Bondar"
 coverImage: /blog/images/facebook-ads-automation/listing.svg
 coverAlt: "Facebook ads automation: from manual work to full AI autopilot — before and after comparison"

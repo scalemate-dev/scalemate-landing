@@ -1,7 +1,7 @@
 ---
 title: "Ad Fatigue on Meta + TikTok: Signs and Fixes (2026)"
 slug: what-is-ad-fatigue
-metaDescription: "Spot ad fatigue on Meta and TikTok before CPAs spike. The 5 signals media buyers track, the real causes, and the rotation system that keeps winners alive."
+absoluteTitle: truemetaDescription: "Spot ad fatigue on Meta and TikTok before CPAs spike. The 5 signals media buyers track, the real causes, and the rotation system that keeps winners alive."
 author: "Nataliia Bondar"
 coverImage: null
 coverAlt: null

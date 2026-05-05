@@ -1,7 +1,7 @@
 ---
 title: "AdCreative.ai Alternative: Best Options for 2026"
 slug: adcreative-ai-alternative
-metaDescription: "AdCreative.ai generates creatives with AI. But making ads is only half the job. Compare alternatives that also test, analyze, and scale what works."
+absoluteTitle: truemetaDescription: "AdCreative.ai generates creatives with AI. But making ads is only half the job. Compare alternatives that also test, analyze, and scale what works."
 author: "Nataliia Bondar"
 coverImage: null
 coverAlt: null
