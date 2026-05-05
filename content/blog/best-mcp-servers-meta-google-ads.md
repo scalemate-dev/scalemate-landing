@@ -1,5 +1,5 @@
 ---
-title: "Best MCP Servers for Meta & Google Ads — Official 2026 Guide"
+title: "Meta & Google Ads MCP Servers (2026): Official + Alternatives"
 slug: best-mcp-servers-meta-google-ads
 metaDescription: "Meta's official Ads MCP shipped April 29, 2026. Side-by-side: Meta MCP, Google's MCP, Pipeboard, GoMarble, plus where Scalemate fits as automation layer."
 author: "Nataliia Bondar"
@@ -7,7 +7,7 @@ coverImage: /blog/images/best-mcp-servers-meta-google-ads/mcp-servers-cover.svg
 coverAlt: "MCP servers for Meta and Google Ads — AI connection layer illustration"
 heroBg: /blog/images/best-mcp-servers-meta-google-ads/mcp-servers-hero.svg
 createdAt: "2026-03-30"
-updatedAt: "2026-05-04"
+updatedAt: "2026-05-05"
 faq:
   - question: "What is MCP for advertising?"
     answer: "MCP (Model Context Protocol) is a standard that lets AI assistants connect directly to advertising platforms like Meta Ads and Google Ads. Instead of copying data into prompts manually, MCP advertising tools pull live campaign data — spend, ROAS, impressions, creative performance — straight into an AI chat. This means marketers can ask questions about their campaigns and get answers based on real numbers, not guesswork."

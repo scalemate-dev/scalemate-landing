@@ -1,8 +1,8 @@
 ---
-description: Start an SEO v1 agent run — local or remote (codespace headless). Usage `/sm:run <agent> [slug]`
+description: Start an SEO agent run — local or remote (codespace headless). Usage `/sm:run <agent> [slug]`
 ---
 
-You are the launcher for SEO v1 agents. Default mode is **remote** (codespace headless) — that's the main use case.
+You are the launcher for SEO agents. Default mode is **remote** (codespace headless) — that's the main use case.
 
 User input: $ARGUMENTS
 
@@ -15,7 +15,7 @@ Call `AskUserQuestion`:
 - question: "Which agent to run?"
 - multiSelect: false
 - options:
-  - `seo-analysis` — "Weekly SEO analysis (GSC + Ahrefs + Trends)"
+  - `intelligence` — "Weekly recon (GSC + Ahrefs + Trends → topic backlog)"
   - `discovery` — "Per-topic validation → Topic Brief"
   - `content-creator` — "Per-topic draft writing from approved brief"
   - `qa` — "Per-topic 4-stage QA on draft"
@@ -27,39 +27,39 @@ For `discovery` / `content-creator` / `qa` without slug → `AskUserQuestion`:
 - header: "Topic slug"
 - question: "Which topic?"
 - multiSelect: false
-- options: existing slugs from `ls seo-system-v1/output/topics/` + `_new_` (on `_new_` ask follow-up free-text input in chat, validate `^[a-z0-9-]+$`, re-ask if invalid)
+- options: existing slugs from `ls seo-system/topics/` + `_new_` (on `_new_` ask follow-up free-text input in chat, validate `^[a-z0-9-]+$`, re-ask if invalid)
 
 Auto-slug:
-- `seo-analysis` → `seo-analysis-YYYY-MM-DD`
+- `intelligence` → `intelligence-YYYY-MM-DD`
 - `review` → `review-YYYY-MM-DD`
 
 ## Step 3 — Validate
 
 ### Agent name
-∈ {seo-analysis, discovery, content-creator, qa, review} — fail otherwise.
+∈ {intelligence, discovery, content-creator, qa, review} — fail otherwise.
 
 ### Per-topic prerequisite files
 - `discovery` — none (prompt is created from scratch)
-- `content-creator` — `seo-system-v1/output/topics/<slug>/brief.md` must exist
-- `qa` — `seo-system-v1/output/topics/<slug>/draft.md` must exist
+- `content-creator` — `seo-system/topics/<slug>/brief.md` must exist
+- `qa` — `seo-system/topics/<slug>/draft.md` must exist
 
 ### Pipeline state — slug must be in allowed section
 
-Read `seo-system-v1/workflow/pipeline.md`. For per-topic agents:
+Read `seo-system/workflow/pipeline.md`. For per-topic agents:
 
 | Agent | Allowed states for slug | Forbidden (fail validation) |
 |---|---|---|
-| `discovery` | absent in pipeline.md, OR in `1. New`, OR in `2. Discovery in progress` | sections 3-9 (already past discovery) |
-| `content-creator` | in `4. Approved for writing` | other (no approved brief yet, or already past writing) |
-| `qa` | in `6. Approved for QA` | other (no approved draft yet, or already past QA) |
-| `seo-analysis` | n/a (not slug-based, weekly run) | — |
-| `review` | n/a (not slug-based, runs across all `8. Published`) | — |
+| `discovery` | absent in pipeline.md, OR in `§1 New`, OR in `§2 Discovery in progress` | sections §3-§9 (already past discovery) |
+| `content-creator` | in `§4 Approved for writing` | other (no approved brief yet, or already past writing) |
+| `qa` | in `§6 Approved for QA` | other (no approved draft yet, or already past QA) |
+| `intelligence` | n/a (not slug-based, weekly run) | — |
+| `review` | n/a (not slug-based, runs across all `§8 Published`) | — |
 
 If validation fails → print specific reason ("slug X is in section Y, expected Z") and stop.
 
 ## Step 4 — Create / overwrite prompt.md
 
-Create `seo-system-v1/output/topics/<slug>/prompt.md` (mkdir -p if needed). **Always overwrite** if it exists — every `/sm:run` invocation is a fresh launch. Follow-ups (e.g. discovery done → `/sm:run content-creator <slug>` for same topic) work by overwriting prompt.md and letting Step 7e re-fire claude in the codespace.
+Create `seo-system/topics/<slug>/prompt.md` (mkdir -p if needed). **Always overwrite** if it exists — every `/sm:run` invocation is a fresh launch. Follow-ups (e.g. discovery done → `/sm:run content-creator <slug>` for same topic) work by overwriting prompt.md and letting Step 7e re-fire claude in the codespace.
 
 Template:
 
@@ -70,9 +70,9 @@ Template:
 
 You are running the **<agent>** agent. Read its full spec before starting:
 
-1. Open `seo-system-v1/agents/<AGENT_DIR>/README.md` and follow run order
-2. Each numbered step file (`00-...md`, `01-...md`, ...) describes one workflow step — execute them in order
-3. Respect all constraints: data-first, existing-first, never invent data
+1. Open `seo-system/agents/<AGENT_FILE>` and follow the workflow steps in order
+2. Respect all constraints: data-first, existing-first, never invent data
+3. Read `seo-system/rules/data-integrity.md` first and run sanity checks before any work
 
 ## Input
 
@@ -80,11 +80,11 @@ You are running the **<agent>** agent. Read its full spec before starting:
 
 ## Output
 
-Per the agent's last step file. Update `seo-system-v1/workflow/pipeline.md` state correctly.
+Per the agent's final step. Update `seo-system/workflow/pipeline.md` state correctly.
 
 ## When done
 
-1. Commit artifacts: `seo-system-v1/output/topics/<slug>/` + `seo-system-v1/workflow/{pipeline,scorecard}.md`
+1. Commit artifacts: `seo-system/topics/<slug>/` + `seo-system/workflow/pipeline.md` (and `seo-system/intelligence/` for intelligence runs)
 2. Push current branch
 3. PR — **only create if missing**, never duplicate:
    ```bash
@@ -95,12 +95,12 @@ Per the agent's last step file. Update `seo-system-v1/workflow/pipeline.md` stat
    Follow-ups just push; the existing PR auto-updates with new commits. No `gh pr comment` needed.
 ```
 
-Mapping `<AGENT_DIR>` / `<INPUT_DESC>`:
-- `seo-analysis` → `seo-analysis`, "Weekly run, no per-topic input. Use today's date for output."
-- `discovery <slug>` → `discovery`, "Topic slug: `<slug>`. Read latest brief in `output/seo-analysis/` for context if available; otherwise proceed as ad-hoc."
-- `content-creator <slug>` → `content-creator`, "Brief at `seo-system-v1/output/topics/<slug>/brief.md`. Trust the brief — don't re-decide content type / track."
-- `qa <slug>` → `qa`, "Draft at `seo-system-v1/output/topics/<slug>/draft.md`. Brief at `brief.md` available for cross-check."
-- `review` → `review`, "No per-topic input. Read all deployed items from pipeline.md `8. Published`."
+Mapping `<AGENT_FILE>` / `<INPUT_DESC>`:
+- `intelligence` → `intelligence-agent.md`, "Weekly run, no per-topic input. Use today's date for output."
+- `discovery <slug>` → `discovery-agent.md`, "Topic slug: `<slug>`. Read latest brief in `seo-system/intelligence/` for context if available; otherwise proceed as ad-hoc."
+- `content-creator <slug>` → `content-creator-agent.md`, "Brief at `seo-system/topics/<slug>/brief.md`. Trust the brief — don't re-decide content type / track."
+- `qa <slug>` → `qa-pipeline.md`, "Draft at `seo-system/topics/<slug>/draft.md`. Brief at `brief.md` available for cross-check."
+- `review` → `review-agent.md`, "No per-topic input. Read all deployed items from pipeline.md `§8 Published`."
 
 ## Step 5 — Pick run mode
 
@@ -116,12 +116,12 @@ Mapping `<AGENT_DIR>` / `<INPUT_DESC>`:
 
 Output:
 ```
-✅ Created seo-system-v1/output/topics/<slug>/prompt.md
+✅ Created seo-system/topics/<slug>/prompt.md
 
 To run locally — say:
-  "Follow seo-system-v1/agents/<AGENT_DIR>/README.md and execute step-by-step for slug <slug>"
+  "Follow seo-system/agents/<AGENT_FILE> and execute step-by-step for slug <slug>"
 
-I'll then walk through each step file, asking for approve at checkpoints.
+I'll then walk through each step, asking for approve at checkpoints.
 ```
 
 Stop here for local mode.
@@ -149,7 +149,7 @@ Target: `seo/<slug>`.
 ### 7c. Commit prompt.md
 
 ```bash
-git add seo-system-v1/output/topics/<slug>/prompt.md
+git add seo-system/topics/<slug>/prompt.md
 git commit -m "seo: start <agent> <slug>"
 ```
 
@@ -180,7 +180,7 @@ Triggers: **No codespace for this repo** OR **codespace exists on a different br
 gh codespace create --branch seo/<slug> --idle-timeout 60m
 ```
 
-The new codespace's `postStartCommand` fires `seo-system-v1/scripts/codespace-autorun.sh`, which reads `prompt.md` and launches claude headless. Capture name. Done.
+The new codespace's `postStartCommand` fires `seo-system/scripts/codespace-autorun.sh`, which reads `prompt.md` and launches claude headless. Capture name. Done.
 
 #### B) Follow-up — codespace exists on our branch
 
@@ -196,7 +196,7 @@ gh codespace start --codespace <name>
 Then SSH + run helper script (which pulls latest, refuses on overlap, launches claude detached):
 
 ```bash
-gh codespace ssh -c <name> --no-tty -- 'cd /workspaces/scalemate-landing && git pull && bash seo-system-v1/scripts/codespace-run-followup.sh <slug>'
+gh codespace ssh -c <name> --no-tty -- 'cd /workspaces/scalemate-landing && git pull && bash seo-system/scripts/codespace-run-followup.sh <slug>'
 ```
 
 **Run via `Bash` with `run_in_background: true`** — SSH connects, helper launches claude detached (`nohup ... &`), helper exits immediately with the new PID. Local chat doesn't block.
@@ -212,7 +212,7 @@ If the helper exits non-zero (overlap with previous run still alive), tell the u
 Print and exit. Do not tail logs, do not ssh again, do not block.
 
 ```
-✅ Topic prompt: seo-system-v1/output/topics/<slug>/prompt.md
+✅ Topic prompt: seo-system/topics/<slug>/prompt.md
 ✅ Branch: seo/<slug> pushed
 ✅ Codespace: <name> [created | started | already running]
 ✅ Launch: <first-run via autorun | follow-up via SSH>
@@ -224,7 +224,7 @@ Agent now runs headless inside the codespace. When done:
 
 If you want to monitor, ask me explicitly (e.g. "monitor <slug>" / "tail logs"):
   gh codespace logs <name> --follow
-  gh codespace ssh <name> -- "tail -f /workspaces/scalemate-landing/seo-system-v1/output/topics/<slug>/.autorun.log"
+  gh codespace ssh <name> -- "tail -f /workspaces/scalemate-landing/seo-system/topics/<slug>/.autorun.log"
 ```
 
 ## Don't do
