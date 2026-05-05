@@ -89,7 +89,15 @@ For the better part of a year, "Meta MCP" meant a third-party tool. That's no lo
 
 **Why this matters for the ban-risk conversation.** A media buyer no longer has to choose between "use AI on my Meta data" and "stay on Meta's good side." The official server is, by definition, a verified Meta app — auth, rate limits, scoped permissions are Meta's problem, not yours. The launch effectively splits the **mcp server facebook** market into two cleanly distinct buckets: official + verified third-parties on one side, unverified token-passers on the other. We'll lay out which is which below.
 
-For a deeper feature-by-feature breakdown of the official server vs the existing third-party landscape, <a href="https://www.get-ryze.ai/blog/meta-ads-official-mcp-cli-launch" rel="nofollow noopener" target="_blank">Get-Ryze's launch comparison</a> is the most thorough public write-up we've seen at the time of this update.
+**What Meta's official MCP doesn't do (yet).** It's a powerful chat-driven layer for individual campaign tweaks, but the operational gaps for high-volume teams are concrete:
+
+- **No autonomous execution.** The MCP describes problems (CPA up, ROAS down, ad set fatigued) but waits for you to type the next prompt. There's no rule running while you sleep that catches the 2am budget runaway.
+- **No bulk creative file transfer.** It moves structured campaign data, not binary files. Pulling 50 video creatives from Google Drive into the Media Library is still a manual download-then-upload loop.
+- **Single-platform.** Meta only. TikTok and other platforms each need their own MCP setup or fallback to manual.
+- **Single-account chat surface.** Switching between agency clients or ad accounts means re-orienting Claude every session — there's no persistent multi-account workspace.
+- **Stateless between sessions.** Each Claude conversation starts cold. Patterns the model spotted last Tuesday don't carry into Friday's session unless you re-feed the context.
+
+Scalemate covers each of those gaps directly: 24/7 [automation rules](/features/automation-rules) that pause and scale on ROAS, CPI, or any metric without prompting; native Drive → Meta + TikTok creative sync from the [ad creative uploader](/ad-creative-uploader); multi-platform launch matrices; persistent multi-account workflows. Different layer, not a competing chat surface — covered in detail in the segmentation section below.
 
 ---
 
@@ -252,7 +260,7 @@ Now that Meta has a first-party MCP, the honest question for media buyers isn't 
 **Meta's official MCP is enough if you are:**
 
 - A solo media buyer or freelancer running **1 ad account**
-- Launching **<50 ads/week**, mostly variations on a winning concept
+- Launching **<10 ads/week**, mostly variations on a winning concept
 - Working primarily on **Meta** (not Meta + TikTok + Google in parallel)
 - Comfortable with chat-driven analysis and one-off write actions ("pause this ad set", "raise budget to $200/day")
 - Not running any persistent background automation
