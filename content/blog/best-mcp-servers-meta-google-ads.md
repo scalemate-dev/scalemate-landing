@@ -270,10 +270,10 @@ For that profile, Meta's MCP plus the platform's native rules cover the job. Pay
 **You need a layer above MCP if you are:**
 
 - Managing **multiple ad accounts** (agencies, in-house teams with regional accounts)
-- Launching **100+ ads/week** with structured creative variations across angles, hooks, formats
+- Launching **[10+ ads/week](/features/bulk-launch)** with structured creative variations across angles, hooks, formats
 - Running **multi-platform** (Meta + TikTok at minimum, sometimes Google) and want one workflow, not three
-- Running **persistent automation rules** 24/7 — auto-pause on CPA thresholds, auto-scale on ROAS, rollback on CTR drop — not one-shot chat commands
-- Syncing creatives from **Google Drive into Meta** (or pulling new winners back into a creative library) on an ongoing basis
+- Running **[persistent automation rules](/features/automation-rules)** 24/7 — auto-pause on CPA thresholds, auto-scale on ROAS, rollback on CTR drop — not one-shot chat commands
+- Syncing creatives from **[Google Drive into Meta](/ad-creative-uploader)** (or pulling new winners back into a creative library) on an ongoing basis
 
 That second profile is where Scalemate fits. It's not a competitor to Meta's MCP — it's a different layer. Meta's MCP is chat-driven analysis with some write capability. Scalemate is an automation OS that runs on top: bulk ad launch from Drive folders, [automation rules](/features/automation-rules) that operate without a chat client open, [Facebook automated rules workflows](/blog/facebook-automated-rules), and the broader [Facebook ads automation guide](/blog/facebook-ads-automation) covering how teams move from manual through tool-based tiers.
 
