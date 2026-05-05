@@ -1,5 +1,5 @@
 ---
-title: "Best MCP Servers for Meta & Google Ads (April 2026)"
+title: "Best MCP Servers for Meta & Google Ads — Official 2026 Guide"
 slug: best-mcp-servers-meta-google-ads
 metaDescription: "Meta's official Ads MCP shipped April 29, 2026. Side-by-side: Meta MCP, Google's MCP, Pipeboard, GoMarble, plus where Scalemate fits as automation layer."
 author: "Nataliia Bondar"
@@ -24,6 +24,8 @@ faq:
   - question: "Can MCP servers get my Meta ad account banned?"
     answer: "Unverified ones can. Meta has banned ad accounts that connect through random GitHub repos firing API calls with a personal access token and no rate limiting — its security systems read that pattern as bot access. Two routes are now safe by design: Meta's own official Ads MCP (launched April 29, 2026 — Meta hosts auth, no token paste) and verified Meta apps like Scalemate that passed app review with scoped permissions. Open-source servers (GoMarble, Flyweel) and third-party remote servers (Pipeboard) are not the same risk profile — check whether the tool runs on your token or on its own verified app credentials before connecting."
 ---
+
+For most of 2025, connecting Meta Ads to Claude meant pasting a personal access token into a sketchy GitHub repo and hoping Meta wouldn't read it as bot traffic and ban your account. That's the bottleneck this article used to be about. It's not anymore.
 
 On April 29, 2026, Meta did something the **meta ads MCP** community had been begging for since the protocol came out: it shipped its own official server. 29 tools. Read and write. No personal access token to paste, no developer app to register. That changes the shape of this article. Half the questions media buyers were asking about MCP for ads in March — "is it safe?", "will I get banned?", "do I have to clone a repo?" — now have a straight answer for the Meta side. Google had an official server already. Both major platforms now have one.
 
@@ -62,16 +64,7 @@ For advertising, an MCP server sits between your ad platform (Meta, Google, TikT
 
 *MCP sits between your AI assistant and your ad accounts. One protocol, any platform, no CSV exports.*
 
-Why did this become relevant for marketers in 2026? Two reasons. First, Claude Desktop and Cursor both added native MCP support, making setup dramatically easier. Second, several teams released **mcp server facebook** and Google Ads implementations that actually work reliably, not just proof-of-concept demos.
-
-What MCP enables in practice:
-
-- **Campaign analysis through AI.** Ask "which ad sets had the worst ROAS last week?" and get answers from live data
-- **Automated reporting.** Generate performance summaries without touching Ads Manager
-- **Optimization suggestions.** AI spots patterns across hundreds of campaigns that humans miss
-- **Cross-platform comparison.** Query Meta and Google data in the same conversation
-
-The limitation worth knowing: most MCP servers are read-only. They pull data and let AI analyze it, but they don't write back to the platform. Pausing campaigns, changing budgets, launching new ads: that still happens in the ad platform itself, unless you're using a tool that goes beyond the MCP layer. Meta's official server, launched April 29, broke that pattern — more on that next.
+In practice that means asking "which ad sets had the worst ROAS last week?" and getting answers from live data, generating performance summaries without touching Ads Manager, or comparing Meta and Google numbers in the same conversation. Most MCP servers stay read-only — pausing campaigns, changing budgets, launching ads still happens in the ad platform itself. Meta's official server, launched April 29, broke that pattern — more on that next.
 
 ---
 
