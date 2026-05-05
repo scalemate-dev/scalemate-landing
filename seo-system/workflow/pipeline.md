@@ -22,8 +22,8 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
 
 | Slug | Volume | KD | GSC imp | Funnel | Score | Notes |
 |---|---|---|---|---|---|---|
+| meta-andromeda-update | ~3500 (cluster) | 15 | — | MOFU | 9.0 | **Newsjack — urgency=3, AI overview SERP window.** Standalone Andromeda explainer + 9-point playbook (synthesizes 7 hacks from Ruslan's LinkedIn post + 2 internal observations). **Discovery agent MUST read [`plans/meta-andromeda-source-material.md`](../plans/meta-andromeda-source-material.md) FIRST** — contains Ahrefs cluster data (23 keywords), gap analysis, all 7 hacks, internal observations, suggested structure, internal linking targets. From action-list 2026-05-04 (S2'). |
 | scale-creative-volume-without-designers | — | 0 | — | MOFU | 7.0 | Pain #3 from Reddit ("more creatives, same designers"); JTBD 6; no existing content; aligns Bulk Launch + AI Assistant |
-| facebook-ads-automation-tools-comparison | 250 (cluster) | 6–14 | — | MOFU | 6.5 | Sibling to non-indexed `/blog/facebook-ads-automation`; cluster `facebook ads automation` (vol 150 KD 6) + `…tools` (50 KD 14) + `…software` (40 KD 12); de-risks indexation issue with new URL |
 | automation-rules-frameworks-meta-tiktok | — | — | — | MOFU | 5.0 | Replaces effort on stuck `/blog/facebook-automated-rules` + `/blog/facebook-ads-automation` (re-index attempts exhausted). Concrete rule templates with thresholds (auto-pause CPA>X, scale ROAS>Y, rollback on -30% CTR), multi-platform Meta+TikTok. Discovery should plan internal links from indexed authority pages `/use-cases/ad-campaign-automation-rules` + `/features/automation-rules` to maximize indexation chance. JTBD 4+7. From action-list 2026-05-04 (S10). |
 
 ---
@@ -159,6 +159,9 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
 - ad-creative-automation
   - rejected: 2026-05-05 (DEFERRED — keep in mind for later, not pushed back to §1 New)
   - reason: Original score "KD 0, TP 7000, zero competition gap" misleading. TP=7000 inflated by adcreative.ai parent_topic spillover (real reachable ~200-400). Critical issue: SERP intent = production/generation tools (Celtra, Bannerflow, Hunch, Pencil, AdCreative.ai dominate top-10). Scalemate = launch+test+scale execution layer = poor product-SERP fit for this cluster. **Revisit trigger:** when Scalemate ships production/generation product OR when we pursue "Production vs Execution split" explainer angle (different framing — defines two layers, recommends tools for each — Scalemate natural fit on execution side). See action-lists/2026-05-04.md S4.
+- facebook-ads-automation-tools-comparison
+  - rejected: 2026-05-05
+  - reason: Cannibalization with existing `/blog/facebook-ads-automation` (same cluster `facebook ads automation` 150 vol KD 6 — just stuck on indexation). Format wrong — SERP rewards listicle (adstellar #4 24 traffic, itsfundoingmarketing #6 22 traffic), not comparison guide (get-ryze.ai #8 DR 70 = only 3 traffic). New URL doesn't fix root-cause indexation problem (low DR site). Replaced by S5' = repurpose existing article to listicle format with internal-linking strategy. See action-lists/2026-05-04.md S5'.
 
 ---
 
