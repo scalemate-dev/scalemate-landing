@@ -24,7 +24,7 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
 |---|---|---|---|---|---|---|
 | scale-creative-volume-without-designers | — | 0 | — | MOFU | 7.0 | Pain #3 from Reddit ("more creatives, same designers"); JTBD 6; no existing content; aligns Bulk Launch + AI Assistant |
 | facebook-ads-automation-tools-comparison | 250 (cluster) | 6–14 | — | MOFU | 6.5 | Sibling to non-indexed `/blog/facebook-ads-automation`; cluster `facebook ads automation` (vol 150 KD 6) + `…tools` (50 KD 14) + `…software` (40 KD 12); de-risks indexation issue with new URL |
-| automation-rules-frameworks-meta-tiktok | — | — | — | MOFU | 5.0 | Replaces effort on stuck `/blog/facebook-automated-rules` + `/blog/facebook-ads-automation` (re-index attempts exhausted). Concrete rule templates with thresholds (auto-pause CPA>X, scale ROAS>Y, rollback on -30% CTR), multi-platform Meta+TikTok. Discovery should plan internal links from indexed authority pages `/use-cases/ad-campaign-automation-rules` + `/features/automation-rules` to maximize indexation chance. JTBD 4+7. From action-list 2026-05-04 (S10). |
+| automation-rules-library | 370 (cluster) | 2-9 | — | MOFU/BOFU | 7.5 | **Interactive library page format (NOT blog) — replaces previously-proposed `automation-rules-frameworks-meta-tiktok` blog (in §9 Rejected, repurposed 2026-05-05).** React page at `app/automation-rules-library/page.jsx` with filterable rules library (by goal: scale winners / kill losers / rollback / budget control), email gate for full library + "import to Scalemate" CTA. Phased build: Phase 1 (Meta cheat-sheet, SEO-indexed) → Phase 2 (TikTok + Google Ads + email gate) → Phase 3 (platform import). Cluster: Meta `facebook automated rules` 150 vol KD 2 + variants ~370 total non-branded; TikTok 0 search demand (= product differentiation, not SEO); Google Ads `google ads automated rules` 50 vol KD 4. SERP validates cheat-sheet format wins (bir.ch DR 72 #3, no multi-platform / email-gated competitor). Internal hub: `/features/automation-rules` + `/use-cases/ad-campaign-automation-rules`. **Next step:** scoping doc S9' in action-list 2026-05-04 (3h research before engineering Phase 1 ~6-8h). NOT a discovery-agent task — this needs scoping, not brief. |
 
 ---
 
@@ -159,6 +159,18 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
 - ad-creative-automation
   - rejected: 2026-05-05 (DEFERRED — keep in mind for later, not pushed back to §1 New)
   - reason: Original score "KD 0, TP 7000, zero competition gap" misleading. TP=7000 inflated by adcreative.ai parent_topic spillover (real reachable ~200-400). Critical issue: SERP intent = production/generation tools (Celtra, Bannerflow, Hunch, Pencil, AdCreative.ai dominate top-10). Scalemate = launch+test+scale execution layer = poor product-SERP fit for this cluster. **Revisit trigger:** when Scalemate ships production/generation product OR when we pursue "Production vs Execution split" explainer angle (different framing — defines two layers, recommends tools for each — Scalemate natural fit on execution side). See action-lists/2026-05-04.md S4.
+- facebook-ads-automation-tools-comparison
+  - rejected: 2026-05-05
+  - reason: Cannibalization with existing `/blog/facebook-ads-automation` (same cluster `facebook ads automation` 150 vol KD 6 — stuck on indexation). Format wrong — SERP rewards listicle (adstellar #4 24 traffic, itsfundoingmarketing #6 22 traffic), not comparison guide (get-ryze.ai #8 DR 70 = 3 traffic). New URL doesn't fix root-cause indexation problem (low DR site). Replaced by S5' = repurpose existing article to listicle. See action-lists/2026-05-04.md S5'.
+- creative-testing-pillar (carryover, item #12 in scorecard)
+  - rejected: 2026-05-05
+  - reason: Duplicate with existing `/blog/creative-testing-framework` (deployed 2026-04-27, page 1 at T+1wk, pillar-style "Multi-Platform Playbook 2026"). Existing already targets cluster ~1,400 vol/mo non-branded. Note: original "1000+ vol cluster" claim partly inflated — `creative testing solutions` (500 vol) is branded for medical clinical trials company. Replaced by S6' = internal linking refresh. See action-lists/2026-05-04.md S6'.
+- scale-creative-volume-without-designers
+  - rejected: 2026-05-05
+  - reason: Wrong product fit — creative PRODUCTION pain, Scalemate doesn't solve (we = launch+test+scale execution layer, not generation). No honest CTA. Plus SEO problem: 0 search vol, all `*without designer` matching terms off-topic (interior/graphic/fashion designer career queries). See action-lists/2026-05-04.md S7.
+- automation-rules-frameworks-meta-tiktok (was S10/S9 in action-list)
+  - rejected: 2026-05-05 (REPURPOSED — not blog format)
+  - reason: Original intelligence-agent proposal was a blog article. Repurposed 2026-05-05 per Natalia to interactive library page format (NOT blog) — `/automation-rules-library` React page with filterable rules library + email-gated full version + "import to Scalemate" CTA. Phased build: Phase 1 (Meta cheat-sheet, SEO-indexed) → Phase 2 (TikTok + Google Ads + email gate) → Phase 3 (platform import). SERP analysis 2026-05-05 validated cheat-sheet format wins (bir.ch DR 72 #3, no multi-platform / email-gated competitor — clear gap). TikTok cluster 0 search demand → library = product differentiation, not SEO. See pipeline §1 New `automation-rules-library` (replacement) + action-lists/2026-05-04.md S9' (3h scoping doc).
 
 ---
 
