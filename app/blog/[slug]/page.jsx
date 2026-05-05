@@ -213,8 +213,9 @@ export default async function ArticlePage({ params }) {
       {article.faqItems.length > 0 && <FAQ faqItems={article.faqItems} theme="light" />}
 
       <CtaSection
-        title="Scale your ad launches today"
-        description="Automate creative uploads, bulk launch campaigns, and manage rules — all from one platform."
+        title={article.cta?.title || "Scale your ad launches today"}
+        description={article.cta?.description || "Automate creative uploads, bulk launch campaigns, and manage rules — all from one platform."}
+        secondaryCta={article.cta?.secondaryCta}
       />
     </div>
   )

@@ -3,6 +3,9 @@ title: "10 Best Ad Testing Tools for Meta + TikTok (2026)"
 slug: best-ad-testing-tools
 absoluteTitle: true
 metaDescription: "Compare 10 ad testing tools that work across Meta and TikTok: pricing, launch speed, and automation rules — for ROAS-focused performance teams in 2026."
+cta:
+  title: "Test 50 creatives a week without burning your ops team"
+  description: "Bulk-launch from templates, sync Drive creatives, and let automation rules pause losers — free tier covers 100 launches/month."
 author: "Nataliia Bondar"
 coverImage: /blog/images/best-ad-testing-tools/cover.svg
 coverAlt: "Ad testing cycle: launch, measure, scale, pause — repeat"
