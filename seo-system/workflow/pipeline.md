@@ -22,7 +22,7 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
 
 | Slug | Volume | KD | GSC imp | Funnel | Score | Notes |
 |---|---|---|---|---|---|---|
-| creative-fatigue-7-day-meta-andromeda | — | low | 553 (sister `what-is-ad-fatigue` page-2) | TOFU/MOFU | 7.5 | Newsjack on Andromeda + creative fatigue collapse; r/PPC 1-week-old thread "burnt out on creative testing"; sister to existing what-is-ad-fatigue (which itself needs escalation) |
+| meta-andromeda-update | 500 (parent `meta andromeda` 1,400) | 15 | — | TOFU/MOFU | 9.0 | Repurposed 2026-05-05 from `creative-fatigue-7-day-meta-andromeda` (rejected — see §9). Standalone Andromeda explainer + 9-point playbook. Cluster ~3.5K vol/mo across 23 keywords, AI overview SERP feature. **Source material PRE-COLLECTED: [`plans/meta-andromeda-source-material.md`](../plans/meta-andromeda-source-material.md)** — discovery agent MUST read before brief generation (contains Ahrefs cluster data, 7 hacks from Ruslan's LinkedIn PDF, 2 Natalia observations, internal linking targets, scoring inputs). Internal link targets: `/blog/what-is-ad-fatigue` (boost pos 24 → striking distance) + `/blog/creative-testing-framework` (already mentions Andromeda) + `/ad-creative-uploader`. From action-list 2026-05-04 (S2'). |
 | scale-creative-volume-without-designers | — | 0 | — | MOFU | 7.0 | Pain #3 from Reddit ("more creatives, same designers"); JTBD 6; no existing content; aligns Bulk Launch + AI Assistant |
 | facebook-ads-automation-tools-comparison | 250 (cluster) | 6–14 | — | MOFU | 6.5 | Sibling to non-indexed `/blog/facebook-ads-automation`; cluster `facebook ads automation` (vol 150 KD 6) + `…tools` (50 KD 14) + `…software` (40 KD 12); de-risks indexation issue with new URL |
 | automation-rules-frameworks-meta-tiktok | — | — | — | MOFU | 5.0 | Replaces effort on stuck `/blog/facebook-automated-rules` + `/blog/facebook-ads-automation` (re-index attempts exhausted). Concrete rule templates with thresholds (auto-pause CPA>X, scale ROAS>Y, rollback on -30% CTR), multi-platform Meta+TikTok. Discovery should plan internal links from indexed authority pages `/use-cases/ad-campaign-automation-rules` + `/features/automation-rules` to maximize indexation chance. JTBD 4+7. From action-list 2026-05-04 (S10). |
@@ -153,6 +153,9 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
 - facebook-ads-manager-bulk-upload-alternative
   - rejected: 2026-05-05
   - reason: 0 demand (Ahrefs vol = 0 on `facebook ads manager bulk upload alternative` + variants) AND cannibalization with existing `/blog/bulk-upload-creatives-meta-tiktok` (already covers cluster, 79 imp/wk pos 11.1). Replaced by S1' = strengthen existing article with H3 on "alternative" intent. See action-lists/2026-05-04.md S1.
+- creative-fatigue-7-day-meta-andromeda
+  - rejected: 2026-05-05
+  - reason: Slug mixed two clusters — creative fatigue (already covered by `/blog/what-is-ad-fatigue`) + Andromeda (real gap, 3.5K vol/mo). Hyper-specific "7-day" = 0 vol. Repurposed as standalone `meta-andromeda-update` (now in §1 New) with creative fatigue as one sub-section + internal link to existing fatigue page. See action-lists/2026-05-04.md S2'.
 
 ---
 
