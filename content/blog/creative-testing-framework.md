@@ -35,12 +35,12 @@ This article is about that system — where every tested creative gets a fair sh
 **In this article:**
 - [Why Creative Testing Breaks](#why-creative-testing-breaks)
 - [The Creative Testing System (Overview)](#the-creative-testing-system-overview)
-- [Step 1 — Handoff and Launch Setup](#step-1--handoff-and-launch-setup)
-- [Step 2 — Testing Frameworks: Which One Fits Your Team](#step-2--testing-frameworks-which-one-fits-your-team)
-- [Step 3 — Multi-Platform: Why Winners Don't Transfer](#step-3--multi-platform-why-winners-dont-transfer)
-- [Step 4 — How to Read Test Results](#step-4--how-to-read-test-results)
-- [Step 5 — Winners to BAU](#step-5--winners-to-bau)
-- [Step 6 — Iterate the System](#step-6--iterate-the-system)
+- [Step 1 — Handoff and Launch Setup](#step-1-handoff-and-launch-setup)
+- [Step 2 — Testing Frameworks: Which One Fits Your Team](#step-2-testing-frameworks-which-one-fits-your-team)
+- [Step 3 — Multi-Platform: Why Winners Don't Transfer](#step-3-multi-platform-why-winners-don-t-transfer)
+- [Step 4 — How to Read Test Results](#step-4-how-to-read-test-results)
+- [Step 5 — Winners to BAU](#step-5-winners-to-bau)
+- [Step 6 — Iterate the System](#step-6-iterate-the-system)
 - [Winner Hierarchy: Why You Need More Than One Winner](#winner-hierarchy-why-you-need-more-than-one-winner)
 
 ---
@@ -298,33 +298,6 @@ The teams that struggle are the ones that stop testing when they find a winner. 
 
 Give every new creative at least 10,000 impressions before making a decision. But also recognize that a creative with zero spend after 48 hours is already telling you something. The platform does not believe in it, and neither should you.
 
----
-
-## FAQ
-
-**How many creatives should I test per week?**
-
-It depends on budget and team capacity. Teams spending $20K+ per month typically test 20-30 creatives per week. At a roughly 5% winner rate, that gives you 1-2 potential winners per week. Smaller teams testing 5-10 per week can still build a functional pipeline — the key is consistency, not volume.
-
-**What budget do I need for creative testing?**
-
-Allocate 15-20% of your total ad spend to testing. For a $50K monthly budget, that means $7,500-$10,000 goes to test campaigns. Each creative needs enough spend to reach at least 10,000 impressions before a kill/keep decision. Under $5K/month, test inside existing campaigns rather than building separate testing infrastructure.
-
-**Should I test on Meta first and then scale to other platforms?**
-
-Only if you have data confirming your winners transfer. Social platform winners differ from ad network winners in 8 out of 10 cases. Test separately on each platform type until you have 50+ data points showing consistent overlap.
-
-**How do I know when a creative is a winner?**
-
-Three levels, in order: it spends (the platform allocates budget), it engages (healthy IPM/CPI for mobile or conversion rate for web), and it performs (CPA/ROAS at target after 10,000+ impressions). All three must clear.
-
-**What is the difference between creative testing and A/B testing?**
-
-A/B testing isolates one variable. Creative testing is a broader system: launching new concepts, measuring across platforms, building a repeatable weekly process, and managing the full lifecycle from test to BAU to fatigue.
-
-**How do I prevent new creatives from hurting existing performance?**
-
-Test in dedicated campaigns or ad sets so new creatives do not compete with proven performers. Set automation rules that pause underperformers within 24-48 hours before they drag down account performance.
 
 ---
 
