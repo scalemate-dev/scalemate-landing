@@ -68,11 +68,11 @@ Ahrefs `keywords-explorer-volume-history` for `meta andromeda` (US, Feb–May 20
 | Criterion | Value |
 |---|---|
 | **Funnel stage** | TOFU → MOFU bridge. People searching "what to change" are diagnosing a recent ROAS drop (MOFU intent) wrapped in TOFU language. |
-| **Steps to sign-up** | 2-3 (read article → click `/ad-creative-uploader` from H2 about creative volume → try free tool) |
+| **Steps to sign-up** | 2-3 (read article → click `/use-cases/bulk-ad-launch` (primary) or `/blog/creative-testing-framework` from playbook → try free tool) |
 | **ICP fit** | 5/5 — UA Manager / Media Buyer for mobile apps & games is *exactly* who is feeling Andromeda creative-volume pressure most. Diversification is core ScaleMate territory. |
-| **Product page link** | Direct — `/ad-creative-uploader` (bulk upload of creative variations is the operational answer to Andromeda's "give me more variants"). Plus `/blog/creative-testing-framework` and `/blog/what-is-ad-fatigue` as authority bridges. |
+| **Product page link** | **Primary CTA: `/use-cases/bulk-ad-launch`** — under Andromeda the bottleneck shifted from targeting to creative throughput. The fastest, cleanest way to test 10-20+ creatives per ad set is bulk launch, not single-uploader. **Secondary: `/blog/creative-testing-framework`** (testing system bridge — quick + clean test organization). `/ad-creative-uploader` becomes a tertiary link only (mentioned once, not the core CTA). `/blog/what-is-ad-fatigue` = striking-distance internal-link boost. |
 
-**Why this article will drive signups:** Andromeda's #1 implication — "you need 10–20+ creative variations per ad set" — directly justifies bulk-upload tooling. Hack 3 (Advantage+ multi-format), Observation 1 (more creatives per ad set), and Observation 2 (creative "worlds") all bridge to `/ad-creative-uploader` naturally without forced CTA.
+**Why this article will drive signups:** Under Andromeda the work isn't "make more individual ads" — it's **analyze pain → find concepts → run lots of fast, well-organized tests**. The bulk launch use-case directly answers Hack 3 (multi-format), Observation 1 (10-20+ creatives per ad set), Observation 2 (creative "worlds" rotation) and Hack 6 (Hook Rate testing layered onto winning videos). Pairing bulk launch with the creative-testing-framework reads as "here's how to think about tests + here's how to run them quickly" — natural fit for the article's thesis: "creatives are now the most important lever on FB/TikTok; speed + organization of testing is the moat."
 
 ---
 
@@ -222,31 +222,52 @@ Ahrefs `keywords-explorer-volume-history` for `meta andromeda` (US, Feb–May 20
 |---|---|
 | **Type** | Blog newsjack-explainer + practical playbook (hybrid) |
 | **Template** | `content-writing-rules.md` 2.2 — Pain-First → Definition → Action Playbook (closest to Track B "Educational with operational payoff") |
-| **Target length** | 2,400–2,800 words (long enough to compete with Reddit thread depth, short enough to scan; matches our `creative-testing-framework` and `bulk-upload-creatives-meta-tiktok` benchmarks) |
+| **Target length** | 2,800–3,200 words (expanded from 2,400-2,800 to accommodate Hack #10 attribution + 2 new FAQ entries + thesis framing block; still scan-friendly with H3-driven playbook) |
 | **JTBD group** | B (diagnose & fix Meta performance drop) + D (scale creative volume to feed algorithm) |
 | **Funnel stage** | TOFU/MOFU bridge |
 | **ICP** | Primary: UA Manager / Media Buyer (mobile apps & games). Secondary: Founder/Head of Marketing reading to course-correct. |
 | **Schema** | `BlogPosting` + `FAQPage` (FAQ section answers "What is Meta Andromeda", "When did it launch", "What changed", "Should I turn off AI Enhancements", "How many creatives per ad set"). HowTo schema deprecated per Google guidance — do NOT use. |
 
-### Article structure (synthesizes all 7 Ruslan hacks + 2 Natalia observations per source-material spec)
+### Article thesis (sets up the playbook)
 
-1. **Hook (intro, ~200w)** — open with the r/FacebookAds "killed my business overnight" pain quote (real, linked). Promise: 9 specific changes you can make today, framed for Meta + TikTok teams running mobile-app UA. Date-stamp this article for 2026.
+Under Andromeda, **creatives are now the single most important lever on Meta + TikTok.** The job stopped being "find the right audience" and became "feed the algorithm enough creative variation that it can find the audience for you." Which means the new core skill set is:
+
+1. **Audience pain analysis** — understand the emotional triggers driving the ICP (otherwise you make pretty ads about nothing).
+2. **Concept discovery** — turn pain into 5-10 distinct creative concepts ("worlds"), not micro-tweaks.
+3. **Fast, well-organized testing** — launch many variations quickly, in clean structures, so the algorithm sees signal and you see what's working.
+
+This is the framing the playbook should reinforce throughout. Bulk launch + creative-testing-framework are the operational answers; the uploader is a small piece of the bulk-launch workflow, not the headline.
+
+### Article structure (synthesizes all 7 Ruslan hacks + 2 Natalia observations + 1 new attribution hack per gap-scan 2026-05-05)
+
+1. **Hook (intro, ~250w)** — open with the r/FacebookAds "killed my business overnight" pain quote (real, linked). Reframe: under Andromeda, **creatives are the new targeting** — most "Andromeda killed my account" stories are creative-throughput stories in disguise. Promise: 10 specific changes for Meta + TikTok teams running mobile-app UA. Date-stamp 2026. Address the skeptic camp ("myth or not, here's what's measurably different").
 2. **What is Meta Andromeda?** (H2, ~200w) — one-paragraph definition (ads retrieval engine, Dec 2024 launch, Grace Hopper / deep neural networks, +6% recall, +8% ad quality) → cite engineering.fb.com → covers `what is meta andromeda`, `meta andromeda algorithm`, `meta andromeda ai`, `meta andromeda ads retrieval engine` keywords.
-3. **What actually changed for advertisers** (H2, ~250w) — broad targeting wins, creative = targeting, signal density matters, creative diversity score is now a real lever. Reference [`/blog/creative-testing-framework`](../../../content/blog/creative-testing-framework.md) (creative=targeting Andromeda paragraph).
-4. **9 things to change in your Meta + TikTok account this week** (H2, ~1,400w — the playbook, each item ~150w with H3):
-   - **#1 — Simplify your campaign structure** (H3, Observation 1: fewer ad sets, 10-20+ creatives per ad set; cite r/PPC quote externally; bridge to `/ad-creative-uploader` for the upload mechanics)
-   - **#2 — Build creative "worlds", not micro-tweaks** (H3, Observation 2: Creative Diversity Score, World A/B/C examples, repurposing across video/carousel/static)
-   - **#3 — Test static + carousels — don't run 99% video** (H3, Hack 1, attribute to Ruslan Dzhafarov's LinkedIn post; mention Threads carousel test)
-   - **#4 — Turn off "AI Enhancements" until you A/B test it** (H3, Hack 2, Ruslan; explain the trust-killing AI tag; concrete setting path)
-   - **#5 — Use Advantage+ with multi-format signal diversity** (H3, Hack 3, Ruslan; portrait/square/long/short + static/carousel/video across Reels/Feed/Stories/Threads)
-   - **#6 — Build a web-to-app funnel with quizzes** (H3, Hack 4, Ruslan; quiz LP → trial purchase → app install; MMP One Links). **Note for QA:** ScaleMate scope memo says no MMP integration; we *cite* MMP One Links as a tracking convention without claiming we integrate. Frame as "what the workflow looks like."
-   - **#7 — Run web campaigns even if your product is a mobile app** (H3, Hack 5, Ruslan; new Landing Page Views goal, expand inventory & signal source)
-   - **#8 — Optimize for Hook Rate (3-sec view rate)** (H3, Hack 6, Ruslan; the 35%/52%/67% example → 80% spend goes to highest hook; layer winning hooks onto videos that drive purchases)
-   - **#9 — Add Threads to your placements + carousel mix** (H3, Hack 7, Ruslan; Threads is testing carousel ads, engagement is high)
+3. **What actually changed for advertisers — and why creatives became the #1 lever** (H2, ~300w) — broad targeting wins, **creative = targeting**, signal density matters, Creative Diversity Score is now a real lever, Entity ID dedup is real (similar ads collapse into one and underspend). Frame: *the work shifted from audience research to pain research → concept generation → fast organized testing*. Reference [`/blog/creative-testing-framework`](../../../content/blog/creative-testing-framework.md) as the system for the "fast organized testing" half.
+4. **10 things to change in your Meta + TikTok account this week** (H2, ~1,650w — the playbook, each item ~150-180w with H3):
+   - **#1 — Simplify your campaign structure** (H3, Observation 1: fewer ad sets, 10-20+ creatives per ad set). **Workflow rule (gap-scan add):** when adding new creatives, drop them into the **existing** ad set, not a new one — spinning up new ad sets fragments learning (47-ad-set test thread + multiple practitioner confirmations). **Bridge:** this is exactly why bulk launch beats per-ad upload at this scale → link `/use-cases/bulk-ad-launch` with anchor "launch 10-20+ creatives per ad set in one go."
+   - **#2 — Build creative "worlds", not micro-tweaks** (H3, Observation 2: Creative Diversity Score; World A/B/C examples; repurposing across video/carousel/static). **Mechanical why (gap-scan add, ~2 sentences):** Andromeda fingerprints similar ads as a single Entity ID and underspends the duplicates (True Classic case study). Worlds aren't aesthetic — they're how you avoid getting collapsed. "Worlds" come from **pain analysis → concept discovery**, not from tweaking buttons.
+   - **#3 — Test static + carousels — don't run 99% video** (H3, Hack 1, attribute to Ruslan Dzhafarov's LinkedIn post; mention Threads carousel test).
+   - **#4 — Turn off "AI Enhancements" until you A/B test it** (H3, Hack 2, Ruslan; explain the trust-killing AI tag; concrete setting path).
+   - **#5 — Use Advantage+ with multi-format signal diversity** (H3, Hack 3, Ruslan; portrait/square/long/short + static/carousel/video across Reels/Feed/Stories/Threads).
+   - **#6 — Build a web-to-app funnel with quizzes** (H3, Hack 4, Ruslan; quiz LP → trial purchase → app install). **Signal-quality add (gap-scan):** pair Pixel + CAPI on the web side; MMP One Links on the app handoff. ScaleMate doesn't integrate with MMPs — cite as workflow convention only ("Use AppsFlyer / Adjust / Branch One Links for the web→app handoff").
+   - **#7 — Run web campaigns even if your product is a mobile app** (H3, Hack 5, Ruslan; new Landing Page Views goal, expand inventory & signal source).
+   - **#8 — Optimize for Hook Rate (3-sec view rate)** (H3, Hack 6, Ruslan; the 35%/52%/67% example → 80% spend goes to highest hook; layer winning hooks onto videos that drive purchases). **Bridge:** this is testing-system territory → link `/blog/creative-testing-framework` with anchor "fast hook-rate testing system."
+   - **#9 — Add Threads to your placements + carousel mix** (H3, Hack 7, Ruslan; Threads is testing carousel ads, engagement is high).
+   - **#10 — Fix your attribution window — drop view-through, use 1-day click** (H3, NEW from gap scan). Practitioners report Andromeda inflates view-based attribution; switching to 1-day click stabilizes optimization signal. For app advertisers, 1-day click pairs cleanly with MMP attribution. Concrete setting path in Ads Manager. Sources: u/WizardOfEcommerce + multiple r/FacebookAds threads.
 5. **What media buyers are reporting** (H2, ~250w) — 2-3 Reddit quotes pulled from this brief's pain section, properly linked + attributed. Includes the "Andromeda is a myth" skeptic counter-point so we look balanced.
 6. **Andromeda + creative fatigue** (H2, ~200w) — short bridge: more creatives per ad set means fatigue cycles compress; Meta now rewards swapping in fresh creative "worlds" rather than near-duplicates. Internal link to [`/blog/what-is-ad-fatigue`](../../../content/blog/what-is-ad-fatigue.md) (anchor: "creative fatigue cycle" — we want this anchor to boost striking-distance pos 24 page).
-7. **FAQ** (H2, ~250w, FAQPage schema) — 5 Qs: What is Meta Andromeda? · When did Andromeda launch? · How many creatives per ad set under Andromeda? · Does Andromeda apply to TikTok? (no, but same diversification logic applies — bridge our multi-platform angle) · Should I turn off AI Enhancements?
-8. **CTA close** (H2, ~120w) — recap top 3 actions, anchor link to [`/ad-creative-uploader`](../../../app/ad-creative-uploader/page.jsx) ("Upload 50+ creative variants from Drive to Meta + TikTok in one go") + secondary link to [`/blog/creative-testing-framework`](../../../content/blog/creative-testing-framework.md).
+7. **FAQ** (H2, ~350w, FAQPage schema) — 7 Qs (expanded from gap scan):
+   - What is Meta Andromeda?
+   - When did Andromeda launch?
+   - How many creatives per ad set under Andromeda?
+   - Does Andromeda apply to TikTok? (no, but same creative-diversity logic applies — bridge multi-platform angle)
+   - Should I turn off AI Enhancements?
+   - **Which attribution window should I use under Andromeda?** (NEW gap-scan FAQ — 1-day click answer with rationale)
+   - **How many creatives is too many?** (NEW gap-scan FAQ — diminishing returns: 20+ is fine but only with budget per creative; under-budgeted volume just dilutes signal)
+8. **CTA close** (H2, ~150w) — recap top 3 actions framed around creatives-as-lever:
+   - Primary: **`/use-cases/bulk-ad-launch`** with anchor "launch 50+ creative variants across Meta + TikTok in one workflow" — this is the operational answer to "I need 10-20+ creatives per ad set, fast, organized."
+   - Secondary: **`/blog/creative-testing-framework`** with anchor "creative testing system" — for readers who need the testing logic before tooling.
+   - Tertiary (one mention only): **`/ad-creative-uploader`** as the upload mechanic inside the bulk-launch workflow, NOT as a standalone CTA.
 
 ---
 
@@ -275,7 +296,7 @@ Ahrefs `keywords-explorer-volume-history` for `meta andromeda` (US, Feb–May 20
 **❌ Scalemate NOT in title.** Per 4.1.3, this is educational TOFU/MOFU + the SERP doesn't have any brand-in-title competitors. Putting "Scalemate" in title would break Google-alignment with intent + signal advertorial-ness. **Set `absoluteTitle: true` in frontmatter** (per 4.1.3 blog template suffix workaround) so `app/blog/[slug]/page.jsx` doesn't append `| Scalemate Blog`.
 
 ### Power elements to use (≥2 per 4.1.5)
-1. **Specific number** — "9 things to change" (matches actual article structure, honest per 4.1.4)
+1. **Specific number** — "10 things to change" (matches actual article structure: 9 hacks/observations + 1 attribution gap-scan add, honest per 4.1.4)
 2. **Year marker** — "2026" (this is a recent update, year matters for freshness)
 3. **Audience specificity (optional 3rd)** — "for Meta + TikTok teams" (multi-platform differentiator vs Reddit threads which are FB-only)
 4. **Curiosity/promise of specificity** — "what changed + what to fix" pattern (matches "Practical Guide" winner)
@@ -284,10 +305,10 @@ Ahrefs `keywords-explorer-volume-history` for `meta andromeda` (US, Feb–May 20
 **YES, `absoluteTitle: true`** required in frontmatter — Andromeda update is alternative-style content where brand suffix would dilute (per 4.1.3 rule for non-branded TOFU).
 
 ### Draft title candidates (for content-ops scoring at draft stage — do NOT pick now)
-1. `Meta Andromeda Update Explained: 9 Things to Change in Your Account (2026)` — 60 chars
-2. `Meta Andromeda Update: 9 Fixes for Meta + TikTok Teams (2026)` — 56 chars (multi-platform power element)
-3. `Meta Andromeda Update: What Changed and 9 Things to Fix (2026)` — 60 chars (pain-pattern)
-4. `What Meta's Andromeda Update Actually Changes (And 9 Fixes)` — 58 chars (matches adexchanger top-5 winning pattern)
+1. `Meta Andromeda Update Explained: 10 Things to Change in Your Account (2026)` — 75 chars (over 60, trim at draft)
+2. `Meta Andromeda Update: 10 Fixes for Meta + TikTok Teams (2026)` — 62 chars (multi-platform power element)
+3. `Meta Andromeda Update: What Changed and 10 Things to Fix (2026)` — 63 chars (pain-pattern)
+4. `What Meta's Andromeda Update Actually Changes (And 10 Fixes)` — 60 chars (matches adexchanger top-5 winning pattern)
 
 ### Draft meta candidates (for content-ops scoring at draft stage)
 1. `Meta Andromeda update tanked your ROAS? 9 specific changes for UA teams running Meta + TikTok — including hook rate, creative "worlds", and the Advantage+ setup that wins now.` (170 chars — over, needs trim)
@@ -303,16 +324,17 @@ N/A — no existing URL for this slug. No prior metadata edits to defer.
 
 ## Unique Angle
 
-A founder-voiced, mobile-UA-specific Andromeda playbook (Meta + TikTok scope) synthesizing 7 hacks from Ruslan Dzhafarov's public LinkedIn post + 2 internal Scalemate observations (Creative Diversity Score "worlds", simplified campaign structure with 10-20+ creatives per ad set) — with a creative-volume operational bridge that no Reddit thread, agency blog, or Meta official page provides.
+A founder-voiced, mobile-UA-specific Andromeda playbook (Meta + TikTok scope) synthesizing 7 hacks from Ruslan Dzhafarov's public LinkedIn post + 2 internal Scalemate observations (Creative Diversity Score "worlds", simplified campaign structure with 10-20+ creatives per ad set) + 1 attribution-window add from competitor gap scan — with a **creatives-as-the-#1-lever** thesis: under Andromeda the work is *pain analysis → concept discovery → fast organized testing*, not audience optimization. CTA bridges to bulk launch + creative testing system, which no Reddit thread, agency blog, or Meta official page provides.
 
 ---
 
 ## Must Include
 
-- [ ] **Internal links (3 minimum, anchored):**
-  - [`/blog/what-is-ad-fatigue`](../../../content/blog/what-is-ad-fatigue.md) — anchor: "creative fatigue cycle" (boost target — currently pos 24, striking distance)
-  - [`/blog/creative-testing-framework`](../../../content/blog/creative-testing-framework.md) — anchor: "creative testing system" (bidirectional; existing page already mentions Andromeda line 147)
-  - [`/ad-creative-uploader`](../../../app/ad-creative-uploader/page.jsx) — anchor: "bulk upload creative variants for Meta + TikTok" (product page CTA)
+- [ ] **Internal links (4 minimum, anchored — primary CTA shifted to bulk launch + testing framework):**
+  - **Primary CTA: [`/use-cases/bulk-ad-launch`](../../../app/use-cases/_data/bulk-ad-launch/index.jsx)** — anchor: "launch 10-20+ creatives per ad set in one go" (placed in Hack #1 + final CTA close). This is the operational answer to Andromeda's core ask.
+  - **Secondary CTA: [`/blog/creative-testing-framework`](../../../content/blog/creative-testing-framework.md)** — anchor: "creative testing system" (placed in Hack #8 Hook Rate + intro framing + final CTA close). Bidirectional; existing page already mentions Andromeda line 147.
+  - **Striking-distance boost: [`/blog/what-is-ad-fatigue`](../../../content/blog/what-is-ad-fatigue.md)** — anchor: "creative fatigue cycle" (placed in Andromeda + creative fatigue H2). Currently pos 24, striking distance.
+  - **Tertiary (one mention only): [`/ad-creative-uploader`](../../../app/ad-creative-uploader/page.jsx)** — anchor: "upload mechanic" or similar, contextualized as a piece of the bulk-launch workflow, NOT a standalone CTA.
 - [ ] **First-hand experience markers:**
   - Direct attribution to Ruslan Dzhafarov (Scalemate co-founder) for Hacks 1-7, with reference to the LinkedIn post (this signals E-E-A-T per `content-writing-rules.md` 6.3 rule 7)
   - Internal Scalemate observations for Observation 1 (campaign structure) + Observation 2 (Creative Diversity Score worlds) — phrase as "From accounts we operate alongside…" or "What we are seeing on accounts running 10-20+ creatives per ad set…"
