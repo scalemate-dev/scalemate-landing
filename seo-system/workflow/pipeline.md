@@ -22,7 +22,6 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
 
 | Slug | Volume | KD | GSC imp | Funnel | Score | Notes |
 |---|---|---|---|---|---|---|
-| facebook-ads-manager-bulk-upload-alternative | — | 0 | — | MOFU | 8.0 | Pain-validated (r/FacebookAds 50+ comments "losing hours uploading ads one by one"); maps to Bulk Launch + Uploader; problem-first angle |
 | creative-fatigue-7-day-meta-andromeda | — | low | 553 (sister `what-is-ad-fatigue` page-2) | TOFU/MOFU | 7.5 | Newsjack on Andromeda + creative fatigue collapse; r/PPC 1-week-old thread "burnt out on creative testing"; sister to existing what-is-ad-fatigue (which itself needs escalation) |
 | scale-creative-volume-without-designers | — | 0 | — | MOFU | 7.0 | Pain #3 from Reddit ("more creatives, same designers"); JTBD 6; no existing content; aligns Bulk Launch + AI Assistant |
 | facebook-ads-automation-tools-comparison | 250 (cluster) | 6–14 | — | MOFU | 6.5 | Sibling to non-indexed `/blog/facebook-ads-automation`; cluster `facebook ads automation` (vol 150 KD 6) + `…tools` (50 KD 14) + `…software` (40 KD 12); de-risks indexation issue with new URL |
@@ -151,7 +150,9 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
 >   - reason: [SERP intent mismatch / 0 demand / cannibalization / abandoned mid-write]
 > ```
 
-- _empty_
+- facebook-ads-manager-bulk-upload-alternative
+  - rejected: 2026-05-05
+  - reason: 0 demand (Ahrefs vol = 0 on `facebook ads manager bulk upload alternative` + variants) AND cannibalization with existing `/blog/bulk-upload-creatives-meta-tiktok` (already covers cluster, 79 imp/wk pos 11.1). Replaced by S1' = strengthen existing article with H3 on "alternative" intent. See action-lists/2026-05-04.md S1.
 
 ---
 
