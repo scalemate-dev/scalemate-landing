@@ -77,11 +77,14 @@ export default async function ArticlePage({ params }) {
     return notFound()
   }
 
-  const date = new Date(article.createdAt).toLocaleDateString("en-US", {
+  const wasUpdated = article.updatedAt && article.updatedAt !== article.createdAt
+  const displayDateIso = wasUpdated ? article.updatedAt : article.createdAt
+  const dateFormatted = new Date(displayDateIso).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
   })
+  const date = wasUpdated ? `Updated ${dateFormatted}` : dateFormatted
 
   const isPersonAuthor = article.author !== "Scalemate Team"
 
@@ -183,7 +186,7 @@ export default async function ArticlePage({ params }) {
             </Link>
           </div>
           <div className={styles.heroContent}>
-            <time className={styles.date} dateTime={article.createdAt}>
+            <time className={styles.date} dateTime={displayDateIso}>
               {date}
             </time>
             <h1 className={styles.title}>{article.title}</h1>
