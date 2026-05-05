@@ -91,7 +91,7 @@ Meta Andromeda is Meta's new ads retrieval engine, launched in December 2024 and
 
 Translated: Meta now picks which ad to show using a much larger, much smarter model that ingests far more signal per impression. Where the old system needed you to hand it a tight audience, the new system wants creative variation and lets its own model find the audience.
 
-Most "Andromeda explained in simple words" Reddit threads simplify it down to one line: ["Before Andromeda Meta used to prefer good content. After Andromeda Meta is demanding multi-variation content. You don't give variation → Meta can't match properly → your ads suffer."](https://www.reddit.com/r/FacebookAds/comments/1p21s3b/meta_andromeda_explained_in_simple_words_no/) That is the framing UA managers should internalize. From the mobile-app accounts we work with, this single shift in framing — Meta now penalizes signal scarcity, not creative imperfection — predicts the difference between accounts that recovered post-rollout and accounts that did not. POV: Andromeda is a phase change for Meta delivery, not a tweak — treating it like a tweak is why so many accounts are stuck.
+The simplest way to explain Andromeda in one line: before, Meta used to prefer good content; after, Meta demands multi-variation content. No variation → Meta can't match audiences properly → your ads suffer. That is the framing UA managers should internalize. From the mobile-app accounts we work with, this single shift in framing — Meta now penalizes signal scarcity, not creative imperfection — predicts the difference between accounts that recovered post-rollout and accounts that did not. POV: Andromeda is a phase change for Meta delivery, not a tweak — treating it like a tweak is why so many accounts are stuck.
 
 ## What actually changed for advertisers — and why creatives became the #1 lever
 
@@ -166,7 +166,7 @@ What it does: AI Enhancements can rewrite your copy, add visual effects, or modi
 
 A real story from a media buyer last month: ROAS halved on a previously-stable campaign with no other change. The audit found AI Enhancements had silently swapped the hero image on three of five ads. Turning it off restored ROAS within a week.
 
-The pre-warning matters: stop tweaking, start feeding. The r/DigitalMarketing thread put it cleanly: ["with Meta Andromeda, over-optimizing early kills performance. It's smarter than it used to be; you need to feed it clean data and good creatives."](https://www.reddit.com/r/DigitalMarketing/comments/1oe8ai5/first_time_launching_facebook_ads_whats_the_best/) AI Enhancements is over-optimization dressed up as automation. Source: Ruslan's LinkedIn (Hack 2). [TODO: AI Enhancements toggle screenshot from Natalia/Ruslan, no client data — would strengthen E-E-A-T signal.]
+The pre-warning matters: stop tweaking, start feeding. With Andromeda, over-optimizing early kills performance — the system is smarter than it used to be, so the lever shifted from manual tuning to feeding it clean data and good creatives. AI Enhancements is over-optimization dressed up as automation. Source: Ruslan's LinkedIn (Hack 2). [TODO: AI Enhancements toggle screenshot from Natalia/Ruslan, no client data — would strengthen E-E-A-T signal.]
 
 ### 5. Use Advantage+ with multi-format signal diversity
 
