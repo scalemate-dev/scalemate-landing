@@ -22,7 +22,6 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
 
 | Slug | Volume | KD | GSC imp | Funnel | Score | Notes |
 |---|---|---|---|---|---|---|
-| meta-andromeda-update | 500 (parent `meta andromeda` 1,400) | 15 | — | TOFU/MOFU | 9.0 | Repurposed 2026-05-05 from `creative-fatigue-7-day-meta-andromeda` (rejected — see §9). Standalone Andromeda explainer + 9-point playbook. Cluster ~3.5K vol/mo across 23 keywords, AI overview SERP feature. **Source material PRE-COLLECTED: [`plans/meta-andromeda-source-material.md`](../plans/meta-andromeda-source-material.md)** — discovery agent MUST read before brief generation (contains Ahrefs cluster data, 7 hacks from Ruslan's LinkedIn PDF, 2 Natalia observations, internal linking targets, scoring inputs). Internal link targets: `/blog/what-is-ad-fatigue` (boost pos 24 → striking distance) + `/blog/creative-testing-framework` (already mentions Andromeda) + `/ad-creative-uploader`. From action-list 2026-05-04 (S2'). |
 | scale-creative-volume-without-designers | — | 0 | — | MOFU | 7.0 | Pain #3 from Reddit ("more creatives, same designers"); JTBD 6; no existing content; aligns Bulk Launch + AI Assistant |
 | facebook-ads-automation-tools-comparison | 250 (cluster) | 6–14 | — | MOFU | 6.5 | Sibling to non-indexed `/blog/facebook-ads-automation`; cluster `facebook ads automation` (vol 150 KD 6) + `…tools` (50 KD 14) + `…software` (40 KD 12); de-risks indexation issue with new URL |
 | automation-rules-frameworks-meta-tiktok | — | — | — | MOFU | 5.0 | Replaces effort on stuck `/blog/facebook-automated-rules` + `/blog/facebook-ads-automation` (re-index attempts exhausted). Concrete rule templates with thresholds (auto-pause CPA>X, scale ROAS>Y, rollback on -30% CTR), multi-platform Meta+TikTok. Discovery should plan internal links from indexed authority pages `/use-cases/ad-campaign-automation-rules` + `/features/automation-rules` to maximize indexation chance. JTBD 4+7. From action-list 2026-05-04 (S10). |
@@ -41,7 +40,7 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
 
 > Brief готовий, чекає твого approve. Approve = рух у §4. Reject = назад у §1 або в §9.
 
-- _empty_
+- **meta-andromeda-update** — discovery completed 2026-05-05 (PR #59, branch `seo/meta-andromeda-update`). Brief: [`seo-system/topics/meta-andromeda-update/brief.md`](../topics/meta-andromeda-update/brief.md). Primary keyword `meta andromeda update` (vol 500, parent `meta andromeda` 1,400 KD 15). Cluster ~3,500 vol/mo across 23 keywords. SERP for `meta andromeda update` is 10/10 Reddit threads — pure gap for structured founder-voiced playbook. Existing content check: zero pages, zero GSC impressions over 90d. Pain validated: 4 of top-10 Reddit threads have 50+ comments, 2 have 100+. Unique angle: founder-authored mobile-UA Andromeda playbook synthesizing 7 Ruslan LinkedIn hacks + 2 internal Scalemate observations (Creative Diversity Score "worlds", simplified campaign structure with 10–20+ creatives per ad set). 5 inputs needed from Natalia/Ruslan listed in brief.
 
 ---
 
