@@ -30,7 +30,7 @@ Uploading creatives to Meta Ads Manager one by one works when you're running fiv
 
 This guide covers five ways to bulk upload creatives to Meta and TikTok, from free native tools to full automation. Each method has trade-offs. We'll be honest about all of them, including ours.
 
-**TL;DR:** Meta's native Excel import is free but doesn't upload creative files. Google Sheets templates handle structure, not media. Paid tools work but cost $300-700/mo. API scripts give full control but risk getting your account banned. Scalemate uploads creatives from Google Drive to Meta and TikTok simultaneously, with a free tier and zero ban risk (verified Meta app). ZeptoLab and KitUp case studies below.
+**TL;DR:** Meta's native Excel import is free but doesn't upload creative files. Google Sheets templates handle structure, not media. Paid tools work but cost $300-700/mo. API scripts give full control but risk getting your account banned. Scalemate uploads creatives from Google Drive to Meta and TikTok simultaneously, with a free tier and zero account bans across all users to date (verified Meta app). ZeptoLab (35h/mo saved) and KitUp (65% faster deployment) case studies below.
 
 ---
 
@@ -44,7 +44,9 @@ Most media buyers don't realize how much time uploads eat until they count it. D
 
 At 10 creatives a week, it's barely noticeable. At 50+, it becomes the thing that blocks everything else. New concepts sit in a Drive folder for two days because nobody had time to upload them. One Reddit user called it "soul-crushing work — just dragging files between folders."
 
-Here's the part that actually hurts: most creatives don't work. That's normal. The job is to find the ones that do, as fast as possible. Every hour a new batch sits in a Drive folder instead of running in a campaign is an hour your budget keeps spending on yesterday's losers. Your design team hands off 20 new creatives Friday evening. If the upload process means they don't go live until Monday afternoon, that's an entire weekend of spend on ads you already know are underperforming. The faster creatives get into campaigns, the faster you find winners. Manual uploading is the bottleneck between your team producing creatives and those creatives actually making money.
+Here's the part that actually hurts: most creatives don't work. That's normal. The job is to find the ones that do, as fast as possible.
+
+Every hour a new batch sits in a Drive folder instead of running in a campaign is an hour your budget keeps spending on yesterday's losers. Your design team hands off 20 new creatives Friday evening. If the upload process means they don't go live until Monday afternoon, that's an entire weekend of spend on ads you already know are underperforming. The faster creatives get into campaigns, the faster you find winners. Manual uploading is the bottleneck between your team producing creatives and those creatives actually making money.
 
 Then there are the errors nobody talks about. Duplicate uploads that clutter Media Libraries. Outdated versions running alongside new ones. Wrong creatives in wrong accounts that burn budget before anyone catches them.
 
@@ -110,7 +112,7 @@ For teams with developer resources, Meta's Marketing API supports programmatic a
 
 The upside is maximum control and customization. You can tailor the workflow to anything your team needs. Open-source options are free.
 
-The downside is serious. **Meta is permanently banning ad accounts that connect through unverified apps.** Most open-source MCP servers use your personal access token without rate limiting or app review. Meta's security systems flag this as unauthorized bot access. We covered this in detail in our [MCP servers guide](/blog/best-mcp-servers-meta-google-ads). Check it before connecting anything to your accounts.
+The downside is serious. **Meta is permanently banning ad accounts that connect through unverified apps.** Most open-source MCP servers use your personal access token without rate limiting or app review. Meta's security systems flag this as unauthorized bot access. See our [MCP servers guide](/blog/best-mcp-servers-meta-google-ads) for the ban-risk breakdown before connecting anything to your accounts.
 
 Even without the ban risk, API scripts require ongoing maintenance. Meta changes its API regularly. What works today might break next month. For a deeper look at how [Facebook ads automation](/blog/facebook-ads-automation) works across different levels, we covered that separately.
 
@@ -136,9 +138,9 @@ The free tier includes unlimited uploads, 100 ad launches per month, and 2 activ
 
 **Real numbers from real teams:**
 
-ZeptoLab (Cut the Rope, 2B+ downloads) delivers 2,000+ creative files through Scalemate from NextCloud. Upload time dropped 70%. The team saves 35 hours per month. Those hours went back to creative strategy, not file management.
+ZeptoLab (Cut the Rope, 2B+ downloads) delivers 2,000+ creative files through Scalemate from NextCloud. Upload time dropped 70%. The team saves 35 hours per month. Those hours went back to creative strategy, not file management. *(measured Q1 2026)*
 
-KitUp (education, 1M+ users) connected their internal creative pipeline to Scalemate and launched 15,000+ ads through the platform. Creative deployment is 65% faster. Weekly hours on ad operations dropped by 25%. The upload-to-launch cycle that used to take half a day runs in minutes.
+KitUp (education, 1M+ users) connected their internal creative pipeline to Scalemate and launched 15,000+ ads through the platform. Creative deployment is 65% faster. Weekly hours on ad operations dropped by 25%. The upload-to-launch cycle that used to take half a day runs in minutes. *(measured Q1 2026)*
 
 [Try the free ad creative uploader →](/ad-creative-uploader)
 
@@ -157,6 +159,8 @@ KitUp (education, 1M+ users) connected their internal creative pipeline to Scale
 | **Multi-account** | ✓ | ✗ | ✗ | ✓ | Custom build |
 | **Ban risk** | ✓ None (verified) | None | None | Low | ✗ High |
 | **Setup** | ✓ Minutes | Minutes | Hours | Hours | Days-weeks |
+
+[Try Scalemate's free tier →](/ad-creative-uploader)
 
 ---
 
