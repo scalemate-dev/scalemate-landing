@@ -40,7 +40,7 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
 
 > Brief готовий, чекає твого approve. Approve = рух у §4. Reject = назад у §1 або в §9.
 
-- **meta-andromeda-update** — discovery completed 2026-05-05 (PR #59, branch `seo/meta-andromeda-update`). Brief: [`seo-system/topics/meta-andromeda-update/brief.md`](../topics/meta-andromeda-update/brief.md). Primary keyword `meta andromeda update` (vol 500, parent `meta andromeda` 1,400 KD 15). Cluster ~3,500 vol/mo across 23 keywords. SERP for `meta andromeda update` is 10/10 Reddit threads — pure gap for structured founder-voiced playbook. Existing content check: zero pages, zero GSC impressions over 90d. Pain validated: 4 of top-10 Reddit threads have 50+ comments, 2 have 100+. Unique angle: founder-authored mobile-UA Andromeda playbook synthesizing 7 Ruslan LinkedIn hacks + 2 internal Scalemate observations (Creative Diversity Score "worlds", simplified campaign structure with 10–20+ creatives per ad set). 5 inputs needed from Natalia/Ruslan listed in brief.
+- _empty_
 
 ---
 
@@ -48,7 +48,7 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
 
 > Brief approved. Content-creator агент пише draft.
 
-- _empty_
+- **meta-andromeda-update** — brief v2 approved 2026-05-05 (PR #59, branch `seo/meta-andromeda-update`). Brief: [`seo-system/topics/meta-andromeda-update/brief.md`](../topics/meta-andromeda-update/brief.md). Approval inputs from Natalia: author = Ruslan Dzhafarov (primary; 7/9 hacks his), Hook Rate 35/52/67% framed as illustrative pattern (no real-account vertical claim), MMP One Links cited as workflow convention only (AppsFlyer/Adjust/Branch — ScaleMate doesn't integrate), no AI Enhancements screenshot or Appflame/Kitup ROAS numbers (article works on Reddit quotes + cited engineering.fb.com stats). Primary CTA = `/use-cases/bulk-ad-launch` (operational answer to 10-20+ creatives per ad set), secondary = `/blog/creative-testing-framework`, `/ad-creative-uploader` demoted to one-mention tertiary. Content-creator next.
 
 ---
 
