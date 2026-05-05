@@ -198,6 +198,161 @@ $rt-bg-warm: #faf9f6;
     border-bottom: none;
   }
 
+  // ─── Reddit-style quote card (raw HTML in markdown) ───
+  // Per-selector :global() so raw class names from <aside class="rq"> in the .md file
+  // don't get module-hashed by Turbopack. Tokens reuse the warm-minimal palette above.
+  :global(.rq) {
+    display: block;
+    margin: 32px 0;
+    padding: 0;
+    background: #fffdf9;
+    border: 1px solid $rt-line;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 1px 0 rgba(26, 22, 20, 0.02);
+    transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  :global(.rq):hover {
+    box-shadow: 0 8px 24px -12px rgba(249, 115, 22, 0.18), 0 1px 0 rgba(26, 22, 20, 0.04);
+    border-color: rgba($rt-accent, 0.35);
+  }
+
+  :global(.rq__head) {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px;
+    border-bottom: 1px solid $rt-line;
+    background: $rt-bg-warm;
+    font-size: 13px;
+    line-height: 1.4;
+    color: $rt-body-light;
+    flex-wrap: wrap;
+  }
+
+  :global(.rq__avatar) {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, $rt-accent 0%, $rt-accent-deep 100%);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    flex-shrink: 0;
+  }
+
+  :global(.rq__sub) {
+    color: $rt-ink;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: -0.005em;
+  }
+
+  :global(.rq__sep) {
+    color: $rt-stone;
+    user-select: none;
+  }
+
+  :global(.rq__user) {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 12px;
+    color: $rt-body-light;
+    letter-spacing: 0.01em;
+  }
+
+  :global(.rq__time) {
+    font-size: 12px;
+    color: $rt-stone;
+  }
+
+  :global(.rq__body) {
+    border-left: none;
+    background: transparent;
+    border-radius: 0;
+    margin: 0;
+    padding: 22px 24px 18px;
+    font-style: normal;
+    font-size: 17px;
+    line-height: 1.6;
+    color: $rt-ink;
+    letter-spacing: -0.005em;
+  }
+
+  :global(.rq__body p) {
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    margin-bottom: 12px;
+  }
+
+  :global(.rq__body p:last-child) {
+    margin-bottom: 0;
+  }
+
+  :global(.rq__foot) {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 12px 20px 14px;
+    border-top: 1px solid $rt-line;
+    background: rgba($rt-bg-warm, 0.5);
+    font-size: 13px;
+    color: $rt-body-light;
+    flex-wrap: wrap;
+  }
+
+  :global(.rq__metric) {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: $rt-body-light;
+    font-variant-numeric: tabular-nums;
+  }
+
+  :global(.rq__metric svg) {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+
+  :global(.rq__link) {
+    margin-left: auto;
+    color: $rt-accent-deep;
+    font-weight: 500;
+    font-size: 13px;
+    border-bottom: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  :global(.rq__link):hover {
+    color: $rt-accent;
+    gap: 6px;
+  }
+
+  :global(.rq__link[aria-disabled="true"]) {
+    color: $rt-stone;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  :global(.rq-stack) {
+    display: grid;
+    gap: 16px;
+    margin: 32px 0;
+  }
+
+  :global(.rq-stack .rq) {
+    margin: 0;
+  }
+
   // ─── Responsive (tag-based) ───
   @include tablet-vertical {
     h1 { font-size: 32px; margin-top: 36px; }
@@ -206,6 +361,10 @@ $rt-bg-warm: #faf9f6;
     p, li { font-size: 16px; }
     blockquote { padding: 16px 20px; font-size: 16px; }
     th, td { padding: 8px 10px; font-size: 14px; }
+
+    :global(.rq__head) { padding: 12px 16px; }
+    :global(.rq__body) { padding: 18px 18px 14px; font-size: 16px; }
+    :global(.rq__foot) { padding: 10px 16px 12px; }
   }
 
   @include mobile {
@@ -215,6 +374,10 @@ $rt-bg-warm: #faf9f6;
     p, li { font-size: 15px; }
     pre { padding: 16px 20px; font-size: 13px; }
     th, td { padding: 6px 8px; font-size: 13px; }
+
+    :global(.rq__body) { font-size: 15px; }
+    :global(.rq__head),
+    :global(.rq__foot) { font-size: 12px; }
   }
 }
 
