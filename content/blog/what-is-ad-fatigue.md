@@ -1,7 +1,7 @@
 ---
-title: "What Is Ad Fatigue and How to Fix It (2026)"
+title: "Ad Fatigue on Meta + TikTok: Signs and Fixes (2026)"
 slug: what-is-ad-fatigue
-metaDescription: "Ad fatigue kills performance before you notice. Learn the signs, the real causes, and how to build a creative testing system that stays ahead of burnout."
+metaDescription: "Spot ad fatigue on Meta and TikTok before CPAs spike. The 5 signals media buyers track, the real causes, and the rotation system that keeps winners alive."
 author: "Nataliia Bondar"
 coverImage: null
 coverAlt: null
@@ -14,7 +14,7 @@ tags:
   - Meta Ads
   - performance marketing
 createdAt: "2026-04-07"
-updatedAt: "2026-04-07"
+updatedAt: "2026-05-05"
 faq:
   - question: "What is ad fatigue?"
     answer: "Ad fatigue is when the same audience sees the same ad too many times, causing performance metrics to decline. CTR drops, CPA rises, and ROAS falls — not because the ad was bad, but because the audience has seen it enough to stop responding. It affects every paid media platform, including Meta, TikTok, and Google."
