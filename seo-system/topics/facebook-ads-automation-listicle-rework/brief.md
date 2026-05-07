@@ -325,6 +325,8 @@ This positions Scalemate's rules + rollback as the differentiator on a SERP wher
 
 ## Listicle Structure (S5'-specific, refined post peer-set deep-dive)
 
+> **Detailed per-tool data captured in `tools-research.md` (2026-05-07) — confirm data points there before content-creator phase.** Notable findings: (a) Drive/Dropbox sync is NOT a Scalemate-unique differentiator — AdNova, Kitchn.io, AdManage.ai all have it; (b) AdNova verified at `adnova.ai` but its bucket is bulk-launch / creative-workflow, NOT rules engine — see slot #8 update below; (c) Pencil URL needs Natalia confirmation (`pencilads.com` resolved to a kindergarten site in our pull).
+
 ### Peer-set anchoring method
 
 12-tool list anchored on (a) tools appearing in 2+ of the top-3 SERP listicles, (b) tools most-mentioned in r/FacebookAds + r/PPC threads, (c) honest scope-defenders.
@@ -346,7 +348,7 @@ This positions Scalemate's rules + rollback as the differentiator on a SERP wher
 | 5 | **Smartly.io** | Enterprise creative production + automation | Yes (basic-to-mid) | Limited | Enterprise-tier completeness. All 3 peer listicles. |
 | 6 | **AdEspresso (Hootsuite)** | A/B testing + reporting (legacy) | Yes (basic) | No | All 3 peer listicles + Reddit mentions. Honest mention with "verify currently maintained" caveat. |
 | 7 | **Trapica** | AI-driven autonomous optimization | Limited (AI-decided, not rule-defined) | N/A (autonomous) | Synter + Get-Ryze + AdStellar all carry it. Fills the AI-autopilot bucket. |
-| 8 | **AdNova** *(founder-add 2026-05-07)* | TBD — AI/automation tool flagged by Natalia (verify positioning during write) | TBD — confirm during content-creator phase | TBD | **Not in any of 3 peer listicles** (Synter / Get-Ryze / AdStellar) and not surfaced in Ahrefs cluster matching-terms. Added on Natalia's call (founder knowledge, not data-validated). Content-creator MUST verify: (a) tool exists and is active, (b) what bucket it actually fits (AI-autopilot like Trapica? rule engine? creative-side?), (c) whether real product fit on rules-spine framing. If verification fails or it's redundant with Trapica → drop to honorable-mention or remove. |
+| 8 | **AdNova** *(founder-add 2026-05-07, **verified 2026-05-07**)* | **Bulk launch + creative workflow** (NOT rules engine — same bucket as Kitchn.io / AdManage.ai). H1: "AI Creative Workflow that Ships Winning Creatives". Vendor: `adnova.ai` (DR 41). | None (creative-side) | N/A | **Verified product** — free tier + Plus $150/mo + Bulk Ad Launcher add-on $79-$99/mo. Meta only. Drive + Dropbox sync. Apr 2026 blog active. **Not in any of 3 peer listicles.** **Editorial decision needed:** because AdNova doesn't compete on rules-spine, (a) keep slot #8 reframed as "creative-workflow / bulk-launch side, complementary to a rules tool" — title "13 Best…", OR (b) drop to honorable-mention paragraph alongside Hunch/AdCreative.ai — keep "12 Best…" framing. See `tools-research.md` for full data. |
 | 9 | **Adzooma** | SMB cross-platform manager | Yes (basic) | No | Synter + AdStellar. SMB-tier completeness. |
 | 10 | **Kitchn.io** | Spreadsheet-driven bulk launcher | No | N/A | DR 32, #2 in primary SERP. Fills bulk-launch-only bucket (rules-engine = no — explicit gap explained). |
 | 11 | **AdManage** | Fast ad launching + multi-cloud sync | Yes (basic) | No | UK-priced. Speed-of-launch positioning. |
