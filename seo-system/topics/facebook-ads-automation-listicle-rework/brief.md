@@ -335,7 +335,7 @@ This positions Scalemate's rules + rollback as the differentiator on a SERP wher
 **In Get-Ryze only:** Optmyzr, WordStream, AdRoll, Meta Advantage+, Pattern89, Zalster.
 **In AdStellar only:** Hunch, Socioh.
 
-### Proposed 12 tools (ordered)
+### Proposed 12 tools (ordered) + 1 founder-add candidate (AdNova)
 
 | # | Tool | Bucket | Rules engine | Rollback | Why on the list |
 |---:|---|---|---|---|---|
@@ -346,16 +346,20 @@ This positions Scalemate's rules + rollback as the differentiator on a SERP wher
 | 5 | **Smartly.io** | Enterprise creative production + automation | Yes (basic-to-mid) | Limited | Enterprise-tier completeness. All 3 peer listicles. |
 | 6 | **AdEspresso (Hootsuite)** | A/B testing + reporting (legacy) | Yes (basic) | No | All 3 peer listicles + Reddit mentions. Honest mention with "verify currently maintained" caveat. |
 | 7 | **Trapica** | AI-driven autonomous optimization | Limited (AI-decided, not rule-defined) | N/A (autonomous) | Synter + Get-Ryze + AdStellar all carry it. Fills the AI-autopilot bucket. |
-| 8 | **Adzooma** | SMB cross-platform manager | Yes (basic) | No | Synter + AdStellar. SMB-tier completeness. |
-| 9 | **Kitchn.io** | Spreadsheet-driven bulk launcher | No | N/A | DR 32, #2 in primary SERP. Fills bulk-launch-only bucket (rules-engine = no — explicit gap explained). |
-| 10 | **AdManage** | Fast ad launching + multi-cloud sync | Yes (basic) | No | UK-priced. Speed-of-launch positioning. |
-| 11 | **Make.com / Zapier** (workflow automation) | Connector / DIY automation | DIY (you build the rules) | Manual | Make.com #8 in primary SERP. Covers "I'll wire it up myself" intent (n8n keyword in matching terms confirms DIY niche). |
-| 12 | **Hunch / Pencil / AdCreative.ai** — honest "different category" mention | Creative production automation (NOT optimization automation) | N/A — different problem | N/A | Frequently-confused-with bucket. Defends scope, prevents reader bouncing to creative-automation cluster. |
+| 8 | **AdNova** *(founder-add 2026-05-07)* | TBD — AI/automation tool flagged by Natalia (verify positioning during write) | TBD — confirm during content-creator phase | TBD | **Not in any of 3 peer listicles** (Synter / Get-Ryze / AdStellar) and not surfaced in Ahrefs cluster matching-terms. Added on Natalia's call (founder knowledge, not data-validated). Content-creator MUST verify: (a) tool exists and is active, (b) what bucket it actually fits (AI-autopilot like Trapica? rule engine? creative-side?), (c) whether real product fit on rules-spine framing. If verification fails or it's redundant with Trapica → drop to honorable-mention or remove. |
+| 9 | **Adzooma** | SMB cross-platform manager | Yes (basic) | No | Synter + AdStellar. SMB-tier completeness. |
+| 10 | **Kitchn.io** | Spreadsheet-driven bulk launcher | No | N/A | DR 32, #2 in primary SERP. Fills bulk-launch-only bucket (rules-engine = no — explicit gap explained). |
+| 11 | **AdManage** | Fast ad launching + multi-cloud sync | Yes (basic) | No | UK-priced. Speed-of-launch positioning. |
+| 12 | **Make.com / Zapier** (workflow automation) | Connector / DIY automation | DIY (you build the rules) | Manual | Make.com #8 in primary SERP. Covers "I'll wire it up myself" intent (n8n keyword in matching terms confirms DIY niche). |
+| 13 | **Hunch / Pencil / AdCreative.ai** — honest "different category" mention | Creative production automation (NOT optimization automation) | N/A — different problem | N/A | Frequently-confused-with bucket. Defends scope, prevents reader bouncing to creative-automation cluster. |
 
-**Three notable changes vs prior brief's tool list:**
+> **Title number note:** if AdNova confirmed during write → title becomes "**13 Best Facebook Ads Automation Tools (Meta + TikTok) 2026**" (or final picks 12 by dropping one — see Inputs Needed). If AdNova drops to honorable-mention → keep "12 Best…" framing.
+
+**Notable changes vs prior brief's tool list:**
 
 - **Added:** AdEspresso (slot #6) — was already there in prior brief; kept. **Confirmed via 3-of-3 peer listicles.**
-- **Added:** Adzooma (slot #8) — was lateral SMB option in prior brief; promoted to its own slot since it appears in 2 of 3 peer listicles.
+- **Added:** Adzooma (slot #9) — was lateral SMB option in prior brief; promoted to its own slot since it appears in 2 of 3 peer listicles.
+- **Added:** AdNova (slot #8, founder-add 2026-05-07) — not data-validated; needs verification during write phase.
 - **Removed/consolidated:** prior slot for "Smartly + Adzooma + Trapica + AdEspresso as lateral mentions" is replaced by full per-tool entries.
 
 ### Comparison table — rules-as-spine columns
@@ -485,7 +489,8 @@ We considered framing the new article as "12 Best Facebook Automated Rules Tools
 
 ## Input Needed from Natalia
 
-- [ ] **Confirm 12-tool selection.** Drop / swap any if first-hand reasons (acquired, sunset, broken). Specifically: AdEspresso (Hootsuite-owned, declining?), Adzooma (active?), Optmyzr (covered as "honorable mention" or full slot?).
+- [ ] **Confirm 12-tool (or 13-tool with AdNova) selection.** Drop / swap any if first-hand reasons (acquired, sunset, broken). Specifically: AdEspresso (Hootsuite-owned, declining?), Adzooma (active?), Optmyzr (covered as "honorable mention" or full slot?).
+- [ ] **AdNova positioning (founder-add 2026-05-07).** What tool is this exactly (URL, vendor)? What bucket fits — AI-autopilot like Trapica, rule engine like Birch, creative-side, or something else? Real product / active in 2026? Why does it belong on the list (peer mentions in your network, ICP signal)? Final call: keep as slot #8 with full entry → title becomes "13 Best…", OR move to honorable-mention paragraph → keep "12 Best…" framing.
 - [ ] **Confirm Scalemate tool entry copy** — 32% budget savings, 62% time reduction, 2M+ ads launched, Meta + TikTok feature parity — still current?
 - [ ] **Verify rules-engine spine values for each tool** — content-creator agent will draft from public docs, but Natalia/Ruslan should sanity-check Birch + Madgicx + Scalemate (the 3 we make brand-relative claims against).
 - [ ] **One first-hand operator anecdote** — even one paragraph: "we tried [tool] when scaling [account]; here's why we ended up [moving to / staying off / pairing with] Scalemate". E-E-A-T marker peer set can't match.
