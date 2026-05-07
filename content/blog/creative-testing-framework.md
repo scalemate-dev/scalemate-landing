@@ -95,7 +95,7 @@ The gap between "creative is done" and "creative is live in a test campaign" is 
 
 Designers should deliver creatives in batches of at least 3-4 at a time. A single creative will sit and wait, because a UA manager needs multiple creatives to populate a new ad set. Adding it to an existing ad set is worse — it competes unfairly with proven performers. There is also a time cost: every launch cycle requires setting up targeting, budgets, and tracking. Doing this for one creative at a time is wasted effort.
 
-Set up a system where the designer notifies UA when a batch is ready (a Slack message with a Drive folder link works fine). The point is: no creative should sit in a folder waiting to be discovered.
+Set up a system where the designer notifies UA when a batch is ready (a Slack message with a Drive folder link works fine), and use an [ad creative uploader](/ad-creative-uploader) that pushes those files from Drive straight to Meta and TikTok so nothing sits manually waiting. The point is: no creative should sit in a folder waiting to be discovered.
 
 ### Pre-build campaign templates
 
@@ -149,7 +149,7 @@ Three ad sets at roughly $33 each, one creative per ad set. Designed for teams s
 
 ### Creative = Targeting (Andromeda era)
 
-Since Meta's Andromeda update, broad targeting often outperforms detailed audience segments. The practical implication: stop testing audiences and focus entirely on testing creatives. Let the algorithm find the right people; your job is to give it different messages to work with. This is the current reality on Meta for most advertisers, though it does not apply the same way on ad networks.
+Since Meta's Andromeda update, broad targeting often outperforms detailed audience segments. The practical implication: stop testing audiences and focus entirely on testing creatives. Let the algorithm find the right people; your job is to give it different messages to work with. This is the current reality on Meta for most advertisers, though it does not apply the same way on ad networks. Teams pushing high creative volume on Meta usually also need [automated creative upload to Meta](/use-cases/automated-creative-upload-meta) to keep the test pipeline moving without manual drag-and-drop.
 
 ### Meta Native Creative Testing
 
