@@ -40,7 +40,7 @@ If you want a second opinion, test the free tiers where available and compare yo
 
 Most listicles jump straight into rankings. Before that, here's what actually matters when you're choosing a bulk ad launcher — the criteria we'll use to compare everything below.
 
-**Flexibility.** Every team structures campaigns differently. Some want one ad per ad set for isolated testing. Others group 10 creatives under one campaign and split by geo or language. Two questions: does the tool force its own structure, or can you define yours? And can you save templates and reuse them — or do you rebuild from scratch every time? Also worth asking: if you need something specific (custom platform, ad grouping, naming conventions, a workflow that matches how your team operates), can the tool's team build it for you?
+**Flexibility.** Every team structures campaigns differently. Some want one ad per ad set for isolated testing — the structure most teams running an [ad creative testing playbook](/blog/creative-testing-framework) end up using. Others group 10 creatives under one campaign and split by geo or language. Two questions: does the tool force its own structure, or can you define yours? And can you save templates and reuse them — or do you rebuild from scratch every time? Also worth asking: if you need something specific (custom platform, ad grouping, naming conventions, a workflow that matches how your team operates), can the tool's team build it for you?
 
 **Platform support.** Meta only, or Meta and TikTok? If your team runs campaigns across both, a Meta-only tool means repeating the process on TikTok's side manually.
 
