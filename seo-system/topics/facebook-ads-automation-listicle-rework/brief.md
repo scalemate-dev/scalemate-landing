@@ -496,7 +496,7 @@ When writing this article, follow `content-writing-rules.md` §8 (JTBD Messaging
 
 Single primary table near the top of the article (Section 2):
 
-| Tool | Best for | Platforms | **Rules Engine** | **Rollback** | **Trigger Complexity** | **Multi-Account** | **Scheduling** | Bulk Launch | Creative Sync | AI Layer | Starts At | Free Tier |
+| Tool | Best for | Platforms | **Rules Engine** | **Auto-revert** | **Trigger Complexity** | **Multi-Account** | **Scheduling** | Bulk Launch | Creative Sync | AI Layer | Starts At | Free Tier |
 |------|----------|-----------|------------------|--------------|------------------------|---------------------|-----------------|-------------|---------------|----------|-----------|-----------|
 
 The 5 rules columns (Engine / **Auto-revert** / Complexity / Multi-Account / Scheduling) come first after Best-for/Platforms — visually anchoring the spine before the lateral feature columns (Bulk Launch, Creative Sync, AI Layer, Pricing, Free Tier). "Auto-revert" replaces "Rollback" as the column header — Scalemate's own term is "rollback" but plain-language is clearer for the broader marketer audience.
