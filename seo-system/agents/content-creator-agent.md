@@ -69,6 +69,7 @@ First-hand experience markers planned: [list]
   - Правило 6: blacklist stock phrases (перевірити кожну)
   - Правило 7: first-hand experience marker (min 1)
   - Правило 8: AI disclosure footer якщо applicable
+  - **Правило 9: Audience-Language Filter** — для КОЖНОГО факту тест: буде це цікаво primary reader role статті (media buyer / AdOps / CMO / CEO — залежно від ICP)? НЕ тягнути сирі дані з research (DR / SERP rank / volume / KD / "we pulled" / "we verified" / "verification fetch" / "founder-add" / "this slate" / date-stamps у body). Translation patterns у §6.3 Правило 9.
 - Section 8: JTBD messaging alignment
 
 **Формат output:**
@@ -88,6 +89,7 @@ First-hand experience markers planned: [list]
 - [ ] Min 1 POV marker per H2
 - [ ] Min 1 first-hand experience marker
 - [ ] Жодної stock phrase з blacklist
+- [ ] **Audience-Language Filter (§6 Правило 9):** grep `DR [0-9]+|SERP rank|striking distance|cluster|we pulled|we verified|verification fetch|WebFetch|as of 202[0-9]|founder-add|peer listicles we benchmarked|scope honesty|in good faith` → 0 hits. Плюс sanity check: для кожного абзацу — корисне primary reader role статті (media buyer / AdOps / CMO / CEO)?
 - [ ] Title/meta per methodology 4.1
 
 ### Step 5 — Check for Input Needs

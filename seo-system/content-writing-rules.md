@@ -950,6 +950,56 @@ Transition overload (використовувати помірно):
 - Якщо стаття написана людиною з нуля (навіть з AI-assisted research)
 - Якщо AI використаний тільки для grammar check / editing
 
+#### Правило 9. Audience-Language Filter (no editor / SEO leaks)
+
+> **Test перед кожним фактом / абзацом:** буде це цікаво і корисно для реального читача статті — media buyer / AdOps / performance marketing lead / CMO / CEO / founder (залежно від ICP конкретної статті, див. §1.4)? Чи це internal-side data, що цікаве тільки нам?
+>
+> Перед написанням визнач **primary reader role** (з brief'у або зі змісту) і прокачуй кожен fact / абзац через цю лінзу. Те що корисне media buyer'у (rule syntax, threshold protocols) може не цікавити CMO; те що цікавить CEO (ROI proof, governance, vendor risk) може не торкатися hands-on operator'а.
+>
+> Rule 2 (≥3 facts / 1000 слів) штовхає writer'а додавати фактаж. Rule 9 фільтрує: лише ті facts що мають value для primary reader. Інакше density є, релевантності — ні.
+
+**Заборонено в reader-facing copy:**
+
+SEO / research metrics (внутрішні, читачеві нічого не кажуть):
+- ❌ DR / Domain Rating (Ahrefs)
+- ❌ SERP rank ("#X on the primary X SERP", "ranks #2 on...")
+- ❌ Volume / KD / TP keyword data
+- ❌ GSC impressions / clicks / striking distance / cannibalization
+- ❌ Cluster names
+
+Process narration (як ми писали статтю):
+- ❌ "we pulled / fetched / WebFetch'd"
+- ❌ "we verified [page] on YYYY-MM-DD"
+- ❌ "the public pricing page didn't load in our verification fetch"
+- ❌ "as of YYYY-MM-DD" date-stamps у body (дата у frontmatter `updatedAt` достатня)
+- ❌ "founder-add to this slate"
+- ❌ "top-N peer listicles we benchmarked"
+- ❌ "honest list inclusion to fill the X bucket" — meta-editorial frame
+- ❌ "scope honesty" / "in good faith" — performative editor markers
+
+Meta-self-references (минімізувати):
+- ⚠️ "this slate" → "this list" (max 1-2 рази)
+- ⚠️ "in this article we'll" → не треба, читач уже у статті
+
+**Виключення (OK to keep):**
+- ✅ Reddit thread refs, якщо paraphrased + atributed ("r/FacebookAds, paraphrased: '...'") — це reader-value evidence
+- ✅ Vendor-side claims з URL ("'240M+ automated actions/year' claim on its homepage") — verifiable evidence
+- ✅ "we use X ourselves" / "we've launched 2M+ ads" — first-hand markers (Rule 7 maps)
+- ✅ Vendor pricing з URL — buyer-relevant fact
+
+**Translation patterns** (як переписати editor-side fact у reader-side):
+- "DR 72, established in r/FB threads" → "appears in nearly every r/FacebookAds 'best automation' thread"
+- "verified on 2026-05-08 via WebFetch" → drop date, just state the fact
+- "we couldn't verify webhook depth" → "webhook depth isn't documented prominently"
+- "founder-add — not in top-3 peer listicles" → "doesn't show up in the top results for this search, but worth knowing"
+- "DR 89, #8 on primary SERP" → drop both, say what tool actually does
+
+**Banned-grep для humanizer pass / QA Stage 3:**
+```
+grep -nE "DR [0-9]+|SERP rank|striking distance|cluster|we pulled|we verified|verification fetch|WebFetch|as of 2026|founder-add|peer listicles we benchmarked"
+```
+Кожен hit = cut або rewrite перед publish.
+
 ### 6.4 Humanizer Pass (обов'язковий крок перед публікацією)
 
 **Хто робить:** `content-ops` skill (або окремий sub-agent)
@@ -963,8 +1013,9 @@ Transition overload (використовувати помірно):
 6. Перевірити customer language (6.3.5). Якщо генерично — замінити.
 7. **Перевірити first-hand Experience markers (правило 7)** — мін. 1 реальний сигнал.
 8. **Перевірити AI disclosure (правило 8)** якщо застосовно.
-9. Прогнати через AI detector (Originality / GPTZero / Ahrefs AI level check)
-10. **Якщо результат Moderate / High** — повернути content-creator'у з конкретними pointers на порушені правила
+9. **Перевірити Audience-Language Filter (правило 9)** — grep `DR [0-9]+|SERP rank|striking distance|cluster|we pulled|we verified|verification fetch|WebFetch|as of 202[0-9]|founder-add|peer listicles we benchmarked|scope honesty|in good faith`. Кожен hit = cut або rewrite. Плюс sanity check: для кожного абзацу — буде це цікаво primary reader role (media buyer / AdOps / CMO / CEO залежно від ICP)?
+10. Прогнати через AI detector (Originality / GPTZero / Ahrefs AI level check)
+11. **Якщо результат Moderate / High** — повернути content-creator'у з конкретними pointers на порушені правила
 
 ### 6.5 Що робимо з поточними 3 Moderate сторінками
 

@@ -55,6 +55,11 @@
 6. **Customer language** — чи звучить як media buyer, не як corporate?
 7. **First-hand experience** — чи є min 1 маркер (screenshot, client detail, experiment)?
 8. **AI disclosure** — чи потрібен footer?
+9. **Audience-Language Filter (§6 Правило 9)** — grep по reader-side жаргон:
+   ```
+   grep -nE "DR [0-9]+|SERP rank|striking distance|cluster|we pulled|we verified|verification fetch|WebFetch|as of 202[0-9]|founder-add|peer listicles we benchmarked|scope honesty|in good faith" <draft>
+   ```
+   Кожен hit = critical issue. Плюс sanity scan: для кожного абзацу спитай "буде це цікаво primary reader role статті (media buyer / AdOps / performance marketing lead / CMO / CEO залежно від ICP)"? Якщо ні — flag для content-creator як audience-mismatch.
 
 **Якщо 3+ checks fail → повернути content-creator'у з конкретними рядками для переписування.**
 
