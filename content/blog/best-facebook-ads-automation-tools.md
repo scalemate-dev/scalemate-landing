@@ -79,7 +79,10 @@ The operator's question: does the tool ship the chain whole, or does it cover on
 The chain is four steps, all native to ad ops:
 
 ```
-Launch → Trigger (multi-level conditions) → Action (auto OR alert) → Endpoint (Slack / email / API custom event)
+Launch
+  → Trigger  (multi-level conditions)
+    → Action  (auto OR alert)
+      → Endpoint  (Slack / email / API custom event)
 ```
 
 Per step, in plain language:
