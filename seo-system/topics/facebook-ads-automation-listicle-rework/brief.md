@@ -307,19 +307,47 @@ Three-way evaluation 2026-05-07 picked option C:
 
 ---
 
-## Unique Angle — Rules-as-Spine
+## Unique Angle — Workflow chains for ad ops (n8n-for-marketers) + Rules-as-Spine
 
-**The article uses rules engine capability as the structural lens through which every tool is evaluated** — not just a column among many, but the defining axis. This is positioned in the intro: "Most listicles compare Facebook ads tools by feature lists. We compare them by where the bottleneck actually breaks: the rules engine. Because once your account scales past a few hundred ad sets, that's the layer that makes or breaks ROAS."
+> **Primary angle revised 2026-05-08** based on tools-research.md per-tool data + Natalia's framing. See `tools-research.md` "Angle F" section for full peer-by-peer differentiation map.
 
-Each of the 12 tool entries gets evaluated through 5 rules dimensions:
+### Primary frame — workflow chains
+
+**Most peer listicles compare Facebook ads tools as feature lists. We compare them as workflow chains** — the same 4-step pattern marketers know from n8n / Zapier / Make.com but pre-wired for ad ops:
+
+```
+Launch → Trigger (metric threshold) → Action (auto-execute or alert) → Endpoint (Slack / email)
+```
+
+Every tool gets evaluated against the full 4-step chain. Most peers cover 1-2 steps cleanly and force you to glue the rest with Zapier or screenshots in Slack. Scalemate ships all 4 steps native to ad ops:
+
+- **Launch:** bulk launch from Drive → Meta + TikTok
+- **Trigger:** CPA / ROAS / frequency / spend thresholds (last 1d / 7d / 14d windows)
+- **Action:** auto-execute (pause / scale / cut) **or** alert-only — per-rule routing
+- **Endpoint:** Slack or email (confirmed shipped, [features/automation-rules/page.jsx:51](../../../app/features/automation-rules/page.jsx) + [use-cases/ad-campaign-automation-rules/index.jsx:293](../../../app/use-cases/_data/ad-campaign-automation-rules/index.jsx))
+
+**Why this beats the prior rules-as-spine framing:**
+- Has its own Ahrefs keyword pull: `n8n facebook ads automation` + `reddit n8n facebook ads automation` = 40 vol combined in cluster matching-terms.
+- Differentiates against ALL 13 peers on at least one chain step (DIY / no Slack endpoint / autonomous black-box / no metric trigger / partial integration).
+- ICP-resonant: media buyers who use n8n / Zapier instantly map the value prop.
+
+### Structural lens — Rules-as-Spine (kept as scaffolding)
+
+The 5 rules dimensions stay as the comparison-table backbone, with **2 new chain-completeness columns appended** (total 7 chain dimensions):
 
 1. **Rules engine yes/no** (does it have one beyond Meta's native rules?)
 2. **Rollback yes/no** (can rules auto-revert when performance drops below threshold?)
 3. **Trigger complexity** (AND-only / OR / compound conditions)
 4. **Multi-account** (run rules across N ad accounts from one config)
 5. **Scheduling** (time-of-day, day-of-week triggers)
+6. **Auto-action** (does the tool execute the action, or only notify?)
+7. **External endpoint** (Slack / email / webhook native, or DIY)
 
-This positions Scalemate's rules + rollback as the differentiator on a SERP where every peer mentions rules but none structures the comparison around them. **Operator-written from a team that has launched 2M+ ads on Meta and TikTok.** Tools picked by where the bottleneck actually lives. Free-tier entry path so $0-spend teams aren't told to buy a $99/mo tool on day one.
+### Supporting frame — pricing tier strategy
+
+Free uploader → paid rules + workflow chains. Surfaced in Scalemate's per-tool entry pricing paragraph (kept from prior Angle A — $0-spend teams have a clean entry path).
+
+**Operator-written from a team that has launched 2M+ ads on Meta and TikTok.** Tools picked by where the chain breaks, not by feature-list completeness.
 
 ---
 
@@ -492,7 +520,8 @@ We considered framing the new article as "12 Best Facebook Automated Rules Tools
 ## Input Needed from Natalia
 
 - [ ] **Confirm 12-tool (or 13-tool with AdNova) selection.** Drop / swap any if first-hand reasons (acquired, sunset, broken). Specifically: AdEspresso (Hootsuite-owned, declining?), Adzooma (active?), Optmyzr (covered as "honorable mention" or full slot?).
-- [ ] **AdNova positioning (founder-add 2026-05-07).** What tool is this exactly (URL, vendor)? What bucket fits — AI-autopilot like Trapica, rule engine like Birch, creative-side, or something else? Real product / active in 2026? Why does it belong on the list (peer mentions in your network, ICP signal)? Final call: keep as slot #8 with full entry → title becomes "13 Best…", OR move to honorable-mention paragraph → keep "12 Best…" framing.
+- [ ] **AdNova positioning (founder-add 2026-05-07).** What tool is this exactly (URL, vendor)? What bucket fits — AI-autopilot like Trapica, rule engine like Birch, creative-side, or something else? Real product / active in 2026? Why does it belong on the list (peer mentions in your network, ICP signal)? Final call: keep as slot #8 with full entry → title becomes "13 Best…", OR move to honorable-mention paragraph → keep "12 Best…" framing. (UPDATE 2026-05-07 — research agent verified `adnova.ai` DR 41, Meta-only, free + Plus $150/mo, **bulk-launch + creative-workflow bucket, NOT rules engine** — same bucket as Kitchn / AdManage. See `tools-research.md` slot #8.)
+- [ ] **Slack / Sheets endpoint verification (Angle F primary).** Is Scalemate's Slack integration **native** (built-in, no third-party glue) or webhook-based? Does Sheets / table export ship today, or is it only dashboard view (you said «таблички ваші» — confirm what literal endpoint exists)? This is the moat for Angle F (workflow chain → external endpoint) vs Make.com / Zapier / native Meta. Affects Scalemate per-tool entry copy + comparison table "External endpoint" column.
 - [ ] **Confirm Scalemate tool entry copy** — 32% budget savings, 62% time reduction, 2M+ ads launched, Meta + TikTok feature parity — still current?
 - [ ] **Verify rules-engine spine values for each tool** — content-creator agent will draft from public docs, but Natalia/Ruslan should sanity-check Birch + Madgicx + Scalemate (the 3 we make brand-relative claims against).
 - [ ] **One first-hand operator anecdote** — even one paragraph: "we tried [tool] when scaling [account]; here's why we ended up [moving to / staying off / pairing with] Scalemate". E-E-A-T marker peer set can't match.
