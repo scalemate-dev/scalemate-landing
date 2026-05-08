@@ -139,7 +139,7 @@ Three-way evaluation 2026-05-07 picked option C:
 | Funnel stage | **MOFU/BOFU** (commercial intent — readers are comparing/picking, not learning). |
 | Steps to sign-up | 2 (read listicle → click `/use-cases/ad-campaign-automation-rules` or free uploader → try). |
 | ICP fit | 5/5 — UA Manager / Media Buyer running Meta + (often) TikTok at $5K-$100K+/mo. |
-| Primary CTA | `/use-cases/ad-campaign-automation-rules` (rules engine + rollback is the spine of the listicle and Scalemate's defining feature on this SERP). |
+| Primary CTA | `/use-cases/ad-campaign-automation-rules` (rules engine + auto-revert is the spine of the listicle and Scalemate's defining feature on this SERP). |
 | Secondary CTA | `/use-cases/bulk-ad-launch` + `/ad-creative-uploader` (free tier hook). |
 | Tertiary CTA | **`/automation-rules-library`** (S9' page — coordinated release with this listicle per Natalia 2026-05-08). Listicle links to library for "give me rules to copy-paste" intent; library links back to listicle for "compare tools that run these rules" intent. **Coordinated release = cluster authority bump:** two new pages launched together cross-link the cluster, not one isolated page. Update timeline: deploy listicle and library in same release (or library first if ready earlier — listicle internal-links to it on day-one then). |
 
@@ -257,7 +257,7 @@ Three-way evaluation 2026-05-07 picked option C:
    > "We need a system that triggers budget protection ahead of manual intervention during platform glitches or conversion drops..."
 
 5. **r/FacebookAds, "Automated rules for bad performance days"** (2023, [thread](https://www.reddit.com/r/FacebookAds/comments/17qd4fw/)):
-   > "Yes you can set up 'check' rules to turn the ads back on but you've just lost 5 hours…" — direct evidence for **rollback gap** in native rules.
+   > "Yes you can set up 'check' rules to turn the ads back on but you've just lost 5 hours…" — direct evidence for the **auto-revert gap** in native rules (Scalemate's term: "rollback").
 
 6. **r/FacebookAds, "What is the best tool to automate my Facebook ads?"** (20+ comments, 4 months ago, [thread](https://www.reddit.com/r/FacebookAds/comments/1pnx3t3/)) — **#4 in primary SERP today**:
    > "For launching new ads: Use Automated Rules in Ads Manager to pause underperformers automatically based on CPA or ROAS thresholds. Free and works..."
@@ -269,14 +269,14 @@ Three-way evaluation 2026-05-07 picked option C:
 - "tedious manual optimization"
 - "burning 4-6 hours a week"
 - "campaigns dying overnight"
-- "lost 5 hours" (no rollback)
+- "lost 5 hours" (no auto-revert)
 - "managing campaigns at scale gets frustrating fast"
 - "spent too many hours manually clicking"
 
 ### Scale + workarounds + emotional triggers
 
 - **Scale of problem:** 4-6 hrs/week burned on manual ad work; teams running $30K-$200K/mo with 50-300 ads live.
-- **Current workarounds:** Native Meta rules (limited — AND-only, no rollback), Birch (most-mentioned third-party), Madgicx (second), Make.com / n8n DIY workflows, AdEspresso (declining).
+- **Current workarounds:** Native Meta rules (limited — AND-only, no auto-revert), Birch (most-mentioned third-party), Madgicx (second), Make.com / n8n DIY workflows, AdEspresso (declining).
 - **Emotional triggers:** punishment / drudgery, loss of control ("lost 5 hours", "dying overnight"), manual = mistakes, frustration with "AI everywhere except this".
 
 ### Thread activity (proof of demand)
@@ -315,9 +315,9 @@ Three-way evaluation 2026-05-07 picked option C:
 
 ### 3 title candidates
 
-1. **`12 Best Facebook Ads Automation Tools 2026 (Rules + Rollback + Bulk Launch)`** — 73 chars. **Over the 60-char hard cap; cut.** Variant: `12 Best Facebook Ads Automation Tools 2026 (Rules + Bulk Launch)` — 64 chars. Still over. Use as fallback only if shorter version underperforms.
-2. **`12 Best Facebook Ads Automation Tools (2026): Rules + Rollback`** — 62 chars. Slightly over but close. Lean on rules-shopper signal in subtitle.
-3. **`12 Best Facebook Ads Automation Tools for 2026 (Meta + TikTok)`** — 60 chars. **Recommended primary.** Multi-platform differentiator + count + year. Hits SERP pattern, signals rules-shopper indirectly via the listicle context, leaves room.
+1. **`12 Best Facebook Ads Automation Tools 2026 (Rules + Auto-Revert + Bulk Launch)`** — 75 chars. **Over the 60-char hard cap; cut.** Variant: `12 Best Facebook Ads Automation Tools 2026 (Rules + Bulk Launch)` — 64 chars. Still over. Use as fallback only if shorter version underperforms.
+2. **`12 Best Facebook Ads Automation Tools (2026): Rules + Auto-Revert`** — 64 chars. Slightly over. Lean on rules-shopper signal in subtitle.
+3. **`12 Best Facebook Ads Automation Tools for 2026 (Meta + TikTok)`** — 60 chars. **Recommended primary.** Multi-platform differentiator + count + year. Hits SERP pattern, signals rules-shopper indirectly via the listicle context, leaves room. (Note: if AdNova confirmed during write phase, swap "12" → "13".)
 
 **Recommended: candidate #3.** Multi-platform angle is the strongest SERP differentiator vs Synter / Get-Ryze / AdStellar (all Meta-only or Meta-Google). Rules-as-spine surfaces in the H1 / intro / table column structure — it doesn't have to be in the title.
 
@@ -325,9 +325,9 @@ Three-way evaluation 2026-05-07 picked option C:
 
 ### Meta description (158 chars target, recommended)
 
-> "Compare 12 Facebook ads automation tools by what actually matters: rules engine, rollback, bulk launch, and creative sync — for Meta + TikTok teams in 2026."
+> "Compare 12 Facebook ads automation tools by what actually matters: rules engine, auto-revert, bulk launch, and creative sync — for Meta + TikTok teams in 2026."
 
-(Alt, pain-led: "Stop burning 4-6 hrs/week on Ads Manager. 12 Facebook ads automation tools compared by rules, rollback, bulk launch, and free options for 2026.")
+(Alt, pain-led: "Stop burning 4-6 hrs/week on Ads Manager. 12 Facebook ads automation tools compared by rules, auto-revert, bulk launch, and free options for 2026.")
 
 ### Frontmatter
 
@@ -360,10 +360,10 @@ Three-way evaluation 2026-05-07 picked option C:
 
 ### The job (per `content-writing-rules.md` §8.1, Groups A+B+D)
 
-**Job:** "I have an ops stack — Slack, Notion, our internal dashboard, our CRM, our reporting sheets. I need an execution layer for Meta + TikTok that **plugs INTO my stack**, not replaces it. Multi-level rules with rollback that I configure once, and the results stream into where my team already works."
+**Job:** "I have an ops stack — Slack, Notion, our internal dashboard, our CRM, our reporting sheets. I need an execution layer for Meta + TikTok that **plugs INTO my stack**, not replaces it. Multi-level rules with auto-revert that I configure once, and the results stream into where my team already works."
 
 **Trigger / pain (in ICP's own words):**
-- "Meta automated rules are AND-only single-level. No rollback, no Slack push, no way to feed the result back into our dashboard."
+- "Meta automated rules are AND-only single-level. No auto-revert, no Slack push, no way to feed the result back into our dashboard."
 - "I'm screenshotting performance into Slack threads and exporting CSVs nightly into our sheet. There has to be a better way."
 - "Birch / Madgicx have rules but they're closed systems — the data lives in their dashboard, not mine. My team checks Notion / our CRM, not yet another tool."
 - "Make.com / n8n let me wire it up but I'm rebuilding ad-ops primitives from scratch. I just want a tool that does ad-ops natively AND pipes results into my system."
@@ -375,7 +375,7 @@ Three-way evaluation 2026-05-07 picked option C:
 
 Scalemate is the **smart execution layer** for Meta + TikTok ad ops:
 
-- **You define the conditional flows** — multi-level (compound triggers), with rollback when conditions reverse, across multiple ad accounts, with scheduling.
+- **You define the conditional flows** — multi-level (compound triggers), with auto-revert when conditions reverse, across multiple ad accounts, with scheduling.
 - **You pick how it executes** — auto (Scalemate fires the action) or alert-only (your team decides), per rule.
 - **You pick where the result goes** — Slack or email native, or any system via API + custom events (Scalemate triggers events you subscribe to: status changes, threshold breaches, action receipts → flows into Notion / your dashboard / your CRM).
 - **For non-standard integrations** — the dev team builds custom integrations (Scalemate isn't a closed black box; it integrates where you need it).
@@ -462,7 +462,7 @@ When writing this article, follow `content-writing-rules.md` §8 (JTBD Messaging
 
 ### Peer-set anchoring method
 
-12-tool list anchored on (a) tools appearing in 2+ of the top-3 SERP listicles, (b) tools most-mentioned in r/FacebookAds + r/PPC threads, (c) honest scope-defenders.
+12-13 tool list (final count depends on AdNova editorial decision — see Title number note + Inputs Needed) anchored on (a) tools appearing in 2+ of the top-3 SERP listicles, (b) tools most-mentioned in r/FacebookAds + r/PPC threads, (c) honest scope-defenders.
 
 **Tools appearing in all 3 top-SERP listicles (Synter, Get-Ryze, AdStellar):** Revealbot, Madgicx, AdEspresso, Smartly.io.
 **In 2 of 3:** Trapica, Adzooma.
@@ -472,10 +472,10 @@ When writing this article, follow `content-writing-rules.md` §8 (JTBD Messaging
 
 ### Proposed 12 tools (ordered) + 1 founder-add candidate (AdNova)
 
-| # | Tool | Bucket | Rules engine | Rollback | Why on the list |
+| # | Tool | Bucket | Rules engine | Auto-revert | Why on the list |
 |---:|---|---|---|---|---|
 | 1 | **Meta Native (Advantage+ / Automated Rules / Dynamic Creative)** | Free / native baseline | Yes (limited — AND-only, 250 rules cap) | No | Honest "start here if <$5K/mo" anchor. In all peer listicles. |
-| 2 | **Scalemate** | Multi-platform: bulk launch + rules with rollback + Drive sync + AI chat | **Yes (advanced, OR/compound)** | **Yes** | Self-mention. Multi-platform (Meta + TikTok) + free uploader + rules-with-rollback differentiator. **#2 placement** (NOT #1) — vendor self-#1 reads as advertorial (cf. Get-Ryze, AdStellar). |
+| 2 | **Scalemate** | Multi-platform: bulk launch + rules with auto-revert + API custom events + AI chat | **Yes (advanced, OR/compound)** | **Yes** | Self-mention. Multi-platform (Meta + TikTok) + free uploader + integration-first execution layer + operator playbooks library (Angle F+G). **#2 placement** (NOT #1) — vendor self-#1 reads as advertorial (cf. Get-Ryze, AdStellar). |
 | 3 | **Birch (Revealbot)** | Cross-platform rules + bulk launch | **Yes (advanced, OR/compound, scheduling)** | Yes | DR 72, top-mentioned in Reddit. Appears in all 3 peer listicles. |
 | 4 | **Madgicx** | AI audiences + creative scoring (Meta-focused) | Yes (basic) | No | Second-most-mentioned in Reddit. All 3 peer listicles. We have `/blog/madgicx-review-alternative` to internal-link. |
 | 5 | **Smartly.io** | Enterprise creative production + automation | Yes (basic-to-mid) | Limited | Enterprise-tier completeness. All 3 peer listicles. |
@@ -594,11 +594,11 @@ We considered framing the new article as "12 Best Facebook Automated Rules Tools
   - One concrete operator story (Natalia/Ruslan input — one paragraph).
 - [ ] **Data points needed:**
   - Verify 2026 pricing for: Birch, Madgicx, Kitchn, AdEspresso, Smartly, Trapica, AdManage, Adzooma, Optmyzr, Make.com.
-  - Verify each tool's rules-engine spine values (Rules Engine / Rollback / Trigger Complexity / Multi-Account / Scheduling) — cross-check public docs at draft-time. **Don't guess.**
+  - Verify each tool's rules-engine spine values (Rules Engine / Auto-revert / Trigger Complexity / Multi-Account / Scheduling) — cross-check public docs at draft-time. **Don't guess.**
   - Confirm Scalemate Meta + TikTok feature parity (per `scalemate_channel_scope` memory: yes, Meta + TikTok only).
 - [ ] **Schema:**
-  - `FAQPage` (refresh existing 6 Q&A; add 1 Q on "do these tools have rollback?" + 1 Q on "best for low spend?").
-  - `ItemList` schema for the 12-tool listicle (each tool as `Product` or `SoftwareApplication`) — AEO/AI Overview signal.
+  - `FAQPage` (refresh existing 6 Q&A; add 1 Q on "do these tools auto-revert when conditions normalize?" + 1 Q on "best for low spend?").
+  - `ItemList` schema for the listicle (each tool as `Product` or `SoftwareApplication`) — AEO/AI Overview signal. Item count matches final title count (12 or 13).
   - `BreadcrumbList`.
 - [ ] **Pre-deploy checks (per 4.1.10):**
   - Production-render the title in browser preview to confirm `absoluteTitle: true` opt-out works (no `| Scalemate Blog` suffix).
@@ -628,7 +628,7 @@ We considered framing the new article as "12 Best Facebook Automated Rules Tools
 - [ ] **AdNova positioning (founder-add 2026-05-07).** What tool is this exactly (URL, vendor)? What bucket fits — AI-autopilot like Trapica, rule engine like Birch, creative-side, or something else? Real product / active in 2026? Why does it belong on the list (peer mentions in your network, ICP signal)? Final call: keep as slot #8 with full entry → title becomes "13 Best…", OR move to honorable-mention paragraph → keep "12 Best…" framing. (UPDATE 2026-05-07 — research agent verified `adnova.ai` DR 41, Meta-only, free + Plus $150/mo, **bulk-launch + creative-workflow bucket, NOT rules engine** — same bucket as Kitchn / AdManage. See `tools-research.md` slot #8.)
 - ~~Slack / Sheets endpoint verification~~ ✅ **RESOLVED 2026-05-08.** Slack: native. API + custom events: native — Scalemate fires events INTO the user's system (Notion / Airtable / their tracking sheet / internal dashboard / CRM). The "endpoint" is the user's system, not a Scalemate-side export. Custom integrations on demand via dev team. **Docs:** `https://scalemate.gitbook.io/scalemate-api` (public, citable).
 - ~~Public-facing API / developer docs URL~~ ✅ **RESOLVED 2026-05-08.** `https://scalemate.gitbook.io/scalemate-api` — public GitBook. Cite this in Scalemate per-tool entry as the evidence for the API + custom events claim. E-E-A-T strong.
-- [ ] **Approve JTBD voice direction for Scalemate per-tool entry.** Per `content-writing-rules.md` §8 Groups A+B+D applied to this article — Scalemate framed as "smart execution layer that plugs into your ops stack" (NOT "rules engine with rollback"). H3 lead: *"Best for Meta + TikTok teams who want their ad ops to flow INTO their existing stack — Slack, Notion, dashboards, custom systems via API."* OK to use this framing across all 13 tool entries (each tool gets a JTBD-lens H3)?
+- [ ] **Approve JTBD voice direction for Scalemate per-tool entry.** Per `content-writing-rules.md` §8 Groups A+B+D applied to this article — Scalemate framed as "smart execution layer that plugs into your ops stack — with operator playbooks included" (NOT "rules engine with auto-revert"). H3 lead: *"Best for Meta + TikTok teams who want operator playbooks on day one — and want their ad ops to flow INTO their existing stack (Slack, Notion, dashboards, custom systems via API)."* OK to use this framing across all 12-13 tool entries (each tool gets a JTBD-lens H3)?
 - [ ] **Approve worked example walkthrough.** Per Natalia 2026-05-08: real operator-grade scenario showing the full chain in one rule. **Creative testing protocol** — when testing new creatives, set a multi-level rule on the test campaign:
   ```
   IF (spend > CPI_benchmark × 10) AND (current_CPI > CPI_benchmark × 2)

@@ -42,7 +42,7 @@
 - **Pricing:** Free (built into Ads Manager).
 - **Platforms:** Meta only (FB + IG).
 - **Rules engine:** Basic. Meta's Automated Rules support condition-based triggers (CPA, ROAS, spend) but historically AND-only with limited compound logic; default rule cap exists per ad account. **Not verified live this pull** (Meta help URL `/business/help/automated-rules` returned 404 in our fetch — same article moves between IDs). Existing how-to article `content/blog/facebook-ads-automation.md` is the cited source for AND-only / 250-rule cap framing. Reconfirm at draft time.
-- **Rollback:** No (per Reddit thread cited in brief.md: "you can set up 'check' rules to turn the ads back on but you've just lost 5 hours" — direct evidence of rollback gap).
+- **Auto-revert:** No (per Reddit thread cited in brief.md: "you can set up 'check' rules to turn the ads back on but you've just lost 5 hours" — direct evidence of the auto-revert gap).
 - **Multi-account:** Limited (Business Manager — manual switching).
 - **Bulk launch:** Limited (Ads Manager Power Editor / CSV — clunky).
 - **Creative file sync:** No.
@@ -61,8 +61,8 @@
 - **Positioning (current homepage H1, fetched 2026-05-07):** "Launch Ads Faster to triple-scale your app"
 - **Pricing:** Free Ad Uploader confirmed. Other tier pricing **not verified** on public homepage — need Natalia confirm pricing-page state.
 - **Platforms:** Meta + TikTok (per `scalemate_channel_scope` memory).
-- **Rules engine:** Advanced (claim) — automation rules with rollback per `/use-cases/ad-campaign-automation-rules`. Vendor-claimed rule syntax with multi-condition triggers.
-- **Rollback:** Yes (claim — central to use-case page positioning).
+- **Rules engine:** Advanced (claim) — automation rules with auto-revert per `/use-cases/ad-campaign-automation-rules`. Vendor-claimed rule syntax with multi-condition triggers. (Scalemate's product copy uses "rollback" interchangeably.)
+- **Auto-revert:** Yes (claim — central to use-case page positioning).
 - **Multi-account:** Yes (claim).
 - **Bulk launch:** Yes — "Launch hundreds of ads from templates in minutes" (homepage) + 62% time reduction stat from existing how-to article.
 - **Creative file sync:** Yes — Google Drive (homepage explicit). Dropbox status: not verified on public page.
@@ -71,7 +71,7 @@
 - **DR:** **0.3** (Ahrefs 2026-05-07).
 - **Reddit mentions:** Low organic awareness (DR 0.3 site, no surfaced Reddit recommendations in our pulls — confirmed via brief.md cluster analysis: 0 GSC impressions site-wide for facebook-ads-automation cluster over 90d).
 - **Source URLs:** `scalemate.co` homepage WebFetch 2026-05-07; brief.md keyword + GSC validation; `content/blog/facebook-ads-automation.md`.
-- **Notes:** Claims need Natalia/Ruslan sanity-check before article goes live. Specifically: rollback yes/no, scheduling support, multi-account UI, Dropbox parity vs Drive-only.
+- **Notes:** Claims need Natalia/Ruslan sanity-check before article goes live. Specifically: auto-revert yes/no, scheduling support, multi-account UI, Dropbox parity vs Drive-only.
 
 ---
 
@@ -82,7 +82,7 @@
 - **Pricing:** Essential **$49/mo** (or $99/mo annual — pricing page wording was inconsistent on annual savings; treat $49/mo monthly billed as the entry price). Pro $99/mo. Enterprise custom. **14-day free trial (no credit card)**, no permanent free tier.
 - **Platforms:** Meta + Google Ads + Snapchat + TikTok (per homepage).
 - **Rules engine:** Advanced — "automated rules" appears in Pro tier. Reddit consensus (3 threads pulled): "RevealBot — Get real-time alerts in your team chat the second an ad is paused or a budget is hit. Very specific features, like if ROI is >X and ..." (r/AskMarketing 2 mo ago). r/FacebookAds: "Revealbot is solid for rule-based alerts plus quick dashboards; add spend/CPA guardrails."
-- **Rollback:** Yes (claim from existing how-to article + Reddit anecdotes; not directly stated on homepage).
+- **Auto-revert:** Yes (claim from existing how-to article + Reddit anecdotes; not directly stated on homepage).
 - **Multi-account:** Yes (workspaces concept on Essential+).
 - **Bulk launch:** Yes ("Launcher" on Pro tier per pricing page).
 - **Creative file sync:** Not mentioned.
@@ -102,7 +102,7 @@
 - **Pricing:** Variable by ad-spend tier (<$1K → $30K+ ranges visible on pricing page). "Madgicx Pro Complete with AI" main plan, "Tracking Pro" $49/mo add-on. **7-day free trial** ("Try 100% free for 7 days. Cancel Anytime"). No permanent free tier. Reddit thread (r/digital_marketing 6 mo ago) cites $450/mo at $40-50K/mo spend tier.
 - **Platforms:** Meta Ads + Google Ads + GA4 + Shopify + Klaviyo + TikTok (per pricing page integrations list — Meta is primary, others are data integrations).
 - **Rules engine:** Basic (claim — per existing how-to article and brief.md). Not foregrounded in product copy; AI optimization is the headline.
-- **Rollback:** No (not advertised).
+- **Auto-revert:** No (not advertised).
 - **Multi-account:** Yes (positioned for agencies running "all accounts").
 - **Bulk launch:** Limited — has "Automated Ad Launch Tool" but more focused on AI-driven creative variation than CSV/sheet bulk.
 - **Creative file sync:** Not mentioned.
@@ -122,7 +122,7 @@
 - **Pricing:** Enterprise / contact sales. Pricing page returned 404 in our fetch. **Reddit consensus on cost (r/PPC "Anyone actually know Smartly.io pricing?" 1 yr ago):** "% of spend, around 4% for low spend accounts and it can go down to around 2% if you have enterprise level spend." Effective floor implies $$$.
 - **Platforms:** Multi — social media (FB/IG/TT/Pin/Snap), Connected TV (200+ streamers), Open Web (DSPs), Conversational Commerce, Video.
 - **Rules engine:** Mid (basic-to-mid per existing brief framing). Mentions "automated campaign wizardry" and "auto-magically" manage campaigns. No specific rule-syntax docs on homepage.
-- **Rollback:** Limited (per brief.md framing).
+- **Auto-revert:** Limited (per brief.md framing).
 - **Multi-account:** Yes (enterprise tier).
 - **Bulk launch:** Yes (creative production + bulk launch = core offering).
 - **Creative file sync:** Not mentioned. Has its own creative production pipeline.
@@ -142,7 +142,7 @@
 - **Pricing:** Starter **$49/mo** ($1K spend cap). Plus $99/mo (unlimited spend). Enterprise from $259/mo. **14-day free trial.** No permanent free tier.
 - **Platforms:** Facebook + Instagram (homepage explicitly). Google in some Hootsuite bundles per Reddit (r/ecommerce: "AdEspresso by HootSuite — automation tool for Facebook, Instagram and Google campaigns").
 - **Rules engine:** Basic (per existing how-to article; not foregrounded in 2026 homepage copy).
-- **Rollback:** No.
+- **Auto-revert:** No.
 - **Multi-account:** Yes.
 - **Bulk launch:** Yes — "create tons of split tests" (Reddit 8 yrs ago, but feature still core).
 - **Creative file sync:** No.
@@ -162,7 +162,7 @@
 - **Pricing:** **Not verified** — pricing page also sparse. Vendor doesn't publish public pricing.
 - **Platforms:** Multi (Meta + Google per Reddit confirmation: "Trapica.com — They developed AI to optimize Facebook campaign" + r/PPC "We use trapica.com — great with their ai marketing optimization").
 - **Rules engine:** N/A — autonomous AI. Reddit (r/programmatic 3 yr ago): "They state they automate online campaigns" / r/adtech: "Its a real company. There are some press releases of them doing stuff with comcast."
-- **Rollback:** N/A (AI-decided, not rule-defined).
+- **Auto-revert:** N/A (AI-decided, not rule-defined).
 - **Multi-account:** Yes (per ICP — "mostly for companies whose [agency stack]" per Reddit).
 - **Bulk launch:** Not core offering.
 - **Creative file sync:** Not mentioned.
@@ -182,7 +182,7 @@
 - **Pricing:** **Free tier** ($0/mo, 1 workspace, 1 ad account, $25K monthly ad spend cap, 30 brands tracked). Plus **$150/mo** ($119 annual, 5 ad accounts, $250K spend, 500 video transcriptions, 20GB storage). Growth $309/mo. Pro $499/mo. Enterprise custom. **Bulk Ad Launcher add-on $79-$99/mo.**
 - **Platforms:** **Meta only** (Facebook / Instagram). Chrome extension also captures TikTok ads (research-side, not launch-side).
 - **Rules engine:** **None.** AdNova is a creative-workflow / bulk-launcher tool, not an automation-rules tool. Different category from Birch/Madgicx/Scalemate's rules-spine framing.
-- **Rollback:** N/A.
+- **Auto-revert:** N/A.
 - **Multi-account:** Yes (workspaces).
 - **Bulk launch:** **Yes** — explicit core feature (`/bulk-ad-launcher` page, "Launch 100+ Meta Ads in Minutes by Adnova. Bulk upload creatives, sync from Drive or Dropbox").
 - **Creative file sync:** **Yes — Google Drive + Dropbox** (homepage explicit on `/bulk-ad-launcher`).
@@ -205,7 +205,7 @@
 - **Pricing:** **Free tier** ($0/mo — 1 SEO profile, 3 PPC alerts, monthly reports, unlimited ad accounts). Silver $69/mo (or $700/yr) — weekly reports, 10 alerts. Gold $179/mo — daily reports, unlimited alerts. Enterprise custom.
 - **Platforms:** Google Ads + Microsoft Ads + Meta (Facebook).
 - **Rules engine:** Basic — "30 pre-built alerts for key PPC risks with custom rules/thresholds" + "automated optimizations" with "one-click implementation". No compound triggers visible. SMB-tier complexity.
-- **Rollback:** No.
+- **Auto-revert:** No.
 - **Multi-account:** Yes (unlimited even on free tier).
 - **Bulk launch:** Limited (not core).
 - **Creative file sync:** Not mentioned.
@@ -225,7 +225,7 @@
 - **Pricing:** Launch Individual **€199/mo** (1 ad account, 250 ad uploads/mo, 7d trial). Launch Team €499/mo (5 ad accounts, 900 uploads/mo, cloud storage, 14d trial). Launch Elite €1,999/mo (15 ad accounts, unlimited uploads, all formats, all integrations, automated launches). Enterprise €50,000/yr (DAM integrations, **rule-based automation**, API access).
 - **Platforms:** Meta only (FB/IG).
 - **Rules engine:** **None on standard tiers.** Rule-based automation only on Enterprise (€50K/yr). For practical purposes treat as "rules engine = no" for the listicle's $5-100K/mo ICP.
-- **Rollback:** N/A.
+- **Auto-revert:** N/A.
 - **Multi-account:** Yes (1-15 depending on tier).
 - **Bulk launch:** **Yes — core offering.** "Launch your first ads in under 60 seconds" / "zero-error uploads" / standardized workflow.
 - **Creative file sync:** **Yes — Google Drive + Dropbox** (explicit on homepage).
@@ -245,7 +245,7 @@
 - **Pricing:** Essential **£99/mo** (~$125/mo, solo starter, 1 ad account). In-House £499/mo (5 ad accounts). Agency £999/mo (10 ad accounts). Enterprise custom. **No free tier**, 30-day money-back guarantee.
 - **Platforms:** **Multi-platform — most cross-platform on this list:** Meta + TikTok + Google + AppLovin/Axon + Snapchat + Pinterest + Taboola.
 - **Rules engine:** Basic — "Automated rules" supporting "Pause underperforming ads (ROAS < 1.5x)", "Scale winning ads", "CPA threshold alerts", "Budget cap protection". Pre-built templates rather than custom compound logic.
-- **Rollback:** Not mentioned.
+- **Auto-revert:** Not mentioned.
 - **Multi-account:** Yes (1-10+).
 - **Bulk launch:** **Yes — core positioning** ("Launch Ads 10x Faster", own API alternative to Meta Marketing API per Reddit).
 - **Creative file sync:** **Yes — Google Drive, Dropbox, Frame.io, Box, Air.inc** (broadest on this list).
@@ -265,7 +265,7 @@
 - **Pricing:** **Free tier** (1,000 credits/mo, no time limit, 2 active scenarios, 15-min minimum interval). Core $9/mo (10K credits). Pro $16/mo. Teams $29/mo. Enterprise custom.
 - **Platforms:** Connectors / DIY — "3,000+ standard apps". Has Meta Ads + TikTok Ads + Google Ads connectors per Make's app directory (general industry knowledge — direct integration page returned 404 on our fetch, but Make is well-known to have them; mark `partial: connector list confirmed via 3rd-party indexing, vendor integration page 404'd today`).
 - **Rules engine:** DIY — you build the rules yourself in workflows.
-- **Rollback:** Manual (you can build rollback workflows but it's on you).
+- **Auto-revert:** Manual (you can build auto-revert workflows but it's on you).
 - **Multi-account:** Yes.
 - **Bulk launch:** Yes (DIY workflow).
 - **Creative file sync:** Yes via Drive/Dropbox connectors (DIY).
@@ -305,7 +305,7 @@
 | Tool | Status | Issue |
 |---|---|---|
 | Meta Native | Partial | `/business/help/automated-rules` URL 404'd today; AND-only / 250-rule cap claims sourced from existing how-to article. Reconfirm at draft. |
-| Scalemate | Partial | Pricing-page state not directly fetched; rules engine claims (rollback / scheduling / multi-account) need Natalia/Ruslan sanity-check before brand-relative claims go live. |
+| Scalemate | Partial | Pricing-page state not directly fetched; rules engine claims (auto-revert / scheduling / multi-account) need Natalia/Ruslan sanity-check before brand-relative claims go live. |
 | Birch | Verified | Full data, strong Reddit signal. |
 | Madgicx | Verified | Full data + heavy Reddit signal (mixed sentiment — note in copy). |
 | Smartly.io | Partial | Pricing-page 404; pricing fact ("2-4% of spend") is Reddit-sourced (r/PPC), not vendor-cited. |
@@ -324,28 +324,34 @@
 
 > Read this carefully. **The original brief's Drive-sync angle is dead** — too many competitors have it now. Below are revised angles based on actual 2026-05-07 vendor data.
 
-### Angle A — "Multi-platform free tier with rules" (claim-conditional)
+### Angle A — "Multi-platform free tier with rules" (SUPERSEDED — kept as brainstorm history)
 
-- **Claim:** Scalemate is the only tool in the slate that offers (a) a free tier, (b) Meta + TikTok parity, AND (c) a rules engine with rollback. Each peer fails at least one of these three:
-  - Meta Native = free + rules (limited) but **Meta-only**, no rollback.
+> **Status 2026-05-08:** demoted from primary to **supporting claim** in Scalemate per-tool entry pricing paragraph. Primary is now F+G paired (see Recommended below). Preserved here for record + as fallback if F or G claim weakens during write.
+
+- **Claim:** Scalemate is the only tool in the slate that offers (a) a free tier, (b) Meta + TikTok parity, AND (c) a rules engine with auto-revert. Each peer fails at least one of these three:
+  - Meta Native = free + rules (limited) but **Meta-only**, no auto-revert.
   - AdNova = free + multi-account but **Meta-only** + **no rules engine**.
-  - Adzooma = free + multi-platform but **Google-MS-Meta** (no TikTok), basic rules, no rollback.
+  - Adzooma = free + multi-platform but **Google-MS-Meta** (no TikTok), basic rules, no auto-revert.
   - Make.com = free + multi-platform connectors but **DIY rules** (you build them).
   - Birch / Madgicx / AdManage / Kitchn = no permanent free tier (trial only).
 - **Risk / dependency:** Requires Natalia confirm Scalemate's free Ad Uploader includes Meta + TikTok (per `scalemate_channel_scope` memory: yes, Meta + TikTok only — confirm parity), AND that the free tier exposes any rules functionality (or whether rules are paid-only).
 - **Fail-mode:** If the free tier is uploader-only with rules engine paywalled, the angle compresses to "free uploader for Meta+TikTok with a paid rules upgrade path" — still good but not as sharp.
 
-### Angle B — "Rollback + Multi-platform (Meta + TikTok)"
+### Angle B — "Auto-revert + Multi-platform (Meta + TikTok)" (SUPERSEDED — kept as brainstorm history)
 
-- **Claim:** The only tools in the slate with both rollback AND TikTok in the same product are Scalemate and Birch (claim — verify Birch's TikTok rules parity vs Meta). Madgicx, Smartly, AdEspresso, Adzooma, AdNova, Kitchn = no rollback OR no TikTok OR both.
+> **Status 2026-05-08:** narrower variant of Angle A, both subsumed into F+G primary. Verification still useful for tool entry copy.
+
+- **Claim:** The only tools in the slate with both auto-revert AND TikTok in the same product are Scalemate and Birch (claim — verify Birch's TikTok rules parity vs Meta). Madgicx, Smartly, AdEspresso, Adzooma, AdNova, Kitchn = no auto-revert OR no TikTok OR both.
 - **Risk:** Need to verify Birch's TikTok feature parity. Birch's homepage lists TikTok as a supported platform but rules engine depth on TikTok specifically isn't documented publicly. **Action:** brief.md says "Verify Birch's TikTok status" — do this before publishing.
-- **Fail-mode:** If Birch has full TikTok rules + rollback parity, this angle becomes "Scalemate vs Birch on rules + multi-platform — different on price and free-tier hook" → angle A is the cleaner story.
+- **Fail-mode:** If Birch has full TikTok rules + auto-revert parity, this angle becomes "Scalemate vs Birch on rules + multi-platform — different on price and free-tier hook" → angle A is the cleaner story.
 
-### Angle C — "Rules-as-spine framing (structural differentiation)"
+### Angle C — "Rules-as-spine framing (structural differentiation)" (FOLDED INTO F+G primary)
 
-- **Claim:** Per brief.md gap analysis — none of the top-3 peer listicles structure their comparison around the 5 rules dimensions (Engine / Rollback / Trigger Complexity / Multi-Account / Scheduling). Synter has 1 binary tag; Get-Ryze has 1 "AI Level" tag; AdStellar has none. Scalemate's listicle uses the rules spine as the structural lens.
+> **Status 2026-05-08:** rules-as-spine remains the **comparison-table backbone** within the F+G primary frame. Not a standalone angle anymore — it's the editorial scaffolding that lets F (chain) and G (playbook depth) be evaluated per tool.
+
+- **Claim:** Per brief.md gap analysis — none of the top-3 peer listicles structure their comparison around the 5 rules dimensions (Engine / Auto-revert / Trigger Complexity / Multi-Account / Scheduling). Synter has 1 binary tag; Get-Ryze has 1 "AI Level" tag; AdStellar has none. Scalemate's listicle uses the rules spine as the structural lens.
 - **Risk:** This is a structural / editorial angle, not a feature-claim angle. Lives in the article's framing not in any single Scalemate entry.
-- **Fail-mode:** Reader might find a peer listicle that adds rules columns post-publication. Mitigation: anchor on **5 dimensions × 13 tools = 65 data points** as the differentiator. No peer comes close to that depth.
+- **Fail-mode:** Reader might find a peer listicle that adds rules columns post-publication. Mitigation: anchor on **5 rules dimensions × 12-13 tools = 60-65 data points + 2 chain dimensions (auto-action, endpoint) + 1 playbook depth column = ~96-104 data points** as the differentiator. No peer comes close to that depth.
 
 ### Angle D — "Free uploader + multi-platform onboarding" (T-shirt size honest)
 
@@ -353,11 +359,12 @@
 - **Risk:** Very specific claim; verify the free uploader's bulk capabilities vs paid tiers.
 - **Strength:** $0-spend teams have a clean entry path, which is the thing brief.md surfaces as missing from peer listicles.
 
-### Angle E — "Drive sync at the free tier" (only if true)
+### Angle E — "Drive sync at the free tier" (DEAD — kept as brainstorm history)
 
-- **Claim:** AdNova has Drive/Dropbox sync but at the **paid tiers** (Plus $150/mo and up). Kitchn.io has it on Launch Team €499/mo. AdManage on Essential £99/mo. Birch doesn't have it. **If Scalemate's free Ad Uploader includes Drive sync, that's the cleanest angle.**
-- **Risk:** Need Natalia confirm whether free uploader includes Drive sync or Drive is paid-only.
-- **Fail-mode:** If Scalemate's Drive sync is paid-only, this angle disappears — dovetail back to angle A.
+> **Status 2026-05-08:** dead. Drive/Dropbox sync is table-stakes in the modern bulk-ad-launcher segment (AdNova, Kitchn.io, AdManage.ai all advertise it). Even if Scalemate has Drive sync at the free tier specifically, the framing reads thin against peers who all surface Drive sync prominently. F+G primary supersedes.
+
+- **Original claim (rejected):** AdNova has Drive/Dropbox sync but at the **paid tiers** (Plus $150/mo and up). Kitchn.io has it on Launch Team €499/mo. AdManage on Essential £99/mo. Birch doesn't have it. *(Originally framed: "If Scalemate's free Ad Uploader includes Drive sync, that's the cleanest angle.")*
+- **Why dead:** Drive-sync angle is too narrow + competitors close the gap quickly. Angle G (operator playbooks) + Angle F (integration-first) deliver more durable differentiation.
 
 ### Angle F — "Smart execution layer that plugs into YOUR ops stack" 🆕 founder-add 2026-05-08, JTBD-reframed 2026-05-08
 
@@ -370,7 +377,7 @@
 - **Group D** — scale without hiring more team
 
 **ICP-language pain (NOT product-marketing language):**
-- "Meta automated rules are AND-only single-level. No rollback, no Slack push, no way to feed the result back into our dashboard."
+- "Meta automated rules are AND-only single-level. No auto-revert, no Slack push, no way to feed the result back into our dashboard."
 - "I'm screenshotting performance into Slack threads and exporting CSVs nightly into our sheet."
 - "Birch / Madgicx have rules but the data lives in their dashboard, not mine."
 - "Make.com / n8n let me wire it up but I'm rebuilding ad-ops primitives from scratch."
@@ -485,7 +492,7 @@ Angle A (pricing tier strategy) becomes the **supporting claim** in Scalemate's 
 
 1. **Open with the JTBD pain** — quote Reddit / community quotes verbatim ("I'm screenshotting performance into Slack threads," "Meta rules are AND-only," "I want my system to keep working — not another dashboard to check," "I don't have time to invent a playbook for which rules to write"). Set up two facets of the job: integration-first AND playbook-first.
 2. **Frame the comparison criteria** — "We compare these tools by (a) which job they actually do, (b) how completely each one ships the chain: launch → multi-level trigger → auto/alert action → endpoint that flows into your stack, AND (c) what playbook ships out of the box vs leaves you to invent it yourself."
-3. **Decision framework first** — preserved from existing how-to: $5K / $5K-$20K / $20K+ / 50+ creatives. Tells reader where they sit before reading 13 entries.
+3. **Decision framework first** — preserved from existing how-to: $5K / $5K-$20K / $20K+ / 50+ creatives. Tells reader where they sit before reading the 12-13 entries.
 4. **Comparison table — chain-completeness (7 dimensions + playbook depth column)** — Rules engine / Auto-revert / Trigger complexity / Multi-account / Scheduling + Auto-action / External endpoint + **Playbook library depth** (None / Light cheat-sheet / Full library by goal × niche).
 5. **Tool entries — JTBD lead per tool.** Each entry's H3 leads with "*Best for [specific job]*" — not pricing tier or feature count. Then the chain + playbook evaluation. Then pricing.
    - **Scalemate entry:** *"Best for Meta + TikTok teams who want operator playbooks on day one — and want the results to flow INTO their existing stack (Slack, Notion, dashboards, custom systems via API). No empty rules engine. No closed dashboard."* Cross-link to `/automation-rules-library` as live proof of the playbook claim.
@@ -505,7 +512,7 @@ Angle A (pricing tier strategy) becomes the **supporting claim** in Scalemate's 
 
 - **Public-facing API docs / developer docs URL** for Scalemate. If none exists, decide whether to ship the article without a doc link (ok if "dev team builds custom integrations" CTA is included), or hold the article until a developer-docs anchor lands.
 - **Sheets / "таблички" endpoint clarity.** Native Sheets export, API-driven sync, or dashboard view? Affects per-tool comparison column.
-- Scalemate free tier feature scope (rules? Drive sync? TikTok parity?). Natalia / Ruslan.
+- Scalemate free tier feature scope (rules? Drive sync? TikTok parity?). Natalia / Ruslan. (Drive sync is no longer a core differentiator per Angle E status — but still useful to know what the free tier exposes.)
 - Birch's Slack-native vs alerts-via-email + outbound API event capability. WebFetch /integrations page at draft time.
 - Birch TikTok rules-engine depth. WebFetch deeper at draft time.
 - Meta Native automated rules cap + AND/OR semantics + **CRITICAL: confirm Meta Native CANNOT push to Slack/email/webhook from automated rules** (single biggest moat). Re-fetch a working Meta help URL at draft time.
