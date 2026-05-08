@@ -278,7 +278,7 @@ faq:
   - "Spreadsheet-driven Meta-only standardized launch, anti-AI" → Kitchn.io
   - "Bulk launch + creative workflow on Meta only, with a real free tier" → AdNova
   - "$1M+/mo enterprise, creative + media in one platform" → Smartly.io
-  - "Already in Hootsuite ecosystem, want established A/B testing surface" → AdEspresso (with maintenance-mode caveat)
+  - "Already in Hootsuite ecosystem, want established A/B testing surface" → AdEspresso
   - "Full DIY workflow control" → Make.com / n8n / Zapier
   - "Bottleneck is creative *production* not optimization" → Hunch / Pencil / AdCreative.ai
 - **POV marker:** "Spend tier is a starting filter. Job is the actual decision criterion. We've watched a $30K/mo team pick the wrong tool because they filtered on spend and ignored that their actual bottleneck was creative throughput, not rules depth."
@@ -298,7 +298,7 @@ faq:
   - A: Scalemate (Meta + TikTok parity, both first-class). AdManage (Meta + TikTok + Google + AppLovin + Snap + Pin + Taboola — broadest). Birch (Meta + Google + TikTok + Snap — verify TikTok rules-engine depth). Most others are Meta-only. ~50-60 words.
 - **Q5: API + custom event support — which tools let me pipe results into my own system?**
   - A: Scalemate (public docs at `scalemate.gitbook.io/scalemate-api`, custom events into Notion / Airtable / CRM / dashboard, custom integrations from dev team on demand). Make.com / n8n / Zapier (DIY). Most others — dashboard-first, integration depth varies. ~50-60 words.
-- **Q6: Is AdEspresso still maintained in 2026?**
+- **Q6: Which tools handle multi-account workflows?** (FAQ swap — original Q6 about AdEspresso dropped per Natalia 2026-05-08, replaced with multi-account question which is more useful for buyer)
   - A: Pricing page is live (Hootsuite-owned, $49-$259/mo, 14-day trial). Public blog hasn't updated since December 2022. Practical read: maintenance mode under Hootsuite. Verify current roadmap before committing to multi-month contract. ~40-50 words.
 - **Total FAQ word target:** ~300 words.
 
@@ -390,7 +390,7 @@ faq:
 1. **Borderline proactive fact density (Rule 2).** Plan to mitigate at draft via more vendor URL citations + Reddit thread URLs + DR / pricing facts. Flag if Natalia wants me to over-index on facts (target 4/1000 words = ~14 facts) vs comfortably-passing 3/1000 (~10 facts).
 2. **"Same-criteria evaluation" language risk.** The intro promises "we evaluate all 12 tools the same way" — but in practice the Scalemate entry is ~500 words and Smartly is ~80 words. Hybrid editorial depth is the right call per brief.md, but the intro needs to caveat this honestly: "deeper writeups for tools whose buyers Scalemate's ICP actually compares against; table-only for completeness without filler". Without that caveat, the asymmetric word count looks like advertorial bias.
 3. **Birch differentiation honesty.** Brief.md is clear: don't claim Birch is "closed dashboard with no integrations" without verifying their Integrations section at draft time. Plan to WebFetch `bir.ch/integrations` (or whatever URL exists at draft time) and adjust the differentiation language. If Birch ships strong external endpoints, the differentiation compresses to "dashboard-as-primary product surface (vs Scalemate integration-first frame)" + "12-rule cheat-sheet vs full library (Angle G)".
-4. **AdEspresso "maintenance mode" framing.** Need to be neutral, not punitive. Brief is explicit: "neutral hedge, not 'this is dead'". Watch wording at draft time.
+4. ~~AdEspresso "maintenance mode" framing~~ ✅ RESOLVED 2026-05-08 — Natalia: drop caveat entirely, standard treatment at slot #6. Product is operational, blog frequency not our concern.
 5. **Madgicx Reddit billing complaints.** Brief is explicit: "neutral but mention; Reddit weight is real". Watch tone at draft time — current outline plan is "double-check trial cancellation steps before signing up" which is neutral-buyer-side, not a punitive attack.
 6. **Self-#1 honesty framing tonal balance.** Plan reads as confident-but-self-aware. Risk: tipping into either fake-modest (which we explicitly reject) or sales-pitch (which damages credibility). Will iterate at draft phase if tone drifts.
 
@@ -431,7 +431,7 @@ In line with brief.md target ("3,000-3,400 words" stated in Content Plan + "~3,5
 1. **Author byline.** Defaulting to **Nataliia Bondar** (matches `/blog/best-bulk-ad-launch-tools.md` + `/blog/best-mcp-servers-meta-google-ads.md` + `/blog/facebook-ads-automation.md`). Confirm or swap to Ruslan?
 2. **Self-#1 reason — pick A or B?** Outline currently recommends **B** ("we use Scalemate ourselves to run 2M+ ads…") for E-E-A-T weight + ICP resonance. Option A ("only tool combining free + Meta+TikTok + auto-revert + API + playbooks") is more feature-claim, less experience-claim. Confirm B or override to A.
 3. **Worked example threshold values — confirm or swap.** Brief notes ×10 spend gate / ×2 CPI gate were "absolutely OK" placeholders per Natalia 2026-05-08, with option to swap if team has different operator multipliers. Use as-is, or swap to something else?
-4. **AdEspresso — keep at slot #6 with maintenance-mode caveat, or drop?** Brief.md flags this as "Open AdEspresso question — decision before write phase". If drop, slate compresses to 11 + 1 lateral → title becomes "11 Best…" — compromises clean count alignment. Outline currently keeps at slot #6.
+4. ~~AdEspresso decision~~ ✅ RESOLVED 2026-05-08 — keep at slot #6 with **standard treatment, no caveat** (Natalia: product is operational, blog frequency not our concern).
 5. **`/automation-rules-library` deploy alignment.** Brief.md marks it as "S9' coordinated release" — listicle internal-links to it 4× across body. If library doesn't ship by deploy date, swap to "coming soon" placeholder per brief fail-mode? Confirm timing.
 6. **AI disclosure footer wording.** Per content-writing-rules §6 rule 8 + §7.3 — currently planning "This article was drafted with AI assistance (Claude) and reviewed, edited, and fact-checked by [Author] before publishing." Confirm wording / placement, or skip if not applicable.
 7. **One concrete operator anecdote** (brief.md Must Include #3 + Input Needed #G). Even one paragraph: "we tried [tool] when scaling [account]; here's why we ended up [moving to / staying off / pairing with] Scalemate." Strong E-E-A-T marker peer set can't match. Optional but recommended.

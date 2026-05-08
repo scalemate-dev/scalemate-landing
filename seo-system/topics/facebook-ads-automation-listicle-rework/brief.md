@@ -487,7 +487,7 @@ When writing this article, follow `content-writing-rules.md` §8 (JTBD Messaging
 | 3 | **Birch (Revealbot)** | Cross-platform rules + bulk launch | **Yes (advanced, OR/compound, scheduling)** | Yes | DR 72, top-mentioned in Reddit. Appears in all 3 peer listicles. |
 | 4 | **Madgicx** | AI audiences + creative scoring (Meta-focused) | Yes (basic) | No | Second-most-mentioned in Reddit. All 3 peer listicles. We have `/blog/madgicx-review-alternative` to internal-link. |
 | 5 | **Smartly.io** | Enterprise creative production + automation | Yes (basic-to-mid) | Limited | Enterprise-tier completeness. All 3 peer listicles. |
-| 6 | **AdEspresso (Hootsuite)** | A/B testing + reporting (legacy) | Yes (basic) | No | All 3 peer listicles + Reddit mentions. Honest mention with "verify currently maintained" caveat. |
+| 6 | **AdEspresso (Hootsuite)** | A/B testing + reporting | Yes (basic) | No | All 3 peer listicles + Reddit mentions. Standard treatment, no caveat (Natalia 2026-05-08 — product is operational, blog frequency is not our concern). |
 | 7 | **Trapica** | AI-driven autonomous optimization | Limited (AI-decided, not rule-defined) | N/A (autonomous) | Synter + Get-Ryze + AdStellar all carry it. Fills the AI-autopilot bucket. |
 | 8 | **AdNova** *(founder-add 2026-05-07, **verified 2026-05-07**)* | **Bulk launch + creative workflow** (NOT rules engine — same bucket as Kitchn.io / AdManage.ai). H1: "AI Creative Workflow that Ships Winning Creatives". Vendor: `adnova.ai` (DR 41). | None (creative-side) | N/A | **Verified product** — free tier + Plus $150/mo + Bulk Ad Launcher add-on $79-$99/mo. Meta only. Drive + Dropbox sync. Apr 2026 blog active. **Not in any of 3 peer listicles.** Slot #8 reframed as "creative-workflow / bulk-launch side, complementary to a rules tool". |
 | 9 | **Kitchn.io** | Spreadsheet-driven bulk launcher | No | N/A | DR 32, #2 in primary SERP. Fills bulk-launch-only bucket (rules-engine = no — explicit gap explained). |
@@ -524,7 +524,7 @@ When writing this article, follow `content-writing-rules.md` §8 (JTBD Messaging
 >
 > **Table-only / 1-line "Best for" (4 entries, ~50-100 words each):**
 > - Slot 5 — **Smartly.io** (enterprise tier completeness, where Scalemate scales up to)
-> - Slot 6 — **AdEspresso** (Hootsuite-owned, in all 3 peer listicles, neutral hedge on blog dormancy)
+> - Slot 6 — **AdEspresso** (Hootsuite-owned, in all 3 peer listicles — standard treatment, no caveat per Natalia 2026-05-08)
 > - Slot 7 — **Trapica** (AI autopilot bucket completeness)
 > - Slot 9 — **Kitchn.io** (spreadsheet bulk-launch bucket, no rules engine — explicit gap)
 >
