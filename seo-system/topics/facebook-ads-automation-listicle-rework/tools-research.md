@@ -357,58 +357,101 @@
 - **Risk:** Need Natalia confirm whether free uploader includes Drive sync or Drive is paid-only.
 - **Fail-mode:** If Scalemate's Drive sync is paid-only, this angle disappears — dovetail back to angle A.
 
-### Angle F — "Workflow automation for marketers (n8n / Zapier-style chains, FB-ads-native)" 🆕 founder-add 2026-05-08
+### Angle F — "Smart execution layer that plugs into YOUR ops stack" 🆕 founder-add 2026-05-08, JTBD-reframed 2026-05-08
 
-- **Claim:** Scalemate is workflow automation **built for ad ops** — the same chain pattern that media buyers know from n8n / Zapier (`trigger → condition → action → endpoint`), but pre-wired with FB+TikTok-native triggers and actions. No DIY connector wiring. Concrete chain Scalemate ships:
-  1. **Launch** (bulk launch from Drive → Meta + TikTok)
-  2. **Trigger** on metric thresholds (CPA, ROAS, frequency, spend windows — last 1d / 7d / 14d)
-  3. **Action** auto-executes (pause / scale budget / cut bid) **OR** alert-only
-  4. **Endpoint** push to Slack or email (per-rule routing — auto-execute for safeguards, alert-only for scaling decisions)
-- **Confirmed via shipped code (2026-05-08):**
-  - `app/features/automation-rules/page.jsx:51` — *"Scalemate adds automated scaling with auto-cut rules, budget protection, and Slack/email alerts."*
-  - `app/use-cases/_data/ad-campaign-automation-rules/index.jsx:293` — *"Auto-execute fires immediately... Alert-only mode notifies via Slack or email without taking action, giving the team a chance to review before responding... Most teams use a mix: auto-execute for budget safeguards and pause rules, alert-only for scaling decisions that benefit from human review."*
-- **Search-demand validation:** Ahrefs matching-terms (cluster `facebook ads automation`, US, 2026-05-07) returned `reddit n8n facebook ads automation` (30 vol) and `n8n facebook ads automation` (10 vol). Marketers actively search for n8n-style FB ads automation. The angle has its own keyword pull.
-- **Differentiation map (each peer fails this on a different axis):**
-  - **Make.com / Zapier / n8n (slot 12)** — DIY: you wire the FB connector + triggers + actions + endpoints yourself. Scalemate = pre-wired for ad ops.
-  - **Native Meta** — has rules but **no native Slack/email push** (Meta's automated rules action set doesn't include external endpoints). You can't get a Slack ping from Meta automated rules without third-party glue.
-  - **Madgicx / Trapica** — autonomous AI ("let the AI decide"), not workflow chains. Black box vs glass box.
-  - **AdNova / Kitchn / AdManage** — bulk launch + creative workflow, **no metric-triggered rules** in the chain.
-  - **Birch (Revealbot)** — closest competitor on rules + alerts. Verify at draft time whether Birch's notification stack covers Slack natively (homepage mentions "alerts" but Slack-specific copy needs confirmation). Even if yes, Scalemate frames this as a single positioned product (workflow for ad ops) vs Birch's "rule engine + extras" framing.
-  - **Smartly / AdEspresso / Adzooma** — partial coverage (rules, dashboards, some integrations) but not the explicit "n8n-for-marketers" framing — narrative gap to claim first.
-- **ICP fit:** UA managers / media buyers who already use n8n / Zapier / Make for ops glue immediately understand the value prop. The framing converts faster than abstract "automation rules engine" copy.
-- **Risk / dependency:**
-  - Verify Slack integration is **native** (built-in), not webhook-via-Zapier setup. Code says Slack/email alerts directly — read as native, but worth a 5-min Natalia confirm.
-  - "Tables" / Sheets export — Natalia mentioned "таблички" but the code path I checked surfaces only Slack/email. If Sheets export ships, add that endpoint to the chain. If not, drop the "tables" beat from copy.
-- **Fail-mode:** If Slack is webhook-only (not a first-class integration), reframe as "trigger + action + Slack via webhook OR alert mode" — still works, just with a small honesty caveat.
+> **Important framing instruction (from Natalia 2026-05-08):** speak in JTBD voice, not feature voice. Position Scalemate as a **solution that integrates into your existing system**, not a standalone destination tool. "Multi-level conditions and flows YOU define, results stream into where your team already works." This angle is now the recommended primary — see brief.md "Unique Angle" section for the JTBD framing applied to the article structure.
+
+**The job (per `content-writing-rules.md` §8.1):**
+
+- **Group A** — eliminate routine ad ops that drain the day
+- **Group B** — manage Meta + TikTok complexity in one workflow
+- **Group D** — scale without hiring more team
+
+**ICP-language pain (NOT product-marketing language):**
+- "Meta automated rules are AND-only single-level. No rollback, no Slack push, no way to feed the result back into our dashboard."
+- "I'm screenshotting performance into Slack threads and exporting CSVs nightly into our sheet."
+- "Birch / Madgicx have rules but the data lives in their dashboard, not mine."
+- "Make.com / n8n let me wire it up but I'm rebuilding ad-ops primitives from scratch."
+
+**The chain Scalemate ships (4 steps, all native to ad ops):**
+
+1. **Launch** — bulk from Drive → Meta + TikTok
+2. **Trigger** — multi-level / compound conditions on metrics (CPA, ROAS, frequency, spend windows 1d/7d/14d)
+3. **Action** — auto-execute (pause / scale / cut) **or** alert-only — per-rule routing
+4. **Endpoint** — three paths:
+   - **Slack / email native** (built-in, confirmed shipped — code refs in brief.md)
+   - **API + custom events** (Scalemate triggers events you subscribe to — status changes, threshold breaches, action receipts → flows into Notion / your dashboard / your CRM. Confirmed by Natalia 2026-05-08.)
+   - **Custom integrations on demand** (dev team builds them when standard endpoints don't fit. Confirmed by Natalia 2026-05-08.)
+
+**Confirmed via shipped code (2026-05-08):**
+- `app/features/automation-rules/page.jsx:51` — *"Scalemate adds automated scaling with auto-cut rules, budget protection, and Slack/email alerts."*
+- `app/use-cases/_data/ad-campaign-automation-rules/index.jsx:293` — *"Auto-execute fires immediately... Alert-only mode notifies via Slack or email without taking action..."*
+
+**Search-demand validation:** Ahrefs matching-terms (cluster `facebook ads automation`, US, 2026-05-07) — `reddit n8n facebook ads automation` (30 vol) + `n8n facebook ads automation` (10 vol) = 40 vol combined. The "n8n-for-marketers" mental model has its own keyword pull.
+
+**Differentiation map (each peer fails the JTBD on a specific axis):**
+
+| Peer | Where the job breaks |
+|---|---|
+| **Make.com / Zapier / n8n** | Solves the "I want my system to control everything" job, but DIY: you wire the FB connector + triggers + actions + endpoints yourself. You rebuild ad-ops primitives from scratch every time. |
+| **Native Meta** | Solves "I need basic automation inside Meta," **NOT** "I need results in my ops stack." Meta's automated rules action set has **no external endpoint** — no Slack push, no API event out, no webhook out. You can't pipe results to your team's tools without third-party glue. **Cleanest moat for Angle F.** |
+| **Madgicx / Trapica** | Solves "I want AI to make decisions for me." Closed system: data lives in their dashboard, not yours. Different job entirely (autonomous black-box vs glass-box workflow). |
+| **AdNova / Kitchn / AdManage** | Solve "I need to launch lots of ads quickly." Bulk launch + creative workflow, **no metric-triggered rules** in the chain. Job stops after launch. |
+| **Birch (Revealbot)** | Closest peer on rules + alerts. Solves "I need a powerful rule engine." Verify at draft time whether Birch's notification stack covers Slack natively + supports outbound API events for downstream systems. Likely partial. Even if Birch matches on triggers, Scalemate frames the job as **integration-first** ("plugs into your stack") vs Birch's **destination-first** ("come live in our dashboard"). |
+| **Smartly / AdEspresso / Adzooma** | Solve "I need a complete platform." Closed-dashboard model, integrations are an afterthought. Does NOT solve "execution layer that plugs into existing ops stack." |
+
+**ICP fit:** UA managers / media buyers who already run an ops stack (Slack, Notion, internal dashboards, MMPs, CRMs) — they don't want another destination tool. They want a smart execution layer that integrates into what they already use. The "n8n / Zapier mental model" speaks directly to this audience.
+
+**Risk / dependency:**
+- ✅ Slack integration native — confirmed in code (Natalia 2026-05-08: "так, нас можна підключити по апі і воно буде трігерити кастомні івенти")
+- ✅ API + custom events — confirmed by Natalia
+- ⚠️ Sheets / table export — Natalia mentioned "таблички ваші" — clarify whether this is (a) native Sheets export, (b) API-driven (you build your own sheet sync), or (c) just dashboard view. Affects "External endpoint" column granularity.
+- ⚠️ Need a public-facing developer / API docs page or anchor to link to from the article. If no public API docs URL exists yet, write the article positioning this as a real capability + offer "talk to dev team for custom integration" CTA. **Roadmap-aware copy** is OK if Natalia confirms; pure marketing claims without a docs link weakens E-E-A-T.
+
+**Fail-mode:** If API + custom events isn't documented publicly anywhere (no docs URL), the article still works with Slack/email native + "ask the dev team for custom integration" CTA — the framing holds, just with the docs evidence weaker.
 
 ---
 
-### Recommended primary angle (revised 2026-05-08)
+### Recommended primary angle (revised 2026-05-08, JTBD voice)
 
-**Angle F — "Workflow automation for marketers (n8n-style for ad ops)."**
+**Angle F — JTBD framing: "Smart execution layer that plugs into YOUR ops stack."**
 
-Why this overtakes Angle A:
-1. **Confirmed in shipped code, not aspirational.** Slack/email alerts + auto-execute + alert-only + hybrid mode all live in current product copy.
-2. **Has its own keyword demand** — `n8n facebook ads automation` appears in cluster matching-terms (40 vol combined). Angle A's free-tier framing rides only on the broader cluster.
-3. **Sharper differentiation** — workflow-chains framing fails for ALL 13 peers on at least one axis (DIY / no external endpoints / autonomous black-box / no metric triggers / partial integration). Angle A only differentiates Scalemate against ~4 peers cleanly.
-4. **ICP-resonant phrasing** — "n8n / Zapier but for marketers" is the exact mental model the target media buyer carries, vs "rules engine with rollback" which is feature-talk.
+Why this is now primary (overtakes Angle A):
 
-Keep Angle A as the **secondary support claim** — when discussing Scalemate's pricing tier strategy, free tier + Meta+TikTok + rules upgrade path remains accurate. Use it in the Scalemate per-tool entry's pricing/tier paragraph.
+1. **JTBD voice over feature voice** (per Natalia 2026-05-08) — peer listicles read as feature comparison. We read as job comparison. The article doesn't say "Scalemate has rollback + Slack alerts"; it says "Scalemate is built for the job of running Meta + TikTok rules whose results stream into your existing ops stack — without DIY wiring or living in another vendor dashboard."
+2. **Confirmed in shipped code + product reality** — Slack/email native + API custom events + custom integrations on demand. Not aspirational.
+3. **Has its own keyword demand** — `n8n facebook ads automation` cluster (~40 vol).
+4. **Sharper differentiation** — every peer fails a different axis of the integration-first job. Native Meta in particular has no external endpoint — that's the cleanest single-line moat in the entire article.
+5. **ICP-resonant** — speaks to media buyers who already own an ops stack, not to first-time Meta-only managers (those go to Native Meta tier in the decision framework).
 
-**Sequence (revised):**
-1. Open with the spending decision framework ($5K / $5K-$20K / $20K+ / 50+ creatives/wk — preserved from existing how-to per brief.md "Decision framework section").
-2. **Frame the listicle around the workflow-chain mental model** — `launch → trigger → action → endpoint` — and evaluate every tool against this 4-step chain. This is the new editorial scaffolding (replacing pure rules-as-spine).
-3. Comparison table — extend rules-as-spine (5 dimensions) with **2 new chain-completeness columns: "Auto-action" + "External endpoint (Slack/email/webhook)"**. Total 7-dimension chain header instead of 5.
-4. Tool entries evaluate the full chain per tool. Make.com / n8n / Zapier framed honestly as the DIY alternative (slot 12 narrative tightens around this).
-5. Scalemate entry leads with Angle F (workflow chain for ad ops, n8n-for-marketers), supports with Angle A (pricing tier strategy + Meta+TikTok parity).
-6. Closing decision matrix nudges: $0-spend teams to free uploader (Angle A); $5-50K teams to Scalemate paid (Angle F primary CTA); >$50K to Birch/Smartly comparison; teams that "need everything custom" → Make.com / n8n.
+Angle A (pricing tier strategy) becomes the **supporting claim** in Scalemate's per-tool entry pricing paragraph — relevant but not the headline.
+
+**Sequence (revised, JTBD-led):**
+
+1. **Open with the JTBD pain** — quote Reddit / community quotes verbatim ("I'm screenshotting performance into Slack threads," "Meta rules are AND-only," "I want my system to keep working — not another dashboard to check"). Set up the job.
+2. **Frame the comparison criteria** — "We compare these tools by which job they actually do, then by how completely each one ships the chain: launch → multi-level trigger → auto/alert action → endpoint that flows into your stack."
+3. **Decision framework first** — preserved from existing how-to: $5K / $5K-$20K / $20K+ / 50+ creatives. Tells reader where they sit before reading 13 entries.
+4. **Comparison table — chain-completeness (7 dimensions)** — Rules engine / Rollback / Trigger complexity / Multi-account / Scheduling + Auto-action / External endpoint (native / API / DIY-only).
+5. **Tool entries — JTBD lead per tool.** Each entry's H3 leads with "*Best for [specific job]*" — not pricing tier or feature count. Then the chain evaluation. Then pricing.
+   - Scalemate entry: *"Best for Meta + TikTok teams who want their ad ops to flow INTO their existing stack — Slack, Notion, dashboards, custom systems via API."*
+   - Birch entry: *"Best for teams who want a deep rule engine and are OK with dashboard-as-destination."*
+   - Make.com entry: *"Best for teams who want full DIY control and have time to build the wiring."*
+   - Madgicx entry: *"Best for teams who want autonomous AI to make decisions for them."*
+   - Etc — every tool gets a JTBD-lens header before any features.
+6. **Closing decision matrix** — by job, not by spend tier alone:
+   - Need to plug into existing stack (Slack / Notion / dashboards) → Scalemate
+   - Need full DIY control → Make.com / n8n
+   - Want autonomous AI → Madgicx / Trapica
+   - Want deep rule engine in a closed dashboard → Birch
+   - $0-spend / Meta-only teams just starting → Native Meta + Scalemate free uploader
 
 **Verifications required before publishing:**
-- **Scalemate Slack integration: native vs webhook-only.** 5-min Natalia confirm. Affects how "endpoint" column reads.
-- **Sheets / table export — does it ship?** Natalia said "таблички ваші" — confirm what exists vs what's roadmap.
-- Scalemate free tier feature scope (rules? Drive sync? TikTok parity?). Natalia/Ruslan.
-- Birch's Slack-native vs alerts-via-email-only stack. WebFetch /integrations page at draft time.
+
+- **Public-facing API docs / developer docs URL** for Scalemate. If none exists, decide whether to ship the article without a doc link (ok if "dev team builds custom integrations" CTA is included), or hold the article until a developer-docs anchor lands.
+- **Sheets / "таблички" endpoint clarity.** Native Sheets export, API-driven sync, or dashboard view? Affects per-tool comparison column.
+- Scalemate free tier feature scope (rules? Drive sync? TikTok parity?). Natalia / Ruslan.
+- Birch's Slack-native vs alerts-via-email + outbound API event capability. WebFetch /integrations page at draft time.
 - Birch TikTok rules-engine depth. WebFetch deeper at draft time.
-- Meta Native automated rules cap + AND/OR semantics + (CRITICAL for Angle F): document that Meta Native CANNOT push to Slack/email without third-party tools. This is the cleanest moat in the article.
+- Meta Native automated rules cap + AND/OR semantics + **CRITICAL: confirm Meta Native CANNOT push to Slack/email/webhook from automated rules** (single biggest moat). Re-fetch a working Meta help URL at draft time.
 - Pencil identity (drop or replace).
 - Madgicx tone — neutral but mention trial-billing caveat (Reddit weight is real).

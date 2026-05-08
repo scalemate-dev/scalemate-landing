@@ -307,33 +307,59 @@ Three-way evaluation 2026-05-07 picked option C:
 
 ---
 
-## Unique Angle — Workflow chains for ad ops (n8n-for-marketers) + Rules-as-Spine
+## Unique Angle — JTBD voice: "Smart execution layer that plugs into YOUR ops stack"
 
-> **Primary angle revised 2026-05-08** based on tools-research.md per-tool data + Natalia's framing. See `tools-research.md` "Angle F" section for full peer-by-peer differentiation map.
+> **Primary angle revised 2026-05-08** to JTBD framing per Natalia's explicit instruction: "speak in jobs-to-be-done language, in the language of problems they solve through tools" — not feature lists. See `tools-research.md` "Angle F" section for full peer-by-peer differentiation map.
 
-### Primary frame — workflow chains
+### The job (per `content-writing-rules.md` §8.1, Groups A+B+D)
 
-**Most peer listicles compare Facebook ads tools as feature lists. We compare them as workflow chains** — the same 4-step pattern marketers know from n8n / Zapier / Make.com but pre-wired for ad ops:
+**Job:** "I have an ops stack — Slack, Notion, our internal dashboard, our CRM, our reporting sheets. I need an execution layer for Meta + TikTok that **plugs INTO my stack**, not replaces it. Multi-level rules with rollback that I configure once, and the results stream into where my team already works."
+
+**Trigger / pain (in ICP's own words):**
+- "Meta automated rules are AND-only single-level. No rollback, no Slack push, no way to feed the result back into our dashboard."
+- "I'm screenshotting performance into Slack threads and exporting CSVs nightly into our sheet. There has to be a better way."
+- "Birch / Madgicx have rules but they're closed systems — the data lives in their dashboard, not mine. My team checks Notion / our CRM, not yet another tool."
+- "Make.com / n8n let me wire it up but I'm rebuilding ad-ops primitives from scratch. I just want a tool that does ad-ops natively AND pipes results into my system."
+- "Every platform has different rules — Meta says A, TikTok says B. I lose track. I want one workflow across both."
+
+**Outcome:** Multi-level conditional flows over Meta + TikTok, with auto-execute or alert-only mode per rule, and results streaming into the ops stack the team already uses (Slack / email natively, Notion / dashboards / CRMs via API + custom events). Team works in existing tools. Same team handles 10× more campaigns.
+
+### How Scalemate fits the job (positioning, NOT a feature list)
+
+Scalemate is the **smart execution layer** for Meta + TikTok ad ops:
+
+- **You define the conditional flows** — multi-level (compound triggers), with rollback when conditions reverse, across multiple ad accounts, with scheduling.
+- **You pick how it executes** — auto (Scalemate fires the action) or alert-only (your team decides), per rule.
+- **You pick where the result goes** — Slack or email native, or any system via API + custom events (Scalemate triggers events you subscribe to: status changes, threshold breaches, action receipts → flows into Notion / your dashboard / your CRM).
+- **For non-standard integrations** — the dev team builds custom integrations (Scalemate isn't a closed black box; it integrates where you need it).
+
+**The frame:** Scalemate is **not** a destination tool ("come live in our dashboard"). It's the execution layer that **integrates into the system you already have.** This is the opposite of how Birch / Madgicx / AdEspresso position themselves (closed dashboards) and the opposite of Make.com / n8n (DIY connectors with no ad-ops primitives).
+
+### Editorial scaffolding — chain framework
+
+Once the JTBD frame is established, the article evaluates each tool against a 4-step chain (the mechanical lens that makes the comparison concrete):
 
 ```
-Launch → Trigger (metric threshold) → Action (auto-execute or alert) → Endpoint (Slack / email)
+Launch → Trigger (multi-level conditions) → Action (auto OR alert) → Endpoint (Slack / email / API custom event)
 ```
 
-Every tool gets evaluated against the full 4-step chain. Most peers cover 1-2 steps cleanly and force you to glue the rest with Zapier or screenshots in Slack. Scalemate ships all 4 steps native to ad ops:
+Most peers cover 1-2 steps cleanly and force you to glue the rest with Zapier or screenshots in Slack. Scalemate ships all 4 steps native to ad ops:
 
 - **Launch:** bulk launch from Drive → Meta + TikTok
-- **Trigger:** CPA / ROAS / frequency / spend thresholds (last 1d / 7d / 14d windows)
+- **Trigger:** CPA / ROAS / frequency / spend thresholds (last 1d / 7d / 14d windows), multi-level / compound conditions
 - **Action:** auto-execute (pause / scale / cut) **or** alert-only — per-rule routing
-- **Endpoint:** Slack or email (confirmed shipped, [features/automation-rules/page.jsx:51](../../../app/features/automation-rules/page.jsx) + [use-cases/ad-campaign-automation-rules/index.jsx:293](../../../app/use-cases/_data/ad-campaign-automation-rules/index.jsx))
+- **Endpoint:** Slack or email native, **OR** API + custom events (downstream system integrates with Scalemate; dev team builds custom integrations on demand)
 
-**Why this beats the prior rules-as-spine framing:**
-- Has its own Ahrefs keyword pull: `n8n facebook ads automation` + `reddit n8n facebook ads automation` = 40 vol combined in cluster matching-terms.
-- Differentiates against ALL 13 peers on at least one chain step (DIY / no Slack endpoint / autonomous black-box / no metric trigger / partial integration).
-- ICP-resonant: media buyers who use n8n / Zapier instantly map the value prop.
+Confirmed in shipped code:
+- [features/automation-rules/page.jsx:51](../../../app/features/automation-rules/page.jsx) — Slack/email alerts + auto-cut rules + budget protection
+- [use-cases/ad-campaign-automation-rules/index.jsx:293](../../../app/use-cases/_data/ad-campaign-automation-rules/index.jsx) — auto-execute vs alert-only mode, hybrid combinations
+- API + custom events + dev-team custom integrations confirmed by Natalia 2026-05-08 (capture in tool entry; verify exact developer-docs URL during write)
 
-### Structural lens — Rules-as-Spine (kept as scaffolding)
+**Search-demand validation:** `n8n facebook ads automation` + `reddit n8n facebook ads automation` = 40 vol combined in Ahrefs cluster matching-terms (2026-05-07). The "n8n / Zapier mental model" has its own search demand on this cluster.
 
-The 5 rules dimensions stay as the comparison-table backbone, with **2 new chain-completeness columns appended** (total 7 chain dimensions):
+### Comparison table dimensions (chain-completeness)
+
+The 5 rules-spine dimensions stay as the comparison-table backbone, with **2 new chain-completeness columns appended** (total 7 chain dimensions):
 
 1. **Rules engine yes/no** (does it have one beyond Meta's native rules?)
 2. **Rollback yes/no** (can rules auto-revert when performance drops below threshold?)
@@ -341,13 +367,24 @@ The 5 rules dimensions stay as the comparison-table backbone, with **2 new chain
 4. **Multi-account** (run rules across N ad accounts from one config)
 5. **Scheduling** (time-of-day, day-of-week triggers)
 6. **Auto-action** (does the tool execute the action, or only notify?)
-7. **External endpoint** (Slack / email / webhook native, or DIY)
+7. **External endpoint** (Slack / email / API / webhook native, or DIY-via-Zapier-only)
 
-### Supporting frame — pricing tier strategy
+Each tool gets evaluated through the **JTBD lens first** (one-line "Best for [job]" header per tool entry — what specific job does this tool solve?), then through the chain dimensions (concrete capability columns).
 
-Free uploader → paid rules + workflow chains. Surfaced in Scalemate's per-tool entry pricing paragraph (kept from prior Angle A — $0-spend teams have a clean entry path).
+### Supporting frame — pricing tier strategy (Angle A folded in)
 
-**Operator-written from a team that has launched 2M+ ads on Meta and TikTok.** Tools picked by where the chain breaks, not by feature-list completeness.
+Free uploader → paid rules + workflow chains + API. Surfaced in Scalemate's per-tool entry pricing paragraph: "$0-spend teams start free; $5-50K/mo teams upgrade to rules + native endpoints; teams with custom ops stacks get API + custom integration help from the dev team."
+
+**Operator-written from a team that has launched 2M+ ads on Meta and TikTok.** Tools picked by **which job they actually do well**, not by feature-list completeness. Each tool entry leads with "Best for [specific job]" — not with feature bullets.
+
+### Content-creator agent: JTBD-voice instructions
+
+When writing this article, follow `content-writing-rules.md` §8 (JTBD Messaging Framework):
+
+1. **Every tool entry leads with the job it solves** (one-line H3 subhead like *"Best for X teams who need Y"*) — not with founding date / pricing tier / feature count.
+2. **ICP language** (per §1.6 banned phrases + §6 anti-AI): "I spend 60% of time on repeatable ad ops" / "every platform has different rules, I lose track" / "we can't scale without hiring 3× more team" — NOT "leverage synergies" / "optimize workflow holistically".
+3. **Pain quotes from Reddit / r/FacebookAds threads** (already captured in `brief.md` ICP Pain Research section) — surface verbatim in intro + transitions.
+4. **Scalemate per-tool entry copy:** lead with the job ("Best for Meta + TikTok teams who need rules to plug into their existing ops stack — Slack, Notion, internal dashboards"), THEN list capabilities, THEN pricing tier. NOT the reverse order.
 
 ---
 
@@ -521,7 +558,9 @@ We considered framing the new article as "12 Best Facebook Automated Rules Tools
 
 - [ ] **Confirm 12-tool (or 13-tool with AdNova) selection.** Drop / swap any if first-hand reasons (acquired, sunset, broken). Specifically: AdEspresso (Hootsuite-owned, declining?), Adzooma (active?), Optmyzr (covered as "honorable mention" or full slot?).
 - [ ] **AdNova positioning (founder-add 2026-05-07).** What tool is this exactly (URL, vendor)? What bucket fits — AI-autopilot like Trapica, rule engine like Birch, creative-side, or something else? Real product / active in 2026? Why does it belong on the list (peer mentions in your network, ICP signal)? Final call: keep as slot #8 with full entry → title becomes "13 Best…", OR move to honorable-mention paragraph → keep "12 Best…" framing. (UPDATE 2026-05-07 — research agent verified `adnova.ai` DR 41, Meta-only, free + Plus $150/mo, **bulk-launch + creative-workflow bucket, NOT rules engine** — same bucket as Kitchn / AdManage. See `tools-research.md` slot #8.)
-- [ ] **Slack / Sheets endpoint verification (Angle F primary).** Is Scalemate's Slack integration **native** (built-in, no third-party glue) or webhook-based? Does Sheets / table export ship today, or is it only dashboard view (you said «таблички ваші» — confirm what literal endpoint exists)? This is the moat for Angle F (workflow chain → external endpoint) vs Make.com / Zapier / native Meta. Affects Scalemate per-tool entry copy + comparison table "External endpoint" column.
+- [ ] **Slack / Sheets endpoint verification (Angle F primary).** Is Scalemate's Slack integration **native** (built-in, no third-party glue) or webhook-based? Does Sheets / table export ship today, or is it only dashboard view (you said «таблички ваші» — confirm what literal endpoint exists)? This is the moat for Angle F (workflow chain → external endpoint) vs Make.com / Zapier / native Meta. Affects Scalemate per-tool entry copy + comparison table "External endpoint" column. (UPDATE 2026-05-08 — confirmed by Natalia: Slack native + API + custom events + dev-team custom integrations. Sheets endpoint specifics still pending.)
+- [ ] **Public-facing API / developer docs URL** for Scalemate. The article cites "API + custom events + custom integrations on demand" as Scalemate's defining capability. We need either (a) a public docs URL to link to in the Scalemate per-tool entry, or (b) a "talk to dev team" CTA URL (e.g., `/book-a-demo?source=api-integration`). If no public API docs exist yet, decide whether to ship the article anyway (with the CTA fallback) or hold until docs land. Affects E-E-A-T weight of the API claim.
+- [ ] **Approve JTBD voice direction for Scalemate per-tool entry.** Per `content-writing-rules.md` §8 Groups A+B+D applied to this article — Scalemate framed as "smart execution layer that plugs into your ops stack" (NOT "rules engine with rollback"). H3 lead: *"Best for Meta + TikTok teams who want their ad ops to flow INTO their existing stack — Slack, Notion, dashboards, custom systems via API."* OK to use this framing across all 13 tool entries (each tool gets a JTBD-lens H3)?
 - [ ] **Confirm Scalemate tool entry copy** — 32% budget savings, 62% time reduction, 2M+ ads launched, Meta + TikTok feature parity — still current?
 - [ ] **Verify rules-engine spine values for each tool** — content-creator agent will draft from public docs, but Natalia/Ruslan should sanity-check Birch + Madgicx + Scalemate (the 3 we make brand-relative claims against).
 - [ ] **One first-hand operator anecdote** — even one paragraph: "we tried [tool] when scaling [account]; here's why we ended up [moving to / staying off / pairing with] Scalemate". E-E-A-T marker peer set can't match.
