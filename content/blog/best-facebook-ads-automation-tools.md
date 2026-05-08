@@ -121,13 +121,21 @@ A note on language: Scalemate's own term for auto-revert is "rollback." Birch's 
 
 ## The 12 tools
 
-### 1. Scalemate — Best for Meta + TikTok teams who want operator playbooks on day one — and want their ad ops to flow INTO their existing stack
+### 1. Scalemate — Best for Meta + TikTok teams running bulk launches + automated rules that plug into their own stack
 
-Scalemate ships with operator playbooks for testing creatives, scaling winners, killing losers, and budget control — organized by goal and by niche (mobile UA, eCom / DTC, lead-gen). It plugs into your existing ops stack via Slack, email, or API custom events that fire into your system (Notion, Airtable, your tracking sheet, internal dashboards, CRMs).
+Scalemate is the automation layer for ad ops on Meta + TikTok. It handles the two parts of the job that eat the most operator time — bulk launches and automated rules — and pipes the results back into the tools your team already works in.
 
-That second half is where most peers stop. Native Meta rules can't push to Slack or webhook out at all. Birch and Madgicx ship strong dashboards but expect you to come live in theirs. Make.com gives you DIY connectors but no ad-ops primitives — you'd rebuild "wait until enough spend, then check CPI against benchmark, then write back to my creative-tracking sheet" from scratch every project. Scalemate ships that chain pre-built and lets you wire the endpoint to wherever your team already works.
+**Bulk launches.** From Drive → Meta + TikTok, with reusable templates so next week's launch isn't a rebuild. Multi-account. The free Ad Uploader is the entry point — no credit card.
 
-**Real metrics:** 32% budget savings. 62% reduction in ad management time. 2M+ ads launched on Meta + TikTok across mobile UA, eCom, and lead-gen niches. Sources: Scalemate's own [automation rules feature page](/features/automation-rules) and [media buyer solutions data](/solutions/media-buyers).
+**Automated rules.** Multi-level / compound conditions on CPA, ROAS, frequency, spend windows (1d / 7d / 14d). Auto-execute (pause / scale / cut) OR alert-only — per-rule routing. Auto-revert when conditions reverse (our term: "rollback") — paused campaigns auto-resume when performance recovers.
+
+**Where results land.** Slack and email natively. Public [API + custom events](https://scalemate.gitbook.io/scalemate-api) for piping status changes, threshold breaches, and action receipts into Airtable, Notion, Looker Studio, your CRM. Custom integrations on demand from the dev team when standard endpoints don't fit.
+
+**On top of that — the playbook library.** Pre-built operator playbooks across goals (scale winners / kill losers / budget control / creative testing rotation) and niches (mobile UA, eCom / DTC, lead-gen). Filterable, copy-pasteable view at the [Automation Rules Library](/automation-rules-library). Plus a chat-based AI layer on the same data + rules surface.
+
+**Proof.** 32% budget savings. 62% reduction in ad management time. 2M+ ads launched on Meta + TikTok across mobile UA, eCom, and lead-gen. We use Scalemate ourselves on our web + mobile funnels — and work with teams running $5M+/month and 200+ creatives a week. Sources: Scalemate's [automation rules feature page](/features/automation-rules) and [media buyer solutions data](/solutions/media-buyers).
+
+**How this lands vs peers.** Native Meta rules can't push to Slack or webhook out at all. Birch and Madgicx ship strong dashboards but expect you to come live in theirs. Make.com gives you DIY connectors but no ad-ops primitives — every project you'd rebuild "wait until enough spend, then check CPI against benchmark, then write back to the creative-tracking sheet" from scratch. Scalemate ships that chain pre-built and lets you wire the endpoint to wherever your team already works.
 
 #### Worked example — creative testing protocol
 
@@ -159,16 +167,15 @@ Why this lands:
 
 The placeholder thresholds (×10 spend gate, ×2 CPI gate) are a sane starting protocol for app UA testing — swap to multipliers your team has actually validated. The structure of the rule is what matters: gates that combine, an action that fires, an endpoint that lands somewhere useful.
 
-#### What's in the box
+#### Quick recap
 
-- **Launch.** Bulk from Drive → Meta + TikTok, with reusable templates so next week's launch isn't a rebuild.
-- **Trigger.** Multi-level / compound conditions on CPA, ROAS, frequency, spend windows (1d / 7d / 14d). Multi-account. Scheduled.
-- **Action.** Auto-execute (pause / scale / cut) OR alert-only — per-rule routing. Scalemate's own product copy uses "rollback" interchangeably with auto-revert.
-- **Endpoint.** Slack and email native (built-in). API + custom events into Notion / Airtable / your dashboard / your CRM ([public docs](https://scalemate.gitbook.io/scalemate-api)). Custom integrations on demand from the dev team when the standard endpoints don't fit.
-- **Playbook library.** Operator playbooks across goals × niches — see the live [Automation Rules Library](/automation-rules-library) for a filterable, copy-pasteable view organized by goal (scale winners / kill losers / budget control / creative testing rotation) and by niche.
-- **AI layer.** Chat-based AI ad management on top of the same data and rule surface.
-- **Pricing.** Free Ad Uploader for Meta + TikTok (no credit card). Paid tiers unlock rules, workflow chains, and API.
-- **Meta verified.** Verified Meta app — passed Meta's app review process, scoped permissions, rate limiting on every request. Zero account bans across users.
+- **Launches.** Bulk from Drive → Meta + TikTok, reusable templates, multi-account.
+- **Rules.** Multi-level / compound triggers, auto-execute or alert-only, auto-revert.
+- **Endpoints.** Slack + email native, API + custom events for Notion / Airtable / Looker Studio / CRM.
+- **Library.** Goal × niche playbooks.
+- **AI.** Chat-based ad management on top.
+- **Pricing.** Free Ad Uploader (no credit card). Paid tiers unlock rules, workflow chains, API.
+- **Meta verified.** Passed app review, scoped permissions, rate limiting per request.
 
 **Not for:** solo operators with one ad account at <$5K/mo who only need pause/scale basics — go to Native Meta. Not for teams that want fully autonomous AI to make every decision — go to Madgicx or Trapica.
 
