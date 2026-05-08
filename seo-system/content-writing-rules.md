@@ -931,32 +931,13 @@ Transition overload (використовувати помірно):
 - ❌ Stock photos як "screenshots"
 - ❌ Generic "many users report..." без real source
 
-#### Правило 8. AI Disclosure (Transparency)
-
-Якщо чернетка статті написана AI-агентом (content-creator) і потім відредагована людиною — додаємо прозорий footer або author note.
-
-**Варіант A — footer у статті:**
-> *This article was drafted with AI assistance (Claude) and reviewed, edited, and fact-checked by [Name] before publishing.*
-
-**Варіант B — в author bio / article metadata:**
-> *Co-authored by: [Human name] (editor) + AI draft assistant.*
-
-**Нащо:**
-- Google "Who / How / Why" framework — вимагає прозорості як було створено
-- Не є rank penalty per se, але **appeared disclosure** — Trust signal для читачів і rater'ів
-- Захист від майбутніх алгоритмічних апдейтів, що можуть знижувати нерозкритий AI-контент
-
-**Коли НЕ треба disclosure:**
-- Якщо стаття написана людиною з нуля (навіть з AI-assisted research)
-- Якщо AI використаний тільки для grammar check / editing
-
-#### Правило 9. Audience-Language Filter (no editor / SEO leaks)
+#### Правило 8. Audience-Language Filter (no editor / SEO leaks)
 
 > **Test перед кожним фактом / абзацом:** буде це цікаво і корисно для реального читача статті — media buyer / AdOps / performance marketing lead / CMO / CEO / founder (залежно від ICP конкретної статті, див. §1.4)? Чи це internal-side data, що цікаве тільки нам?
 >
 > Перед написанням визнач **primary reader role** (з brief'у або зі змісту) і прокачуй кожен fact / абзац через цю лінзу. Те що корисне media buyer'у (rule syntax, threshold protocols) може не цікавити CMO; те що цікавить CEO (ROI proof, governance, vendor risk) може не торкатися hands-on operator'а.
 >
-> Rule 2 (≥3 facts / 1000 слів) штовхає writer'а додавати фактаж. Rule 9 фільтрує: лише ті facts що мають value для primary reader. Інакше density є, релевантності — ні.
+> Rule 2 (≥3 facts / 1000 слів) штовхає writer'а додавати фактаж. Rule 8 фільтрує: лише ті facts що мають value для primary reader. Інакше density є, релевантності — ні.
 
 **Заборонено в reader-facing copy:**
 
@@ -996,7 +977,7 @@ Meta-self-references (минімізувати):
 
 **Banned-grep для humanizer pass / QA Stage 3:**
 ```
-grep -nE "DR [0-9]+|SERP rank|striking distance|cluster|we pulled|we verified|verification fetch|WebFetch|as of 2026|founder-add|peer listicles we benchmarked"
+grep -nE "DR [0-9]+|SERP rank|striking distance|cluster|we pulled|we verified|verification fetch|WebFetch|as of 202[0-9]|founder-add|peer listicles we benchmarked|scope honesty|in good faith"
 ```
 Кожен hit = cut або rewrite перед publish.
 
@@ -1012,10 +993,9 @@ grep -nE "DR [0-9]+|SERP rank|striking distance|cluster|we pulled|we verified|ve
 5. Перевірити proactive facts (6.3.2). Якщо < 3/1000 слів — додати.
 6. Перевірити customer language (6.3.5). Якщо генерично — замінити.
 7. **Перевірити first-hand Experience markers (правило 7)** — мін. 1 реальний сигнал.
-8. **Перевірити AI disclosure (правило 8)** якщо застосовно.
-9. **Перевірити Audience-Language Filter (правило 9)** — grep `DR [0-9]+|SERP rank|striking distance|cluster|we pulled|we verified|verification fetch|WebFetch|as of 202[0-9]|founder-add|peer listicles we benchmarked|scope honesty|in good faith`. Кожен hit = cut або rewrite. Плюс sanity check: для кожного абзацу — буде це цікаво primary reader role (media buyer / AdOps / CMO / CEO залежно від ICP)?
-10. Прогнати через AI detector (Originality / GPTZero / Ahrefs AI level check)
-11. **Якщо результат Moderate / High** — повернути content-creator'у з конкретними pointers на порушені правила
+8. **Перевірити Audience-Language Filter (правило 8)** — grep `DR [0-9]+|SERP rank|striking distance|cluster|we pulled|we verified|verification fetch|WebFetch|as of 202[0-9]|founder-add|peer listicles we benchmarked|scope honesty|in good faith`. Кожен hit = cut або rewrite. Плюс sanity check: для кожного абзацу — буде це цікаво primary reader role (media buyer / AdOps / CMO / CEO залежно від ICP)?
+9. Прогнати через AI detector (Originality / GPTZero / Ahrefs AI level check)
+10. **Якщо результат Moderate / High** — повернути content-creator'у з конкретними pointers на порушені правила
 
 ### 6.5 Що робимо з поточними 3 Moderate сторінками
 
@@ -1338,7 +1318,7 @@ Messaging angle: [Core message з 8.2]
 
 1. **People-first, не search-first.** Контент для користі читачу, не для ранжування.
 2. **Trust — головна літера E-E-A-T.** Інші літери обслуговують Trust. Без довіри — нічого не рятує.
-3. **"Who / How / Why" видимі.** Хто автор (byline + bio). Як створено (AI disclosure). Чому створено (для користі, не трафіку).
+3. **"Who / How / Why" видимі.** Хто автор (byline + bio). Чому створено (для користі, не трафіку).
 4. **Technical + semantic SEO базова гігієна.** Unique titles, descriptive metas, semantic headings, alt text, clean URLs, valid structured data.
 5. **Zero tolerance для scaled content abuse.** Масова генерація сторінок для ranking — порушення, навіть human-written.
 
@@ -1348,7 +1328,7 @@ Messaging angle: [Core message з 8.2]
 |---|---|
 | People-first content | Вся філософія + розділ 6 (Anti-AI) |
 | Trust як головне | 2.5 (Site-wide trust), 4.1 (author byline, dates) |
-| Who / How / Why | 4.1 (byline), 6.3 правило 8 (AI disclosure) |
+| Who / How / Why | 4.1 (byline) |
 | Technical SEO гігієна | 3, 4 |
 | Spam policies | 4.5 (explicit guardrails) |
 | E-E-A-T Experience | 6.3 правило 7 (first-hand markers) |
@@ -1372,3 +1352,4 @@ Messaging angle: [Core message з 8.2]
 - 2026-04-15 — **Розширено розділ 4.1 до повноцінної Title & Meta Writing Methodology.** 9 subsections: 4.1.1 Mandatory Pre-Work (read content + SERP + patterns + intent + angle), 4.1.2 Character Counts, 4.1.3 Brand Placement Rules (коли Scalemate у title, коли ні), 4.1.4 Mandatory Content Rules (honesty, reader benefit), 4.1.5 Power Elements (numbers, year, question, curiosity, audience, pain, comparison, credibility), 4.1.6 Banned Patterns (fabricated numbers, clickbait, attack, stuffing), 4.1.7 Selection Methodology (generate 5-6 → dropout → content-ops panel scoring 6 criteria × 5 балів → top 2-3 → Natalia approve), 4.1.8 Post-Publish Tracking (baseline → T+2wk → T+4wk decisions), 4.1.9 Author Bylines & Date Signals. **Привід:** спроба переписати title/meta для madgicx-review-alternative без методики призвела до fabricated "10 alternatives" (у статті насправді 3 tools). Тепер workflow обов'язковий.
 - 2026-04-15 — **Додано 3 нові banned patterns у 4.1.6** (промоція competitor'ів, B2B cliche "honest take inside", flat connector verbs) + **новий розділ 4.1.6.1 Allowed Competitor Mention Patterns** (neutral mention OK — "brief note on X", "X covered briefly"; active promotion banned — "where X fits best", "where X wins"). **Привід:** content-ops panel порекомендувала "where Birch fits best" у meta для madgicx статті — CTR-optimized, але активно steering traffic до competitor'a. Natalia flagged strategic misalignment. Тепер patterns explicit у правилах.
 - 2026-04-16 — **Додано 3 нові елементи щоб не повторити template-suffix помилку:** (1) 4.1.1 Step 6 "Template audit" — обов'язкова перевірка як title реально рендериться через template; (2) 4.1.3 блок про Scalemate-specific blog template + `absoluteTitle: true` flag; (3) новий розділ 4.1.10 "Pre-Deploy Verification" з curl-командами для перевірки title/meta/OG/Twitter/JSON-LD перед deploy. **Привід:** frontmatter title для madgicx статті був правильний ("Is There a Real Madgicx Alternative..."), але `app/blog/[slug]/page.jsx` template auto-append'ив "| Scalemate Blog" → порушення 4.1.3. Fixed code to support opt-out flag + updated rules.
+- 2026-05-08 — **§6 Anti-AI rules:** видалено старе Правило 8 "AI Disclosure" (footer "drafted with AI assistance" не потрібен — operator-voiced контент із real founder byline і real metrics не вимагає такого disclaimer'а). Додано нове Правило 8 "Audience-Language Filter": фільтр на editor-side / SEO-jargon leaks (DR ratings, SERP rank, "we pulled / verified / WebFetch", "founder-add", date-stamps у body). Test для writer'а: буде це цікаво primary reader role статті — media buyer / AdOps / performance marketing lead / CMO / CEO / founder (per ICP). **Привід:** facebook-ads-automation listicle Q1 review surfaced що content-creator потягнув DR і "we verified" з tools-research.md без перекладу у reader-side language; QA humanizer pass теж пропустив. Тепер explicit grep + sanity check.
