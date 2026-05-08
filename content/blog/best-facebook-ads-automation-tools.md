@@ -151,10 +151,14 @@ The rule in Scalemate looks like this:
 
 ```
 Rule:
-  IF (spend > CPI_benchmark × 10) AND (current_CPI > CPI_benchmark × 2)
+  IF (spend > CPI_benchmark × 10)
+     AND (current_CPI > CPI_benchmark × 2)
   THEN
     pause campaign
-    + fire API event: status="bad", creative_id=<id>, reason="CPI 2× over benchmark at 10× spend"
+    + fire API event:
+        status      = "bad"
+        creative_id = <id>
+        reason      = "CPI 2× over benchmark"
   → tracking sheet row updates automatically
 ```
 
