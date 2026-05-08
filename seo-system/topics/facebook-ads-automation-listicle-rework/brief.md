@@ -348,12 +348,33 @@ Most peers cover 1-2 steps cleanly and force you to glue the rest with Zapier or
 - **Launch:** bulk launch from Drive → Meta + TikTok
 - **Trigger:** CPA / ROAS / frequency / spend thresholds (last 1d / 7d / 14d windows), multi-level / compound conditions
 - **Action:** auto-execute (pause / scale / cut) **or** alert-only — per-rule routing
-- **Endpoint:** Slack or email native, **OR** API + custom events (downstream system integrates with Scalemate; dev team builds custom integrations on demand)
+- **Endpoint:** Slack or email native, **OR** API + custom events that Scalemate fires INTO the user's system (Notion / Airtable / their tracking sheet / internal dashboard / CRM). The endpoint is the user's system, not a Scalemate export. Custom integrations on demand via dev team.
 
-Confirmed in shipped code:
+Confirmed in shipped code + public docs:
 - [features/automation-rules/page.jsx:51](../../../app/features/automation-rules/page.jsx) — Slack/email alerts + auto-cut rules + budget protection
 - [use-cases/ad-campaign-automation-rules/index.jsx:293](../../../app/use-cases/_data/ad-campaign-automation-rules/index.jsx) — auto-execute vs alert-only mode, hybrid combinations
-- API + custom events + dev-team custom integrations confirmed by Natalia 2026-05-08 (capture in tool entry; verify exact developer-docs URL during write)
+- **API docs (public, citable):** `https://scalemate.gitbook.io/scalemate-api` — link in Scalemate per-tool entry as evidence for API + custom events claim
+
+### Worked example for Scalemate per-tool entry (operator playbook)
+
+**Scenario: creative testing protocol.** Team is testing 20 new creatives on a test campaign. They want to auto-kill losers based on a compound condition AND log the verdict back to their creative-results tracking sheet (Notion / Airtable / Google Sheet) so the creative team sees status in their existing workflow — without manually exporting CSVs or pasting screenshots in Slack.
+
+```
+Rule:
+  IF (spend > CPI_benchmark × 10) AND (current_CPI > CPI_benchmark × 2)
+  THEN
+    pause campaign
+    + fire API event: status="bad", creative_id=<id>, reason="CPI 2× over benchmark at 10× spend"
+  → tracking sheet row updates automatically
+```
+
+Why this scenario lands:
+- **Multi-level compound trigger** (spend gate AND performance gate) — Meta Native can't do AND/OR compound conditions natively without manual stacking; Birch can; most others can't.
+- **Auto action** — pause campaign immediately (no babysitting, no Slack-screenshot-paste).
+- **API custom event into user's system** — the creative team checks ONE place (their tracking sheet), not three (Meta dashboard + Slack + their sheet).
+- **No manual logging** — the verdict is automatic. Creative team gets the result inside their existing tool without a single human export step.
+
+This worked example appears in the Scalemate per-tool entry section of the article. Verify exact threshold values (spend × 10? × 5? Different multipliers per playbook tier?) with Natalia / Ruslan before draft.
 
 **Search-demand validation:** `n8n facebook ads automation` + `reddit n8n facebook ads automation` = 40 vol combined in Ahrefs cluster matching-terms (2026-05-07). The "n8n / Zapier mental model" has its own search demand on this cluster.
 
@@ -558,9 +579,15 @@ We considered framing the new article as "12 Best Facebook Automated Rules Tools
 
 - [ ] **Confirm 12-tool (or 13-tool with AdNova) selection.** Drop / swap any if first-hand reasons (acquired, sunset, broken). Specifically: AdEspresso (Hootsuite-owned, declining?), Adzooma (active?), Optmyzr (covered as "honorable mention" or full slot?).
 - [ ] **AdNova positioning (founder-add 2026-05-07).** What tool is this exactly (URL, vendor)? What bucket fits — AI-autopilot like Trapica, rule engine like Birch, creative-side, or something else? Real product / active in 2026? Why does it belong on the list (peer mentions in your network, ICP signal)? Final call: keep as slot #8 with full entry → title becomes "13 Best…", OR move to honorable-mention paragraph → keep "12 Best…" framing. (UPDATE 2026-05-07 — research agent verified `adnova.ai` DR 41, Meta-only, free + Plus $150/mo, **bulk-launch + creative-workflow bucket, NOT rules engine** — same bucket as Kitchn / AdManage. See `tools-research.md` slot #8.)
-- [ ] **Slack / Sheets endpoint verification (Angle F primary).** Is Scalemate's Slack integration **native** (built-in, no third-party glue) or webhook-based? Does Sheets / table export ship today, or is it only dashboard view (you said «таблички ваші» — confirm what literal endpoint exists)? This is the moat for Angle F (workflow chain → external endpoint) vs Make.com / Zapier / native Meta. Affects Scalemate per-tool entry copy + comparison table "External endpoint" column. (UPDATE 2026-05-08 — confirmed by Natalia: Slack native + API + custom events + dev-team custom integrations. Sheets endpoint specifics still pending.)
-- [ ] **Public-facing API / developer docs URL** for Scalemate. The article cites "API + custom events + custom integrations on demand" as Scalemate's defining capability. We need either (a) a public docs URL to link to in the Scalemate per-tool entry, or (b) a "talk to dev team" CTA URL (e.g., `/book-a-demo?source=api-integration`). If no public API docs exist yet, decide whether to ship the article anyway (with the CTA fallback) or hold until docs land. Affects E-E-A-T weight of the API claim.
+- ~~Slack / Sheets endpoint verification~~ ✅ **RESOLVED 2026-05-08.** Slack: native. API + custom events: native — Scalemate fires events INTO the user's system (Notion / Airtable / their tracking sheet / internal dashboard / CRM). The "endpoint" is the user's system, not a Scalemate-side export. Custom integrations on demand via dev team. **Docs:** `https://scalemate.gitbook.io/scalemate-api` (public, citable).
+- ~~Public-facing API / developer docs URL~~ ✅ **RESOLVED 2026-05-08.** `https://scalemate.gitbook.io/scalemate-api` — public GitBook. Cite this in Scalemate per-tool entry as the evidence for the API + custom events claim. E-E-A-T strong.
 - [ ] **Approve JTBD voice direction for Scalemate per-tool entry.** Per `content-writing-rules.md` §8 Groups A+B+D applied to this article — Scalemate framed as "smart execution layer that plugs into your ops stack" (NOT "rules engine with rollback"). H3 lead: *"Best for Meta + TikTok teams who want their ad ops to flow INTO their existing stack — Slack, Notion, dashboards, custom systems via API."* OK to use this framing across all 13 tool entries (each tool gets a JTBD-lens H3)?
+- [ ] **Approve worked example walkthrough.** Per Natalia 2026-05-08: real operator-grade scenario showing the full chain in one rule. **Creative testing protocol** — when testing new creatives, set a multi-level rule on the test campaign:
+  ```
+  IF (spend > CPI_benchmark × 10) AND (current_CPI > CPI_benchmark × 2)
+  THEN pause campaign + send status "bad" via API to the creative-tracking sheet
+  ```
+  This shows: multi-level compound trigger → auto action (pause) → API custom event into user's system (status field updated in their tracking sheet). Plan: include this exact scenario in the Scalemate per-tool entry as a worked example. Verify wording / threshold values with Natalia/Ruslan before draft (CPI_benchmark × 10 spend gate? Or different — I want the threshold values to match Scalemate team's actual operator playbook).
 - [ ] **Confirm Scalemate tool entry copy** — 32% budget savings, 62% time reduction, 2M+ ads launched, Meta + TikTok feature parity — still current?
 - [ ] **Verify rules-engine spine values for each tool** — content-creator agent will draft from public docs, but Natalia/Ruslan should sanity-check Birch + Madgicx + Scalemate (the 3 we make brand-relative claims against).
 - [ ] **One first-hand operator anecdote** — even one paragraph: "we tried [tool] when scaling [account]; here's why we ended up [moving to / staying off / pairing with] Scalemate". E-E-A-T marker peer set can't match.

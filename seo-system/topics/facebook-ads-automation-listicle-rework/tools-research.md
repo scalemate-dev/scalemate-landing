@@ -402,13 +402,30 @@
 
 **ICP fit:** UA managers / media buyers who already run an ops stack (Slack, Notion, internal dashboards, MMPs, CRMs) — they don't want another destination tool. They want a smart execution layer that integrates into what they already use. The "n8n / Zapier mental model" speaks directly to this audience.
 
-**Risk / dependency:**
-- ✅ Slack integration native — confirmed in code (Natalia 2026-05-08: "так, нас можна підключити по апі і воно буде трігерити кастомні івенти")
-- ✅ API + custom events — confirmed by Natalia
-- ⚠️ Sheets / table export — Natalia mentioned "таблички ваші" — clarify whether this is (a) native Sheets export, (b) API-driven (you build your own sheet sync), or (c) just dashboard view. Affects "External endpoint" column granularity.
-- ⚠️ Need a public-facing developer / API docs page or anchor to link to from the article. If no public API docs URL exists yet, write the article positioning this as a real capability + offer "talk to dev team for custom integration" CTA. **Roadmap-aware copy** is OK if Natalia confirms; pure marketing claims without a docs link weakens E-E-A-T.
+**Risk / dependency (all resolved 2026-05-08):**
+- ✅ Slack integration native — confirmed in code + by Natalia.
+- ✅ API + custom events — confirmed by Natalia. **Public docs:** `https://scalemate.gitbook.io/scalemate-api` (citable, strengthens E-E-A-T evidence).
+- ✅ "Tables / Sheets" endpoint — clarified by Natalia 2026-05-08: this is **not** a Scalemate-side Sheets export. It's the inverse — Scalemate **fires custom events INTO the user's system** (Notion / Airtable / their tracking sheet / internal dashboard / CRM). The endpoint is the user's system. The user subscribes to events via API and writes them wherever they already track results. Custom integrations on demand via the dev team for non-standard cases.
 
-**Fail-mode:** If API + custom events isn't documented publicly anywhere (no docs URL), the article still works with Slack/email native + "ask the dev team for custom integration" CTA — the framing holds, just with the docs evidence weaker.
+### Worked example (per Natalia 2026-05-08) — to embed in Scalemate per-tool entry
+
+**Creative testing protocol** — operator-grade scenario showing the full chain in a single rule:
+
+```
+IF (spend > CPI_benchmark × 10) AND (current_CPI > CPI_benchmark × 2)
+THEN
+  pause campaign
+  + fire API event: status="bad", creative_id=<id>, reason="CPI 2× over benchmark at 10× spend"
+→ creative-tracking sheet row updates automatically
+```
+
+Why this lands:
+- **Multi-level compound trigger** — Meta Native can't do AND/OR compounds natively. Most peers also can't. Birch can.
+- **Auto action** — pause immediately, no babysitting.
+- **API custom event into user's system** — creative team checks one place (their tracking sheet), not three (Meta dashboard + Slack + sheet).
+- **No manual logging** — the verdict appears in the team's existing tool with zero export steps.
+
+Threshold values to confirm with Natalia / Ruslan before draft (×10 spend gate? ×5? Different per playbook tier?).
 
 ---
 
