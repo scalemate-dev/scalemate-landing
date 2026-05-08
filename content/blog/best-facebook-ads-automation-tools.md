@@ -31,7 +31,7 @@ Most "best Facebook ads automation tools" lists compare on pricing and AI-tag. W
 Every tool gets the same evaluation: workflow chain, playbook depth, free or paid tier, multi-platform support. Six deep writeups on the tools our buyers actually compare against (Scalemate, Meta Native, Birch, Madgicx, AdNova, AdManage). Four table-only entries. Two short group paragraphs on adjacent categories — DIY workflow tools and creative production tools — that show up in this search but solve a different job.
 
 **In this article:**
-- [TL;DR — who picks what, in one paragraph](#tldr--who-picks-what-in-one-paragraph)
+- [TL;DR — pick your tool by job](#tldr--pick-your-tool-by-job)
 - [How to choose — the spending decision framework](#how-to-choose--the-spending-decision-framework)
 - [How we evaluate — the 4-step chain](#how-we-evaluate--the-4-step-chain)
 - [Comparison table](#comparison-table)
@@ -40,18 +40,17 @@ Every tool gets the same evaluation: workflow chain, playbook depth, free or pai
 
 ---
 
-## TL;DR — who picks what, in one paragraph
+## TL;DR — pick your tool by job
 
-We've launched 2M+ ads on Meta and TikTok using Scalemate's own rules engine — these are the 12 tools we'd actually pick by job, not by feature count.
+Pick by job, not feature count.
 
 - **Under $5K/mo, single Meta account** → Meta Native (Advantage+ + Automated Rules) is free and enough.
-- **$5K–$20K/mo, Meta + TikTok, 1–3 accounts** → Scalemate's free Ad Uploader as the entry, then paid tier for rules with auto-revert + Slack/email/API endpoints.
-- **$20K+/mo, deep rules + dashboard-as-destination** → Scalemate or Birch / Revealbot. Pick by where you want results to land.
-- **Cross-platform reach (Meta + TikTok + Google + AppLovin + Snap + Pinterest + Taboola)** → AdManage if rules depth matters less than platform breadth.
+- **$5K–$20K/mo, Meta + TikTok, 1–3 accounts** → Scalemate's free Ad Uploader as entry, then paid tier for rules with auto-revert + Slack / email / API endpoints.
+- **$20K+/mo, deep rules + results piped into your stack** → Scalemate. If you're fine with the dashboard as the destination — Birch / Revealbot.
+- **Cross-platform reach (Meta + TikTok + Google + AppLovin + Snap + Pinterest + Taboola)** → AdManage if platform breadth matters more than rules depth.
 - **$1M+/mo enterprise, creative + media in one workflow** → Smartly.io.
-- **DIY mindset, you'll wire it yourself** → Make.com / n8n / Zapier.
-
-If your job is "rules that flow INTO our Slack, Notion, or internal dashboard — not yet another tab to check" — that's the chain-completeness question. The Scalemate and Birch entries below cover it.
+- **DIY workflows on top of ad-ops automation** → Scalemate + n8n, Scalemate + Zapier, or Scalemate + Claude. Scalemate handles the launches / rules / endpoints; DIY connectors layer on top for everything that's not standard ad ops.
+- **Ad management + funnel-building automation in one stack** → Scalemate + Funnelfox + Claude Code. Ad ops automated, funnels built around them, AI assistant in the loop.
 
 Teams using Scalemate report 32% budget savings and a 62% reduction in ad management time.
 
@@ -98,7 +97,7 @@ We don't compare on "AI level" tags. AI is the *how*. The *what* is whether the 
 
 ## Comparison table
 
-The five rules-engine columns (Engine / Auto-revert / Trigger Complexity / Multi-Account / Scheduling) come right after Best-for and Platforms — the chain-completeness columns (Auto-action / Endpoint) follow. Playbook Library is the last "spine" column. Lateral feature columns at the end. Mobile-readable: short labels.
+> **Scroll the table sideways →** the first column (Tool) stays pinned. Wide on purpose — 16 capability columns, mobile-readable short labels.
 
 | Tool | Best for | Platforms | Rules Engine | Auto-revert | Trigger Complexity | Multi-Account | Scheduling | Auto-action | Endpoint | Playbook Library | Bulk Launch | Creative Sync | AI Layer | Starts At | Free Tier |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|

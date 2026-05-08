@@ -169,9 +169,16 @@ $rt-bg-warm: #faf9f6;
   }
 
   // ─── Tables ───
+  // display: block + overflow-x: auto → wide tables scroll horizontally instead of clipping.
+  // Sticky first column (Tool name) stays pinned so the row is always identifiable while scrolling.
   table {
+    display: block;
     width: 100%;
-    border-collapse: collapse;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-collapse: separate;
+    border-spacing: 0;
     margin: 28px 0;
     font-size: 15px;
     line-height: 1.6;
@@ -196,6 +203,25 @@ $rt-bg-warm: #faf9f6;
 
   tr:last-child td {
     border-bottom: none;
+  }
+
+  // Sticky first column (Tool / row-identifier).
+  // Background must be opaque or scrolled cells show through; box-shadow gives a soft right edge during scroll.
+  th:first-child,
+  td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    box-shadow: 1px 0 0 $rt-line;
+  }
+
+  th:first-child {
+    background: $rt-bg-warm;
+    z-index: 2;
+  }
+
+  td:first-child {
+    background: #fffdf9;
   }
 
   // ─── Reddit-style quote card (raw HTML in markdown) ───
