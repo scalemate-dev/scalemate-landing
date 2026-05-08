@@ -27,7 +27,9 @@
 | Make.com | $0 free (1k credits) | DIY | Connectors (any app) | **Yes** |
 | Hunch / AdCreative.ai / Pencil | varies | N/A (creative side) | Multi | varies |
 
-> Labels: **Adv** = OR/compound + scheduling + rollback. **Mid** = OR/compound, no rollback. **Basic** = AND-only or pre-built rule templates. **None** = no rules engine. **DIY** = you build the rules in a workflow tool. **N/A** = autonomous AI / different category.
+> Labels: **Adv** = OR/compound + scheduling + auto-revert. **Mid** = OR/compound, no auto-revert. **Basic** = AND-only or pre-built rule templates. **None** = no rules engine. **DIY** = you build the rules in a workflow tool. **N/A** = autonomous AI / different category.
+>
+> **Terminology note (Natalia 2026-05-08):** "rollback" in this doc = the capability to auto-undo a rule's action when conditions reverse (e.g., paused campaign auto-resumes if performance recovers). **Comparison table column in the published article uses "Auto-revert" instead of "Rollback"** — plain language for marketer audience. Scalemate's own term is "rollback"; Birch calls it "reverse rules". Article body explains the concept on first use.
 
 ---
 

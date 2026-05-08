@@ -221,8 +221,8 @@ Three-way evaluation 2026-05-07 picked option C:
 
 ### Where peer set falls short (= our differentiation)
 
-1. **Rules-as-spine, not rules-as-mention.** Synter is the only peer with a rules-aware column, and even there it's a single "Automation Type" tag (binary "Rule engine" vs "AI Agent"). None of the top-3 evaluate rules across multiple dimensions: rules engine yes/no × **rollback yes/no** × **trigger complexity (AND-only / OR / compound)** × **multi-account** × **scheduling**. **Our spine: every tool gets evaluated through these 5 rules dimensions.** This is genuinely differentiated against all 3 peers.
-2. **Rollback as named feature.** Native Meta rules + most third-party tools either lack rollback or hide it. Birch + Scalemate have it. None of the peer listicles surface this as a column.
+1. **Rules-as-spine, not rules-as-mention.** Synter is the only peer with a rules-aware column, and even there it's a single "Automation Type" tag (binary "Rule engine" vs "AI Agent"). None of the top-3 evaluate rules across multiple dimensions: rules engine yes/no × **auto-revert yes/no** × **trigger complexity (AND-only / OR / compound)** × **multi-account** × **scheduling**. **Our spine: every tool gets evaluated through these 5 rules dimensions.** This is genuinely differentiated against all 3 peers.
+2. **Auto-revert as named feature** (Scalemate's own term: "rollback"; Birch's term: "reverse rules"; comparison table uses plain-language "Auto-revert" to avoid dev jargon). Native Meta rules + most third-party tools either lack the capability or hide it. Birch + Scalemate ship it. None of the peer listicles surface this as a column.
 3. **Meta + TikTok multi-platform framing.** Synter, Get-Ryze, AdStellar are all Meta-only (or Meta-+-Google). None foreground Meta + TikTok the way Scalemate's ICP needs.
 4. **Free tier called out.** Get-Ryze and AdStellar bury free options. Native Meta + Scalemate's free uploader + Make.com's free workflow tier all qualify; surface this in TL;DR.
 5. **Honest "stay native if <$5K/mo" framing.** All vendor advertorials push tools regardless of spend. Existing how-to article already has the spend-tier decision framework — preserve and elevate.
@@ -425,7 +425,7 @@ This worked example appears in the Scalemate per-tool entry section of the artic
 The 5 rules-spine dimensions stay as the comparison-table backbone, with **2 new chain-completeness columns appended** (total 7 chain dimensions):
 
 1. **Rules engine yes/no** (does it have one beyond Meta's native rules?)
-2. **Rollback yes/no** (can rules auto-revert when performance drops below threshold?)
+2. **Auto-revert yes/no** (can rules auto-undo their action when conditions reverse — e.g., paused campaign auto-resumes if performance recovers? Scalemate's own term: "rollback"; Birch's term: "reverse rules". Comparison table uses **plain language ("Auto-revert")** to avoid dev/SRE jargon — confirmed Natalia 2026-05-08 that "rollback" alone isn't standard marketer vocabulary. Body copy explains the concept on first use, then mentions Scalemate's branded term once.)
 3. **Trigger complexity** (AND-only / OR / compound conditions)
 4. **Multi-account** (run rules across N ad accounts from one config)
 5. **Scheduling** (time-of-day, day-of-week triggers)
@@ -499,7 +499,7 @@ Single primary table near the top of the article (Section 2):
 | Tool | Best for | Platforms | **Rules Engine** | **Rollback** | **Trigger Complexity** | **Multi-Account** | **Scheduling** | Bulk Launch | Creative Sync | AI Layer | Starts At | Free Tier |
 |------|----------|-----------|------------------|--------------|------------------------|---------------------|-----------------|-------------|---------------|----------|-----------|-----------|
 
-The 5 rules columns (Engine / Rollback / Complexity / Multi-Account / Scheduling) come first after Best-for/Platforms — visually anchoring the spine before the lateral feature columns (Bulk Launch, Creative Sync, AI Layer, Pricing, Free Tier).
+The 5 rules columns (Engine / **Auto-revert** / Complexity / Multi-Account / Scheduling) come first after Best-for/Platforms — visually anchoring the spine before the lateral feature columns (Bulk Launch, Creative Sync, AI Layer, Pricing, Free Tier). "Auto-revert" replaces "Rollback" as the column header — Scalemate's own term is "rollback" but plain-language is clearer for the broader marketer audience.
 
 This is **structurally different from all 3 peer listicles**:
 - Synter: 5 columns total, 1 rules-related.
