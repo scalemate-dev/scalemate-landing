@@ -59,6 +59,7 @@ Three-way evaluation 2026-05-07 picked option C:
 |---|---:|---:|---:|---:|---|
 | facebook ads automation | 150 | 6 | $4.50 | **900** | Body / H2 — biggest TP anchor in cluster. Mixed intent SERP (Meta + listicles + Reddit) we still compete in via listicle format. |
 | facebook ads automation tools | 50 | 14 | $6.00 | **700** | Primary. Listicle title fits. |
+| meta ads automation | 50 | — | — | — | Meta-branded variant of primary cluster. Body / H2 — surface "Meta" terminology somewhere (Meta own docs use this phrasing). Added 2026-05-08 (verification re-pull). |
 | facebook ads automation software | 40 | 12 | $7.00 | 600 | Software-framing variant. Body / H2. |
 | facebook ads automation tool | 40 | — | $6.00 | — | Singular variant. Body. |
 | best facebook automation tools | 40 | — | $6.00 | — | Listicle-flavor variant. Body. |
@@ -104,11 +105,30 @@ Three-way evaluation 2026-05-07 picked option C:
 
 **Process note for future agents:** when calling Ahrefs `keywords-explorer-overview`, always use **comma-separated** keywords. Newline-separated input returns empty without an error and looks like "0 volume" — this is a silent failure mode. Verify input format before drawing conclusions about demand.
 
-### GSC validation (2026-05-07, 90d window)
+### GSC validation (re-verified 2026-05-08, 90d window 2026-02-07 → 2026-05-08)
 
-- Site-wide query filter `contains "facebook ads automation"` over 90d → 0 imp, 0 clk site-wide.
-- Site-wide query filter `contains "automation tools"` over 90d → 0 imp on Facebook-ads-related pages.
-- New URL has no historical signal to compete with. No internal cannibalization on the cluster as of 2026-05-07.
+**Strict cluster (`contains "facebook ads automation"`) — 0 imp ✅**
+
+- 0 imp / 0 clk site-wide for the exact substring `facebook ads automation` across all Scalemate pages.
+- New URL has no direct historical competitor on this exact phrase.
+
+**Broader `contains "automation"` — adjacent queries DO surface (correction 2026-05-08):**
+
+| Query | Page | Imp (90d) | Position |
+|---|---|---:|---:|
+| `madgicx tiktok ads automation` | `/blog/madgicx-review-alternative` | **16** | **6.2** |
+| `ppc automation rules` | `/features/automation-rules` | 12 | 89.1 |
+| `ad scaling and automation` | `/use-cases/ad-campaign-automation-rules` | 5 | 32.6 |
+| `ad scaling and automation` | `/features/automation-rules` | 4 | 37.5 |
+| `ua creative automation` | `/blog/creative-testing-framework` | 4 | 10.5 |
+| `what are the top marketing automation pl…` | `/blog/best-mcp-servers-meta-google-ads` | 1 | 11.0 |
+
+**Real conclusion:**
+
+- Strict cluster `facebook ads automation` is genuinely empty for us — new article enters with no direct GSC competitor for the primary phrase.
+- BUT — adjacent automation-cluster queries already surface on `/features/automation-rules`, `/use-cases/ad-campaign-automation-rules`, and `/blog/madgicx-review-alternative`. Practical impact: **low** (most are <20 imp / poor positions). Not a cannibalization blocker.
+- Most interesting: `madgicx tiktok ads automation` 16 imp / pos 6.2 already lives on the Madgicx review page. Google has begun associating that page with automation-tool queries. Doesn't block this listicle (different SERP, different URL), but worth knowing for internal linking — link FROM this listicle TO `/blog/madgicx-review-alternative` keeps that signal in the cluster family.
+- Prior brief claim "0 imp on cluster" was too strict — exact substring is 0, but broader cluster-adjacent surface area exists. Re-verified 2026-05-08 with fresh GSC pull.
 
 ---
 
