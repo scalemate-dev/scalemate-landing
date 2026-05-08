@@ -79,9 +79,30 @@ Three-way evaluation 2026-05-07 picked option C:
 
 **TP cap of 100** + KD 2 + low CPC = informational/definitional intent only. This cluster is owned by the in-flight `automation-rules-library` page (S9' / pipeline §1) — different SERP, different format (cheat-sheet utility), different intent.
 
-### Branded review keywords (Ahrefs 2026-05-07)
+### Branded keywords (Ahrefs re-validated 2026-05-08, comma-separated input)
 
-`revealbot`, `madgicx review`, `smartly review`, `smartly.io review`, `revealbot review` — all returned 0 volume in our keyword overview pull. **No branded-review demand to layer in.** Don't try to embed branded-review angle inside this listicle; it adds no SEO lift and the cluster owners (Madgicx review article) handle that demand separately. Keep the new article scoped to "tools listicle" intent.
+> **Correction 2026-05-08:** prior brief claim of "all 0 volume" was wrong — caused by Ahrefs `keywords-explorer-overview` returning `[]` silently when keywords are passed newline-separated instead of comma-separated. Re-pulled with correct input format below.
+
+| Keyword | Vol | KD | TP | Notes |
+|---|---:|---:|---:|---|
+| `madgicx` | 1300 | 7 | 1400 | Competitor brand |
+| `revealbot` | 450 | 0 | 1900 | Competitor brand (parent: "birch") |
+| `adespresso` | 400 | 5 | 700 | Competitor brand |
+| `smartly.io` | 350 | 6 | 5600 | Competitor brand |
+| `madgicx review` | 200 | 3 | 150 | Competitor review intent |
+| `trapica` | 30 | 1 | 20 | Competitor brand |
+| `birch ads` | 30 | — | — | Competitor brand |
+| `revealbot review` | 20 | — | — | Competitor review intent |
+| `smartly review` | 10 | — | — | Competitor review intent |
+| `adespresso review` | 20 | 0 | 10 | Competitor review intent |
+
+**Real conclusion:** branded demand exists — `madgicx` 1300, `revealbot` 450, `smartly.io` 350 are non-trivial — but it's all **competitor-brand demand**. The article should NOT try to rank for these:
+- Targeting `revealbot` from a Scalemate article = trying to rank for someone else's brand → SEO marginalia (Google heavily favors the actual vendor) + adds zero ICP value (people searching `revealbot` want Revealbot, not a 13-tool comparison).
+- `madgicx review` 200 vol — our existing `/blog/madgicx-review-alternative` covers this dedicated. Don't cannibalize.
+
+**Keep this listicle scoped to non-branded tools-listicle intent** (`facebook ads automation tools` cluster, TP 700-900). When the article mentions Madgicx/Birch/Smartly inside tool entries, do it neutrally — no SEO push for their brands. If we want to capture branded review demand, that's a separate dedicated review page per brand (we already do this for Madgicx).
+
+**Process note for future agents:** when calling Ahrefs `keywords-explorer-overview`, always use **comma-separated** keywords. Newline-separated input returns empty without an error and looks like "0 volume" — this is a silent failure mode. Verify input format before drawing conclusions about demand.
 
 ### GSC validation (2026-05-07, 90d window)
 
