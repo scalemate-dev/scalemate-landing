@@ -349,9 +349,14 @@ Three-way evaluation 2026-05-07 picked option C:
 
 ---
 
-## Unique Angle — JTBD voice: "Smart execution layer that plugs into YOUR ops stack"
+## Unique Angle — JTBD voice: "Smart execution layer that plugs into YOUR ops stack — with operator playbooks included"
 
-> **Primary angle revised 2026-05-08** to JTBD framing per Natalia's explicit instruction: "speak in jobs-to-be-done language, in the language of problems they solve through tools" — not feature lists. See `tools-research.md` "Angle F" section for full peer-by-peer differentiation map.
+> **Primary angle revised 2026-05-08** to JTBD framing per Natalia's explicit instruction: "speak in jobs-to-be-done language, in the language of problems they solve through tools" — not feature lists. **Two paired angles** drive the article:
+>
+> - **Angle F (technology positioning)** — Scalemate as the integration-first execution layer (workflow chain → API endpoints into user's system). See `tools-research.md` Angle F.
+> - **Angle G (expertise positioning, founder-add 2026-05-08)** — Scalemate ships with **operator playbooks**: large library of pre-built rules + frameworks across goals (scale winners / kill losers / budget control / creative testing rotation) AND niches (mobile UA, eCom, lead-gen). Coordinated release with `/automation-rules-library` page (S9') is the live evidence. See `tools-research.md` Angle G.
+>
+> Combined claim: *"Scalemate isn't an empty rules engine. It ships with operator playbooks for testing creatives, scaling winners, killing losers — organized by goal AND niche. Then it plugs into your existing ops stack via Slack, email, or API custom events."*
 
 ### The job (per `content-writing-rules.md` §8.1, Groups A+B+D)
 

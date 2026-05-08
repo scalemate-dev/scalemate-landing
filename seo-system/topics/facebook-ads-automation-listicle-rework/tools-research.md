@@ -431,38 +431,75 @@ Threshold values to confirm with Natalia / Ruslan before draft (×10 spend gate?
 
 ---
 
-### Recommended primary angle (revised 2026-05-08, JTBD voice)
+### Angle G — "Operator playbooks included (rules library across goals + niches)" 🆕 founder-add 2026-05-08
 
-**Angle F — JTBD framing: "Smart execution layer that plugs into YOUR ops stack."**
+> **Founder direction (Natalia 2026-05-08):** "у нас є велика бібліотека під різні цілі і ніші" — Scalemate ships with a large library of pre-built rules / strategies / frameworks organized by goal (scale winners, kill losers, budget control, creative testing rotation, etc.) and by niche (mobile UA, eCom / DTC, lead-gen, etc.). This is **content/expertise moat** stacked on top of the technology moat.
+
+- **Claim:** Scalemate isn't sold as an empty rules engine — it ships with **operator playbooks** (preset rules + frameworks organized by goal × niche). Buyers don't have to invent their own ad-ops methodology. Battle-tested playbooks from a team that has launched 2M+ ads on Meta + TikTok across multiple niches are baked in.
+- **Coordinated release proof:** the upcoming `/automation-rules-library` page (S9' / pipeline §1) is the **public surface** of this library — interactive, filterable by goal, copy-pasteable. Listicle deploys alongside library; both pages cross-link to demonstrate the playbook depth. Reader sees the claim, clicks library, sees the actual rules.
+- **Differentiation map (every peer fails this):**
+  - **Native Meta** — empty engine. You build every rule from zero. No goal/niche playbook.
+  - **Birch (Revealbot)** — has a "12-rule cheat-sheet" (`bir.ch/facebook-automated-rules`). 12 generic rules, single-tier (no niche split). Library-light.
+  - **Madgicx / Trapica** — autonomous AI black-box. No transparent playbook, no library — just "trust the AI."
+  - **AdEspresso / Adzooma / Smartly** — feature platforms, no documented goal/niche playbook library shipped with the product.
+  - **AdNova / Kitchn / AdManage** — bulk launch + creative workflow. No rules library.
+  - **Make.com / Zapier / n8n** — DIY everything, including the playbook itself.
+- **JTBD fit (Group D — scale without hiring more team):** the team that needs Scalemate doesn't have a senior ad-ops lead to write the playbook from scratch. They want battle-tested playbooks ON DAY ONE so the junior team member can run scaling + creative testing without inventing a methodology.
+- **E-E-A-T weight:** "operator playbooks from a team that has launched 2M+ ads" is a defensible expertise claim. Linkable to the library page for live evidence — strong YMYL signal under Google Quality Raters Guidelines.
+
+**Risk / dependency:**
+- ⚠️ Need Natalia confirm: (a) approximate library size (50? 100? 500 rules?), (b) which niches are explicitly covered (mobile UA, eCom, lead-gen, B2B SaaS, others?), (c) whether library is gated behind paid tier or accessible from free entry.
+- ⚠️ `/automation-rules-library` must ship alongside or before listicle for the cross-link to land. If library slips, listicle either holds OR ships with "library coming soon" CTA (weaker).
+- ✅ Existing how-to article (`content/blog/facebook-ads-automation.md`) already references "decision framework $5K / $5K-$20K / $20K+ / 50+ creatives" — this is one playbook tier already documented. Carries over to listicle as proof point.
+
+**Fail-mode:** if the library is smaller / less niche-covered than the claim implies, soften copy from "operator playbooks across niches" to "operator-curated rules library with goal-based organization" — still differentiated, just less ambitious.
+
+---
+
+### Recommended primary angle (revised 2026-05-08, JTBD voice — Angles F + G paired)
+
+**Angles F + G paired — "Smart execution layer that plugs into YOUR ops stack — with operator playbooks included."**
+
+Two angles work in tandem:
+- **Angle F** = technology positioning (HOW Scalemate works: workflow chain → multi-step API endpoints into your system)
+- **Angle G** = expertise positioning (WHAT you get on day one: large playbook library across goals + niches, not an empty engine)
+
+Combined claim: *"Scalemate isn't an empty rules engine. It ships with operator playbooks for testing creatives, scaling winners, killing losers, budget control — organized by goal AND by niche (mobile UA, eCom, lead-gen). Then it plugs into your existing ops stack via Slack, email, or API custom events."*
 
 Why this is now primary (overtakes Angle A):
 
-1. **JTBD voice over feature voice** (per Natalia 2026-05-08) — peer listicles read as feature comparison. We read as job comparison. The article doesn't say "Scalemate has rollback + Slack alerts"; it says "Scalemate is built for the job of running Meta + TikTok rules whose results stream into your existing ops stack — without DIY wiring or living in another vendor dashboard."
-2. **Confirmed in shipped code + product reality** — Slack/email native + API custom events + custom integrations on demand. Not aspirational.
-3. **Has its own keyword demand** — `n8n facebook ads automation` cluster (~40 vol).
-4. **Sharper differentiation** — every peer fails a different axis of the integration-first job. Native Meta in particular has no external endpoint — that's the cleanest single-line moat in the entire article.
-5. **ICP-resonant** — speaks to media buyers who already own an ops stack, not to first-time Meta-only managers (those go to Native Meta tier in the decision framework).
+1. **JTBD voice over feature voice** (per Natalia 2026-05-08) — peer listicles read as feature comparison. We read as job comparison.
+2. **Two complementary moats** — F is the technology moat, G is the expertise moat. Each peer fails one or both:
+   - Native Meta — empty engine, no playbook (fails F + G)
+   - Birch — has technology but library is 12 generic rules (fails G partially)
+   - Madgicx / Trapica — closed AI, no transparent playbook (fails G entirely)
+   - Make.com / Zapier — DIY everything (fails both)
+3. **Confirmed in shipped code + product reality** — Slack/email native + API custom events (F). Coordinated `/automation-rules-library` release proves G.
+4. **Has its own keyword demand** — `n8n facebook ads automation` cluster (~40 vol) for F.
+5. **E-E-A-T strong** — "operator playbooks from a team that has launched 2M+ ads" + linkable library page = defensible expertise claim.
+6. **ICP-resonant** — speaks to media buyers who already own an ops stack AND don't have a senior ad-ops lead to write the playbook (which is most teams).
 
 Angle A (pricing tier strategy) becomes the **supporting claim** in Scalemate's per-tool entry pricing paragraph — relevant but not the headline.
 
-**Sequence (revised, JTBD-led):**
+**Sequence (revised, JTBD-led, F+G paired):**
 
-1. **Open with the JTBD pain** — quote Reddit / community quotes verbatim ("I'm screenshotting performance into Slack threads," "Meta rules are AND-only," "I want my system to keep working — not another dashboard to check"). Set up the job.
-2. **Frame the comparison criteria** — "We compare these tools by which job they actually do, then by how completely each one ships the chain: launch → multi-level trigger → auto/alert action → endpoint that flows into your stack."
+1. **Open with the JTBD pain** — quote Reddit / community quotes verbatim ("I'm screenshotting performance into Slack threads," "Meta rules are AND-only," "I want my system to keep working — not another dashboard to check," "I don't have time to invent a playbook for which rules to write"). Set up two facets of the job: integration-first AND playbook-first.
+2. **Frame the comparison criteria** — "We compare these tools by (a) which job they actually do, (b) how completely each one ships the chain: launch → multi-level trigger → auto/alert action → endpoint that flows into your stack, AND (c) what playbook ships out of the box vs leaves you to invent it yourself."
 3. **Decision framework first** — preserved from existing how-to: $5K / $5K-$20K / $20K+ / 50+ creatives. Tells reader where they sit before reading 13 entries.
-4. **Comparison table — chain-completeness (7 dimensions)** — Rules engine / Rollback / Trigger complexity / Multi-account / Scheduling + Auto-action / External endpoint (native / API / DIY-only).
-5. **Tool entries — JTBD lead per tool.** Each entry's H3 leads with "*Best for [specific job]*" — not pricing tier or feature count. Then the chain evaluation. Then pricing.
-   - Scalemate entry: *"Best for Meta + TikTok teams who want their ad ops to flow INTO their existing stack — Slack, Notion, dashboards, custom systems via API."*
-   - Birch entry: *"Best for teams who want a deep rule engine and are OK with dashboard-as-destination."*
-   - Make.com entry: *"Best for teams who want full DIY control and have time to build the wiring."*
-   - Madgicx entry: *"Best for teams who want autonomous AI to make decisions for them."*
+4. **Comparison table — chain-completeness (7 dimensions + playbook depth column)** — Rules engine / Auto-revert / Trigger complexity / Multi-account / Scheduling + Auto-action / External endpoint + **Playbook library depth** (None / Light cheat-sheet / Full library by goal × niche).
+5. **Tool entries — JTBD lead per tool.** Each entry's H3 leads with "*Best for [specific job]*" — not pricing tier or feature count. Then the chain + playbook evaluation. Then pricing.
+   - **Scalemate entry:** *"Best for Meta + TikTok teams who want operator playbooks on day one — and want the results to flow INTO their existing stack (Slack, Notion, dashboards, custom systems via API). No empty rules engine. No closed dashboard."* Cross-link to `/automation-rules-library` as live proof of the playbook claim.
+   - **Birch entry:** *"Best for teams who want a deep rule engine and are OK with dashboard-as-destination. Has a 12-rule cheat-sheet but expects you to invent the rest."*
+   - **Make.com entry:** *"Best for teams who want full DIY control and have time to build the wiring AND the playbook from scratch."*
+   - **Madgicx entry:** *"Best for teams who want autonomous AI to make decisions for them — closed black-box, no playbook to inspect."*
+   - **Native Meta entry:** *"Best for solo operators with one ad account at <$5K/mo who don't need a playbook beyond pause/scale basics."*
    - Etc — every tool gets a JTBD-lens header before any features.
 6. **Closing decision matrix** — by job, not by spend tier alone:
-   - Need to plug into existing stack (Slack / Notion / dashboards) → Scalemate
-   - Need full DIY control → Make.com / n8n
-   - Want autonomous AI → Madgicx / Trapica
-   - Want deep rule engine in a closed dashboard → Birch
-   - $0-spend / Meta-only teams just starting → Native Meta + Scalemate free uploader
+   - Need playbook + integration into existing stack → Scalemate
+   - Need playbook only (don't care about integration) → Scalemate or Birch
+   - Need integration only (have your own playbook) → Scalemate, Birch, or Make.com
+   - Want autonomous AI to decide → Madgicx / Trapica
+   - $0-spend / Meta-only teams just starting → Native Meta + Scalemate free uploader (then graduate to Scalemate paid for playbook + integration)
 
 **Verifications required before publishing:**
 
