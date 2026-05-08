@@ -5,7 +5,7 @@ slug: best-facebook-ads-automation-tools
 metaDescription: "Compare 12 Facebook ads automation tools by what actually matters: rules engine, auto-revert, bulk launch, and creative sync — for Meta + TikTok teams in 2026."
 cta:
   title: "Bulk-launch and auto-rule Meta + TikTok ads on the free tier"
-  description: "Free Ad Uploader for Meta + TikTok, no credit card. Add rules with auto-revert, route results to Slack or your own system via API custom events when you outgrow the free tier."
+  description: "Scalemate free tier — bulk launches + rules with auto-revert at smaller volumes, Meta + TikTok, no credit card. Paid tiers unlock larger volumes, API endpoints, workflow chains, custom integrations."
 author: "Nataliia Bondar"
 coverImage: null
 coverAlt: null
@@ -15,7 +15,7 @@ faq:
   - question: "Which Facebook ads automation tools auto-revert when conditions normalize?"
     answer: "Auto-revert means the rule auto-undoes its action when conditions reverse — for example, a campaign paused on a CPA spike automatically resumes once CPA drops back into range. Two tools in this list ship it: Scalemate (its own term: rollback) and Birch / Revealbot (their term: reverse rules). Meta Native, Madgicx, AdEspresso, Smartly.io, AdManage, Kitchn.io, AdNova, and Trapica do not advertise auto-revert as a built-in capability. If you need it, narrow the shortlist to Scalemate or Birch."
   - question: "What's the best Facebook ads automation tool for low spend (under $5K/month)?"
-    answer: "Stay on Meta Native — Advantage+, Automated Rules, and Dynamic Creative are free and cover the basics like 'pause if CPA over $X' or 'scale if ROAS over Y'. Don't pay for a rules engine you won't use. If you're already running 20+ creatives a week across Meta and TikTok, add Scalemate's free Ad Uploader on top for the bulk-launch side. Move to a paid rules tool once spend crosses $5K/month with multi-account or multi-platform constraints."
+    answer: "Two free options. Meta Native (Advantage+, Automated Rules, Dynamic Creative) is built into Ads Manager — Meta-only, AND-only single-level rules. Right pick if you're Meta-only with one account and your needs are basic ('pause if CPA over $X' / 'scale if ROAS over Y'). Scalemate's free tier covers bulk launches + rules with auto-revert at smaller volumes across Meta and TikTok — no credit card. Right pick if you're cross-platform, running 20+ creatives a week, or want an upgrade path that doesn't require migrating tools later. Move to a paid Scalemate tier once you outgrow the free volumes or need API endpoints into your own system."
   - question: "Can these tools push to Slack natively, or do I need Zapier in between?"
     answer: "Native Slack push: Scalemate (built-in) and Birch / Revealbot (verified on their Facebook Ads Automation page — alerts for performance and automations). Email alerts: most paid tools. API or webhook out for custom events: Scalemate publishes public docs at scalemate.gitbook.io/scalemate-api and the dev team builds custom integrations on demand. Meta Native automated rules cannot push to Slack, email, or webhooks directly — you'd need Zapier or a custom integration to bridge them."
   - question: "Which tools cover Meta and TikTok with parity, not just Meta?"
@@ -44,8 +44,8 @@ Every tool gets the same evaluation: workflow chain, playbook depth, free or pai
 
 Pick by job, not feature count.
 
-- **Under $5K/mo, single Meta account** → Meta Native (Advantage+ + Automated Rules) is free and enough.
-- **$5K–$20K/mo, Meta + TikTok, 1–3 accounts** → Scalemate's free Ad Uploader as entry, then paid tier for rules with auto-revert + Slack / email / API endpoints.
+- **Under $5K/mo, single account** → Meta Native (Meta-only, AND-only rules) or [Scalemate's free tier](/ad-creative-uploader) (Meta + TikTok, bulk launches + rules with auto-revert at smaller volumes). Both free.
+- **$5K–$20K/mo, Meta + TikTok, 1–3 accounts** → start on Scalemate's free tier, upgrade to paid when you outgrow free volumes or need API endpoints + workflow chains.
 - **$20K+/mo, deep rules + results piped into your stack** → Scalemate. If you're fine with the dashboard as the destination — Birch / Revealbot.
 - **Cross-platform reach (Meta + TikTok + Google + AppLovin + Snap + Pinterest + Taboola)** → AdManage if platform breadth matters more than rules depth.
 - **$1M+/mo enterprise, creative + media in one workflow** → Smartly.io.
@@ -60,9 +60,9 @@ Teams using Scalemate report 32% budget savings and a 62% reduction in ad manage
 
 We've watched teams stay on native Meta rules a year past the point where it made sense — not because the tools worked, but because evaluating alternatives felt like one more task on the pile. So before you read 12 tool entries, locate yourself on this map. The right answer changes by spend tier and by where the bottleneck actually sits.
 
-**Tier 1 — Under $5K/mo, single ad account.** Stay on Meta Native (Advantage+, Automated Rules, Dynamic Creative). The free toolset handles "pause if CPA over $X" / "scale if ROAS over Y" cleanly. If you're already running 20+ creatives a week across Meta + TikTok, add Scalemate's [free Ad Uploader](/ad-creative-uploader) on top — that's where the bulk-launch hours start adding up before any rules-tool ROI kicks in.
+**Tier 1 — Under $5K/mo, single ad account.** Two free paths. **Meta Native** (Advantage+, Automated Rules, Dynamic Creative) — built into Ads Manager, AND-only single-level rules, Meta-only. Right answer if you're Meta-only with one account and your automation needs are basic ("pause if CPA over $X" / "scale if ROAS over Y"). **[Scalemate's free tier](/ad-creative-uploader)** — bulk launches + rules with auto-revert at smaller volumes, Meta + TikTok, no credit card. Right answer if you're cross-platform, running 20+ creatives a week, or want an upgrade path that doesn't require migrating tools later.
 
-**Tier 2 — $5K–$20K/mo, 1–3 ad accounts.** Rules + auto-revert + bulk launch start paying back the subscription. Scalemate's free Ad Uploader → paid tier path; Birch if you're Meta + Google and don't run TikTok; AdManage if you're cross-platform but don't need a goal × niche playbook library.
+**Tier 2 — $5K–$20K/mo, 1–3 ad accounts.** Volumes outgrow free tiers. Scalemate's paid tier (larger volumes + API endpoints + workflow chains + custom integrations); Birch if you're Meta + Google and don't run TikTok; AdManage if you're cross-platform but don't need a goal × niche playbook library.
 
 **Tier 3 — $20K+/mo, 3+ accounts, multi-platform.** Multi-account orchestration + compound rules + endpoints into your ops stack. Scalemate or Birch. Skip autonomous-AI black-boxes (Madgicx, Trapica) unless you've explicitly opted into "let AI decide" — they don't show their work, and at this spend tier the cost of an opaque decision compounds.
 
@@ -104,7 +104,7 @@ We don't compare on "AI level" tags. AI is the *how*. The *what* is whether the 
 
 | Tool | Best for | Platforms | Rules Engine | Auto-revert | Trigger Complexity | Multi-Account | Scheduling | Auto-action | Endpoint | Playbook Library | Bulk Launch | Creative Sync | AI Layer | Starts At | Free Tier |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1. Scalemate | Meta+TikTok ops + playbooks + integration | Meta + TikTok | Adv | Yes | Compound | Yes | Yes | Auto + Alert | Slack + Email + API events | Goal × Niche | Yes | Drive | Chat AI | Free uploader | Yes |
+| 1. Scalemate | Meta+TikTok ops + playbooks + integration | Meta + TikTok | Adv | Yes | Compound | Yes | Yes | Auto + Alert | Slack + Email + API events | Goal × Niche | Yes | Drive | Chat AI | Free tier | Yes |
 | 2. Meta Native | Solo <$5K/mo Meta-only | Meta | Basic (~250 cap) | No | AND-only | Limited | Limited | Auto / Notify | Ads Manager only | None | Limited (CSV / Power Editor) | No | Advantage+ | Free | Yes |
 | 3. Birch (Revealbot) | Deep rules + dashboard-as-destination | Meta + Google + TikTok + Snap | Adv | Yes ("reverse rules") | Compound | Yes | Yes | Auto + Alert | Slack + Email | 12-rule cheat-sheet | Yes (Pro tier) | No | Opaque | $49/mo | Trial 14d |
 | 4. Madgicx | Autonomous AI black-box on Meta | Meta (+ data integrations) | Basic | No | Limited | Yes | Limited | AI-decided | Dashboard-first | None (closed AI) | Limited (AI-driven) | No | Heavy AI | Spend-tier var. | Trial 7d |
@@ -127,7 +127,7 @@ A note on language: Scalemate's own term for auto-revert is "rollback." Birch's 
 
 Scalemate is the automation layer for ad ops on Meta + TikTok. It handles the two parts of the job that eat the most operator time — bulk launches and automated rules — and pipes the results back into the tools your team already works in.
 
-**Bulk launches.** From Drive → Meta + TikTok, with reusable templates so next week's launch isn't a rebuild. Multi-account. The free Ad Uploader is the entry point — no credit card.
+**Bulk launches.** From Drive → Meta + TikTok, with reusable templates so next week's launch isn't a rebuild. Multi-account. Free tier covers basic launches at smaller volumes — no credit card.
 
 **Automated rules.** Multi-level / compound conditions on CPA, ROAS, frequency, spend windows (1d / 7d / 14d). Auto-execute (pause / scale / cut) OR alert-only — per-rule routing. Auto-revert when conditions reverse (our term: "rollback") — paused campaigns auto-resume when performance recovers.
 
@@ -180,7 +180,7 @@ The placeholder thresholds (×10 spend gate, ×2 CPI gate) are a sane starting p
 - **Endpoints.** Slack + email native, API + custom events for Notion / Airtable / Looker Studio / CRM.
 - **Library.** Goal × niche playbooks.
 - **AI.** Chat-based ad management on top.
-- **Pricing.** Free Ad Uploader (no credit card). Paid tiers unlock rules, workflow chains, API.
+- **Pricing.** Free tier — bulk launches + rules with auto-revert at smaller volumes (no credit card). Paid tiers unlock larger volumes, API endpoints, workflow chains, custom integrations.
 - **Meta verified.** Passed app review, scoped permissions, rate limiting per request.
 
 **Not for:** solo operators with one ad account at <$5K/mo who only need pause/scale basics — go to Native Meta. Not for teams that want fully autonomous AI to make every decision — go to Madgicx or Trapica.
@@ -339,7 +339,7 @@ Spend tier is a starting filter. The job is the actual decision criterion. We've
 | Need playbook only (don't care about integration) | Scalemate or Birch |
 | Need integration only (have your own playbook) | Scalemate, Birch, or Make.com |
 | Want autonomous AI to decide | Madgicx or Trapica |
-| $0-spend / Meta-only just starting | Native Meta + Scalemate free Ad Uploader |
+| $0-spend, just starting | Meta Native (Meta-only) or Scalemate free tier (Meta + TikTok, smaller volumes) |
 | Multi-platform with the broadest reach (AppLovin / Pinterest / Taboola) | AdManage |
 | Spreadsheet-driven Meta-only standardized launch, anti-AI | Kitchn.io |
 | Bulk launch + creative workflow on Meta only, with a real free tier | AdNova |
