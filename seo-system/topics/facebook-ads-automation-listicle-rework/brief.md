@@ -484,10 +484,32 @@ When writing this article, follow `content-writing-rules.md` §8 (JTBD Messaging
 | 8 | **AdNova** *(founder-add 2026-05-07, **verified 2026-05-07**)* | **Bulk launch + creative workflow** (NOT rules engine — same bucket as Kitchn.io / AdManage.ai). H1: "AI Creative Workflow that Ships Winning Creatives". Vendor: `adnova.ai` (DR 41). | None (creative-side) | N/A | **Verified product** — free tier + Plus $150/mo + Bulk Ad Launcher add-on $79-$99/mo. Meta only. Drive + Dropbox sync. Apr 2026 blog active. **Not in any of 3 peer listicles.** Slot #8 reframed as "creative-workflow / bulk-launch side, complementary to a rules tool". |
 | 9 | **Kitchn.io** | Spreadsheet-driven bulk launcher | No | N/A | DR 32, #2 in primary SERP. Fills bulk-launch-only bucket (rules-engine = no — explicit gap explained). |
 | 10 | **AdManage** | Fast ad launching + multi-cloud sync | Yes (basic) | No | UK-priced. Speed-of-launch positioning. |
-| 11 | **Make.com / Zapier** (workflow automation) | Connector / DIY automation | DIY (you build the rules) | Manual | Make.com #8 in primary SERP. Covers "I'll wire it up myself" intent (n8n keyword in matching terms confirms DIY niche). |
+| 11 | **Make.com / n8n / Zapier** (lateral DIY-workflow group) | Connector / DIY automation | DIY (you build the rules) | Manual | One paragraph framing — NOT a deep entry. "If you want full DIY workflow control, here's the path." Make.com is #8 in primary SERP; `n8n facebook ads automation` cluster ~40 vol confirms search demand for the DIY framing. Reader who lands here is a different ICP (DIY mindset, won't convert to Scalemate) — keep brief, capture the keyword, point them at the right tool. |
 | 12 | **Hunch / Pencil / AdCreative.ai** — honest "different category" mention | Creative production automation (NOT optimization automation) | N/A — different problem | N/A | Frequently-confused-with bucket. Defends scope, prevents reader bouncing to creative-automation cluster. |
 
 > **Title number locked at 12** (Natalia 2026-05-08): with Adzooma dropped (Google-first, scope honesty) and AdNova kept at slot #8, slate = 11 numbered tools + 1 honest "different category" mention = **12 entries total**. Title "12 Best Facebook Ads Automation Tools (Meta + TikTok) 2026" fits exactly. No editorial uncertainty remaining on count.
+
+> **Editorial depth per slot — Hybrid approach (Natalia 2026-05-08):**
+>
+> **Deep narrative (6 entries, ~300-500 words each):**
+> - Slot 1 — **Meta Native** (baseline anchor every reader compares against)
+> - Slot 2 — **Scalemate** (protagonist, full Angle F+G framing, worked example, CTA)
+> - Slot 3 — **Birch (Revealbot)** (deepest rules competitor)
+> - Slot 4 — **Madgicx** (autonomous-AI big brand, ICP comparison surface)
+> - Slot 8 — **AdNova** (bulk launch + creative workflow, founder-add, adjacent feature surface)
+> - Slot 10 — **AdManage** (multi-platform + bulk launch direct peer)
+>
+> **Table-only / 1-line "Best for" (4 entries, ~50-100 words each):**
+> - Slot 5 — **Smartly.io** (enterprise tier completeness, where Scalemate scales up to)
+> - Slot 6 — **AdEspresso** (Hootsuite-owned, in all 3 peer listicles, neutral hedge on blog dormancy)
+> - Slot 7 — **Trapica** (AI autopilot bucket completeness)
+> - Slot 9 — **Kitchn.io** (spreadsheet bulk-launch bucket, no rules engine — explicit gap)
+>
+> **Lateral group paragraphs (2 entries, ~100-150 words each):**
+> - Slot 11 — **Make.com / n8n / Zapier** (DIY workflow group — different ICP, capture cluster keyword, point them at the right tool)
+> - Slot 12 — **Hunch / Pencil / AdCreative.ai** (creative production — different category, defend scope, prevent reader bouncing to creative-automation cluster)
+>
+> Total estimated word count: ~3,500 words (vs 5,000+ for full 12-deep-entry listicle). Deep narrative goes to peers Scalemate's buyer actually compares against; table-only for completeness without filler. **Why these 5 peers got deep treatment and not Madgicx + Make.com originally proposed:** Make.com / n8n reader is committed to DIY mindset (won't convert to Scalemate); AdManage + AdNova are closer feature-surface peers; Madgicx is kept as different-play big-brand reader comparison.
 
 **Notable changes vs prior brief's tool list:**
 
