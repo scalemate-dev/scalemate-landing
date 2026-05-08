@@ -21,7 +21,6 @@
 | AdEspresso | $49/mo | Basic | Meta + IG + Google | 14d trial only |
 | Trapica | not verified | N/A (autonomous AI) | Multi (per Reddit) | not verified |
 | **AdNova** (founder-add) | $0 free / $150/mo Plus | None (creative-side) | Meta only | **Yes** |
-| Adzooma | $0 free / $69/mo Silver | Basic | Google + MS + FB | **Yes** |
 | Kitchn.io | €199/mo | None (rules at Enterprise only) | Meta only | 7-14d trial |
 | AdManage.ai | £99/mo (~$125) | Basic | Multi (Meta+TT+G+Snap+Pin+AppLovin+Taboola) | No |
 | Make.com | $0 free (1k credits) | DIY | Connectors (any app) | **Yes** |
@@ -198,23 +197,25 @@
 
 ---
 
-### 9. Adzooma
+### 9. ~~Adzooma~~ (DROPPED 2026-05-08 per Natalia — Google-first)
+
+> **Status 2026-05-08:** removed from slate. Adzooma's positioning is "Optimise PPC campaigns across **Google, Microsoft**, and Facebook" — Facebook is a third-priority platform. Including it in a "Best Facebook Ads Automation Tools" listicle implies Facebook parity that doesn't exist. Honest mention dropped to keep slate scope-true. Research data preserved below for record.
+
+<details>
+<summary>Original Adzooma research data (collapsed — kept for reference)</summary>
 
 - **Vendor:** Adzooma · `adzooma.com`
 - **Positioning:** "Optimise PPC campaigns across Google, Microsoft, and Facebook with data-led insights, audits, and budget tracking in one place."
-- **Pricing:** **Free tier** ($0/mo — 1 SEO profile, 3 PPC alerts, monthly reports, unlimited ad accounts). Silver $69/mo (or $700/yr) — weekly reports, 10 alerts. Gold $179/mo — daily reports, unlimited alerts. Enterprise custom.
-- **Platforms:** Google Ads + Microsoft Ads + Meta (Facebook).
-- **Rules engine:** Basic — "30 pre-built alerts for key PPC risks with custom rules/thresholds" + "automated optimizations" with "one-click implementation". No compound triggers visible. SMB-tier complexity.
+- **Pricing:** Free tier ($0/mo — 1 SEO profile, 3 PPC alerts, monthly reports). Silver $69/mo. Gold $179/mo. Enterprise custom.
+- **Platforms:** Google Ads + Microsoft Ads + Meta (Facebook) — **Google-first, FB tertiary**.
+- **Rules engine:** Basic. SMB-tier complexity.
 - **Auto-revert:** No.
 - **Multi-account:** Yes (unlimited even on free tier).
-- **Bulk launch:** Limited (not core).
-- **Creative file sync:** Not mentioned.
-- **AI layer:** "Ad Copy Optimiser" (AI-improved CTR / asset gap fill). Not a heavy AI play.
-- **Last update:** Active.
-- **DR:** **70** (Ahrefs 2026-05-07).
-- **Reddit mentions:** Moderate. r/PPC "AdZooma — What's the Deal" 5 yr (vendor commented: "originally launched as a paid-for platform"). r/PPC "Adzooma for Google Ads" 4 yr ("used to be completely free, recently bumped to $49/mo freemium"). r/LinkedinAds 2 mo ago: "Revealbot and Adzooma are great for managing rules and scaling spend." Also one r/Scams thread re: a phishing imitator domain (not Adzooma's fault).
+- **DR:** 70 (Ahrefs 2026-05-07).
 - **Source URLs:** `adzooma.com` + `adzooma.com/pricing` WebFetch 2026-05-07; SerpAPI `site:reddit.com Adzooma`.
-- **Notes:** Strong free tier (genuinely useful, not a trial). SMB-tier completeness across G+MS+FB — not deep on FB-specific rules. Honest mention ✓.
+- **Why dropped:** scope honesty — Facebook isn't the product's center of gravity, including it implies parity that doesn't exist.
+
+</details>
 
 ---
 
@@ -331,9 +332,9 @@
 - **Claim:** Scalemate is the only tool in the slate that offers (a) a free tier, (b) Meta + TikTok parity, AND (c) a rules engine with auto-revert. Each peer fails at least one of these three:
   - Meta Native = free + rules (limited) but **Meta-only**, no auto-revert.
   - AdNova = free + multi-account but **Meta-only** + **no rules engine**.
-  - Adzooma = free + multi-platform but **Google-MS-Meta** (no TikTok), basic rules, no auto-revert.
   - Make.com = free + multi-platform connectors but **DIY rules** (you build them).
   - Birch / Madgicx / AdManage / Kitchn = no permanent free tier (trial only).
+  - (Adzooma was previously in this comparison — dropped 2026-05-08 from slate, Google-first scope mismatch.)
 - **Risk / dependency:** Requires Natalia confirm Scalemate's free Ad Uploader includes Meta + TikTok (per `scalemate_channel_scope` memory: yes, Meta + TikTok only — confirm parity), AND that the free tier exposes any rules functionality (or whether rules are paid-only).
 - **Fail-mode:** If the free tier is uploader-only with rules engine paywalled, the angle compresses to "free uploader for Meta+TikTok with a paid rules upgrade path" — still good but not as sharp.
 
@@ -341,7 +342,7 @@
 
 > **Status 2026-05-08:** narrower variant of Angle A, both subsumed into F+G primary. Verification still useful for tool entry copy.
 
-- **Claim:** The only tools in the slate with both auto-revert AND TikTok in the same product are Scalemate and Birch (claim — verify Birch's TikTok rules parity vs Meta). Madgicx, Smartly, AdEspresso, Adzooma, AdNova, Kitchn = no auto-revert OR no TikTok OR both.
+- **Claim:** The only tools in the slate with both auto-revert AND TikTok in the same product are Scalemate and Birch (claim — verify Birch's TikTok rules parity vs Meta). Madgicx, Smartly, AdEspresso, AdNova, Kitchn = no auto-revert OR no TikTok OR both. (Adzooma was in this list pre-2026-05-08 drop.)
 - **Risk:** Need to verify Birch's TikTok feature parity. Birch's homepage lists TikTok as a supported platform but rules engine depth on TikTok specifically isn't documented publicly. **Action:** brief.md says "Verify Birch's TikTok status" — do this before publishing.
 - **Fail-mode:** If Birch has full TikTok rules + auto-revert parity, this angle becomes "Scalemate vs Birch on rules + multi-platform — different on price and free-tier hook" → angle A is the cleaner story.
 
@@ -351,7 +352,7 @@
 
 - **Claim:** Per brief.md gap analysis — none of the top-3 peer listicles structure their comparison around the 5 rules dimensions (Engine / Auto-revert / Trigger Complexity / Multi-Account / Scheduling). Synter has 1 binary tag; Get-Ryze has 1 "AI Level" tag; AdStellar has none. Scalemate's listicle uses the rules spine as the structural lens.
 - **Risk:** This is a structural / editorial angle, not a feature-claim angle. Lives in the article's framing not in any single Scalemate entry.
-- **Fail-mode:** Reader might find a peer listicle that adds rules columns post-publication. Mitigation: anchor on **5 rules dimensions × 12-13 tools = 60-65 data points + 2 chain dimensions (auto-action, endpoint) + 1 playbook depth column = ~96-104 data points** as the differentiator. No peer comes close to that depth.
+- **Fail-mode:** Reader might find a peer listicle that adds rules columns post-publication. Mitigation: anchor on **5 rules dimensions × 12 tools = 60 data points + 2 chain dimensions (auto-action, endpoint) + 1 playbook depth column = ~96 data points** as the differentiator. No peer comes close to that depth.
 
 ### Angle D — "Free uploader + multi-platform onboarding" (T-shirt size honest)
 

@@ -317,7 +317,7 @@ Three-way evaluation 2026-05-07 picked option C:
 
 1. **`12 Best Facebook Ads Automation Tools 2026 (Rules + Auto-Revert + Bulk Launch)`** — 75 chars. **Over the 60-char hard cap; cut.** Variant: `12 Best Facebook Ads Automation Tools 2026 (Rules + Bulk Launch)` — 64 chars. Still over. Use as fallback only if shorter version underperforms.
 2. **`12 Best Facebook Ads Automation Tools (2026): Rules + Auto-Revert`** — 64 chars. Slightly over. Lean on rules-shopper signal in subtitle.
-3. **`12 Best Facebook Ads Automation Tools for 2026 (Meta + TikTok)`** — 60 chars. **Recommended primary.** Multi-platform differentiator + count + year. Hits SERP pattern, signals rules-shopper indirectly via the listicle context, leaves room. (Note: if AdNova confirmed during write phase, swap "12" → "13".)
+3. **`12 Best Facebook Ads Automation Tools for 2026 (Meta + TikTok)`** — 60 chars. **Recommended primary.** Multi-platform differentiator + count + year. Hits SERP pattern, signals rules-shopper indirectly via the listicle context, leaves room. **Count locked at 12** post-Adzooma drop (Natalia 2026-05-08).
 
 **Recommended: candidate #3.** Multi-platform angle is the strongest SERP differentiator vs Synter / Get-Ryze / AdStellar (all Meta-only or Meta-Google). Rules-as-spine surfaces in the H1 / intro / table column structure — it doesn't have to be in the title.
 
@@ -462,10 +462,10 @@ When writing this article, follow `content-writing-rules.md` §8 (JTBD Messaging
 
 ### Peer-set anchoring method
 
-12-13 tool list (final count depends on AdNova editorial decision — see Title number note + Inputs Needed) anchored on (a) tools appearing in 2+ of the top-3 SERP listicles, (b) tools most-mentioned in r/FacebookAds + r/PPC threads, (c) honest scope-defenders.
+12-tool list (locked 2026-05-08 — Adzooma dropped, AdNova kept at #8, lateral creative-side mention as #12) anchored on (a) tools appearing in 2+ of the top-3 SERP listicles, (b) tools most-mentioned in r/FacebookAds + r/PPC threads, (c) honest scope-defenders.
 
 **Tools appearing in all 3 top-SERP listicles (Synter, Get-Ryze, AdStellar):** Revealbot, Madgicx, AdEspresso, Smartly.io.
-**In 2 of 3:** Trapica, Adzooma.
+**In 2 of 3:** Trapica. (Adzooma also in 2 of 3 but DROPPED 2026-05-08 — Google-first, scope honesty.)
 **In Synter only:** Qwaya, Native Meta.
 **In Get-Ryze only:** Optmyzr, WordStream, AdRoll, Meta Advantage+, Pattern89, Zalster.
 **In AdStellar only:** Hunch, Socioh.
@@ -481,21 +481,20 @@ When writing this article, follow `content-writing-rules.md` §8 (JTBD Messaging
 | 5 | **Smartly.io** | Enterprise creative production + automation | Yes (basic-to-mid) | Limited | Enterprise-tier completeness. All 3 peer listicles. |
 | 6 | **AdEspresso (Hootsuite)** | A/B testing + reporting (legacy) | Yes (basic) | No | All 3 peer listicles + Reddit mentions. Honest mention with "verify currently maintained" caveat. |
 | 7 | **Trapica** | AI-driven autonomous optimization | Limited (AI-decided, not rule-defined) | N/A (autonomous) | Synter + Get-Ryze + AdStellar all carry it. Fills the AI-autopilot bucket. |
-| 8 | **AdNova** *(founder-add 2026-05-07, **verified 2026-05-07**)* | **Bulk launch + creative workflow** (NOT rules engine — same bucket as Kitchn.io / AdManage.ai). H1: "AI Creative Workflow that Ships Winning Creatives". Vendor: `adnova.ai` (DR 41). | None (creative-side) | N/A | **Verified product** — free tier + Plus $150/mo + Bulk Ad Launcher add-on $79-$99/mo. Meta only. Drive + Dropbox sync. Apr 2026 blog active. **Not in any of 3 peer listicles.** **Editorial decision needed:** because AdNova doesn't compete on rules-spine, (a) keep slot #8 reframed as "creative-workflow / bulk-launch side, complementary to a rules tool" — title "13 Best…", OR (b) drop to honorable-mention paragraph alongside Hunch/AdCreative.ai — keep "12 Best…" framing. See `tools-research.md` for full data. |
-| 9 | **Adzooma** | SMB cross-platform manager | Yes (basic) | No | Synter + AdStellar. SMB-tier completeness. |
-| 10 | **Kitchn.io** | Spreadsheet-driven bulk launcher | No | N/A | DR 32, #2 in primary SERP. Fills bulk-launch-only bucket (rules-engine = no — explicit gap explained). |
-| 11 | **AdManage** | Fast ad launching + multi-cloud sync | Yes (basic) | No | UK-priced. Speed-of-launch positioning. |
-| 12 | **Make.com / Zapier** (workflow automation) | Connector / DIY automation | DIY (you build the rules) | Manual | Make.com #8 in primary SERP. Covers "I'll wire it up myself" intent (n8n keyword in matching terms confirms DIY niche). |
-| 13 | **Hunch / Pencil / AdCreative.ai** — honest "different category" mention | Creative production automation (NOT optimization automation) | N/A — different problem | N/A | Frequently-confused-with bucket. Defends scope, prevents reader bouncing to creative-automation cluster. |
+| 8 | **AdNova** *(founder-add 2026-05-07, **verified 2026-05-07**)* | **Bulk launch + creative workflow** (NOT rules engine — same bucket as Kitchn.io / AdManage.ai). H1: "AI Creative Workflow that Ships Winning Creatives". Vendor: `adnova.ai` (DR 41). | None (creative-side) | N/A | **Verified product** — free tier + Plus $150/mo + Bulk Ad Launcher add-on $79-$99/mo. Meta only. Drive + Dropbox sync. Apr 2026 blog active. **Not in any of 3 peer listicles.** Slot #8 reframed as "creative-workflow / bulk-launch side, complementary to a rules tool". |
+| 9 | **Kitchn.io** | Spreadsheet-driven bulk launcher | No | N/A | DR 32, #2 in primary SERP. Fills bulk-launch-only bucket (rules-engine = no — explicit gap explained). |
+| 10 | **AdManage** | Fast ad launching + multi-cloud sync | Yes (basic) | No | UK-priced. Speed-of-launch positioning. |
+| 11 | **Make.com / Zapier** (workflow automation) | Connector / DIY automation | DIY (you build the rules) | Manual | Make.com #8 in primary SERP. Covers "I'll wire it up myself" intent (n8n keyword in matching terms confirms DIY niche). |
+| 12 | **Hunch / Pencil / AdCreative.ai** — honest "different category" mention | Creative production automation (NOT optimization automation) | N/A — different problem | N/A | Frequently-confused-with bucket. Defends scope, prevents reader bouncing to creative-automation cluster. |
 
-> **Title number note:** if AdNova confirmed during write → title becomes "**13 Best Facebook Ads Automation Tools (Meta + TikTok) 2026**" (or final picks 12 by dropping one — see Inputs Needed). If AdNova drops to honorable-mention → keep "12 Best…" framing.
+> **Title number locked at 12** (Natalia 2026-05-08): with Adzooma dropped (Google-first, scope honesty) and AdNova kept at slot #8, slate = 11 numbered tools + 1 honest "different category" mention = **12 entries total**. Title "12 Best Facebook Ads Automation Tools (Meta + TikTok) 2026" fits exactly. No editorial uncertainty remaining on count.
 
 **Notable changes vs prior brief's tool list:**
 
 - **Added:** AdEspresso (slot #6) — was already there in prior brief; kept. **Confirmed via 3-of-3 peer listicles.**
-- **Added:** Adzooma (slot #9) — was lateral SMB option in prior brief; promoted to its own slot since it appears in 2 of 3 peer listicles.
-- **Added:** AdNova (slot #8, founder-add 2026-05-07) — not data-validated; needs verification during write phase.
-- **Removed/consolidated:** prior slot for "Smartly + Adzooma + Trapica + AdEspresso as lateral mentions" is replaced by full per-tool entries.
+- **Added:** AdNova (slot #8, founder-add 2026-05-07) — verified `adnova.ai` DR 41, repositioned as creative-workflow / bulk-launch peer (NOT rules engine), see tools-research.md slot #8.
+- **DROPPED 2026-05-08 (Natalia):** Adzooma — Google-first product (positioning: "Optimise PPC campaigns across **Google, Microsoft**, and Facebook"), scope-honesty exclusion. Including it in a "Best Facebook Ads Automation Tools" listicle implies platform parity that doesn't exist. Removal lands slate at 12 entries cleanly.
+- **Removed/consolidated:** prior slot for "Smartly + Adzooma + Trapica + AdEspresso as lateral mentions" is replaced by full per-tool entries (minus Adzooma).
 
 ### Comparison table — rules-as-spine columns
 
@@ -624,11 +623,12 @@ We considered framing the new article as "12 Best Facebook Automated Rules Tools
 
 ## Input Needed from Natalia
 
-- [ ] **Confirm 12-tool (or 13-tool with AdNova) selection.** Drop / swap any if first-hand reasons (acquired, sunset, broken). Specifically: AdEspresso (Hootsuite-owned, declining?), Adzooma (active?), Optmyzr (covered as "honorable mention" or full slot?).
-- [ ] **AdNova positioning (founder-add 2026-05-07).** What tool is this exactly (URL, vendor)? What bucket fits — AI-autopilot like Trapica, rule engine like Birch, creative-side, or something else? Real product / active in 2026? Why does it belong on the list (peer mentions in your network, ICP signal)? Final call: keep as slot #8 with full entry → title becomes "13 Best…", OR move to honorable-mention paragraph → keep "12 Best…" framing. (UPDATE 2026-05-07 — research agent verified `adnova.ai` DR 41, Meta-only, free + Plus $150/mo, **bulk-launch + creative-workflow bucket, NOT rules engine** — same bucket as Kitchn / AdManage. See `tools-research.md` slot #8.)
+- ~~Confirm 12-tool (or 13-tool with AdNova) selection~~ ✅ **RESOLVED 2026-05-08.** Slate locked at 12: Native Meta (1), Scalemate (2), Birch (3), Madgicx (4), Smartly (5), AdEspresso (6), Trapica (7), AdNova (8), Kitchn (9), AdManage (10), Make.com (11), Hunch/Pencil/AdCreative.ai lateral (12). Adzooma dropped (Google-first, scope honesty). AdNova kept at slot #8.
+- ~~AdNova positioning~~ ✅ **RESOLVED 2026-05-08.** Verified `adnova.ai` DR 41, Meta-only, free + Plus $150/mo, bulk-launch + creative-workflow bucket. Slot #8 in slate, repositioned alongside Kitchn / AdManage as creative-workflow side (not rules engine peer).
+- [ ] **Open AdEspresso question:** Hootsuite-owned, last visible blog Dec 2022 — appears maintenance-mode. Verify with Natalia/Ruslan whether to keep at slot #6 with explicit "maintenance-mode" caveat, OR drop. If drop, slate compresses to 11 numbered + 1 lateral = title becomes "11 Best…" — compromises the clean "12 Best…" alignment. Decision before write phase.
 - ~~Slack / Sheets endpoint verification~~ ✅ **RESOLVED 2026-05-08.** Slack: native. API + custom events: native — Scalemate fires events INTO the user's system (Notion / Airtable / their tracking sheet / internal dashboard / CRM). The "endpoint" is the user's system, not a Scalemate-side export. Custom integrations on demand via dev team. **Docs:** `https://scalemate.gitbook.io/scalemate-api` (public, citable).
 - ~~Public-facing API / developer docs URL~~ ✅ **RESOLVED 2026-05-08.** `https://scalemate.gitbook.io/scalemate-api` — public GitBook. Cite this in Scalemate per-tool entry as the evidence for the API + custom events claim. E-E-A-T strong.
-- [ ] **Approve JTBD voice direction for Scalemate per-tool entry.** Per `content-writing-rules.md` §8 Groups A+B+D applied to this article — Scalemate framed as "smart execution layer that plugs into your ops stack — with operator playbooks included" (NOT "rules engine with auto-revert"). H3 lead: *"Best for Meta + TikTok teams who want operator playbooks on day one — and want their ad ops to flow INTO their existing stack (Slack, Notion, dashboards, custom systems via API)."* OK to use this framing across all 12-13 tool entries (each tool gets a JTBD-lens H3)?
+- [ ] **Approve JTBD voice direction for Scalemate per-tool entry.** Per `content-writing-rules.md` §8 Groups A+B+D applied to this article — Scalemate framed as "smart execution layer that plugs into your ops stack — with operator playbooks included" (NOT "rules engine with auto-revert"). H3 lead: *"Best for Meta + TikTok teams who want operator playbooks on day one — and want their ad ops to flow INTO their existing stack (Slack, Notion, dashboards, custom systems via API)."* OK to use this framing across all 12 tool entries (each tool gets a JTBD-lens H3)?
 - [ ] **Approve worked example walkthrough.** Per Natalia 2026-05-08: real operator-grade scenario showing the full chain in one rule. **Creative testing protocol** — when testing new creatives, set a multi-level rule on the test campaign:
   ```
   IF (spend > CPI_benchmark × 10) AND (current_CPI > CPI_benchmark × 2)
