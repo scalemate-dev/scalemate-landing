@@ -141,6 +141,7 @@ Three-way evaluation 2026-05-07 picked option C:
 | ICP fit | 5/5 — UA Manager / Media Buyer running Meta + (often) TikTok at $5K-$100K+/mo. |
 | Primary CTA | `/use-cases/ad-campaign-automation-rules` (rules engine + rollback is the spine of the listicle and Scalemate's defining feature on this SERP). |
 | Secondary CTA | `/use-cases/bulk-ad-launch` + `/ad-creative-uploader` (free tier hook). |
+| Tertiary CTA | **`/automation-rules-library`** (S9' page — coordinated release with this listicle per Natalia 2026-05-08). Listicle links to library for "give me rules to copy-paste" intent; library links back to listicle for "compare tools that run these rules" intent. **Coordinated release = cluster authority bump:** two new pages launched together cross-link the cluster, not one isolated page. Update timeline: deploy listicle and library in same release (or library first if ready earlier — listicle internal-links to it on day-one then). |
 
 ---
 
