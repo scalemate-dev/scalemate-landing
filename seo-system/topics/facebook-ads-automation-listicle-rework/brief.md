@@ -365,7 +365,7 @@ Three-way evaluation 2026-05-07 picked option C:
 **Trigger / pain (in ICP's own words):**
 - "Meta automated rules are AND-only single-level. No auto-revert, no Slack push, no way to feed the result back into our dashboard."
 - "I'm screenshotting performance into Slack threads and exporting CSVs nightly into our sheet. There has to be a better way."
-- "Birch / Madgicx have rules but they're closed systems — the data lives in their dashboard, not mine. My team checks Notion / our CRM, not yet another tool."
+- "Birch / Madgicx have rules but their dashboard IS the destination — the team has to check yet another tool. I want results piped into Notion / our CRM where the team already lives." (Note: Birch may have API/integration capability — verify before write phase. Frame stays as "dashboard-as-primary" not "no API at all".)
 - "Make.com / n8n let me wire it up but I'm rebuilding ad-ops primitives from scratch. I just want a tool that does ad-ops natively AND pipes results into my system."
 - "Every platform has different rules — Meta says A, TikTok says B. I lose track. I want one workflow across both."
 
@@ -380,7 +380,7 @@ Scalemate is the **smart execution layer** for Meta + TikTok ad ops:
 - **You pick where the result goes** — Slack or email native, or any system via API + custom events (Scalemate triggers events you subscribe to: status changes, threshold breaches, action receipts → flows into Notion / your dashboard / your CRM).
 - **For non-standard integrations** — the dev team builds custom integrations (Scalemate isn't a closed black box; it integrates where you need it).
 
-**The frame:** Scalemate is **not** a destination tool ("come live in our dashboard"). It's the execution layer that **integrates into the system you already have.** This is the opposite of how Birch / Madgicx / AdEspresso position themselves (closed dashboards) and the opposite of Make.com / n8n (DIY connectors with no ad-ops primitives).
+**The frame:** Scalemate is **not** a destination tool ("come live in our dashboard"). It's the execution layer that **integrates into the system you already have.** This is different from how Birch / Madgicx / AdEspresso position themselves (dashboard-first product surfaces — verify each peer's API/webhook/integration depth at draft time; don't claim "closed" without evidence) and from Make.com / n8n (DIY connectors with no ad-ops primitives).
 
 ### Editorial scaffolding — chain framework
 
