@@ -350,10 +350,6 @@ Spend tier is a starting filter. The job is the actual decision criterion. We've
 | Full DIY workflow control | Make.com / n8n / Zapier |
 | Bottleneck is creative *production*, not optimization | Hunch / Pencil / AdCreative.ai |
 
----
-
-## ItemList schema for this slate
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
