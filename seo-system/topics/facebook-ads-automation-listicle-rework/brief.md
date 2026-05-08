@@ -406,6 +406,14 @@ Confirmed in shipped code + public docs:
 
 **Scenario: creative testing protocol.** Team is testing 20 new creatives on a test campaign. They want to auto-kill losers based on a compound condition AND log the verdict back to their creative-results tracking sheet (Notion / Airtable / Google Sheet) so the creative team sees status in their existing workflow — without manually exporting CSVs or pasting screenshots in Slack.
 
+**Plain-language read (the operator's actual mental model):**
+
+> "If we already see the ad has spent enough budget to be statistically meaningful — but its CPI is twice the benchmark — we pause it and write status 'bad' to our creative-tracking sheet. The team sees the verdict where they already work."
+
+That's two gates: the **spend gate** says "wait until there's enough data to trust", the **performance gate** says "if the CPI is clearly above benchmark, kill it now". Combined, they auto-pause every losing creative AND log the verdict — without the team logging in to Meta or pasting screenshots into Slack.
+
+**Rule syntax in Scalemate:**
+
 ```
 Rule:
   IF (spend > CPI_benchmark × 10) AND (current_CPI > CPI_benchmark × 2)
@@ -421,7 +429,7 @@ Why this scenario lands:
 - **API custom event into user's system** — the creative team checks ONE place (their tracking sheet), not three (Meta dashboard + Slack + their sheet).
 - **No manual logging** — the verdict is automatic. Creative team gets the result inside their existing tool without a single human export step.
 
-This worked example appears in the Scalemate per-tool entry section of the article. Verify exact threshold values (spend × 10? × 5? Different multipliers per playbook tier?) with Natalia / Ruslan before draft.
+This worked example appears in the Scalemate per-tool entry section of the article. Threshold values (×10 spend gate / ×2 CPI gate) confirmed by Natalia 2026-05-08 as "absolutely OK" placeholder — content-creator may use as-is or swap if Natalia provides team's actual operator multipliers before draft.
 
 **Search-demand validation:** `n8n facebook ads automation` + `reddit n8n facebook ads automation` = 40 vol combined in Ahrefs cluster matching-terms (2026-05-07). The "n8n / Zapier mental model" has its own search demand on this cluster.
 
