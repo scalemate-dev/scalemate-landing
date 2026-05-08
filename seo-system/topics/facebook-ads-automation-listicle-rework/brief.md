@@ -482,8 +482,8 @@ When writing this article, follow `content-writing-rules.md` §8 (JTBD Messaging
 
 | # | Tool | Bucket | Rules engine | Auto-revert | Why on the list |
 |---:|---|---|---|---|---|
-| 1 | **Meta Native (Advantage+ / Automated Rules / Dynamic Creative)** | Free / native baseline | Yes (limited — AND-only, 250 rules cap) | No | Honest "start here if <$5K/mo" anchor. In all peer listicles. |
-| 2 | **Scalemate** | Multi-platform: bulk launch + rules with auto-revert + API custom events + AI chat | **Yes (advanced, OR/compound)** | **Yes** | Self-mention. Multi-platform (Meta + TikTok) + free uploader + integration-first execution layer + operator playbooks library (Angle F+G). **#2 placement** (NOT #1) — vendor self-#1 reads as advertorial (cf. Get-Ryze, AdStellar). |
+| 1 | **Scalemate** | Multi-platform: bulk launch + rules with auto-revert + API custom events + AI chat | **Yes (advanced, OR/compound)** | **Yes** | Self-mention at #1 per Natalia 2026-05-08 — visibility priority over conventional self-#2 humility framing. **Mandatory intro owning of the conflict** (see "Self-#1 honesty framing" section below). Multi-platform (Meta + TikTok) + free uploader + integration-first execution layer + operator playbooks library (Angle F+G). |
+| 2 | **Meta Native (Advantage+ / Automated Rules / Dynamic Creative)** | Free / native baseline | Yes (limited — AND-only, 250 rules cap) | No | Honest "start here if <$5K/mo" anchor. In all peer listicles. |
 | 3 | **Birch (Revealbot)** | Cross-platform rules + bulk launch | **Yes (advanced, OR/compound, scheduling)** | Yes | DR 72, top-mentioned in Reddit. Appears in all 3 peer listicles. |
 | 4 | **Madgicx** | AI audiences + creative scoring (Meta-focused) | Yes (basic) | No | Second-most-mentioned in Reddit. All 3 peer listicles. We have `/blog/madgicx-review-alternative` to internal-link. |
 | 5 | **Smartly.io** | Enterprise creative production + automation | Yes (basic-to-mid) | Limited | Enterprise-tier completeness. All 3 peer listicles. |
@@ -497,11 +497,26 @@ When writing this article, follow `content-writing-rules.md` §8 (JTBD Messaging
 
 > **Title number locked at 12** (Natalia 2026-05-08): with Adzooma dropped (Google-first, scope honesty) and AdNova kept at slot #8, slate = 11 numbered tools + 1 honest "different category" mention = **12 entries total**. Title "12 Best Facebook Ads Automation Tools (Meta + TikTok) 2026" fits exactly. No editorial uncertainty remaining on count.
 
+> **Self-#1 honesty framing (mandatory intro beat per Natalia 2026-05-08):**
+>
+> Scalemate sits at slot #1, not slot #2. Get-Ryze and AdStellar both put themselves at #1 in their listicles and read as advertorials. To preserve credibility while keeping the visibility advantage, the article's intro **must own the conflict explicitly** — not hide it. Concrete intro structure:
+>
+> 1. **Disclose authorship up front:** *"We made this list. Scalemate is one of the tools — we put ourselves first because [reason]. Here's how to read this listicle anyway."*
+> 2. **Give the reason that earns slot #1 honestly** — pick one (verify with Natalia which lands hardest):
+>    - "We're the only tool here that combines (a) free entry tier, (b) Meta + TikTok parity, (c) rules with auto-revert + API custom events INTO your existing stack, (d) operator playbook library."
+>    - "We use Scalemate ourselves to run 2M+ ads across mobile UA / eCom / lead-gen — the playbooks here came out of those campaigns."
+> 3. **Pre-empt the bias check:** *"If you want a peer comparison without our stake in the answer, slot #3 (Birch / Revealbot) is the closest direct alternative — read that entry side-by-side with ours."*
+> 4. **Reaffirm the reader's path:** *"For all 12 tools we evaluate the same way — workflow chain (launch → trigger → action → endpoint), playbook depth, free/paid tier, multi-platform support."*
+>
+> **Why this works better than fake-neutral:** readers who notice self-#1 without disclosure trust the article less. Readers who see the author own the conflict trust it MORE — even with the bias acknowledged. The conflict is real; pretending it's not damages credibility worse than naming it.
+>
+> **Anti-pattern to avoid:** writing slot #1 Scalemate copy that reads identical to a sales page. The Scalemate entry should still be operator-voiced (per `content-writing-rules.md` §6 anti-AI + §1.6 banned phrases), with the worked example, real metrics (32% / 62% / 2M+), and honest scope-defenders ("Scalemate is not for: solo operators with one ad account at <$5K/mo — go to Native Meta").
+
 > **Editorial depth per slot — Hybrid approach (Natalia 2026-05-08):**
 >
 > **Deep narrative (6 entries, ~300-500 words each):**
-> - Slot 1 — **Meta Native** (baseline anchor every reader compares against)
-> - Slot 2 — **Scalemate** (protagonist, full Angle F+G framing, worked example, CTA)
+> - Slot 1 — **Scalemate** (protagonist, full Angle F+G framing, worked example, CTA)
+> - Slot 2 — **Meta Native** (baseline anchor every reader compares against)
 > - Slot 3 — **Birch (Revealbot)** (deepest rules competitor)
 > - Slot 4 — **Madgicx** (autonomous-AI big brand, ICP comparison surface)
 > - Slot 8 — **AdNova** (bulk launch + creative workflow, founder-add, adjacent feature surface)
