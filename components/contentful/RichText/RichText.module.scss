@@ -170,8 +170,8 @@ $rt-bg-warm: #faf9f6;
 
   // ─── Tables ───
   // .table-scroll wrapper (added by MarkdownContent.jsx) handles horizontal overflow.
-  // The <table> itself keeps a real table layout — natural column widths, no aggressive wrapping.
-  // Sticky first column stays pinned during horizontal scroll.
+  // Default behavior: table fills container (width 100%), cells wrap naturally — fits 2-4 column prose tables.
+  // .table-scroll--wide modifier (5+ columns): table sized to max-content with nowrap cells — wide capability tables scroll horizontally.
   :global(.table-scroll) {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -181,13 +181,22 @@ $rt-bg-warm: #faf9f6;
   }
 
   :global(.table-scroll) table {
-    width: max-content;
-    min-width: 100%;
+    width: 100%;
     border-collapse: separate;
     border-spacing: 0;
     margin: 0;
     font-size: 14px;
     line-height: 1.5;
+  }
+
+  :global(.table-scroll--wide) table {
+    width: max-content;
+    min-width: 100%;
+  }
+
+  :global(.table-scroll--wide) td,
+  :global(.table-scroll--wide) th {
+    white-space: nowrap;
   }
 
   :global(.table-scroll) th {
@@ -205,7 +214,6 @@ $rt-bg-warm: #faf9f6;
     padding: 10px 16px;
     border-bottom: 1px solid $rt-line;
     vertical-align: top;
-    white-space: nowrap;
   }
 
   :global(.table-scroll) tr:last-child td {
