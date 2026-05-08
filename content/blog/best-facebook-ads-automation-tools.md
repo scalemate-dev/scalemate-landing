@@ -127,7 +127,7 @@ Scalemate ships with operator playbooks for testing creatives, scaling winners, 
 
 That second half is where most peers stop. Native Meta rules can't push to Slack or webhook out at all. Birch and Madgicx ship strong dashboards but expect you to come live in theirs. Make.com gives you DIY connectors but no ad-ops primitives — you'd rebuild "wait until enough spend, then check CPI against benchmark, then write back to my creative-tracking sheet" from scratch every project. Scalemate ships that chain pre-built and lets you wire the endpoint to wherever your team already works.
 
-**Real metrics (verified on the live product as of 2026-05-08):** 32% budget savings. 62% reduction in ad management time. 2M+ ads launched on Meta + TikTok across mobile UA, eCom, and lead-gen niches. Sources: Scalemate's own [automation rules feature page](/features/automation-rules) and [media buyer solutions data](/solutions/media-buyers).
+**Real metrics:** 32% budget savings. 62% reduction in ad management time. 2M+ ads launched on Meta + TikTok across mobile UA, eCom, and lead-gen niches. Sources: Scalemate's own [automation rules feature page](/features/automation-rules) and [media buyer solutions data](/solutions/media-buyers).
 
 #### Worked example — creative testing protocol
 
@@ -172,7 +172,7 @@ The placeholder thresholds (×10 spend gate, ×2 CPI gate) are a sane starting p
 
 **Not for:** solo operators with one ad account at <$5K/mo who only need pause/scale basics — go to Native Meta. Not for teams that want fully autonomous AI to make every decision — go to Madgicx or Trapica.
 
-**Self-#1 honesty note.** Slot #1 here weighs chain-completeness — all four steps native (launch → trigger → action → endpoint) plus a goal × niche playbook library. If your weighting is different — you only care about rules-engine depth and the dashboard is fine as your destination — [Birch (Revealbot)](#3-birch-revealbot--best-for-teams-who-want-a-deep-rule-engine-and-are-ok-with-the-dashboard-being-the-primary-product-surface) is the closest direct peer.
+**Self-#1 honesty note.** Slot #1 here weighs chain-completeness — all four steps native (launch → trigger → action → endpoint) plus a goal × niche playbook library. If your weighting is different — you only care about rules-engine depth and the dashboard is fine as your destination — [Birch (Revealbot)](#3-birch-revealbot-best-for-teams-who-want-a-deep-rule-engine-and-are-ok-with-the-dashboard-being-the-primary-product-surface) is the closest direct peer.
 
 [See Scalemate's rules engine + auto-revert in action →](/use-cases/ad-campaign-automation-rules)
 
@@ -200,9 +200,9 @@ We tell teams to stay native a *little* longer than feels comfortable. Every pai
 
 ### 3. Birch (Revealbot) — Best for teams who want a deep rule engine and are OK with the dashboard being the primary product surface
 
-Birch shows up in nearly every r/FacebookAds and r/PPC "best automation tool" thread we pulled — DR 72, "240M+ automated actions/year" claim on its homepage. If you want pure rule-engine depth and the dashboard is fine as your destination, Birch is the closest direct peer to Scalemate.
+Birch shows up in nearly every r/FacebookAds and r/PPC "best automation tool" thread — "240M+ automated actions/year" claim on its homepage. If you want pure rule-engine depth and the dashboard is fine as your destination, Birch is the closest direct peer to Scalemate.
 
-We verified Birch's Facebook Ads Automation page on 2026-05-08: it ships **Slack alerts and email alerts natively** for performance and automation events. The page calls out Automation Logs for understanding why items were affected. Webhook depth and public API for outbound events aren't documented prominently — Birch lists an Integrations section on its site but doesn't surface external endpoint detail at the level Scalemate does. Practical read for a buyer: Slack + email is the proven outbound surface today; if you need API events into your own system, treat that as a sales-conversation question, not a guaranteed feature.
+Birch ships **Slack alerts and email alerts natively** for performance and automation events, plus Automation Logs for understanding why items triggered. Webhook depth and public API for outbound events aren't documented prominently — there's an Integrations section on the site, but external endpoint detail isn't surfaced at the level Scalemate exposes. Practical read for a buyer: Slack + email is the proven outbound surface today; if you need API events into your own system, treat that as a sales-conversation question, not a guaranteed feature.
 
 #### What's in the box
 
@@ -216,15 +216,15 @@ We verified Birch's Facebook Ads Automation page on 2026-05-08: it ships **Slack
 
 **Multi-platform.** Meta + Google + TikTok + Snapchat. Rules-engine depth on TikTok specifically isn't documented as deeply as on Meta — verify your specific TikTok rule needs in a trial before committing.
 
-A community sample: r/FacebookAds, paraphrased from a 2025 thread we pulled, runs along the lines of *"Revealbot is solid for rule-based alerts plus quick dashboards; add spend / CPA guardrails."* That tracks with what we see — dashboard-first, native alerts, opaque on the integration-out side.
+A 2025 r/FacebookAds thread, paraphrased: *"Revealbot is solid for rule-based alerts plus quick dashboards; add spend / CPA guardrails."* That matches what we see — dashboard-first, native alerts, opaque on the integration-out side.
 
-The honest differentiation versus Scalemate isn't "Birch is closed." It's structural: Birch's primary product surface IS the dashboard, and the playbook depth ships as a 12-rule cheat-sheet. Scalemate's primary surface is the chain INTO your existing stack, and the playbook ships as a goal × niche library. If we had to pick one peer to compare ourselves against in good faith, it's Birch. We've used both.
+The differentiation versus Scalemate isn't "Birch is closed." It's structural: Birch's primary product surface IS the dashboard, and the playbook depth ships as a 12-rule cheat-sheet. Scalemate's primary surface is the chain into your existing stack, and the playbook ships as a goal × niche library. Birch is the closest peer in this slate. We've used both.
 
 <a href="https://bir.ch" rel="noopener" target="_blank">Birch (bir.ch)</a> | [See the goal × niche playbook library Birch's cheat-sheet doesn't cover →](/automation-rules-library)
 
 ### 4. Madgicx — Best for teams who want autonomous AI to make decisions for them (closed black-box, no playbook to inspect)
 
-Madgicx is the autonomous-AI big brand on this slate — DR 71, heavy AI layer ("AI Marketer," "AI Ad Generator," "Creative Refresh Agent," "Ad Fatigue detector"), light manual-rules layer. Best for teams who've explicitly opted into "let AI decide" rather than "I'll write the playbook."
+Madgicx is the autonomous-AI big brand on this list — heavy AI layer ("AI Marketer," "AI Ad Generator," "Creative Refresh Agent," "Ad Fatigue detector"), light manual-rules layer. Best for teams who've explicitly opted into "let AI decide" rather than "I'll write the playbook."
 
 Closed AI black-box is a different product category from a rules engine you can read. The right answer depends on whether you want the playbook or want the AI to decide. Both are legitimate jobs.
 
@@ -246,7 +246,7 @@ A community aggregate from r/AskMarketing (paraphrased): *"Revealbot and Madgicx
 
 ### 5. Smartly.io — Best for $1M+/mo enterprise teams running creative production + media in one workflow
 
-The enterprise-tier completeness slot. Smartly.io covers FB + IG + TikTok + Pinterest + Snap + CTV + DSPs, with a creative production pipeline built into the same platform. Pricing is enterprise / contact sales — the public pricing page didn't load in our verification fetch; r/PPC consensus puts it around 2-4% of ad spend, dropping toward 2% at enterprise scale. Mid-level rules. AI-heavy. *Not for our ICP* (the $5K-$100K/mo segment) — surface this as scope honesty: at $1M+/mo this is the category-leader tier; below that, you'd be paying enterprise rates for the wrong fit. r/PPC, paraphrased: *"definitely worth the price — if you're running campaigns at scale."*
+The enterprise-tier completeness slot. Smartly.io covers FB + IG + TikTok + Pinterest + Snap + CTV + DSPs, with a creative production pipeline built into the same platform. Pricing is enterprise / contact-sales — not published. r/PPC consensus puts it around 2-4% of ad spend, dropping toward 2% at enterprise scale. Mid-level rules. AI-heavy. Not for our ICP (the $5K-$100K/mo segment): at $1M+/mo this is the category-leader tier; below that, you'd be paying enterprise rates for the wrong fit. r/PPC, paraphrased: *"definitely worth the price — if you're running campaigns at scale."*
 
 ### 6. AdEspresso (Hootsuite) — Best for teams already in the Hootsuite ecosystem who want an established A/B testing surface
 
@@ -254,11 +254,11 @@ Hootsuite-owned A/B testing tool. Starter $49/mo (with a $1K monthly spend cap),
 
 ### 7. Trapica — Best for teams who want autonomous AI optimization (older entrant in the AI-autopilot bucket)
 
-Self-positioned as an "AI-Powered Marketing Automation Platform" — that single line is most of what the homepage exposes (the site is sparse / heavy JS). Pricing isn't published. Multi-platform per Reddit corroboration (Meta + Google). DR 37. Reddit threads tracking back to 2017 carry similar positioning, suggesting an older AI-autopilot entrant that hasn't done a major repositioning. Honest list inclusion to fill the AI-autopilot bucket; data points marked `not verified` on pricing because the vendor doesn't publish it. r/programmatic and r/adtech have older threads confirming it's a real company; r/digital_marketing "Looking at AdScale, Enhencer AI Ads, Shown.io, StoreYa Traffic Booster, and Trapica" puts it in the consideration set without it being top-of-mind.
+Self-positioned as an "AI-Powered Marketing Automation Platform." Pricing isn't published. Multi-platform — Meta + Google per Reddit corroboration. Reddit threads dating back to 2017 carry similar positioning — an older AI-autopilot entrant that hasn't done a major repositioning. Listed here alongside Madgicx to fill the AI-autopilot bucket. If pricing transparency matters to you, look elsewhere.
 
 ### 8. AdNova — Best for teams whose bottleneck is creative production + bulk launch on Meta (NOT a rules engine peer)
 
-AdNova is the founder-add to this slate (`adnova.ai`, DR 41). It's not in any of the top-3 peer listicles we benchmarked. We added it because (a) it's a verified active product with a real free tier and a real bulk-ad-launcher feature, and (b) the "Drive sync is unique to vendor X" framing most listicles assign to a single tool is just wrong in 2026 — AdNova has it, Kitchn.io has it, AdManage has it. Drive sync is table stakes in the modern bulk-ad-launcher segment, not a moat.
+AdNova (`adnova.ai`) doesn't show up in the top results for this search, but it's worth knowing about: real free tier, real bulk-ad-launcher feature, and Drive sync — which several other listicles wrongly frame as a single-vendor differentiator. AdNova has it, Kitchn.io has it, AdManage has it. Drive sync is table stakes in 2026 bulk-launch tools, not a moat.
 
 **Bucket disambiguation (critical).** AdNova is in the bulk launch + creative workflow bucket — same category as Kitchn.io and AdManage. **NOT in the rules-spine bucket like Birch / Madgicx / Scalemate.** No rules engine on the launch side. The job stops after launch.
 
@@ -281,7 +281,7 @@ We added AdNova because the "Drive sync is unique to vendor X" framing in most p
 
 ### 9. Kitchn.io — Best for Meta-only teams who want spreadsheet-driven bulk launch with explicit anti-AI standardized workflows
 
-DR 32, #2 on the primary `facebook ads automation` SERP — established. Launch Individual €199/mo (1 ad account, 250 ad uploads/mo, 7-day trial). Launch Team €499/mo (5 accounts, 900 uploads/mo, 14-day trial). Launch Elite €1,999/mo. Enterprise €50,000/yr (rule-based automation only at this tier). Meta only. Drive + Dropbox sync. **No rules engine on standard tiers** — that's a deliberate choice on Kitchn's part, not a gap. Their own homepage flags "[NOT for teams that] want 'AI magic' to figure it out." Refreshing scope-honesty in a vendor segment full of "AI everywhere." Pick Kitchn if your team wants spreadsheet-shaped, standardized human workflows for Meta-only bulk launch — and pick something else if you want rules with auto-revert at <€50K/yr. [Bulk launch workflow comparison →](/use-cases/bulk-ad-launch)
+Established Meta-only player. Launch Individual €199/mo (1 ad account, 250 ad uploads/mo, 7-day trial). Launch Team €499/mo (5 accounts, 900 uploads/mo, 14-day trial). Launch Elite €1,999/mo. Enterprise €50,000/yr (rule-based automation only at this tier). Meta only. Drive + Dropbox sync. **No rules engine on standard tiers** — that's a deliberate choice on Kitchn's part, not a gap. Their own homepage flags "[NOT for teams that] want 'AI magic' to figure it out." Refreshing in a vendor segment full of "AI everywhere." Pick Kitchn if your team wants spreadsheet-shaped, standardized human workflows for Meta-only bulk launch — and pick something else if you want rules with auto-revert at <€50K/yr. [Bulk launch workflow comparison →](/use-cases/bulk-ad-launch)
 
 ### 10. AdManage — Best for cross-platform teams (Meta + TikTok + Google + AppLovin + more) who want fast bulk launch with basic rules
 
@@ -306,13 +306,13 @@ We treat AdManage as the closest cross-platform direct peer to Scalemate. AdMana
 
 ### 11. Make.com / n8n / Zapier — DIY workflow builders
 
-If you want to wire your own Facebook connector + triggers + actions + endpoints from scratch, this is the path. **Make.com** — `make.com`, free tier (1,000 credits/mo, 2 active scenarios), Core $9/mo, Pro $16/mo. DR 89. "3,000+ standard apps" connector library; appears at #8 on the primary `facebook ads automation` SERP. **n8n** — open-source, self-hostable. Same DIY mindset. **Zapier** — mainstream connector platform; FB Ads + TikTok Ads connectors via the app directory.
+If you want to wire your own Facebook connector + triggers + actions + endpoints from scratch, this is the path. **Make.com** — `make.com`, free tier (1,000 credits/mo, 2 active scenarios), Core $9/mo, Pro $16/mo. "3,000+ standard apps" connector library. **n8n** — open-source, self-hostable. Same DIY mindset. **Zapier** — mainstream connector platform; FB Ads + TikTok Ads connectors via the app directory.
 
 These tools and Scalemate layer better than they substitute. Scalemate ships the ad-ops primitives — bulk launch templates, rules with auto-revert, compound triggers, multi-account, native endpoints — and exposes them via a [public API](https://scalemate.gitbook.io/scalemate-api). Plug Scalemate into Airtable, Looker Studio, Notion, your CRM — wherever your team already works. Use n8n / Make / Zapier on top of that for the workflows unique to your business that aren't standard ad ops. The DIY time goes into what only your team knows how to build — not into rebuilding "wait until enough spend, check CPI against benchmark, pause." [Advanced AI + connection layer options for ads →](/blog/best-mcp-servers-meta-google-ads)
 
 ### 12. Hunch / Pencil / AdCreative.ai — different category (creative production)
 
-The frequently-confused-with bucket. All three are creative production / generation, not optimization automation — different problem. **Hunch** (`hunchads.com`, DR 64) — creative production + dynamic creative + DPA / catalog automation. Demo-only pricing. **Pencil** (<a href="https://trypencil.com" rel="noopener" target="_blank">trypencil.com</a>) — "Marketing has an AI operating system now." Aggregates OpenAI + Google + Adobe + Runway + Bria into one creative-generation layer. Claims 50% creative cost reduction, 79% ROAS improvement, 24× markets scaled. **AdCreative.ai** (`adcreative.ai`, DR 77) — "#1 most used AI tool for advertising." Starter $39/mo, Professional $249/mo, Ultimate $999/mo. 7-day free trial / 10 credits. All three feed INTO an automation tool — they're not a substitute for one. If your bottleneck is "we can't generate enough creatives to test," look here. If your bottleneck is "we can't launch / evaluate / kill / scale fast enough," go back to slot #1, #3, or #10.
+The frequently-confused-with bucket. All three are creative production / generation, not optimization automation — different problem. **Hunch** (`hunchads.com`) — creative production + dynamic creative + DPA / catalog automation. Demo-only pricing. **Pencil** (<a href="https://trypencil.com" rel="noopener" target="_blank">trypencil.com</a>) — "Marketing has an AI operating system now." Aggregates OpenAI + Google + Adobe + Runway + Bria into one creative-generation layer. Claims 50% creative cost reduction, 79% ROAS improvement, 24× markets scaled. **AdCreative.ai** (`adcreative.ai`) — "#1 most used AI tool for advertising." Starter $39/mo, Professional $249/mo, Ultimate $999/mo. 7-day free trial / 10 credits. All three feed into an automation tool — they're not a substitute for one. If your bottleneck is "we can't generate enough creatives to test," look here. If your bottleneck is "we can't launch / evaluate / kill / scale fast enough," go back to slot #1, #3, or #10.
 
 ---
 
