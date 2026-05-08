@@ -159,7 +159,7 @@ POV: worlds come from pain analysis, not from button tweaks in your design tool.
 
 App publishers who ran 99% video for years are suddenly scaling on static and carousels. From the patterns we see across accounts: video carries higher CPMs, static and carousel often pull lower CPMs with stronger CTRs in the same ad set, especially on Reels-heavy placements where users have video fatigue.
 
-If you have not tested static or a carousel in the last 60 days, ship one this week. Use the same hook as your top video — strip the motion, keep the message. This single test has flipped the format mix for several accounts I have advised through the Scalemate practice. Source: Ruslan Dzhafarov's [Andromeda hacks LinkedIn post](#) (Hack 1).
+If you have not tested static or a carousel in the last 60 days, ship one this week. Use the same hook as your top video — strip the motion, keep the message. This single test has flipped the format mix for several accounts I have advised through the Scalemate practice.
 
 ### 4. Turn off "AI Enhancements" until you A/B test it
 
@@ -169,7 +169,7 @@ What it does: AI Enhancements can rewrite your copy, add visual effects, or modi
 
 A real story from a media buyer last month: ROAS halved on a previously-stable campaign with no other change. The audit found AI Enhancements had silently swapped the hero image on three of five ads. Turning it off restored ROAS within a week.
 
-The pre-warning matters: stop tweaking, start feeding. With Andromeda, over-optimizing early kills performance — the system is smarter than it used to be, so the lever shifted from manual tuning to feeding it clean data and good creatives. AI Enhancements is over-optimization dressed up as automation. Source: Ruslan's LinkedIn (Hack 2). [TODO: AI Enhancements toggle screenshot from Natalia/Ruslan, no client data — would strengthen E-E-A-T signal.]
+The pre-warning matters: stop tweaking, start feeding. With Andromeda, over-optimizing early kills performance — the system is smarter than it used to be, so the lever shifted from manual tuning to feeding it clean data and good creatives. AI Enhancements is over-optimization dressed up as automation.
 
 ### 5. Use Advantage+ with multi-format signal diversity
 
@@ -182,7 +182,7 @@ Concrete actions to ship this week:
 - Mix static + carousel + video inside the same ad set.
 - Set placement coverage to Reels + Feed + Stories + Threads — do not exclude placements.
 
-POV: Advantage+ rewards advertisers who hand it more shapes of signal. Limiting placements or sticking to one format is how you choke the algorithm. Source: Ruslan's LinkedIn (Hack 3).
+POV: Advantage+ rewards advertisers who hand it more shapes of signal. Limiting placements or sticking to one format is how you choke the algorithm.
 
 ### 6. Build a web-to-app funnel with quizzes
 
@@ -190,7 +190,7 @@ Stop postponing the web-to-app test. Give your least-grumpy dev a single ticket:
 
 The signal-quality piece matters more than the funnel itself. Pair Pixel + CAPI on the web side so Meta gets clean conversion signal. On the app handoff, use MMP One Links (AppsFlyer / Adjust / Branch) — workflow convention, not a Scalemate integration. Scalemate does not integrate with MMPs; we are noting them as the standard handoff layer practitioners use.
 
-Power-up: make the in-app first-run experience adapt to the quiz answers. Users love personalization, and the bridge from web quiz to personalized app open is what makes this funnel actually convert versus just adding tracking complexity. Source: Ruslan's LinkedIn (Hack 4).
+Power-up: make the in-app first-run experience adapt to the quiz answers. Users love personalization, and the bridge from web quiz to personalized app open is what makes this funnel actually convert versus just adding tracking complexity.
 
 ### 7. Run web campaigns even if your product is a mobile app
 
@@ -198,7 +198,7 @@ Even if you are a pure mobile-app advertiser, run web campaigns alongside your a
 
 Concrete setup: use Meta's Landing Page Views goal, or optimize toward trial-purchase / quiz-completion buttons on a landing page that redirects to the app store. The flow: Facebook Ad → Landing Page → CTA Button → App Store.
 
-This works for two reasons. First, web inventory is cheaper than app-install inventory in most verticals. Second, web campaigns add a new signal source for Andromeda — the algorithm now has both app-event and web-event data to learn from for the same audience. Source: Ruslan's LinkedIn (Hack 5).
+This works for two reasons. First, web inventory is cheaper than app-install inventory in most verticals. Second, web campaigns add a new signal source for Andromeda — the algorithm now has both app-event and web-event data to learn from for the same audience.
 
 ### 8. Optimize for Hook Rate (3-second view rate)
 
@@ -213,7 +213,7 @@ The action sequence:
 3. Layer those winning hooks onto videos that historically drove purchases — same first 3 seconds, different middle and end.
 4. Ship those new variants into the same ad set.
 
-This is testing-system territory. Our [fast hook-rate testing system](/blog/creative-testing-framework) covers the full launch-measure-promote loop. Source: Ruslan's LinkedIn (Hack 6).
+This is testing-system territory. Our [fast hook-rate testing system](/blog/creative-testing-framework) covers the full launch-measure-promote loop.
 
 ### 9. Add Threads to placements + carousel mix
 
@@ -222,7 +222,7 @@ Threads is now testing carousel ads, and engagement is higher than the equivalen
 - Add Threads to your Advantage+ placement coverage if you currently exclude it.
 - Include carousel format in your Threads-eligible creative mix specifically — Threads is rewarding carousels right now in a way Feed and Reels are not.
 
-This is a 5-minute change in Ads Manager. Source: Ruslan's LinkedIn (Hack 7).
+This is a 5-minute change in Ads Manager.
 
 ### 10. Fix attribution: drop view-through, use 1-day click
 
