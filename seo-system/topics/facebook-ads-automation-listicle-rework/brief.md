@@ -458,7 +458,7 @@ When writing this article, follow `content-writing-rules.md` §8 (JTBD Messaging
 
 ## Listicle Structure (S5'-specific, refined post peer-set deep-dive)
 
-> **Detailed per-tool data captured in `tools-research.md` (2026-05-07) — confirm data points there before content-creator phase.** Notable findings: (a) Drive/Dropbox sync is NOT a Scalemate-unique differentiator — AdNova, Kitchn.io, AdManage.ai all have it; (b) AdNova verified at `adnova.ai` but its bucket is bulk-launch / creative-workflow, NOT rules engine — see slot #8 update below; (c) Pencil URL needs Natalia confirmation (`pencilads.com` resolved to a kindergarten site in our pull).
+> **Detailed per-tool data captured in `tools-research.md` (2026-05-07/08) — confirm data points there before content-creator phase.** Notable findings: (a) Drive/Dropbox sync is NOT a Scalemate-unique differentiator — AdNova, Kitchn.io, AdManage.ai all have it; (b) AdNova verified at `adnova.ai` but its bucket is bulk-launch / creative-workflow, NOT rules engine — see slot #8 update below; (c) Pencil canonical URL is `trypencil.com` (verified by Natalia 2026-05-08, creative-production AI platform — fits lateral-mention slot).
 
 ### Peer-set anchoring method
 

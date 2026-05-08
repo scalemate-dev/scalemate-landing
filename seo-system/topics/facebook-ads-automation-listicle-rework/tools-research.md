@@ -287,8 +287,15 @@
   - Category: Creative production + dynamic creative + DPA / catalog automation. **Not rules engine.**
   - Pricing: Demo-only (no public pricing).
   - DR: **64** (Ahrefs 2026-05-07).
-- **Pencil (`pencilads.com`):**
-  - **Verification flag:** `pencilads.com` resolved to a Montessori kindergarten site, not an AI ad tool. Pencil-the-AI-ad-tool was acquired/rebranded (Brightbid era + AssemblyAI line per industry knowledge); current canonical URL **not verified** in our pulls. Recommend dropping Pencil from this slot or replacing with another creative AI (e.g., Creatify or Marpipe). Confirm with Natalia before naming.
+- **Pencil (`trypencil.com`):** ✅ **VERIFIED 2026-05-08** (Natalia provided correct URL).
+  - **Vendor:** trypencil.com — was previously known by other domains; current canonical URL is `trypencil.com`.
+  - **Positioning (H1):** "Marketing has an AI operating system now."
+  - **What it is:** AI creative production / generation platform that aggregates multiple AI models (OpenAI, Google, Adobe, Runway, Bria) into one orchestration layer. Marketers generate + edit creative content at scale.
+  - **Tagline value-prop:** "The only platform that aggregates every AI model, enforces enterprise governance, and turns production savings into media growth."
+  - **Proven results (claimed on hero):** 50% reduction in creative production costs, 79% ROAS improvement, 24× markets scaled simultaneously.
+  - **Pricing:** Tiers visible (Pencil + Pencil Pro), `plan_id=basic-monthly-14` referenced, exact pricing not on homepage.
+  - **Category fit:** **Creative production / AI generation** — confirms the lateral-mention positioning. NOT a Facebook ads automation peer (it's the production-layer that feeds INTO ad automation tools).
+  - **Source:** WebFetch `trypencil.com` 2026-05-08.
 - **AdCreative.ai (`adcreative.ai`):**
   - Positioning: "#1 most used AI tool for advertising"
   - Pricing: 7-day free trial / 10 credits. Starter $39/mo (10 credits/mo). Professional $249/mo. Ultimate $999/mo.
@@ -296,7 +303,7 @@
   - Category: AI creative generation + Creative Scoring AI. **No rules engine.**
   - DR: **77** (Ahrefs 2026-05-07).
 
-- **Source URLs:** `hunchads.com`, `pencilads.com` (wrong domain — needs Natalia URL), `adcreative.ai` WebFetch 2026-05-07.
+- **Source URLs:** `hunchads.com`, `trypencil.com` (verified by Natalia 2026-05-08), `adcreative.ai` WebFetch 2026-05-07/08.
 - **Notes:** All three are creative-side, not rules-side. Honest "different category, here's why we mention them" framing keeps the article scope-defended (per brief.md gap #1). **Action:** Natalia should confirm whether to keep Pencil on the list at all (identity verification needed) or replace with a more clearly-identifiable creative-AI alt.
 
 ---
@@ -317,7 +324,7 @@
 | Kitchn.io | Verified | Direct competitor with Drive/Dropbox sync. €-priced. Meta-only. Anti-AI positioning. |
 | AdManage.ai | Verified | Strongest cross-platform list; Drive/Dropbox sync; £-priced. Active Reddit traction. |
 | Make.com | Verified-with-flag | `/integrations/facebook-ads` 404'd today. Confirm Meta+TikTok+Google connectors via Make's app directory at draft time. |
-| **Pencil** | **Could-not-verify** | `pencilads.com` resolved to a kindergarten website. The Pencil-AI-ad-tool's current canonical URL is unclear. Drop from list OR get correct URL from Natalia OR replace with an alternative creative-AI. |
+| **Pencil** | ✅ **Verified 2026-05-08** | Correct URL is `trypencil.com` (Natalia 2026-05-08). Confirmed creative-production / AI generation platform — fits lateral-mention positioning ("different category"). |
 
 ---
 
@@ -517,5 +524,5 @@ Angle A (pricing tier strategy) becomes the **supporting claim** in Scalemate's 
 - Birch's Slack-native vs alerts-via-email + outbound API event capability. WebFetch /integrations page at draft time.
 - Birch TikTok rules-engine depth. WebFetch deeper at draft time.
 - Meta Native automated rules cap + AND/OR semantics + **CRITICAL: confirm Meta Native CANNOT push to Slack/email/webhook from automated rules** (single biggest moat). Re-fetch a working Meta help URL at draft time.
-- Pencil identity (drop or replace).
+- ~~Pencil identity~~ ✅ Resolved 2026-05-08 — `trypencil.com`, creative-production AI platform, fits lateral-mention slot.
 - Madgicx tone — neutral but mention trial-billing caveat (Reddit weight is real).
