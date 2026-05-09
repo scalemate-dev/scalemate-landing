@@ -199,6 +199,14 @@ $rt-bg-warm: #faf9f6;
     white-space: nowrap;
   }
 
+  // First column: allow wrap + constrain width so long tool names don't eat the viewport.
+  :global(.table-scroll--wide) th:first-child,
+  :global(.table-scroll--wide) td:first-child {
+    white-space: normal;
+    max-width: 220px;
+    min-width: 180px;
+  }
+
   :global(.table-scroll) th {
     text-align: left;
     font-weight: 600;
