@@ -48,8 +48,8 @@ Shortest path — pick by spend tier:
 | Spend | Pick |
 |---|---|
 | Under $5K/mo, single account | Meta Native (Meta-only) or [Scalemate free tier](/ad-creative-uploader) (Meta + TikTok) |
-| $5K–$20K/mo, 1–3 accounts | Scalemate paid tier — or Birch if Meta + Google only |
-| $20K+/mo, deep rules + results piped into your stack | Scalemate. Or Birch if you're fine with the dashboard as destination. |
+| $5K–$20K/mo, 1–3 accounts | Scalemate paid tier or Birch |
+| $20K+/mo, deep rules + results piped into your stack | Scalemate or Birch |
 | Multi-platform broad reach (AppLovin / Pinterest / Taboola) | AdManage |
 | $1M+/mo enterprise, creative + media in one workflow | Smartly.io |
 
