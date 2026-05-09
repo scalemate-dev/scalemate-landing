@@ -107,19 +107,17 @@ Scalemate is the automation layer for ad ops on Meta + TikTok. It handles the tw
 
 **Proof.** 32% budget savings. 62% reduction in ad management time. 2M+ ads launched on Meta + TikTok across mobile UA, eCom, and lead-gen. We use Scalemate ourselves on our web + mobile funnels — and work with teams running $5M+/month and 200+ creatives a week. Sources: Scalemate's [automation rules feature page](/features/automation-rules) and [media buyer solutions data](/solutions/media-buyers).
 
-**How this lands vs peers.** Native Meta rules can't push to Slack or webhook out at all. Birch and Madgicx ship strong dashboards but expect you to come live in theirs. Make.com gives you DIY connectors but no ad-ops primitives — every project you'd rebuild "wait until enough spend, then check CPI against benchmark, then write back to the creative-tracking sheet" from scratch. Scalemate ships that chain pre-built and lets you wire the endpoint to wherever your team already works.
+**Pricing.** Free tier covers bulk launches + rules with auto-revert at smaller volumes (no credit card). Paid tiers unlock larger volumes, API endpoints, workflow chains, custom integrations. Verified Meta App — passed app review, scoped permissions, rate-limited per request.
 
 #### Worked example — creative testing protocol
 
-Plain-language read first: a team is testing 20 new creatives. They want to auto-kill the losers based on a compound condition AND log the verdict back to their creative-tracking sheet — Notion, Airtable, or Google Sheet, whichever the creative team already lives in. No manual CSV exports. No screenshot-pasting in Slack.
+A team is testing 20 creatives. They want to auto-kill losers AND log the verdict back to their tracking sheet (Notion / Airtable / Sheet) — without manual exports or Slack screenshots.
 
-The operator's mental model:
+Operator's mental model:
 
-> "Wait until the ad has spent enough to be statistically meaningful. Then, if its CPI is clearly above benchmark, kill it now and write status 'bad' to our tracking sheet. The team sees the verdict where they already work."
+> "Wait until the ad has spent enough to be statistically meaningful. Then, if its CPI is clearly above benchmark, kill it and write status 'bad' to our tracking sheet."
 
-That's two gates: the **spend gate** says "wait until there's enough data to trust." The **performance gate** says "if CPI is clearly above benchmark, kill it now." Combined, they auto-pause every losing creative AND log the verdict — without anyone logging into Meta or pasting screenshots into Slack.
-
-The rule in Scalemate looks like this:
+Rule in Scalemate:
 
 ```
 Rule:
@@ -134,96 +132,71 @@ Rule:
   → tracking sheet row updates automatically
 ```
 
-Why this lands:
+Two gates (spend + performance) combine. Pause is auto. The verdict lands in the team's existing tool — no manual export. Thresholds ×10 / ×2 are a sane starting protocol for app UA testing; swap for your team's validated multipliers.
 
-- **Multi-level compound trigger.** Meta Native can't do AND/OR compounds inside its automated rules surface. Most paid peers can't either. Birch can.
-- **Auto action.** Pause the campaign immediately. No babysitting, no "did I forget to check Meta this morning."
-- **API custom event into your system.** The creative team checks one place — their tracking sheet — instead of three (Meta dashboard + Slack + sheet).
-- **No manual logging.** The verdict appears in the team's existing tool with zero export steps.
-
-The placeholder thresholds (×10 spend gate, ×2 CPI gate) are a sane starting protocol for app UA testing — swap to multipliers your team has actually validated. The structure of the rule is what matters: gates that combine, an action that fires, an endpoint that lands somewhere useful.
-
-#### Quick recap
-
-- **Launches.** Bulk from Drive → Meta + TikTok, reusable templates, multi-account.
-- **Rules.** Multi-level / compound triggers, auto-execute or alert-only, auto-revert.
-- **Endpoints.** Slack + email native, API + custom events for Notion / Airtable / Looker Studio / CRM.
-- **Library.** Goal × niche playbooks.
-- **AI.** Chat-based ad management on top.
-- **Pricing.** Free tier — bulk launches + rules with auto-revert at smaller volumes (no credit card). Paid tiers unlock larger volumes, API endpoints, workflow chains, custom integrations.
-- **Meta verified.** Passed app review, scoped permissions, rate limiting per request.
-
-**Not for:** solo operators with one ad account at <$5K/mo who only need pause/scale basics — go to Native Meta. Not for teams that want fully autonomous AI to make every decision — go to Madgicx or Trapica.
-
-**Self-#1 honesty note.** Slot #1 here weighs chain-completeness — all four steps native (launch → trigger → action → endpoint) plus a goal × niche playbook library. If your weighting is different — you only care about rules-engine depth and the dashboard is fine as your destination — [Birch (Revealbot)](#3-birch-revealbot-best-for-teams-who-want-a-deep-rule-engine-and-are-ok-with-the-dashboard-being-the-primary-product-surface) is the closest direct peer.
+**Not for:** solo operators with one ad account at <$5K/mo who only need pause/scale basics — go to Meta Native. Not for teams that want fully autonomous AI to make every decision — go to Madgicx or Trapica.
 
 [See Scalemate's rules engine + auto-revert in action →](/use-cases/ad-campaign-automation-rules)
 
 ### 2. Meta Native (Advantage+ / Automated Rules / Dynamic Creative) — Best for solo operators with one ad account under $5K/mo who only need pause/scale basics
 
-Meta Native is the floor. Free, built into Ads Manager, zero setup. It's the right answer when you're under $5K/mo on a single ad account and your automation needs are "pause if CPA > $X" or "scale if ROAS > Y." It's the wrong answer the moment any of those constraints stop being true.
+Meta Native is the floor. Free, built into Ads Manager, zero setup. Right answer under $5K/mo on a single ad account when your needs are "pause if CPA > $X" or "scale if ROAS > Y." Wrong answer the moment any of those constraints stop being true.
 
-The cleanest moat against Meta Native is the endpoint, not the engine. Meta's automated rules surface is AND-only single-level (no native OR / compound conditions). It supports a cap of around 250 rules per ad account historically. The bigger gap: **no Slack push, no API event out, no webhook out from automated rules.** You can't pipe results to your team's tools without third-party glue. Reddit's r/FacebookAds has a thread from 2023 still cited today: *"Yes you can set up 'check' rules to turn the ads back on but you've just lost 5 hours."* That five hours is the auto-revert gap — once a rule misfires, the ads stay paused until someone notices.
+The gap that matters: the endpoint, not the engine. Meta's automated rules are AND-only single-level (~250 cap per ad account historically), with **no Slack push, no API event, no webhook out**. You can't pipe results to your team's tools without third-party glue. r/FacebookAds: *"Yes you can set up 'check' rules to turn the ads back on but you've just lost 5 hours."* That five hours is the auto-revert gap.
 
 #### What's in the box
 
 - **Launch.** Power Editor / CSV — clunky, no Drive sync, no reusable templates.
 - **Trigger.** AND-only single-level. Cap ~250 rules per ad account.
 - **Action.** Auto-execute or notify (limited).
-- **Endpoint.** Ads Manager UI only. No Slack push. No email push from rules. No webhook out.
-- **Playbook library.** None — empty engine. You write every rule from zero.
+- **Endpoint.** Ads Manager UI only. No Slack / email / webhook out.
+- **Playbook library.** None — empty engine.
 
-**Pricing.** Free.
+**Pricing.** Free. Help Center pages on this topic shift IDs frequently — verify current Meta documentation before you build a rules-heavy workflow that depends on a specific feature.
 
-**2026 deprecation note.** Meta has flagged "Automated Ads going away in 2026" in past help-center copy. The Automated Rules surface this article references is a separate product from "Automated Ads" — but the Help Center pages around this topic shift between IDs frequently. Verify the current Meta documentation before you build a rules-heavy workflow that depends on a specific feature staying in place.
-
-We tell teams to stay native a *little* longer than feels comfortable. Every paid tool has a learning-curve cost, and the worst outcome is paying for a rules engine you don't actually use yet. The trigger to upgrade isn't a feature dream list — it's "I'm spending hours a week doing what a rule should do, and I have no way to push the result anywhere except this dashboard."
+The trigger to upgrade isn't a feature dream list — it's "I'm spending hours a week doing what a rule should do, and I have no way to push the result anywhere except this dashboard."
 
 [Read the rules cheat-sheet for Meta Native →](/blog/facebook-automated-rules) | [See the rules-by-goal library when you outgrow Native →](/automation-rules-library)
 
 ### 3. Birch (Revealbot) — Best for teams who want a deep rule engine and are OK with the dashboard being the primary product surface
 
-Birch shows up in nearly every r/FacebookAds and r/PPC "best automation tool" thread — "240M+ automated actions/year" claim on its homepage. If you want pure rule-engine depth and the dashboard is fine as your destination, Birch is the closest direct peer to Scalemate.
+Birch shows up in nearly every r/FacebookAds and r/PPC "best automation tool" thread. If you want pure rule-engine depth and the dashboard is fine as your destination, Birch is the closest direct peer to Scalemate.
 
-Birch ships **Slack alerts and email alerts natively** for performance and automation events, plus Automation Logs for understanding why items triggered. Webhook depth and public API for outbound events aren't documented prominently — there's an Integrations section on the site, but external endpoint detail isn't surfaced at the level Scalemate exposes. Practical read for a buyer: Slack + email is the proven outbound surface today; if you need API events into your own system, treat that as a sales-conversation question, not a guaranteed feature.
+Birch ships **Slack and email alerts natively** for performance and automation events, plus Automation Logs. Webhook depth and public API for outbound events aren't documented prominently — there's an Integrations section but external endpoint detail isn't at the level Scalemate exposes. Slack + email is the proven outbound today; for API events into your own system, treat as a sales-conversation question.
 
 #### What's in the box
 
-- **Launch.** "Launcher" on Pro tier ($99/mo) — bulk launch supported. No Drive sync.
-- **Trigger.** Advanced — OR / compound conditions, scheduling, multi-account (workspaces concept on Essential+).
+- **Launch.** "Launcher" on Pro tier — bulk launch supported. No Drive sync.
+- **Trigger.** Advanced — OR / compound conditions, scheduling, multi-account.
 - **Action.** Auto-execute, plus "reverse rules" (Birch's term for auto-revert).
-- **Endpoint.** Slack + email native. Integrations section visible on site; webhook / public API depth not externally documented as of this verification pull.
-- **Playbook library.** [12-rule cheat-sheet](https://bir.ch/facebook-automated-rules) on Birch's own site — generic, single-tier, no goal × niche split. Library-light versus a full library by goal × niche.
+- **Endpoint.** Slack + email native. Webhook / public API depth not externally documented.
+- **Playbook library.** [12-rule cheat-sheet](https://bir.ch/facebook-automated-rules) — generic, single-tier. Library-light vs goal × niche.
 
-**Pricing.** Essential $49/mo, Pro $99/mo, Enterprise custom. 14-day free trial (no credit card), no permanent free tier.
+**Pricing.** Essential $49/mo, Pro $99/mo, Enterprise custom. 14-day free trial, no permanent free tier.
 
-**Multi-platform.** Meta + Google + TikTok + Snapchat. Rules-engine depth on TikTok specifically isn't documented as deeply as on Meta — verify your specific TikTok rule needs in a trial before committing.
+**Multi-platform.** Meta + Google + TikTok + Snapchat. Rules-engine depth on TikTok specifically isn't documented as deeply as on Meta — verify in trial.
 
-A 2025 r/FacebookAds thread, paraphrased: *"Revealbot is solid for rule-based alerts plus quick dashboards; add spend / CPA guardrails."* That matches what we see — dashboard-first, native alerts, opaque on the integration-out side.
-
-The differentiation versus Scalemate isn't "Birch is closed." It's structural: Birch's primary product surface IS the dashboard, and the playbook depth ships as a 12-rule cheat-sheet. Scalemate's primary surface is the chain into your existing stack, and the playbook ships as a goal × niche library. Birch is the closest peer in this slate. We've used both.
+The differentiation vs Scalemate is structural: Birch's primary surface IS the dashboard, with playbook depth at 12-rule cheat-sheet level. Scalemate's primary surface is the chain into your existing stack, with playbook as a goal × niche library. We've used both.
 
 <a href="https://bir.ch" rel="noopener" target="_blank">Birch (bir.ch)</a> | [See the goal × niche playbook library Birch's cheat-sheet doesn't cover →](/automation-rules-library)
 
 ### 4. Madgicx — Best for teams who want autonomous AI to make decisions for them (closed black-box, no playbook to inspect)
 
-Madgicx is the autonomous-AI big brand on this list — heavy AI layer ("AI Marketer," "AI Ad Generator," "Creative Refresh Agent," "Ad Fatigue detector"), light manual-rules layer. Best for teams who've explicitly opted into "let AI decide" rather than "I'll write the playbook."
+Madgicx is the autonomous-AI big brand on this list — heavy AI layer (AI Marketer, AI Ad Generator, Creative Refresh Agent, Ad Fatigue detector), light manual-rules layer. Best for teams who've explicitly opted into "let AI decide" rather than "I'll write the playbook."
 
-Closed AI black-box is a different product category from a rules engine you can read. The right answer depends on whether you want the playbook or want the AI to decide. Both are legitimate jobs.
+Closed AI black-box is a different product category from a rules engine you can read. The right answer depends on whether you want the playbook or want the AI to decide.
 
 #### What's in the box
 
 - **Launch.** "Automated Ad Launch Tool" — focused on AI-driven creative variation more than CSV / sheet bulk launch.
 - **Trigger.** Basic rules — not foregrounded in product copy.
 - **Action.** AI-decided (autonomous) OR manual rules.
-- **Endpoint.** Dashboard-first. Integrations exist (GA4, Shopify, Klaviyo, TikTok) but as data sources, not as result destinations.
-- **Playbook library.** None — closed AI black-box, no transparent playbook to inspect.
+- **Endpoint.** Dashboard-first. Integrations exist (GA4, Shopify, Klaviyo, TikTok) as data sources, not result destinations.
+- **Playbook library.** None — closed AI, no transparent playbook to inspect.
 
-**Pricing.** Variable by ad-spend tier (visible ranges from <$1K to $30K+/mo accounts). 7-day free trial. Reddit threads cite around $450/mo at the $40-50K/mo spend tier.
+**Pricing.** Variable by ad-spend tier. 7-day free trial. Reddit threads cite around $450/mo at the $40-50K/mo spend tier.
 
-**Trial-billing caveat.** Reddit threads in 2024-2025 surface refund and trial-cancellation complaints (r/PPC "Madgicx — DO NOT BUY," r/AskMarketing "$240 charged after free trial"). Counterweight positive sentiment also exists in r/FacebookAds. Practical read for a buyer: double-check trial cancellation steps before signing up. We're flagging the signal because it's repeatedly surfaced; we're not making a moral case about the product.
-
-A community aggregate from r/AskMarketing (paraphrased): *"Revealbot and Madgicx exist. They're expensive and their logic is a mystery box. You can't trust them with your budget without babysitting."* Read that as "the autopilot tier asks for trust the rules-engine tier doesn't" — true of any closed-AI product.
+**Trial-billing caveat.** Reddit threads in 2024-2025 surface refund and trial-cancellation complaints (r/PPC "Madgicx — DO NOT BUY," r/AskMarketing "$240 charged after free trial"); counterweight positive sentiment also exists. Double-check trial cancellation steps before signing up.
 
 [Deeper Madgicx review — including alternative options →](/blog/madgicx-review-alternative)
 
@@ -241,24 +214,16 @@ Self-positioned as an "AI-Powered Marketing Automation Platform." Pricing isn't 
 
 ### 8. AdNova — Best for teams whose bottleneck is creative production + bulk launch on Meta (NOT a rules engine peer)
 
-AdNova (`adnova.ai`) doesn't show up in the top results for this search, but it's worth knowing about: real free tier, real bulk-ad-launcher feature, and Drive sync — which several other listicles wrongly frame as a single-vendor differentiator. AdNova has it, Kitchn.io has it, AdManage has it. Drive sync is table stakes in 2026 bulk-launch tools, not a moat.
-
-**Bucket disambiguation (critical).** AdNova is in the bulk launch + creative workflow bucket — same category as Kitchn.io and AdManage. **NOT in the rules-spine bucket like Birch / Madgicx / Scalemate.** No rules engine on the launch side. The job stops after launch.
+AdNova (`adnova.ai`) is worth knowing if your bottleneck is creative production + bulk launch on Meta: real free tier, real bulk-ad-launcher, Drive + Dropbox sync. It's in the bulk launch + creative workflow bucket — same category as Kitchn.io and AdManage, **not** a rules-engine peer like Birch / Madgicx / Scalemate. The job stops after launch.
 
 #### What's in the box
 
-- **Launch.** Core feature — "Launch 100+ Meta Ads in Minutes." Bulk Ad Launcher add-on $79–$99/mo.
-- **Trigger.** None (no rules engine).
-- **Action.** N/A.
-- **Endpoint.** N/A.
-- **Drive / Dropbox sync.** Yes (homepage explicit on `/bulk-ad-launcher`).
+- **Launch.** Core — "Launch 100+ Meta Ads in Minutes." Bulk Ad Launcher add-on $79–$99/mo.
+- **Drive / Dropbox sync.** Yes.
 - **Creative-workflow side.** AI search across 75M ads, AI competitor insights, AI creative hub, asset splitting, tagging.
-- **Platforms.** Meta only on the launch side. Chrome extension also captures TikTok ads on the research side, not the launch side.
-- **Playbook library.** None.
+- **Platforms.** Meta-only on launch. Chrome extension captures TikTok ads on the research side, not launch.
 
-**Pricing.** Free tier ($0/mo, 1 workspace, 1 ad account, $25K monthly ad-spend cap, 30 brands tracked). Plus $150/mo. Growth $309/mo. Pro $499/mo. Bulk Ad Launcher add-on $79–$99/mo. The free tier is real — rare in this segment.
-
-We added AdNova because the "Drive sync is unique to vendor X" framing in most peer listicles is misleading. AdNova has it. Kitchn.io has it. AdManage has it. Drive sync is table stakes in 2026 bulk-launch tools, not a moat.
+**Pricing.** Free tier ($0/mo, 1 workspace, 1 ad account, $25K monthly ad-spend cap). Plus $150/mo, Growth $309/mo, Pro $499/mo. The free tier is real — rare in this segment.
 
 <a href="https://adnova.ai" rel="noopener" target="_blank">AdNova (adnova.ai)</a> | [Deeper bulk ad launch tools comparison →](/blog/best-bulk-ad-launch-tools)
 
