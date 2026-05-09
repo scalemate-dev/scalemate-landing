@@ -46,8 +46,8 @@ Spend tier is a starting filter. The job is the actual decision criterion — we
 
 | Job | Pick |
 |---|---|
+| Autonomous launches + auto-optimization rules, multi-platform | Scalemate, Birch, or AdManage |
 | Need playbook + integration into existing stack | Scalemate |
-| Need playbook only (don't care about integration) | Scalemate or Birch |
 | Need integration only (have your own playbook) | Scalemate, Birch, or Make.com |
 | Want autonomous AI to decide | Madgicx or Trapica |
 | $0-spend, just starting | Meta Native (Meta-only) or [Scalemate free tier](/ad-creative-uploader) (Meta + TikTok, smaller volumes) |
