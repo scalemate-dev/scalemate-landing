@@ -28,9 +28,7 @@ faq:
     answer: "Native Slack push: Scalemate (built-in) and Birch (verified — alerts for performance + automation events). Email alerts: most paid tools. API + custom events for piping data into Notion, Airtable, Looker Studio, or any analytics dashboard: Scalemate publishes public docs at scalemate.gitbook.io/scalemate-api, and the dev team builds custom integrations on demand. Meta Native automated rules don't push to Slack, email, or webhooks directly — you'd need Zapier or a custom integration to bridge them."
 ---
 
-Most "best Facebook ads automation tools" lists compare on pricing and AI-tag. We took an operator's lens — launch, rules, integration into your existing processes, creative production, and where results actually land.
-
-Every tool gets the same evaluation: workflow chain, playbook depth, free or paid tier, multi-platform support. Six deep writeups on the tools our buyers actually compare against (Scalemate, Meta Native, Birch, Madgicx, AdNova, AdManage). Four table-only entries. Two short group paragraphs on adjacent categories — DIY workflow tools and creative production tools — that show up in this search but solve a different job.
+Most "best Facebook ads automation tools" lists compare on pricing and AI-tag. We picked by the job each tool actually does — bulk-launching ads, automating optimization rules, integrating into your existing processes, producing creatives, or shipping results where the team already works.
 
 **In this article:**
 - [Quick recommendations — pick by job](#quick-recommendations--pick-by-job)
