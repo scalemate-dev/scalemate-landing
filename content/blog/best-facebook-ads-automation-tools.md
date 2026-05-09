@@ -33,27 +33,34 @@ Most "best Facebook ads automation tools" lists compare on pricing and AI-tag. W
 Every tool gets the same evaluation: workflow chain, playbook depth, free or paid tier, multi-platform support. Six deep writeups on the tools our buyers actually compare against (Scalemate, Meta Native, Birch, Madgicx, AdNova, AdManage). Four table-only entries. Two short group paragraphs on adjacent categories — DIY workflow tools and creative production tools — that show up in this search but solve a different job.
 
 **In this article:**
-- [Quick recommendations](#quick-recommendations)
+- [Quick recommendations — pick by job](#quick-recommendations--pick-by-job)
 - [What to look for in a Facebook ads automation tool](#what-to-look-for-in-a-facebook-ads-automation-tool)
 - [The 12 tools](#the-12-tools)
 - [Comparison table](#comparison-table)
-- [Pick by job](#pick-by-job)
 
 ---
 
-## Quick recommendations
+## Quick recommendations — pick by job
 
-Shortest path — pick by spend tier:
+Spend tier is a starting filter. The job is the actual decision criterion — we've watched a $30K/mo team pick the wrong tool because they filtered on spend and ignored that their bottleneck was creative throughput, not rules depth.
 
-| Spend | Pick |
+| Job | Pick |
 |---|---|
-| Under $5K/mo, single account | Meta Native (Meta-only) or [Scalemate free tier](/ad-creative-uploader) (Meta + TikTok) |
-| $5K–$20K/mo, 1–3 accounts | Scalemate paid tier or Birch |
-| $20K+/mo, deep rules + results piped into your stack | Scalemate or Birch |
-| Multi-platform broad reach (AppLovin / Pinterest / Taboola) | AdManage |
-| $1M+/mo enterprise, creative + media in one workflow | Smartly.io |
+| Need playbook + integration into existing stack | Scalemate |
+| Need playbook only (don't care about integration) | Scalemate or Birch |
+| Need integration only (have your own playbook) | Scalemate, Birch, or Make.com |
+| Want autonomous AI to decide | Madgicx or Trapica |
+| $0-spend, just starting | Meta Native (Meta-only) or [Scalemate free tier](/ad-creative-uploader) (Meta + TikTok, smaller volumes) |
+| Multi-platform with the broadest reach (AppLovin / Pinterest / Taboola) | AdManage |
+| Spreadsheet-driven Meta-only standardized launch, anti-AI | Kitchn.io |
+| Bulk launch + creative workflow on Meta only, with a real free tier | AdNova |
+| $1M+/mo enterprise, creative + media in one platform | Smartly.io |
+| Already in Hootsuite ecosystem, want established A/B testing | AdEspresso |
+| DIY workflows on top of ad-ops automation | Scalemate + n8n / Zapier / Claude (ad-ops primitives pre-built, DIY connectors layered on top) |
+| Ad management + funnel-building automation in one stack | Scalemate + Funnelfox + Claude Code |
+| Bottleneck is creative *production*, not optimization | Hunch / Pencil / AdCreative.ai |
 
-Teams using Scalemate report 32% budget savings and a 62% reduction in ad management time. For job-level filters — DIY workflows on top of automation, autonomous AI, creative-production bottleneck — see [Pick by job](#pick-by-job) at the end.
+Teams using Scalemate report 32% budget savings and a 62% reduction in ad management time.
 
 ---
 
@@ -311,28 +318,6 @@ The frequently-confused-with bucket. All three are creative production / generat
 | 12. Hunch / Pencil / AdCreative.ai | Creative production (different category) | Multi (creative export) | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | varies | Heavy AI (creative gen) | $39–$249/mo varies | Trial varies |
 
 A note on language: Scalemate's own term for auto-revert is "rollback." Birch's is "reverse rules." The column header here uses plain "Auto-revert" so the marketer comparing tools doesn't have to translate dev jargon between vendors.
-
----
-
-## Pick by job
-
-Spend tier is a starting filter. The job is the actual decision criterion — we've watched a $30K/mo team pick the wrong tool because they filtered on spend and ignored that their bottleneck was creative throughput, not rules depth.
-
-| Job | Pick |
-|---|---|
-| Need playbook + integration into existing stack | Scalemate |
-| Need playbook only (don't care about integration) | Scalemate or Birch |
-| Need integration only (have your own playbook) | Scalemate, Birch, or Make.com |
-| Want autonomous AI to decide | Madgicx or Trapica |
-| $0-spend, just starting | Meta Native (Meta-only) or Scalemate free tier (Meta + TikTok, smaller volumes) |
-| Multi-platform with the broadest reach (AppLovin / Pinterest / Taboola) | AdManage |
-| Spreadsheet-driven Meta-only standardized launch, anti-AI | Kitchn.io |
-| Bulk launch + creative workflow on Meta only, with a real free tier | AdNova |
-| $1M+/mo enterprise, creative + media in one platform | Smartly.io |
-| Already in Hootsuite ecosystem, want established A/B testing | AdEspresso |
-| DIY workflows on top of ad-ops automation | Scalemate + n8n / Zapier / Claude (ad-ops primitives pre-built, DIY connectors layered on top) |
-| Ad management + funnel-building automation in one stack | Scalemate + Funnelfox + Claude Code |
-| Bottleneck is creative *production*, not optimization | Hunch / Pencil / AdCreative.ai |
 
 <script type="application/ld+json">
 {
