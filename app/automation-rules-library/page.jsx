@@ -350,10 +350,6 @@ export default function AutomationRulesLibraryPage() {
                 </li>
               ))}
             </ul>
-            <span className={styles.sourceMeta}>
-              12 production rules &middot; live threshold inputs &middot;
-              client identifiers stripped
-            </span>
           </div>
         </Container>
       </section>
