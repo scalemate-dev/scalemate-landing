@@ -13,7 +13,7 @@ export default function RulesLibraryPromo() {
               Scalemate library
             </span>
             <h2 className={styles.title}>
-              12 automation rules.
+              12 Facebook automated rules.
               <br />
               <span className={styles.titleAccent}>Ready to copy.</span>
             </h2>

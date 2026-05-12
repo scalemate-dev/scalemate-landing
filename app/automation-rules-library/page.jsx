@@ -8,9 +8,9 @@ import { RULES } from "./rules-data"
 import styles from "./page.module.scss"
 
 export const metadata = {
-  title: "12 Production-Tested Meta Automation Rules | Scalemate",
+  title: "12 Production-Tested Facebook Automated Rules | Scalemate",
   description:
-    "12 production-tested Meta automation rules pulled from live Facebook accounts running $1M+/month. Set your CPA, ROAS — every threshold recalculates live.",
+    "12 production-tested Facebook automated rules from live $1M+/month Meta accounts. Adjust your CPA, ROAS, CPC — every threshold recalculates to your numbers.",
   alternates: {
     canonical: "https://www.scalemate.co/automation-rules-library",
   },
@@ -18,17 +18,17 @@ export const metadata = {
     url: "https://www.scalemate.co/automation-rules-library",
     type: "website",
     title:
-      "12 Production-Tested Meta Automation Rules from $1M+/mo Accounts",
+      "12 Production-Tested Facebook Automated Rules from $1M+/mo Accounts",
     description:
-      "Steal 12 Meta automation rules running in live $1M+/month Facebook accounts. Kill losers, scale winners, prune creative — every threshold recalculates from your CPA, ROAS, CPC inputs.",
+      "Steal 12 Facebook automated rules running in live $1M+/month Meta accounts. Kill losers, scale winners, prune creative — every threshold recalculates from your CPA, ROAS, CPC inputs.",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "12 Production-Tested Meta Automation Rules from $1M+/mo Accounts",
+      "12 Production-Tested Facebook Automated Rules from $1M+/mo Accounts",
     description:
-      "Steal 12 Meta automation rules running in live $1M+/month Facebook accounts. Filter by goal: kill losers, scale winners, prune creative, control budget.",
+      "Steal 12 Facebook automated rules running in live $1M+/month Meta accounts. Filter by goal: kill losers, scale winners, prune creative, control budget.",
     images: ["/og-image.png"],
   },
 }
@@ -46,7 +46,7 @@ const breadcrumbSchema = {
     {
       "@type": "ListItem",
       position: 2,
-      name: "Automation Rules Library",
+      name: "Automated Rules Library",
       item: "https://www.scalemate.co/automation-rules-library",
     },
   ],
@@ -55,7 +55,7 @@ const breadcrumbSchema = {
 const itemListSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "Meta Ads Automation Rules Library",
+  name: "Facebook Automated Rules Library",
   numberOfItems: RULES.length,
   itemListElement: RULES.map((rule, idx) => ({
     "@type": "ListItem",
@@ -260,7 +260,7 @@ export default function AutomationRulesLibraryPage() {
                 Meta Ads &middot; Automated Rules Library
               </span>
               <h1 className={styles.heroTitle}>
-                {ruleCount} automated rules.
+                {ruleCount} Facebook automated rules.
                 <br />
                 <span className={styles.heroTitleAccent}>
                   Ready to copy.
