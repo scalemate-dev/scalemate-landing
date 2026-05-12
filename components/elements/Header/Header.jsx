@@ -16,6 +16,8 @@ import {
   IconTrendingUp,
   IconSettingsAutomation,
   IconCode,
+  IconBook2,
+  IconArticle,
 } from "@tabler/icons-react"
 import { usePathname } from "next/navigation"
 import { trackMixpanelEvent } from "@/helpers/analytics/mixpanel"
@@ -118,6 +120,30 @@ const USE_CASES = [
   },
 ]
 
+const RESOURCES = [
+  {
+    label: "Rules Library",
+    description: "12 production-tested Meta automation rules with live thresholds",
+    icon: (
+      <Icon style={{ backgroundColor: "#FFF7ED" }}>
+        <IconBook2 color="#EA580C" size={16} />
+      </Icon>
+    ),
+    path: "/automation-rules-library",
+    new: true,
+  },
+  {
+    label: "Blog",
+    description: "Performance ads insights, playbooks, and strategy deep-dives",
+    icon: (
+      <Icon style={{ backgroundColor: "#FCE7F3" }}>
+        <IconArticle color="#DB2777" size={16} />
+      </Icon>
+    ),
+    path: "/blog",
+  },
+]
+
 const NAV_LINKS = [
   { href: "/customers", label: "Customers" },
   { href: "/pricing", label: "Pricing" },
@@ -170,6 +196,11 @@ const Header = () => {
             <NavDropdown
               items={USE_CASES}
               label="Use cases"
+              darkTheme={darkTheme}
+            />
+            <NavDropdown
+              items={RESOURCES}
+              label="Resources"
               darkTheme={darkTheme}
             />
             {NAV_LINKS.map(({ href, label }) => (
@@ -238,6 +269,13 @@ const Header = () => {
             <NavDropdown
               items={USE_CASES}
               label="Use cases"
+              inline
+              onLinkClick={closeMobile}
+              darkTheme={darkTheme}
+            />
+            <NavDropdown
+              items={RESOURCES}
+              label="Resources"
               inline
               onLinkClick={closeMobile}
               darkTheme={darkTheme}

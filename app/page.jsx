@@ -2,6 +2,7 @@ import Hero from "../components/Hero/Hero"
 import HowCanHelp from "../components/home/HowCanHelp/HowCanHelp"
 import Features from "../components/home/Features/Features"
 import WithScalemate from "../components/home/WithScalemate/WithScalemate"
+import RulesLibraryPromo from "../components/home/RulesLibraryPromo/RulesLibraryPromo"
 import ROICalculator from "../components/home/ROICalculator/ROICalculator"
 import WaitList from "../components/home/WaitList/WaitList"
 import cn from "classnames"
@@ -64,6 +65,7 @@ export default function Home() {
         badge={badge}
       />
       <WithScalemate title="With Scalemate, ad management becomes easy, cutting time by over 62%." />
+      <RulesLibraryPromo />
       <Features />
       <HowCanHelp />
       <ROICalculator />

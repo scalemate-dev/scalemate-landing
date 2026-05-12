@@ -45,3 +45,6 @@ next-env.d.ts
 seo-system/topics/*/.autorun.log
 seo-system/topics/*/.autorun.pid
 seo-system/topics/*/.autorun.done
+
+# Internal-only data exports (contains NDA client names from production)
+/data/

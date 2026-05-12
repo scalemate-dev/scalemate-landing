@@ -98,6 +98,10 @@ const faqItems = [
 
 const relatedLinks = [
   {
+    label: "Browse 12 production-tested Meta automation rules",
+    href: "/automation-rules-library",
+  },
+  {
     label: "Ad Campaign Automation Rules",
     href: "/use-cases/ad-campaign-automation-rules",
   },

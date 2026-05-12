@@ -55,6 +55,9 @@ const Footer = () => {
             <Link className={styles.footerColLink} href="/customers">
               Customers
             </Link>
+            <Link className={styles.footerColLink} href="/automation-rules-library">
+              Rules Library
+            </Link>
             <Link className={styles.footerColLink} href="/blog">
               Blog
             </Link>

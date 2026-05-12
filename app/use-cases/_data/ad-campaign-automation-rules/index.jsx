@@ -58,8 +58,14 @@ export const data = {
       "Scale winning creatives automatically",
       "Budget alerts and safeguards against overspend",
     ],
-    aside:
-      "Rules catch budget leaks at 2 AM and scale winners before the team logs in.",
+    aside: (
+      <>
+        Rules catch budget leaks at 2 AM and scale winners before the team logs in.{" "}
+        <Link href="/automation-rules-library">
+          Browse 12 production-tested rules →
+        </Link>
+      </>
+    ),
     platforms: [
       { src: "/meta-ads-logo.svg", alt: "Meta Ads", height: 14 },
       { src: "/tiktok-logo.png", alt: "TikTok Ads", height: 15 },
