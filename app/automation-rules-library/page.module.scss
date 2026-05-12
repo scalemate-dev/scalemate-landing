@@ -74,6 +74,28 @@
   animation: fadeUp 0.8s $uc-ease both;
 }
 
+.partnerBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  margin-bottom: 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba($uc-ink, 0.08);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 2px 6px rgba($uc-ink, 0.04);
+
+  img {
+    display: block;
+    height: 32px;
+    width: auto;
+  }
+}
+
 .eyebrow {
   @include uc-eyebrow;
   margin-bottom: 28px;

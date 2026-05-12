@@ -256,6 +256,19 @@ export default function AutomationRulesLibraryPage() {
         <Container>
           <div className={styles.heroLayout}>
             <div className={styles.heroContent}>
+              <span
+                className={styles.partnerBadge}
+                role="img"
+                aria-label="Meta Verified Partner"
+              >
+                <img
+                  src="/meta-verified-partner.svg"
+                  alt=""
+                  width="54"
+                  height="32"
+                  loading="eager"
+                />
+              </span>
               <span className={styles.eyebrow}>
                 Meta Ads &middot; Automated Rules Library
               </span>
@@ -452,12 +465,12 @@ export default function AutomationRulesLibraryPage() {
               </p>
               <div className={styles.beyondActions}>
                 <Button
-                  href="/book-a-demo"
+                  href="https://app.scalemate.co/create-account"
                   color="accent"
-                  trackEvent="beyond_book_demo"
+                  trackEvent="beyond_try_free"
                   trackProps={{ page: "automation-rules-library" }}
                 >
-                  Book a Demo
+                  Try it for free
                 </Button>
                 <Button
                   href="/features/automation-rules"
