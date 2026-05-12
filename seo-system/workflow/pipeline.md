@@ -59,7 +59,7 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
 
 > Draft готовий, чекає твого approve. Approve = рух у §6. Reject = назад у §4.
 
-- **facebook-ads-automation-listicle-rework** — full draft shipped 2026-05-08 (content-creator, local on `main`). Draft path: [`content/blog/best-facebook-ads-automation-tools.md`](../../content/blog/best-facebook-ads-automation-tools.md). Body word count ~5,527 (above the 3,500 target — comparison table is heavy on cells; trim only if Natalia requests). 12-tool slate per locked order (Scalemate #1 with self-#1 honesty intro, Meta Native, Birch, Madgicx all deep; Smartly / AdEspresso / Trapica / Kitchn table-only; AdNova + AdManage deep; Make/n8n/Zapier and Hunch/Pencil/AdCreative.ai as lateral group paragraphs). JTBD voice across all entries. Worked example (creative testing protocol with ×10 spend gate / ×2 CPI gate placeholders) inside slot #1 Scalemate. Real metrics cited: 32% budget savings, 62% time reduction, 2M+ ads launched. API docs link `scalemate.gitbook.io/scalemate-api`. Cross-links to `/automation-rules-library` × 3 (coordinated release with S9'). Internal links: 11 unique scalemate.co targets across 15 link instances. External authoritative refs: Birch, AdNova, Pencil, plus Birch's 12-rule cheat-sheet. Schema: BlogPosting + BreadcrumbList + FAQPage auto-generated from frontmatter (template-rendered) + ItemList JSON-LD inline at end of body for the 12 entries. Anti-AI: zero banned phrases (scan clean), 161 proactive facts over body (29/1000 — well above the 3/1000 floor), POV markers in every H2, ≥3 first-hand experience markers (TL;DR opener, self-#1 disclosure paragraph, worked example "we use Scalemate ourselves" frame), AdEspresso treated standard with no caveat per Natalia, no AI disclosure footer (operator-voiced). Verifications during write: Birch's Slack + email native alerts confirmed via `bir.ch/facebook-ads-automation` WebFetch 2026-05-08 (webhook / public API depth not externally documented — copy reflects this honestly). Meta Help URL for the rules cap returned 404 in two attempts (URLs shift between IDs); kept "around 250 rules per ad account historically" framing per existing how-to source — flagged in copy that the help page IDs shift. **Items Natalia should review:** (a) self-#1 honesty intro tone — confidence vs sales pitch balance; (b) worked example threshold values still set to ×10 / ×2 placeholders, swap if team has validated multipliers; (c) Birch differentiation language honest about uncertainty on webhook depth; (d) operator anecdote skipped in v1 per locked decision — gap left for future iteration.
+- _empty_
 
 ---
 
@@ -141,6 +141,14 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
   - decision: ✅ keep / monitoring — fast indexation, page 1 instantly. CTR 0% але тільки 6d; reassess T+2wk (2026-05-12). Якщо 0 clicks залишається — snippet review.
   - cluster-linking: 2026-05-07 (PR #79, S6') — 4 new inbound + 2 new outbound links added (cluster authority refresh). Anchors diversified: "creative testing system" / "ad creative testing playbook" / "creative testing framework". Total cluster connections after refresh: 6 inbound + 3 outbound.
   - cluster T+4wk milestone: 2026-06-04 — review-agent measures effect on pos 9.6 → top-5 + impressions lift across linked-FROM articles.
+- [https://www.scalemate.co/blog/best-facebook-ads-automation-tools](https://www.scalemate.co/blog/best-facebook-ads-automation-tools) — facebook-ads-automation-listicle-rework
+  - deployed: 2026-05-08 (16 follow-up iterations through 2026-05-09)
+  - artifact: content/blog/best-facebook-ads-automation-tools.md
+  - position-current: — (just deployed), ctr-current: —, imp-day: 0
+  - milestone: T+1wk (review 2026-05-15)
+  - decision: monitoring — new URL (not same-URL repurpose as S5' plan called for). 4,767 words, 13 tools (slot 13 reporting added 2026-05-09), Structure B buyer's-guide flow with Pick-by-job table at top, FAQ rebuild, comparison table sticky-first-column. Title "13 Best Facebook Ads Automation Tools 2026 (Meta + TikTok)". Cross-links to `/automation-rules-library` × 3. Old `/blog/facebook-ads-automation` left live with banner-link at top pointing here (decided 2026-05-12 — keep as deeper how-to companion, no 301 redirect).
+  - cannibalization watch: cluster `facebook ads automation` 150 vol KD 6 now has 2 URLs. Old article had indexation issues (0 imp 28d). If new listicle indexes and old stays at 0 — fine, complementary. If both stay at 0 — escalate to consolidation/redirect at T+4wk.
+  - T+1wk check 2026-05-15: indexation (SerpAPI site:) + first impressions. T+2wk 2026-05-22: position + CTR. T+4wk 2026-06-05: cannibalization decision.
 
 ---
 
