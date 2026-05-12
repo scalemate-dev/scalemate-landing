@@ -256,19 +256,6 @@ export default function AutomationRulesLibraryPage() {
         <Container>
           <div className={styles.heroLayout}>
             <div className={styles.heroContent}>
-              <span
-                className={styles.partnerBadge}
-                role="img"
-                aria-label="Meta Verified Partner"
-              >
-                <img
-                  src="/meta-verified-partner.svg"
-                  alt=""
-                  width="54"
-                  height="32"
-                  loading="eager"
-                />
-              </span>
               <span className={styles.eyebrow}>
                 Meta Ads &middot; Automated Rules Library
               </span>
@@ -318,14 +305,33 @@ export default function AutomationRulesLibraryPage() {
               </div>
             </div>
 
-            <aside className={styles.heroNumeral} aria-hidden="true">
-              <span className={styles.numeralStrap}>The library</span>
-              <span className={styles.numeralFigure}>{ruleCount}</span>
-              <div className={styles.numeralDecor}>
+            <aside className={styles.heroNumeral}>
+              <span className={styles.numeralStrap} aria-hidden="true">
+                The library
+              </span>
+              <span className={styles.numeralFigure} aria-hidden="true">
+                {ruleCount}
+              </span>
+              <div className={styles.numeralDecor} aria-hidden="true">
                 <span />
                 <span />
                 <span />
               </div>
+              <a
+                href="https://www.facebook.com/business/partner-directory"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.partnerBadge}
+                aria-label="Meta Verified Partner — view directory listing"
+              >
+                <img
+                  src="/meta-verified-partner.svg"
+                  alt="Meta Verified Partner"
+                  width="160"
+                  height="95"
+                  loading="eager"
+                />
+              </a>
             </aside>
           </div>
         </Container>
