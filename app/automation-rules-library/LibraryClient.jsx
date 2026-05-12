@@ -21,6 +21,10 @@ import styles from "./LibraryClient.module.scss"
 function computeValue(condition, inputs, mode) {
   if (mode === "production") return condition.productionValue
   if (condition.multiplier == null) return condition.productionValue
+  // rolling_avg compares to a per-account rolling stat (e.g. 7-day average
+  // spend), which can't be expressed as a fixed dollar value — the renderer
+  // shows the formula instead.
+  if (condition.benchmarkType === "rolling_avg") return null
   // For spend_floor, the anchor metric is configurable via anchorBenchmark
   // (defaults to "cpa" for back-compat with rules created before Phase 1.6).
   const anchor =
@@ -79,11 +83,28 @@ function formatMultiplier(m) {
   return `${parseFloat(m.toFixed(3))}×`
 }
 
+const WINDOW_LABELS = {
+  last_7d: "7-day rolling avg",
+  last_3d: "3-day rolling avg",
+  last_30d: "30-day rolling avg",
+}
+
+const ROLLING_METRIC_LABELS = {
+  spend: "spend",
+  cpa: "CPA",
+  cost_per_purchase: "cost-per-purchase",
+}
+
 // Inline formula string for a condition — e.g. "2× breakeven CPA",
 // "1.7× breakeven CPA", "3.667× CPC ceiling". Returns null when the
 // condition isn't benchmark-derived (absolute_spend / absolute_count).
 function buildFormula(condition) {
   if (condition.multiplier == null) return null
+  if (condition.benchmarkType === "rolling_avg") {
+    const m = ROLLING_METRIC_LABELS[condition.anchorMetric] || condition.anchorMetric || "spend"
+    const w = WINDOW_LABELS[condition.anchorWindow] || condition.anchorWindow || "rolling avg"
+    return `${formatMultiplier(condition.multiplier)} ${w} ${m}`
+  }
   const anchor =
     condition.benchmarkType === "spend_floor"
       ? condition.anchorBenchmark || "cpa"
@@ -151,6 +172,12 @@ function explainCondition(c) {
     ? c.anchorBenchmark || "cpa"
     : c.benchmarkType
   const multStr = formatMultiplier(m)
+
+  if (c.benchmarkType === "rolling_avg") {
+    const window = WINDOW_LABELS[c.anchorWindow] || c.anchorWindow || "rolling avg"
+    const metric = ROLLING_METRIC_LABELS[c.anchorMetric] || c.anchorMetric || "spend"
+    return `Anomaly trigger (${multStr} ${window} ${metric}) — catches accidental budget typos or runaway CBO before they burn the day's cap`
+  }
 
   if (isSpendFloor) {
     if (anchor === "cpa") {
@@ -246,7 +273,11 @@ function renderConditionString(conditions, inputs, mode) {
     .map((c) => {
       const v = computeValue(c, inputs, mode)
       const valueStr =
-        v == null ? "daily budget" : formatValue(v, c.unit)
+        v == null
+          ? c.benchmarkType === "rolling_avg"
+            ? `${formatMultiplier(c.multiplier)} ${WINDOW_LABELS[c.anchorWindow] || "rolling avg"} ${ROLLING_METRIC_LABELS[c.anchorMetric] || c.anchorMetric || "spend"}`
+            : "daily budget"
+          : formatValue(v, c.unit)
       const formula = buildFormula(c)
       const base = formula
         ? `${c.metricLabel} ${operatorGlyph(c.operator)} ${valueStr} (${formula})`
@@ -292,8 +323,10 @@ function chainChipLabel(rule) {
 }
 
 function hasNotify(rule) {
-  return rule.tasks.some((t) =>
-    typeof t.action === "string" && /notify\s+slack/i.test(t.action)
+  return rule.tasks.some(
+    (t) =>
+      typeof t.action === "string" &&
+      /\b(notify|alert|slack)\b/i.test(t.action)
   )
 }
 
@@ -442,7 +475,12 @@ function ConditionFragments({ conditions, inputs, mode }) {
           mode === "personalized" &&
           c.multiplier != null &&
           v !== c.productionValue
-        const valueStr = v == null ? "daily budget" : formatValue(v, c.unit)
+        const valueStr =
+          v == null
+            ? c.benchmarkType === "rolling_avg"
+              ? `${formatMultiplier(c.multiplier)} ${WINDOW_LABELS[c.anchorWindow] || "rolling avg"} ${ROLLING_METRIC_LABELS[c.anchorMetric] || c.anchorMetric || "spend"}`
+              : "daily budget"
+            : formatValue(v, c.unit)
         const formula = buildFormula(c)
         return (
           <span key={idx}>

@@ -637,87 +637,56 @@ const ALL_RULES = [
     "nativeLimitation": "Native rules can't enforce a maximum budget ceiling on the scale action — at daily +20% the ad set doubles in 4 days of consecutive winning performance. Set a manual review cadence or chain to a max-budget rollback rule before the bump compounds beyond what the team can support."
   },
   {
-    "id": "rule-44",
-    "draft": true,
-    "objectives": ["sales"],
-    "source": "production",
-    "title": "Trim campaign budget when CPA breaches your target",
-    "goal": "rollback",
-    "level": "campaign",
-    "platform": "meta",
-    "schedule": "Every 3 hours",
-    "tasks": [
-      {
-        "timeframe": "today",
-        "conditions": [
-          {
-            "metric": "cost_per_purchase",
-            "metricLabel": "Cost per purchase",
-            "operator": ">",
-            "benchmarkType": "cpa",
-            "multiplier": 1.7,
-            "productionValue": 85,
-            "unit": "currency"
-          }
-        ],
-        "action": "Decrease campaign budget by 5%"
-      }
-    ],
-    "whenToUse": "Soft rollback — instead of pausing, the campaign just trims 5% off budget every 3 hours while CPA stays above 1.7× breakeven. Useful for campaigns the team wants kept on-air through CPA wobbles, like brand-supporting campaigns or content that needs continuous delivery. Multiple cuts compound, so a stuck-bad campaign loses ~30% per day naturally.",
-    "nativeLimitation": "The rule fires every 3 hours on the same condition — Meta will keep cutting until the budget hits the platform minimum or the CPA recovers. There's no built-in floor, so an over-correction can leave the campaign running at 20% of original spend. Pair with a manual review or a budget-floor rule."
-  },
-  {
     "id": "rule-45",
-    "draft": true,
     "objectives": ["sales"],
     "source": "production",
-    "title": "Decrease campaign budget by 30% on yesterday's $500+ spend",
+    "title": "Alert team on unusual daily spend spike (50%+ above 7-day avg)",
     "goal": "budget-control",
     "level": "campaign",
     "platform": "meta",
     "schedule": "Every hour",
     "tasks": [
       {
-        "timeframe": "yesterday",
+        "timeframe": "today",
         "conditions": [
           {
             "metric": "spend",
-            "metricLabel": "Amount spent",
-            "operator": ">=",
-            "benchmarkType": "spend_floor",
-            "anchorBenchmark": "cpa",
-            "multiplier": 10,
-            "productionValue": 500,
+            "metricLabel": "Today's spend",
+            "operator": ">",
+            "benchmarkType": "rolling_avg",
+            "anchorMetric": "spend",
+            "anchorWindow": "last_7d",
+            "multiplier": 1.5,
+            "productionValue": null,
             "unit": "currency"
           }
         ],
-        "action": "Decrease campaign budget by 30%"
+        "action": "Send urgent Slack alert with campaign details"
       }
     ],
-    "whenToUse": "Pacing safeguard — when yesterday's spend on a campaign cleared 10× breakeven CPA, the rule trims 30% today regardless of performance. Used when the team has a hard daily cap and budget overshoot from automatic CBO is the bigger risk than pausing winners. DTC teams running fixed monthly budgets deploy this as a hard pacing brake — the threshold scales with your unit economics so a $200-CPA account trims at $2,000/day, not $500.",
-    "nativeLimitation": "Rule reads yesterday's spend but applies today's cut — if the campaign was paused mid-day yesterday and reactivated, the trigger still fires. The condition can't include 'and campaign is currently active', so manual hygiene matters when reactivating campaigns the next morning."
+    "whenToUse": "Anomaly detection — fires when a campaign's today-spend exceeds its own 7-day rolling average by 50% or more. Built to catch human error (typo in budget input, accidental extra zero, paste mistake) and runaway algorithmic over-pacing before they burn through a meaningful share of the daily/weekly cap. The hourly cadence keeps the response window tight — if a buyer ships a budget mistake at 9am, the team gets the Slack alert before lunch. The 50% threshold filters normal daily variance (weekends, geo shifts, post-launch ramps) while still flagging genuine spikes. Critical for performance teams running fixed monthly caps where one runaway campaign can blow the whole month in a single day.",
+    "nativeLimitation": "Meta's native rule engine does not support 'today's spend vs N-day rolling average' as a single condition — the closest native option is 'spend changed by X%' which compares to a fixed prior window, not a rolling baseline that updates daily. This rule requires Scalemate's tracking layer, or a custom script polling Meta's reporting API. Slack notifications also can't be routed to a specific channel from inside Meta's automation engine — that routing needs a layer above."
   },
   {
     "id": "rule-47",
-    "draft": true,
     "objectives": ["sales"],
     "source": "production",
-    "title": "Pause ad when 3-day ROAS drops below your floor",
+    "title": "Pause ad on weak 3-day ROAS after 5× CPA spent",
     "goal": "kill-losers",
     "level": "ad",
     "platform": "meta",
     "schedule": "Every hour",
     "tasks": [
       {
-        "timeframe": "last 3 days (incl. today)",
+        "timeframe": "last_3d",
         "conditions": [
           {
             "metric": "purchase_roas",
             "metricLabel": "ROAS",
             "operator": "<",
             "benchmarkType": "roas",
-            "multiplier": 0.1,
-            "productionValue": 0.2,
+            "multiplier": 0.5,
+            "productionValue": 1.0,
             "unit": "ratio"
           },
           {
@@ -726,16 +695,16 @@ const ALL_RULES = [
             "operator": ">",
             "benchmarkType": "spend_floor",
             "anchorBenchmark": "cpa",
-            "multiplier": 0.9,
-            "productionValue": 45,
+            "multiplier": 5,
+            "productionValue": 250,
             "unit": "currency"
           }
         ],
         "action": "Pause ad"
       }
     ],
-    "whenToUse": "Hard ROAS floor for accounts where 0.20 means 80% of revenue is lost to ad spend before any other costs. The 3-day window with ~1× CPA spend floor blocks the rule from firing on small-sample noise. Good baseline rule on prospecting campaigns where ROAS is the primary success metric and the team is willing to lose attribution-delayed signal.",
-    "nativeLimitation": "ROAS in Meta's native rule engine reads on attribution-window data — when conversion lag is 1-2 days, the 3-day figure is meaningfully understated. Expect rules to fire on 'real' ROAS that's 30-50% higher than what Meta sees at the moment of evaluation. Run on 7-day windows for high-AOV accounts."
+    "whenToUse": "Ad-level early ROAS kill — when a single ad has spent 5× breakeven CPA over 3 days and ROAS is still below half your target (50%+ revenue deficit), the ad is structurally underperforming and won't recover on its own. The 5× CPA spend floor gives enough volume for a credible ROAS reading without waiting for the heavier 20× CPA threshold used by the campaign-level rule (№ 08). Hourly cadence catches catastrophic ads before they burn another half-day's budget. Pair with № 08 for the patient campaign-level ROAS guardrail above this one.",
+    "nativeLimitation": "ROAS in Meta's native rule engine reads on attribution-window data — when conversion lag is 1-2 days, the 3-day figure is meaningfully understated. Expect rules to fire on 'real' ROAS that's 30-50% higher than what Meta sees at the moment of evaluation. Run on 7-day windows for high-AOV accounts. Also — at the ad level, ROAS can be volatile early because revenue is divided by relatively small spend. The 5× CPA floor mitigates this but doesn't eliminate it entirely on high-AOV products where one missed sale skews the metric."
   },
   {
     "id": "rule-48",
