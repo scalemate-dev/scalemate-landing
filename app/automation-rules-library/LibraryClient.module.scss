@@ -248,13 +248,11 @@
 // ─── GRID ──────────────────────────────────────
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-  align-items: start;
+  column-count: 2;
+  column-gap: 16px;
 
   @include tablet-vertical {
-    grid-template-columns: 1fr;
+    column-count: 1;
   }
 }
 
@@ -268,9 +266,11 @@
   border: 1px solid rgba($uc-ink, 0.06);
   border-radius: 16px;
   padding: 22px 22px 14px;
+  margin-bottom: 16px;
   box-shadow: $uc-shadow-card;
   transition: all 0.3s $uc-ease;
   animation: cardSettle 0.4s $uc-ease both;
+  break-inside: avoid;
 
   &:hover {
     border-color: rgba($uc-accent, 0.3);
@@ -282,7 +282,7 @@
 .cardExpanded {
   border-color: rgba($uc-accent, 0.4);
   box-shadow: $uc-shadow-panel-hover;
-  grid-column: 1 / -1;
+  column-span: all;
 
   &:hover { transform: none; }
 }
@@ -1227,7 +1227,7 @@
 // ─── EMPTY STATE ────────────────────────────────
 
 .empty {
-  grid-column: 1 / -1;
+  column-span: all;
   text-align: center;
   padding: 64px 32px;
   background: $uc-panel-bg;
