@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useMemo, useRef, useState } from "react"
+import Link from "next/link"
 import {
   RULES,
   RULE_GOALS,
@@ -13,8 +14,19 @@ import BenchmarkInput, {
   DEFAULT_STATE,
   readBenchmarkInputs,
 } from "./BenchmarkInput"
-import benchStyles from "./BenchmarkInput.module.scss"
+import { trackMixpanelEvent } from "@/helpers/analytics/mixpanel"
+import { appendTrackingParams } from "@/helpers/forwardParams"
 import styles from "./LibraryClient.module.scss"
+
+const APPLY_RULE_DESTINATION = "https://app.scalemate.co"
+
+function buildApplyRuleHref() {
+  const forwarded = appendTrackingParams(APPLY_RULE_DESTINATION)
+  if (typeof window === "undefined") return forwarded
+  const url = new URL(forwarded)
+  url.searchParams.set("utm_content", "apply_rule_card")
+  return url.toString()
+}
 
 // ─── Recalculation helpers ──────────────────────────────────────
 
@@ -91,6 +103,34 @@ const WINDOW_LABELS = {
   last_7d: "7-day rolling avg",
   last_3d: "3-day rolling avg",
   last_30d: "30-day rolling avg",
+}
+
+// Friendlier labels for the per-task `timeframe` field shown in the preview.
+// Production data mixes slug and human strings — pass through unknown values
+// so already-formatted entries like "maximum" or "last 3 days (incl. today)"
+// render as-is.
+const TIMEFRAME_LABELS = {
+  last_3d: "Last 3 days",
+  last_3_days: "Last 3 days",
+  last_7d: "Last 7 days",
+  last_30d: "Last 30 days",
+  today: "Today",
+  yesterday: "Yesterday",
+  maximum: "Lifetime",
+}
+
+function formatTimeframe(tf) {
+  if (!tf) return tf
+  return TIMEFRAME_LABELS[tf] || tf
+}
+
+// Inline form used inside the metric cell — lowercase + strip any
+// parenthetical detail so "last 3 days (incl. today)" doesn't end up nested
+// inside another set of parens when wrapped as "(last 3 days (incl. today))".
+function formatTimeframeInline(tf) {
+  if (!tf) return ""
+  const label = TIMEFRAME_LABELS[tf] || tf
+  return label.toLowerCase().replace(/\s*\([^)]*\)\s*/g, "").trim()
 }
 
 const ROLLING_METRIC_LABELS = {
@@ -351,8 +391,8 @@ function uniqueBenchmarkTypes(rule) {
   rule.tasks.forEach((t) =>
     t.conditions.forEach((c) => {
       if (c.multiplier != null) {
-        // For spend_floor, surface the anchor (so AdjustNote shows the
-        // right input names) rather than the literal "spend_floor" string.
+        // For spend_floor, surface the anchor (so the adjustment tag shows
+        // the right input names) rather than the literal "spend_floor" string.
         if (c.benchmarkType === "spend_floor") {
           set.add(c.anchorBenchmark || "cpa")
         } else {
@@ -364,76 +404,17 @@ function uniqueBenchmarkTypes(rule) {
   return Array.from(set)
 }
 
-function buildCopyText(rule, inputs, mode) {
-  const lines = [
-    `# ${rule.title}`,
-    `Goal: ${GOAL_LABELS[rule.goal] || rule.goal}`,
-    `Level: ${LEVEL_LABELS[rule.level] || rule.level}`,
-    `Schedule: ${rule.schedule}`,
-    "",
-  ]
-  if (rule.filters && rule.filters.length > 0) {
-    const scopeLabel =
-      rule.filters[0].scope === "campaign"
-        ? "Campaigns"
-        : rule.filters[0].scope === "ad-set"
-        ? "Ad sets"
-        : "Entities"
-    const windowLabel = rule.filters[0].window
-      ? ` (${rule.filters[0].window})`
-      : ""
-    lines.push(
-      `Targeting filter (${scopeLabel.toLowerCase()} scope): ${renderConditionString(rule.filters, inputs, mode)}${windowLabel}`
-    )
-    lines.push("")
-  }
-  rule.tasks.forEach((task, i) => {
-    if (rule.tasks.length > 1) lines.push(`## Step ${i + 1}`)
-    lines.push(`Condition: ${renderConditionString(task.conditions, inputs, mode)}`)
-    lines.push(`Time window: ${task.timeframe}`)
-    lines.push(`Action: ${task.action}`)
-    lines.push("")
-  })
-  if (mode === "personalized") {
-    const types = uniqueBenchmarkTypes(rule)
-    const summary = []
-    if (types.includes("cpa")) summary.push(`CPA $${inputs.cpa}`)
-    if (types.includes("roas")) summary.push(`ROAS ${inputs.roas}x`)
-    if (types.includes("cpc")) summary.push(`CPC $${inputs.cpc}`)
-    if (types.includes("cpi")) summary.push(`CPI $${inputs.cpi}`)
-    const summaryStr = summary.length
-      ? summary.join(", ")
-      : "your inputs"
-    lines.push(`# Thresholds adjusted from your inputs — ${summaryStr}`)
-  } else {
-    lines.push(
-      rule.source === "playbook"
-        ? `# Thresholds from Scalemate's playbook framework`
-        : `# Thresholds shown as production examples (live Meta accounts)`
-    )
-  }
-  return lines.join("\n").trim()
-}
-
 // ─── Icons ──────────────────────────────────────────────────────
 
-function CopyIcon() {
+function ArrowRightIcon() {
   return (
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-      <rect
-        x="3.5"
-        y="3.5"
-        width="7"
-        height="9"
-        rx="1.2"
-        stroke="currentColor"
-        strokeWidth="1.2"
-      />
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
       <path
-        d="M5.5 3V2c0-.6.4-1 1-1h5c.6 0 1 .4 1 1v8c0 .6-.4 1-1 1H10"
+        d="M3 7h8m-3-3 3 3-3 3"
         stroke="currentColor"
-        strokeWidth="1.2"
+        strokeWidth="1.5"
         strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   )
@@ -462,15 +443,21 @@ function ChevronIcon({ open }) {
   )
 }
 
-function CheckIcon() {
+function ClockIcon() {
   return (
-    <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-      <path
-        d="M2.8 6.8 5.2 9.2l5-5.4"
+    <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+      <circle
+        cx="7"
+        cy="7"
+        r="5.5"
         stroke="currentColor"
-        strokeWidth="1.6"
+        strokeWidth="1.2"
+      />
+      <path
+        d="M7 4v3l2 1.3"
+        stroke="currentColor"
+        strokeWidth="1.2"
         strokeLinecap="round"
-        strokeLinejoin="round"
       />
     </svg>
   )
@@ -496,6 +483,116 @@ function WarnIcon() {
 }
 
 // ─── Condition renderer (with personalisation styling) ──────────
+
+// Renders the conditions of a single task as a stack of cell-rows
+// [metric | operator | value] with a vertical AND bar on the left when
+// there's more than one condition. Mirrors the platform's task-block UI
+// in a minified, non-interactive form.
+function ConditionCells({ conditions, inputs, mode, timeframe }) {
+  const multi = conditions.length > 1
+  const windowInline = formatTimeframeInline(timeframe)
+  return (
+    <div className={styles.conditions}>
+      {multi && (
+        <div className={styles.andBar} aria-hidden="true">
+          <span>AND</span>
+        </div>
+      )}
+      <div className={styles.cells}>
+        {conditions.map((c, idx) => {
+          const v = computeValue(c, inputs, mode)
+          const isAdjusted =
+            mode === "personalized" &&
+            c.multiplier != null &&
+            v !== c.productionValue
+          const valueStr =
+            v == null
+              ? c.benchmarkType === "rolling_avg"
+                ? `${formatMultiplier(c.multiplier)} ${
+                    WINDOW_LABELS[c.anchorWindow] || "rolling avg"
+                  } ${
+                    ROLLING_METRIC_LABELS[c.anchorMetric] ||
+                    c.anchorMetric ||
+                    "spend"
+                  }`
+                : "daily budget"
+              : formatValue(v, c.unit)
+          const formula = buildFormula(c)
+          const showFormula = formula && formula !== valueStr
+          const captionParts = []
+          if (showFormula) captionParts.push(formula)
+          if (c.note) captionParts.push(c.note)
+          const caption = captionParts.join(" · ")
+          return (
+            <div key={idx} className={styles.cellRow}>
+              <span className={styles.cellMetric}>
+                <span className={styles.cellMetricName}>{c.metricLabel}</span>
+                {windowInline && (
+                  <span className={styles.cellMetricWindow}>
+                    ({windowInline})
+                  </span>
+                )}
+              </span>
+              <span className={styles.cellOp}>
+                {operatorGlyph(c.operator)}
+              </span>
+              <span
+                className={
+                  isAdjusted ? styles.cellValueAdjusted : styles.cellValue
+                }
+                data-tooltip={caption || undefined}
+              >
+                {valueStr}
+              </span>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+// One task block — TASK label + window chip on top, then a DO row with the
+// action text and an IF row with the condition cells. Multi-task rules
+// stack these vertically.
+function TaskBlock({ task, taskIndex, totalTasks, source, inputs, mode }) {
+  const showLabel = totalTasks > 1
+  return (
+    <div className={styles.task}>
+      {showLabel && (
+        <div className={styles.taskHeader}>
+          <span className={styles.taskLabel}>
+            Task {String(taskIndex + 1).padStart(2, "0")}
+          </span>
+        </div>
+      )}
+
+      <div className={styles.taskRow}>
+        <span className={`${styles.pill} ${styles.pillDo}`}>Do</span>
+        <span className={styles.actionText}>{task.action}</span>
+      </div>
+
+      <div className={`${styles.taskRow} ${styles.taskRowIf}`}>
+        <span className={`${styles.pill} ${styles.pillIf}`}>If</span>
+        <ConditionCells
+          conditions={task.conditions}
+          inputs={inputs}
+          mode={mode}
+          timeframe={task.timeframe}
+        />
+      </div>
+
+      {mode === "personalized" && (
+        <ProductionAnnotation
+          conditions={task.conditions}
+          inputs={inputs}
+          mode={mode}
+          source={source}
+        />
+      )}
+    </div>
+  )
+}
 
 function ConditionFragments({ conditions, inputs, mode }) {
   return (
@@ -564,7 +661,7 @@ function ProductionAnnotation({ conditions, inputs, mode, source }) {
   )
 }
 
-function AdjustNote({ rule, inputs }) {
+function AdjustInlineTag({ rule, inputs }) {
   const types = uniqueBenchmarkTypes(rule)
   if (types.length === 0) return null
   const parts = []
@@ -573,34 +670,18 @@ function AdjustNote({ rule, inputs }) {
   if (types.includes("cpc")) parts.push(`CPC $${inputs.cpc ?? "—"}`)
   if (types.includes("cpi")) parts.push(`CPI $${inputs.cpi ?? "—"}`)
   if (parts.length === 0) return null
-  const sourceTail =
-    rule.source === "playbook"
-      ? "The framework defaults come from Scalemate's playbook."
-      : "Production accounts used different numbers — see the annotations below each condition."
   return (
-    <div className={styles.adjustNote}>
-      <span className={styles.adjustNoteLabel}>Adjusted for your account</span>
-      <p>
-        Thresholds scaled from your {parts.join(" and ")}. {sourceTail}
-      </p>
-    </div>
+    <span className={styles.adjustInline} title="Thresholds above scaled from your inputs">
+      <span className={styles.adjustInlineDot} aria-hidden="true" />
+      Adjusted from your {parts.join(" and ")}
+    </span>
   )
 }
 
 // ─── Card ───────────────────────────────────────────────────────
 
-function RuleCard({
-  rule,
-  index,
-  expanded,
-  onToggle,
-  onCopy,
-  copied,
-  inputs,
-  mode,
-}) {
+function RuleCard({ rule, index, expanded, onToggle, inputs, mode }) {
   const isMulti = rule.tasks.length > 1
-  const previewTask = rule.tasks[0]
   const indexLabel = String(index + 1).padStart(2, "0")
   const adjustable = isAdjustable(rule)
 
@@ -637,168 +718,100 @@ function RuleCard({
 
       <h3 className={styles.cardTitle}>{rule.title}</h3>
 
-      <dl className={styles.cardGrid}>
-        {rule.filters && rule.filters.length > 0 && (
-          <div className={styles.gridRow}>
-            <dt>Targeting</dt>
-            <dd>
-              <code className={styles.condCode}>
-                <span className={styles.filterScope}>
-                  {rule.filters[0].scope === "campaign"
-                    ? "Campaigns where "
-                    : rule.filters[0].scope === "ad-set"
-                    ? "Ad sets where "
-                    : "Where "}
-                </span>
-                <ConditionFragments
-                  conditions={rule.filters}
-                  inputs={inputs}
-                  mode={mode}
-                />
-                {rule.filters[0].window && (
-                  <span className={styles.condNote}>
-                    {" "}
-                    ({rule.filters[0].window})
-                  </span>
-                )}
-              </code>
-            </dd>
-          </div>
-        )}
-        <div className={styles.gridRow}>
-          <dt>If</dt>
-          <dd>
-            <code className={styles.condCode}>
-              <ConditionFragments
-                conditions={previewTask.conditions}
-                inputs={inputs}
-                mode={mode}
-              />
-            </code>
-            <ProductionAnnotation
-              conditions={previewTask.conditions}
+      {rule.filters && rule.filters.length > 0 && (
+        <div className={styles.targeting}>
+          <span className={styles.targetingLabel}>Targets</span>
+          <span className={styles.targetingText}>
+            <span className={styles.filterScope}>
+              {rule.filters[0].scope === "campaign"
+                ? "Campaigns where "
+                : rule.filters[0].scope === "ad-set"
+                ? "Ad sets where "
+                : "Where "}
+            </span>
+            <ConditionFragments
+              conditions={rule.filters}
               inputs={inputs}
               mode={mode}
-              source={rule.source}
             />
-          </dd>
-        </div>
-        <div className={styles.gridRow}>
-          <dt>Window</dt>
-          <dd>
-            <code>{previewTask.timeframe}</code>
-          </dd>
-        </div>
-        <div className={styles.gridRow}>
-          <dt>Then</dt>
-          <dd>
-            {isMulti ? (
-              <div className={styles.actionStack}>
-                {rule.tasks.slice(0, 3).map((t, i) => (
-                  <code key={i}>{t.action}</code>
-                ))}
-                {rule.tasks.length > 3 && (
-                  <span className={styles.actionStackMore}>
-                    + {rule.tasks.length - 3} more
-                  </span>
-                )}
-              </div>
-            ) : (
-              <code>{previewTask.action}</code>
+            {rule.filters[0].window && (
+              <span className={styles.condNote}>
+                {" "}
+                ({rule.filters[0].window})
+              </span>
             )}
-          </dd>
+          </span>
         </div>
-        <div className={styles.gridRow}>
-          <dt>Schedule</dt>
-          <dd>
-            <code>{rule.schedule}</code>
-          </dd>
-        </div>
-      </dl>
+      )}
+
+      <div className={styles.tasks}>
+        {rule.tasks.map((task, i) => (
+          <TaskBlock
+            key={i}
+            task={task}
+            taskIndex={i}
+            totalTasks={rule.tasks.length}
+            source={rule.source}
+            inputs={inputs}
+            mode={mode}
+          />
+        ))}
+      </div>
+
+      <div className={styles.scheduleFoot}>
+        <span className={styles.scheduleFootLabel}>Runs</span>
+        <span className={styles.scheduleFootValue}>{rule.schedule}</span>
+      </div>
 
       {expanded && (
         <div className={styles.expand}>
           {adjustable && mode === "personalized" && (
-            <AdjustNote rule={rule} inputs={inputs} />
+            <AdjustInlineTag rule={rule} inputs={inputs} />
           )}
 
-          {(() => {
-            const explanations = uniqueConditionExplanations(rule)
-            if (explanations.length === 0) return null
-            return (
-              <div className={styles.breakdown}>
-                <span className={styles.breakdownLabel}>
-                  Threshold breakdown
-                </span>
-                <ul className={styles.breakdownList}>
-                  {explanations.map((ex, i) => (
-                    <li key={i} className={styles.breakdownItem}>
-                      <span className={styles.breakdownMetric}>
-                        {ex.metric}
-                      </span>
-                      <span className={styles.breakdownWhy}>{ex.why}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )
-          })()}
-
-          {isMulti && (
-            <div className={styles.chain}>
-              <span className={styles.chainLabel}>
-                The full {rule.tasks.length}-step chain
-              </span>
-              <ol className={styles.chainList}>
-                {rule.tasks.map((task, i) => (
-                  <li key={i}>
-                    <span className={styles.chainStep}>
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className={styles.chainBody}>
-                      <strong>If</strong>{" "}
-                      <code>
-                        <ConditionFragments
-                          conditions={task.conditions}
-                          inputs={inputs}
-                          mode={mode}
-                        />
-                      </code>{" "}
-                      <em>({task.timeframe})</em>
-                      <br />
-                      <strong>Then</strong> <code>{task.action}</code>
-                      <ProductionAnnotation
-                        conditions={task.conditions}
-                        inputs={inputs}
-                        mode={mode}
-                        source={rule.source}
-                      />
-                    </span>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          )}
-
-          <div className={styles.whenBlock}>
-            <span className={styles.whenLabel}>When to use</span>
+          <div className={styles.expandLead}>
+            <span className={styles.expandLabel}>Use this rule when</span>
             {rule.whenToUse ? (
-              <p>{rule.whenToUse}</p>
+              <p className={styles.expandLeadText}>{rule.whenToUse}</p>
             ) : (
-              <p className={styles.whenPlaceholder}>
+              <p
+                className={`${styles.expandLeadText} ${styles.expandLeadPlaceholder}`}
+              >
                 Context note pending — sourced from a live account, threshold
                 reasoning is being annotated.
               </p>
             )}
           </div>
 
-          <div className={styles.limitation}>
-            <span className={styles.limitationLabel}>
-              <WarnIcon />
-              Native Meta limitation
-            </span>
-            <p>{rule.nativeLimitation}</p>
-          </div>
+          {(() => {
+            const explanations = uniqueConditionExplanations(rule)
+            if (explanations.length === 0) return null
+            return (
+              <section className={styles.expandSection}>
+                <span className={styles.expandLabel}>Why these thresholds</span>
+                <ul className={styles.thresholdList}>
+                  {explanations.map((ex, i) => (
+                    <li key={i} className={styles.thresholdItem}>
+                      <span className={styles.thresholdMetric}>{ex.metric}</span>
+                      <span className={styles.thresholdWhy}>{ex.why}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )
+          })()}
+
+          {rule.nativeLimitation && (
+            <aside className={styles.caveat}>
+              <span className={styles.caveatIcon}>
+                <WarnIcon />
+              </span>
+              <div className={styles.caveatBody}>
+                <span className={styles.caveatLabel}>On native Meta</span>
+                <p className={styles.caveatProse}>{rule.nativeLimitation}</p>
+              </div>
+            </aside>
+          )}
         </div>
       )}
 
@@ -811,23 +824,27 @@ function RuleCard({
           {expanded ? "Show less" : "Show details"}
           <ChevronIcon open={expanded} />
         </button>
-        <button
-          type="button"
-          className={`${styles.copyBtn} ${copied ? styles.copyBtnDone : ""}`}
-          onClick={() => onCopy(rule)}
+        <Link
+          href={buildApplyRuleHref()}
+          className={styles.applyBtn}
+          onClick={() => {
+            trackMixpanelEvent("rules_library_apply_rule", {
+              page: "automation-rules-library",
+              rule_id: rule.id,
+              rule_title: rule.title,
+              rule_goal: rule.goal,
+              rule_level: rule.level,
+              rule_source: rule.source,
+              expanded,
+              cta_text: "Apply rule",
+              cta_destination: APPLY_RULE_DESTINATION,
+              utm_content: "apply_rule_card",
+            })
+          }}
         >
-          {copied ? (
-            <>
-              <CheckIcon />
-              Copied
-            </>
-          ) : (
-            <>
-              <CopyIcon />
-              Copy rule
-            </>
-          )}
-        </button>
+          Apply rule
+          <ArrowRightIcon />
+        </Link>
       </footer>
     </article>
   )
@@ -840,7 +857,6 @@ export default function LibraryClient() {
   const [level, setLevel] = useState("all")
   const [objective, setObjective] = useState("all")
   const [expandedId, setExpandedId] = useState(null)
-  const [copiedId, setCopiedId] = useState(null)
 
   // Benchmark inputs — start with defaults so SSR + first render match.
   // Hydrate from localStorage post-mount.
@@ -848,34 +864,6 @@ export default function LibraryClient() {
   useEffect(() => {
     setBench(readBenchmarkInputs())
   }, [])
-
-  // Sticky-collapse-on-scroll: the cluster always position-sticky at top.
-  // A sentinel placed BEFORE the cluster tells us when it's actually stuck
-  // (sentinel out of viewport top). When stuck and the user hasn't manually
-  // expanded, we render the compact summary bar instead of the full controls.
-  const clusterRef = useRef(null)
-  const topSentinelRef = useRef(null)
-  const [isStuck, setIsStuck] = useState(false)
-  const [userExpanded, setUserExpanded] = useState(false)
-
-  useEffect(() => {
-    const node = topSentinelRef.current
-    if (!node || typeof IntersectionObserver === "undefined") return
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        const stuck = !entry.isIntersecting
-        setIsStuck(stuck)
-        // Auto-collapse manual-expand state when scrolling back into the
-        // section's natural position — keeps state predictable.
-        if (!stuck) setUserExpanded(false)
-      },
-      { rootMargin: "0px 0px -100% 0px", threshold: 0 }
-    )
-    obs.observe(node)
-    return () => obs.disconnect()
-  }, [])
-
-  const isCompact = isStuck && !userExpanded
 
   // Determine objectives present in the rule set — drives whether to show
   // an objective filter at all. Rules can belong to multiple objectives
@@ -886,6 +874,39 @@ export default function LibraryClient() {
     return Array.from(set)
   }, [])
   const showObjectiveFilter = availableObjectives.length > 1
+
+  // Smart scroll restoration: when a filter shrinks the grid enough that
+  // the page's max scroll lands above the user's current scroll position,
+  // the browser snaps to the new bottom (i.e. the footer). We avoid that
+  // by checking after each filter change and smoothly anchoring the user
+  // to the top of the rules grid only when their position became invalid.
+  const gridRef = useRef(null)
+  // Skip the initial mount — we only want this to fire on user-initiated
+  // filter changes, not on hydration.
+  const firstFilterRun = useRef(true)
+
+  useEffect(() => {
+    if (firstFilterRun.current) {
+      firstFilterRun.current = false
+      return
+    }
+    if (typeof window === "undefined") return
+    // Defer to next frame so the new grid height is committed.
+    const id = requestAnimationFrame(() => {
+      const grid = gridRef.current
+      if (!grid) return
+      const gridBottom = grid.getBoundingClientRect().bottom + window.scrollY
+      const viewportBottom = window.scrollY + window.innerHeight
+      // User is reading past the new grid bottom → restore to grid top
+      // with sticky-sidebar offset.
+      if (viewportBottom > gridBottom) {
+        const target =
+          grid.getBoundingClientRect().top + window.scrollY - 88
+        window.scrollTo({ top: Math.max(0, target), behavior: "instant" })
+      }
+    })
+    return () => cancelAnimationFrame(id)
+  }, [goal, level, objective])
 
   const filtered = useMemo(() => {
     return RULES.map((rule, index) => ({ rule, index })).filter(
@@ -925,16 +946,20 @@ export default function LibraryClient() {
     setExpandedId((current) => (current === id ? null : id))
   }
 
-  const handleCopy = async (rule) => {
-    try {
-      await navigator.clipboard.writeText(
-        buildCopyText(rule, bench, bench.mode)
-      )
-      setCopiedId(rule.id)
-      setTimeout(() => setCopiedId(null), 2000)
-    } catch {
-      setCopiedId(null)
-    }
+  // Clear All is an explicit "reset" — always scroll back to the top of the
+  // grid so the user sees the fresh full list from card #1, regardless of
+  // where they were when they clicked it.
+  const handleClearFilters = () => {
+    setGoal("all")
+    setLevel("all")
+    setObjective("all")
+    if (typeof window === "undefined") return
+    requestAnimationFrame(() => {
+      const grid = gridRef.current
+      if (!grid) return
+      const target = grid.getBoundingClientRect().top + window.scrollY - 88
+      window.scrollTo({ top: Math.max(0, target), behavior: "instant" })
+    })
   }
 
   const isFiltered =
@@ -942,237 +967,161 @@ export default function LibraryClient() {
 
   return (
     <div className={styles.library}>
-      {/* Sentinel placed BEFORE the cluster — its visibility tells us whether
-          the cluster is sticking to the viewport top. */}
-      <div ref={topSentinelRef} aria-hidden="true" style={{ height: 1 }} />
+      <div className={styles.layout}>
+        <aside className={styles.sidebar}>
+          <div className={styles.sidebarHeader}>
+            <span className={styles.sidebarTitle}>Filters</span>
+            <span className={styles.sidebarCount}>
+              <strong>{filtered.length}</strong>
+              <span>/ {RULES.length}</span>
+            </span>
+          </div>
 
-      <div
-        ref={clusterRef}
-        className={`${benchStyles.stickyCluster} ${
-          isStuck ? benchStyles.stickyClusterStuck : ""
-        } ${isCompact ? benchStyles.stickyClusterCompact : ""}`}
-      >
-        {isCompact ? (
-          <button
-            type="button"
-            className={benchStyles.compactBar}
-            onClick={() => setUserExpanded(true)}
-            aria-expanded="false"
-            aria-controls="benchmark-cluster-content"
-            aria-label="Adjust thresholds — type your benchmarks to recalculate every rule"
-          >
-            <span className={benchStyles.compactCopy}>
-              <span className={benchStyles.compactEyebrow}>
-                Adjust thresholds
-              </span>
-              <span className={benchStyles.compactDescription}>
-                Type your benchmarks — every rule recalculates live.
-              </span>
-            </span>
-            <span className={benchStyles.compactToggle}>
-              Adjust
-              <svg
-                width="10"
-                height="10"
-                viewBox="0 0 10 10"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M2.5 4l2.5 2.5L7.5 4"
-                  stroke="currentColor"
-                  strokeWidth="1.4"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
-          </button>
-        ) : (
-          <div
-            id="benchmark-cluster-content"
-            className={benchStyles.clusterContent}
-          >
-            {isStuck && (
-              <button
-                type="button"
-                className={benchStyles.collapseBtn}
-                onClick={() => setUserExpanded(false)}
-                aria-expanded="true"
-                aria-controls="benchmark-cluster-content"
-              >
-                Collapse
-                <svg
-                  width="10"
-                  height="10"
-                  viewBox="0 0 10 10"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M2.5 6l2.5-2.5L7.5 6"
-                    stroke="currentColor"
-                    strokeWidth="1.4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
-            )}
+          <div className={styles.sidebarBench}>
             <BenchmarkInput
               state={bench}
               onChange={setBench}
               activeObjective={activeObjective}
             />
-
-            <div className={styles.filters}>
-          <div className={styles.filterColumn}>
-            <span className={styles.filterTag}>
-              <span className={styles.filterDot} />
-              Filter by goal
-            </span>
-            <div className={styles.chipRow}>
-              {RULE_GOALS.map((g) => (
-                <button
-                  key={g.id}
-                  type="button"
-                  onClick={() => setGoal(g.id)}
-                  className={`${styles.filterChip} ${
-                    goal === g.id ? styles.filterChipActive : ""
-                  } ${
-                    (counts.goal[g.id] || 0) === 0
-                      ? styles.filterChipEmpty
-                      : ""
-                  }`}
-                  disabled={(counts.goal[g.id] || 0) === 0}
-                >
-                  <span>{g.label}</span>
-                  <span className={styles.chipCount}>
-                    {counts.goal[g.id] || 0}
-                  </span>
-                </button>
-              ))}
-            </div>
           </div>
 
-          <div className={styles.filterColumn}>
+          <section className={styles.filterSection}>
             <span className={styles.filterTag}>
               <span className={styles.filterDot} />
-              Filter by level
+              Goal
             </span>
-            <div className={styles.chipRow}>
-              {RULE_LEVELS.map((l) => (
-                <button
-                  key={l.id}
-                  type="button"
-                  onClick={() => setLevel(l.id)}
-                  className={`${styles.filterChip} ${
-                    level === l.id ? styles.filterChipActive : ""
-                  } ${
-                    (counts.level[l.id] || 0) === 0
-                      ? styles.filterChipEmpty
-                      : ""
-                  }`}
-                  disabled={(counts.level[l.id] || 0) === 0}
-                >
-                  <span>{l.label}</span>
-                  <span className={styles.chipCount}>
-                    {counts.level[l.id] || 0}
-                  </span>
-                </button>
-              ))}
-            </div>
-          </div>
+            <ul className={styles.filterList}>
+              {RULE_GOALS.map((g) => {
+                const count = counts.goal[g.id] || 0
+                const empty = count === 0
+                return (
+                  <li key={g.id}>
+                    <button
+                      type="button"
+                      onClick={() => setGoal(g.id)}
+                      className={`${styles.filterItem} ${
+                        goal === g.id ? styles.filterItemActive : ""
+                      } ${empty ? styles.filterItemEmpty : ""}`}
+                      disabled={empty}
+                    >
+                      <span className={styles.filterItemLabel}>
+                        {g.label}
+                      </span>
+                      <span className={styles.filterItemCount}>{count}</span>
+                    </button>
+                  </li>
+                )
+              })}
+            </ul>
+          </section>
+
+          <section className={styles.filterSection}>
+            <span className={styles.filterTag}>
+              <span className={styles.filterDot} />
+              Level
+            </span>
+            <ul className={styles.filterList}>
+              {RULE_LEVELS.map((l) => {
+                const count = counts.level[l.id] || 0
+                const empty = count === 0
+                return (
+                  <li key={l.id}>
+                    <button
+                      type="button"
+                      onClick={() => setLevel(l.id)}
+                      className={`${styles.filterItem} ${
+                        level === l.id ? styles.filterItemActive : ""
+                      } ${empty ? styles.filterItemEmpty : ""}`}
+                      disabled={empty}
+                    >
+                      <span className={styles.filterItemLabel}>
+                        {l.label}
+                      </span>
+                      <span className={styles.filterItemCount}>{count}</span>
+                    </button>
+                  </li>
+                )
+              })}
+            </ul>
+          </section>
 
           {showObjectiveFilter && (
-            <div className={styles.filterColumn}>
+            <section className={styles.filterSection}>
               <span className={styles.filterTag}>
                 <span className={styles.filterDot} />
-                Filter by objective
+                Objective
               </span>
-              <div className={styles.chipRow}>
+              <ul className={styles.filterList}>
                 {RULE_OBJECTIVES.filter(
                   (o) =>
                     o.id === "all" || availableObjectives.includes(o.id)
-                ).map((o) => (
-                  <button
-                    key={o.id}
-                    type="button"
-                    onClick={() => setObjective(o.id)}
-                    className={`${styles.filterChip} ${
-                      objective === o.id ? styles.filterChipActive : ""
-                    }`}
-                  >
-                    <span>{o.label}</span>
-                    <span className={styles.chipCount}>
-                      {counts.objective[o.id] || 0}
-                    </span>
-                  </button>
-                ))}
-              </div>
+                ).map((o) => {
+                  const count = counts.objective[o.id] || 0
+                  return (
+                    <li key={o.id}>
+                      <button
+                        type="button"
+                        onClick={() => setObjective(o.id)}
+                        className={`${styles.filterItem} ${
+                          objective === o.id ? styles.filterItemActive : ""
+                        }`}
+                      >
+                        <span className={styles.filterItemLabel}>
+                          {o.label}
+                        </span>
+                        <span className={styles.filterItemCount}>{count}</span>
+                      </button>
+                    </li>
+                  )
+                })}
+              </ul>
+            </section>
+          )}
+
+          {isFiltered && (
+            <button
+              type="button"
+              className={styles.sidebarClear}
+              onClick={handleClearFilters}
+            >
+              Clear all filters
+            </button>
+          )}
+        </aside>
+
+        <div className={styles.content}>
+          <div ref={gridRef} className={styles.grid}>
+            {filtered.map(({ rule, index }) => (
+              <RuleCard
+                key={rule.id}
+                rule={rule}
+                index={index}
+                expanded={expandedId === rule.id}
+                onToggle={handleToggle}
+                inputs={bench}
+                mode={bench.mode}
+              />
+            ))}
+          </div>
+
+          {filtered.length === 0 && (
+            <div className={styles.empty}>
+              <span className={styles.emptyEyebrow}>No matches</span>
+              <p>
+                No rules match this filter combination. Try clearing one
+                filter or switching the goal.
+              </p>
+              <button
+                type="button"
+                className={styles.emptyBtn}
+                onClick={handleClearFilters}
+              >
+                Clear filters
+              </button>
             </div>
           )}
-            </div>
-          </div>
-        )}
-      </div>
-
-      <div className={styles.resultMeta}>
-        <span className={styles.resultMetaText}>
-          Showing <strong>{filtered.length}</strong> of {RULES.length} rules
-        </span>
-        {isFiltered && (
-          <button
-            type="button"
-            className={styles.clearBtn}
-            onClick={() => {
-              setGoal("all")
-              setLevel("all")
-              setObjective("all")
-            }}
-          >
-            Clear filters
-          </button>
-        )}
-      </div>
-
-      <div className={styles.grid}>
-        {filtered.map(({ rule, index }) => (
-          <RuleCard
-            key={rule.id}
-            rule={rule}
-            index={index}
-            expanded={expandedId === rule.id}
-            onToggle={handleToggle}
-            onCopy={handleCopy}
-            copied={copiedId === rule.id}
-            inputs={bench}
-            mode={bench.mode}
-          />
-        ))}
-      </div>
-
-      {filtered.length === 0 && (
-        <div className={styles.empty}>
-          <span className={styles.emptyEyebrow}>No matches</span>
-          <p>
-            No rules match this filter combination. Try clearing one filter
-            or switching the goal.
-          </p>
-          <button
-            type="button"
-            className={styles.emptyBtn}
-            onClick={() => {
-              setGoal("all")
-              setLevel("all")
-              setObjective("all")
-            }}
-          >
-            Clear filters
-          </button>
         </div>
-      )}
-
+      </div>
     </div>
   )
 }

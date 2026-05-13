@@ -1,237 +1,86 @@
 @use '../use-cases/_components/uc' as *;
 
-// ─── BENCHMARK INPUT BAR ─────────────────────────
-
-@keyframes benchDashIdle {
-  0%, 100% { width: 22px; opacity: 0.7; }
-  50%      { width: 32px; opacity: 1; }
-}
+// ─── BENCHMARK INPUT — sidebar-native, vertical stack ─────────
 
 .bench {
-  background: $uc-panel-bg;
-  border: 1px solid rgba($uc-ink, 0.07);
-  border-radius: 18px;
-  padding: 18px 22px 18px;
-  box-shadow: $uc-shadow-card;
   display: flex;
   flex-direction: column;
   gap: 14px;
-  margin-bottom: 10px;
-  position: relative;
-  backdrop-filter: blur(8px);
-  transition: border-color 0.3s $uc-ease, box-shadow 0.3s $uc-ease;
-}
-
-// When all values are still defaults, lift the surface slightly so the
-// cluster reads as "needs attention" without being aggressive about it.
-.benchAllDefault {
-  border-color: rgba($uc-accent, 0.20);
-  box-shadow:
-    $uc-shadow-card,
-    0 0 0 4px rgba($uc-accent, 0.04);
-}
-
-.benchHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
 }
 
 .benchEyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: $font-body;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: $uc-stone;
-}
-
-.benchEyebrowDash {
-  display: inline-block;
-  width: 22px;
-  height: 2px;
-  background: $uc-accent;
-  border-radius: 2px;
-  transition: width 0.3s $uc-ease, opacity 0.3s $uc-ease;
-}
-
-.benchEyebrowDashIdle {
-  animation: benchDashIdle 2.6s $uc-ease infinite;
-}
-
-.benchToggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: transparent;
-  border: 1px solid rgba($uc-ink, 0.10);
-  border-radius: 100px;
-  padding: 6px 12px;
-  font-family: $font-body;
-  font-size: 11.5px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: $uc-body;
-  cursor: pointer;
-  transition: all 0.25s $uc-ease;
-
-  &:hover {
-    border-color: rgba($uc-accent, 0.35);
-    color: $uc-accent-deep;
-    background: rgba($uc-accent, 0.04);
-  }
-}
-
-.benchToggleActive {
-  background: $uc-bg-sand;
-  border-color: $uc-line;
-  color: $uc-ink;
-
-  &:hover {
-    background: $uc-bg-sand;
-    color: $uc-ink;
-  }
-}
-
-.benchToggleDot {
-  display: block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: $uc-accent;
-}
-
-.benchToggleActive .benchToggleDot {
-  background: $uc-stone;
-}
-
-// ─── Multi-objective groupings (when activeObjective === "all") ─────
-
-.benchGroups {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.benchGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.benchGroupLabel {
-  display: inline-flex;
-  align-items: center;
   font-family: $font-body;
   font-size: 10.5px;
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: $uc-body;
-
-  &::before {
-    content: "";
-    display: inline-block;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: $uc-accent;
-    margin-right: 8px;
-  }
-}
-
-// ─── Input row ──────────────────────────────────
-
-.benchInputs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: stretch;
-}
-
-.benchField {
-  flex: 1 1 180px;
-  min-width: 160px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  transition: opacity 0.25s $uc-ease;
-}
-
-.benchLabel {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: $font-body;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   color: $uc-stone;
 }
 
-// Default-state tag — appended next to label when value === field.default
-.benchDefaultTag {
+// ─── Input field ─────────────────────────────────
+
+.benchInputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.benchField {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  background: rgba($uc-ink, 0.02);
+  border: 1px solid rgba($uc-ink, 0.07);
+  border-radius: 10px;
+  transition: background 0.2s $uc-ease, border-color 0.2s $uc-ease,
+    box-shadow 0.2s $uc-ease;
+
+  &:focus-within {
+    border-color: rgba($uc-accent, 0.5);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba($uc-accent, 0.1);
+  }
+}
+
+.benchLabel {
   font-family: $font-body;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: $uc-accent-deep;
-  opacity: 0.75;
+  color: $uc-body;
+  letter-spacing: 0.01em;
 }
 
 .benchInputWrap {
-  position: relative;
-  display: flex;
-  align-items: center;
-  background: rgba($uc-ink, 0.02);
-  border: 1px solid rgba($uc-ink, 0.10);
-  border-radius: 100px;
-  padding: 4px 14px 4px 12px;
-  transition: all 0.2s $uc-ease;
-
-  &:focus-within {
-    border-color: rgba($uc-accent, 0.50);
-    background: rgba($uc-accent, 0.03);
-    box-shadow: 0 0 0 3px rgba($uc-accent, 0.10);
-  }
+  display: inline-flex;
+  align-items: baseline;
+  gap: 1px;
+  min-width: 0;
 }
 
 .benchPrefix,
 .benchSuffix {
-  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-family: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
   font-size: 13px;
-  font-weight: 600;
-  color: $uc-stone;
+  font-weight: 500;
+  color: $uc-body-faded;
   user-select: none;
 }
 
-.benchPrefix {
-  margin-right: 4px;
-}
-
-.benchSuffix {
-  margin-left: 2px;
-}
-
 .benchInput {
-  flex: 1;
+  width: 56px;
   min-width: 0;
   background: transparent;
   border: 0;
   outline: 0;
-  font-family: 'SF Mono', 'Fira Code', monospace;
-  font-size: 14px;
+  font-family: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+  font-size: 13.5px;
   font-weight: 600;
   color: $uc-ink;
-  padding: 8px 0;
+  text-align: right;
   letter-spacing: -0.01em;
+  padding: 4px 0;
   transition: color 0.25s $uc-ease;
 
   &::-webkit-inner-spin-button,
@@ -239,358 +88,87 @@
     appearance: none;
     margin: 0;
   }
-
   appearance: textfield;
   -moz-appearance: textfield;
 }
 
-// Field-level muted state — value text + prefix/suffix soften so the user
-// reads "this is not my number" without it being noisy. As soon as the user
-// edits the field, the muted modifier clears (via React state).
-.benchFieldDefault {
-  .benchInput {
-    color: $uc-stone;
-  }
-  .benchPrefix,
-  .benchSuffix {
-    color: $uc-body-faded;
-  }
-  .benchInputWrap {
-    background: rgba($uc-ink, 0.015);
-    border-color: rgba($uc-ink, 0.07);
-  }
 
-  // Focus still wins — full ink + accent ring on edit
-  .benchInputWrap:focus-within {
-    background: rgba($uc-accent, 0.03);
-    border-color: rgba($uc-accent, 0.50);
+// ─── Disclosure for the secondary objective group ────
 
-    & + * { /* no-op selector to keep specificity simple */ }
-  }
-  .benchInputWrap:focus-within .benchInput {
-    color: $uc-ink;
-  }
-}
-
-.benchDisabled {
-  opacity: 0.55;
-
-  .benchInputWrap {
-    background: rgba($uc-ink, 0.015);
-  }
-}
-
-// ─── Hint row ─────────────────────────────────
-
-.benchHint {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-family: $font-body;
-  font-style: italic;
-  font-size: 12px;
-  color: $uc-stone;
-  margin: 0;
-  line-height: 1.5;
-  transition: color 0.3s $uc-ease;
-}
-
-// When all defaults active — promote the hint to body color + non-italic for
-// stronger read. Returns to muted style after first input change.
-.benchHintProminent {
-  color: $uc-body;
-  font-style: normal;
-}
-
-.benchHintIcon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 14px;
-  height: 14px;
-  border: 1px solid currentColor;
-  border-radius: 50%;
-  font-size: 9px;
-  font-weight: 700;
-  font-style: normal;
-  flex-shrink: 0;
-}
-
-.benchHint strong {
-  font-style: normal;
-  font-weight: 600;
-  color: $uc-body;
-}
-
-// ─── Cluster wrap (BenchmarkInput + Filters) — sticky-collapse-on-scroll ─
-// 2026-05-09: switched to sticky-collapse pattern. The cluster lives inline
-// in flow at the top of the library section (full controls visible). When
-// the user scrolls past it, position-sticky kicks in and the LibraryClient
-// renders a compact summary bar in place of the full controls. The user
-// can click "Adjust" on the compact bar to expand the controls back inline
-// (still sticky), or "Collapse" to return to compact.
-
-.stickyCluster {
-  position: sticky;
-  // Header is fixed at top:10px and ~46px tall + ~10px shadow space = ~66px.
-  // Add 10px breathing room → 76px. The bar docks just below the header so
-  // both surfaces are visible — header layered above, bar slotting in beneath.
-  top: 76px;
-  z-index: 12;
+.benchSecondary {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin: 0 -32px 28px;
-  padding: 28px 32px 24px;
-  background: linear-gradient(168deg, $uc-bg-sand 0%, lighten($uc-bg-sand, 2%) 100%);
-  border-top: 1px solid $uc-line;
-  border-bottom: 1px solid $uc-line;
-  scroll-margin-top: 0;
-  transition: padding 0.25s $uc-ease, box-shadow 0.25s $uc-ease;
-
-  // Accent stripe — left orange line, always present.
-  &::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: $uc-accent;
-    z-index: 1;
-  }
+  gap: 10px;
 }
 
-// Stuck = elevated control surface. Background shifts from sand → crisp
-// cream so it visibly separates from the warm sand cards behind. Layered
-// warm shadow lifts it above the page. Left accent stripe boosts to 4px.
-.stickyClusterStuck {
-  background: linear-gradient(168deg, #fffdfa 0%, #fffaf3 100%);
-  box-shadow:
-    0 1px 0 rgba($uc-ink, 0.04),
-    0 10px 28px rgba(42, 39, 36, 0.10),
-    0 22px 64px rgba(42, 39, 36, 0.06);
-
-  &::before {
-    width: 4px;
-  }
-}
-
-// Compact mode: ~52px slim bar with eyebrow + 1-line description + pill.
-// Replaces the prior 28px hairline (too thin to convey purpose). Padding
-// keeps the bar reading as a self-contained toolbar, not a hidden hint.
-.stickyClusterCompact {
-  padding: 8px 32px;
-  animation: stuckReveal 0.32s $uc-ease both;
-
-  // Orange-tinted hairline at the bottom edge — separates strip from
-  // cards and keeps brand presence even at minimal height.
-  &::after {
-    content: "";
-    position: absolute;
-    left: 14%;
-    right: 14%;
-    bottom: 0;
-    height: 1px;
-    background: linear-gradient(
-      to right,
-      transparent 0%,
-      rgba($uc-accent, 0.35) 50%,
-      transparent 100%
-    );
-    pointer-events: none;
-    z-index: 2;
-  }
-}
-
-@keyframes stuckReveal {
-  from {
-    opacity: 0;
-    transform: translateY(-12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.clusterContent {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-// ─── Compact bar (52px slim toolbar) ────────────
-// Two-zone layout: copy block on the left (eyebrow + 1-line description),
-// pill button on the right. The whole bar is the click target; the pill
-// is the visual affordance anchor. Top hairline links visually to the 4px
-// orange left stripe so the bar reads as part of one branded surface.
-
-.compactBar {
+.benchDisclosure {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 8px;
   width: 100%;
-  min-height: 52px;
+  padding: 8px 12px;
+  background: transparent;
+  border: 1px dashed rgba($uc-ink, 0.15);
+  border-radius: 10px;
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: $uc-body;
+  cursor: pointer;
+  transition: border-color 0.2s $uc-ease, color 0.2s $uc-ease,
+    background 0.2s $uc-ease;
+
+  &:hover {
+    border-color: rgba($uc-accent, 0.45);
+    color: $uc-accent-deep;
+    background: rgba($uc-accent, 0.03);
+  }
+
+  &[aria-expanded="true"] {
+    border-style: solid;
+    border-color: rgba($uc-ink, 0.12);
+    color: $uc-ink;
+  }
+
+  svg {
+    flex-shrink: 0;
+    color: currentColor;
+  }
+}
+
+// ─── Clear thresholds — subtle underlined text link ──
+
+.benchClear {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
   padding: 0;
   background: transparent;
   border: 0;
-  border-top: 1px solid rgba($uc-accent, 0.22);
   font-family: $font-body;
-  text-align: left;
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: $uc-body-faded;
   cursor: pointer;
-  color: $uc-ink;
-  position: relative;
-  transition: background 0.2s $uc-ease, border-top-color 0.2s $uc-ease;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  transition: color 0.2s $uc-ease, text-decoration-color 0.2s $uc-ease;
 
-  &:hover {
-    background: rgba($uc-accent, 0.04);
-    border-top-color: rgba($uc-accent, 0.42);
-  }
-}
-
-.compactCopy {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  min-width: 0;
-  overflow: hidden;
-}
-
-.compactEyebrow {
-  display: inline-flex;
-  align-items: center;
-  font-family: $font-body;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: $uc-stone;
-  line-height: 1.2;
-}
-
-.compactDescription {
-  font-family: $font-body;
-  font-size: 13px;
-  line-height: 1.4;
-  color: $uc-body;
-  margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.compactToggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  flex-shrink: 0;
-  padding: 4px 12px;
-  background: $uc-ink;
-  color: #fff;
-  border: 1px solid $uc-ink;
-  border-radius: 100px;
-  font-family: $font-body;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  transition: background 0.22s $uc-ease, border-color 0.22s $uc-ease,
-    box-shadow 0.22s $uc-ease, transform 0.22s $uc-ease;
-
-  .compactBar:hover & {
-    background: $uc-ink-soft;
-    border-color: $uc-accent-deep;
-    box-shadow: 0 0 0 4px rgba($uc-accent, 0.12);
-    transform: translateY(-1px);
+  &:hover:not(:disabled) {
+    color: $uc-accent-deep;
+    text-decoration-color: rgba($uc-accent, 0.5);
   }
 
-  svg {
-    color: $uc-accent-light;
-    transition: transform 0.22s $uc-ease;
-  }
-
-  .compactBar:hover & svg {
-    transform: translateY(1px);
-  }
-}
-
-// ─── Collapse button (when stuck + expanded) ────
-// Lives ABOVE the BenchmarkInput card in normal flow — right-aligned via
-// `align-self`. No absolute positioning so it can never collide with the
-// "Use production examples" toggle inside .benchHeader. Visually distinct
-// from .benchToggle (ink-fill pill vs ghost outline) so the two corner-
-// adjacent controls read as different actions.
-
-.collapseBtn {
-  align-self: flex-end;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  background: $uc-ink;
-  color: #fff;
-  border: 1px solid $uc-ink;
-  border-radius: 100px;
-  font-family: $font-body;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  cursor: pointer;
-  transition: background 0.2s $uc-ease, border-color 0.2s $uc-ease,
-    box-shadow 0.2s $uc-ease, transform 0.2s $uc-ease;
-
-  svg {
-    color: $uc-accent-light;
-    transition: transform 0.2s $uc-ease;
-  }
-
-  &:hover {
-    background: $uc-ink-soft;
-    border-color: $uc-accent-deep;
-    box-shadow: 0 0 0 4px rgba($uc-accent, 0.10);
-    transform: translateY(-1px);
-
-    svg {
-      transform: translateY(-1px);
-    }
-  }
-}
-
-@include tablet-vertical {
-  // Drop sticky on tablet/mobile — full controls always visible inline.
-  .stickyCluster {
-    position: static;
-    margin: 0 -16px 24px;
-    padding: 20px 16px 18px;
-    box-shadow: none !important;
-  }
-  .stickyClusterCompact {
-    padding: 20px 16px 18px;
-  }
-  .compactBar { display: none; }
-  .collapseBtn { display: none; }
-  .clusterContent { display: flex !important; }
-
-  .bench {
-    padding: 14px 16px;
-    border-radius: 14px;
-    backdrop-filter: none;
-  }
-  .benchInputs {
-    gap: 8px;
-  }
-  .benchField {
-    flex: 1 1 100%;
-    min-width: 0;
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
   }
 }
 
 @include mobile {
-  .bench {
-    padding: 12px 14px;
-  }
   .benchInput { font-size: 13px; }
 }

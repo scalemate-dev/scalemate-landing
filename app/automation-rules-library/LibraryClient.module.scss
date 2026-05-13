@@ -16,27 +16,91 @@
   position: relative;
 }
 
-// ─── FILTER BAR ─────────────────────────────────
+// ─── LAYOUT (Sidebar + Grid) ───────────────────
 
-.filters {
-  background: $uc-panel-bg;
-  border: 1px solid rgba($uc-ink, 0.07);
-  border-radius: 18px;
-  padding: 24px 28px;
-  box-shadow: $uc-shadow-card;
+.layout {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
+  grid-template-columns: 256px minmax(0, 1fr);
   gap: 32px;
-  // sticky behaviour now handled by parent `.stickyCluster` (see
-  // BenchmarkInput.module.scss) so the input bar + filters lock together.
-  backdrop-filter: blur(8px);
+  margin-top: 32px;
+  align-items: start;
 }
 
-.filterColumn {
+.content {
+  min-width: 0;
+}
+
+// ─── SIDEBAR ──────────────────────────────────
+
+.sidebar {
+  position: sticky;
+  // Dock just below the fixed site header (~66px tall + 10px top offset +
+  // small gap).
+  top: 88px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  min-width: 0;
+  gap: 20px;
+  padding: 22px 18px 18px;
+  background: $uc-panel-bg;
+  border: 1px solid rgba($uc-ink, 0.07);
+  border-radius: 16px;
+  box-shadow: $uc-shadow-card;
+  // Cap height so the rail always fits in the viewport — internal scroll
+  // only appears when sidebar contents exceed available space.
+  max-height: calc(100vh - 108px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba($uc-ink, 0.18) transparent;
+
+  &::-webkit-scrollbar { width: 5px; }
+  &::-webkit-scrollbar-thumb {
+    background: rgba($uc-ink, 0.15);
+    border-radius: 3px;
+  }
+}
+
+// BenchmarkInput slot inside the sidebar. The component's own SCSS handles
+// the layout for this context (sidebar is its only consumer); this slot just
+// reserves spacing + a divider so the inputs read as part of the rail.
+.sidebarBench {
+  padding-bottom: 18px;
+  border-bottom: 1px solid $uc-line;
+}
+
+.sidebarHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 1px solid $uc-line;
+}
+
+.sidebarTitle {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  color: $uc-ink;
+}
+
+.sidebarCount {
+  font-family: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: -0.01em;
+  color: $uc-stone;
+
+  strong {
+    font-weight: 700;
+    color: $uc-ink;
+  }
+
+  span { color: $uc-body-faded; }
+}
+
+.filterSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .filterTag {
@@ -44,146 +108,151 @@
   align-items: center;
   gap: 8px;
   font-family: $font-body;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.18em;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: $uc-stone;
+  padding-left: 2px;
 }
 
 .filterDot {
   display: block;
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   background: $uc-accent;
 }
 
-.chipRow {
+.filterList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
+  flex-direction: column;
+  gap: 2px;
 }
 
-.filterChip {
-  display: inline-flex;
+.filterItem {
+  position: relative;
+  width: 100%;
+  display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 14px 8px 16px;
-  background: rgba($uc-ink, 0.02);
-  border: 1px solid rgba($uc-ink, 0.07);
-  border-radius: 100px;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 12px 8px 14px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
   font-family: $font-body;
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 500;
   color: $uc-body;
+  text-align: left;
   cursor: pointer;
-  transition: all 0.25s $uc-ease;
-  letter-spacing: 0.005em;
+  transition: background 0.2s $uc-ease, color 0.2s $uc-ease, border-color 0.2s $uc-ease;
+
+  // Quiet left rail — appears on hover and active
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) scaleY(0);
+    transform-origin: center;
+    width: 2px;
+    height: 18px;
+    background: $uc-accent;
+    border-radius: 2px;
+    transition: transform 0.25s $uc-ease;
+  }
 
   &:hover:not(:disabled) {
-    border-color: rgba($uc-accent, 0.4);
+    background: rgba($uc-ink, 0.025);
     color: $uc-ink;
-    background: rgba($uc-accent, 0.04);
+
+    &::before {
+      transform: translateY(-50%) scaleY(0.7);
+    }
   }
 
   &:disabled {
-    opacity: 0.4;
+    opacity: 0.35;
     cursor: not-allowed;
   }
 }
 
-.filterChipActive {
-  background: $uc-ink;
-  border-color: $uc-ink;
-  color: #fff;
+.filterItemActive {
+  background: rgba($uc-accent, 0.06);
+  color: $uc-accent-deep;
+  font-weight: 600;
+
+  &::before {
+    transform: translateY(-50%) scaleY(1);
+  }
 
   &:hover:not(:disabled) {
-    background: $uc-ink-soft;
-    border-color: $uc-ink-soft;
-    color: #fff;
+    background: rgba($uc-accent, 0.09);
+    color: $uc-accent-deep;
   }
 }
 
-.filterChipEmpty {
-  opacity: 0.35;
+.filterItemEmpty {
+  opacity: 0.4;
 }
 
-.chipCount {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 22px;
-  height: 20px;
-  padding: 0 7px;
-  border-radius: 100px;
-  background: rgba($uc-ink, 0.06);
-  font-family: 'SF Mono', 'Fira Code', monospace;
-  font-size: 11px;
+.filterItemLabel {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.filterItemCount {
+  flex-shrink: 0;
+  font-family: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+  font-size: 11.5px;
   font-weight: 600;
-  color: $uc-body;
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
+  color: $uc-body-faded;
+  min-width: 18px;
+  text-align: right;
 
-  .filterChipActive & {
-    background: rgba(#fff, 0.18);
-    color: #fff;
+  .filterItemActive & {
+    color: $uc-accent-deep;
   }
 }
 
-// ─── RESULT META ─────────────────────────────────
-
-.resultMeta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 6px;
-  margin-bottom: 24px;
-}
-
-.resultMetaText {
-  font-family: $font-body;
-  font-style: italic;
-  font-size: 13px;
-  color: $uc-stone;
-
-  strong {
-    font-style: normal;
-    font-weight: 600;
-    color: $uc-ink;
-  }
-}
-
-.clearBtn {
-  font-family: $font-body;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: $uc-accent-deep;
+.sidebarClear {
+  margin-top: 4px;
+  padding: 10px 12px;
   background: transparent;
-  border: none;
-  padding: 4px 0;
+  border: 1px dashed rgba($uc-accent, 0.45);
+  border-radius: 10px;
+  font-family: $font-body;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: $uc-accent-deep;
   cursor: pointer;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
+  transition: all 0.25s $uc-ease;
 
-  &:hover { color: $uc-accent; }
+  &:hover {
+    background: rgba($uc-accent, 0.06);
+    border-color: $uc-accent;
+    border-style: solid;
+  }
 }
 
 // ─── GRID ──────────────────────────────────────
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  align-items: start;
-
-  @include tablet-horizontal {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  column-count: 2;
+  column-gap: 16px;
 
   @include tablet-vertical {
-    grid-template-columns: 1fr;
+    column-count: 1;
   }
 }
 
@@ -197,9 +266,11 @@
   border: 1px solid rgba($uc-ink, 0.06);
   border-radius: 16px;
   padding: 22px 22px 14px;
+  margin-bottom: 16px;
   box-shadow: $uc-shadow-card;
   transition: all 0.3s $uc-ease;
   animation: cardSettle 0.4s $uc-ease both;
+  break-inside: avoid;
 
   &:hover {
     border-color: rgba($uc-accent, 0.3);
@@ -211,11 +282,10 @@
 .cardExpanded {
   border-color: rgba($uc-accent, 0.4);
   box-shadow: $uc-shadow-panel-hover;
-  grid-column: span 2;
-
-  @include tablet-vertical {
-    grid-column: span 1;
-  }
+  column-span: all;
+  // column-span swallows the previous card's margin-bottom — force the
+  // gap explicitly so the expanded card doesn't kiss the card above.
+  margin-top: 16px;
 
   &:hover { transform: none; }
 }
@@ -260,7 +330,7 @@
   white-space: nowrap;
 }
 
-.chip-kill-losers {
+.chip-stop-loss {
   color: #B25241;
   background: rgba(#C0785E, 0.08);
   border: 1px solid rgba(#C0785E, 0.18);
@@ -278,7 +348,7 @@
   border: 1px solid rgba($uc-accent, 0.20);
 }
 
-.chip-rollback {
+.chip-reactivate {
   color: #6B5CE7;
   background: rgba(#6B5CE7, 0.06);
   border: 1px solid rgba(#6B5CE7, 0.18);
@@ -373,77 +443,406 @@
 .cardTitle {
   font-family: $font-heading;
   font-weight: 700;
-  font-size: 17px;
-  line-height: 1.3;
-  letter-spacing: -0.025em;
+  font-size: 18px;
+  line-height: 1.28;
+  letter-spacing: -0.028em;
   color: $uc-ink;
-  margin: 0 0 16px;
-  min-height: 44px;
+  margin: 0 0 18px;
+  min-height: 46px;
 }
 
-// ─── Key-value grid ─────────────────────────────
+// ─── PREVIEW STRUCTURE ──────────────────────────
+//
+// Mirrors the platform's task-block UI in a minified, read-only form.
+// Anatomy:
+//   • Optional `.targeting` (rule-scoped filter as a single sentence)
+//   • `.tasks` — one or more `.task` blocks stacked vertically
+//   • Each `.task` has:
+//       – `.taskHeader` (small caps "TASK 01" + window chip)
+//       – `.taskRow` for the DO action (pill + plain text)
+//       – `.taskRow.taskRowIf` for the IF block (pill + conditions)
+//   • `.conditions` is the IF block — vertical AND bar on the left when
+//     there are 2+ conditions, plus a grid of cell rows
+//   • Each cell row: [metric (1fr) | operator | value], with the formula
+//     caption spanning all columns underneath when present
+//   • `.scheduleFoot` — thin run-cadence line under all tasks
 
-.cardGrid {
+// Targeting filter — only present on rules with a `filters` array.
+// Renders as a quiet single-line sentence ABOVE the task list.
+.targeting {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 2px 0 4px;
+  // No bottom border — `.tasks` already draws a top border that serves as
+  // the divider. Together they rendered a visible double line on rules
+  // that have both a targeting filter and a task list.
+}
+
+.targetingLabel {
+  flex-shrink: 0;
+  font-family: $font-body;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $uc-stone;
+  padding-top: 1px;
+}
+
+.targetingText {
+  font-family: $font-body;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: $uc-body;
+  min-width: 0;
+  word-break: break-word;
+}
+
+// Stack of task blocks. Top + bottom padding gives the preview area its own
+// space before the schedule meta line.
+.tasks {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 14px 0 16px;
-  margin: 0 0 4px;
+  gap: 18px;
+  padding: 16px 0 14px;
   border-top: 1px solid $uc-line;
-  border-bottom: 1px solid $uc-line;
 }
 
-.gridRow {
-  display: grid;
-  grid-template-columns: 64px 1fr;
-  gap: 12px;
-  align-items: baseline;
+// Multi-task rules get a thin dashed divider between consecutive tasks so
+// they read as separate steps without a heavy boxed container.
+.task + .task {
+  padding-top: 18px;
+  border-top: 1px dashed $uc-dash;
+}
 
-  dt {
-    font-family: $font-body;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+.task {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.taskHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  min-height: 22px;
+}
+
+.taskLabel {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $uc-body-faded;
+}
+
+.taskWindow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px 3px 8px;
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: $uc-body;
+  background: $uc-bg-sand;
+  border: 1px solid $uc-line;
+  border-radius: 100px;
+
+  svg {
     color: $uc-stone;
-    margin: 0;
+    flex-shrink: 0;
   }
+}
 
-  dd {
-    margin: 0;
-    min-width: 0;
+// One row inside a task — the pill takes a fixed column, content fills the
+// rest. The IF row variant uses `start` alignment so the pill stays at the
+// top of the conditions block as it grows.
+.taskRow {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+}
 
-    code {
-      font-family: 'SF Mono', 'Fira Code', monospace;
-      font-size: 12.5px;
-      line-height: 1.45;
-      color: $uc-ink;
-      background: transparent;
-      word-break: break-word;
-      letter-spacing: -0.005em;
+.taskRowIf {
+  align-items: start;
+}
+
+// ─── DO / IF pills ──────────────────────────────
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 26px;
+  border-radius: 100px;
+  font-family: $font-body;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+// "DO" — solid coral, matches the production platform pill.
+.pillDo {
+  background: $uc-pain;
+  color: #fff;
+  box-shadow: 0 1px 2px rgba($uc-pain, 0.2);
+}
+
+// "IF" — outlined cream-on-orange, matches the production platform pill.
+.pillIf {
+  background: rgba($uc-accent, 0.05);
+  color: $uc-accent-deep;
+  border: 1px solid rgba($uc-accent, 0.38);
+  margin-top: 3px; // optical balance: pull pill down to align with first cell
+}
+
+// ─── DO action text ─────────────────────────────
+
+.actionText {
+  font-family: $font-body;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: $uc-ink;
+  padding: 4px 2px;
+  letter-spacing: -0.005em;
+}
+
+// ─── IF: conditions block ───────────────────────
+//
+// Flex layout: vertical AND bar on the left (when multi-condition),
+// cells grid on the right.
+
+.conditions {
+  display: flex;
+  gap: 5px;
+  align-items: stretch;
+  min-width: 0;
+}
+
+.andBar {
+  width: 20px;
+  flex-shrink: 0;
+  background: $uc-ink-soft;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0;
+
+  span {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-family: $font-body;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+}
+
+// Cells grid — same display: contents pattern so columns stay aligned
+// across multiple condition rows.
+.cells {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(40px, auto);
+  column-gap: 4px;
+  row-gap: 4px;
+  align-items: stretch;
+  min-width: 0;
+}
+
+.cellRow {
+  display: contents;
+}
+
+// Common cell chrome — soft sand background, no border, rounded.
+.cellMetric,
+.cellOp,
+.cellValue,
+.cellValueAdjusted {
+  background: $uc-bg-sand;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 7px 11px;
+  font-family: $font-body;
+  font-size: 12.5px;
+  line-height: 1.3;
+  color: $uc-ink;
+  display: flex;
+  align-items: center;
+}
+
+// Metric cell — holds the metric name + an inline window parenthetical
+// ("Purchases (last 3 days)"). The window text is smaller + dimmer so the
+// metric name reads as the primary label. Cell wraps to two lines on narrow
+// cards rather than truncating.
+.cellMetric {
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 6px 11px;
+  line-height: 1.35;
+}
+
+.cellMetricName {
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: $uc-ink;
+}
+
+.cellMetricWindow {
+  font-size: 11px;
+  font-weight: 400;
+  color: $uc-stone;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.cellOp {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-weight: 700;
+  font-size: 13px;
+  color: $uc-accent-deep;
+  padding: 7px 9px;
+  justify-content: center;
+  min-width: 32px;
+}
+
+.cellValue {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.cellValueAdjusted {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: -0.02em;
+  color: $uc-accent-deep;
+  background: rgba($uc-accent, 0.10);
+  border-color: rgba($uc-accent, 0.30);
+  white-space: nowrap;
+  justify-content: flex-end;
+  position: relative;
+}
+
+// Hover tooltip — surfaces the threshold formula ("0.9× breakeven CPA")
+// without occupying vertical space inside the IF block. Dotted underline
+// signals "hoverable" so the affordance is discoverable.
+.cellValue[data-tooltip],
+.cellValueAdjusted[data-tooltip] {
+  cursor: help;
+
+  // Subtle dotted underline as the discoverability hint.
+  // Using a span with inline-block + border-bottom would conflict with
+  // flex alignment, so we use text-decoration on the cell directly —
+  // the decoration ends up just under the value text.
+  text-decoration: underline dotted;
+  text-decoration-color: rgba($uc-stone, 0.5);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+
+  &:hover {
+    text-decoration-color: rgba($uc-stone, 0.85);
+
+    &::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: calc(100% + 7px);
+      right: 0;
+      // width: max-content so the tooltip auto-sizes to its content on one
+      // line; max-width caps it so very long captions wrap to multi-line.
+      // Without this, abs-positioned ::after with `right: 0` inherits the
+      // narrow cell width and breaks word-by-word.
+      width: max-content;
+      max-width: 240px;
+      padding: 7px 11px;
+      background: $uc-ink;
+      color: #fff;
+      border-radius: 6px;
+      font-family: $font-body;
+      font-size: 11.5px;
+      font-weight: 500;
+      font-style: normal;
+      letter-spacing: 0.005em;
+      line-height: 1.4;
+      text-align: left;
+      white-space: normal;
+      overflow-wrap: break-word;
+      box-shadow: 0 4px 14px rgba($uc-ink, 0.18);
+      pointer-events: none;
+      z-index: 10;
+      animation: tooltipFade 0.18s $uc-ease both;
+    }
+
+    // Tooltip arrow
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: calc(100% + 2px);
+      right: 14px;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid $uc-ink;
+      pointer-events: none;
+      z-index: 10;
     }
   }
 }
 
-.actionStack {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-
-  code {
-    display: block;
-  }
+@keyframes tooltipFade {
+  from { opacity: 0; transform: translateY(2px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.actionStackMore {
+// ─── Schedule footer ────────────────────────────
+
+.scheduleFoot {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 12px 0 4px;
+  border-top: 1px solid $uc-line;
   font-family: $font-body;
-  font-size: 11.5px;
-  font-style: italic;
-  color: $uc-stone;
-  margin-top: 2px;
+  font-size: 11px;
+  letter-spacing: 0.005em;
+  width: 100%;
 }
 
-// ─── CONDITION FRAGMENTS (preview + chain) ───────
+.scheduleFootLabel {
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $uc-stone;
+}
+
+.scheduleFootValue {
+  font-weight: 500;
+  color: $uc-body;
+}
+
+// ─── CONDITION FRAGMENTS (inline — used in chain expanded view) ───────
 
 .condCode {
   font-family: 'SF Mono', 'Fira Code', monospace;
@@ -520,247 +919,192 @@
 
 // ─── ADJUST NOTE (expand panel header) ──────────
 
-.adjustNote {
-  background: linear-gradient(
-    168deg,
-    rgba($uc-accent, 0.06) 0%,
-    rgba($uc-accent, 0.02) 100%
-  );
-  border: 1px solid rgba($uc-accent, 0.20);
-  border-left: 3px solid $uc-accent;
-  border-radius: 10px;
-  padding: 12px 14px;
-}
-
-.adjustNoteLabel {
-  display: block;
-  font-family: $font-body;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: $uc-accent-deep;
-  margin-bottom: 4px;
-}
-
-.adjustNote p {
-  margin: 0;
-  font-family: $font-body;
-  font-size: 12.5px;
-  line-height: 1.55;
-  color: $uc-body;
-}
-
 // ─── EXPANDED PANEL ──────────────────────────────
+//
+// Three sections share the card's "operator runbook" vocabulary:
+// neutral stone eyebrows (matching .targetingLabel / .scheduleFootLabel),
+// sand-fill cells (matching .cellMetric et al.) for the per-threshold and
+// caveat blocks. The lead text stays in Inter — Poppins would feel
+// magazine-y next to the structured condition rows above.
 
 .expand {
-  margin: 16px -22px 4px;
-  padding: 18px 22px 4px;
-  background: linear-gradient(168deg, rgba($uc-bg-sand, 0.6) 0%, rgba($uc-bg-sand, 0.2) 100%);
+  margin: 18px -22px 4px;
+  padding: 18px 22px 6px;
+  background: linear-gradient(
+    168deg,
+    rgba($uc-bg-sand, 0.6) 0%,
+    rgba($uc-bg-sand, 0.2) 100%
+  );
   border-top: 1px solid $uc-line;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 18px;
   animation: expandIn 0.35s $uc-ease both;
   overflow: hidden;
 }
 
-.chain {
-  background: #fff;
-  border: 1px solid $uc-line;
-  border-radius: 10px;
-  padding: 14px 16px;
-}
+// ── Inline "adjusted" tag — echoes the .condValueAdjusted chip ──
 
-.chainLabel {
-  display: block;
-  font-family: $font-body;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: $uc-stone;
-  margin-bottom: 12px;
-}
-
-.chainList {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-
-  li {
-    display: grid;
-    grid-template-columns: 28px 1fr;
-    gap: 10px;
-    padding-bottom: 12px;
-    border-bottom: 1px dashed $uc-dash;
-
-    &:last-child {
-      padding-bottom: 0;
-      border-bottom: none;
-    }
-  }
-}
-
-.chainStep {
-  font-family: 'SF Mono', 'Fira Code', monospace;
-  font-size: 11px;
-  font-weight: 700;
-  color: $uc-accent;
-  letter-spacing: 0;
-  padding-top: 1px;
-}
-
-.chainBody {
-  font-family: $font-body;
-  font-size: 13px;
-  line-height: 1.55;
-  color: $uc-body;
-
-  strong {
-    color: $uc-stone;
-    font-weight: 600;
-    font-size: 10.5px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-right: 4px;
-  }
-
-  code {
-    font-family: 'SF Mono', 'Fira Code', monospace;
-    font-size: 12.5px;
-    color: $uc-ink;
-  }
-
-  em {
-    font-style: italic;
-    color: $uc-stone;
-    font-size: 12px;
-  }
-}
-
-// ─── Threshold breakdown (per-condition strategic rationale) ───
-
-.breakdown {
-  background: #fff;
-  border: 1px solid $uc-line;
-  border-radius: 10px;
-  padding: 14px 16px;
-}
-
-.breakdownLabel {
-  display: block;
-  font-family: $font-body;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: $uc-stone;
-  margin-bottom: 10px;
-}
-
-.breakdownList {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-}
-
-.breakdownItem {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding: 8px 10px 9px;
-  background: $uc-bg-sand;
+.adjustInline {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  align-self: flex-start;
+  padding: 3px 10px 3px 8px;
   border-radius: 6px;
-  border-left: 2px solid rgba($uc-accent, 0.5);
-}
-
-.breakdownMetric {
-  font-family: $font-body;
-  font-size: 11.5px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: $uc-ink;
-}
-
-.breakdownWhy {
-  font-family: $font-body;
-  font-size: 13px;
-  line-height: 1.5;
-  color: $uc-body;
-}
-
-// ─── When-to-use ────────────────────────────────
-
-.whenBlock {
-  background: #fff;
-  border: 1px solid $uc-line;
-  border-radius: 10px;
-  padding: 14px 16px;
-}
-
-.whenLabel {
-  display: block;
-  font-family: $font-body;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: $uc-stone;
-  margin-bottom: 8px;
-}
-
-.whenBlock p {
-  margin: 0;
-  font-family: $font-body;
-  font-size: 13.5px;
-  line-height: 1.6;
-  color: $uc-body;
-}
-
-.whenPlaceholder {
-  font-style: italic;
-  color: $uc-stone !important;
-}
-
-// ─── Native Meta limitation callout ─────────────
-
-.limitation {
-  background: rgba($uc-accent, 0.05);
+  background: rgba($uc-accent, 0.07);
   border: 1px solid rgba($uc-accent, 0.18);
-  border-left: 3px solid $uc-accent;
-  border-radius: 10px;
-  padding: 14px 16px;
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  color: $uc-accent-deep;
+  margin-bottom: -6px;
 }
 
-.limitationLabel {
+.adjustInlineDot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: $uc-accent;
+  box-shadow: 0 0 0 2px rgba($uc-accent, 0.18);
+}
+
+// ── Section header pattern (matches .targetingLabel exactly) ──
+
+.expandLabel {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   font-family: $font-body;
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: $uc-accent-deep;
-  margin-bottom: 6px;
+  color: $uc-stone;
 
   svg {
-    color: $uc-accent;
+    width: 12px;
+    height: 12px;
+    color: $uc-stone;
   }
 }
 
-.limitation p {
+.expandLabelWarn {
+  color: $uc-pain;
+
+  svg {
+    color: $uc-pain;
+  }
+}
+
+// ── Lead — "Use this rule when" + the deciding paragraph ──
+
+.expandLead {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.expandLeadText {
   margin: 0;
   font-family: $font-body;
-  font-size: 13px;
+  font-size: 13.5px;
+  font-weight: 400;
   line-height: 1.6;
+  letter-spacing: -0.005em;
+  color: $uc-ink;
+}
+
+.expandLeadPlaceholder {
+  font-style: italic;
+  font-weight: 400;
+  color: $uc-stone;
+}
+
+// ── Section (thresholds / caveat) ──
+
+.expandSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+// ── Threshold cells — same sand-fill chrome as .cellMetric ──
+
+.thresholdList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.thresholdItem {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 9px 12px 10px;
+  background: $uc-bg-sand;
+  border: 1px solid transparent;
+  border-radius: 6px;
+}
+
+.thresholdMetric {
+  font-family: $font-body;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: $uc-ink;
+}
+
+.thresholdWhy {
+  font-family: $font-body;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: $uc-body;
+}
+
+// ── Caveat cell — sand-fill with a subtle pain-tone left edge + icon ──
+
+.caveat {
+  display: flex;
+  gap: 10px;
+  padding: 10px 12px 11px;
+  background: $uc-bg-sand;
+  border: 1px solid transparent;
+  border-left: 2px solid rgba($uc-pain, 0.45);
+  border-radius: 6px;
+}
+
+.caveatIcon {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: $uc-pain;
+}
+
+.caveatBody {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.caveatLabel {
+  font-family: $font-body;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $uc-pain;
+}
+
+.caveatProse {
+  margin: 0;
+  font-family: $font-body;
+  font-size: 12.5px;
+  line-height: 1.55;
   color: $uc-body;
 }
 
@@ -774,7 +1118,7 @@
 }
 
 .expandBtn,
-.copyBtn {
+.applyBtn {
   flex: 1;
   display: inline-flex;
   align-items: center;
@@ -788,6 +1132,7 @@
   letter-spacing: 0.005em;
   cursor: pointer;
   transition: all 0.25s $uc-ease;
+  text-decoration: none;
 }
 
 .expandBtn {
@@ -802,7 +1147,7 @@
   }
 }
 
-.copyBtn {
+.applyBtn {
   background: $uc-ink;
   border: 1px solid $uc-ink;
   color: #fff;
@@ -811,28 +1156,23 @@
     background: $uc-ink-soft;
     border-color: $uc-ink-soft;
     transform: translateY(-1px);
+    color: #fff;
   }
 
   svg {
     color: currentColor;
+    transition: transform 0.25s $uc-ease;
   }
-}
 
-.copyBtnDone {
-  background: $uc-success;
-  border-color: $uc-success;
-
-  &:hover {
-    background: $uc-success;
-    border-color: $uc-success;
-    transform: none;
+  &:hover svg {
+    transform: translateX(2px);
   }
 }
 
 // ─── EMPTY STATE ────────────────────────────────
 
 .empty {
-  grid-column: 1 / -1;
+  column-span: all;
   text-align: center;
   padding: 64px 32px;
   background: $uc-panel-bg;
@@ -877,18 +1217,48 @@
 
 // ─── RESPONSIVE ─────────────────────────────────
 
+@include desktop-s {
+  .layout { grid-template-columns: 232px minmax(0, 1fr); gap: 24px; }
+  .sidebar { padding: 20px 16px 16px; }
+}
+
 @include tablet-horizontal {
-  .filters { grid-template-columns: 1fr; gap: 20px; }
+  // Sidebar collapses to a full-width filter rail above the grid on tablets
+  // and below. Sticky behaviour drops too — full controls always inline.
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .content {
+    min-height: 0;
+  }
+  .sidebar {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    padding: 20px 22px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .sidebarHeader {
+    flex-basis: 100%;
+    padding-bottom: 12px;
+  }
+  .filterSection {
+    flex: 1 1 200px;
+    min-width: 180px;
+  }
+  .sidebarClear {
+    flex-basis: 100%;
+  }
 }
 
 @include tablet-vertical {
-  .filters {
-    padding: 18px 20px;
-    border-radius: 14px;
-    position: static;
-    backdrop-filter: none;
-  }
-  .resultMeta { padding: 0 2px; }
+  .layout { margin-top: 24px; gap: 20px; }
+  .sidebar { padding: 18px 18px; border-radius: 14px; gap: 20px; }
+  .filterSection { flex-basis: 100%; min-width: 0; }
   .card { padding: 18px 18px 12px; }
   .expand { margin: 16px -18px 4px; padding: 16px 18px 4px; }
   .cardTitle { font-size: 16px; min-height: 0; }
@@ -896,13 +1266,18 @@
 }
 
 @include mobile {
-  .filters { padding: 16px; }
-  .filterChip { padding: 6px 12px 6px 14px; font-size: 12px; }
-  .chipCount { min-width: 20px; height: 18px; font-size: 10px; }
-  .cardTitle { font-size: 15.5px; }
-  .gridRow { grid-template-columns: 56px 1fr; gap: 10px;
-    dd code { font-size: 11.5px; }
-  }
+  .sidebar { padding: 16px; }
+  .filterItem { padding: 7px 10px 7px 12px; font-size: 13px; }
+  .filterItemCount { font-size: 11px; }
+  .cardTitle { font-size: 16px; }
+  .taskRow { grid-template-columns: 36px minmax(0, 1fr); gap: 8px; }
+  .pill { width: 34px; height: 24px; font-size: 10px; }
+  .actionText { font-size: 13px; }
+  .cellMetric,
+  .cellOp,
+  .cellValue,
+  .cellValueAdjusted { font-size: 12px; padding: 6px 9px; }
+  .andBar { width: 18px; }
 }
 
 // (Floating jump pill removed 2026-05-09 — replaced by sticky-collapse-on-scroll cluster.)
