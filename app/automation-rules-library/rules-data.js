@@ -2007,6 +2007,4 @@ export const RULES = ALL_RULES.filter((r) => !r.draft)
 // Mobile UA / app-promotion rules use these benchmarkType values:
 //   "cpi"     — Cost per install (currency, default $5, live input)
 //   "cpm"     — CPM benchmark (currency, default $20, live input — shared with Sales)
-//   "d1_roas" — Day-1 ROAS (ratio, live input)
-//   "d7_roas" — Day-7 ROAS (ratio, live input)
 //   "ipm"     — Installs per mille (count/ratio, live input)

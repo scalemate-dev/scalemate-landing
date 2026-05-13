@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useMemo, useRef } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import styles from "./BenchmarkInput.module.scss"
 
 const STORAGE_KEY = "scalemate-benchmark-inputs"
@@ -73,26 +73,6 @@ export const INPUT_SETS = {
       unit: "ratio",
     },
     {
-      key: "d1_roas",
-      label: "D1 ROAS",
-      prefix: "",
-      suffix: "x",
-      default: 0.3,
-      step: 0.05,
-      min: 0.05,
-      unit: "ratio",
-    },
-    {
-      key: "d7_roas",
-      label: "D7 ROAS",
-      prefix: "",
-      suffix: "x",
-      default: 1.0,
-      step: 0.1,
-      min: 0.1,
-      unit: "ratio",
-    },
-    {
       key: "ipm",
       label: "IPM target",
       prefix: "",
@@ -141,7 +121,9 @@ export function readBenchmarkInputs() {
     const raw = window.localStorage.getItem(STORAGE_KEY)
     if (!raw) return DEFAULT_STATE
     const parsed = JSON.parse(raw)
-    return { ...DEFAULT_STATE, ...parsed }
+    // Always force personalized mode — the production-mode toggle was
+    // removed, so persisted "production" values would otherwise trap users.
+    return { ...DEFAULT_STATE, ...parsed, mode: "personalized" }
   } catch {
     return DEFAULT_STATE
   }
@@ -154,14 +136,6 @@ function writeBenchmarkInputs(state) {
   } catch {
     /* ignore quota / privacy modes */
   }
-}
-
-function InfoIcon() {
-  return (
-    <span className={styles.benchHintIcon} aria-hidden="true">
-      i
-    </span>
-  )
 }
 
 // Resolve the visible field groups based on activeObjective.
@@ -188,18 +162,18 @@ export default function BenchmarkInput({
 }) {
   const groups = useMemo(
     () => getVisibleGroups(activeObjective),
-    [activeObjective]
+    [activeObjective],
   )
-  const isProductionMode = state.mode === "production"
 
-  // Soft-required: when ALL visible inputs match their defaults, light up
-  // the personalization cues. Once the user changes anything, cues fade.
-  const isAllDefault = useMemo(() => {
-    if (isProductionMode) return false
-    return groups.every((g) =>
-      g.fields.every((f) => Number(state[f.key]) === Number(f.default))
-    )
-  }, [groups, state, isProductionMode])
+  // Clear button activates only when at least one visible field differs
+  // from its default — saves a click on a no-op.
+  const isAllDefault = useMemo(
+    () =>
+      groups.every((g) =>
+        g.fields.every((f) => Number(state[f.key]) === Number(f.default)),
+      ),
+    [groups, state],
+  )
 
   // Persist on every change.
   const firstRun = useRef(true)
@@ -227,31 +201,17 @@ export default function BenchmarkInput({
     }
   }
 
-  const toggleMode = () => {
-    onChange({
-      ...state,
-      mode: isProductionMode ? "personalized" : "production",
-    })
+  const handleClear = () => {
+    if (isAllDefault) return
+    onChange({ ...ALL_DEFAULTS, mode: "personalized" })
   }
 
   const renderField = (field) => {
     const value = state[field.key]
-    const isDefault =
-      !isProductionMode && Number(value) === Number(field.default)
 
     return (
-      <label
-        key={field.key}
-        className={`${styles.benchField} ${
-          isDefault ? styles.benchFieldDefault : ""
-        }`}
-      >
-        <span className={styles.benchLabel}>
-          {field.label}
-          {isDefault && (
-            <span className={styles.benchDefaultTag}>&middot; default</span>
-          )}
-        </span>
+      <label key={field.key} className={styles.benchField}>
+        <span className={styles.benchLabel}>{field.label}</span>
         <span className={styles.benchInputWrap}>
           {field.prefix && (
             <span className={styles.benchPrefix}>{field.prefix}</span>
@@ -275,77 +235,66 @@ export default function BenchmarkInput({
     )
   }
 
+  // When both objective groups are visible (activeObjective === "all"),
+  // keep the secondary group (app-promotion) collapsed behind a disclosure
+  // so the panel doesn't dump 10 inputs on the user at once.
+  const [secondaryOpen, setSecondaryOpen] = useState(false)
+  const primaryGroup = groups[0]
+  const secondaryGroup = groups[1]
+
   return (
-    <div
-      className={`${styles.bench} ${
-        isProductionMode ? styles.benchDisabled : ""
-      } ${isAllDefault ? styles.benchAllDefault : ""}`}
-    >
-      <div className={styles.benchHeader}>
-        <span className={styles.benchEyebrow}>
-          <span
-            className={`${styles.benchEyebrowDash} ${
-              isAllDefault ? styles.benchEyebrowDashIdle : ""
-            }`}
-          />
-          Adjust thresholds
-        </span>
-        <button
-          type="button"
-          className={`${styles.benchToggle} ${
-            isProductionMode ? styles.benchToggleActive : ""
-          }`}
-          onClick={toggleMode}
-          aria-pressed={isProductionMode}
-        >
-          <span className={styles.benchToggleDot} />
-          {isProductionMode
-            ? "Showing production examples"
-            : "Use production examples"}
-        </button>
+    <div className={styles.bench}>
+      <span className={styles.benchEyebrow}>Configure thresholds</span>
+
+      <div className={styles.benchInputs}>
+        {primaryGroup.fields.map(renderField)}
       </div>
 
-      {groups.length > 1 ? (
-        <div className={styles.benchGroups}>
-          {groups.map((g) => (
-            <div key={g.key} className={styles.benchGroup}>
-              <span className={styles.benchGroupLabel}>{g.label}</span>
-              <div className={styles.benchInputs}>
-                {g.fields.map(renderField)}
-              </div>
+      {secondaryGroup && (
+        <div className={styles.benchSecondary}>
+          <button
+            type="button"
+            className={styles.benchDisclosure}
+            onClick={() => setSecondaryOpen((v) => !v)}
+            aria-expanded={secondaryOpen}
+          >
+            <span>App promotion benchmarks</span>
+            <svg
+              width="10"
+              height="10"
+              viewBox="0 0 10 10"
+              fill="none"
+              aria-hidden="true"
+              style={{
+                transform: secondaryOpen ? "rotate(180deg)" : "rotate(0deg)",
+                transition: "transform 0.2s ease",
+              }}
+            >
+              <path
+                d="M2.5 4l2.5 2.5L7.5 4"
+                stroke="currentColor"
+                strokeWidth="1.4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+          {secondaryOpen && (
+            <div className={styles.benchInputs}>
+              {secondaryGroup.fields.map(renderField)}
             </div>
-          ))}
-        </div>
-      ) : (
-        <div className={styles.benchInputs}>
-          {groups[0].fields.map(renderField)}
+          )}
         </div>
       )}
 
-      <p
-        className={`${styles.benchHint} ${
-          isAllDefault ? styles.benchHintProminent : ""
-        }`}
+      <button
+        type="button"
+        className={styles.benchClear}
+        onClick={handleClear}
+        disabled={isAllDefault}
       >
-        <InfoIcon />
-        {isProductionMode ? (
-          <>
-            Showing production thresholds — real numbers from live Meta
-            accounts. Toggle off to recalculate against your own breakeven.
-          </>
-        ) : isAllDefault ? (
-          <>
-            Showing defaults — type your numbers above to recalculate every
-            threshold. <strong>Saved locally.</strong>
-          </>
-        ) : (
-          <>
-            Thresholds recalculate from your inputs. Production examples below
-            each value show what real accounts ran.{" "}
-            <strong>Saved locally.</strong>
-          </>
-        )}
-      </p>
+        Clear thresholds
+      </button>
     </div>
   )
 }

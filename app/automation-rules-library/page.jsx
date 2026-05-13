@@ -104,14 +104,12 @@ const faqItems = [
       <>
         Meta&apos;s native rules pause, scale, or alert on a single condition
         group, evaluated on Meta&apos;s own scheduler. A third-party automation
-        tool sequences steps as a chain — for example, scale up the budget,
-        then roll back if performance degrades within 24 hours, then notify
-        Slack — and runs on cross-account context Meta can&apos;t see. For
-        teams running more than one ad account, the difference also covers
-        OR-logic, frequency-aware throttling, and rollback pacing. See the{" "}
-        <Link href="/features/automation-rules">
-          full feature breakdown
-        </Link>{" "}
+        tool sequences steps as a chain — for example, scale up the budget, then
+        roll back if performance degrades within 24 hours, then notify Slack —
+        and runs on cross-account context Meta can&apos;t see. For teams running
+        more than one ad account, the difference also covers OR-logic,
+        frequency-aware throttling, and rollback pacing. See the{" "}
+        <Link href="/features/automation-rules">full feature breakdown</Link>{" "}
         for what changes when chains replace single rules.
       </>
     ),
@@ -123,14 +121,14 @@ const faqItems = [
       "Creative testing rules in the library (rules № 30 through 33) follow a phased framework: Phase 1 kills weak ads early on cheap signals (CPI, CPM-vs-benchmark) before they burn budget; Phase 2 promotes survivors using stricter CPA and spend thresholds; Phase 3 cleans up at higher confidence using ROAS. The kill rules elsewhere in the library don't assume a phase — they fire whenever the threshold trips. The phased framework matters when you're running constant creative volume and need a predictable funnel; the broader Meta ads automation playbook covers when to switch between them.",
     answer: (
       <>
-        Creative testing rules in the library (rules № 30 through 33) follow
-        a phased framework: Phase 1 kills weak ads early on cheap signals
-        (CPI, CPM-vs-benchmark) before they burn budget; Phase 2 promotes
-        survivors using stricter CPA and spend thresholds; Phase 3 cleans up
-        at higher confidence using ROAS. The kill rules elsewhere in the
-        library don&apos;t assume a phase — they fire whenever the threshold
-        trips. The phased framework matters when you&apos;re running constant
-        creative volume and need a predictable funnel; the broader{" "}
+        Creative testing rules in the library (rules № 30 through 33) follow a
+        phased framework: Phase 1 kills weak ads early on cheap signals (CPI,
+        CPM-vs-benchmark) before they burn budget; Phase 2 promotes survivors
+        using stricter CPA and spend thresholds; Phase 3 cleans up at higher
+        confidence using ROAS. The kill rules elsewhere in the library
+        don&apos;t assume a phase — they fire whenever the threshold trips. The
+        phased framework matters when you&apos;re running constant creative
+        volume and need a predictable funnel; the broader{" "}
         <Link href="/blog/facebook-ads-automation">
           Meta ads automation playbook
         </Link>{" "}
@@ -144,44 +142,40 @@ const faqItems = [
       "Meta caps active rules at 250 per ad account. Hit the cap and the team has to delete or merge rules before adding new ones, which becomes a real problem on accounts running creative testing at volume — each new test needs its own kill, scale, and rollback rule, and 250 fills up faster than teams expect.",
   },
   {
-    question:
-      "Can Facebook automated rules scale budget with rollback?",
+    question: "Can Facebook automated rules scale budget with rollback?",
     answer:
       "No — native rules can scale budget but won't roll back automatically. If a rule increases an ad set's budget by 30% on a CPA threshold and performance then degrades, the budget stays elevated until a separate rollback rule fires or someone trims it manually. Pair every scale rule with a matching trim rule, and accept that the rollback fires on its own clock, not chained to the original action.",
   },
   {
-    question:
-      "Can a rule send a Slack alert when creative fatigue hits?",
+    question: "Can a rule send a Slack alert when creative fatigue hits?",
     answerText:
       "Native rules can send an email or in-platform notification when a condition trips, but they can't post to Slack or include a campaign report. Rule № 34 in this library is the workaround — it watches frequency, CTR decay, and CPM drift relative to the campaign's own baseline, and the playbook version pipes the alert into a Slack channel with the affected campaigns named so the team can triage in one place. Cross-account ad campaign automation rules cover the same pattern at scale; native equivalent is a generic email saying a rule fired, with no creative context attached.",
     answer: (
       <>
         Native rules can send an email or in-platform notification when a
-        condition trips, but they can&apos;t post to Slack or include a
-        campaign report. Rule № 34 in this library is the workaround — it
-        watches frequency, CTR decay, and CPM drift relative to the
-        campaign&apos;s own baseline, and the playbook version pipes the
-        alert into a Slack channel with the affected campaigns named so the
-        team can triage in one place. Cross-account{" "}
+        condition trips, but they can&apos;t post to Slack or include a campaign
+        report. Rule № 34 in this library is the workaround — it watches
+        frequency, CTR decay, and CPM drift relative to the campaign&apos;s own
+        baseline, and the playbook version pipes the alert into a Slack channel
+        with the affected campaigns named so the team can triage in one place.
+        Cross-account{" "}
         <Link href="/use-cases/ad-campaign-automation-rules">
           ad campaign automation rules
         </Link>{" "}
-        cover the same pattern at scale; native equivalent is a generic
-        email saying a rule fired, with no creative context attached.
+        cover the same pattern at scale; native equivalent is a generic email
+        saying a rule fired, with no creative context attached.
       </>
     ),
   },
   {
-    question:
-      "What's the smallest spend threshold a pause rule should use?",
+    question: "What's the smallest spend threshold a pause rule should use?",
     answerText:
       "A static cheat sheet can't tell you this — the floor depends on your breakeven CPA. Heuristic for fair-test pause rules: set the spend floor at roughly 2× your breakeven CPA. If the team's CPA is $40, that means the rule waits until $80 spent before pausing on a CPA spike, enough auction signal to read true performance. Drop the multiplier toward 0.5× for noise-filter rules where you only want to skip $5 of impressions. The rule of thumb breaks down on high-AOV products where one conversion is worth much more than the spend floor — adjust upward.",
     answer:
       "A static cheat sheet can't tell you this — the floor depends on your breakeven CPA. Heuristic for fair-test pause rules: set the spend floor at roughly 2× your breakeven CPA. If the team's CPA is $40, that means the rule waits until $80 spent before pausing on a CPA spike, enough auction signal to read true performance. Drop the multiplier toward 0.5× for noise-filter rules where you only want to skip $5 of impressions. The rule of thumb breaks down on high-AOV products where one conversion is worth much more than the spend floor — adjust upward.",
   },
   {
-    question:
-      "Can I copy these rules directly into Meta Ads Manager?",
+    question: "Can I copy these rules directly into Meta Ads Manager?",
     answerText:
       "Yes. Each card has a Copy rule button that puts the full configuration on the clipboard — condition, time window, action, schedule. Open Meta Ads Manager, create a new automated rule, and match the fields. For teams who'd rather skip the manual paste, Scalemate can auto-import the full set into a connected account in one click. Both paths work; the manual one is free, the import is faster.",
     answer: (
@@ -190,9 +184,9 @@ const faqItems = [
         on the clipboard — condition, time window, action, schedule. Open Meta
         Ads Manager, create a new automated rule, and match the fields. For
         teams who&apos;d rather skip the manual paste,{" "}
-        <Link href="/book-a-demo">Scalemate can auto-import</Link> the full
-        set into a connected account in one click. Both paths work; the
-        manual one is free, the import is faster.
+        <Link href="/book-a-demo">Scalemate can auto-import</Link> the full set
+        into a connected account in one click. Both paths work; the manual one
+        is free, the import is faster.
       </>
     ),
   },
@@ -203,13 +197,13 @@ const faqItems = [
       "Most aren't. The learning phase needs roughly 50 conversions before Meta's algorithm settles, and a 1-day window pause rule will fire long before that, interrupting the loop. Use 3-day or 7-day windows during learning, raise spend floors, and gate the kill rules to ad sets older than 48 hours. The scale rules are safer to leave on, but cap the cumulative budget bump per day to avoid resetting learning with a budget jump over 20%. The full step-by-step setup guide covers each variant.",
     answer: (
       <>
-        Most aren&apos;t. The learning phase needs roughly 50 conversions
-        before Meta&apos;s algorithm settles, and a 1-day window pause rule
-        will fire long before that, interrupting the loop. Use 3-day or 7-day
-        windows during learning, raise spend floors, and gate the kill rules
-        to ad sets older than 48 hours. The scale rules are safer to leave on,
-        but cap the cumulative budget bump per day to avoid resetting learning
-        with a budget jump over 20%. The full{" "}
+        Most aren&apos;t. The learning phase needs roughly 50 conversions before
+        Meta&apos;s algorithm settles, and a 1-day window pause rule will fire
+        long before that, interrupting the loop. Use 3-day or 7-day windows
+        during learning, raise spend floors, and gate the kill rules to ad sets
+        older than 48 hours. The scale rules are safer to leave on, but cap the
+        cumulative budget bump per day to avoid resetting learning with a budget
+        jump over 20%. The full{" "}
         <Link href="/blog/facebook-automated-rules">
           step-by-step setup guide
         </Link>{" "}
@@ -262,18 +256,16 @@ export default function AutomationRulesLibraryPage() {
               <h1 className={styles.heroTitle}>
                 {ruleCount} Facebook automated rules.
                 <br />
-                <span className={styles.heroTitleAccent}>
-                  Ready to copy.
-                </span>
+                <span className={styles.heroTitleAccent}>Ready to Apply</span>
               </h1>
               <p className={styles.tagline}>
-                Real Facebook ads accounts. Real thresholds. Real Meta
-                limits noted on every card.
+                Real Facebook ads accounts. Real thresholds. Real Meta limits
+                noted on every card.
               </p>
               <ul className={styles.heroFeatures}>
                 <li>
-                  Filter by goal — kill losers, scale winners, alert on
-                  fatigue, run a creative testing framework
+                  Filter by goal — kill losers, scale winners, alert on fatigue,
+                  run a creative testing framework
                 </li>
                 <li>
                   Set your CPA, ROAS, CPC — every threshold recalculates live
@@ -303,38 +295,80 @@ export default function AutomationRulesLibraryPage() {
                   Auto-import these rules
                 </Button>
               </div>
+
+              <img
+                className={styles.metaBadge}
+                src="/meta-verified-app-transparent.svg"
+                alt="Meta Verified"
+                width="325"
+                height="108"
+                loading="eager"
+              />
             </div>
 
-            <aside className={styles.heroNumeral}>
-              <span className={styles.numeralStrap} aria-hidden="true">
-                The library
-              </span>
-              <span className={styles.numeralFigure} aria-hidden="true">
-                {ruleCount}
-              </span>
-              <div className={styles.numeralDecor} aria-hidden="true">
-                <span />
-                <span />
-                <span />
-              </div>
-              <div
-                className={styles.partnerBadge}
-                aria-label="Meta Verified business"
-              >
-                <span className={styles.partnerBadgeLabel} aria-hidden="true">
-                  <span className={styles.partnerBadgeRule} />
-                  Verified <span aria-hidden="true">·</span> Business
-                  <span className={styles.partnerBadgeRule} />
-                </span>
-                <div className={styles.partnerBadgeMark}>
-                  <img
-                    src="/meta-verified-app-transparent.svg"
-                    alt="Meta Verified"
-                    width="325"
-                    height="108"
-                    loading="eager"
-                  />
-                </div>
+            <aside className={styles.heroAside}>
+              <div className={styles.indexStack} aria-hidden="true">
+                <article
+                  className={`${styles.indexCard} ${styles.indexCardBack}`}
+                >
+                  <header className={styles.indexCardHead}>
+                    <span className={styles.indexCardId}>№ 09</span>
+                    <span className={styles.indexCardSchedule}>
+                      Every 3 hours
+                    </span>
+                  </header>
+                  <p className={styles.indexCardTitle}>
+                    Pause weak ROAS, trim borderline ROAS on BAU campaigns
+                  </p>
+                  <footer className={styles.indexCardFooter}>
+                    <span
+                      className={`${styles.indexTag} ${styles.tagRollback}`}
+                    >
+                      Rollback
+                    </span>
+                    <span className={styles.indexLevel}>Campaign</span>
+                  </footer>
+                </article>
+
+                <article
+                  className={`${styles.indexCard} ${styles.indexCardMid}`}
+                >
+                  <header className={styles.indexCardHead}>
+                    <span className={styles.indexCardId}>№ 03</span>
+                    <span className={styles.indexCardSchedule}>
+                      Every 3 hours
+                    </span>
+                  </header>
+                  <p className={styles.indexCardTitle}>
+                    Alert on creative fatigue before CAC suffers
+                  </p>
+                  <footer className={styles.indexCardFooter}>
+                    <span className={`${styles.indexTag} ${styles.tagFatigue}`}>
+                      Creative fatigue
+                    </span>
+                    <span className={styles.indexLevel}>Campaign</span>
+                  </footer>
+                </article>
+
+                <article
+                  className={`${styles.indexCard} ${styles.indexCardFront}`}
+                >
+                  <header className={styles.indexCardHead}>
+                    <span className={styles.indexCardId}>№ 01</span>
+                    <span className={styles.indexCardSchedule}>
+                      Every 3 hours
+                    </span>
+                  </header>
+                  <p className={styles.indexCardTitle}>
+                    Scale or trim ad set budget by purchase performance
+                  </p>
+                  <footer className={styles.indexCardFooter}>
+                    <span className={`${styles.indexTag} ${styles.tagScale}`}>
+                      Scale winners
+                    </span>
+                    <span className={styles.indexLevel}>Ad set</span>
+                  </footer>
+                </article>
               </div>
             </aside>
           </div>
@@ -369,32 +403,27 @@ export default function AutomationRulesLibraryPage() {
               Every threshold is a multiplier on a benchmark you control.
             </h2>
             <p className={styles.educationalBody}>
-              Type your breakeven CPA, target ROAS, CPC ceiling, target CPI,
-              or CPM benchmark — every rule&apos;s numbers recalculate from
-              those inputs. The library uses six standard multiplier patterns
-              that match how performance teams structure kill, scale, and
-              pacing rules — every condition shows the formula inline so the
-              math is never hidden.
+              Type your breakeven CPA, target ROAS, CPC ceiling, target CPI, or
+              CPM benchmark — every rule&apos;s numbers recalculate from those
+              inputs. The library uses six standard multiplier patterns that
+              match how performance teams structure kill, scale, and pacing
+              rules — every condition shows the formula inline so the math is
+              never hidden.
             </p>
           </div>
           <ul className={styles.patternGrid}>
             <li className={styles.patternCard}>
               <span className={styles.patternRange}>1–2× CPA</span>
-              <span className={styles.patternLabel}>
-                Fair-test spend floor
-              </span>
+              <span className={styles.patternLabel}>Fair-test spend floor</span>
               <p className={styles.patternBody}>
-                Give the ad enough auction signal before pausing on a single
-                bad metric. At $50 breakeven this is $50–$100 spent before a
-                kill rule can fire — at $200 breakeven it scales to
-                $200–$400.
+                Give the ad enough auction signal before pausing on a single bad
+                metric. At $50 breakeven this is $50–$100 spent before a kill
+                rule can fire — at $200 breakeven it scales to $200–$400.
               </p>
             </li>
             <li className={styles.patternCard}>
               <span className={styles.patternRange}>3–7× CPA</span>
-              <span className={styles.patternLabel}>
-                Deep-test threshold
-              </span>
+              <span className={styles.patternLabel}>Deep-test threshold</span>
               <p className={styles.patternBody}>
                 Creative survived early funnel but never converted. Used in
                 multi-tier cascade kills where each tier accepts more spend
@@ -405,9 +434,9 @@ export default function AutomationRulesLibraryPage() {
               <span className={styles.patternRange}>0.6–0.9× CPA</span>
               <span className={styles.patternLabel}>Scale signal</span>
               <p className={styles.patternBody}>
-                Cost-per-purchase cleanly under breakeven — the ad is
-                profitable enough to merit more budget. Every scale should
-                pair with a rollback rule.
+                Cost-per-purchase cleanly under breakeven — the ad is profitable
+                enough to merit more budget. Every scale should pair with a
+                rollback rule.
               </p>
             </li>
             <li className={styles.patternCard}>
@@ -416,24 +445,22 @@ export default function AutomationRulesLibraryPage() {
                 Creative quality canary
               </span>
               <p className={styles.patternBody}>
-                CPC climbing above your bid ceiling before conversions arrive
-                is usually a hook or audience break. Catches the problem
-                before the conversion data even lands.
+                CPC climbing above your bid ceiling before conversions arrive is
+                usually a hook or audience break. Catches the problem before the
+                conversion data even lands.
               </p>
             </li>
             <li className={styles.patternCard}>
               <span className={styles.patternRange}>8–14× CPA</span>
               <span className={styles.patternLabel}>Pacing protection</span>
               <p className={styles.patternBody}>
-                Hard daily-cap math when budget overshoot from CBO is the
-                bigger risk than pausing winners. Trim 30%, don&apos;t pause.
+                Hard daily-cap math when budget overshoot from CBO is the bigger
+                risk than pausing winners. Trim 30%, don&apos;t pause.
               </p>
             </li>
             <li className={styles.patternCard}>
               <span className={styles.patternRange}>1.2–1.25× CPM</span>
-              <span className={styles.patternLabel}>
-                Delivery cost ceiling
-              </span>
+              <span className={styles.patternLabel}>Delivery cost ceiling</span>
               <p className={styles.patternBody}>
                 CPM above benchmark means the audience is saturating or the
                 creative isn&apos;t winning attention. Phase 1 mobile UA kill
@@ -463,11 +490,11 @@ export default function AutomationRulesLibraryPage() {
                 Native rules pause one threshold at a time.
               </h2>
               <p className={styles.beyondBody}>
-                For OR-logic, cross-account management, automatic rollback
-                after a scale, Slack alerts on creative fatigue, and a
-                creative testing framework that runs Phase 1-3 across Meta
-                and TikTok — Scalemate runs the whole sequence as one rule.
-                Same thresholds. One account view. No 250-rule cap.
+                For OR-logic, cross-account management, automatic rollback after
+                a scale, Slack alerts on creative fatigue, and a creative
+                testing framework that runs Phase 1-3 across Meta and TikTok —
+                Scalemate runs the whole sequence as one rule. Same thresholds.
+                One account view. No 250-rule cap.
               </p>
               <div className={styles.beyondActions}>
                 <Button

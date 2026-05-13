@@ -13,7 +13,6 @@ import BenchmarkInput, {
   DEFAULT_STATE,
   readBenchmarkInputs,
 } from "./BenchmarkInput"
-import benchStyles from "./BenchmarkInput.module.scss"
 import styles from "./LibraryClient.module.scss"
 
 // ─── Recalculation helpers ──────────────────────────────────────
@@ -849,34 +848,6 @@ export default function LibraryClient() {
     setBench(readBenchmarkInputs())
   }, [])
 
-  // Sticky-collapse-on-scroll: the cluster always position-sticky at top.
-  // A sentinel placed BEFORE the cluster tells us when it's actually stuck
-  // (sentinel out of viewport top). When stuck and the user hasn't manually
-  // expanded, we render the compact summary bar instead of the full controls.
-  const clusterRef = useRef(null)
-  const topSentinelRef = useRef(null)
-  const [isStuck, setIsStuck] = useState(false)
-  const [userExpanded, setUserExpanded] = useState(false)
-
-  useEffect(() => {
-    const node = topSentinelRef.current
-    if (!node || typeof IntersectionObserver === "undefined") return
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        const stuck = !entry.isIntersecting
-        setIsStuck(stuck)
-        // Auto-collapse manual-expand state when scrolling back into the
-        // section's natural position — keeps state predictable.
-        if (!stuck) setUserExpanded(false)
-      },
-      { rootMargin: "0px 0px -100% 0px", threshold: 0 }
-    )
-    obs.observe(node)
-    return () => obs.disconnect()
-  }, [])
-
-  const isCompact = isStuck && !userExpanded
-
   // Determine objectives present in the rule set — drives whether to show
   // an objective filter at all. Rules can belong to multiple objectives
   // (e.g. creative-testing Phase 2/3 work across Sales + App Promotion).
@@ -886,6 +857,39 @@ export default function LibraryClient() {
     return Array.from(set)
   }, [])
   const showObjectiveFilter = availableObjectives.length > 1
+
+  // Smart scroll restoration: when a filter shrinks the grid enough that
+  // the page's max scroll lands above the user's current scroll position,
+  // the browser snaps to the new bottom (i.e. the footer). We avoid that
+  // by checking after each filter change and smoothly anchoring the user
+  // to the top of the rules grid only when their position became invalid.
+  const gridRef = useRef(null)
+  // Skip the initial mount — we only want this to fire on user-initiated
+  // filter changes, not on hydration.
+  const firstFilterRun = useRef(true)
+
+  useEffect(() => {
+    if (firstFilterRun.current) {
+      firstFilterRun.current = false
+      return
+    }
+    if (typeof window === "undefined") return
+    // Defer to next frame so the new grid height is committed.
+    const id = requestAnimationFrame(() => {
+      const grid = gridRef.current
+      if (!grid) return
+      const gridBottom = grid.getBoundingClientRect().bottom + window.scrollY
+      const viewportBottom = window.scrollY + window.innerHeight
+      // User is reading past the new grid bottom → restore to grid top
+      // with sticky-sidebar offset.
+      if (viewportBottom > gridBottom) {
+        const target =
+          grid.getBoundingClientRect().top + window.scrollY - 88
+        window.scrollTo({ top: Math.max(0, target), behavior: "instant" })
+      }
+    })
+    return () => cancelAnimationFrame(id)
+  }, [goal, level, objective])
 
   const filtered = useMemo(() => {
     return RULES.map((rule, index) => ({ rule, index })).filter(
@@ -925,6 +929,22 @@ export default function LibraryClient() {
     setExpandedId((current) => (current === id ? null : id))
   }
 
+  // Clear All is an explicit "reset" — always scroll back to the top of the
+  // grid so the user sees the fresh full list from card #1, regardless of
+  // where they were when they clicked it.
+  const handleClearFilters = () => {
+    setGoal("all")
+    setLevel("all")
+    setObjective("all")
+    if (typeof window === "undefined") return
+    requestAnimationFrame(() => {
+      const grid = gridRef.current
+      if (!grid) return
+      const target = grid.getBoundingClientRect().top + window.scrollY - 88
+      window.scrollTo({ top: Math.max(0, target), behavior: "instant" })
+    })
+  }
+
   const handleCopy = async (rule) => {
     try {
       await navigator.clipboard.writeText(
@@ -942,237 +962,163 @@ export default function LibraryClient() {
 
   return (
     <div className={styles.library}>
-      {/* Sentinel placed BEFORE the cluster — its visibility tells us whether
-          the cluster is sticking to the viewport top. */}
-      <div ref={topSentinelRef} aria-hidden="true" style={{ height: 1 }} />
+      <div className={styles.layout}>
+        <aside className={styles.sidebar}>
+          <div className={styles.sidebarHeader}>
+            <span className={styles.sidebarTitle}>Filters</span>
+            <span className={styles.sidebarCount}>
+              <strong>{filtered.length}</strong>
+              <span>/ {RULES.length}</span>
+            </span>
+          </div>
 
-      <div
-        ref={clusterRef}
-        className={`${benchStyles.stickyCluster} ${
-          isStuck ? benchStyles.stickyClusterStuck : ""
-        } ${isCompact ? benchStyles.stickyClusterCompact : ""}`}
-      >
-        {isCompact ? (
-          <button
-            type="button"
-            className={benchStyles.compactBar}
-            onClick={() => setUserExpanded(true)}
-            aria-expanded="false"
-            aria-controls="benchmark-cluster-content"
-            aria-label="Adjust thresholds — type your benchmarks to recalculate every rule"
-          >
-            <span className={benchStyles.compactCopy}>
-              <span className={benchStyles.compactEyebrow}>
-                Adjust thresholds
-              </span>
-              <span className={benchStyles.compactDescription}>
-                Type your benchmarks — every rule recalculates live.
-              </span>
-            </span>
-            <span className={benchStyles.compactToggle}>
-              Adjust
-              <svg
-                width="10"
-                height="10"
-                viewBox="0 0 10 10"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M2.5 4l2.5 2.5L7.5 4"
-                  stroke="currentColor"
-                  strokeWidth="1.4"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
-          </button>
-        ) : (
-          <div
-            id="benchmark-cluster-content"
-            className={benchStyles.clusterContent}
-          >
-            {isStuck && (
-              <button
-                type="button"
-                className={benchStyles.collapseBtn}
-                onClick={() => setUserExpanded(false)}
-                aria-expanded="true"
-                aria-controls="benchmark-cluster-content"
-              >
-                Collapse
-                <svg
-                  width="10"
-                  height="10"
-                  viewBox="0 0 10 10"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M2.5 6l2.5-2.5L7.5 6"
-                    stroke="currentColor"
-                    strokeWidth="1.4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
-            )}
+          <div className={styles.sidebarBench}>
             <BenchmarkInput
               state={bench}
               onChange={setBench}
               activeObjective={activeObjective}
             />
-
-            <div className={styles.filters}>
-          <div className={styles.filterColumn}>
-            <span className={styles.filterTag}>
-              <span className={styles.filterDot} />
-              Filter by goal
-            </span>
-            <div className={styles.chipRow}>
-              {RULE_GOALS.map((g) => (
-                <button
-                  key={g.id}
-                  type="button"
-                  onClick={() => setGoal(g.id)}
-                  className={`${styles.filterChip} ${
-                    goal === g.id ? styles.filterChipActive : ""
-                  } ${
-                    (counts.goal[g.id] || 0) === 0
-                      ? styles.filterChipEmpty
-                      : ""
-                  }`}
-                  disabled={(counts.goal[g.id] || 0) === 0}
-                >
-                  <span>{g.label}</span>
-                  <span className={styles.chipCount}>
-                    {counts.goal[g.id] || 0}
-                  </span>
-                </button>
-              ))}
-            </div>
           </div>
 
-          <div className={styles.filterColumn}>
+          <section className={styles.filterSection}>
             <span className={styles.filterTag}>
               <span className={styles.filterDot} />
-              Filter by level
+              Goal
             </span>
-            <div className={styles.chipRow}>
-              {RULE_LEVELS.map((l) => (
-                <button
-                  key={l.id}
-                  type="button"
-                  onClick={() => setLevel(l.id)}
-                  className={`${styles.filterChip} ${
-                    level === l.id ? styles.filterChipActive : ""
-                  } ${
-                    (counts.level[l.id] || 0) === 0
-                      ? styles.filterChipEmpty
-                      : ""
-                  }`}
-                  disabled={(counts.level[l.id] || 0) === 0}
-                >
-                  <span>{l.label}</span>
-                  <span className={styles.chipCount}>
-                    {counts.level[l.id] || 0}
-                  </span>
-                </button>
-              ))}
-            </div>
-          </div>
+            <ul className={styles.filterList}>
+              {RULE_GOALS.map((g) => {
+                const count = counts.goal[g.id] || 0
+                const empty = count === 0
+                return (
+                  <li key={g.id}>
+                    <button
+                      type="button"
+                      onClick={() => setGoal(g.id)}
+                      className={`${styles.filterItem} ${
+                        goal === g.id ? styles.filterItemActive : ""
+                      } ${empty ? styles.filterItemEmpty : ""}`}
+                      disabled={empty}
+                    >
+                      <span className={styles.filterItemLabel}>
+                        {g.label}
+                      </span>
+                      <span className={styles.filterItemCount}>{count}</span>
+                    </button>
+                  </li>
+                )
+              })}
+            </ul>
+          </section>
+
+          <section className={styles.filterSection}>
+            <span className={styles.filterTag}>
+              <span className={styles.filterDot} />
+              Level
+            </span>
+            <ul className={styles.filterList}>
+              {RULE_LEVELS.map((l) => {
+                const count = counts.level[l.id] || 0
+                const empty = count === 0
+                return (
+                  <li key={l.id}>
+                    <button
+                      type="button"
+                      onClick={() => setLevel(l.id)}
+                      className={`${styles.filterItem} ${
+                        level === l.id ? styles.filterItemActive : ""
+                      } ${empty ? styles.filterItemEmpty : ""}`}
+                      disabled={empty}
+                    >
+                      <span className={styles.filterItemLabel}>
+                        {l.label}
+                      </span>
+                      <span className={styles.filterItemCount}>{count}</span>
+                    </button>
+                  </li>
+                )
+              })}
+            </ul>
+          </section>
 
           {showObjectiveFilter && (
-            <div className={styles.filterColumn}>
+            <section className={styles.filterSection}>
               <span className={styles.filterTag}>
                 <span className={styles.filterDot} />
-                Filter by objective
+                Objective
               </span>
-              <div className={styles.chipRow}>
+              <ul className={styles.filterList}>
                 {RULE_OBJECTIVES.filter(
                   (o) =>
                     o.id === "all" || availableObjectives.includes(o.id)
-                ).map((o) => (
-                  <button
-                    key={o.id}
-                    type="button"
-                    onClick={() => setObjective(o.id)}
-                    className={`${styles.filterChip} ${
-                      objective === o.id ? styles.filterChipActive : ""
-                    }`}
-                  >
-                    <span>{o.label}</span>
-                    <span className={styles.chipCount}>
-                      {counts.objective[o.id] || 0}
-                    </span>
-                  </button>
-                ))}
-              </div>
+                ).map((o) => {
+                  const count = counts.objective[o.id] || 0
+                  return (
+                    <li key={o.id}>
+                      <button
+                        type="button"
+                        onClick={() => setObjective(o.id)}
+                        className={`${styles.filterItem} ${
+                          objective === o.id ? styles.filterItemActive : ""
+                        }`}
+                      >
+                        <span className={styles.filterItemLabel}>
+                          {o.label}
+                        </span>
+                        <span className={styles.filterItemCount}>{count}</span>
+                      </button>
+                    </li>
+                  )
+                })}
+              </ul>
+            </section>
+          )}
+
+          {isFiltered && (
+            <button
+              type="button"
+              className={styles.sidebarClear}
+              onClick={handleClearFilters}
+            >
+              Clear all filters
+            </button>
+          )}
+        </aside>
+
+        <div className={styles.content}>
+          <div ref={gridRef} className={styles.grid}>
+            {filtered.map(({ rule, index }) => (
+              <RuleCard
+                key={rule.id}
+                rule={rule}
+                index={index}
+                expanded={expandedId === rule.id}
+                onToggle={handleToggle}
+                onCopy={handleCopy}
+                copied={copiedId === rule.id}
+                inputs={bench}
+                mode={bench.mode}
+              />
+            ))}
+          </div>
+
+          {filtered.length === 0 && (
+            <div className={styles.empty}>
+              <span className={styles.emptyEyebrow}>No matches</span>
+              <p>
+                No rules match this filter combination. Try clearing one
+                filter or switching the goal.
+              </p>
+              <button
+                type="button"
+                className={styles.emptyBtn}
+                onClick={handleClearFilters}
+              >
+                Clear filters
+              </button>
             </div>
           )}
-            </div>
-          </div>
-        )}
-      </div>
-
-      <div className={styles.resultMeta}>
-        <span className={styles.resultMetaText}>
-          Showing <strong>{filtered.length}</strong> of {RULES.length} rules
-        </span>
-        {isFiltered && (
-          <button
-            type="button"
-            className={styles.clearBtn}
-            onClick={() => {
-              setGoal("all")
-              setLevel("all")
-              setObjective("all")
-            }}
-          >
-            Clear filters
-          </button>
-        )}
-      </div>
-
-      <div className={styles.grid}>
-        {filtered.map(({ rule, index }) => (
-          <RuleCard
-            key={rule.id}
-            rule={rule}
-            index={index}
-            expanded={expandedId === rule.id}
-            onToggle={handleToggle}
-            onCopy={handleCopy}
-            copied={copiedId === rule.id}
-            inputs={bench}
-            mode={bench.mode}
-          />
-        ))}
-      </div>
-
-      {filtered.length === 0 && (
-        <div className={styles.empty}>
-          <span className={styles.emptyEyebrow}>No matches</span>
-          <p>
-            No rules match this filter combination. Try clearing one filter
-            or switching the goal.
-          </p>
-          <button
-            type="button"
-            className={styles.emptyBtn}
-            onClick={() => {
-              setGoal("all")
-              setLevel("all")
-              setObjective("all")
-            }}
-          >
-            Clear filters
-          </button>
         </div>
-      )}
-
+      </div>
     </div>
   )
 }

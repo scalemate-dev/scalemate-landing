@@ -12,9 +12,9 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes numeralIn {
-  from { opacity: 0; transform: translateY(40px) scale(0.96); letter-spacing: 0; }
-  to { opacity: 1; transform: translateY(0) scale(1); letter-spacing: -0.06em; }
+@keyframes cardIn {
+  from { opacity: 0; transform: var(--card-rest) translateY(28px); }
+  to { opacity: 1; transform: var(--card-rest) translateY(0); }
 }
 
 // ─── Page shell ─────────────────────────────────
@@ -64,114 +64,53 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1fr 0.8fr;
-  gap: 64px;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 56px;
   align-items: center;
 }
 
 .heroContent {
-  max-width: 580px;
+  max-width: 600px;
+  text-align: left;
   animation: fadeUp 0.8s $uc-ease both;
-}
-
-.partnerBadge {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-  margin-top: 40px;
-  user-select: none;
-  animation: fadeUp 0.9s $uc-ease 0.45s both;
-}
-
-.partnerBadgeLabel {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  font-family: $font-body;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: $uc-stone;
-}
-
-.partnerBadgeRule {
-  display: block;
-  width: 24px;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba($uc-ink, 0.28) 50%, transparent);
-  transition: width 0.45s $uc-ease;
-}
-
-.partnerBadgeMark {
-  position: relative;
-  line-height: 0;
-  transition: transform 0.5s $uc-ease, filter 0.5s $uc-ease;
-  filter:
-    drop-shadow(0 1px 0 rgba(255, 255, 255, 0.9))
-    drop-shadow(0 3px 6px rgba($uc-ink, 0.18))
-    drop-shadow(0 14px 32px rgba($uc-ink, 0.12));
-
-  &::before {
-    content: "";
-    position: absolute;
-    inset: -18px -28px;
-    background: radial-gradient(ellipse at center, rgba($uc-accent, 0.1) 0%, transparent 65%);
-    filter: blur(6px);
-    pointer-events: none;
-    z-index: -1;
-  }
-
-  img {
-    display: block;
-    height: 108px;
-    width: auto;
-  }
-}
-
-.partnerBadge:hover {
-  .partnerBadgeMark {
-    transform: translateY(-2px);
-    filter:
-      drop-shadow(0 1px 0 rgba(255, 255, 255, 0.95))
-      drop-shadow(0 6px 12px rgba($uc-ink, 0.22))
-      drop-shadow(0 22px 44px rgba($uc-ink, 0.16));
-  }
-  .partnerBadgeRule {
-    width: 36px;
-  }
 }
 
 .eyebrow {
   @include uc-eyebrow;
-  margin-bottom: 28px;
 }
 
 .heroTitle {
   font-family: $font-heading;
   font-weight: 700;
-  font-size: 60px;
-  line-height: 1.02;
-  letter-spacing: -0.04em;
+  font-size: 56px;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
   color: $uc-ink;
-  margin: 0 0 14px;
+  margin: 0 0 18px;
+  text-align: left;
+  text-wrap: balance;
 }
 
 .heroTitleAccent {
   font-style: italic;
   font-weight: 600;
   color: $uc-accent;
+  background: linear-gradient(92deg, $uc-accent-deep 0%, $uc-accent 55%, $uc-accent-light 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .tagline {
   font-family: $font-body;
-  font-style: italic;
-  font-size: 19px;
-  line-height: 1.4;
-  color: $uc-accent-deep;
-  margin: 0 0 28px;
-  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.55;
+  color: $uc-body;
+  margin: 0 0 32px;
+  max-width: 520px;
+
+  // Subtle italic emphasis without the orange shout
+  em, i { font-style: italic; color: $uc-ink-soft; }
 }
 
 .description {
@@ -185,10 +124,11 @@
 .heroFeatures {
   list-style: none;
   padding: 0;
-  margin: 0 0 36px;
+  margin: 0 0 40px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 10px;
+  max-width: 540px;
 
   li {
     position: relative;
@@ -196,18 +136,25 @@
     font-size: 15px;
     line-height: 1.6;
     color: $uc-body;
-    padding-left: 22px;
+    padding-left: 26px;
+    animation: fadeUp 0.6s $uc-ease both;
 
     &::before {
       content: "";
       position: absolute;
       left: 0;
-      top: 11px;
-      width: 10px;
+      top: 10px;
+      width: 14px;
       height: 2px;
       background: $uc-accent;
       border-radius: 1px;
+      transition: width 0.4s $uc-ease;
     }
+
+    &:nth-child(1) { animation-delay: 0.20s; }
+    &:nth-child(2) { animation-delay: 0.28s; }
+    &:nth-child(3) { animation-delay: 0.36s; }
+    &:nth-child(4) { animation-delay: 0.44s; }
   }
 }
 
@@ -215,70 +162,203 @@
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+  animation: fadeUp 0.7s $uc-ease 0.55s both;
 }
 
-// ─── HERO Numeral (decorative) ──────────────────
+// ─── Meta Verified subtle mark (under CTAs) ─────
 
-.heroNumeral {
+.metaBadge {
+  display: block;
+  height: 56px;
+  width: auto;
+  margin-top: 28px;
+  opacity: 0.8;
+  user-select: none;
+  transition: opacity 0.3s $uc-ease;
+  animation: fadeUp 0.7s $uc-ease 0.7s both;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// ─── HERO ASIDE — Library index card stack ────
+
+.heroAside {
   position: relative;
+  padding: 8px 0;
+}
+
+// Card deck — three layered rule cards, gently rotated
+.indexStack {
+  position: relative;
+  width: 100%;
+  // Reserve vertical room for the back card peek + front card overhang
+  min-height: 420px;
+}
+
+.indexCard {
+  --card-rest: rotate(0deg);
+  position: absolute;
+  width: 100%;
+  max-width: 420px;
+  background: $uc-panel-bg;
+  border: 1px solid rgba($uc-ink, 0.07);
+  border-radius: 18px;
+  padding: 22px 24px 20px;
+  box-shadow: $uc-shadow-panel;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 32px 0;
-  user-select: none;
+  gap: 14px;
+  transform: var(--card-rest);
+  animation: cardIn 0.75s $uc-ease both;
+  transition: transform 0.5s $uc-ease, box-shadow 0.5s $uc-ease;
 }
 
-.numeralStrap {
+// Back card — rolled back, peeks top-left
+.indexCardBack {
+  --card-rest: rotate(-4deg);
+  top: 0;
+  left: -8px;
+  z-index: 1;
+  animation-delay: 0.20s;
+  opacity: 0.86;
+}
+
+// Middle card — slight clockwise tilt, behind front
+.indexCardMid {
+  --card-rest: rotate(2.5deg);
+  top: 78px;
+  left: 36px;
+  z-index: 2;
+  animation-delay: 0.32s;
+  opacity: 0.94;
+}
+
+// Front card — most upright, foreground
+.indexCardFront {
+  --card-rest: rotate(-1deg);
+  top: 162px;
+  left: 8px;
+  z-index: 3;
+  animation-delay: 0.44s;
+  box-shadow:
+    0 1px 2px rgba($uc-ink, 0.04),
+    0 8px 22px rgba($uc-ink, 0.06),
+    0 28px 60px rgba($uc-ink, 0.07);
+}
+
+// Lift the front card on hover — the deck reacts
+.indexStack:hover {
+  .indexCardFront {
+    transform: rotate(-1deg) translateY(-6px);
+    box-shadow:
+      0 2px 4px rgba($uc-ink, 0.05),
+      0 14px 32px rgba($uc-ink, 0.08),
+      0 36px 72px rgba($uc-ink, 0.08);
+  }
+  .indexCardMid {
+    transform: rotate(2.5deg) translateY(-3px);
+  }
+  .indexCardBack {
+    transform: rotate(-4deg) translateY(-2px);
+  }
+}
+
+.indexCardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.indexCardId {
+  font-family: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: $uc-accent-deep;
+  background: rgba($uc-accent, 0.08);
+  border: 1px solid rgba($uc-accent, 0.2);
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+
+.indexCardSchedule {
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: 500;
+  color: $uc-stone;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  &::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: $uc-success;
+    box-shadow: 0 0 0 3px rgba($uc-success, 0.18);
+  }
+}
+
+.indexCardTitle {
+  font-family: $font-heading;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.32;
+  letter-spacing: -0.015em;
+  color: $uc-ink;
+  margin: 0;
+}
+
+.indexCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid $uc-line;
+}
+
+.indexTag {
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+
+.tagScale {
+  color: #2F7C44;
+  background: rgba($uc-success, 0.1);
+  border-color: rgba($uc-success, 0.25);
+}
+
+.tagFatigue {
+  color: #9A5230;
+  background: rgba($uc-pain, 0.1);
+  border-color: rgba($uc-pain, 0.25);
+}
+
+.tagRollback {
+  color: $uc-accent-deep;
+  background: rgba($uc-accent, 0.08);
+  border-color: rgba($uc-accent, 0.22);
+}
+
+.indexLevel {
   font-family: $font-body;
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: $uc-stone;
-  margin-bottom: 12px;
+  color: $uc-body-faded;
 }
 
-.numeralFigure {
-  font-family: $font-heading;
-  font-weight: 700;
-  font-size: clamp(180px, 22vw, 280px);
-  line-height: 0.86;
-  letter-spacing: -0.06em;
-  color: $uc-ink;
-  background: linear-gradient(165deg, $uc-ink 30%, $uc-accent 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: numeralIn 1.1s $uc-ease 0.1s both;
-  margin-bottom: 12px;
-}
-
-.numeralCaption {
-  font-family: $font-body;
-  font-style: italic;
-  font-size: 14px;
-  color: $uc-stone;
-  margin-bottom: 20px;
-  max-width: 240px;
-}
-
-.numeralDecor {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-
-  span {
-    display: block;
-    height: 2px;
-    background: $uc-accent;
-    border-radius: 1px;
-
-    &:nth-child(1) { width: 28px; opacity: 1; }
-    &:nth-child(2) { width: 14px; opacity: 0.6; }
-    &:nth-child(3) { width: 6px; opacity: 0.3; }
-  }
-}
 
 // ─── SOURCE STRIP ────────────────────────────────
 
@@ -658,7 +738,10 @@
 // ─── RESPONSIVE ─────────────────────────────────
 
 @include desktop-s {
-  .heroTitle { font-size: 52px; }
+  .heroLayout { gap: 48px; }
+  .heroTitle { font-size: 48px; }
+  .indexCard { max-width: 380px; padding: 20px 22px 18px; }
+  .indexCardTitle { font-size: 16px; }
   .libraryTitle { font-size: 38px; }
   .beyondTitle { font-size: 30px; }
   .beyondCard { padding: 48px; gap: 40px; }
@@ -666,12 +749,10 @@
 
 @include tablet-horizontal {
   .hero { padding: 130px 0 80px; }
-  .heroLayout { grid-template-columns: 1fr; gap: 48px; }
+  .heroLayout { grid-template-columns: 1fr; gap: 56px; }
   .heroContent { max-width: 100%; }
-  .heroNumeral { padding: 0; }
-  .numeralFigure { font-size: clamp(140px, 32vw, 220px); }
-  .partnerBadge { margin-top: 32px; }
-  .heroTitle { font-size: 46px; }
+  .heroAside { max-width: 520px; }
+  .heroTitle { font-size: 44px; }
   .libraryHeader { text-align: left; margin-left: 0; }
   .beyondCard { grid-template-columns: 1fr; gap: 32px; padding: 40px; }
   .faq { padding: 64px 0 0; }
@@ -680,9 +761,15 @@
 @include tablet-vertical {
   .hero { padding: 100px 0 60px; }
   .heroTitle { font-size: 38px; letter-spacing: -0.03em; }
-  .tagline { font-size: 17px; }
+  .tagline { font-size: 16px; margin-bottom: 28px; }
   .description { font-size: 16px; }
-  .numeralCaption { font-size: 13px; }
+  .heroFeatures { margin-bottom: 32px; }
+  .indexStack { min-height: 360px; }
+  .indexCard { max-width: 360px; padding: 18px 20px 16px; gap: 12px; }
+  .indexCardTitle { font-size: 15px; }
+  .indexCardBack { top: 0; left: -4px; }
+  .indexCardMid { top: 64px; left: 24px; }
+  .indexCardFront { top: 132px; left: 6px; }
   .libraryTitle { font-size: 30px; }
   .libraryIntro { font-size: 16px; }
   .librarySection { padding: 64px 0 40px; }
@@ -696,6 +783,7 @@
   .heroActions, .beyondActions { flex-direction: column; align-items: stretch;
     a, button { width: 100%; justify-content: center; }
   }
+  .metaBadge { align-self: flex-start; }
 }
 
 @include mobile {
@@ -703,7 +791,12 @@
     &::after { width: 280px; height: 280px; opacity: 0.6; }
   }
   .heroTitle { font-size: 30px; letter-spacing: -0.025em; }
-  .numeralFigure { font-size: clamp(110px, 38vw, 180px); }
+  .indexStack { min-height: 320px; }
+  .indexCard { max-width: 100%; padding: 16px 18px 14px; }
+  .indexCardTitle { font-size: 14px; }
+  .indexCardBack { display: none; }
+  .indexCardMid { top: 0; left: 12px; }
+  .indexCardFront { top: 96px; left: 0; }
   .libraryTitle { font-size: 26px; }
   .relatedLinks { padding: 48px 0 72px; }
 }
