@@ -378,8 +378,8 @@ function uniqueBenchmarkTypes(rule) {
   rule.tasks.forEach((t) =>
     t.conditions.forEach((c) => {
       if (c.multiplier != null) {
-        // For spend_floor, surface the anchor (so AdjustNote shows the
-        // right input names) rather than the literal "spend_floor" string.
+        // For spend_floor, surface the anchor (so the adjustment tag shows
+        // the right input names) rather than the literal "spend_floor" string.
         if (c.benchmarkType === "spend_floor") {
           set.add(c.anchorBenchmark || "cpa")
         } else {
@@ -721,7 +721,7 @@ function ProductionAnnotation({ conditions, inputs, mode, source }) {
   )
 }
 
-function AdjustNote({ rule, inputs }) {
+function AdjustInlineTag({ rule, inputs }) {
   const types = uniqueBenchmarkTypes(rule)
   if (types.length === 0) return null
   const parts = []
@@ -730,17 +730,11 @@ function AdjustNote({ rule, inputs }) {
   if (types.includes("cpc")) parts.push(`CPC $${inputs.cpc ?? "—"}`)
   if (types.includes("cpi")) parts.push(`CPI $${inputs.cpi ?? "—"}`)
   if (parts.length === 0) return null
-  const sourceTail =
-    rule.source === "playbook"
-      ? "The framework defaults come from Scalemate's playbook."
-      : "Production accounts used different numbers — see the annotations below each condition."
   return (
-    <div className={styles.adjustNote}>
-      <span className={styles.adjustNoteLabel}>Adjusted for your account</span>
-      <p>
-        Thresholds scaled from your {parts.join(" and ")}. {sourceTail}
-      </p>
-    </div>
+    <span className={styles.adjustInline} title="Thresholds above scaled from your inputs">
+      <span className={styles.adjustInlineDot} aria-hidden="true" />
+      Adjusted from your {parts.join(" and ")}
+    </span>
   )
 }
 
@@ -841,86 +835,52 @@ function RuleCard({
       {expanded && (
         <div className={styles.expand}>
           {adjustable && mode === "personalized" && (
-            <AdjustNote rule={rule} inputs={inputs} />
+            <AdjustInlineTag rule={rule} inputs={inputs} />
           )}
 
-          {(() => {
-            const explanations = uniqueConditionExplanations(rule)
-            if (explanations.length === 0) return null
-            return (
-              <div className={styles.breakdown}>
-                <span className={styles.breakdownLabel}>
-                  Threshold breakdown
-                </span>
-                <ul className={styles.breakdownList}>
-                  {explanations.map((ex, i) => (
-                    <li key={i} className={styles.breakdownItem}>
-                      <span className={styles.breakdownMetric}>
-                        {ex.metric}
-                      </span>
-                      <span className={styles.breakdownWhy}>{ex.why}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )
-          })()}
-
-          {isMulti && (
-            <div className={styles.chain}>
-              <span className={styles.chainLabel}>
-                The full {rule.tasks.length}-step chain
-              </span>
-              <ol className={styles.chainList}>
-                {rule.tasks.map((task, i) => (
-                  <li key={i}>
-                    <span className={styles.chainStep}>
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className={styles.chainBody}>
-                      <strong>If</strong>{" "}
-                      <code>
-                        <ConditionFragments
-                          conditions={task.conditions}
-                          inputs={inputs}
-                          mode={mode}
-                        />
-                      </code>{" "}
-                      <em>({task.timeframe})</em>
-                      <br />
-                      <strong>Then</strong> <code>{task.action}</code>
-                      <ProductionAnnotation
-                        conditions={task.conditions}
-                        inputs={inputs}
-                        mode={mode}
-                        source={rule.source}
-                      />
-                    </span>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          )}
-
-          <div className={styles.whenBlock}>
-            <span className={styles.whenLabel}>When to use</span>
+          <div className={styles.expandLead}>
+            <span className={styles.expandLabel}>Use this rule when</span>
             {rule.whenToUse ? (
-              <p>{rule.whenToUse}</p>
+              <p className={styles.expandLeadText}>{rule.whenToUse}</p>
             ) : (
-              <p className={styles.whenPlaceholder}>
+              <p
+                className={`${styles.expandLeadText} ${styles.expandLeadPlaceholder}`}
+              >
                 Context note pending — sourced from a live account, threshold
                 reasoning is being annotated.
               </p>
             )}
           </div>
 
-          <div className={styles.limitation}>
-            <span className={styles.limitationLabel}>
-              <WarnIcon />
-              Native Meta limitation
-            </span>
-            <p>{rule.nativeLimitation}</p>
-          </div>
+          {(() => {
+            const explanations = uniqueConditionExplanations(rule)
+            if (explanations.length === 0) return null
+            return (
+              <section className={styles.expandSection}>
+                <span className={styles.expandLabel}>Why these thresholds</span>
+                <ul className={styles.thresholdList}>
+                  {explanations.map((ex, i) => (
+                    <li key={i} className={styles.thresholdItem}>
+                      <span className={styles.thresholdMetric}>{ex.metric}</span>
+                      <span className={styles.thresholdWhy}>{ex.why}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )
+          })()}
+
+          {rule.nativeLimitation && (
+            <aside className={styles.caveat}>
+              <span className={styles.caveatIcon}>
+                <WarnIcon />
+              </span>
+              <div className={styles.caveatBody}>
+                <span className={styles.caveatLabel}>On native Meta</span>
+                <p className={styles.caveatProse}>{rule.nativeLimitation}</p>
+              </div>
+            </aside>
+          )}
         </div>
       )}
 
