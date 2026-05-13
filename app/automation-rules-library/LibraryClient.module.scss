@@ -1118,7 +1118,7 @@
 }
 
 .expandBtn,
-.copyBtn {
+.applyBtn {
   flex: 1;
   display: inline-flex;
   align-items: center;
@@ -1132,6 +1132,7 @@
   letter-spacing: 0.005em;
   cursor: pointer;
   transition: all 0.25s $uc-ease;
+  text-decoration: none;
 }
 
 .expandBtn {
@@ -1146,7 +1147,7 @@
   }
 }
 
-.copyBtn {
+.applyBtn {
   background: $uc-ink;
   border: 1px solid $uc-ink;
   color: #fff;
@@ -1155,21 +1156,16 @@
     background: $uc-ink-soft;
     border-color: $uc-ink-soft;
     transform: translateY(-1px);
+    color: #fff;
   }
 
   svg {
     color: currentColor;
+    transition: transform 0.25s $uc-ease;
   }
-}
 
-.copyBtnDone {
-  background: $uc-success;
-  border-color: $uc-success;
-
-  &:hover {
-    background: $uc-success;
-    border-color: $uc-success;
-    transform: none;
+  &:hover svg {
+    transform: translateX(2px);
   }
 }
 

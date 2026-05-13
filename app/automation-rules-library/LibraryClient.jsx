@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useMemo, useRef, useState } from "react"
+import Link from "next/link"
 import {
   RULES,
   RULE_GOALS,
@@ -13,7 +14,19 @@ import BenchmarkInput, {
   DEFAULT_STATE,
   readBenchmarkInputs,
 } from "./BenchmarkInput"
+import { trackMixpanelEvent } from "@/helpers/analytics/mixpanel"
+import { appendTrackingParams } from "@/helpers/forwardParams"
 import styles from "./LibraryClient.module.scss"
+
+const APPLY_RULE_DESTINATION = "https://app.scalemate.co"
+
+function buildApplyRuleHref() {
+  const forwarded = appendTrackingParams(APPLY_RULE_DESTINATION)
+  if (typeof window === "undefined") return forwarded
+  const url = new URL(forwarded)
+  url.searchParams.set("utm_content", "apply_rule_card")
+  return url.toString()
+}
 
 // ─── Recalculation helpers ──────────────────────────────────────
 
@@ -391,76 +404,17 @@ function uniqueBenchmarkTypes(rule) {
   return Array.from(set)
 }
 
-function buildCopyText(rule, inputs, mode) {
-  const lines = [
-    `# ${rule.title}`,
-    `Goal: ${GOAL_LABELS[rule.goal] || rule.goal}`,
-    `Level: ${LEVEL_LABELS[rule.level] || rule.level}`,
-    `Schedule: ${rule.schedule}`,
-    "",
-  ]
-  if (rule.filters && rule.filters.length > 0) {
-    const scopeLabel =
-      rule.filters[0].scope === "campaign"
-        ? "Campaigns"
-        : rule.filters[0].scope === "ad-set"
-        ? "Ad sets"
-        : "Entities"
-    const windowLabel = rule.filters[0].window
-      ? ` (${rule.filters[0].window})`
-      : ""
-    lines.push(
-      `Targeting filter (${scopeLabel.toLowerCase()} scope): ${renderConditionString(rule.filters, inputs, mode)}${windowLabel}`
-    )
-    lines.push("")
-  }
-  rule.tasks.forEach((task, i) => {
-    if (rule.tasks.length > 1) lines.push(`## Step ${i + 1}`)
-    lines.push(`Condition: ${renderConditionString(task.conditions, inputs, mode)}`)
-    lines.push(`Time window: ${task.timeframe}`)
-    lines.push(`Action: ${task.action}`)
-    lines.push("")
-  })
-  if (mode === "personalized") {
-    const types = uniqueBenchmarkTypes(rule)
-    const summary = []
-    if (types.includes("cpa")) summary.push(`CPA $${inputs.cpa}`)
-    if (types.includes("roas")) summary.push(`ROAS ${inputs.roas}x`)
-    if (types.includes("cpc")) summary.push(`CPC $${inputs.cpc}`)
-    if (types.includes("cpi")) summary.push(`CPI $${inputs.cpi}`)
-    const summaryStr = summary.length
-      ? summary.join(", ")
-      : "your inputs"
-    lines.push(`# Thresholds adjusted from your inputs — ${summaryStr}`)
-  } else {
-    lines.push(
-      rule.source === "playbook"
-        ? `# Thresholds from Scalemate's playbook framework`
-        : `# Thresholds shown as production examples (live Meta accounts)`
-    )
-  }
-  return lines.join("\n").trim()
-}
-
 // ─── Icons ──────────────────────────────────────────────────────
 
-function CopyIcon() {
+function ArrowRightIcon() {
   return (
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-      <rect
-        x="3.5"
-        y="3.5"
-        width="7"
-        height="9"
-        rx="1.2"
-        stroke="currentColor"
-        strokeWidth="1.2"
-      />
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
       <path
-        d="M5.5 3V2c0-.6.4-1 1-1h5c.6 0 1 .4 1 1v8c0 .6-.4 1-1 1H10"
+        d="M3 7h8m-3-3 3 3-3 3"
         stroke="currentColor"
-        strokeWidth="1.2"
+        strokeWidth="1.5"
         strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   )
@@ -482,20 +436,6 @@ function ChevronIcon({ open }) {
         d="M2.5 4l3 3 3-3"
         stroke="currentColor"
         strokeWidth="1.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
-}
-
-function CheckIcon() {
-  return (
-    <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-      <path
-        d="M2.8 6.8 5.2 9.2l5-5.4"
-        stroke="currentColor"
-        strokeWidth="1.6"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -740,16 +680,7 @@ function AdjustInlineTag({ rule, inputs }) {
 
 // ─── Card ───────────────────────────────────────────────────────
 
-function RuleCard({
-  rule,
-  index,
-  expanded,
-  onToggle,
-  onCopy,
-  copied,
-  inputs,
-  mode,
-}) {
+function RuleCard({ rule, index, expanded, onToggle, inputs, mode }) {
   const isMulti = rule.tasks.length > 1
   const indexLabel = String(index + 1).padStart(2, "0")
   const adjustable = isAdjustable(rule)
@@ -893,23 +824,27 @@ function RuleCard({
           {expanded ? "Show less" : "Show details"}
           <ChevronIcon open={expanded} />
         </button>
-        <button
-          type="button"
-          className={`${styles.copyBtn} ${copied ? styles.copyBtnDone : ""}`}
-          onClick={() => onCopy(rule)}
+        <Link
+          href={buildApplyRuleHref()}
+          className={styles.applyBtn}
+          onClick={() => {
+            trackMixpanelEvent("rules_library_apply_rule", {
+              page: "automation-rules-library",
+              rule_id: rule.id,
+              rule_title: rule.title,
+              rule_goal: rule.goal,
+              rule_level: rule.level,
+              rule_source: rule.source,
+              expanded,
+              cta_text: "Apply rule",
+              cta_destination: APPLY_RULE_DESTINATION,
+              utm_content: "apply_rule_card",
+            })
+          }}
         >
-          {copied ? (
-            <>
-              <CheckIcon />
-              Copied
-            </>
-          ) : (
-            <>
-              <CopyIcon />
-              Copy rule
-            </>
-          )}
-        </button>
+          Apply rule
+          <ArrowRightIcon />
+        </Link>
       </footer>
     </article>
   )
@@ -922,7 +857,6 @@ export default function LibraryClient() {
   const [level, setLevel] = useState("all")
   const [objective, setObjective] = useState("all")
   const [expandedId, setExpandedId] = useState(null)
-  const [copiedId, setCopiedId] = useState(null)
 
   // Benchmark inputs — start with defaults so SSR + first render match.
   // Hydrate from localStorage post-mount.
@@ -1026,18 +960,6 @@ export default function LibraryClient() {
       const target = grid.getBoundingClientRect().top + window.scrollY - 88
       window.scrollTo({ top: Math.max(0, target), behavior: "instant" })
     })
-  }
-
-  const handleCopy = async (rule) => {
-    try {
-      await navigator.clipboard.writeText(
-        buildCopyText(rule, bench, bench.mode)
-      )
-      setCopiedId(rule.id)
-      setTimeout(() => setCopiedId(null), 2000)
-    } catch {
-      setCopiedId(null)
-    }
   }
 
   const isFiltered =
@@ -1176,8 +1098,6 @@ export default function LibraryClient() {
                 index={index}
                 expanded={expandedId === rule.id}
                 onToggle={handleToggle}
-                onCopy={handleCopy}
-                copied={copiedId === rule.id}
                 inputs={bench}
                 mode={bench.mode}
               />

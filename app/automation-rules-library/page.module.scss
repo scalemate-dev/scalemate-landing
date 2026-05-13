@@ -179,23 +179,6 @@
   animation: fadeUp 0.7s $uc-ease 0.55s both;
 }
 
-// ─── Meta Verified subtle mark (under CTAs) ─────
-
-.metaBadge {
-  display: block;
-  height: 56px;
-  width: auto;
-  margin-top: 28px;
-  opacity: 0.8;
-  user-select: none;
-  transition: opacity 0.3s $uc-ease;
-  animation: fadeUp 0.7s $uc-ease 0.7s both;
-
-  &:hover {
-    opacity: 1;
-  }
-}
-
 // ─── HERO ASIDE — Library index card stack ────
 
 .heroAside {
@@ -797,7 +780,6 @@
   .heroActions, .beyondActions { flex-direction: column; align-items: stretch;
     a, button { width: 100%; justify-content: center; }
   }
-  .metaBadge { align-self: flex-start; }
 }
 
 @include mobile {

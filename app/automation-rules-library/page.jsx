@@ -7,28 +7,25 @@ import LibraryClient from "./LibraryClient"
 import { RULES } from "./rules-data"
 import styles from "./page.module.scss"
 
+const RULE_COUNT = RULES.length
+
 export const metadata = {
-  title: "12 Production-Tested Facebook Automated Rules | Scalemate",
-  description:
-    "12 production-tested Facebook automated rules from live $1M+/month Meta accounts. Adjust your CPA, ROAS, CPC — every threshold recalculates to your numbers.",
+  title: `${RULE_COUNT} Production-Tested Facebook Automated Rules | Scalemate`,
+  description: `${RULE_COUNT} production-tested Facebook automated rules from live $1M+/month Meta accounts. Adjust your CPA, ROAS, CPC — every threshold recalculates to your numbers.`,
   alternates: {
     canonical: "https://www.scalemate.co/automation-rules-library",
   },
   openGraph: {
     url: "https://www.scalemate.co/automation-rules-library",
     type: "website",
-    title:
-      "12 Production-Tested Facebook Automated Rules from $1M+/mo Accounts",
-    description:
-      "Steal 12 Facebook automated rules running in live $1M+/month Meta accounts. Stop loss, scale winners, prune creative — every threshold recalculates from your CPA, ROAS, CPC inputs.",
+    title: `${RULE_COUNT} Production-Tested Facebook Automated Rules from $1M+/mo Accounts`,
+    description: `Steal ${RULE_COUNT} Facebook automated rules running in live $1M+/month Meta accounts. Stop loss, scale winners, prune creative — every threshold recalculates from your CPA, ROAS, CPC inputs.`,
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "12 Production-Tested Facebook Automated Rules from $1M+/mo Accounts",
-    description:
-      "Steal 12 Facebook automated rules running in live $1M+/month Meta accounts. Filter by goal: stop loss, scale winners, prune creative, control budget.",
+    title: `${RULE_COUNT} Production-Tested Facebook Automated Rules from $1M+/mo Accounts`,
+    description: `Steal ${RULE_COUNT} Facebook automated rules running in live $1M+/month Meta accounts. Filter by goal: stop loss, scale winners, prune creative, control budget.`,
     images: ["/og-image.png"],
   },
 }
@@ -295,15 +292,6 @@ export default function AutomationRulesLibraryPage() {
                   Auto-import these rules
                 </Button>
               </div>
-
-              <img
-                className={styles.metaBadge}
-                src="/meta-verified-app-transparent.svg"
-                alt="Meta Verified"
-                width="325"
-                height="108"
-                loading="eager"
-              />
             </div>
 
             <aside className={styles.heroAside}>
