@@ -66,45 +66,6 @@ export const OBJECTIVE_LABELS = Object.fromEntries(RULE_OBJECTIVES.map(o => [o.i
 
 const ALL_RULES = [
   {
-    "id": "rule-20",
-    "objectives": ["sales"],
-    "source": "production",
-    "title": "Pause ad when checkout cost exceeds your breakeven cap",
-    "goal": "kill-losers",
-    "level": "ad",
-    "platform": "meta",
-    "schedule": "Every hour",
-    "tasks": [
-      {
-        "timeframe": "today",
-        "conditions": [
-          {
-            "metric": "spend",
-            "metricLabel": "Amount spent",
-            "operator": ">",
-            "benchmarkType": "spend_floor",
-            "anchorBenchmark": "cpa",
-            "multiplier": 2.0,
-            "productionValue": 100,
-            "unit": "currency"
-          },
-          {
-            "metric": "cost_per_initiated_checkout",
-            "metricLabel": "Cost per initiated checkout",
-            "operator": ">",
-            "benchmarkType": "cpa",
-            "multiplier": 1.7,
-            "productionValue": 85,
-            "unit": "currency"
-          }
-        ],
-        "action": "Pause ad"
-      }
-    ],
-    "whenToUse": "Use this when cost per initiated checkout becomes the leading indicator of a bad ad — usually for DTC e-commerce where the funnel is short and checkout signal arrives within hours. The 2× CPA spend floor ensures the ad has had a fair test before pausing on a single bad checkout cost — at CPA $50 that means $100 spent before the rule can fire, enough auction signal to read true performance. Hourly cadence catches the pattern before a runaway ad burns a half-day's budget.",
-    "nativeLimitation": "Meta evaluates cost per checkout on attribution-window data, so the rule can fire on numbers that haven't fully settled. There's also no way to pair this with a creative-fatigue check in one rule — if you want to skip ads in the learning phase, that requires a second rule and manual reconciliation."
-  },
-  {
     "id": "rule-21",
     "objectives": ["sales"],
     "source": "production",
@@ -230,6 +191,157 @@ const ALL_RULES = [
     ],
     "whenToUse": "A combined kill-and-scale rule over a 3-day window — pauses ad sets spending 3× CPA with cost-per-purchase past 2× CPA (clearly underperforming), and aggressively scales ad sets that have spent at least 1.8× CPA with cost-per-purchase under 0.9× CPA (clearly profitable). The aggressive 50% bump is designed to push early-winner ad sets to a higher budget tier as fast as auction-signal allows — once an ad set shows strong unit economics on 1.8× CPA spent, the team wants to capture that performance before competitors catch the audience overlap. Performance teams use this for early-winner escalation without manual triage.",
     "nativeLimitation": "Meta evaluates the pause and the scale tasks independently — an ad set that crossed the 1.8× CPA scale floor can also hit the 3× CPA pause threshold the same evaluation hour and end up paused before the budget bump takes effect. Native rules can't express 'scale only if pause didn't fire' inside a single rule. The 3-day window also blends spend across all three days, so a single late-attribution purchase can flip the cost-per-purchase reading just before evaluation. There's no automatic rollback if the boosted ad set degrades the next day — pair with a separate rollback rule."
+  },
+  {
+    "id": "rule-104",
+    "objectives": ["app-promotion"],
+    "source": "playbook",
+    "title": "Alert on creative fatigue before CAC suffers",
+    "goal": "creative-fatigue",
+    "level": "campaign",
+    "platform": "meta",
+    "schedule": "Every 3 hours",
+    "tasks": [
+      {
+        "timeframe": "today",
+        "conditions": [
+          {
+            "metric": "spend",
+            "metricLabel": "Campaign spend",
+            "operator": ">=",
+            "benchmarkType": "absolute_spend",
+            "multiplier": null,
+            "productionValue": null,
+            "unit": "currency",
+            "note": "matches the campaign's daily budget cap"
+          },
+          {
+            "metric": "ipm_change",
+            "metricLabel": "IPM change",
+            "operator": "<",
+            "benchmarkType": "absolute_count",
+            "multiplier": null,
+            "productionValue": -30,
+            "unit": "percent_delta",
+            "note": "decrease by more than 30%"
+          },
+          {
+            "metric": "cpi_change",
+            "metricLabel": "CPI change",
+            "operator": ">",
+            "benchmarkType": "absolute_count",
+            "multiplier": null,
+            "productionValue": 20,
+            "unit": "percent_delta",
+            "note": "increase by more than 20%"
+          }
+        ],
+        "action": "Notify Slack with campaign report"
+      }
+    ],
+    "whenToUse": "Early creative fatigue detection — catches the moment a campaign's creative pool starts saturating, BEFORE the bad metrics show up at the bottom of the funnel. Fatigue can be tracked through different signal pairs depending on the funnel: for mobile UA, watch IPM (installs per mille) falling alongside CPI (cost per install) climbing; for web, swap to CVR falling alongside cost-per-registration (or cost-per-lead, cost-per-checkout) climbing. The diagnostic principle is the same: if delivery efficiency is dropping while spend stays stable or grows, the creative pool isn't earning attention anymore — the auction is paying more for fewer high-quality actions. Catching this early matters because the team can rotate in fresh creatives before the metric decay reaches CAC or ROAS. The Slack alert gives the team a chance to review context and choose between rotation, pause, or audience refresh — instead of waiting for kill rules to fire on lagging indicators.",
+    "nativeLimitation": "Meta natively can't read percentage-delta metrics across time windows — the IPM-decrease and CPI-increase comparisons live in Scalemate's tracking layer, not Meta's rule engine, so this rule isn't directly portable to Meta Ads Manager. The closest native equivalent fires on absolute thresholds (e.g. 'CPI > $X') which trip much later than a delta-based signal. Also, the 'budget cap reached' condition can read stale if Meta hasn't fully reconciled today's spend at evaluation time — manual cross-check the campaign before reacting to the alert."
+  },
+  {
+    "id": "rule-64",
+    "objectives": ["sales"],
+    "source": "production",
+    "title": "Recover ads killed by attribution lag",
+    "goal": "scale-winners",
+    "level": "ad",
+    "platform": "meta",
+    "schedule": "Every hour",
+    "tasks": [
+      {
+        "timeframe": "last_3d",
+        "conditions": [
+          {
+            "metric": "purchases",
+            "metricLabel": "Purchases",
+            "operator": ">=",
+            "benchmarkType": "absolute_count",
+            "multiplier": null,
+            "productionValue": 1,
+            "unit": "count"
+          },
+          {
+            "metric": "cost_per_purchase",
+            "metricLabel": "Cost per purchase",
+            "operator": "<",
+            "benchmarkType": "cpa",
+            "multiplier": 1.0,
+            "productionValue": 50,
+            "unit": "currency"
+          }
+        ],
+        "action": "Activate ad"
+      },
+      {
+        "timeframe": "last_3d",
+        "conditions": [
+          {
+            "metric": "purchases",
+            "metricLabel": "Purchases",
+            "operator": ">=",
+            "benchmarkType": "absolute_count",
+            "multiplier": null,
+            "productionValue": 1,
+            "unit": "count"
+          },
+          {
+            "metric": "cost_per_purchase",
+            "metricLabel": "Cost per purchase",
+            "operator": "<",
+            "benchmarkType": "cpa",
+            "multiplier": 1.0,
+            "productionValue": 50,
+            "unit": "currency"
+          }
+        ],
+        "action": "Activate ad set"
+      }
+    ],
+    "whenToUse": "Reactivation safety net for delayed-attribution recovery — Meta sometimes posts purchases 24-72 hours after the click that earned them, which means an ad paused by a kill rule yesterday could prove profitable by the time the next day's conversion data finalises. This rule scans paused ads and ad sets, and if the last-3-day window shows CPA below breakeven (i.e. the late conversions just made the entity profitable in retrospect), it reactivates. Pair with aggressive kill rules (№ 09, № 14, multi-tier cascades) — this is the recovery layer that catches false positives without manual triage.",
+    "nativeLimitation": "Native Meta rules apply to active entities by default — to scan paused ads, the rule's 'applies to' scope must be explicitly set to include paused state in Ads Manager. Once set, reactivation rules can fight in parallel with kill rules: an ad activated at 9am can be paused again at 11am if today's kill rule trips on fresh data. Native rules can't see each other, so frequent flapping is possible — pair with a daily review or move the chain into a layer above Meta. Also, the last-3-day window includes spend that happened before the pause AND after — if the entity was paused 2 days ago and reactivated today, its old spend still counts against new conversions, distorting the CPA reading on the next evaluation."
+  },
+  {
+    "id": "rule-20",
+    "objectives": ["sales"],
+    "source": "production",
+    "title": "Pause ad when checkout cost exceeds your breakeven cap",
+    "goal": "kill-losers",
+    "level": "ad",
+    "platform": "meta",
+    "schedule": "Every hour",
+    "tasks": [
+      {
+        "timeframe": "today",
+        "conditions": [
+          {
+            "metric": "spend",
+            "metricLabel": "Amount spent",
+            "operator": ">",
+            "benchmarkType": "spend_floor",
+            "anchorBenchmark": "cpa",
+            "multiplier": 2.0,
+            "productionValue": 100,
+            "unit": "currency"
+          },
+          {
+            "metric": "cost_per_initiated_checkout",
+            "metricLabel": "Cost per initiated checkout",
+            "operator": ">",
+            "benchmarkType": "cpa",
+            "multiplier": 1.7,
+            "productionValue": 85,
+            "unit": "currency"
+          }
+        ],
+        "action": "Pause ad"
+      }
+    ],
+    "whenToUse": "Use this when cost per initiated checkout becomes the leading indicator of a bad ad — usually for DTC e-commerce where the funnel is short and checkout signal arrives within hours. The 2× CPA spend floor ensures the ad has had a fair test before pausing on a single bad checkout cost — at CPA $50 that means $100 spent before the rule can fire, enough auction signal to read true performance. Hourly cadence catches the pattern before a runaway ad burns a half-day's budget.",
+    "nativeLimitation": "Meta evaluates cost per checkout on attribution-window data, so the rule can fire on numbers that haven't fully settled. There's also no way to pair this with a creative-fatigue check in one rule — if you want to skip ads in the learning phase, that requires a second rule and manual reconciliation."
   },
   {
     "id": "rule-24",
@@ -1233,137 +1345,6 @@ const ALL_RULES = [
     "nativeLimitation": "The two tasks fire independently — an ad meeting the registration condition (no signups at the spend floor) but not the checkout condition still pauses, even if other behavioural signals look fine. Native rules can't enforce 'pause only if both fail' logic; that requires a chained automation outside Meta."
   },
   {
-    "id": "rule-64",
-    "draft": true,
-    "objectives": ["sales"],
-    "source": "production",
-    "title": "Reactivate ads or ad sets on confirmed purchase signal",
-    "goal": "scale-winners",
-    "level": "ad",
-    "platform": "meta",
-    "schedule": "Every hour",
-    "tasks": [
-      {
-        "timeframe": "maximum",
-        "conditions": [
-          {
-            "metric": "purchases",
-            "metricLabel": "Purchases",
-            "operator": ">=",
-            "benchmarkType": "absolute_count",
-            "multiplier": null,
-            "productionValue": 1,
-            "unit": "count"
-          },
-          {
-            "metric": "cost_per_purchase",
-            "metricLabel": "Cost per purchase",
-            "operator": "<",
-            "benchmarkType": "cpa",
-            "multiplier": 2.6,
-            "productionValue": 130,
-            "unit": "currency"
-          },
-          {
-            "metric": "spend",
-            "metricLabel": "Amount spent",
-            "operator": "<",
-            "benchmarkType": "spend_floor",
-            "anchorBenchmark": "cpa",
-            "multiplier": 3.0,
-            "productionValue": 150,
-            "unit": "currency"
-          }
-        ],
-        "action": "Activate ad"
-      },
-      {
-        "timeframe": "maximum",
-        "conditions": [
-          {
-            "metric": "purchases",
-            "metricLabel": "Purchases",
-            "operator": ">=",
-            "benchmarkType": "absolute_count",
-            "multiplier": null,
-            "productionValue": 2,
-            "unit": "count"
-          },
-          {
-            "metric": "cost_per_purchase",
-            "metricLabel": "Cost per purchase",
-            "operator": "<",
-            "benchmarkType": "cpa",
-            "multiplier": 2.4,
-            "productionValue": 120,
-            "unit": "currency"
-          }
-        ],
-        "action": "Activate ad"
-      },
-      {
-        "timeframe": "maximum",
-        "conditions": [
-          {
-            "metric": "purchases",
-            "metricLabel": "Purchases",
-            "operator": ">=",
-            "benchmarkType": "absolute_count",
-            "multiplier": null,
-            "productionValue": 2,
-            "unit": "count"
-          },
-          {
-            "metric": "cost_per_purchase",
-            "metricLabel": "Cost per purchase",
-            "operator": "<",
-            "benchmarkType": "cpa",
-            "multiplier": 4,
-            "productionValue": 200,
-            "unit": "currency"
-          },
-          {
-            "metric": "spend",
-            "metricLabel": "Amount spent",
-            "operator": "<",
-            "benchmarkType": "spend_floor",
-            "anchorBenchmark": "cpa",
-            "multiplier": 7.0,
-            "productionValue": 350,
-            "unit": "currency"
-          }
-        ],
-        "action": "Activate ad set"
-      },
-      {
-        "timeframe": "today",
-        "conditions": [
-          {
-            "metric": "purchases",
-            "metricLabel": "Purchases",
-            "operator": ">=",
-            "benchmarkType": "absolute_count",
-            "multiplier": null,
-            "productionValue": 2,
-            "unit": "count"
-          },
-          {
-            "metric": "cost_per_purchase",
-            "metricLabel": "Cost per purchase",
-            "operator": "<",
-            "benchmarkType": "cpa",
-            "multiplier": 2.4,
-            "productionValue": 120,
-            "unit": "currency"
-          }
-        ],
-        "action": "Activate ad"
-      }
-    ],
-    "whenToUse": "Reactivation rule for paused ads and ad sets that turn out to have been killed too early — when the lifetime data shows real purchases at acceptable CPA, the entity comes back online. Performance teams running aggressive kill rules use this as the safety net to recover false positives. The four conditions cover different evidence levels for ad-level vs ad-set-level reactivation.",
-    "nativeLimitation": "Activate-on-condition rules can fight with kill rules running in parallel — an ad reactivated at 9am could be paused again at 11am if the today-window kill rule doesn't share the same threshold logic. Native rules can't see each other; this is a chain that has to live outside Meta or risk constant flapping."
-  },
-  {
     "id": "rule-65",
     "draft": true,
     "objectives": ["sales"],
@@ -1849,11 +1830,10 @@ const ALL_RULES = [
     "nativeLimitation": "Native rules can't compound a spend-multiple condition with a ROAS condition relative to the team's target. Both have to be hardcoded as absolute thresholds and updated when the team's unit economics or ROAS target shifts."
   },
   {
-    "id": "rule-104",
-    "draft": true,
-    "objectives": ["app-promotion"],
+    "id": "rule-105",
+    "objectives": ["sales", "app-promotion"],
     "source": "playbook",
-    "title": "Alert when budget is hit while IPM falls and CPI rises",
+    "title": "Investigate CPM spikes — Slack diagnostic with geo + creative diff",
     "goal": "creative-fatigue",
     "level": "campaign",
     "platform": "meta",
@@ -1863,41 +1843,157 @@ const ALL_RULES = [
         "timeframe": "today",
         "conditions": [
           {
-            "metric": "spend",
-            "metricLabel": "Campaign spend",
-            "operator": ">=",
-            "benchmarkType": "absolute_spend",
-            "multiplier": null,
+            "metric": "cpm",
+            "metricLabel": "CPM",
+            "operator": ">",
+            "benchmarkType": "rolling_avg",
+            "anchorMetric": "cpm",
+            "anchorWindow": "last_7d",
+            "multiplier": 1.3,
             "productionValue": null,
-            "unit": "currency",
-            "note": "matches the campaign's daily budget cap"
-          },
+            "unit": "currency"
+          }
+        ],
+        "action": "Send Slack report with top-spending geo + creative diff + likely causes"
+      }
+    ],
+    "whenToUse": "CPM-rising diagnostic — when a campaign's CPM jumps 30%+ above its own 7-day rolling baseline, something material has shifted in the auction. The rule sends a Slack report with three pieces of context the team needs to triage: (1) top-spending geos this period vs. the baseline week — has the audience composition changed; (2) top-spending creatives — is the team running a new creative pool, or have older creatives gained delivery share; (3) suggested likely causes — creative fatigue (audience saturation), seasonality + competitor entry (verify with the account manager whether competitors in the same vertical also show CPM lift), or simply a delivery shift on Meta's side. The point is to give the team a starting hypothesis instead of forcing a manual investigation every time CPM moves.",
+    "nativeLimitation": "Meta's native rules can't compute deltas against rolling averages, can't enrich the alert payload with geo/creative breakdowns, and can't post structured reports to Slack. This rule is Scalemate-only — the tracking layer pulls the geo + creative data alongside the trigger so the Slack payload is decision-ready, not just a 'CPM is up' ping."
+  },
+  {
+    "id": "rule-106",
+    "objectives": ["sales", "app-promotion"],
+    "source": "playbook",
+    "title": "Surface hook-rate winners to the creative team early",
+    "goal": "scale-winners",
+    "testingPhase": 1,
+    "level": "ad",
+    "platform": "meta",
+    "schedule": "Every hour",
+    "tasks": [
+      {
+        "timeframe": "today",
+        "conditions": [
           {
-            "metric": "ipm_change",
-            "metricLabel": "IPM change",
-            "operator": "<",
-            "benchmarkType": "absolute_count",
-            "multiplier": null,
-            "productionValue": -30,
-            "unit": "percent",
-            "note": "decrease by more than 30%"
-          },
-          {
-            "metric": "cpi_change",
-            "metricLabel": "CPI change",
+            "metric": "impressions",
+            "metricLabel": "Impressions",
             "operator": ">",
             "benchmarkType": "absolute_count",
             "multiplier": null,
-            "productionValue": 20,
-            "unit": "percent",
-            "note": "increase by more than 20%"
+            "productionValue": 5000,
+            "unit": "count"
+          },
+          {
+            "metric": "hook_rate",
+            "metricLabel": "Hook rate (3s plays ÷ impressions)",
+            "operator": ">",
+            "benchmarkType": "absolute_count",
+            "multiplier": null,
+            "productionValue": 30,
+            "unit": "percent"
           }
         ],
-        "action": "Notify Slack with campaign report"
+        "action": "Send Slack notification to creative team with hook-rate winners"
       }
     ],
-    "whenToUse": "Fatigue surface — when an active campaign hits its budget cap WHILE delivery efficiency falls (IPM down) AND install cost climbs (CPI up), the creative pool is saturating. The Slack alert lets the team review context before pausing reactively. Fits app promotion campaigns where creative refresh cadence determines acquisition cost.",
-    "nativeLimitation": "Meta natively can't read percentage-delta metrics across time windows. The IPM-decrease and CPI-increase comparisons live in Scalemate's tracking layer, not Meta's rule engine — so this rule is Scalemate-only, not portable to Meta Ads Manager natively."
+    "whenToUse": "Early hook-rate signal for the creative team — once a Phase 1 test ad clears 5K impressions and its hook rate (3-second video plays divided by impressions) crosses 30%+, it's an early top-of-funnel winner regardless of conversion data. Surfacing these in Slack lets the creative team see which hooks work BEFORE conversion data arrives, so they can spin off variants, replicate the angle on other formats, and accelerate the testing pipeline. Especially valuable for mobile UA and DTC teams running 10+ creative tests per week — the bottleneck isn't conversion analysis, it's identifying patterns fast enough to brief the next round.",
+    "nativeLimitation": "Meta natively exposes 3-second video plays and impressions, so the hook rate calculation is feasible inside a native rule. What native rules can't do: route the alert into a specific Slack channel, attach the actual creative thumbnail to the notification, or group multiple winners into a single digest. Scalemate's tracking layer pipes the alert into a dedicated creative-team channel with the ad's thumbnail and copy so designers can act immediately."
+  },
+  {
+    "id": "rule-107",
+    "objectives": ["sales", "app-promotion"],
+    "source": "production",
+    "title": "Pause video ad on CPM > 4× benchmark — early-auction filter",
+    "goal": "kill-losers",
+    "level": "ad",
+    "platform": "meta",
+    "schedule": "Every hour",
+    "tasks": [
+      {
+        "timeframe": "today",
+        "conditions": [
+          {
+            "metric": "spend",
+            "metricLabel": "Amount spent",
+            "operator": ">",
+            "benchmarkType": "spend_floor",
+            "anchorBenchmark": "cpm",
+            "multiplier": 0.5,
+            "productionValue": 10,
+            "unit": "currency"
+          },
+          {
+            "metric": "cpm",
+            "metricLabel": "CPM",
+            "operator": ">",
+            "benchmarkType": "cpm",
+            "multiplier": 4.0,
+            "productionValue": 80,
+            "unit": "currency"
+          }
+        ],
+        "action": "Pause ad (video creatives only)"
+      }
+    ],
+    "whenToUse": "Early auction CPM filter for video creatives — catches video ads where the auction is paying way above your CPM ceiling before more than ~$10 burns. Real use case: accounts where target CPM is $40-80 but new test videos land at $150-500 CPM. Filter the rule to video ads only in Meta's 'applies to' scope (CPM behaves differently for static vs video). The 0.5× CPM-benchmark spend floor is intentionally tight — the rule needs to fire FAST, within minutes of a bad video starting to deliver. Pair with the hook-rate winner rule (№ 18) to surface the opposite side: video creatives worth the auction price.",
+    "nativeLimitation": "Meta's 'applies to' filter for video can include single-image with video-placement crossover where CPM math differs. Verify the filter targets video ads specifically, not video placements. Also, the tight spend floor evaluates on attribution-lagged data — if the first impressions cluster in expensive Stories placements but later balance across cheap Reels, the rule can fire on a transient CPM spike that resolves on its own."
+  },
+  {
+    "id": "rule-108",
+    "objectives": ["sales"],
+    "source": "playbook",
+    "title": "Revive paused ads to restore declining campaigns",
+    "goal": "creative-fatigue",
+    "level": "ad",
+    "platform": "meta",
+    "schedule": "Every 3 hours",
+    "filters": [
+      {
+        "scope": "campaign",
+        "metric": "purchase_roas",
+        "metricLabel": "Campaign ROAS",
+        "operator": "<",
+        "benchmarkType": "roas",
+        "multiplier": 1.0,
+        "productionValue": 2.0,
+        "unit": "ratio",
+        "window": "last_3d"
+      }
+    ],
+    "tasks": [
+      {
+        "timeframe": "last_3d",
+        "conditions": [
+          {
+            "metric": "cost_per_purchase",
+            "metricLabel": "Cost per purchase",
+            "operator": ">",
+            "benchmarkType": "cpa",
+            "multiplier": 1.0,
+            "productionValue": 50,
+            "unit": "currency"
+          }
+        ],
+        "action": "Pause ad (underperformer)"
+      },
+      {
+        "timeframe": "maximum",
+        "conditions": [
+          {
+            "metric": "cost_per_purchase",
+            "metricLabel": "Lifetime cost per purchase",
+            "operator": "<",
+            "benchmarkType": "cpa",
+            "multiplier": 1.0,
+            "productionValue": 50,
+            "unit": "currency"
+          }
+        ],
+        "action": "Activate ad (paused historical winner)"
+      }
+    ],
+    "whenToUse": "There's a UA hypothesis worth testing: top performers rarely work solo. They often shine because the rest of the ad-set supports them — surrounding creatives form demand the top one converts. When upstream kill rules pause those supporting ads, the finisher loses its setup and campaign ROAS drops even though each surviving ad still looks fine on its own. This rule operationalises that hypothesis. In declining campaigns it pauses active ads with CPA above breakeven (they're contributing to the dip), and reactivates paused ads with profitable lifetime CPA (the supporting cast that built demand). Pair with a kill rule that re-prunes the resurrected set within 3-5 days so bad ads don't survive the resurrection.",
+    "nativeLimitation": "Meta's automated rules apply campaign-level filters to ad-level actions only when the rule's 'applies to' scope explicitly reads parent-campaign metrics — verify the scope in Ads Manager before deploying. The two tasks (pause + activate) fire independently in the same evaluation, and Meta's order isn't guaranteed: in an edge case where a recent ad has bad short-term CPA but good lifetime CPA, both conditions could match simultaneously. The 'maximum' (lifetime) lookback also caps at ~90 days for per-ad CPA data at Meta — older history aggregates and may lose per-ad granularity. Native rules can't differentiate 'paused by kill rule' vs 'paused by buyer manually' — this resurrection will reactivate any paused ad meeting the lifetime CPA filter, so pair with a kill rule that re-prunes fast."
   }
 ]
 

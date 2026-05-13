@@ -51,10 +51,14 @@ function formatValue(value, unit) {
     if (Number.isInteger(n)) return `${n}x`
     return `${n.toFixed(2).replace(/\.?0+$/, "")}x`
   }
-  if (unit === "percent") {
+  if (unit === "percent_delta") {
+    // change/delta metrics — prefix + for positive, − is in the number
     const n = Number(value)
     const sign = n > 0 ? "+" : ""
     return `${sign}${n}%`
+  }
+  if (unit === "percent") {
+    return `${Number(value)}%`
   }
   // count
   const n = Number(value)
@@ -93,6 +97,7 @@ const ROLLING_METRIC_LABELS = {
   spend: "spend",
   cpa: "CPA",
   cost_per_purchase: "cost-per-purchase",
+  cpm: "CPM",
 }
 
 // Inline formula string for a condition — e.g. "2× breakeven CPA",
@@ -251,9 +256,20 @@ function explainCondition(c) {
 
 // Collects unique condition rationales across all tasks of a rule.
 // Dedupes by (metric + rationale) so repeated thresholds across a chain
-// aren't shown twice.
+// aren't shown twice. Includes campaign-scope filters at the top so users
+// see the full picture (targeting + per-task conditions) in one place.
 function uniqueConditionExplanations(rule) {
   const seen = new Map()
+  ;(rule.filters || []).forEach((f) => {
+    const why = explainCondition(f)
+    if (!why) return
+    const scope = f.scope === "campaign" ? "(campaign filter)" : "(filter)"
+    const label = `${f.metricLabel} ${scope}`
+    const key = `${label}|${why}`
+    if (!seen.has(key)) {
+      seen.set(key, { metric: label, why })
+    }
+  })
   rule.tasks.forEach((task) => {
     task.conditions.forEach((c) => {
       const why = explainCondition(c)
@@ -356,6 +372,21 @@ function buildCopyText(rule, inputs, mode) {
     `Schedule: ${rule.schedule}`,
     "",
   ]
+  if (rule.filters && rule.filters.length > 0) {
+    const scopeLabel =
+      rule.filters[0].scope === "campaign"
+        ? "Campaigns"
+        : rule.filters[0].scope === "ad-set"
+        ? "Ad sets"
+        : "Entities"
+    const windowLabel = rule.filters[0].window
+      ? ` (${rule.filters[0].window})`
+      : ""
+    lines.push(
+      `Targeting filter (${scopeLabel.toLowerCase()} scope): ${renderConditionString(rule.filters, inputs, mode)}${windowLabel}`
+    )
+    lines.push("")
+  }
   rule.tasks.forEach((task, i) => {
     if (rule.tasks.length > 1) lines.push(`## Step ${i + 1}`)
     lines.push(`Condition: ${renderConditionString(task.conditions, inputs, mode)}`)
@@ -607,6 +638,33 @@ function RuleCard({
       <h3 className={styles.cardTitle}>{rule.title}</h3>
 
       <dl className={styles.cardGrid}>
+        {rule.filters && rule.filters.length > 0 && (
+          <div className={styles.gridRow}>
+            <dt>Targeting</dt>
+            <dd>
+              <code className={styles.condCode}>
+                <span className={styles.filterScope}>
+                  {rule.filters[0].scope === "campaign"
+                    ? "Campaigns where "
+                    : rule.filters[0].scope === "ad-set"
+                    ? "Ad sets where "
+                    : "Where "}
+                </span>
+                <ConditionFragments
+                  conditions={rule.filters}
+                  inputs={inputs}
+                  mode={mode}
+                />
+                {rule.filters[0].window && (
+                  <span className={styles.condNote}>
+                    {" "}
+                    ({rule.filters[0].window})
+                  </span>
+                )}
+              </code>
+            </dd>
+          </div>
+        )}
         <div className={styles.gridRow}>
           <dt>If</dt>
           <dd>

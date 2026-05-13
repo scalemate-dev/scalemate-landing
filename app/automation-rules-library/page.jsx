@@ -317,21 +317,25 @@ export default function AutomationRulesLibraryPage() {
                 <span />
                 <span />
               </div>
-              <a
-                href="https://www.facebook.com/business/partner-directory"
-                target="_blank"
-                rel="noopener noreferrer"
+              <div
                 className={styles.partnerBadge}
-                aria-label="Meta Verified Partner — view directory listing"
+                aria-label="Meta Verified business"
               >
-                <img
-                  src="/meta-verified-partner.svg"
-                  alt="Meta Verified Partner"
-                  width="160"
-                  height="95"
-                  loading="eager"
-                />
-              </a>
+                <span className={styles.partnerBadgeLabel} aria-hidden="true">
+                  <span className={styles.partnerBadgeRule} />
+                  Verified <span aria-hidden="true">·</span> Business
+                  <span className={styles.partnerBadgeRule} />
+                </span>
+                <div className={styles.partnerBadgeMark}>
+                  <img
+                    src="/meta-verified-app-transparent.svg"
+                    alt="Meta Verified"
+                    width="325"
+                    height="108"
+                    loading="eager"
+                  />
+                </div>
+              </div>
             </aside>
           </div>
         </Container>
