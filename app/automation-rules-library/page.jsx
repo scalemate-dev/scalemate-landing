@@ -8,10 +8,11 @@ import { RULES } from "./rules-data"
 import styles from "./page.module.scss"
 
 const RULE_COUNT = RULES.length
+const MULTI_TASK_COUNT = RULES.filter((r) => r.tasks.length > 1).length
 
 export const metadata = {
   title: `${RULE_COUNT} Production-Tested Facebook Automated Rules | Scalemate`,
-  description: `${RULE_COUNT} production-tested Facebook automated rules from live $1M+/month Meta accounts. Adjust your CPA, ROAS, CPC — every threshold recalculates to your numbers.`,
+  description: `${RULE_COUNT} Facebook automated rules from live $1M+/month Meta accounts, including ${MULTI_TASK_COUNT} multi-step chains. Every threshold recalculates from your CPA, ROAS, CPC inputs.`,
   alternates: {
     canonical: "https://www.scalemate.co/automation-rules-library",
   },
@@ -115,17 +116,17 @@ const faqItems = [
     question:
       "How do creative testing rules differ from the kill and scale rules in this library?",
     answerText:
-      "Creative testing rules in the library (rules № 30 through 33) follow a phased framework: Phase 1 kills weak ads early on cheap signals (CPI, CPM-vs-benchmark) before they burn budget; Phase 2 promotes survivors using stricter CPA and spend thresholds; Phase 3 cleans up at higher confidence using ROAS. The kill rules elsewhere in the library don't assume a phase — they fire whenever the threshold trips. The phased framework matters when you're running constant creative volume and need a predictable funnel; the broader Meta ads automation playbook covers when to switch between them.",
+      "The creative-testing rules in the library follow a phased framework — filter by Creative pruning to see them. Phase 1 kills weak ads early on cheap signals (CPI, CPM-vs-benchmark) before they burn budget; Phase 2 promotes survivors using stricter CPA and spend thresholds; Phase 3 cleans up at higher confidence using ROAS. The kill rules elsewhere don't assume a phase — they fire whenever the threshold trips. The phased framework matters when you're running constant creative volume and need a predictable funnel; the broader Meta ads automation playbook covers when to switch between them.",
     answer: (
       <>
-        Creative testing rules in the library (rules № 30 through 33) follow a
-        phased framework: Phase 1 kills weak ads early on cheap signals (CPI,
-        CPM-vs-benchmark) before they burn budget; Phase 2 promotes survivors
-        using stricter CPA and spend thresholds; Phase 3 cleans up at higher
-        confidence using ROAS. The kill rules elsewhere in the library
-        don&apos;t assume a phase — they fire whenever the threshold trips. The
-        phased framework matters when you&apos;re running constant creative
-        volume and need a predictable funnel; the broader{" "}
+        The creative-testing rules in the library follow a phased framework —
+        filter by <strong>Creative pruning</strong> to see them. Phase 1 kills
+        weak ads early on cheap signals (CPI, CPM-vs-benchmark) before they
+        burn budget; Phase 2 promotes survivors using stricter CPA and spend
+        thresholds; Phase 3 cleans up at higher confidence using ROAS. The
+        kill rules elsewhere don&apos;t assume a phase — they fire whenever the
+        threshold trips. The phased framework matters when you&apos;re running
+        constant creative volume and need a predictable funnel; the broader{" "}
         <Link href="/blog/facebook-ads-automation">
           Meta ads automation playbook
         </Link>{" "}
@@ -146,16 +147,16 @@ const faqItems = [
   {
     question: "Can a rule send a Slack alert when creative fatigue hits?",
     answerText:
-      "Native rules can send an email or in-platform notification when a condition trips, but they can't post to Slack or include a campaign report. Rule № 34 in this library is the workaround — it watches frequency, CTR decay, and CPM drift relative to the campaign's own baseline, and the playbook version pipes the alert into a Slack channel with the affected campaigns named so the team can triage in one place. Cross-account ad campaign automation rules cover the same pattern at scale; native equivalent is a generic email saying a rule fired, with no creative context attached.",
+      "Native rules can send an email or in-platform notification when a condition trips, but they can't post to Slack or include a campaign report. The library includes a creative-fatigue Slack-alert rule as the workaround — it watches frequency, CTR decay, and CPM drift relative to the campaign's own baseline, and the playbook version pipes the alert into a Slack channel with the affected campaigns named so the team can triage in one place. Cross-account ad campaign automation rules cover the same pattern at scale; native equivalent is a generic email saying a rule fired, with no creative context attached.",
     answer: (
       <>
         Native rules can send an email or in-platform notification when a
         condition trips, but they can&apos;t post to Slack or include a campaign
-        report. Rule № 34 in this library is the workaround — it watches
-        frequency, CTR decay, and CPM drift relative to the campaign&apos;s own
-        baseline, and the playbook version pipes the alert into a Slack channel
-        with the affected campaigns named so the team can triage in one place.
-        Cross-account{" "}
+        report. The library includes a creative-fatigue Slack-alert rule as the
+        workaround — it watches frequency, CTR decay, and CPM drift relative
+        to the campaign&apos;s own baseline, and the playbook version pipes the
+        alert into a Slack channel with the affected campaigns named so the
+        team can triage in one place. Cross-account{" "}
         <Link href="/use-cases/ad-campaign-automation-rules">
           ad campaign automation rules
         </Link>{" "}
@@ -171,22 +172,24 @@ const faqItems = [
     answer:
       "A static cheat sheet can't tell you this — the floor depends on your breakeven CPA. Heuristic for fair-test pause rules: set the spend floor at roughly 2× your breakeven CPA. If the team's CPA is $40, that means the rule waits until $80 spent before pausing on a CPA spike, enough auction signal to read true performance. Drop the multiplier toward 0.5× for noise-filter rules where you only want to skip $5 of impressions. The rule of thumb breaks down on high-AOV products where one conversion is worth much more than the spend floor — adjust upward.",
   },
-  {
-    question: "Can I copy these rules directly into Meta Ads Manager?",
-    answerText:
-      "Yes. Each card has a Copy rule button that puts the full configuration on the clipboard — condition, time window, action, schedule. Open Meta Ads Manager, create a new automated rule, and match the fields. For teams who'd rather skip the manual paste, Scalemate can auto-import the full set into a connected account in one click. Both paths work; the manual one is free, the import is faster.",
-    answer: (
-      <>
-        Yes. Each card has a Copy rule button that puts the full configuration
-        on the clipboard — condition, time window, action, schedule. Open Meta
-        Ads Manager, create a new automated rule, and match the fields. For
-        teams who&apos;d rather skip the manual paste,{" "}
-        <Link href="/book-a-demo">Scalemate can auto-import</Link> the full set
-        into a connected account in one click. Both paths work; the manual one
-        is free, the import is faster.
-      </>
-    ),
-  },
+  // Hidden until Apply-rule import flow is live in the app.
+  // {
+  //   question: "How do I apply these rules to my Meta ad account?",
+  //   answerText:
+  //     "Click Apply rule on any card and Scalemate imports the full configuration — condition, time window, action, schedule — into your connected Meta account in one click. The library is also a public reference: every threshold, formula, and time window is visible on each card, so a team can recreate any rule manually in Ads Manager from what's shown. Both paths work; the manual one is free, the import is faster.",
+  //   answer: (
+  //     <>
+  //       Click <strong>Apply rule</strong> on any card and{" "}
+  //       <Link href="/features/automation-rules">Scalemate imports</Link> the
+  //       full configuration — condition, time window, action, schedule — into
+  //       your connected Meta account in one click. The library is also a public
+  //       reference: every threshold, formula, and time window is visible on each
+  //       card, so a team can recreate any rule manually in Ads Manager from
+  //       what's shown. Both paths work; the manual one is free, the import
+  //       is faster.
+  //     </>
+  //   ),
+  // },
   {
     question:
       "Are these automated rules safe for pausing during the learning phase?",
@@ -271,7 +274,7 @@ export default function AutomationRulesLibraryPage() {
                   {multiTaskCount} multi-step chains with built-in rollback
                   notes
                 </li>
-                <li>Public reference. No email gate, no signup</li>
+                <li>Public reference — filterable, no email gate to browse</li>
               </ul>
               <div className={styles.heroActions}>
                 <Button
