@@ -92,6 +92,34 @@ const WINDOW_LABELS = {
   last_30d: "30-day rolling avg",
 }
 
+// Friendlier labels for the per-task `timeframe` field shown in the preview.
+// Production data mixes slug and human strings — pass through unknown values
+// so already-formatted entries like "maximum" or "last 3 days (incl. today)"
+// render as-is.
+const TIMEFRAME_LABELS = {
+  last_3d: "Last 3 days",
+  last_3_days: "Last 3 days",
+  last_7d: "Last 7 days",
+  last_30d: "Last 30 days",
+  today: "Today",
+  yesterday: "Yesterday",
+  maximum: "Lifetime",
+}
+
+function formatTimeframe(tf) {
+  if (!tf) return tf
+  return TIMEFRAME_LABELS[tf] || tf
+}
+
+// Inline form used inside the metric cell — lowercase + strip any
+// parenthetical detail so "last 3 days (incl. today)" doesn't end up nested
+// inside another set of parens when wrapped as "(last 3 days (incl. today))".
+function formatTimeframeInline(tf) {
+  if (!tf) return ""
+  const label = TIMEFRAME_LABELS[tf] || tf
+  return label.toLowerCase().replace(/\s*\([^)]*\)\s*/g, "").trim()
+}
+
 const ROLLING_METRIC_LABELS = {
   spend: "spend",
   cpa: "CPA",
@@ -475,6 +503,26 @@ function CheckIcon() {
   )
 }
 
+function ClockIcon() {
+  return (
+    <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+      <circle
+        cx="7"
+        cy="7"
+        r="5.5"
+        stroke="currentColor"
+        strokeWidth="1.2"
+      />
+      <path
+        d="M7 4v3l2 1.3"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
+    </svg>
+  )
+}
+
 function WarnIcon() {
   return (
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -495,6 +543,116 @@ function WarnIcon() {
 }
 
 // ─── Condition renderer (with personalisation styling) ──────────
+
+// Renders the conditions of a single task as a stack of cell-rows
+// [metric | operator | value] with a vertical AND bar on the left when
+// there's more than one condition. Mirrors the platform's task-block UI
+// in a minified, non-interactive form.
+function ConditionCells({ conditions, inputs, mode, timeframe }) {
+  const multi = conditions.length > 1
+  const windowInline = formatTimeframeInline(timeframe)
+  return (
+    <div className={styles.conditions}>
+      {multi && (
+        <div className={styles.andBar} aria-hidden="true">
+          <span>AND</span>
+        </div>
+      )}
+      <div className={styles.cells}>
+        {conditions.map((c, idx) => {
+          const v = computeValue(c, inputs, mode)
+          const isAdjusted =
+            mode === "personalized" &&
+            c.multiplier != null &&
+            v !== c.productionValue
+          const valueStr =
+            v == null
+              ? c.benchmarkType === "rolling_avg"
+                ? `${formatMultiplier(c.multiplier)} ${
+                    WINDOW_LABELS[c.anchorWindow] || "rolling avg"
+                  } ${
+                    ROLLING_METRIC_LABELS[c.anchorMetric] ||
+                    c.anchorMetric ||
+                    "spend"
+                  }`
+                : "daily budget"
+              : formatValue(v, c.unit)
+          const formula = buildFormula(c)
+          const showFormula = formula && formula !== valueStr
+          const captionParts = []
+          if (showFormula) captionParts.push(formula)
+          if (c.note) captionParts.push(c.note)
+          const caption = captionParts.join(" · ")
+          return (
+            <div key={idx} className={styles.cellRow}>
+              <span className={styles.cellMetric}>
+                <span className={styles.cellMetricName}>{c.metricLabel}</span>
+                {windowInline && (
+                  <span className={styles.cellMetricWindow}>
+                    ({windowInline})
+                  </span>
+                )}
+              </span>
+              <span className={styles.cellOp}>
+                {operatorGlyph(c.operator)}
+              </span>
+              <span
+                className={
+                  isAdjusted ? styles.cellValueAdjusted : styles.cellValue
+                }
+                data-tooltip={caption || undefined}
+              >
+                {valueStr}
+              </span>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+// One task block — TASK label + window chip on top, then a DO row with the
+// action text and an IF row with the condition cells. Multi-task rules
+// stack these vertically.
+function TaskBlock({ task, taskIndex, totalTasks, source, inputs, mode }) {
+  const showLabel = totalTasks > 1
+  return (
+    <div className={styles.task}>
+      {showLabel && (
+        <div className={styles.taskHeader}>
+          <span className={styles.taskLabel}>
+            Task {String(taskIndex + 1).padStart(2, "0")}
+          </span>
+        </div>
+      )}
+
+      <div className={styles.taskRow}>
+        <span className={`${styles.pill} ${styles.pillDo}`}>Do</span>
+        <span className={styles.actionText}>{task.action}</span>
+      </div>
+
+      <div className={`${styles.taskRow} ${styles.taskRowIf}`}>
+        <span className={`${styles.pill} ${styles.pillIf}`}>If</span>
+        <ConditionCells
+          conditions={task.conditions}
+          inputs={inputs}
+          mode={mode}
+          timeframe={task.timeframe}
+        />
+      </div>
+
+      {mode === "personalized" && (
+        <ProductionAnnotation
+          conditions={task.conditions}
+          inputs={inputs}
+          mode={mode}
+          source={source}
+        />
+      )}
+    </div>
+  )
+}
 
 function ConditionFragments({ conditions, inputs, mode }) {
   return (
@@ -599,7 +757,6 @@ function RuleCard({
   mode,
 }) {
   const isMulti = rule.tasks.length > 1
-  const previewTask = rule.tasks[0]
   const indexLabel = String(index + 1).padStart(2, "0")
   const adjustable = isAdjustable(rule)
 
@@ -636,84 +793,50 @@ function RuleCard({
 
       <h3 className={styles.cardTitle}>{rule.title}</h3>
 
-      <dl className={styles.cardGrid}>
-        {rule.filters && rule.filters.length > 0 && (
-          <div className={styles.gridRow}>
-            <dt>Targeting</dt>
-            <dd>
-              <code className={styles.condCode}>
-                <span className={styles.filterScope}>
-                  {rule.filters[0].scope === "campaign"
-                    ? "Campaigns where "
-                    : rule.filters[0].scope === "ad-set"
-                    ? "Ad sets where "
-                    : "Where "}
-                </span>
-                <ConditionFragments
-                  conditions={rule.filters}
-                  inputs={inputs}
-                  mode={mode}
-                />
-                {rule.filters[0].window && (
-                  <span className={styles.condNote}>
-                    {" "}
-                    ({rule.filters[0].window})
-                  </span>
-                )}
-              </code>
-            </dd>
-          </div>
-        )}
-        <div className={styles.gridRow}>
-          <dt>If</dt>
-          <dd>
-            <code className={styles.condCode}>
-              <ConditionFragments
-                conditions={previewTask.conditions}
-                inputs={inputs}
-                mode={mode}
-              />
-            </code>
-            <ProductionAnnotation
-              conditions={previewTask.conditions}
+      {rule.filters && rule.filters.length > 0 && (
+        <div className={styles.targeting}>
+          <span className={styles.targetingLabel}>Targets</span>
+          <span className={styles.targetingText}>
+            <span className={styles.filterScope}>
+              {rule.filters[0].scope === "campaign"
+                ? "Campaigns where "
+                : rule.filters[0].scope === "ad-set"
+                ? "Ad sets where "
+                : "Where "}
+            </span>
+            <ConditionFragments
+              conditions={rule.filters}
               inputs={inputs}
               mode={mode}
-              source={rule.source}
             />
-          </dd>
-        </div>
-        <div className={styles.gridRow}>
-          <dt>Window</dt>
-          <dd>
-            <code>{previewTask.timeframe}</code>
-          </dd>
-        </div>
-        <div className={styles.gridRow}>
-          <dt>Then</dt>
-          <dd>
-            {isMulti ? (
-              <div className={styles.actionStack}>
-                {rule.tasks.slice(0, 3).map((t, i) => (
-                  <code key={i}>{t.action}</code>
-                ))}
-                {rule.tasks.length > 3 && (
-                  <span className={styles.actionStackMore}>
-                    + {rule.tasks.length - 3} more
-                  </span>
-                )}
-              </div>
-            ) : (
-              <code>{previewTask.action}</code>
+            {rule.filters[0].window && (
+              <span className={styles.condNote}>
+                {" "}
+                ({rule.filters[0].window})
+              </span>
             )}
-          </dd>
+          </span>
         </div>
-        <div className={styles.gridRow}>
-          <dt>Schedule</dt>
-          <dd>
-            <code>{rule.schedule}</code>
-          </dd>
-        </div>
-      </dl>
+      )}
+
+      <div className={styles.tasks}>
+        {rule.tasks.map((task, i) => (
+          <TaskBlock
+            key={i}
+            task={task}
+            taskIndex={i}
+            totalTasks={rule.tasks.length}
+            source={rule.source}
+            inputs={inputs}
+            mode={mode}
+          />
+        ))}
+      </div>
+
+      <div className={styles.scheduleFoot}>
+        <span className={styles.scheduleFootLabel}>Runs</span>
+        <span className={styles.scheduleFootValue}>{rule.schedule}</span>
+      </div>
 
       {expanded && (
         <div className={styles.expand}>

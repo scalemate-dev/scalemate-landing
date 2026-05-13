@@ -17,6 +17,11 @@
   to { opacity: 1; transform: var(--card-rest) translateY(0); }
 }
 
+@keyframes shimmer {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
 // ─── Page shell ─────────────────────────────────
 
 .main {
@@ -92,13 +97,22 @@
 }
 
 .heroTitleAccent {
-  font-style: italic;
-  font-weight: 600;
+  font-weight: 700;
   color: $uc-accent;
-  background: linear-gradient(92deg, $uc-accent-deep 0%, $uc-accent 55%, $uc-accent-light 100%);
+  background: linear-gradient(
+    90deg,
+    $uc-accent-deep 0%,
+    $uc-accent 25%,
+    $uc-accent-light 50%,
+    $uc-accent 75%,
+    $uc-accent-deep 100%
+  );
+  background-size: 300% 100%;
+  background-position: 200% center;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: shimmer 5s ease-in-out infinite alternate;
 }
 
 .tagline {
@@ -344,7 +358,7 @@
   border-color: rgba($uc-pain, 0.25);
 }
 
-.tagRollback {
+.tagReactivate {
   color: $uc-accent-deep;
   background: rgba($uc-accent, 0.08);
   border-color: rgba($uc-accent, 0.22);

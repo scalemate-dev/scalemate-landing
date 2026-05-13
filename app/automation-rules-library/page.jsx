@@ -20,7 +20,7 @@ export const metadata = {
     title:
       "12 Production-Tested Facebook Automated Rules from $1M+/mo Accounts",
     description:
-      "Steal 12 Facebook automated rules running in live $1M+/month Meta accounts. Kill losers, scale winners, prune creative — every threshold recalculates from your CPA, ROAS, CPC inputs.",
+      "Steal 12 Facebook automated rules running in live $1M+/month Meta accounts. Stop loss, scale winners, prune creative — every threshold recalculates from your CPA, ROAS, CPC inputs.",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
@@ -28,7 +28,7 @@ export const metadata = {
     title:
       "12 Production-Tested Facebook Automated Rules from $1M+/mo Accounts",
     description:
-      "Steal 12 Facebook automated rules running in live $1M+/month Meta accounts. Filter by goal: kill losers, scale winners, prune creative, control budget.",
+      "Steal 12 Facebook automated rules running in live $1M+/month Meta accounts. Filter by goal: stop loss, scale winners, prune creative, control budget.",
     images: ["/og-image.png"],
   },
 }
@@ -264,7 +264,7 @@ export default function AutomationRulesLibraryPage() {
               </p>
               <ul className={styles.heroFeatures}>
                 <li>
-                  Filter by goal — kill losers, scale winners, alert on fatigue,
+                  Filter by goal — stop loss, scale winners, alert on fatigue,
                   run a creative testing framework
                 </li>
                 <li>
@@ -322,9 +322,9 @@ export default function AutomationRulesLibraryPage() {
                   </p>
                   <footer className={styles.indexCardFooter}>
                     <span
-                      className={`${styles.indexTag} ${styles.tagRollback}`}
+                      className={`${styles.indexTag} ${styles.tagReactivate}`}
                     >
-                      Rollback
+                      Reactivate
                     </span>
                     <span className={styles.indexLevel}>Campaign</span>
                   </footer>

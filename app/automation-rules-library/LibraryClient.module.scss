@@ -327,7 +327,7 @@
   white-space: nowrap;
 }
 
-.chip-kill-losers {
+.chip-stop-loss {
   color: #B25241;
   background: rgba(#C0785E, 0.08);
   border: 1px solid rgba(#C0785E, 0.18);
@@ -345,7 +345,7 @@
   border: 1px solid rgba($uc-accent, 0.20);
 }
 
-.chip-rollback {
+.chip-reactivate {
   color: #6B5CE7;
   background: rgba(#6B5CE7, 0.06);
   border: 1px solid rgba(#6B5CE7, 0.18);
@@ -440,77 +440,405 @@
 .cardTitle {
   font-family: $font-heading;
   font-weight: 700;
-  font-size: 17px;
-  line-height: 1.3;
-  letter-spacing: -0.025em;
+  font-size: 18px;
+  line-height: 1.28;
+  letter-spacing: -0.028em;
   color: $uc-ink;
-  margin: 0 0 16px;
-  min-height: 44px;
+  margin: 0 0 18px;
+  min-height: 46px;
 }
 
-// ─── Key-value grid ─────────────────────────────
+// ─── PREVIEW STRUCTURE ──────────────────────────
+//
+// Mirrors the platform's task-block UI in a minified, read-only form.
+// Anatomy:
+//   • Optional `.targeting` (rule-scoped filter as a single sentence)
+//   • `.tasks` — one or more `.task` blocks stacked vertically
+//   • Each `.task` has:
+//       – `.taskHeader` (small caps "TASK 01" + window chip)
+//       – `.taskRow` for the DO action (pill + plain text)
+//       – `.taskRow.taskRowIf` for the IF block (pill + conditions)
+//   • `.conditions` is the IF block — vertical AND bar on the left when
+//     there are 2+ conditions, plus a grid of cell rows
+//   • Each cell row: [metric (1fr) | operator | value], with the formula
+//     caption spanning all columns underneath when present
+//   • `.scheduleFoot` — thin run-cadence line under all tasks
 
-.cardGrid {
+// Targeting filter — only present on rules with a `filters` array.
+// Renders as a quiet single-line sentence ABOVE the task list.
+.targeting {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 14px 0 16px;
-  margin: 0 0 4px;
-  border-top: 1px solid $uc-line;
+  align-items: baseline;
+  gap: 10px;
+  padding: 2px 0 14px;
+  margin-bottom: 4px;
   border-bottom: 1px solid $uc-line;
 }
 
-.gridRow {
-  display: grid;
-  grid-template-columns: 64px 1fr;
-  gap: 12px;
-  align-items: baseline;
+.targetingLabel {
+  flex-shrink: 0;
+  font-family: $font-body;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $uc-stone;
+  padding-top: 1px;
+}
 
-  dt {
-    font-family: $font-body;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+.targetingText {
+  font-family: $font-body;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: $uc-body;
+  min-width: 0;
+  word-break: break-word;
+}
+
+// Stack of task blocks. Top + bottom padding gives the preview area its own
+// space before the schedule meta line.
+.tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 16px 0 14px;
+  border-top: 1px solid $uc-line;
+}
+
+// Multi-task rules get a thin dashed divider between consecutive tasks so
+// they read as separate steps without a heavy boxed container.
+.task + .task {
+  padding-top: 18px;
+  border-top: 1px dashed $uc-dash;
+}
+
+.task {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.taskHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  min-height: 22px;
+}
+
+.taskLabel {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $uc-body-faded;
+}
+
+.taskWindow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px 3px 8px;
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: $uc-body;
+  background: $uc-bg-sand;
+  border: 1px solid $uc-line;
+  border-radius: 100px;
+
+  svg {
     color: $uc-stone;
-    margin: 0;
+    flex-shrink: 0;
   }
+}
 
-  dd {
-    margin: 0;
-    min-width: 0;
+// One row inside a task — the pill takes a fixed column, content fills the
+// rest. The IF row variant uses `start` alignment so the pill stays at the
+// top of the conditions block as it grows.
+.taskRow {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+}
 
-    code {
-      font-family: 'SF Mono', 'Fira Code', monospace;
-      font-size: 12.5px;
-      line-height: 1.45;
-      color: $uc-ink;
-      background: transparent;
-      word-break: break-word;
-      letter-spacing: -0.005em;
+.taskRowIf {
+  align-items: start;
+}
+
+// ─── DO / IF pills ──────────────────────────────
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 26px;
+  border-radius: 100px;
+  font-family: $font-body;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+// "DO" — solid coral, matches the production platform pill.
+.pillDo {
+  background: $uc-pain;
+  color: #fff;
+  box-shadow: 0 1px 2px rgba($uc-pain, 0.2);
+}
+
+// "IF" — outlined cream-on-orange, matches the production platform pill.
+.pillIf {
+  background: rgba($uc-accent, 0.05);
+  color: $uc-accent-deep;
+  border: 1px solid rgba($uc-accent, 0.38);
+  margin-top: 3px; // optical balance: pull pill down to align with first cell
+}
+
+// ─── DO action text ─────────────────────────────
+
+.actionText {
+  font-family: $font-body;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: $uc-ink;
+  padding: 4px 2px;
+  letter-spacing: -0.005em;
+}
+
+// ─── IF: conditions block ───────────────────────
+//
+// Flex layout: vertical AND bar on the left (when multi-condition),
+// cells grid on the right.
+
+.conditions {
+  display: flex;
+  gap: 5px;
+  align-items: stretch;
+  min-width: 0;
+}
+
+.andBar {
+  width: 20px;
+  flex-shrink: 0;
+  background: $uc-ink-soft;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0;
+
+  span {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-family: $font-body;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+}
+
+// Cells grid — same display: contents pattern so columns stay aligned
+// across multiple condition rows.
+.cells {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(40px, auto);
+  column-gap: 4px;
+  row-gap: 4px;
+  align-items: stretch;
+  min-width: 0;
+}
+
+.cellRow {
+  display: contents;
+}
+
+// Common cell chrome — soft sand background, no border, rounded.
+.cellMetric,
+.cellOp,
+.cellValue,
+.cellValueAdjusted {
+  background: $uc-bg-sand;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 7px 11px;
+  font-family: $font-body;
+  font-size: 12.5px;
+  line-height: 1.3;
+  color: $uc-ink;
+  display: flex;
+  align-items: center;
+}
+
+// Metric cell — holds the metric name + an inline window parenthetical
+// ("Purchases (last 3 days)"). The window text is smaller + dimmer so the
+// metric name reads as the primary label. Cell wraps to two lines on narrow
+// cards rather than truncating.
+.cellMetric {
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 6px 11px;
+  line-height: 1.35;
+}
+
+.cellMetricName {
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: $uc-ink;
+}
+
+.cellMetricWindow {
+  font-size: 11px;
+  font-weight: 400;
+  color: $uc-stone;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.cellOp {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-weight: 700;
+  font-size: 13px;
+  color: $uc-accent-deep;
+  padding: 7px 9px;
+  justify-content: center;
+  min-width: 32px;
+}
+
+.cellValue {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.cellValueAdjusted {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: -0.02em;
+  color: $uc-accent-deep;
+  background: rgba($uc-accent, 0.10);
+  border-color: rgba($uc-accent, 0.30);
+  white-space: nowrap;
+  justify-content: flex-end;
+  position: relative;
+}
+
+// Hover tooltip — surfaces the threshold formula ("0.9× breakeven CPA")
+// without occupying vertical space inside the IF block. Dotted underline
+// signals "hoverable" so the affordance is discoverable.
+.cellValue[data-tooltip],
+.cellValueAdjusted[data-tooltip] {
+  cursor: help;
+
+  // Subtle dotted underline as the discoverability hint.
+  // Using a span with inline-block + border-bottom would conflict with
+  // flex alignment, so we use text-decoration on the cell directly —
+  // the decoration ends up just under the value text.
+  text-decoration: underline dotted;
+  text-decoration-color: rgba($uc-stone, 0.5);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+
+  &:hover {
+    text-decoration-color: rgba($uc-stone, 0.85);
+
+    &::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: calc(100% + 7px);
+      right: 0;
+      // width: max-content so the tooltip auto-sizes to its content on one
+      // line; max-width caps it so very long captions wrap to multi-line.
+      // Without this, abs-positioned ::after with `right: 0` inherits the
+      // narrow cell width and breaks word-by-word.
+      width: max-content;
+      max-width: 240px;
+      padding: 7px 11px;
+      background: $uc-ink;
+      color: #fff;
+      border-radius: 6px;
+      font-family: $font-body;
+      font-size: 11.5px;
+      font-weight: 500;
+      font-style: normal;
+      letter-spacing: 0.005em;
+      line-height: 1.4;
+      text-align: left;
+      white-space: normal;
+      overflow-wrap: break-word;
+      box-shadow: 0 4px 14px rgba($uc-ink, 0.18);
+      pointer-events: none;
+      z-index: 10;
+      animation: tooltipFade 0.18s $uc-ease both;
+    }
+
+    // Tooltip arrow
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: calc(100% + 2px);
+      right: 14px;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid $uc-ink;
+      pointer-events: none;
+      z-index: 10;
     }
   }
 }
 
-.actionStack {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-
-  code {
-    display: block;
-  }
+@keyframes tooltipFade {
+  from { opacity: 0; transform: translateY(2px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.actionStackMore {
+// ─── Schedule footer ────────────────────────────
+
+.scheduleFoot {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 12px 0 4px;
+  border-top: 1px solid $uc-line;
   font-family: $font-body;
-  font-size: 11.5px;
-  font-style: italic;
-  color: $uc-stone;
-  margin-top: 2px;
+  font-size: 11px;
+  letter-spacing: 0.005em;
+  width: 100%;
 }
 
-// ─── CONDITION FRAGMENTS (preview + chain) ───────
+.scheduleFootLabel {
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $uc-stone;
+}
+
+.scheduleFootValue {
+  font-weight: 500;
+  color: $uc-body;
+}
+
+// ─── CONDITION FRAGMENTS (inline — used in chain expanded view) ───────
 
 .condCode {
   font-family: 'SF Mono', 'Fira Code', monospace;
@@ -996,10 +1324,15 @@
   .sidebar { padding: 16px; }
   .filterItem { padding: 7px 10px 7px 12px; font-size: 13px; }
   .filterItemCount { font-size: 11px; }
-  .cardTitle { font-size: 15.5px; }
-  .gridRow { grid-template-columns: 56px 1fr; gap: 10px;
-    dd code { font-size: 11.5px; }
-  }
+  .cardTitle { font-size: 16px; }
+  .taskRow { grid-template-columns: 36px minmax(0, 1fr); gap: 8px; }
+  .pill { width: 34px; height: 24px; font-size: 10px; }
+  .actionText { font-size: 13px; }
+  .cellMetric,
+  .cellOp,
+  .cellValue,
+  .cellValueAdjusted { font-size: 12px; padding: 6px 9px; }
+  .andBar { width: 18px; }
 }
 
 // (Floating jump pill removed 2026-05-09 — replaced by sticky-collapse-on-scroll cluster.)
