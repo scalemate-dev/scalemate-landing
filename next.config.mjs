@@ -38,6 +38,11 @@ const nextConfig = {
         destination: "/use-cases/bulk-ad-launch",
         permanent: true,
       },
+      {
+        source: "/blog/facebook-ads-automation",
+        destination: "/blog/best-facebook-ads-automation-tools",
+        permanent: true,
+      },
     ]
   },
   async rewrites() {
