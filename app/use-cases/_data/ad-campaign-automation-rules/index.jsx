@@ -48,6 +48,10 @@ export const data = {
   },
 
   hero: {
+    badge: {
+      link: "/automation-rules-library",
+      text: "Browse Rules Library",
+    },
     label: "Automation Rules",
     title: "That Work While You Don't",
     titleAccent: "Ad Automation Rules",

@@ -1,3 +1,5 @@
+import Link from "next/link"
+import { IconChevronRight } from "@tabler/icons-react"
 import Container from "@/components/elements/Container/Container"
 import Button from "@/components/elements/Button/Button"
 import styles from "./HeroSection.module.scss"
@@ -13,6 +15,7 @@ export default function HeroSection({
   platforms,
   Visual,
   accentFirst,
+  badge,
 }) {
   return (
     <section className={styles.hero}>
@@ -20,6 +23,13 @@ export default function HeroSection({
         <div className={styles.content}>
           <div className={Visual ? styles.heroTop : undefined}>
             <div>
+              {badge && (
+                <Link href={badge.link} className={styles.heroBadge}>
+                  <span>FREE</span>
+                  {badge.text}
+                  <IconChevronRight size={16} className={styles.heroBadgeChevron} />
+                </Link>
+              )}
               <span className={styles.label}>{label}</span>
               <h1>
                 {accentFirst ? (

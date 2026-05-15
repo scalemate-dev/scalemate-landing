@@ -1,6 +1,7 @@
+import Link from "next/link"
 import Container from "@/components/elements/Container/Container"
 import Button from "@/components/elements/Button/Button"
-import { IconRocket } from "@tabler/icons-react"
+import { IconRocket, IconChevronRight } from "@tabler/icons-react"
 import styles from "./HeroSection.module.scss"
 
 const GlobeIcon = () => (
@@ -182,6 +183,11 @@ export default function HeroSection() {
       <Container>
         <div className={styles.layout}>
           <div className={styles.content}>
+            <Link href="/automation-rules-library" className={styles.heroBadge}>
+              <span>FREE</span>
+              Browse Rules Library
+              <IconChevronRight size={16} className={styles.heroBadgeChevron} />
+            </Link>
             <span className={styles.eyebrow}>Automation Rules</span>
             <h1>Automated Ad Optimization Rules</h1>
             <p className={styles.tagline}>The shift that never clocks out</p>
