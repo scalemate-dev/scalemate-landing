@@ -6,8 +6,9 @@ cta:
   title: "Run the testing system across Meta + TikTok every week"
   description: "Reusable templates for weekly batches, Drive sync, and rules that auto-pause creatives that miss spend or engagement thresholds in 24-48 hours."
 author: "Nataliia Bondar"
-coverImage: null
-coverAlt: null
+coverImage: /blog/images/creative-testing-framework/cover.svg
+coverAlt: "Creative testing: scattered ad creatives with one winner standing out at the center"
+heroBg: /blog/images/creative-testing-framework/hero.svg
 createdAt: "2026-04-27"
 updatedAt: "2026-04-27"
 absoluteTitle: true
@@ -70,6 +71,10 @@ These are operational problems, not strategic ones. The frameworks you find onli
 ## The Creative Testing System (Overview)
 
 Before diving into each step, here is the full system at a glance. Every section that follows maps to one of these steps.
+
+![Creative testing system six steps: Handoff and Launch, Testing Framework, Multi-Platform, Read Results, Winners to BAU, Iterate Weekly — connected by arrows with a loop back from step 6 to step 1](/blog/images/creative-testing-framework/system-overview.svg)
+
+*Six steps, one weekly loop. Every section that follows maps to one of these.*
 
 **Step 1 — Handoff and launch setup.** Designers deliver creatives in batches. UA managers have pre-built campaign templates ready. When a batch arrives, creatives go into the template and launch.
 
@@ -206,6 +211,10 @@ Different platforms also require different specs and formats. A 9:16 TikTok crea
 
 Not all metrics matter at the same time. Reading results in the wrong order leads to premature kills (pausing a creative that has not had a fair chance) or wasted spend (keeping a creative alive on hope instead of data).
 
+![Three levels of reading test results: Level 1 Spend — is the platform spending? Level 2 Engagement — IPM and CPI for apps, CPR and CVR for web. Level 3 Performance — CPA, ROAS, conversion rate after 10,000 impressions](/blog/images/creative-testing-framework/results-levels.svg)
+
+*Most teams skip Level 1 and jump to CTR on 50 impressions. That data means nothing.*
+
 ### Level 1 — Spend
 
 The first thing to check: is the platform spending money on this creative? If spend is zero after 24-48 hours, the algorithm has decided this creative is not worth showing. A creative that does not spend is not a failed test; it is a signal that it did not pass the platform's initial quality or relevance filter. This is the most important level and the one most teams skip. They jump straight to CTR or CPA on creatives that have 50 impressions, where the data means nothing.
@@ -283,6 +292,10 @@ The leading indicator differs by account, vertical, and creative format. Common 
 ## Winner Hierarchy: Why You Need More Than One Winner
 
 Most teams treat creative testing as a search for "the winner" — one creative that carries the account. This mental model is dangerous because it ignores what happens when that winner fatigues, and it always will. Creative performance works in tiers.
+
+![Winner hierarchy: Top Winners appear 1-2 times a year and carry 70-80% of spend. Middle Performers are steady, keep the account stable between top winners, and come from weekly testing](/blog/images/creative-testing-framework/winner-hierarchy.svg)
+
+*Teams that stop testing when they find a winner ride it until it dies — then scramble from zero.*
 
 **Top winners** appear maybe once or twice every six months. They capture 70-80% of your ad spend because the algorithm recognizes them as the best option, and finding one requires systematic testing of dozens or hundreds of variations.
 

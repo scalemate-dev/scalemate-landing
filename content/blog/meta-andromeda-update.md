@@ -6,8 +6,9 @@ cta:
   title: "Feed Andromeda 10-20 creatives per ad set in minutes"
   description: "Bulk-launch from reusable templates and sync creatives straight from Drive. Hit Andromeda's volume floor without rebuilding ad sets every week."
 author: "Ruslan Dzhafarov"
-coverImage: null
-coverAlt: null
+coverImage: /blog/images/meta-andromeda-update/cover.svg
+coverAlt: "Meta Andromeda update 2026: 10 fixes for UA teams"
+heroBg: /blog/images/meta-andromeda-update/hero.svg
 createdAt: "2026-05-05"
 updatedAt: "2026-05-05"
 absoluteTitle: true
@@ -100,6 +101,10 @@ The simplest way to explain Andromeda in one line: before, Meta used to prefer g
 
 Three mechanical things changed that show up in your day-to-day account work.
 
+![Three changes with Andromeda: broad beats narrow targeting, creative equals targeting now, similar ads get collapsed by Entity ID deduplication](/blog/images/meta-andromeda-update/what-changed.svg)
+
+*Three shifts. One of them — creative = targeting — predicts almost every account recovery story.*
+
 **Broad targeting beats narrow.** Andromeda has more signal per impression than any single advertiser does. When you hand it a 5M-person Advantage+ audience and 15 creatives, it matches creatives to micro-segments inside that pool faster than you can write an interest-targeting brief. Narrow detailed-targeting starves the model — you literally restrict the data it needs to do its job. From accounts we operate alongside, broad Advantage+ with multi-format creative consistently outperforms detailed-targeting at the same budget.
 
 **Creative = targeting now.** The r/PPC framing is sharpest here:
@@ -135,6 +140,10 @@ Collapse fragmented ad sets. The 47-ad-set Andromeda thread on r/FacebookAds is 
 
 The replacement structure: one Advantage+ campaign, 1-2 ad sets, 10-20+ creatives per ad set. Boost signal density, let the algorithm distribute spend, do not hand it 47 micro-pools to optimize.
 
+![Campaign structure fix: before — 47 fragmented ad sets with 2-3 creatives each, none exit learning phase. After — 1-2 ad sets with 10-20+ creatives, algorithm picks winners](/blog/images/meta-andromeda-update/campaign-structure.svg)
+
+*47 ad sets is the anti-pattern. 1-2 ad sets with 20+ creatives is the fix.*
+
 **Workflow rule that matters:** when you ship new creatives, drop them into the **existing** ad set. Do not spin up a new ad set per batch. Spinning up new ad sets fragments learning and resets the data Andromeda was using to pick winners. From the accounts we work with, this single rule — "new creatives go into the existing winning ad set, not a new test cell" — is the highest-impact structural fix on most accounts.
 
 This is exactly the workflow [bulk ad launch](/use-cases/bulk-ad-launch) was built for: launch 10-20+ creatives per ad set in one go, across both Meta and TikTok, without copy-pasting in Ads Manager for two hours. POV: bulk launch is not a nice-to-have under Andromeda — at this creative volume per ad set, manual per-ad upload is the bottleneck.
@@ -146,6 +155,10 @@ Meta has started rolling out a Creative Diversity Score — an indicator showing
 The mechanical reason this matters is Entity ID dedup, mentioned above. Andromeda fingerprints similar ads as a single entity and underspends the duplicates. "Worlds" are not aesthetic — they are how you avoid getting collapsed into a single delivery slot.
 
 Three example worlds:
+
+![Micro-tweaks: four identical cards with small variations — Andromeda deduplicates to 1 delivery slot. Creative Worlds: World A Founder story, World B Product demo, World C Testimonial — 3 distinct Entity IDs, 9 creatives total](/blog/images/meta-andromeda-update/creative-worlds.svg)
+
+*3 worlds × 3 formats = 9 creatives. 3 distinct delivery signals instead of 1.*
 
 - **World A — Founder story.** Casual, direct talk to camera. Phone-quality video. Plain background.
 - **World B — Product demo.** Bright studio lighting. Screen recordings or in-app footage. Voice-over.
