@@ -2,6 +2,7 @@ import Container from "@/components/elements/Container/Container"
 import FAQ from "@/components/FAQ/FAQ"
 import VideoEmbed from "@/components/elements/VideoEmbed/VideoEmbed"
 import VideoObjectSchema from "@/components/elements/VideoEmbed/VideoObjectSchema"
+import RulesLibraryPromo from "@/components/home/RulesLibraryPromo/RulesLibraryPromo"
 import HeroSection from "./HeroSection/HeroSection"
 import ProblemSection from "./ProblemSection/ProblemSection"
 import BeforeAfterSection from "./BeforeAfterSection/BeforeAfterSection"
@@ -67,6 +68,7 @@ export default function UseCasePage({ data }) {
       <HowItWorksSection {...data.howItWorks} />
       <ResultsSection {...data.results} />
       <AudienceSection {...data.audience} />
+      {data.showRulesLibraryPromo ? <RulesLibraryPromo /> : null}
       <section className={styles.faq}>
         <Container>
           <FAQ faqItems={data.faq} title="FAQ" theme="light" multiOpen />

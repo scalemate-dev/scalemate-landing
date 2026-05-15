@@ -7,6 +7,7 @@ import {
 import HeroVisual from "./HeroVisual"
 
 export const data = {
+  showRulesLibraryPromo: true,
   metadata: {
     title:
       "Facebook Ad Automation Rules: Pause Losers, Scale Winners",
@@ -62,7 +63,7 @@ export const data = {
       <>
         Rules catch budget leaks at 2 AM and scale winners before the team logs in.{" "}
         <Link href="/automation-rules-library">
-          Browse 12 production-tested rules →
+          Browse production-tested rules →
         </Link>
       </>
     ),
@@ -275,10 +276,10 @@ export const data = {
           native rules require per-account configuration while Scalemate
           applies logic across the full portfolio from one interface. For
           broader context,{" "}
-          <Link href="/blog/facebook-ads-automation">
-            three levels of Facebook ads automation
+          <Link href="/blog/best-facebook-ads-automation-tools">
+            the 13 best Facebook ads automation tools
           </Link>{" "}
-          covers the full taxonomy from manual to third-party.
+          covers the full landscape from native Meta through third-party platforms.
         </>
       ),
     },

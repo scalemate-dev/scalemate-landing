@@ -11,6 +11,7 @@ import HowItWorksSection from "./components/HowItWorksSection/HowItWorksSection"
 import UseCasesSection from "./components/UseCasesSection/UseCasesSection"
 import ProofSection from "./components/ProofSection/ProofSection"
 import CtaSection from "./components/CtaSection/CtaSection"
+import RulesLibraryPromo from "@/components/home/RulesLibraryPromo/RulesLibraryPromo"
 import styles from "./page.module.scss"
 
 export const metadata = {
@@ -98,7 +99,7 @@ const faqItems = [
 
 const relatedLinks = [
   {
-    label: "Browse 12 production-tested Meta automation rules",
+    label: "Browse production-tested Meta automation rules",
     href: "/automation-rules-library",
   },
   {
@@ -224,6 +225,7 @@ export default function AutomationRulesPage() {
       <HowItWorksSection />
       <UseCasesSection />
       <ProofSection />
+      <RulesLibraryPromo />
 
       <section className={styles.faq}>
         <Container>
