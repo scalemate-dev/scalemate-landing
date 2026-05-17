@@ -80,7 +80,7 @@ const faqItems = [
   {
     question: "Who is this built for?",
     answerText:
-      "Anyone who manages ad creatives regularly: media buyers running multiple accounts, marketing agencies handling creative distribution for clients, growth teams scaling ad operations at high frequency, and freelancers juggling multiple client accounts. Teams also pair the uploader with a launcher — see our breakdown of the best bulk ad launch tools.",
+      "Anyone who manages ad creatives regularly: media buyers running multiple accounts, marketing agencies handling creative distribution for clients, growth teams scaling ad operations at high frequency, and freelancers juggling multiple client accounts. Teams also pair the uploader with a launcher — see our breakdown of the best bulk ad launch tools and the wider comparison of the 13 best Facebook ads automation tools.",
     answer: (
       <>
         Anyone who manages ad creatives regularly: media buyers running multiple
@@ -90,6 +90,10 @@ const faqItems = [
         launcher — see our breakdown of the{" "}
         <Link href="/blog/best-bulk-ad-launch-tools">
           best bulk ad launch tools
+        </Link>
+        {" "}and the wider comparison of the{" "}
+        <Link href="/blog/best-facebook-ads-automation-tools">
+          13 best Facebook ads automation tools
         </Link>
         .
       </>

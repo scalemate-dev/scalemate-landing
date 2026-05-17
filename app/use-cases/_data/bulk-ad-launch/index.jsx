@@ -290,11 +290,15 @@ export const data = {
           <Link href="/use-cases/ad-campaign-automation-rules">
             facebook automated rules
           </Link>
+          , or compare the broader category in the{" "}
+          <Link href="/blog/best-facebook-ads-automation-tools">
+            13 best Facebook ads automation tools roundup
+          </Link>
           .
         </>
       ),
       answerText:
-        "Once campaigns are live, Scalemate\u2019s automation rules take over \u2014 auto-pausing underperformers by ROAS, scaling winners, and protecting budgets 24/7.",
+        "Once campaigns are live, Scalemate\u2019s automation rules take over \u2014 auto-pausing underperformers by ROAS, scaling winners, and protecting budgets 24/7. Compare the broader category in the 13 best Facebook ads automation tools roundup.",
     },
     {
       question: "Can Scalemate be used as one of the ad testing tools?",

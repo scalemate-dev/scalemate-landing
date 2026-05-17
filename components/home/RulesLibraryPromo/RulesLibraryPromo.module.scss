@@ -130,6 +130,26 @@
   }
 }
 
+.secondary {
+  font-family: $font-body;
+  font-size: 14px;
+  line-height: 1.55;
+  color: $uc-stone;
+  margin: 18px 0 0;
+
+  a {
+    color: $uc-ink;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition: color 0.2s $uc-ease;
+
+    &:hover {
+      color: $uc-accent;
+    }
+  }
+}
+
 // ─── Right: card stack ──────────────────────────
 
 .cardStack {

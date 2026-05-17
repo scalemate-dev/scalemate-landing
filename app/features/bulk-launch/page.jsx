@@ -75,8 +75,23 @@ const faqItems = [
   },
   {
     question: "How does bulk ad launch connect to automation rules?",
-    answer:
-      "Bulk ad launch handles deployment. Automation rules handle what happens next: monitoring performance, pausing underperformers, scaling winners, and adjusting bids 24/7. Together, they cover the full campaign lifecycle: launch at scale, then optimize on autopilot. Teams using both features report the highest time savings and the lowest manual intervention rates.",
+    answerText:
+      "Bulk ad launch handles deployment. Automation rules handle what happens next: monitoring performance, pausing underperformers, scaling winners, and adjusting bids 24/7. Together, they cover the full campaign lifecycle: launch at scale, then optimize on autopilot. Teams using both features report the highest time savings and the lowest manual intervention rates. For a side-by-side category view across the market, see the 13 best Facebook ads automation tools comparison.",
+    answer: (
+      <>
+        Bulk ad launch handles deployment. Automation rules handle what happens
+        next: monitoring performance, pausing underperformers, scaling winners,
+        and adjusting bids 24/7. Together, they cover the full campaign
+        lifecycle: launch at scale, then optimize on autopilot. Teams using
+        both features report the highest time savings and the lowest manual
+        intervention rates. For a side-by-side category view across the
+        market, see the{" "}
+        <Link href="/blog/best-facebook-ads-automation-tools">
+          13 best Facebook ads automation tools comparison
+        </Link>
+        .
+      </>
+    ),
   },
 ]
 

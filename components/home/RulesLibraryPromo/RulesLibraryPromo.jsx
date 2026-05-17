@@ -28,6 +28,12 @@ export default function RulesLibraryPromo() {
               Browse the library
               <span className={styles.ctaArrow} aria-hidden="true">→</span>
             </Link>
+            <p className={styles.secondary}>
+              Comparing tools instead?{" "}
+              <Link href="/blog/best-facebook-ads-automation-tools">
+                13 best Facebook ads automation tools for 2026 →
+              </Link>
+            </p>
           </div>
 
           <aside className={styles.cardStack} aria-hidden="true">
