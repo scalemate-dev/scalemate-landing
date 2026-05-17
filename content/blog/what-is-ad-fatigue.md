@@ -77,7 +77,7 @@ Here are the metrics that signal ad fatigue is setting in:
 | **CPM** | Platform charges more as engagement drops | Increasing week-over-week |
 | **Conv. Rate** | Drops while CTR holds steady | Hollow clicks — audience clicks but doesn't convert |
 
-Two or three of these appearing together, especially when nothing else in the campaign has changed, is a clear signal. Teams that [automate Facebook ads](/blog/facebook-ads-automation) with rule-based monitoring catch these signals faster than those checking dashboards manually.
+Two or three of these appearing together, especially when nothing else in the campaign has changed, is a clear signal. Teams that [automate Facebook ads](/blog/best-facebook-ads-automation-tools) with rule-based monitoring catch these signals faster than those checking dashboards manually.
 
 ---
 

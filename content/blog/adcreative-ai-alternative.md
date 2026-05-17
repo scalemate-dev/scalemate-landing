@@ -139,7 +139,7 @@ What a testing system actually needs:
 - **Creative upload from cloud** — creatives from Drive go straight to campaigns. A [free ad uploader for Google Drive to Meta](/ad-creative-uploader) removes the download-upload-rename cycle.
 - **Reporting back to the creative team** — what elements win, what formats fatigue fastest, what hooks hold attention. Data that shapes the next production round.
 
-For a detailed breakdown of creative testing tools, see [best ad testing tools compared](/blog/best-ad-testing-tools). For broader automation context, the [full guide to Facebook ads automation](/blog/facebook-ads-automation) covers the operational side.
+For a detailed breakdown of creative testing tools, see [best ad testing tools compared](/blog/best-ad-testing-tools). For broader automation context, the [13 Facebook ads automation tools comparison](/blog/best-facebook-ads-automation-tools) covers the operational side.
 
 ---
 
