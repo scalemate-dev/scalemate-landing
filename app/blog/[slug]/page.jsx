@@ -15,6 +15,17 @@ export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }))
 }
 
+const AUTHOR_PROFILES = {
+  "Nataliia Bondar": {
+    url: "https://www.linkedin.com/in/nataliia-bondar-578643174/",
+    jobTitle: "Co-founder, Scalemate",
+    sameAs: [
+      "https://www.linkedin.com/in/nataliia-bondar-578643174/",
+      "https://www.linkedin.com/company/scalemate",
+    ],
+  },
+}
+
 export async function generateMetadata({ params }) {
   const { slug } = (await params)
   const article = getArticleBySlug(slug)
@@ -98,7 +109,20 @@ export default async function ArticlePage({ params }) {
     url: articleUrl,
     ...(article.coverImage && { image: article.coverImage }),
     author: isPersonAuthor
-      ? { "@type": "Person", name: article.author }
+      ? {
+          "@type": "Person",
+          name: article.author,
+          ...(AUTHOR_PROFILES[article.author] && {
+            url: AUTHOR_PROFILES[article.author].url,
+            jobTitle: AUTHOR_PROFILES[article.author].jobTitle,
+            sameAs: AUTHOR_PROFILES[article.author].sameAs,
+            worksFor: {
+              "@type": "Organization",
+              name: "Scalemate",
+              url: "https://www.scalemate.co",
+            },
+          }),
+        }
       : { "@type": "Organization", name: "Scalemate", url: "https://www.scalemate.co" },
     publisher: {
       "@type": "Organization",
