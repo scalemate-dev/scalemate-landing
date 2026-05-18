@@ -45,8 +45,11 @@ $uc-shadow-panel-hover: 0 2px 4px rgba(42, 39, 36, 0.03),
 
 .hero {
   position: relative;
-  padding: 180px 0 100px;
-  background: linear-gradient(168deg, #fefdfb 0%, #fff8f3 45%, $uc-bg-warm 100%);
+  min-height: 100vh;
+  padding: 180px 0 140px;
+  background:
+    linear-gradient(to bottom, transparent 55%, rgba($uc-card-dark, 0.6) 82%, $uc-card-dark 100%),
+    linear-gradient(168deg, #fefdfb 0%, #fff8f3 45%, $uc-bg-warm 100%);
   overflow: hidden;
 
   // Dot matrix
@@ -160,7 +163,12 @@ $uc-shadow-panel-hover: 0 2px 4px rgba(42, 39, 36, 0.03),
 
 .cards {
   padding: 0 0 100px;
-  background: $uc-bg-warm;
+  background: linear-gradient(
+    to bottom,
+    $uc-card-dark 0%,
+    $uc-bg-warm 30%,
+    $uc-bg-warm 100%
+  );
 }
 
 .grid {
