@@ -16,22 +16,22 @@ export default function CtaSection() {
             </h2>
             <div className={styles.ctaActions}>
               <Button
-                href="/book-a-demo"
-                color="accent"
-                trackEvent="cta_book_demo"
-                trackProps={{ page: "automation-rules" }}
-              >
-                Book a Demo
-              </Button>
-              <Button
                 href="https://app.scalemate.co"
-                darkTheme
-                outline
+                color="accent"
                 trackEvent="cta_start_trial"
                 trackProps={{ page: "automation-rules" }}
               >
                 <IconRocket size={18} />
                 Get started for free
+              </Button>
+              <Button
+                href="/book-a-demo"
+                darkTheme
+                outline
+                trackEvent="cta_book_demo"
+                trackProps={{ page: "automation-rules" }}
+              >
+                Book a Demo
               </Button>
             </div>
             <p className={styles.ctaNote}>
