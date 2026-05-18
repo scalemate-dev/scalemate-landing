@@ -206,21 +206,21 @@ export default function HeroSection() {
             </p>
             <div className={styles.actions}>
               <Button
-                href="/book-a-demo"
-                color="accent"
-                trackEvent="hero_book_demo"
-                trackProps={{ page: "automation-rules" }}
-              >
-                Book a Demo
-              </Button>
-              <Button
                 href="https://app.scalemate.co"
-                outline
+                color="accent"
                 trackEvent="hero_start_trial"
                 trackProps={{ page: "automation-rules" }}
               >
                 <IconRocket size={18} />
                 Get started for free
+              </Button>
+              <Button
+                href="/book-a-demo"
+                outline
+                trackEvent="hero_book_demo"
+                trackProps={{ page: "automation-rules" }}
+              >
+                Book a Demo
               </Button>
             </div>
           </div>

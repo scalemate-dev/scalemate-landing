@@ -9,7 +9,7 @@ import tiktokIcon from "@/assets/icons/tiktok-icon.svg"
 
 /* ── Pipeline Flow (pure CSS grid, no SVG) ── */
 
-function PipelineFlow() {
+export function PipelineFlow() {
   return (
     <div className={styles.flow}>
       {/* ── Column 1: Source ── */}
@@ -37,7 +37,7 @@ function PipelineFlow() {
       <div className={styles.template}>
         <div className={`${styles.card} ${styles.cardTemplate}`}>
           <div className={styles.templateLabel}>Campaign Template</div>
-          <div className={styles.templateName}>Q1 Prospecting</div>
+          <div className={styles.templateName}>Creative Testing Campaign</div>
           <div className={styles.templateTags}>
             <span className={styles.tag}>5 concepts</span>
             <span className={styles.tag}>15 languages</span>
@@ -108,21 +108,21 @@ export default function HeroSection() {
             </ul>
             <div className={styles.actions}>
               <Button
-                href="/book-a-demo"
-                color="accent"
-                trackEvent="hero_book_demo"
-                trackProps={{ page: "bulk-launch" }}
-              >
-                Book a Demo
-              </Button>
-              <Button
                 href="https://app.scalemate.co"
-                outline
+                color="accent"
                 trackEvent="hero_start_trial"
                 trackProps={{ page: "bulk-launch" }}
               >
                 <IconRocket size={18} />
                 Get started for free
+              </Button>
+              <Button
+                href="/book-a-demo"
+                outline
+                trackEvent="hero_book_demo"
+                trackProps={{ page: "bulk-launch" }}
+              >
+                Book a Demo
               </Button>
             </div>
           </div>
