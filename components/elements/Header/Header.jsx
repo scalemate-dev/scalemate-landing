@@ -123,7 +123,7 @@ const USE_CASES = [
 const RESOURCES = [
   {
     label: "Rules Library",
-    description: "12 production-tested Meta automation rules with live thresholds",
+    description: "Production-tested Meta automation rules with live thresholds",
     icon: (
       <Icon style={{ backgroundColor: "#FFF7ED" }}>
         <IconBook2 color="#EA580C" size={16} />
@@ -154,7 +154,7 @@ const MOBILE_EXTRA_LINKS = [{ href: "/book-a-demo", label: "Book a Demo" }]
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
-  const darkTheme = pathname.includes("assistant")
+  const darkTheme = pathname.includes("assistant") || pathname.includes("home-v2")
 
   const closeMobile = () => setMobileMenuOpen(false)
 
