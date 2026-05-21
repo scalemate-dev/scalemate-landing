@@ -150,13 +150,13 @@ Scalemate is the automation layer for ad ops on Meta + TikTok. It takes over the
 
 **Bulk launches.** From Drive → Meta + TikTok, with reusable templates so next week's launch isn't a rebuild. Multi-account.
 
-![Scalemate Launcher dashboard — bulk ad launch templates for Meta and TikTok with multi-account setup](/blog/images/best-facebook-ads-automation-tools/scalemate-launcher-dashboard.png)
+![Scalemate Launcher dashboard — bulk ad launch templates for Meta and TikTok with multi-account setup](/blog/images/best-facebook-ads-automation-tools/scalemate-launcher-dashboard.jpg)
 
 *Scalemate Launcher: reusable templates for bulk launches across Meta + TikTok, multi-account.*
 
 **Automated rules.** Multi-level / compound conditions on CPA, ROAS, frequency, spend windows (1d / 7d / 14d). Auto-execute (pause / scale / cut) OR alert-only. Auto-revert when conditions reverse — paused campaigns auto-resume when performance recovers.
 
-![Scalemate Rules dashboard — compound conditions on CPA, ROAS, and spend windows with auto-revert built in](/blog/images/best-facebook-ads-automation-tools/scalemate-rules-dashboard.png)
+![Scalemate Rules dashboard — compound conditions on CPA, ROAS, and spend windows with auto-revert built in](/blog/images/best-facebook-ads-automation-tools/scalemate-rules-dashboard.jpg)
 
 *Scalemate Rules: compound triggers, auto-revert, multi-account in one rule.*
 
@@ -166,7 +166,7 @@ Scalemate is the automation layer for ad ops on Meta + TikTok. It takes over the
 
 **Drive sync.** Drop creatives into a synced Google Drive folder; they appear in the ad account ready to launch — no downloads, no re-uploads, no duplicates.
 
-![Scalemate Uploader — Google Drive to Meta and TikTok creative sync without re-uploads or duplicates](/blog/images/best-facebook-ads-automation-tools/scalemate-uploader-dashboard.png)
+![Scalemate Uploader — Google Drive to Meta and TikTok creative sync without re-uploads or duplicates](/blog/images/best-facebook-ads-automation-tools/scalemate-uploader-dashboard.jpg)
 
 *Scalemate Uploader: Drive → Meta + TikTok, automatic sync, no re-uploads.*
 

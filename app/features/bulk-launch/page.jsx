@@ -127,6 +127,7 @@ const softwareSchema = {
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   url: "https://www.scalemate.co/features/bulk-launch",
+  image: "https://www.scalemate.co/og-bulk-ad-launch.png",
   offers: {
     "@type": "Offer",
     price: "0",

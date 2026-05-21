@@ -107,7 +107,11 @@ export default async function ArticlePage({ params }) {
     headline: article.title,
     description: article.metaDescription || undefined,
     url: articleUrl,
-    ...(article.coverImage && { image: article.coverImage }),
+    ...(article.coverImage && {
+      image: article.coverImage.startsWith("http")
+        ? article.coverImage
+        : `https://www.scalemate.co${article.coverImage}`,
+    }),
     author: isPersonAuthor
       ? {
           "@type": "Person",
@@ -197,6 +201,7 @@ export default async function ArticlePage({ params }) {
           <Image
             src={article.heroBg}
             alt=""
+            aria-hidden="true"
             fill
             priority
             className={styles.heroBgImage}

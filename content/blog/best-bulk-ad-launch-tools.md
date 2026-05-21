@@ -71,7 +71,7 @@ Scalemate is a bulk ad launcher built for teams running Meta and TikTok campaign
 
 Creatives sync from Google Drive, Airtable, or custom sources directly to Meta and TikTok. No downloading files to your computer. Automation rules run 24/7 after launch: pause by ROAS, scale winners, roll back if performance drops.
 
-![Scalemate uploader dashboard: reusable templates and Google Drive sync for bulk launching ads to Meta and TikTok](/blog/images/best-bulk-ad-launch-tools/scalemate-uploader-dashboard.png)
+![Scalemate uploader dashboard: reusable templates and Google Drive sync for bulk launching ads to Meta and TikTok](/blog/images/best-bulk-ad-launch-tools/scalemate-uploader-dashboard.jpg)
 
 *Where launches actually happen — not the marketing page.*
 

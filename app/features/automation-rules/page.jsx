@@ -130,6 +130,13 @@ const softwareSchema = {
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   url: "https://www.scalemate.co/features/automation-rules",
+  image: "https://www.scalemate.co/og-ad-campaign-automation-rules.png",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+    description: "Free tier available",
+  },
 }
 
 const faqSchema = {

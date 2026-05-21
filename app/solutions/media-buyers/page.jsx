@@ -34,6 +34,7 @@ function SoftwareSchema() {
     description:
       "Tools for media buyers automation: auto-upload creatives, bulk-launch ads, and automation rules that optimize campaigns 24/7.",
     url: "https://www.scalemate.co/solutions/media-buyers",
+    image: "https://www.scalemate.co/og-image.png",
     offers: {
       "@type": "Offer",
       price: "0",

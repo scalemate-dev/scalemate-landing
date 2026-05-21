@@ -147,7 +147,7 @@ Meta's first-party MCP server. 29 tools across campaign creation, performance in
 
 Pipeboard takes the easiest approach to **meta MCP** connectivity. It runs as a remote MCP server. No local installation, no dependencies, no terminal commands. You get a URL, paste it into Claude Desktop's MCP settings, and your Meta Ads data is available immediately.
 
-![Pipeboard MCP — Claude analyzing Meta Ads campaign data, generating performance dashboard with spend, impressions, CTR and click-through rate](/blog/images/best-mcp-servers-meta-google-ads/piperboat.png)
+![Pipeboard MCP — Claude analyzing Meta Ads campaign data, generating performance dashboard with spend, impressions, CTR and click-through rate](/blog/images/best-mcp-servers-meta-google-ads/piperboat.jpg)
 
 *Pipeboard connects Meta and Google Ads to Claude. Ask questions, get answers from live data.*
 

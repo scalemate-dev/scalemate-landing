@@ -130,6 +130,7 @@ const softwareSchema = {
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   url: "https://www.scalemate.co/ad-creative-uploader",
+  image: "https://www.scalemate.co/og-creative-uploader.png",
   offers: {
     "@type": "Offer",
     price: "0",

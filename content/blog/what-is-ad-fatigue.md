@@ -1,8 +1,8 @@
 ---
-title: "Ad Fatigue on Meta + TikTok: Signs and Fixes (2026)"
+title: "What Is Ad Fatigue and How to Fix It (2026)"
 slug: what-is-ad-fatigue
 absoluteTitle: true
-metaDescription: "Spot ad fatigue on Meta and TikTok before CPAs spike. The 5 signals media buyers track, the real causes, and the rotation system that keeps winners alive."
+metaDescription: "Ad fatigue kills performance before you notice. Learn the signs, the real causes, and how to build a creative testing system that stays ahead of burnout."
 cta:
   title: "Catch ad fatigue before CPAs spike"
   description: "Set rules that pause ads when frequency hits 3.0 or CTR drops 20%. Refresh winners weekly with bulk launches across Meta and TikTok."
