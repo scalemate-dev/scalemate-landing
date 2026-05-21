@@ -58,9 +58,19 @@ Until recently, setting up these connections required developer skills: cloning 
 
 ---
 
-## What Is an MCP Server for Ads?
+## Is There an Official Meta MCP Server?
 
-MCP stands for Model Context Protocol, an open standard developed by Anthropic that defines how AI models connect to external data sources. Think of it as a universal adapter. Instead of every AI tool building custom integrations with every platform, MCP provides one protocol that works across all of them.
+Yes. Meta launched its official Meta Ads MCP server on April 29, 2026 — the first ad platform to ship an official Model Context Protocol integration. It lets AI assistants like Claude and ChatGPT read campaign data, analyze performance, and (unique to Meta's MCP) execute write actions like pausing ads, changing budgets, and launching campaigns directly through chat.
+
+The Meta MCP server runs as a remote service — no local install, no repository to clone. You authenticate with your Meta Business account and the AI assistant connects through Anthropic's open MCP standard.
+
+For Google Ads, there's also an official Google Ads MCP server, released earlier in 2026. It's read-only and requires more setup than Meta's. [See the full comparison below ↓](#meta-ads-mcp-vs-google-ads-mcp-comparison-table)
+
+---
+
+## What Is an MCP Server for Meta and Google Ads?
+
+MCP stands for Model Context Protocol, an open standard developed by Anthropic. A Meta MCP server (or Google Ads MCP server) is one specific implementation: it sits between your ad platform and your AI assistant, handling authentication, data pulls, and formatting. Think of it as a universal adapter. Instead of every AI tool building custom integrations with every platform, MCP provides one protocol that works across all of them.
 
 For advertising, an MCP server sits between your ad platform (Meta, Google, TikTok) and your AI assistant (Claude, Cursor, or any MCP-compatible client). The server handles authentication, pulls campaign data through the platform's API, and formats it so the AI can understand and analyze it.
 

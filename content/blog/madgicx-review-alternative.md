@@ -50,6 +50,8 @@ On the market since ~2018. Positions itself as an "Agentic AI Ads Manager." Core
 
 Honest take: the positioning is accurate. It's an optimization brain bolted onto Meta Ads Manager, not an operations layer. That distinction matters once you're past the "what to run" question and into "how do we ship this every week."
 
+> **G2 verdict (50+ verified reviews):** Strong AI audiences and creative scoring on Meta, weak on cross-platform — campaign management is Meta-only despite cross-channel reporting in the dashboard. [Read Madgicx G2 reviews →](https://www.g2.com/products/madgicx/reviews){rel="nofollow noopener" target="_blank"}
+
 ---
 
 ## Madgicx Features — What Actually Works
@@ -127,7 +129,13 @@ Understanding where a tool stops is as important as knowing what it does. Here's
 
 **Execution at scale.** Madgicx splits campaign launches into two separate tools. Audience Launcher creates new audiences and ad sets. Ad Launcher pushes creatives into existing ad sets, but can't create new ones. So to launch a full campaign from scratch, you go through two tools in sequence. There's no way to save the whole setup as a template for next time, and audience or GEO configurations can't be set up in bulk. For teams that launch often with repeating structures, the setup stays manual every time.
 
-**Beyond Meta.** Campaign management is Meta only. If TikTok is 30–40% of your spend, you need a separate tool for operations there. Seeing TikTok data in a dashboard isn't the same as managing campaigns.
+### Madgicx TikTok Automation: Reporting Only, Not Campaign Management
+
+Madgicx TikTok ads automation is limited to reporting. TikTok campaign data shows in cross-channel dashboards, but you cannot create TikTok ad sets, run automation rules on TikTok campaigns, or adjust TikTok budgets from Madgicx. Campaign management is Meta-only.
+
+For teams running parallel Meta + TikTok funnels — the typical mobile UA, eCommerce, and lead-gen setup in 2026 — this means Madgicx covers half your workflow. You still need a separate tool (or Ads Manager) to launch, optimize, and pause TikTok creatives. The same applies to Snapchat and Google Ads in Madgicx — reporting works, campaign management doesn't.
+
+If TikTok automation is a hard requirement, Madgicx alternatives that manage both Meta and TikTok campaigns from one interface include Scalemate (rules engine + bulk launches for both) and bir.ch (formerly Revealbot — rules only, no bulk).
 
 **The creative pipeline.** Your design team puts 50 new assets in Google Drive. Somebody still downloads them, uploads to Madgicx Creative Studio, assigns to campaigns, launches. Every week. As of April 2026, confirmed via Madgicx support chat: *"files need to be in our system first, not pulled directly from Google Drive."*
 
