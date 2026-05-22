@@ -76,10 +76,6 @@ const relatedLinks = [
     href: "/use-cases/ad-campaign-automation-rules",
   },
   {
-    label: "Facebook Automated Rules: Setup Guide",
-    href: "/blog/facebook-automated-rules",
-  },
-  {
     label: "13 Best Facebook Ads Automation Tools (2026)",
     href: "/blog/best-facebook-ads-automation-tools",
   },
@@ -203,11 +199,8 @@ const faqItems = [
         during learning, raise spend floors, and gate the kill rules to ad sets
         older than 48 hours. The scale rules are safer to leave on, but cap the
         cumulative budget bump per day to avoid resetting learning with a budget
-        jump over 20%. The full{" "}
-        <Link href="/blog/facebook-automated-rules">
-          step-by-step setup guide
-        </Link>{" "}
-        covers each variant.
+        jump over 20%. Browse the goal filters above to find the rules safe for
+        the learning phase.
       </>
     ),
   },

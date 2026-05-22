@@ -184,7 +184,7 @@ It automates the part between "we know what to run" and "it's live across all ma
 
 **Drive sync.** Connect a Google Drive folder. New assets sync automatically, with no duplicates and no re-uploading. Creatives go straight to your library or directly into campaigns. The download-upload-rename cycle? Gone. Teams can start with the [free bulk ad creative uploader](/ad-creative-uploader) to test the workflow.
 
-**Automation rules.** Set performance thresholds once: ROAS floor, CPI cap, spend limit. Rules run 24/7 and auto-pause underperformers, scale winners, or adjust bids without manual checks. Built-in rollback reverses scaling if performance drops after a budget increase. Budget protection that works anytime, not just during office hours. For setup details and native vs third-party comparison, see the [Facebook automated rules guide](/blog/facebook-automated-rules).
+**Automation rules.** Set performance thresholds once: ROAS floor, CPI cap, spend limit. Rules run 24/7 and auto-pause underperformers, scale winners, or adjust bids without manual checks. Built-in rollback reverses scaling if performance drops after a budget increase. Budget protection that works anytime, not just during office hours. For ready-to-copy rule templates by goal, browse the [automation rules library](/automation-rules-library).
 
 **Open API.** Documented, ready to connect. Launch ads from your creative library in Airtable. Trigger campaigns from internal analytics. Build workflows around how your team already operates, not around someone else's UI.
 

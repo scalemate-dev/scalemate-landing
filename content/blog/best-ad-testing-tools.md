@@ -79,7 +79,7 @@ Not every ad testing platform solves the same problem. Before comparing tools, i
 
 Meta's built-in A/B testing is free and available to every advertiser. It supports testing one variable at a time — creative, audience, placement, or optimization strategy — with statistical significance tracking. For small teams running simple tests, it covers the basics without adding cost.
 
-The limitations show up at scale. There is no bulk launching, no automation beyond basic [native Facebook automated rules](/blog/facebook-automated-rules), and no way to test multiple variables simultaneously. Manual setup means every test requires hands-on work in Ads Manager.
+The limitations show up at scale. There is no bulk launching, no automation beyond basic native rules (browse [20 production-tested automation rules by goal](/automation-rules-library) for what's possible beyond Meta-native), and no way to test multiple variables simultaneously. Manual setup means every test requires hands-on work in Ads Manager.
 
 **Best for:** Small teams, beginners, simple one-variable tests.
 **Pricing:** Free.

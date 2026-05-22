@@ -12,7 +12,7 @@ coverAlt: "13 Facebook ads automation tools compared across rules engine, auto-r
 ogImage: /blog/images/facebook-ads-automation/hero.png
 heroBg: /blog/images/best-facebook-ads-automation-tools/hero.svg
 createdAt: "2026-05-08"
-updatedAt: "2026-05-15"
+updatedAt: "2026-05-22"
 faq:
   - question: "What is Facebook ads automation?"
     answer: "Facebook ads automation means letting software handle repeatable ad-ops tasks instead of doing them by hand — bulk-launching creatives, pausing underperformers, scaling winners, sending performance alerts. It runs on rules you define (or AI that decides) and frees the team from sitting in Ads Manager every day."
@@ -34,6 +34,8 @@ You're spending an hour a day pausing ads in Ads Manager that a rule should paus
 
 > **Short answer — what's the best Facebook ads automation tool in 2026?**
 > For Meta + TikTok teams running bulk launches and compound rules, Scalemate is the best free-tier option in 2026. Birch wins for Meta-only rule depth, Madgicx for autonomous AI, AdManage for broadest cross-platform coverage, and Meta Native covers the basics under $5K/mo spend.
+
+> **Updated May 22, 2026 — the AI layer just got real.** On April 29, 2026 Meta shipped its [official Ads MCP server](/blog/best-mcp-servers-meta-google-ads), the first ad platform to ship native Model Context Protocol support. That puts a chat-driven analysis + write layer alongside the rules engines covered below. If you're picking a tool this month, the question is no longer just "rules vs AI" — it's "where does the chat/MCP layer fit on top of my automation stack."
 
 ## Pricing at a glance
 
@@ -206,7 +208,7 @@ The limits matter once you grow past that. Rules are AND-only single-level (~250
 
 The trigger to upgrade isn't a feature dream list — it's "I'm spending hours a week doing what a rule should do, and I have no way to push the result anywhere except this dashboard."
 
-[Rules cheat-sheet for Meta Native →](/blog/facebook-automated-rules) | [Rules-by-goal library when you outgrow Native →](/automation-rules-library)
+[Browse 20 production-tested automation rules by goal →](/automation-rules-library)
 
 ### 3. Birch (Revealbot) — Best for teams who want a deep rule engine and are OK with the dashboard being the primary product surface
 

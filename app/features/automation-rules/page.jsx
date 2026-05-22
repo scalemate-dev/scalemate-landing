@@ -56,11 +56,11 @@ const faqItems = [
         budget safeguards, no scaling logic, no advanced automation. Scalemate
         adds automated scaling with auto-cut rules, budget protection, and
         Slack/email alerts. Teams that automate facebook ads rules beyond
-        basic pause-on-threshold see the difference at scale. For specifics on{" "}
-        <Link href="/blog/facebook-automated-rules">
-          when native rules aren't enough
-        </Link>
-        , see the full setup guide.
+        basic pause-on-threshold see the difference at scale. Browse the{" "}
+        <Link href="/automation-rules-library">
+          20 production-tested automation rules
+        </Link>{" "}
+        for ready-to-copy setups.
       </>
     ),
   },

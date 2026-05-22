@@ -247,7 +247,7 @@ export const data = {
     {
       question: "What are ad campaign automation rules?",
       answerText:
-        "Automation rules are conditional triggers that execute predefined actions on campaigns based on performance metrics. When a metric crosses a set threshold, the system automatically pauses, scales, adjusts bids, or sends an alert – without manual intervention. Rules run continuously – covering nights, weekends, and holidays – replacing the manual check-and-react cycle that most marketing teams repeat daily. For step-by-step setup of native Meta automated rules, see the Facebook automated rules guide.",
+        "Automation rules are conditional triggers that execute predefined actions on campaigns based on performance metrics. When a metric crosses a set threshold, the system automatically pauses, scales, adjusts bids, or sends an alert – without manual intervention. Rules run continuously – covering nights, weekends, and holidays – replacing the manual check-and-react cycle that most marketing teams repeat daily. Browse the 20 production-tested automation rules library for ready-to-copy setups by goal.",
       answer: (
         <>
           Automation rules are conditional triggers that execute predefined
@@ -256,12 +256,11 @@ export const data = {
           adjusts bids, or sends an alert – without manual intervention. Rules
           run continuously – covering nights, weekends, and holidays –
           replacing the manual check-and-react cycle that most marketing teams
-          repeat daily. For step-by-step setup of native Meta automated rules,
-          see the{" "}
-          <Link href="/blog/facebook-automated-rules">
-            How to set up Facebook automated rules
+          repeat daily. Browse the{" "}
+          <Link href="/automation-rules-library">
+            20 production-tested automation rules library
           </Link>{" "}
-          guide.
+          for ready-to-copy setups by goal.
         </>
       ),
     },

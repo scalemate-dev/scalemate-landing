@@ -202,7 +202,7 @@ Worth a short note here, expanded later in the article: Scalemate isn't a compet
 - **Platforms:** Meta Ads + TikTok Ads (Google Ads in development)
 - **Pricing:** Paid with free trial
 - **Verified Meta app:** Official API, scoped permissions, rate limiting built in. No ban risk
-- **Beyond analysis:** Bulk ad launches, [Facebook automated rules](/blog/facebook-automated-rules), broader [Facebook ads automation tools comparison](/blog/best-facebook-ads-automation-tools), Drive→Meta sync. Persistent automation, not one-shot chat commands
+- **Beyond analysis:** Bulk ad launches, [20 production-tested automation rules](/automation-rules-library), broader [Facebook ads automation tools comparison](/blog/best-facebook-ads-automation-tools), Drive→Meta sync. Persistent automation, not one-shot chat commands
 - **Used by:** ZeptoLab (2B+ downloads), KitUp (1M+ users), and other performance teams running at scale
 
 See the ["When Meta's MCP is enough vs when you need a layer above"](#when-metas-mcp-is-enough-vs-when-you-need-a-layer-above) section below for the honest fit breakdown by team profile.
@@ -289,7 +289,7 @@ For that profile, Meta's MCP plus the platform's native rules cover the job. Pay
 - Running **[persistent automation rules](/features/automation-rules)** 24/7 — auto-pause on CPA thresholds, auto-scale on ROAS, rollback on CTR drop — not one-shot chat commands
 - Syncing creatives from **[Google Drive into Meta](/ad-creative-uploader)** (or pulling new winners back into a creative library) on an ongoing basis
 
-That second profile is where Scalemate fits. It's not a competitor to Meta's MCP — it's a different layer. Meta's MCP is chat-driven analysis with some write capability. Scalemate is an automation OS that runs on top: bulk ad launch from Drive folders, [automation rules](/features/automation-rules) that operate without a chat client open, [Facebook automated rules workflows](/blog/facebook-automated-rules), and the broader [13 Facebook ads automation tools comparison](/blog/best-facebook-ads-automation-tools) covering how teams move from manual through tool-based tiers.
+That second profile is where Scalemate fits. It's not a competitor to Meta's MCP — it's a different layer. Meta's MCP is chat-driven analysis with some write capability. Scalemate is an automation OS that runs on top: bulk ad launch from Drive folders, [automation rules](/features/automation-rules) that operate without a chat client open, [20 production-tested rule templates by goal](/automation-rules-library), and the broader [13 Facebook ads automation tools comparison](/blog/best-facebook-ads-automation-tools) covering how teams move from manual through tool-based tiers.
 
 ![Scalemate AI Chat interface — TikTok budget reallocation executed through chat with creative-level recommendations, no Ads Manager needed](/blog/images/best-mcp-servers-meta-google-ads/scalemate-ai-chat.png)
 

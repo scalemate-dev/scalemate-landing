@@ -40,7 +40,12 @@ const nextConfig = {
       },
       {
         source: "/blog/facebook-ads-automation",
-        destination: "/blog/best-facebook-ads-automation-tools",
+        destination: "/automation-rules-library",
+        permanent: true,
+      },
+      {
+        source: "/blog/facebook-automated-rules",
+        destination: "/automation-rules-library",
         permanent: true,
       },
     ]
