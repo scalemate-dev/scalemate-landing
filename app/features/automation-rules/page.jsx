@@ -15,7 +15,7 @@ import RulesLibraryPromo from "@/components/home/RulesLibraryPromo/RulesLibraryP
 import styles from "./page.module.scss"
 
 export const metadata = {
-  title: "Automated Ad Optimization Rules – 24/7 Protection | Scalemate",
+  title: "Facebook Ads Automation Rules — Auto-Pause + Scale 24/7",
   description:
     "Set conditions on ROAS, CPI, or any metric. Scalemate's automation rules pause, scale, and adjust bids 24/7 across Meta Ads, with built-in budget safeguards.",
   alternates: {
@@ -23,7 +23,7 @@ export const metadata = {
   },
   openGraph: {
     url: "https://www.scalemate.co/features/automation-rules",
-    title: "Automated Ad Optimization Rules – 24/7 Protection | Scalemate",
+    title: "Facebook Ads Automation Rules — Auto-Pause + Scale 24/7",
     description:
       "Set conditions on ROAS, CPI, or any metric. Scalemate's automation rules pause, scale, and adjust bids 24/7 across Meta Ads, with built-in budget safeguards.",
     type: "website",
@@ -33,7 +33,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Automated Ad Optimization Rules – 24/7 Protection | Scalemate",
+    title: "Facebook Ads Automation Rules — Auto-Pause + Scale 24/7",
     description:
       "Set conditions on ROAS, CPI, or any metric. Scalemate's automation rules pause, scale, and adjust bids 24/7 across Meta Ads, with built-in budget safeguards.",
     images: ["/og-ad-campaign-automation-rules.png"],

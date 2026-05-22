@@ -11,7 +11,7 @@ const RULE_COUNT = RULES.length
 const MULTI_TASK_COUNT = RULES.filter((r) => r.tasks.length > 1).length
 
 export const metadata = {
-  title: `${RULE_COUNT} Production-Tested Facebook Automated Rules | Scalemate`,
+  title: `Facebook Automated Rules Cheat Sheet: ${RULE_COUNT} Free Templates by Goal`,
   description: `${RULE_COUNT} Facebook automated rules from live $1M+/month Meta accounts, including ${MULTI_TASK_COUNT} multi-step chains. Every threshold recalculates from your CPA, ROAS, CPC inputs.`,
   alternates: {
     canonical: "https://www.scalemate.co/automation-rules-library",
@@ -19,13 +19,13 @@ export const metadata = {
   openGraph: {
     url: "https://www.scalemate.co/automation-rules-library",
     type: "website",
-    title: `${RULE_COUNT} Production-Tested Facebook Automated Rules from $1M+/mo Accounts`,
+    title: `Facebook Automated Rules Cheat Sheet: ${RULE_COUNT} Free Templates by Goal`,
     description: `Steal ${RULE_COUNT} Facebook automated rules running in live $1M+/month Meta accounts. Stop loss, scale winners, prune creative — every threshold recalculates from your CPA, ROAS, CPC inputs.`,
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${RULE_COUNT} Production-Tested Facebook Automated Rules from $1M+/mo Accounts`,
+    title: `Facebook Automated Rules Cheat Sheet: ${RULE_COUNT} Free Templates by Goal`,
     description: `Steal ${RULE_COUNT} Facebook automated rules running in live $1M+/month Meta accounts. Filter by goal: stop loss, scale winners, prune creative, control budget.`,
     images: ["/og-image.png"],
   },

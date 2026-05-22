@@ -5,7 +5,7 @@ import { AutoRulesVisual, AgentVisual } from "./HowItWorksVisuals"
 export const data = {
   metadata: {
     title:
-      "Scale Ad Campaigns Faster – Before Your Winners Burn Out | Scalemate",
+      "Scale Facebook Ads Faster: Bulk Launches + Auto-Revert Rules",
     description:
       "Manual setup costs revenue on every winning creative. Scale ad campaigns faster with Scalemate – automate launches and scale winners in minutes, not days.",
     alternates: {
@@ -13,7 +13,7 @@ export const data = {
     },
     openGraph: {
       title:
-        "Scale Ad Campaigns Faster – Before Your Winners Burn Out | Scalemate",
+        "Scale Facebook Ads Faster: Bulk Launches + Auto-Revert Rules",
       description:
         "Manual setup costs revenue on every winning creative. Scale ad campaigns faster with Scalemate – automate launches and scale winners in minutes, not days.",
       url: "https://www.scalemate.co/use-cases/scale-ad-campaigns-faster",
@@ -22,7 +22,7 @@ export const data = {
     twitter: {
       card: "summary_large_image",
       title:
-        "Scale Ad Campaigns Faster – Before Your Winners Burn Out | Scalemate",
+        "Scale Facebook Ads Faster: Bulk Launches + Auto-Revert Rules",
       description:
         "Manual setup costs revenue on every winning creative. Scale ad campaigns faster with Scalemate – automate launches and scale winners in minutes, not days.",
     },

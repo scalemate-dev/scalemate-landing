@@ -10,7 +10,7 @@ export const data = {
   showRulesLibraryPromo: true,
   metadata: {
     title:
-      "Facebook Ad Automation Rules: Pause Losers, Scale Winners",
+      "Facebook Ads Optimization: Pause Losers, Scale Winners 24/7",
     description:
       "Facebook ad automation rules — pause low-ROAS ads, scale winners, protect daily budget. Runs 24/7 on Meta and TikTok. Stop checking your dashboard.",
     alternates: {
@@ -19,7 +19,7 @@ export const data = {
     },
     openGraph: {
       title:
-        "Facebook Ad Automation Rules: Pause Losers, Scale Winners | Scalemate",
+        "Facebook Ads Optimization: Pause Losers, Scale Winners 24/7",
       description:
         "Facebook ad automation rules — pause low-ROAS ads, scale winners, protect daily budget. Runs 24/7 on Meta and TikTok. Stop checking your dashboard.",
       url: "https://www.scalemate.co/use-cases/ad-campaign-automation-rules",
@@ -28,7 +28,7 @@ export const data = {
     twitter: {
       card: "summary_large_image",
       title:
-        "Facebook Ad Automation Rules: Pause Losers, Scale Winners | Scalemate",
+        "Facebook Ads Optimization: Pause Losers, Scale Winners 24/7",
       description:
         "Facebook ad automation rules — pause low-ROAS ads, scale winners, protect daily budget. Runs 24/7 on Meta and TikTok. Stop checking your dashboard.",
     },
