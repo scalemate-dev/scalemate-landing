@@ -7,7 +7,7 @@ cta:
   title: "Bulk-launch and auto-rule Meta + TikTok ads on the free tier"
   description: "Scalemate free tier — bulk launches + rules with auto-revert at smaller volumes, Meta + TikTok, no credit card. Paid tiers unlock larger volumes, API endpoints, workflow chains, custom integrations."
 author: "Nataliia Bondar"
-coverImage: /blog/images/facebook-ads-automation/listing.svg
+coverImage: /blog/images/best-facebook-ads-automation-tools/cover.svg
 coverAlt: "13 Facebook ads automation tools compared across rules engine, auto-revert, bulk launch, and creative sync"
 ogImage: /blog/images/facebook-ads-automation/hero.png
 heroBg: /blog/images/best-facebook-ads-automation-tools/hero.svg
@@ -214,11 +214,19 @@ The trigger to upgrade isn't a feature dream list — it's "I'm spending hours a
 
 Closest direct peer to Scalemate on rules depth — rules-heavy by DNA. Advanced compound conditions (OR / multi-level / scheduling / multi-account), "reverse rules" (their term for auto-revert), Automation Logs for tracking, bulk launch ("Launcher") on Pro tier (no Drive sync). Slack + email alerts work out of the box. For sending events into your own system (CRM, Airtable, dashboard), you'd need to ask them directly — public docs don't cover this depth. Can pull data from your own systems via Google Sheets: export metrics from your analytics into a Sheet, then connect that Sheet to a rule. Multi-platform: Meta + Google + TikTok + Snap (TikTok rules depth not documented as deeply — verify in trial). Essential $49/mo, Pro $99/mo, Enterprise custom; 14-day free trial, no permanent free tier. Differentiation vs Scalemate: Birch's primary surface IS the dashboard with a 12-rule cheat-sheet; Scalemate's is the chain into your existing stack + goal × niche library of pre-built strategies.
 
+![Birch (Revealbot) automation rule builder — setting conditions with Spend, custom metrics and third-party integrations like Hyros and AppsFlyer](/blog/images/best-facebook-ads-automation-tools/birch-automation-rule-builder.jpg)
+
+*Birch's rule builder supports custom metrics and third-party attribution integrations — Hyros, AppsFlyer, Wicked Reports — directly as rule conditions.*
+
 [Goal × niche strategy library →](/automation-rules-library)
 
 ### 4. Madgicx — Best for teams who want autonomous AI to make decisions for them (closed black-box, no strategy to inspect)
 
 Madgicx is the autonomous-AI big brand on this list — AI-powered ad management (AI Marketer, AI Ad Generator, Creative Refresh Agent, Ad Fatigue detector), light manual-rules layer. Different category from a rules engine you can read — best for teams who've explicitly opted into "let AI decide" instead of "I'll write the rules myself." Closed AI black-box, no transparent rules to inspect. Pricing is variable by ad-spend tier ([Reddit cites](https://www.reddit.com/r/FacebookAds/) ~$450/mo at the $40-50K/mo tier), 7-day free trial. Heads-up: Reddit threads flag friction on trial cancellation — double-check the steps before signing up.
+
+![Madgicx ARR Dashboard with Automated Reporting modal — configuring general metrics, graph metrics, table metrics and report branding](/blog/images/best-facebook-ads-automation-tools/madgicx-automated-reporting.jpg)
+
+*Madgicx's Automated Reporting pulls campaign data into scheduled PDF reports — useful for agencies, but the decision logic behind the AI stays invisible.*
 
 [Deeper Madgicx review — including alternative options →](/blog/madgicx-review-alternative)
 
