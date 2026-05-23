@@ -1,5 +1,5 @@
 ---
-title: "Ad Creative Testing System: Multi-Platform Playbook (2026)"
+title: "Ad Creative Testing Framework: Multi-Platform Playbook (2026)"
 slug: creative-testing-framework
 metaDescription: "30% of your creatives never get tested. Build a system that fixes the handoff, runs across 5+ platforms, and turns weekly testing into compounding wins."
 cta:
@@ -10,7 +10,7 @@ coverImage: /blog/images/creative-testing-framework/cover.svg
 coverAlt: "Creative testing: scattered ad creatives with one winner standing out at the center"
 heroBg: /blog/images/creative-testing-framework/hero.svg
 createdAt: "2026-04-27"
-updatedAt: "2026-04-27"
+updatedAt: "2026-05-23"
 absoluteTitle: true
 faq:
   - question: "How many creatives should I test per week?"
