@@ -7,8 +7,9 @@ cta:
   title: "Catch ad fatigue before CPAs spike"
   description: "Set rules that pause ads when frequency hits 3.0 or CTR drops 20%. Refresh winners weekly with bulk launches across Meta and TikTok."
 author: "Nataliia Bondar"
-coverImage: null
-coverAlt: null
+coverImage: /blog/images/what-is-ad-fatigue/cover.svg
+coverAlt: "Ad fatigue and how to fix it — spotting declining ad performance and refreshing creatives before CPAs spike"
+heroBg: /blog/images/what-is-ad-fatigue/hero-bg.svg
 ogImage: "/og/what-is-ad-fatigue.png"
 section: "Performance Marketing"
 tags:
