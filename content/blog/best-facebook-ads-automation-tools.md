@@ -196,13 +196,13 @@ The team doesn't open Ads Manager between Monday's launch and Friday's review. S
 
 Meta Native is the floor — the built-in automation layer inside Ads Manager: Advantage+ campaigns (machine learning for audience / placement / creative — Advantage+ Shopping for eCom catalog, Advantage+ App for app installs), Automated Rules (if/then conditions on CPA / ROAS / frequency / spend), and Dynamic Creative (auto-combines headlines + images + videos to find top performers). Free, zero setup — right answer when your needs are "pause if CPA > $X" or "scale if ROAS > Y."
 
-![Meta Ads Manager automated rules — AND-only single-level conditions on CPA, ROAS, spend, and frequency](/blog/images/best-facebook-ads-automation-tools/meta-native-rules-conditions.png)
+![Meta Ads Manager automated rules — AND-only single-level conditions on CPA, ROAS, spend, and frequency](/blog/images/best-facebook-ads-automation-tools/meta-native-rules-conditions.jpg)
 
 *Meta Ads Manager rule conditions — AND-only, single-level, no OR logic.*
 
 The limits matter once you grow past that. Rules are AND-only single-level (~250 cap per ad account, no OR logic, no rollback after a scale-up). No Slack push, no API event, no webhook out — Ads Manager UI is the only endpoint. No auto-revert either: [r/FacebookAds](https://www.reddit.com/r/FacebookAds/), *"Yes you can set up 'check' rules to turn the ads back on but you've just lost 5 hours."* All third-party tools below use the official [Meta Marketing API](https://developers.facebook.com/docs/marketing-apis/) — the safe boundary against ad-account bans tied to scraper/unverified scripts.
 
-![Meta automated rules actions — pause, scale, notify; no auto-revert built in](/blog/images/best-facebook-ads-automation-tools/meta-native-rules-actions.png)
+![Meta automated rules actions — pause, scale, notify; no auto-revert built in](/blog/images/best-facebook-ads-automation-tools/meta-native-rules-actions.jpg)
 
 *Meta automated rule actions: pause / scale / notify — no auto-revert when conditions recover.*
 
