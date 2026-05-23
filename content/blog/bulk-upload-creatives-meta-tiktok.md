@@ -61,7 +61,7 @@ The problem isn't complexity. It's repetition at scale. Whether you call it "bul
 
 Meta Ads Manager includes a bulk import feature. You download an Excel template, fill in campaign structure (campaigns, ad sets, ads), and upload the spreadsheet. Meta creates everything from the file.
 
-![Meta Ads Manager Excel template for bulk import — campaign, ad set, and ad rows with required columns](/blog/images/bulk-upload-creatives-meta-tiktok/meta-excel-bulk-upload.png)
+![Meta Ads Manager Excel template for bulk import — campaign, ad set, and ad rows with required columns](/blog/images/bulk-upload-creatives-meta-tiktok/meta-excel-bulk-upload.jpg)
 
 *The native Excel template handles campaign structure — but creative files still need to be uploaded separately to the Media Library.*
 
@@ -83,7 +83,7 @@ Most teams come looking for a Facebook Ads Manager bulk upload alternative for t
 
 Several tools (Markifact being the most visible) offer Google Sheets templates that connect to Meta's API. You fill in campaign structure in a spreadsheet, and the template pushes it to Ads Manager.
 
-![Markifact Google Sheets template for bulk Meta ad creation — campaign and ad set rows with API integration](/blog/images/bulk-upload-creatives-meta-tiktok/markifact-template.png)
+![Markifact Google Sheets template for bulk Meta ad creation — campaign and ad set rows with API integration](/blog/images/bulk-upload-creatives-meta-tiktok/markifact-template.jpg)
 
 *Markifact's Google Sheets template — campaign rows feed directly into Meta's API. Source: <a href="https://markifact.com" rel="nofollow">markifact.com</a>*
 
