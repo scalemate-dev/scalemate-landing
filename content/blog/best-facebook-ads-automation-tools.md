@@ -9,7 +9,7 @@ cta:
 author: "Nataliia Bondar"
 coverImage: /blog/images/best-facebook-ads-automation-tools/cover.svg
 coverAlt: "13 Facebook ads automation tools compared across rules engine, auto-revert, bulk launch, and creative sync"
-ogImage: /blog/images/facebook-ads-automation/hero.png
+ogImage: /blog/images/best-facebook-ads-automation-tools/og.png
 heroBg: /blog/images/best-facebook-ads-automation-tools/hero.svg
 createdAt: "2026-05-08"
 updatedAt: "2026-05-22"
