@@ -205,7 +205,7 @@ AdCreative.ai (image ads, copy), Arcads (UGC avatars), Creatify (video from URLs
 **Testing, Rotation, and Analysis**
 Scalemate — bulk launch from Google Drive, auto-pause losers, scale winners, AI chat for campaign analysis
 
-![Summary table rating 20+ AI ad tools across Research & Scripts, Production, and Testing & Scaling categories — rated Weak, OK, or Great](/blog/images/adcreative-ai-alternative/ai-tools-summary-table.png)
+![Summary table rating 20+ AI ad tools across Research & Scripts, Production, and Testing & Scaling categories — rated Weak, OK, or Great](/blog/images/adcreative-ai-alternative/ai-tools-summary-table.jpg)
 
 *20+ AI tools rated by stage: research, production, and testing.*
 
