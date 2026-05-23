@@ -172,7 +172,7 @@ Pipeboard takes the easiest approach to **meta MCP** connectivity. It runs as a 
 
 GoMarble's open-source **facebook ads MCP** server gives full transparency and control. The code is on GitHub, so you can inspect exactly what data it accesses and how it formats responses. The trade-off is setup complexity: you'll need Node.js, API credentials from Meta, and comfort with the command line.
 
-![GoMarble facebook-ads-mcp-server GitHub repository — open source Meta Ads MCP server, MIT license, 263 stars](/blog/images/best-mcp-servers-meta-google-ads/gomarble-github.png)
+![GoMarble facebook-ads-mcp-server GitHub repository — open source Meta Ads MCP server, MIT license, 263 stars](/blog/images/best-mcp-servers-meta-google-ads/gomarble-github.jpg)
 
 *GoMarble's open-source Facebook Ads MCP server on GitHub. MIT license, 263 stars, 6 active branches.*
 
@@ -217,7 +217,7 @@ The **google ads MCP** ecosystem has one major advantage: an official server fro
 
 Google's own MCP server bridges the Google Ads API with AI assistants. Because it comes from the platform team, it has the deepest API coverage and the most reliable data access. The downside is setup: it requires Google Ads API credentials, a developer token, and familiarity with Google's authentication flow.
 
-![Google Ads MCP Server official documentation page — Developer integration guide on Google Ads API developer portal](/blog/images/best-mcp-servers-meta-google-ads/google-ads-mcp-server.png)
+![Google Ads MCP Server official documentation page — Developer integration guide on Google Ads API developer portal](/blog/images/best-mcp-servers-meta-google-ads/google-ads-mcp-server.jpg)
 
 *Google's official MCP server documentation. Deepest API coverage, but requires developer setup and OAuth configuration.*
 
@@ -291,7 +291,7 @@ For that profile, Meta's MCP plus the platform's native rules cover the job. Pay
 
 That second profile is where Scalemate fits. It's not a competitor to Meta's MCP — it's a different layer. Meta's MCP is chat-driven analysis with some write capability. Scalemate is an automation OS that runs on top: bulk ad launch from Drive folders, [automation rules](/features/automation-rules) that operate without a chat client open, [20 production-tested rule templates by goal](/automation-rules-library), and the broader [13 Facebook ads automation tools comparison](/blog/best-facebook-ads-automation-tools) covering how teams move from manual through tool-based tiers.
 
-![Scalemate AI Chat interface — TikTok budget reallocation executed through chat with creative-level recommendations, no Ads Manager needed](/blog/images/best-mcp-servers-meta-google-ads/scalemate-ai-chat.png)
+![Scalemate AI Chat interface — TikTok budget reallocation executed through chat with creative-level recommendations, no Ads Manager needed](/blog/images/best-mcp-servers-meta-google-ads/scalemate-ai-chat.jpg)
 
 *Scalemate's chat layer handles cross-platform workflows the official Meta MCP doesn't cover — TikTok included, automation rules running in background, bulk launch from Drive.*
 
