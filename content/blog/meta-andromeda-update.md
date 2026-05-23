@@ -1,5 +1,5 @@
 ---
-title: "Meta Andromeda Update: 10 Fixes for UA Teams (2026)"
+title: "Meta Andromeda Explained: What Changed + 10 Fixes (2026)"
 slug: meta-andromeda-update
 metaDescription: "What Meta's Andromeda update changed and 10 things to fix this week — broad Advantage+, creative diversity score, hook rate, 1-day click attribution."
 cta:
@@ -7,10 +7,10 @@ cta:
   description: "Bulk-launch from reusable templates and sync creatives straight from Drive. Hit Andromeda's volume floor without rebuilding ad sets every week."
 author: "Ruslan Dzhafarov"
 coverImage: /blog/images/meta-andromeda-update/cover.svg
-coverAlt: "Meta Andromeda update 2026: 10 fixes for UA teams"
+coverAlt: "Meta Andromeda explained: what changed and 10 fixes for 2026"
 heroBg: /blog/images/meta-andromeda-update/hero.svg
 createdAt: "2026-05-05"
-updatedAt: "2026-05-05"
+updatedAt: "2026-05-23"
 absoluteTitle: true
 faq:
   - question: "What is Meta Andromeda?"
