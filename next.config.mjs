@@ -48,6 +48,16 @@ const nextConfig = {
         destination: "/automation-rules-library",
         permanent: true,
       },
+      {
+        source: "/blog/creative-testing-framework",
+        destination: "/creative-testing-library",
+        permanent: true,
+      },
+      {
+        source: "/blog/creative-testing-methods",
+        destination: "/creative-testing-library",
+        permanent: true,
+      },
     ]
   },
   async rewrites() {

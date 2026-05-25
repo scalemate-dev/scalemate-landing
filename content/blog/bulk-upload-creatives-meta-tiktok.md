@@ -47,7 +47,7 @@ Most media buyers don't realize how much time uploads eat until they count it. D
 
 At 10 creatives a week, it's barely noticeable. At 50+, it becomes the thing that blocks everything else. New concepts sit in a Drive folder for two days because nobody had time to upload them. One Reddit user called it "soul-crushing work — just dragging files between folders."
 
-Here's the part that actually hurts: most creatives don't work. That's normal. The job is to find the ones that do, as fast as possible — which is why a [creative testing framework](/blog/creative-testing-framework) matters as much as the upload speed.
+Here's the part that actually hurts: most creatives don't work. That's normal. The job is to find the ones that do, as fast as possible — which is why a [creative testing framework](/creative-testing-library) matters as much as the upload speed.
 
 Every hour a new batch sits in a Drive folder instead of running in a campaign is an hour your budget keeps spending on yesterday's losers. Your design team hands off 20 new creatives Friday evening. If the upload process means they don't go live until Monday afternoon, that's an entire weekend of spend on ads you already know are underperforming. The faster creatives get into campaigns, the faster you find winners. Manual uploading is the bottleneck between your team producing creatives and those creatives actually making money.
 

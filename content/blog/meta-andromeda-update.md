@@ -128,7 +128,7 @@ Each creative is a wedge into a different segment. The algorithm decides which w
 
 **Entity ID dedup is real.** Meta has long fingerprinted similar ads as a single Entity ID, but under Andromeda this matters more. Two ads with the same hook, same color palette, same talking head get collapsed into one slot in delivery — Meta picks the best-performing one and underspends the other. The True Classic case study Meta itself published on engineering.fb.com is the cleanest public example: visually similar variants got deduped into a single delivery group. Micro-tweaks do not give you variation. They give you wasted production budget.
 
-POV: most "Andromeda killed my ROAS" diagnoses come back to one of these three things, almost always the second. The shift in skill set is from audience research → pain analysis → concept discovery → fast organized testing. Our [creative testing system](/blog/creative-testing-framework) covers the testing-organization half; this article covers the in-account changes that feed it.
+POV: most "Andromeda killed my ROAS" diagnoses come back to one of these three things, almost always the second. The shift in skill set is from audience research → pain analysis → concept discovery → fast organized testing. Our [creative testing system](/creative-testing-library) covers the testing-organization half; this article covers the in-account changes that feed it.
 
 ## 10 things to change in your Meta + TikTok account this week
 
@@ -226,7 +226,7 @@ The action sequence:
 3. Layer those winning hooks onto videos that historically drove purchases — same first 3 seconds, different middle and end.
 4. Ship those new variants into the same ad set.
 
-This is testing-system territory. Our [fast hook-rate testing system](/blog/creative-testing-framework) covers the full launch-measure-promote loop.
+This is testing-system territory. Our [fast hook-rate testing system](/creative-testing-library) covers the full launch-measure-promote loop.
 
 ### 9. Add Threads to placements + carousel mix
 
@@ -330,7 +330,7 @@ Three changes to make this week if you only do three:
 2. **Build three creative worlds, not 12 micro-tweaks.** Founder story / demo / testimonial is a cleaner starting point than 12 headline variants.
 3. **Switch to 1-day click attribution.** Watch the on-paper ROAS dip, watch the true ROAS climb.
 
-The operational answer to "I need 10-20+ creatives per ad set, fast, organized" is not heroic copy-paste in Ads Manager. It is [bulk ad launch — launch 50+ creative variants across Meta + TikTok in one workflow](/use-cases/bulk-ad-launch). For the testing-system half (how to read results, how to promote winners, how to retire fatigued creatives), our [creative testing system](/blog/creative-testing-framework) is the bridge. The [upload mechanic inside that bulk-launch workflow](/ad-creative-uploader) is the small piece that makes the per-ad-set creative count actually achievable in a workday.
+The operational answer to "I need 10-20+ creatives per ad set, fast, organized" is not heroic copy-paste in Ads Manager. It is [bulk ad launch — launch 50+ creative variants across Meta + TikTok in one workflow](/use-cases/bulk-ad-launch). For the testing-system half (how to read results, how to promote winners, how to retire fatigued creatives), our [creative testing system](/creative-testing-library) is the bridge. The [upload mechanic inside that bulk-launch workflow](/ad-creative-uploader) is the small piece that makes the per-ad-set creative count actually achievable in a workday.
 
 From the mobile-app UA accounts I work with through Scalemate, the teams that adapted to Andromeda fastest had one thing in common: they treated creative volume as a workflow problem, not a hiring problem. POV: under Andromeda, the moat is not bigger creative teams — it is faster, cleaner test cycles on the volume you already produce.
 
