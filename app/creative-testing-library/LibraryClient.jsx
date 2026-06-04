@@ -2,13 +2,25 @@
 
 import { useMemo, useState } from "react"
 import {
-  METHODS,
-  GOALS,
-  PLATFORMS,
-  ANDROMEDA_LABELS,
-  CATALOG,
-} from "./methods-data"
+  IconLayoutGrid,
+  IconTargetArrow,
+  IconChartBar,
+  IconScissors,
+  IconDna2,
+  IconArrowsLeftRight,
+  IconDeviceMobile,
+} from "@tabler/icons-react"
+import { METHODS, GOALS, PLATFORMS, CATALOG } from "./methods-data"
 import styles from "./LibraryClient.module.scss"
+
+const GOAL_ICONS = {
+  "find-winners": IconTargetArrow,
+  validate: IconChartBar,
+  "kill-losers": IconScissors,
+  andromeda: IconDna2,
+  controlled: IconArrowsLeftRight,
+  "mobile-ua": IconDeviceMobile,
+}
 
 const BUDGET_LABEL = {
   low: "<$10K/mo",
@@ -88,7 +100,7 @@ function MiniFlow({ flow }) {
 function CatalogCard({ method }) {
   const cat = CATALOG[method.id]
   const goal = GOALS.find((g) => g.id === method.goal)
-  const andromeda = ANDROMEDA_LABELS[method.andromedaCompat]
+  const GoalIcon = goal ? GOAL_ICONS[goal.id] : null
   const platforms = method.platform
     .map((p) => PLATFORMS.find((pl) => pl.id === p)?.label)
     .filter(Boolean)
@@ -97,10 +109,10 @@ function CatalogCard({ method }) {
     <article className={styles.catalogCard}>
       <div className={styles.catalogHead}>
         <div className={styles.catalogHeadLeft}>
-          <span className={styles.catalogNo}>
-            METHOD {String(method.number).padStart(2, "0")}
+          <span className={styles.catalogGoal}>
+            {GoalIcon && <GoalIcon size={13} stroke={1.8} />}
+            {goal?.label}
           </span>
-          <span className={styles.catalogGoal}>{goal?.label}</span>
         </div>
         <div className={styles.catalogTags}>
           {platforms.map((p) => (
@@ -135,18 +147,12 @@ function CatalogCard({ method }) {
 
       {cat?.flow && (
         <div className={styles.flowSection}>
-          <div className={styles.flowHead}>↳ How it tests creatives</div>
           <div className={styles.flowCaption}>{cat.flow.caption}</div>
           <MiniFlow flow={cat.flow} />
         </div>
       )}
 
       <div className={styles.catalogFoot}>
-        <span
-          className={`${styles.chip} ${styles[`chipAndromeda${andromeda.color}`]}`}
-        >
-          Andromeda {andromeda.emoji} {andromeda.label}
-        </span>
         <a
           className={styles.buildFlowCta}
           href={`https://app.scalemate.co/?method=${method.id}`}
@@ -180,10 +186,12 @@ export default function LibraryClient() {
               onClick={() => setActiveGoal("all")}
               data-count={METHODS.length}
             >
+              <IconLayoutGrid size={15} stroke={1.8} />
               All methods
             </button>
             {GOALS.map((g) => {
               const count = METHODS.filter((m) => m.goal === g.id).length
+              const GoalIcon = GOAL_ICONS[g.id]
               return (
                 <button
                   key={g.id}
@@ -192,6 +200,7 @@ export default function LibraryClient() {
                   onClick={() => setActiveGoal(g.id)}
                   data-count={count}
                 >
+                  {GoalIcon && <GoalIcon size={15} stroke={1.8} />}
                   {g.label}
                 </button>
               )

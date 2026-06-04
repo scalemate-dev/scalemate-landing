@@ -173,20 +173,23 @@
   min-width: 0;
 }
 
-.catalogNo {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #9A9AA3;
-  font-variant-numeric: tabular-nums;
-}
-
+// Card kicker (replaces the old METHOD NN eyebrow). Quiet uppercase label in
+// the eyebrow language — orange lives only in the small icon + the CTAs, so the
+// head row stays calm against the gray Meta/TikTok chips beside it.
 .catalogGoal {
-  font-size: 12.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
   font-weight: 600;
-  color: #DE5810;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #6A6A75;
+
+  svg {
+    flex-shrink: 0;
+    color: #F36B21; // single brand accent in the card head
+  }
 }
 
 .catalogTags {
@@ -232,24 +235,6 @@
   background: #FDECE0;
   color: #DE5810;
   border-color: #F0CFB3;
-}
-
-.chipAndromedagreen {
-  background: #DCF1E4;
-  color: #15803D;
-  border-color: #B6E2C3;
-}
-
-.chipAndromedaamber {
-  background: #FEF1CC;
-  color: #92400E;
-  border-color: #F3DCA0;
-}
-
-.chipAndromedared {
-  background: #FEE2E2;
-  color: #B91C1C;
-  border-color: #FBC9C9;
 }
 
 // ─── Stat row ────────────────────────────────────
@@ -308,15 +293,6 @@
       radial-gradient(circle at 100% 100%, rgba(122, 77, 216, 0.06), transparent 50%);
     pointer-events: none;
   }
-}
-
-.flowHead {
-  position: relative;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #F36B21;
 }
 
 .flowCaption {
@@ -591,7 +567,7 @@
 .catalogFoot {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 12px;
   flex-wrap: wrap;
   margin-top: auto;

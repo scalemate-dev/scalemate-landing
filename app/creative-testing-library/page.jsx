@@ -54,7 +54,7 @@ const LIBRARY_INTRO_CARDS = [
   {
     no: "01",
     Icon: IconBooks,
-    title: "14 production-tested methods.",
+    title: "14 production-grade methods.",
     body: "3-3-3, Hooks Test, Multi-Variant Battery, Mirror-BAU, Cheap Geo, Conversion Lift — what real media buyers run.",
     note: "Free · no email gate",
   },
@@ -69,7 +69,7 @@ const LIBRARY_INTRO_CARDS = [
     no: "03",
     Icon: IconChecks,
     title: "Every card is runnable today.",
-    body: "Setup, kill thresholds, budget floor, common mistake — full playbook per method.",
+    body: "Setup, pause thresholds, budget floor, common mistake — full playbook per method.",
     note: "Manual or automated · your call",
   },
 ]
@@ -86,7 +86,7 @@ const AUTOPILOT_CARDS = [
     no: "02",
     Icon: IconClockHour4,
     title: "First winners in 72 hours.",
-    body: "Outlier kill Day 3. Top-2 promoted Day 5. No waiting three weeks for signal.",
+    body: "Worst-performer pause Day 3. Top-2 promoted Day 5. No waiting three weeks for signal.",
     note: "Same gates · every test",
   },
   {
@@ -100,20 +100,68 @@ const AUTOPILOT_CARDS = [
     no: "04",
     Icon: IconTargetArrow,
     title: "Hours back from Ads Manager.",
-    body: "Stop logging in at midnight to kill an ad set. Spend the hours on new hooks, offers, angles.",
+    body: "Stop logging in at midnight to pause an ad set. Spend the hours on new hooks, offers, angles.",
     note: "One Slack digest · three dashboards gone",
   },
 ]
 
 const SCHEDULE = [
-  { day: "Mon", when: "09:00", tone: "orange", title: "Bulk launch", sub: "30 creatives from Drive · auto-named" },
-  { day: "Mon", when: "09:42", tone: "neutral", title: "First test live", sub: "all ad sets running" },
-  { day: "Tue", when: "—", tone: "red", title: "Auto-pause", sub: "ad sets below CTR threshold" },
-  { day: "Wed", when: "Day 3", tone: "red", title: "Outlier kill", sub: "CPA > 2× target" },
-  { day: "Thu", when: "Day 4", tone: "neutral", title: "Top performers ranked", sub: "by CPA per ad set" },
-  { day: "Fri", when: "Day 5", tone: "orange", title: "Winner promoted", sub: "auto-clones into BAU at 2× budget" },
-  { day: "Sat", when: "ongoing", tone: "green", title: "Refresh monitor", sub: "watches frequency · CTR · CPA" },
-  { day: "Daily", when: "09:00", tone: "neutral", title: "Slack digest", sub: "paused · promoted · spend" },
+  {
+    day: "Mon",
+    when: "09:00",
+    tone: "orange",
+    title: "Bulk launch",
+    sub: "30 creatives from Drive · auto-named",
+  },
+  {
+    day: "Mon",
+    when: "09:42",
+    tone: "neutral",
+    title: "First test live",
+    sub: "all ad sets running",
+  },
+  {
+    day: "Tue",
+    when: "—",
+    tone: "red",
+    title: "Auto-pause",
+    sub: "ad sets below CTR threshold",
+  },
+  {
+    day: "Wed",
+    when: "Day 3",
+    tone: "red",
+    title: "Worst-performer pause",
+    sub: "CPA > 2× target",
+  },
+  {
+    day: "Thu",
+    when: "Day 4",
+    tone: "neutral",
+    title: "Top performers ranked",
+    sub: "by CPA per ad set",
+  },
+  {
+    day: "Fri",
+    when: "Day 5",
+    tone: "orange",
+    title: "Winner promoted",
+    sub: "auto-clones into BAU at 2× budget",
+  },
+  {
+    day: "Sat",
+    when: "ongoing",
+    tone: "green",
+    title: "Refresh monitor",
+    sub: "watches frequency · CTR · CPA",
+  },
+  {
+    day: "Daily",
+    when: "09:00",
+    tone: "neutral",
+    title: "Slack digest",
+    sub: "paused · promoted · spend",
+  },
 ]
 
 export const metadata = {
@@ -210,7 +258,7 @@ const faqItems = [
   {
     question: "What's the 3-3-3 method in Facebook ads?",
     answer:
-      "3 ad sets × 3 creatives × 3 days — each ad set runs 3 distinct creatives for 72 hours, then you scale the winner and kill the rest. Popularized by Pilothouse; fast and cheap, but 3 days is tight signal on small budgets. Full breakdown in Method 01 above.",
+      "3 ad sets × 3 creatives × 3 days — each ad set runs 3 distinct creatives for 72 hours, then you scale the winner and cut the rest. Popularized by Pilothouse; fast and cheap, but 3 days is tight signal on small budgets. Full breakdown in Method 01 above.",
   },
   {
     question: "Is Meta's Conversion Lift test the same as A/B testing?",
@@ -278,18 +326,30 @@ export default function CreativeTestingLibraryPage() {
           <div className={styles.heroLayout}>
             <div className={styles.heroContent}>
               <span className={styles.eyebrow}>
-                Free library &middot; Meta + TikTok &middot; Creative testing frameworks
+                Free library &middot; Meta + TikTok &middot; Creative testing
+                frameworks
               </span>
               <h1 className={styles.heroTitle}>
                 Stop guessing which creative testing{" "}
-                <span className={styles.heroTitleAccent}>framework to run.</span>
+                <span className={styles.heroTitleAccent}>
+                  framework to run.
+                </span>
               </h1>
               <p className={styles.tagline}>
-                The creative testing methods media buyers actually use across apps, e-commerce and games — 3-3-3, Hooks Test, Bulk CBO, Mirror-BAU — filtered by your budget, platform and goal. Automate the one you pick and find more winners, faster.
+                The creative testing methods media buyers actually use across
+                apps, e-commerce and games — 3-3-3, Hooks Test, Bulk CBO,
+                Mirror-BAU — filtered by your budget, platform and goal.
+                Automate the one you pick and find more winners, faster.
               </p>
               <ul className={styles.heroFeatures}>
-                <li>Each card: setup, kill criteria, budget floor &amp; the common mistake</li>
-                <li>Free, no email gate — automate any method when you&rsquo;re ready</li>
+                <li>
+                  Each card: setup, pause criteria, budget floor &amp; the
+                  common mistake
+                </li>
+                <li>
+                  Free, no email gate — automate any method when you&rsquo;re
+                  ready
+                </li>
               </ul>
               <div className={styles.heroActions}>
                 <Button
@@ -327,13 +387,17 @@ export default function CreativeTestingLibraryPage() {
                   <span className={styles.previewHeadLabel}>
                     ↳ Live preview · one of 14 flows
                   </span>
-                  <span className={styles.previewHeadMethod}>The 3-3-3 Method</span>
+                  <span className={styles.previewHeadMethod}>
+                    The 3-3-3 Method
+                  </span>
                 </div>
 
                 <span className={styles.previewBadge}>09:00 Mon</span>
 
                 <div className={styles.previewNode}>
-                  <span className={styles.previewNodeTitle}>Bulk launch from Drive</span>
+                  <span className={styles.previewNodeTitle}>
+                    Bulk launch from Drive
+                  </span>
                   <span className={styles.previewNodeSub}>3 ad sets</span>
                 </div>
 
@@ -342,8 +406,12 @@ export default function CreativeTestingLibraryPage() {
                 <div className={styles.previewConcepts}>
                   {["A", "B", "C"].map((c) => (
                     <div key={c} className={styles.previewConcept}>
-                      <span className={styles.previewConceptTitle}>Concept {c}</span>
-                      <span className={styles.previewConceptSub}>1 ad · equal $</span>
+                      <span className={styles.previewConceptTitle}>
+                        Concept {c}
+                      </span>
+                      <span className={styles.previewConceptSub}>
+                        1 ad · equal $
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -355,20 +423,36 @@ export default function CreativeTestingLibraryPage() {
                   <span className={styles.previewNodeSub}>no manual edits</span>
                 </div>
 
-                <span className={styles.previewBadge}>Day 3 · Auto-evaluated</span>
+                <span className={styles.previewBadge}>
+                  Day 3 · Auto-evaluated
+                </span>
 
-                <div className={`${styles.previewNode} ${styles.previewDecision}`}>
-                  <span className={styles.previewNodeTitle}>CPA ≤ 1.5× target?</span>
+                <div
+                  className={`${styles.previewNode} ${styles.previewDecision}`}
+                >
+                  <span className={styles.previewNodeTitle}>
+                    CPA ≤ 1.5× target?
+                  </span>
                 </div>
 
                 <div className={styles.previewBranch}>
-                  <div className={`${styles.previewNode} ${styles.previewKill}`}>
-                    <span className={styles.previewNodeTitle}>✕ Pause loser</span>
-                    <span className={styles.previewNodeSub}>auto · no logging in</span>
+                  <div
+                    className={`${styles.previewNode} ${styles.previewKill}`}
+                  >
+                    <span className={styles.previewNodeTitle}>
+                      ✕ Pause loser
+                    </span>
+                    <span className={styles.previewNodeSub}>
+                      auto · no logging in
+                    </span>
                   </div>
                   <div className={`${styles.previewNode} ${styles.previewWin}`}>
-                    <span className={styles.previewNodeTitle}>★ Scale winner 2×</span>
-                    <span className={styles.previewNodeSub}>clones into BAU</span>
+                    <span className={styles.previewNodeTitle}>
+                      ★ Scale winner 2×
+                    </span>
+                    <span className={styles.previewNodeSub}>
+                      clones into BAU
+                    </span>
                   </div>
                 </div>
 
@@ -376,7 +460,9 @@ export default function CreativeTestingLibraryPage() {
 
                 <div className={styles.previewNode}>
                   <span className={styles.previewNodeTitle}>Slack digest</span>
-                  <span className={styles.previewNodeSub}>paused · promoted · spend</span>
+                  <span className={styles.previewNodeSub}>
+                    paused · promoted · spend
+                  </span>
                 </div>
               </div>
             </div>
@@ -387,7 +473,9 @@ export default function CreativeTestingLibraryPage() {
       {/* ─── PROBLEMS ───────────────────────── */}
       <section className={styles.problems}>
         <Container>
-          <span className={`${styles.sectionEyebrow} ${styles.sectionEyebrowCenter}`}>
+          <span
+            className={`${styles.sectionEyebrow} ${styles.sectionEyebrowCenter}`}
+          >
             Why creative testing keeps breaking
           </span>
           <h2 className={styles.problemsHeading}>
@@ -400,17 +488,15 @@ export default function CreativeTestingLibraryPage() {
               <IconQuote size={20} stroke={2} />
             </span>
             <p className={styles.problemBannerText}>
-              &ldquo;Added new ads to a profitable account. Killed it overnight — <strong>1.38 → 0.75 ROAS</strong>, <strong>$18k and 30 days</strong> to recover.&rdquo;
+              &ldquo;Added new ads to a profitable account. Dropped it overnight
+              — <strong>1.38 → 0.75 ROAS</strong>,{" "}
+              <strong>$18k and 30 days</strong> to recover.&rdquo;
             </p>
           </div>
 
           <div className={styles.problemGrid}>
             {PROBLEMS.map((p) => (
               <article key={p.no} className={styles.problemCard}>
-                <div className={styles.problemCardHead}>
-                  <span className={styles.problemCardNo}>Pain · {p.no}</span>
-                  <span className={`${styles.problemDot} ${styles[`dot_${p.tone}`]}`} />
-                </div>
                 <p className={styles.problemCardBody}>
                   <strong>{p.lead}</strong> {p.body}
                 </p>
@@ -428,7 +514,9 @@ export default function CreativeTestingLibraryPage() {
       <section className={styles.libraryIntro}>
         <Container>
           <div className={styles.libraryIntroHead}>
-            <span className={`${styles.sectionEyebrow} ${styles.sectionEyebrowCenter}`}>
+            <span
+              className={`${styles.sectionEyebrow} ${styles.sectionEyebrowCenter}`}
+            >
               After the pain — the playbook
             </span>
             <h2 className={styles.libraryIntroHeading}>
@@ -436,7 +524,8 @@ export default function CreativeTestingLibraryPage() {
               <span className={styles.accent}>Filter to yours.</span>
             </h2>
             <p className={styles.libraryIntroSub}>
-              Setup, kill thresholds, budget floor, common mistake &mdash; the full playbook per method.
+              Setup, pause thresholds, budget floor, common mistake &mdash; the
+              full playbook per method.
             </p>
           </div>
 
@@ -447,7 +536,6 @@ export default function CreativeTestingLibraryPage() {
                   <span className={styles.valueCardIcon}>
                     <Icon size={18} stroke={1.8} />
                   </span>
-                  <span className={styles.valueCardNo}>{no}</span>
                 </div>
                 <h3 className={styles.valueCardTitle}>{title}</h3>
                 <p className={styles.valueCardBody}>{body}</p>
@@ -473,7 +561,9 @@ export default function CreativeTestingLibraryPage() {
       <section className={styles.autopilot}>
         <Container>
           <div className={styles.autopilotHead}>
-            <span className={`${styles.sectionEyebrow} ${styles.sectionEyebrowCenter}`}>
+            <span
+              className={`${styles.sectionEyebrow} ${styles.sectionEyebrowCenter}`}
+            >
               Your framework &middot; our engine &middot; zero ops
             </span>
             <h2 className={styles.autopilotHeading}>
@@ -481,7 +571,9 @@ export default function CreativeTestingLibraryPage() {
               <span className={styles.accent}>Faster winners. Hours back.</span>
             </h2>
             <p className={styles.autopilotSub}>
-              Set thresholds once. Launch &middot; kill &middot; promote &middot; refresh &middot; digest &mdash; runs automatically for every method.
+              Set thresholds once. Launch &middot; pause &middot; promote
+              &middot; refresh &middot; digest &mdash; runs automatically for
+              every method.
             </p>
           </div>
 
@@ -494,7 +586,6 @@ export default function CreativeTestingLibraryPage() {
                       <span className={styles.valueCardIcon}>
                         <Icon size={18} stroke={1.8} />
                       </span>
-                      <span className={styles.valueCardNo}>{no}</span>
                     </div>
                     <h3 className={styles.valueCardTitle}>{title}</h3>
                     <p className={styles.valueCardBody}>{body}</p>
@@ -504,7 +595,9 @@ export default function CreativeTestingLibraryPage() {
               </div>
 
               <div className={styles.autopilotCta}>
-                <span className={styles.autopilotCtaLabel}>↳ Two ways to start</span>
+                <span className={styles.autopilotCtaLabel}>
+                  ↳ Two ways to start
+                </span>
                 <div className={styles.autopilotCtaButtons}>
                   <Button
                     href="https://app.scalemate.co"
@@ -529,7 +622,9 @@ export default function CreativeTestingLibraryPage() {
 
             <div className={styles.scheduleCard}>
               <div className={styles.scheduleHead}>
-                <span className={styles.scheduleHeadLabel}>↳ One week on autopilot</span>
+                <span className={styles.scheduleHeadLabel}>
+                  ↳ One week on autopilot
+                </span>
                 <span className={styles.scheduleHeadSub}>
                   You set thresholds once · Scalemate does the rest
                 </span>
@@ -541,9 +636,15 @@ export default function CreativeTestingLibraryPage() {
                       <span className={styles.scheduleDay}>{row.day}</span>
                       <span className={styles.scheduleTime}>{row.when}</span>
                     </div>
-                    <span className={`${styles.scheduleDot} ${styles[`dot_${row.tone}`]}`} />
-                    <div className={`${styles.scheduleChip} ${styles[`chip_${row.tone}`]}`}>
-                      <span className={styles.scheduleChipTitle}>{row.title}</span>
+                    <span
+                      className={`${styles.scheduleDot} ${styles[`dot_${row.tone}`]}`}
+                    />
+                    <div
+                      className={`${styles.scheduleChip} ${styles[`chip_${row.tone}`]}`}
+                    >
+                      <span className={styles.scheduleChipTitle}>
+                        {row.title}
+                      </span>
                       <span className={styles.scheduleChipSub}>{row.sub}</span>
                     </div>
                   </li>
@@ -566,10 +667,15 @@ export default function CreativeTestingLibraryPage() {
         <Container>
           <div className={styles.executionFlowInner}>
             <h2 className={styles.executionFlowHeading}>
-              How Scalemate&rsquo;s automated creative testing platform runs any method in the library
+              How Scalemate&rsquo;s automated creative testing platform runs any
+              method in the library
             </h2>
             <p className={styles.executionFlowIntro}>
-              One engine behind every method — you pick the template, the platform runs the test. Most creative testing tools and ad creative testing platforms stop at a dashboard; this one launches the batch, kills losers, scales winners, then loops results back so each cycle runs faster and bigger.
+              One engine behind every method — you pick the template, the
+              platform runs the test. Most creative testing tools and ad
+              creative testing platforms stop at a dashboard; this one launches
+              the batch, cuts losers, scales winners, then loops results back so
+              each cycle runs faster and bigger.
             </p>
 
             <ol className={styles.flowSteps}>
@@ -577,42 +683,63 @@ export default function CreativeTestingLibraryPage() {
                 <span className={styles.flowStepNumber}>1</span>
                 <div>
                   <h3>Pick a method template</h3>
-                  <p>Preset structure — the exact ad set count, budget split, and audience for each method.</p>
+                  <p>
+                    Preset structure — the exact ad set count, budget split, and
+                    audience for each method.
+                  </p>
                 </div>
               </li>
               <li className={styles.flowStep}>
                 <span className={styles.flowStepNumber}>2</span>
                 <div>
                   <h3>Bulk launch from Google Drive</h3>
-                  <p>Drag 30 creatives at once — auto-named and pushed into the right ad sets.</p>
+                  <p>
+                    Drag 30 creatives at once — auto-named and pushed into the
+                    right ad sets.
+                  </p>
                 </div>
               </li>
               <li className={styles.flowStep}>
                 <span className={styles.flowStepNumber}>3</span>
                 <div>
                   <h3>Auto-pause on the method's schedule</h3>
-                  <p>Losers paused on threshold (CPA, ROAS, IPM) without you logging in.</p>
+                  <p>
+                    Losers paused on threshold (CPA, ROAS, IPM) without you
+                    logging in.
+                  </p>
                 </div>
               </li>
               <li className={styles.flowStep}>
                 <span className={styles.flowStepNumber}>4</span>
                 <div>
                   <h3>Winners auto-clone to scaling</h3>
-                  <p>Hit the promotion threshold and the creative duplicates into your scale campaign automatically.</p>
+                  <p>
+                    Hit the promotion threshold and the creative duplicates into
+                    your scale campaign automatically.
+                  </p>
                 </div>
               </li>
               <li className={styles.flowStep}>
                 <span className={styles.flowStepNumber}>5</span>
                 <div>
                   <h3>Slack summary every morning</h3>
-                  <p>Paused, promoted, burning budget — every test's state, without opening Ads Manager.</p>
+                  <p>
+                    Paused, promoted, burning budget — every test's state,
+                    without opening Ads Manager.
+                  </p>
                 </div>
               </li>
               <li className={styles.flowStep}>
                 <span className={styles.flowStepNumber}>6</span>
                 <div>
                   <h3>Sync results back to your own stack</h3>
-                  <p>Connect Scalemate to your system and push every test result — winners, losers, hook rates — straight into your database or creative pipeline via API. Your generation tool spins up the next batch from what actually won, and the loop runs itself.</p>
+                  <p>
+                    Connect Scalemate to your system and push every test result
+                    — winners, losers, hook rates — straight into your database
+                    or creative pipeline via API. Your generation tool spins up
+                    the next batch from what actually won, and the loop runs
+                    itself.
+                  </p>
                 </div>
               </li>
             </ol>
@@ -626,7 +753,10 @@ export default function CreativeTestingLibraryPage() {
               >
                 Run your first test free
               </Button>
-              <Link href="/automation-rules-library" className={styles.flowProofLink}>
+              <Link
+                href="/automation-rules-library"
+                className={styles.flowProofLink}
+              >
                 See the 20+ automation rules →
               </Link>
             </div>
@@ -651,7 +781,11 @@ export default function CreativeTestingLibraryPage() {
       {/* ─── FAQ ────────────────────────────── */}
       <section className={styles.faqSection}>
         <Container>
-          <FAQ faqItems={faqItems} title="Frequently asked questions" theme="light" />
+          <FAQ
+            faqItems={faqItems}
+            title="Frequently asked questions"
+            theme="light"
+          />
         </Container>
       </section>
 
@@ -661,7 +795,9 @@ export default function CreativeTestingLibraryPage() {
           <div className={styles.ctaCard}>
             <h2>Set creative testing to autopilot.</h2>
             <p>Test more. Find winners faster. Learning compounds.</p>
-            <p className={styles.ctaCardMeta}>Meta + TikTok. Free tier, no credit card.</p>
+            <p className={styles.ctaCardMeta}>
+              Meta + TikTok. Free tier, no credit card.
+            </p>
             <Button
               href="https://app.scalemate.co"
               color="accent"

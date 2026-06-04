@@ -11,19 +11,22 @@ $mono: "SF Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, "Cascadia Code", 
   color: #EA580C;
 }
 
+// Eyebrows match the /use-cases standard: refined Inter, stone-gray, wide
+// tracking. Orange is reserved for title accents + dashes, never the eyebrow.
 .sectionEyebrow {
   display: inline-block;
-  font-family: $mono;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: #EA580C;
+  color: #9C9890;
 }
 
 .sectionEyebrowCenter {
   display: block;
   text-align: center;
+  text-indent: 0.25em; // optically re-center against trailing letter-spacing
 }
 
 // ─── HERO ───────────────────────────────────────
@@ -83,12 +86,12 @@ $mono: "SF Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, "Cascadia Code", 
 
 .eyebrow {
   display: inline-block;
-  font-family: $mono;
-  font-size: 12px;
-  font-weight: 600;
+  font-family: $font-body;
+  font-size: 13px;
+  font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #EA580C;
+  color: #9C9890;
   margin-bottom: 4px;
 }
 
@@ -442,30 +445,6 @@ $mono: "SF Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, "Cascadia Code", 
   box-shadow: 0 1px 2px rgba(15, 15, 15, 0.03);
 }
 
-.problemCardHead {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 14px;
-}
-
-.problemCardNo {
-  font-family: $mono;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #A39E94;
-}
-
-.problemDot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: currentColor;
-  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.03);
-}
-
 .problemCardBody {
   margin: 0 0 20px 0;
   font-size: 15px;
@@ -794,14 +773,6 @@ $mono: "SF Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, "Cascadia Code", 
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.valueCardNo {
-  font-family: $mono;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  color: #BDB8AD;
 }
 
 .valueCardTitle {
