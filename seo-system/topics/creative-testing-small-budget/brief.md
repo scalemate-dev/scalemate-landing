@@ -278,7 +278,7 @@ The only blog that admits academic frameworks (3-3-3, Meta A/B, Conversion Lift)
 
 ## Must Include
 
-- [ ] **Internal links (min 5):** `/creative-testing-library` × 2 (contextual: methods catalog, then in CTA), `/blog/best-ad-testing-tools`, `/blog/what-is-ad-fatigue` (refresh cadence section), `/use-cases/bulk-ad-launch`, `/automation-rules-library` (auto-kill threshold section). Add `/blog/meta-andromeda-update` once it ships.
+- [ ] **Internal links (min 5):** `/creative-testing-library` × 2 (contextual: methods catalog, then in CTA), `/blog/best-ad-testing-tools`, `/blog/what-is-ad-fatigue` (refresh cadence section), `/use-cases/bulk-ad-launch`, `/automation-rules-library` (auto-kill threshold section). Add `/blog/meta-andromeda-update` once it ships. Add `/customers/appflame-automation-rules` once M3 ships — inline proof point in "Where Scalemate fits" / "When to upgrade your testing method" section (R&D-mode cascade rules → 754 ad-pauses + 109 ad-set-pauses on the same budget, US-market night-runs without manual babysitting).
 - [ ] **First-hand experience markers:** Ruslan/Natalia 8+ years (per `nataliia_bondar_experience.md`); KitUp + ZeptoLab vertical proof (NDA-safe per `feedback_client_name_confidentiality.md`); mobile-UA vocab callout for IPM/CPI/d3 retention (cheap-geo as an answer for mobile UA only); explicit "we run rules at this exact threshold in production" voice.
 - [ ] **Data points needed from Natalia:**
   - Internal budget-tier observations: at what daily budget have you seen 3-3-3 actually work? (Confirm $450/day floor.)
