@@ -36,47 +36,54 @@ export default function RulesLibraryPromo() {
             </p>
           </div>
 
-          <aside className={styles.cardStack} aria-hidden="true">
-            <div className={`${styles.card} ${styles.cardBehind}`}>
-              <div className={styles.cardTopline}>
-                <span className={styles.cardIndex}>№ 12</span>
-                <span className={styles.cardChip}>Scale winners</span>
-              </div>
-              <h3 className={styles.cardTitle}>
-                Increase budget when CPA holds under target
-              </h3>
-            </div>
+          <aside className={styles.indexStack} aria-hidden="true">
+            <article className={`${styles.indexCard} ${styles.indexCardBack}`}>
+              <header className={styles.indexCardHead}>
+                <span className={styles.indexCardId}>№ 09</span>
+                <span className={styles.indexCardSchedule}>Every 3 hours</span>
+              </header>
+              <p className={styles.indexCardTitle}>
+                Pause weak ROAS, trim borderline ROAS on BAU campaigns
+              </p>
+              <footer className={styles.indexCardFooter}>
+                <span className={`${styles.indexTag} ${styles.tagReactivate}`}>
+                  Reactivate
+                </span>
+                <span className={styles.indexLevel}>Campaign</span>
+              </footer>
+            </article>
 
-            <div className={`${styles.card} ${styles.cardFront}`}>
-              <div className={styles.cardTopline}>
-                <span className={styles.cardIndex}>№ 06</span>
-                <div className={styles.cardChips}>
-                  <span className={styles.cardChip}>Kill losers</span>
-                  <span className={styles.cardChipNeutral}>Ad</span>
-                </div>
-              </div>
-              <h3 className={styles.cardTitle}>
-                Pause ad when CPC climbs above your bid ceiling
-              </h3>
-              <dl className={styles.cardGrid}>
-                <div className={styles.gridRow}>
-                  <dt>If</dt>
-                  <dd><code>CPC &gt; $5.50 AND Amount spent &gt; $10</code></dd>
-                </div>
-                <div className={styles.gridRow}>
-                  <dt>Window</dt>
-                  <dd><code>today</code></dd>
-                </div>
-                <div className={styles.gridRow}>
-                  <dt>Then</dt>
-                  <dd><code>Pause ad</code></dd>
-                </div>
-                <div className={styles.gridRow}>
-                  <dt>Schedule</dt>
-                  <dd><code>Every hour</code></dd>
-                </div>
-              </dl>
-            </div>
+            <article className={`${styles.indexCard} ${styles.indexCardMid}`}>
+              <header className={styles.indexCardHead}>
+                <span className={styles.indexCardId}>№ 03</span>
+                <span className={styles.indexCardSchedule}>Every 3 hours</span>
+              </header>
+              <p className={styles.indexCardTitle}>
+                Alert on creative fatigue before CAC suffers
+              </p>
+              <footer className={styles.indexCardFooter}>
+                <span className={`${styles.indexTag} ${styles.tagFatigue}`}>
+                  Creative fatigue
+                </span>
+                <span className={styles.indexLevel}>Campaign</span>
+              </footer>
+            </article>
+
+            <article className={`${styles.indexCard} ${styles.indexCardFront}`}>
+              <header className={styles.indexCardHead}>
+                <span className={styles.indexCardId}>№ 01</span>
+                <span className={styles.indexCardSchedule}>Every 3 hours</span>
+              </header>
+              <p className={styles.indexCardTitle}>
+                Scale or trim ad set budget by purchase performance
+              </p>
+              <footer className={styles.indexCardFooter}>
+                <span className={`${styles.indexTag} ${styles.tagScale}`}>
+                  Scale winners
+                </span>
+                <span className={styles.indexLevel}>Ad set</span>
+              </footer>
+            </article>
           </aside>
         </div>
       </Container>
