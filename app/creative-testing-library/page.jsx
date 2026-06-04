@@ -7,13 +7,14 @@ import {
   IconClockHour4,
   IconRefresh,
   IconTargetArrow,
-  IconQuote,
   IconBooks,
   IconAdjustments,
   IconChecks,
 } from "@tabler/icons-react"
 import LibraryClient from "./LibraryClient"
 import ScrollToButton from "./ScrollToButton"
+import ProblemSection from "../use-cases/_components/ProblemSection/ProblemSection"
+import CtaSection from "../use-cases/_components/CtaSection/CtaSection"
 import { METHODS } from "./methods-data"
 import styles from "./page.module.scss"
 
@@ -28,25 +29,19 @@ const HERO_STATS = [
 
 const PROBLEMS = [
   {
-    no: "01",
-    tone: "orange",
-    lead: "Finding the next winner is the whole game.",
-    body: "Most creatives flop. Winners fatigue in 7–14 days. Pipeline empties faster than you can refill it.",
-    cost: "Win once. Restart Monday.",
+    title: "Winners are rare — everything rides on them.",
+    description:
+      "Most creatives never win. A handful carry the whole account, then fatigue in 7–14 days.",
   },
   {
-    no: "02",
-    tone: "violet",
-    lead: "Which method actually works?",
-    body: "Andromeda rewrote Meta. TikTok plays different. Every guide pushes its own framework — none compare them side by side.",
-    cost: "Day 1 reading. Day 5 not launched.",
+    title: "Which method even works now?",
+    description:
+      "Andromeda rewrote Meta overnight. TikTok plays by other rules. Nobody know how to test creatives in 2026.",
   },
   {
-    no: "03",
-    tone: "blue",
-    lead: "Every test is 5 manual steps.",
-    body: "Setup. Launch. Monitor. Evaluate. Log. Skip the last one — learning never compounds.",
-    cost: "You ran 50 tests. Nothing compounded.",
+    title: "Every test eats a day by hand.",
+    description:
+      "Set up, launch, babysit, score, log — by hand, for every test. Skip the last step and the lesson's gone.",
   },
 ]
 
@@ -330,7 +325,7 @@ export default function CreativeTestingLibraryPage() {
                 frameworks
               </span>
               <h1 className={styles.heroTitle}>
-                Stop guessing which creative testing{" "}
+                Stop guessing what creative testing{" "}
                 <span className={styles.heroTitleAccent}>
                   framework to run.
                 </span>
@@ -469,44 +464,19 @@ export default function CreativeTestingLibraryPage() {
       </section>
 
       {/* ─── PROBLEMS ───────────────────────── */}
-      <section className={styles.problems}>
-        <Container>
-          <span
-            className={`${styles.sectionEyebrow} ${styles.sectionEyebrowCenter}`}
-          >
-            Why creative testing keeps breaking
-          </span>
-          <h2 className={styles.problemsHeading}>
-            Creative testing is{" "}
-            <span className={styles.accent}>brutal on every front.</span>
-          </h2>
-
-          <div className={styles.problemBanner}>
-            <span className={styles.problemBannerIcon}>
-              <IconQuote size={20} stroke={2} />
-            </span>
-            <p className={styles.problemBannerText}>
-              &ldquo;Added new ads to a profitable account. Dropped it overnight
-              — <strong>1.38 → 0.75 ROAS</strong>,{" "}
-              <strong>$18k and 30 days</strong> to recover.&rdquo;
-            </p>
-          </div>
-
-          <div className={styles.problemGrid}>
-            {PROBLEMS.map((p) => (
-              <article key={p.no} className={styles.problemCard}>
-                <p className={styles.problemCardBody}>
-                  <strong>{p.lead}</strong> {p.body}
-                </p>
-                <div className={styles.problemCost}>
-                  <span className={styles.problemCostLabel}>The cost</span>
-                  <span className={styles.problemCostValue}>{p.cost}</span>
-                </div>
-              </article>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <ProblemSection
+        label="Why creative testing keeps breaking"
+        title="Creative testing is"
+        titleAccent="brutal on every front."
+        subtitle={
+          <>
+            &ldquo;Added new ads to a profitable account. Dropped it overnight —{" "}
+            <strong>1.38 → 0.75 ROAS</strong>, <strong>$18k and 30 days</strong>{" "}
+            to recover.&rdquo;
+          </>
+        }
+        problems={PROBLEMS}
+      />
 
       {/* ─── LIBRARY INTRO (SOLUTION) ──────────── */}
       <section className={styles.libraryIntro}>
@@ -518,8 +488,8 @@ export default function CreativeTestingLibraryPage() {
               The playbook
             </span>
             <h2 className={styles.libraryIntroHeading}>
-              14 frameworks that ship winners.{" "}
-              <span className={styles.accent}>Filter to yours.</span>
+              14 frameworks that ship winners <br />
+              <span className={styles.accent}>Find to yours.</span>
             </h2>
             <p className={styles.libraryIntroSub}>
               Setup, pause thresholds, budget floor, common mistake &mdash; the
@@ -748,7 +718,7 @@ export default function CreativeTestingLibraryPage() {
                 trackEvent="execution_start_trial"
                 trackProps={{ page: "creative-testing-library" }}
               >
-                Run your first test free
+                Run your first test
               </Button>
               <Link
                 href="/automation-rules-library"
@@ -768,7 +738,7 @@ export default function CreativeTestingLibraryPage() {
           <ul className={styles.relatedList}>
             {relatedResources.map((r) => (
               <li key={r.href}>
-                <Link href={r.href}>{r.label} →</Link>
+                <Link href={r.href}>{r.label}</Link>
               </li>
             ))}
           </ul>
@@ -787,25 +757,14 @@ export default function CreativeTestingLibraryPage() {
       </section>
 
       {/* ─── BOTTOM CTA ─────────────────────── */}
-      <section className={styles.ctaSection}>
-        <Container>
-          <div className={styles.ctaCard}>
-            <h2>Set creative testing to autopilot.</h2>
-            <p>Test more. Find winners faster. Learning compounds.</p>
-            <p className={styles.ctaCardMeta}>
-              Meta + TikTok. Free tier, no credit card.
-            </p>
-            <Button
-              href="https://app.scalemate.co"
-              color="accent"
-              trackEvent="footer_start_trial"
-              trackProps={{ page: "creative-testing-library" }}
-            >
-              Try Scalemate free
-            </Button>
-          </div>
-        </Container>
-      </section>
+      <CtaSection
+        title="Set creative testing to autopilot."
+        description="Test more. Find winners faster. Learning compounds. Meta + TikTok — free tier, no credit card."
+        secondaryCta={{
+          href: "https://app.scalemate.co",
+          label: "Try Scalemate free",
+        }}
+      />
     </div>
   )
 }
