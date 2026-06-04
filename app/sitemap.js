@@ -166,7 +166,7 @@ export default async function sitemap() {
       priority: 0.9,
     },
     {
-      url: "https://www.scalemate.co/creative-testing-library",
+      url: "https://www.scalemate.co/creative-testing-framework-library",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,

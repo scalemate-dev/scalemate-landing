@@ -21,7 +21,7 @@ import styles from "./page.module.scss"
 const METHOD_COUNT = METHODS.length
 
 const HERO_STATS = [
-  { value: "14", label: "Methods" },
+  { value: String(METHOD_COUNT), label: "Methods" },
   { value: "2", label: "Platforms" },
   { value: "20+", label: "Auto-rules" },
   { value: "Free", label: "No gate" },
@@ -36,7 +36,7 @@ const PROBLEMS = [
   {
     title: "Which method even works now?",
     description:
-      "Andromeda rewrote Meta overnight. TikTok plays by other rules. Nobody know how to test creatives in 2026.",
+      "Andromeda rewrote Meta overnight. TikTok plays by other rules. Nobody knows how to test creatives in 2026.",
   },
   {
     title: "Every test eats a day by hand.",
@@ -49,7 +49,7 @@ const LIBRARY_INTRO_CARDS = [
   {
     no: "01",
     Icon: IconBooks,
-    title: "14 production-grade methods.",
+    title: `${METHOD_COUNT} production-grade methods.`,
     body: "3-3-3, Hooks Test, Multi-Variant Battery, Mirror-BAU, Cheap Geo, Conversion Lift — what real media buyers run.",
     note: "Free · no email gate",
   },
@@ -161,20 +161,20 @@ const SCHEDULE = [
 
 export const metadata = {
   title: `Creative Testing Framework Library: Methods by Goal`,
-  description: `Creative testing methods sorted by goal — 3-3-3, Hooks Test, Bulk CBO, Cheap Geo, Mirror-BAU. Scalemate's automated creative testing platform runs any of them on Meta + TikTok — more winners, faster.`,
+  description: `${METHOD_COUNT} creative testing methods sorted by goal — 3-3-3, Hooks Test, Bulk CBO, Cheap Geo, Mirror-BAU. Automate any of them on Meta + TikTok with Scalemate.`,
   alternates: {
-    canonical: "https://www.scalemate.co/creative-testing-library",
+    canonical: "https://www.scalemate.co/creative-testing-framework-library",
   },
   openGraph: {
-    url: "https://www.scalemate.co/creative-testing-library",
+    url: "https://www.scalemate.co/creative-testing-framework-library",
     type: "website",
-    title: `Scalemate Creative Testing Library: Methods by Goal`,
+    title: `Scalemate Creative Testing Framework Library: Methods by Goal`,
     description: `Production-tested creative testing methods curated by Scalemate. 3-3-3, Hooks Test, Bulk CBO, Cheap Geo, Mirror-BAU — filter by goal, platform, budget.`,
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `Scalemate Creative Testing Library: Methods by Goal`,
+    title: `Scalemate Creative Testing Framework Library: Methods by Goal`,
     description: `Creative testing methods curated for Meta + TikTok teams. Filter by goal, platform, budget. Free.`,
     images: ["/og-image.png"],
   },
@@ -193,8 +193,8 @@ const breadcrumbSchema = {
     {
       "@type": "ListItem",
       position: 2,
-      name: "Creative Testing Library",
-      item: "https://www.scalemate.co/creative-testing-library",
+      name: "Creative Testing Framework Library",
+      item: "https://www.scalemate.co/creative-testing-framework-library",
     },
   ],
 }
@@ -202,11 +202,11 @@ const breadcrumbSchema = {
 const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "Scalemate Creative Testing Library",
+  name: "Scalemate Creative Testing Framework Library",
   description: `Creative testing methods curated for Meta + TikTok teams — filter by goal, platform, budget. Each includes Scalemate automation setup.`,
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
-  url: "https://www.scalemate.co/creative-testing-library",
+  url: "https://www.scalemate.co/creative-testing-framework-library",
   image: "https://www.scalemate.co/og-image.png",
   offers: {
     "@type": "Offer",
@@ -232,13 +232,11 @@ const itemListSchema = {
 const faqItems = [
   {
     question: "What is creative testing?",
-    answer:
-      "Creative testing — also called ad creative testing or creative ad testing — is the process of running multiple ad creatives against each other to find which ones drive the cheapest, highest-quality conversions before you put real budget behind them. On Meta and TikTok it means structured tests like 3-3-3, Hooks Tests, creative A/B testing, dynamic creative testing and multi-variant batteries, judged on CPA, ROAS, IPM or hook rate. This library collects 14 of those methods so you can match one to your budget and goal — and automate it without stitching together separate creative testing tools.",
+    answer: `Creative testing — also called ad creative testing or creative ad testing — is the process of running multiple ad creatives against each other to find which ones drive the cheapest, highest-quality conversions before you put real budget behind them. On Meta and TikTok it means structured tests like 3-3-3, Hooks Tests, creative A/B testing, dynamic creative testing and multi-variant batteries, judged on CPA, ROAS, IPM or hook rate. This library collects ${METHOD_COUNT} of those methods so you can match one to your budget and goal — and automate it without stitching together separate creative testing tools.`,
   },
   {
     question: "Do I have to use Scalemate to run these methods?",
-    answer:
-      "No. Every method is fully documented as a manual setup — run any of the 14 in Ads Manager by hand. The automation is just the optional shortcut: same method, launched from a template and watched for you.",
+    answer: `No. Every method is fully documented as a manual setup — run any of the ${METHOD_COUNT} in Ads Manager by hand. The automation is just the optional shortcut: same method, launched from a template and watched for you.`,
   },
   {
     question: "What is the best creative testing framework for Facebook ads?",
@@ -350,7 +348,7 @@ export default function CreativeTestingLibraryPage() {
                   href="https://app.scalemate.co"
                   color="accent"
                   trackEvent="hero_start_trial"
-                  trackProps={{ page: "creative-testing-library" }}
+                  trackProps={{ page: "creative-testing-framework-library" }}
                 >
                   Start for free
                 </Button>
@@ -358,7 +356,7 @@ export default function CreativeTestingLibraryPage() {
                   targetId="library"
                   outline
                   trackEvent="hero_find_method"
-                  trackProps={{ page: "creative-testing-library" }}
+                  trackProps={{ page: "creative-testing-framework-library" }}
                 >
                   Find your method
                 </ScrollToButton>
@@ -377,9 +375,6 @@ export default function CreativeTestingLibraryPage() {
             <div className={styles.heroVisual} aria-hidden="true">
               <div className={styles.heroPreview}>
                 <div className={styles.previewHead}>
-                  <span className={styles.previewHeadLabel}>
-                    ↳ Live preview · one of 14 flows
-                  </span>
                   <span className={styles.previewHeadMethod}>
                     The 3-3-3 Method
                   </span>
@@ -488,7 +483,7 @@ export default function CreativeTestingLibraryPage() {
               The playbook
             </span>
             <h2 className={styles.libraryIntroHeading}>
-              14 frameworks that ship winners <br />
+              {METHOD_COUNT} frameworks that ship winners <br />
               <span className={styles.accent}>Find to yours.</span>
             </h2>
             <p className={styles.libraryIntroSub}>
@@ -517,7 +512,7 @@ export default function CreativeTestingLibraryPage() {
               targetId="library"
               color="accent"
               trackEvent="library_intro_explore"
-              trackProps={{ page: "creative-testing-library" }}
+              trackProps={{ page: "creative-testing-framework-library" }}
             >
               Explore the library
             </ScrollToButton>
@@ -571,7 +566,7 @@ export default function CreativeTestingLibraryPage() {
                     href="https://app.scalemate.co"
                     color="accent"
                     trackEvent="autopilot_try_free"
-                    trackProps={{ page: "creative-testing-library" }}
+                    trackProps={{ page: "creative-testing-framework-library" }}
                   >
                     Try it now
                   </Button>
@@ -579,7 +574,7 @@ export default function CreativeTestingLibraryPage() {
                     href="/book-a-demo"
                     outline
                     trackEvent="autopilot_request_setup"
-                    trackProps={{ page: "creative-testing-library" }}
+                    trackProps={{ page: "creative-testing-framework-library" }}
                   >
                     Have us set it up
                   </Button>
@@ -716,7 +711,7 @@ export default function CreativeTestingLibraryPage() {
                 href="https://app.scalemate.co"
                 color="accent"
                 trackEvent="execution_start_trial"
-                trackProps={{ page: "creative-testing-library" }}
+                trackProps={{ page: "creative-testing-framework-library" }}
               >
                 Run your first test
               </Button>

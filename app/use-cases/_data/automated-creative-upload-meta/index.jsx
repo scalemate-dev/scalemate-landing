@@ -278,7 +278,7 @@ export const data = {
             Direct sync shrinks the pipeline: designer saves file → file appears
             in Meta. Teams that bulk upload creatives get faster feedback and
             tighter cycles inside their{" "}
-            <Link href="/creative-testing-library">
+            <Link href="/creative-testing-framework-library">
               creative testing system
             </Link>
           </>

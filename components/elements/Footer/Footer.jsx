@@ -49,20 +49,26 @@ const Footer = () => {
             <Link className={styles.footerColLink} href="/ai-assistant">
               Marketing AI Agent
             </Link>
-            <Link className={styles.footerColLink} href="/features/automation-rules">
+            <Link
+              className={styles.footerColLink}
+              href="/features/automation-rules"
+            >
               Automation Rules
             </Link>
             <Link className={styles.footerColLink} href="/customers">
               Customers
             </Link>
-            <Link className={styles.footerColLink} href="/automation-rules-library">
+            <Link
+              className={styles.footerColLink}
+              href="/automation-rules-library"
+            >
               Rules Library
             </Link>
             <Link
               className={styles.footerColLink}
-              href="/creative-testing-library"
+              href="/creative-testing-framework-library"
             >
-              Creative Testing Library
+              Creative Testing Frameworks
             </Link>
             <Link className={styles.footerColLink} href="/blog">
               Blog
