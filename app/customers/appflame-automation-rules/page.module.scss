@@ -1,0 +1,261 @@
+// Static case study page — Appflame.
+
+.section {
+  margin-bottom: 24px;
+
+  &:not(:first-child) {
+    margin-top: 56px;
+  }
+}
+
+.sectionLabel {
+  display: inline-block;
+  font-family: var(--font-poppins);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #ea580c;
+  margin-bottom: 8px;
+  padding: 6px 12px;
+  background: rgba(249, 115, 22, 0.08);
+  border: 1px solid rgba(249, 115, 22, 0.18);
+  border-radius: 999px;
+}
+
+// ─── Metric cards override (scoped to this page only) ───
+// page.module.scss is imported AFTER Overview.module.scss in page.jsx,
+// so these classes cascade over the shared `.metric / .metricValue / .metricLabel`
+// without modifying the shared component used by other case studies.
+
+.metricsRow {
+  width: 100%;
+  gap: 16px;
+}
+
+.metricCard {
+  flex: 1 1 0;
+  max-width: none;
+  min-width: 0;
+  padding: 20px 22px;
+}
+
+.metricValueLarge {
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.metricLabelTight {
+  font-size: 12px;
+  font-weight: 400;
+  color: #475467;
+  line-height: 1.5;
+  margin-top: 6px;
+}
+
+// ─── Tighten gap between Overview block and Problem section ───
+// Default flow has Overview margin-bottom 70px + section margin-top 56px + h2 margin-top 48px.
+// Margins collapse to the largest single value, so the effective gap was ~70px.
+// We pull the gap down by overriding Overview bottom + first section's first h2 top.
+
+.overviewBlock {
+  margin-bottom: 24px;
+}
+
+.section:not(:first-child) {
+  margin-top: 36px;
+}
+
+.section :global(h2):first-of-type {
+  margin-top: 16px;
+}
+
+@include tablet-horizontal {
+  .metricCard {
+    padding: 18px 18px;
+  }
+  .metricValueLarge {
+    font-size: 38px;
+  }
+}
+
+@include tablet-vertical {
+  .section:not(:first-child) {
+    margin-top: 28px;
+  }
+  .metricCard {
+    flex: 1 1 100%;
+    padding: 20px;
+  }
+  .metricValueLarge {
+    font-size: 36px;
+  }
+}
+
+// ─── CaseQuote (Appflame-only) ───
+// Operator-logbook treatment for Dmytro's 3 quotes on this page.
+// Inline component defined in page.jsx; styles scoped here (does not touch
+// shared RichText blockquote used by KitUp/ZeptoLab).
+
+.quote {
+  position: relative;
+  margin: 24px 0;
+  padding: 20px 28px 16px;
+  background: #FCFBF6;
+  border: 1px solid rgba(249, 115, 22, 0.12);
+  border-radius: 18px;
+  box-shadow:
+    0 1px 0 rgba(26, 22, 20, 0.04),
+    0 8px 32px -16px rgba(249, 115, 22, 0.16);
+}
+
+.quoteGlyph {
+  position: absolute;
+  top: -6px;
+  left: 24px;
+  font-family: var(--font-poppins);
+  font-size: 76px;
+  font-weight: 700;
+  line-height: 0.7;
+  color: rgba(234, 88, 12, 0.85);
+  user-select: none;
+  pointer-events: none;
+}
+
+.quoteBody {
+  padding-top: 18px;
+
+  p {
+    font-family: var(--font-inter);
+    font-size: 19px;
+    line-height: 1.5;
+    color: #1A1614;
+    margin: 0 0 8px 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.quoteDivider {
+  border: none;
+  border-top: 1px solid #E8E4DA;
+  margin: 14px 0 10px 0;
+}
+
+.quoteAttribution {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  line-height: 1.4;
+  color: #5C5851;
+}
+
+.quoteAvatarImage {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  display: block;
+}
+
+.quoteAvatarFallback {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+  color: #FFFFFF;
+  font-family: var(--font-poppins);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+
+.quoteAttributionText {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  line-height: 1.4;
+  color: #5C5851;
+}
+
+.quoteName {
+  font-family: var(--font-poppins);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: #1A1614;
+}
+
+.quoteSeparator {
+  color: #9C9890;
+  padding: 0 6px;
+}
+
+.quoteLinkedIn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #EA580C;
+  border-bottom: none;
+  transition: color 150ms ease, transform 150ms ease;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  flex-shrink: 0;
+
+  &:hover {
+    color: #C2410C;
+    transform: translateY(-1px);
+  }
+}
+
+@include tablet-vertical {
+  .quote {
+    padding: 16px 22px 14px;
+    margin: 20px 0;
+  }
+  .quoteGlyph {
+    font-size: 64px;
+    top: -4px;
+    left: 20px;
+  }
+  .quoteBody {
+    padding-top: 16px;
+
+    p {
+      font-size: 17px;
+    }
+  }
+  .quoteDivider {
+    margin: 12px 0 8px 0;
+  }
+}
+
+@include mobile {
+  .quote {
+    padding: 14px 18px 12px;
+  }
+  .quoteGlyph {
+    font-size: 56px;
+  }
+  .quoteBody p {
+    font-size: 16px;
+  }
+  .quoteDivider {
+    margin: 10px 0 8px 0;
+  }
+}
