@@ -23,7 +23,7 @@ const DESCRIPTION =
 const METRICS = [
   { value: "20", label: "Hours of overnight monitoring replaced per month" },
   { value: "754", label: "Losing ads stopped from burning budget per month" },
-  { value: "8", label: "Late conversions auto-recovered per month" },
+  { value: "574", label: "Times rules fired per month (each checks thousands of ads)" },
 ]
 
 const DMYTRO_PHOTO = "/dmytro-hannoshenko.jpg"
