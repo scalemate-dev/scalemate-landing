@@ -5,156 +5,168 @@ import {
   METHODS,
   GOALS,
   PLATFORMS,
-  BUDGET_LEVELS,
   ANDROMEDA_LABELS,
+  CATALOG,
 } from "./methods-data"
 import styles from "./LibraryClient.module.scss"
 
-function ChevronIcon({ open }) {
+const BUDGET_LABEL = {
+  low: "<$10K/mo",
+  medium: "$10–40K/mo",
+  high: "$40K+/mo",
+}
+
+function FlowNode({ l, s, q, t }) {
+  const cls = [
+    styles.flowNode,
+    q ? styles.flowNodeGate : "",
+    t ? styles[`flowNode_${t}`] : "",
+  ]
+    .filter(Boolean)
+    .join(" ")
+  const mark = t === "win" ? "★ " : t === "kill" ? "✕ " : ""
   return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      style={{
-        transform: open ? "rotate(180deg)" : "rotate(0)",
-        transition: "transform 0.2s",
-      }}
-    >
-      <polyline points="6 9 12 15 18 9" />
-    </svg>
+    <div className={cls}>
+      <span className={styles.flowNodeL}>
+        {mark}
+        {l}
+      </span>
+      {s && <span className={styles.flowNodeS}>{s}</span>}
+    </div>
   )
 }
 
-function MethodCard({ method, expanded, onToggle }) {
+function MiniFlow({ flow }) {
+  return (
+    <div className={styles.flow}>
+      {flow.steps.map((step, i) => {
+        if (step.framedGroup) {
+          return (
+            <div key={i} className={styles.flowFramedGroup}>
+              <span className={styles.flowFramedGroupHeader}>{step.framedGroup.header}</span>
+              <div className={styles.flowFramedGroupItems}>
+                {step.framedGroup.items.map((g, j) => (
+                  <div key={j} className={styles.flowFramedGroupRow}>
+                    <span className={styles.flowFramedGroupChip}>{g.l}</span>
+                    <span className={styles.flowFramedGroupBar} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )
+        }
+        if (step.group) {
+          return (
+            <div key={i} className={styles.flowGroupRow}>
+              <div className={styles.flowGroup}>
+                {step.group.map((g, j) => (
+                  <div key={j} className={styles.flowGroupChip}>
+                    <span className={styles.flowGroupChipL}>{g.l}</span>
+                    {g.s && <span className={styles.flowGroupChipS}>{g.s}</span>}
+                  </div>
+                ))}
+              </div>
+              {step.note && <span className={styles.flowNote}>{step.note}</span>}
+            </div>
+          )
+        }
+        if (step.branch) {
+          return (
+            <div key={i} className={styles.flowBranch}>
+              {step.branch.map((b, j) => (
+                <FlowNode key={j} {...b} />
+              ))}
+            </div>
+          )
+        }
+        return <FlowNode key={i} {...step} />
+      })}
+    </div>
+  )
+}
+
+function CatalogCard({ method }) {
+  const cat = CATALOG[method.id]
   const goal = GOALS.find((g) => g.id === method.goal)
   const andromeda = ANDROMEDA_LABELS[method.andromedaCompat]
-  const budget = BUDGET_LEVELS.find((b) => b.id === method.budgetLevel)
   const platforms = method.platform
     .map((p) => PLATFORMS.find((pl) => pl.id === p)?.label)
     .filter(Boolean)
-    .join(" + ")
 
   return (
-    <div
-      className={`${styles.card} ${expanded ? styles.cardExpanded : ""}`}
-    >
-      <button
-        type="button"
-        className={styles.cardHeader}
-        onClick={onToggle}
-        aria-expanded={expanded}
-      >
-        <div className={styles.cardHeaderLeft}>
-          <span className={styles.cardNumber}>{String(method.number).padStart(2, "0")}</span>
-          <div className={styles.cardTitleBlock}>
-            <h3 className={styles.cardTitle}>{method.name}</h3>
-            <p className={styles.cardSummary}>{method.summary}</p>
-          </div>
+    <article className={styles.catalogCard}>
+      <div className={styles.catalogHead}>
+        <div className={styles.catalogHeadLeft}>
+          <span className={styles.catalogNo}>
+            METHOD {String(method.number).padStart(2, "0")}
+          </span>
+          <span className={styles.catalogGoal}>{goal?.label}</span>
         </div>
-        <div className={styles.cardHeaderRight}>
-          <ChevronIcon open={expanded} />
+        <div className={styles.catalogTags}>
+          {platforms.map((p) => (
+            <span key={p} className={styles.chip}>
+              {p}
+            </span>
+          ))}
         </div>
-      </button>
+      </div>
 
-      <div className={styles.cardChips}>
-        <span className={`${styles.chip} ${styles.chipGoal}`}>{goal?.label}</span>
-        <span className={styles.chip}>{platforms}</span>
-        <span className={styles.chip}>{budget?.label}</span>
+      <h3 className={styles.catalogTitle}>{method.name}</h3>
+      <p className={styles.catalogSummary}>{method.summary}</p>
+
+      <div className={styles.statRow}>
+        <div className={styles.stat}>
+          <span className={styles.statK}>Budget</span>
+          <span className={styles.statV}>{method.budgetLabel ?? BUDGET_LABEL[method.budgetLevel]}</span>
+        </div>
+        <div className={styles.stat}>
+          <span className={styles.statK}>Duration</span>
+          <span className={styles.statV}>{cat?.duration}</span>
+        </div>
+        <div className={styles.stat}>
+          <span className={styles.statK}>Creos</span>
+          <span className={styles.statV}>{cat?.creos}</span>
+        </div>
+        <div className={styles.stat}>
+          <span className={styles.statK}>Setup</span>
+          <span className={styles.statV}>{cat?.setup}</span>
+        </div>
+      </div>
+
+      {cat?.flow && (
+        <div className={styles.flowSection}>
+          <div className={styles.flowHead}>↳ How it tests creatives</div>
+          <div className={styles.flowCaption}>{cat.flow.caption}</div>
+          <MiniFlow flow={cat.flow} />
+        </div>
+      )}
+
+      <div className={styles.catalogFoot}>
         <span
           className={`${styles.chip} ${styles[`chipAndromeda${andromeda.color}`]}`}
-          title={`Andromeda compatibility: ${andromeda.label}`}
         >
           Andromeda {andromeda.emoji} {andromeda.label}
         </span>
+        <a
+          className={styles.buildFlowCta}
+          href={`https://app.scalemate.co/?method=${method.id}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Build this flow in Scalemate →
+        </a>
       </div>
-
-      {expanded && (
-        <div className={styles.cardDetails}>
-          {method.accessCaveat && (
-            <div className={styles.caveat}>
-              <strong>⚠️ Access caveat:</strong> {method.accessCaveat}
-            </div>
-          )}
-
-          <div className={styles.detailSection}>
-            <h4>Best for</h4>
-            <p>{method.bestFor}</p>
-          </div>
-
-          <div className={styles.detailSection}>
-            <h4>Method</h4>
-            <ol>
-              {method.method.map((step, i) => (
-                <li key={i}>{step}</li>
-              ))}
-            </ol>
-          </div>
-
-          <div className={styles.detailSplit}>
-            <div className={styles.detailSection}>
-              <h4>Pros</h4>
-              <p>{method.pros}</p>
-            </div>
-            <div className={styles.detailSection}>
-              <h4>Cons</h4>
-              <p>{method.cons}</p>
-            </div>
-          </div>
-
-          <div className={styles.detailSection}>
-            <h4>⚠️ Common pitfall</h4>
-            <p>{method.pitfall}</p>
-          </div>
-
-          <div className={`${styles.detailSection} ${styles.automationSection}`}>
-            <h4>🤖 How to automate this flow in Scalemate</h4>
-            <ol>
-              {method.automation.map((step, i) => (
-                <li key={i}>{step}</li>
-              ))}
-            </ol>
-          </div>
-        </div>
-      )}
-    </div>
+    </article>
   )
 }
 
 export default function LibraryClient() {
   const [activeGoal, setActiveGoal] = useState("all")
-  const [activePlatform, setActivePlatform] = useState("all")
-  const [activeBudget, setActiveBudget] = useState("all")
-  const [expandedIds, setExpandedIds] = useState(new Set())
 
-  const filtered = useMemo(() => {
-    return METHODS.filter((m) => {
-      if (activeGoal !== "all" && m.goal !== activeGoal) return false
-      if (activePlatform !== "all" && !m.platform.includes(activePlatform)) return false
-      if (activeBudget !== "all" && m.budgetLevel !== activeBudget) return false
-      return true
-    })
-  }, [activeGoal, activePlatform, activeBudget])
-
-  const toggleExpanded = (id) => {
-    setExpandedIds((prev) => {
-      const next = new Set(prev)
-      if (next.has(id)) next.delete(id)
-      else next.add(id)
-      return next
-    })
-  }
-
-  const expandAll = () => {
-    setExpandedIds(new Set(filtered.map((m) => m.id)))
-  }
-
-  const collapseAll = () => {
-    setExpandedIds(new Set())
-  }
+  const filtered = useMemo(
+    () => METHODS.filter((m) => activeGoal === "all" || m.goal === activeGoal),
+    [activeGoal],
+  )
 
   return (
     <div className={styles.library}>
@@ -166,8 +178,9 @@ export default function LibraryClient() {
               type="button"
               className={`${styles.filterChip} ${activeGoal === "all" ? styles.filterChipActive : ""}`}
               onClick={() => setActiveGoal("all")}
+              data-count={METHODS.length}
             >
-              All ({METHODS.length})
+              All methods
             </button>
             {GOALS.map((g) => {
               const count = METHODS.filter((m) => m.goal === g.id).length
@@ -177,57 +190,12 @@ export default function LibraryClient() {
                   type="button"
                   className={`${styles.filterChip} ${activeGoal === g.id ? styles.filterChipActive : ""}`}
                   onClick={() => setActiveGoal(g.id)}
+                  data-count={count}
                 >
-                  {g.label} ({count})
+                  {g.label}
                 </button>
               )
             })}
-          </div>
-        </div>
-
-        <div className={styles.filterGroup}>
-          <span className={styles.filterLabel}>Platform:</span>
-          <div className={styles.filterChips}>
-            <button
-              type="button"
-              className={`${styles.filterChip} ${activePlatform === "all" ? styles.filterChipActive : ""}`}
-              onClick={() => setActivePlatform("all")}
-            >
-              All
-            </button>
-            {PLATFORMS.map((p) => (
-              <button
-                key={p.id}
-                type="button"
-                className={`${styles.filterChip} ${activePlatform === p.id ? styles.filterChipActive : ""}`}
-                onClick={() => setActivePlatform(p.id)}
-              >
-                {p.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className={styles.filterGroup}>
-          <span className={styles.filterLabel}>Budget:</span>
-          <div className={styles.filterChips}>
-            <button
-              type="button"
-              className={`${styles.filterChip} ${activeBudget === "all" ? styles.filterChipActive : ""}`}
-              onClick={() => setActiveBudget("all")}
-            >
-              All
-            </button>
-            {BUDGET_LEVELS.map((b) => (
-              <button
-                key={b.id}
-                type="button"
-                className={`${styles.filterChip} ${activeBudget === b.id ? styles.filterChipActive : ""}`}
-                onClick={() => setActiveBudget(b.id)}
-              >
-                {b.label}
-              </button>
-            ))}
           </div>
         </div>
 
@@ -235,37 +203,16 @@ export default function LibraryClient() {
           <span className={styles.resultsCount}>
             {filtered.length} method{filtered.length === 1 ? "" : "s"}
           </span>
-          <button
-            type="button"
-            className={styles.actionLink}
-            onClick={expandAll}
-          >
-            Expand all
-          </button>
-          <button
-            type="button"
-            className={styles.actionLink}
-            onClick={collapseAll}
-          >
-            Collapse all
-          </button>
         </div>
       </div>
 
-      <div className={styles.cardList}>
+      <div className={styles.catalogGrid}>
         {filtered.length === 0 ? (
           <div className={styles.emptyState}>
-            No methods match these filters. Try a different combination.
+            No methods match this filter. Try a different goal.
           </div>
         ) : (
-          filtered.map((method) => (
-            <MethodCard
-              key={method.id}
-              method={method}
-              expanded={expandedIds.has(method.id)}
-              onToggle={() => toggleExpanded(method.id)}
-            />
-          ))
+          filtered.map((method) => <CatalogCard key={method.id} method={method} />)
         )}
       </div>
     </div>

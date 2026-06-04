@@ -5,7 +5,8 @@
 //   id, number, name
 //   goal: "find-winners" | "validate" | "kill-losers" | "andromeda" | "controlled" | "mobile-ua"
 //   bestFor (string)
-//   budgetLevel: "low" | "medium" | "high"           (low <$5K/mo, med $5-25K/mo, high $25K+/mo)
+//   budgetLevel: "low" | "medium" | "high"           (low <$10K/mo, med $10-40K/mo, high $40K+/mo) — controls filter tier
+//   budgetLabel?: string                             (optional display override, e.g. "$5K+/mo" — falls back to tier label)
 //   platform: ["meta"] | ["tiktok"] | ["meta","tiktok"]
 //   timeToDecision: "3-days" | "5-days" | "1-2-weeks" | "4-weeks-plus"
 //   andromedaCompat: "strong" | "mixed" | "weak"
@@ -16,415 +17,391 @@
 //   pitfall (string)
 //   automation (array of 5 step strings — Scalemate-specific)
 //   accessCaveat (optional — for gated features like Conversion Lift)
+//   flowImage (optional — path to per-method flow SVG in /public; rendered atop the expanded card, replaces the prose Method steps)
 
 export const METHODS = [
   {
     id: "three-three-three",
     number: 1,
     name: "The 3-3-3 Method",
+    flowImage: "/creative-testing/flows/3-3-3.svg",
     goal: "find-winners",
-    bestFor:
-      "Meta-only solo buyers and small teams, $50-500/day per ad set, finding starter winners for a new campaign.",
-    budgetLevel: "low",
-    platform: ["meta"],
+    bestFor: "Meta & TikTok · subscription apps, e-commerce, gaming · $40K+/mo accounts.",
+    budgetLevel: "high",
+    platform: ["meta", "tiktok"],
     timeToDecision: "3-days",
     andromedaCompat: "mixed",
     summary:
-      "3 ad sets × 3 creatives × 3 days. Identify early winners in 72 hours. Fast, low-budget screening — works for solo buyers below $5K/mo.",
+      "Your first winners in 72 hours. 3 ad sets × 3 creatives × 3 days — the fast, cheap way to find a starter winner. Works across subscription apps, e-commerce and gaming, at any account size.",
     method: [
-      "Pick 3 distinct creative concepts (different hooks, angles, or formats — not 3 versions of the same ad).",
-      "Build 3 ad sets, identical targeting and budget ($50-150/day each).",
-      "Load 1 creative per ad set, single ad per ad set.",
-      "Run for 72 hours.",
-      "Day 4: pause ad sets where CPA > 1.5× target. Move the winner to a scaling campaign.",
+      "3 distinct concepts — different hooks/angles, not 3 cuts of one ad.",
+      "3 ad sets, identical targeting + budget ($50–150/day each), 1 ad each.",
+      "Run 72h, no edits.",
+      "Day 4: pause ad sets at CPA > 1.5× target; scale the winner.",
     ],
-    pros:
-      "Fast decision cycle. Low budget commitment. Forces creative diversity (3 distinct concepts).",
-    cons:
-      "Statistical noise high on <$100/day budgets. 3-day cutoff before learning phase exits = unstable signal. Doesn't test audience-creative fit, only creative.",
+    pros: "Fast · cheap · forces 3 distinct concepts.",
+    cons: "Noisy under $100/day. 3 days = before learning phase exits. Tests creative only, not audience fit.",
     pitfall:
-      "People run 3-3-3 with 3 variations of the same ad (different captions, same video). That's not 3-3-3 — that's a snippet test, and Andromeda will pick the wrong winner because variation is too narrow.",
+      "3 versions of one ad isn't 3-3-3 — variation's too narrow and Andromeda picks the wrong winner.",
     automation: [
-      'Template setup — Save a "3-3-3" reusable template: 3 ad sets, single ad per ad set, identical targeting + budget per ad set.',
-      "Bulk launch — Duplicate template → swap in 3 new creatives from Google Drive folder → launch all 3 ad sets in 2 clicks (no rebuild of structure).",
-      "Auto-pause rule — On Day 4: pause any ad set where CPA > 1.5× target. No manual checking.",
-      "Winner promotion — Rule auto-clones winner ad set into your scaling campaign with 2× starting budget.",
-      "Slack alert — Daily summary of test status + winner declared at Day 4.",
-    ],
-  },
-  {
-    id: "three-two-two-sprint",
-    number: 2,
-    name: "The 3-2-2 Method (5-Day Sprint)",
-    goal: "find-winners",
-    bestFor:
-      "Teams running $5-25K/mo, validating creative for a scaling-ready campaign, teams who can't wait 2 weeks for a decision.",
-    budgetLevel: "medium",
-    platform: ["meta"],
-    timeToDecision: "5-days",
-    andromedaCompat: "mixed",
-    summary:
-      "3 ad sets × 2 creatives × 5 days. Faster variant of canonical 2-week 3-2-2. Requires high daily budget ($150-300/ad set) to compress signal.",
-    method: [
-      "Pick 3 ad sets, 2 creatives per ad set, 5-day runtime.",
-      "Identical audience and budget per ad set ($150-300/day each — higher daily budget compresses learning signal).",
-      "Each ad set runs 2 creatives competing inside it (not isolated).",
-      "Day 5: declare winner per ad set based on CPA. Move top winner + #2 to scaling campaign.",
-    ],
-    pros:
-      "Faster decision cycle than canonical 2-week 3-2-2. Multiple creatives per ad set still match Andromeda's preference for in-ad-set variation. Identifies primary + backup winner (insurance against fatigue).",
-    cons:
-      "Tighter signal than 14-day version — more noise risk. Requires higher daily budget ($150-300/day × 3 ad sets = $2.5-4.5K total for 5 days). Cannot use at low spend levels without statistical confidence dropping sharply.",
-    pitfall:
-      "Running this at <$100/day per ad set. At low budgets, 5 days won't generate enough conversion volume to make a confident call. If budget is the constraint, use 3-3-3 (Method 1) at 3 days OR stretch this to the full 14-day version.",
-    automation: [
-      'Template setup — Save "3-2-2 Sprint" template: 3 ad sets, 2 ads per ad set, daily budget $150-300 per ad set, identical targeting.',
-      "Bulk launch — Template duplicate → load 6 new creatives from Drive (2 per ad set, paired) → launch in 1 click.",
-      "Auto-pause rule (Day 3 outlier kill) — Pause any single ad set where CPA > 1.5× target (kills outliers early without breaking the 5-day test for the rest).",
-      "Day 5 winner declaration — Scalemate reporting surfaces winner + #2 per ad set automatically. No manual data pull.",
-      "Auto-promote — Top winner + backup auto-cloned into scaling campaign with budget bump 2-3×.",
-    ],
-  },
-  {
-    id: "hooks-test",
-    number: 3,
-    name: "Hooks Test",
-    goal: "find-winners",
-    bestFor:
-      "Video-heavy teams (mobile UA, DTC), refining a proven concept, A/B testing intro variations only.",
-    budgetLevel: "medium",
-    platform: ["meta", "tiktok"],
-    timeToDecision: "3-days",
-    andromedaCompat: "strong",
-    summary:
-      "Vary first 3 seconds of a winning video. Holds rest constant. Refines proven concepts via Dynamic Creative — Andromeda-native.",
-    method: [
-      "Take one winning video concept.",
-      "Create 3-5 variations with different first 3 seconds (different opener, hook line, visual punch).",
-      "Keep middle + end of video identical across all variants.",
-      "Run all variants in same ad set under Advantage+ Dynamic Creative.",
-      "After 1,000+ impressions per variant, kill bottom 50% by hook-rate.",
-    ],
-    pros:
-      "Isolates the hook variable cleanly. Compounds learning from a proven concept (you already know the body works). Fast cycle once you have a base winner.",
-    cons:
-      "Requires editing capacity (multiple cuts of same video). Doesn't test new concepts — only refines existing ones. Hook-rate is correlative not causal — winning hook doesn't always equal winning ROAS.",
-    pitfall:
-      "Comparing absolute hook rates across different campaigns instead of relative within the same test. Hook-rate is context-dependent.",
-    automation: [
-      "Template setup — Single Advantage+ ad set with Dynamic Creative enabled, primary metric = hook rate.",
-      "Bulk launch — Drag 5 video variants from Drive folder → bulk-assign all to same Dynamic Creative ad set → launch.",
-      "Auto-kill rule — Pause any variant where hook-rate < control × 1.2 after 2K impressions per variant.",
-      "Winner extraction — Reporting surfaces top hook per variant + auto-tags winner for next-batch iteration.",
-      "Next cycle trigger — When 1 variant clearly wins (≥1.5× control hook-rate), Scalemate fires Slack alert prompting next iteration batch.",
-    ],
-  },
-  {
-    id: "meta-conversion-lift",
-    number: 4,
-    name: "Meta Conversion Lift Test",
-    goal: "validate",
-    accessCaveat:
-      "Conversion Lift is NOT self-serve in Meta Ads Manager for most accounts. It requires a Meta sales rep relationship or Meta Business Partner program access. Self-serve Experiments menu typically shows only A/B Test + Brand Lift (the latter only for Brand objective campaigns). If you've never seen 'Conversion Lift' as an option in your Ads Manager, you don't have access — skip this method and use Meta Native A/B Test (Method 10) for self-serve controlled comparison.",
-    bestFor:
-      "Enterprise teams with dedicated Meta rep, spending $30K+/mo per test study, validating a major creative or audience change before scaling spend 2-3×.",
-    budgetLevel: "high",
-    platform: ["meta"],
-    timeToDecision: "4-weeks-plus",
-    andromedaCompat: "strong",
-    summary:
-      "Meta-managed hold-out group measures incremental conversions. Gated feature — requires Meta rep relationship. Highest-quality incrementality data Meta offers.",
-    method: [
-      "Request Lift study through your Meta rep (not self-serve in Ads Manager for most accounts).",
-      "Meta randomly assigns users to test (sees ads) or hold-out (doesn't see ads).",
-      "Set test duration: minimum 4 weeks for statistically valid sample.",
-      "Define conversion event (purchase, signup, app install).",
-      "Meta reports incremental conversions + cost per incremental conversion.",
-    ],
-    pros:
-      "Highest-quality incrementality data Meta offers. Distinguishes 'ad drove this' from 'they were going to convert anyway.' Removes attribution debates with finance.",
-    cons:
-      "Gated — requires Meta rep relationship most self-serve advertisers don't have. Long cycle (4+ weeks). Requires high test budget ($30K+ for the study itself, plus normal campaign spend). Hold-out feels expensive. Best for one decision at a time — not a daily testing tool.",
-    pitfall:
-      "Assuming Conversion Lift is the same as the A/B Test option in Experiments. They aren't — A/B Test compares two variants both running ads; Lift uses a true hold-out where one group sees nothing. If your only option is A/B Test, you can't measure incrementality, only relative variant performance.",
-    automation: [
-      "Pre-Lift stability — Set Scalemate auto-pause to lock current creative variants (no auto-rotation during 4-week Lift window — keeps test conditions stable).",
-      "During Lift — Scalemate dashboard reports per-campaign CPA + ROAS in parallel (so finance sees both Meta's Lift verdict AND ongoing optimization data).",
-      "Post-Lift decision gate — Once Lift confirms incrementality, manually flip 'scaling mode' toggle in Scalemate.",
-      "Auto-scale rule activation — Scale rule auto-bumps budget +20% per day when ROAS > target × 1.1, with auto-revert if ROAS drops 15% next day.",
-      "Slack governance — Daily scaling-action summary to Slack so team + finance see exactly what's happening day-by-day.",
-    ],
-  },
-  {
-    id: "bulk-cbo-2-phase",
-    number: 5,
-    name: "Bulk Creative Test in CBO (2-Phase Funnel Progression)",
-    goal: "validate",
-    bestFor:
-      "R&D teams running high creative volume (especially AI-generation creative pipelines), accounts with 30+ creatives per test cycle, mature campaign structures with broad targeting.",
-    budgetLevel: "high",
-    platform: ["meta"],
-    timeToDecision: "1-2-weeks",
-    andromedaCompat: "strong",
-    summary:
-      "40-75 creatives in CBO. Phase 1 (3-5d) filters on higher-funnel metric. Phase 2 (3-7d) validates survivors on lower-funnel. Andromeda-native.",
-    method: [
-      "Build one CBO campaign with 4-5 ad sets (same broad targeting or diversified lookalikes for variation).",
-      "Load 10-15 ads per ad set (total 40-75 ads per test cycle).",
-      "Phase 1 (3-5 days) — Higher-funnel filter: Let CBO allocate spend naturally. Monitor higher-funnel conversion metric: installs (mobile UA), registrations/signups (web), page views or add-to-cart (eCom). Pause ads that didn't capture meaningful spend OR have terrible higher-funnel rates (bottom 50-70% of pool).",
-      "Phase 2 (3-7 days) — Lower-funnel validation: Keep the surviving 20-40% top performers running. Switch evaluation to lower-funnel metrics: purchases, trial starts, 1st top-up, paying users. Pause ads that don't deliver lower-funnel value despite higher-funnel strength.",
-      "Move final winners (typically 5-10 ads from original 40-75) to scaling campaign.",
-    ],
-    pros:
-      "Tests massive volume efficiently (40-75 ads at once vs 9 in 3-3-3). 2-phase progression saves budget — kill on cheap higher-funnel signal before spending heavily to evaluate lower-funnel. Perfect for AI creative generation workflows (pump 50 variations, algorithm tells you which work). Aligned with how CBO actually allocates spend.",
-    cons:
-      "Requires creative volume (40-75 ads). Not feasible without production capacity, AI generation pipeline, or large existing library. Phase 1 metric choice is critical — wrong upstream signal can kill actual winners. Total cycle 6-12 days.",
-    pitfall:
-      "Treating Phase 1 metrics as final decision. High install rate ≠ high purchase rate. Some ads get tons of upper-funnel signal (clicks, installs, page views) but never convert lower-funnel. The whole point of Phase 2 is to weed those out — don't skip it.",
-    automation: [
-      "Template setup — CBO campaign template: 4-5 ad sets, broad targeting or diversified lookalikes, single objective.",
-      "Bulk launch (40-75 ads) — Drag entire creative batch from Drive folder → Scalemate distributes 10-15 ads per ad set automatically in one workflow.",
-      "Phase 1 auto-pause rule (Day 3) — Pause any ad below X higher-funnel events (installs/registrations/page views) per Y impressions. Bottom 50-70% die automatically.",
-      "Phase 2 auto-pause rule (Day 5-8) — On surviving 20-40%: pause any ad failing lower-funnel CPA target (purchases/trial starts/first top-ups). Final 5-10 winners survive.",
-      "Auto-promote winners — Survivors get auto-cloned into scaling campaign with budget bump 2-3×. Drive folder gets tagged 'winner library' for future iteration reference.",
-    ],
-  },
-  {
-    id: "static-vs-video",
-    number: 6,
-    name: "Static vs Video Test",
-    goal: "kill-losers",
-    bestFor:
-      "Brand-new accounts where format default is unclear, teams transitioning between formats, vertical-specific decisions (mobile UA, eCom Reels).",
-    budgetLevel: "medium",
-    platform: ["meta", "tiktok"],
-    timeToDecision: "1-2-weeks",
-    andromedaCompat: "strong",
-    summary:
-      "3 ad sets: static-only, video-only, mixed. Same concept across all 3, different execution. Decides format strategy by format-level CPA aggregate.",
-    method: [
-      "Build 3 ad sets: one static-only, one video-only, one mixed.",
-      "Same creative concept across all 3 (same product, same hook idea, different execution).",
-      "Same audience, identical budget per ad set ($100-200/day).",
-      "Run 7-14 days.",
-      "Compare CPA, CTR, hook rate, watch-through rate per format.",
-    ],
-    pros:
-      "Cuts through the 'everyone says video wins' assumption — sometimes static beats video for your specific offer. Gives data-backed format strategy.",
-    cons:
-      "Requires production capacity in both formats (expensive if you don't already have video). Result often varies by funnel stage (TOFU = video, BOFU = static).",
-    pitfall:
-      "Calling video the winner because video has higher engagement metrics — but static had higher CPA-efficient conversions. Optimize for the metric that matches business goal, not engagement.",
-    automation: [
-      "Template setup — 3 ad sets template: one static-only, one video-only, one mixed. Identical targeting + budget.",
-      "Bulk launch (18 ads) — From Drive, drag 6 static + 6 video + 6 mixed → Scalemate distributes 6 ads per ad set in one click.",
-      "Auto-kill rule — Pause any creative with CTR < 0.5% after 500 impressions (clears poor performers fast across all 3 formats).",
-      "Format-level reporting — Scalemate dashboard surfaces aggregate CPA per format (not just per ad), so format-winner decision is clear.",
-      "Auto-promote — Winning format's top 2 creatives auto-cloned into scaling campaign. Lock format default for next quarter's creative production.",
+      "Template — save a 3-3-3 structure: 3 ad sets, 1 ad each, identical targeting + budget.",
+      "Bulk launch — swap in 3 Drive creatives, launch all 3 ad sets in 2 clicks.",
+      "Auto-pause — Day 4, kill any ad set at CPA > 1.5× target.",
+      "Auto-promote — winner clones into your scaling campaign at 2× budget.",
+      "Slack — daily status + winner called on Day 4.",
     ],
   },
   {
     id: "multi-variant-battery",
-    number: 7,
+    number: 2,
     name: "Multi-Variant Battery (Andromeda Native)",
+    flowImage: "/creative-testing/flows/multi-variant-battery.svg",
     goal: "andromeda",
-    bestFor:
-      "Teams running Advantage+ Shopping or Sales campaigns, ICP-broad audiences, post-Andromeda accounts (most accounts as of 2026).",
+    bestFor: "Shopping/Sales · broad audiences · post-Andromeda accounts.",
     budgetLevel: "medium",
+    platform: ["meta", "tiktok"],
+    timeToDecision: "3-days",
+    andromedaCompat: "strong",
+    summary:
+      "Stop fighting the algorithm. Load 7–20 creatives — different formats and concepts — into one broad ad set and let Andromeda find the pockets.",
+    method: [
+      "1 broad campaign, demographics-only targeting.",
+      "Single ad set, single objective.",
+      "Load 7–20 creatives — different formats and concepts.",
+      "Phase 1 — at 48h, kill any creative with CPA > 1.5× target.",
+      "Phase 2 — at 72h, scale survivors with CPA ≤ target (2× + add to BAU); pause the rest.",
+    ],
+    pros: "Algorithm-aligned. No manual audience-creative matching. Scales — more creatives = more pockets.",
+    cons: "Needs 7–20 creatives. Hard to explain wins to stakeholders. Hard to attribute to specific choices.",
+    pitfall:
+      "Loading 20 near-identical creatives. Andromeda needs real diversity (format + concept + angle), not 20 carousels.",
+    automation: [
+      "Template — broad targeting, single ad set + objective.",
+      "Bulk launch — drag the full batch; all creatives load into one ad set.",
+      "Phase 1 auto-kill — pause any creative with CPA > 1.5× target at 48h.",
+      "Phase 2 auto-promote — scale 2× + clone to every BAU campaign for survivors with CPA ≤ target at 72h.",
+      "Slack alert — new winner posted the moment a creative passes Phase 2.",
+    ],
+  },
+  {
+    id: "three-two-two-sprint",
+    number: 3,
+    name: "The 3-2-2 Method (5-Day Sprint)",
+    flowImage: "/creative-testing/flows/3-2-2-sprint.svg",
+    goal: "find-winners",
+    bestFor: "Testing creative communication hypotheses · 3 angles × 2 variations · a primary + backup winner in 5 days · $40K+/mo accounts.",
+    budgetLevel: "high",
+    platform: ["meta", "tiktok"],
+    timeToDecision: "5-days",
+    andromedaCompat: "mixed",
+    summary:
+      "A scaling-ready verdict in 5 days, not 14. Best when you're testing communication hypotheses in your creative — 3 different angles, 2 variations each.",
+    method: [
+      "3 ad sets × 2 creatives, 5-day run.",
+      "Identical audience + budget ($150–300/day each — higher budget compresses signal).",
+      "2 creatives compete inside each ad set.",
+      "Day 5: pick winner per ad set by CPA; move top + #2 to scaling.",
+    ],
+    pros: "Faster than the 14-day version. In-ad-set variation suits Andromeda.",
+    cons: "Tighter signal = more noise. Needs a daily budget of at least 3× your target CPA per ad set.",
+    pitfall:
+      "Throwing random ads into each ad set. Each ad set should test one hypothesis — e.g. same angle, different CTAs — so you learn why the winner won, not just which ad won.",
+    automation: [
+      "Template — 3 ad sets, 2 ads each, $150–300/day, identical targeting.",
+      "Bulk launch — load 6 Drive creatives (2 per ad set) in 1 click.",
+      "Auto-pause — Day 3, kill outlier ad sets at CPA > 1.5× target.",
+      "Day 5 — Scalemate surfaces winner + #2 per ad set automatically.",
+      "Auto-promote — top winner + backup clone to scaling at 2–3× budget.",
+    ],
+  },
+  {
+    id: "hooks-test",
+    number: 4,
+    name: "Hooks Test",
+    flowImage: "/creative-testing/flows/hooks-test.svg",
+    goal: "find-winners",
+    bestFor: "Video-heavy teams (mobile UA, DTC) · refining a proven concept · $5K+/mo accounts.",
+    budgetLevel: "medium",
+    budgetLabel: "$5K+/mo",
+    platform: ["meta", "tiktok"],
+    timeToDecision: "3-days",
+    andromedaCompat: "strong",
+    summary:
+      "Hook rate decides what spend a creative gets early — the body decides what converts to purchase. Hold a body that already converts, swap hooks, scale the one that unlocks volume.",
+    method: [
+      "Take one winning video.",
+      "Make 3–5 variants — different first 3 seconds only.",
+      "Keep body + end identical.",
+      "Run in an Advantage+ CBO campaign — 1 ad set per hook, 1 ad each.",
+      "After 1K+ impressions/variant, kill bottom 50% by hook-rate.",
+    ],
+    pros: "Isolates the hook cleanly. Compounds a proven concept. Fast once you have a base winner.",
+    cons: "Needs editing capacity. Refines, doesn't discover. Hook-rate ≠ ROAS.",
+    pitfall:
+      "Comparing hook rates across different campaigns instead of within one test — hook-rate is context-dependent.",
+    automation: [
+      "Template — Advantage+ CBO campaign, 1 ad set per hook, 1 ad each, primary metric = hook rate.",
+      "Bulk launch — drag 5 Drive variants into the ad set, launch.",
+      "Auto-kill — pause any variant under control × 1.2 hook-rate after 2K impressions.",
+      "Winner — reporting tags the top hook for the next batch.",
+      "Next cycle — Slack alert when one variant clears 1.5× control to prompt iteration.",
+    ],
+  },
+  {
+    id: "meta-conversion-lift",
+    number: 5,
+    name: "Meta Conversion Lift Test",
+    goal: "validate",
+    accessCaveat:
+      "Not self-serve for most accounts — needs a Meta rep or Business Partner access. If you've never seen 'Conversion Lift' in your Experiments menu, you don't have it — use Meta Native A/B Test (Method 10) instead.",
+    bestFor: "Enterprise w/ Meta rep · $75K+/mo accounts · validating a big change before scaling 2–3×.",
+    budgetLevel: "high",
+    budgetLabel: "$75K+/mo",
     platform: ["meta"],
+    timeToDecision: "4-weeks-plus",
+    andromedaCompat: "strong",
+    summary:
+      "Settle 'did the ad actually cause that sale?' with finance. A true hold-out measures incremental conversions — but it's gated to enterprise teams with a Meta rep and $30K+ for the study.",
+    method: [
+      "Request a Lift study via your Meta rep.",
+      "Meta splits users into test (sees ads) vs hold-out (doesn't).",
+      "Run 4+ weeks for a valid sample.",
+      "Define the conversion event.",
+      "Meta reports incremental conversions + cost per incremental conversion.",
+    ],
+    pros: "Highest-quality incrementality Meta offers. Separates 'ad drove this' from 'would've converted anyway.' Ends attribution debates.",
+    cons: "Gated — needs a Meta rep. 4+ week cycle. $30K+ for the study. One decision at a time, not a daily tool.",
+    pitfall:
+      "Assuming it's the same as the A/B Test option. A/B compares two live variants; Lift uses a true hold-out. A/B can't measure incrementality.",
+    automation: [
+      "Pre-Lift — Scalemate locks current variants (no rotation during the 4-week window).",
+      "During — dashboard reports CPA + ROAS in parallel so finance sees both.",
+      "Post-Lift — flip 'scaling mode' once incrementality is confirmed.",
+      "Auto-scale — +20%/day when ROAS > target × 1.1, auto-revert on a 15% drop.",
+      "Slack — daily scaling-action summary for team + finance.",
+    ],
+  },
+  {
+    id: "bulk-cbo-2-phase",
+    number: 6,
+    name: "Bulk Creative Test in CBO (2-Phase Funnel Progression)",
+    flowImage: "/creative-testing/flows/bulk-cbo-2-phase.svg",
+    goal: "validate",
+    bestFor: "High-volume R&D teams · 30+ creatives/cycle · AI-generation pipelines · $10K+/mo accounts.",
+    budgetLevel: "medium",
+    budgetLabel: "$10K+/mo",
+    platform: ["meta", "tiktok"],
     timeToDecision: "1-2-weeks",
     andromedaCompat: "strong",
     summary:
-      "15-30 creative variants in single Advantage+ ad set, broad targeting, let Andromeda allocate. The native modern method for the algorithm.",
+      "Test 12–75 creatives a cycle without funding duds. Phase 1 kills the bottom 50–70% on cheap signal; Phase 2 validates survivors on revenue. For R&D + AI-creative pipelines.",
     method: [
-      "Build 1 Advantage+ campaign with broad targeting (drop interests, just demographics).",
-      "Single ad set, single objective.",
-      "Load 15-30 creative variants into that one ad set: different formats (video, static, carousel), different hooks, different personas/angles.",
-      "Let Andromeda allocate spend across variants automatically.",
-      "After 7-14 days, review which variants are getting served + at what CPA. Kill bottom 30%, replace with new variants.",
+      "1 CBO campaign, 4–5 ad sets (broad or diversified lookalikes).",
+      "3–15 ads per ad set (12–75 total).",
+      "Phase 1 (3–5d): let CBO allocate; kill bottom 50–70% on upper-funnel signal (installs / registrations / add-to-cart).",
+      "Phase 2 (3–7d): keep top 20–40%; judge on lower-funnel (purchases / trials / paying users).",
+      "Move final 5–10 winners to scaling.",
     ],
-    pros:
-      "Modern, algorithm-aligned. Removes manual audience-creative matching (Meta does it). Scales naturally — more variants = more opportunities for Andromeda to find pockets.",
-    cons:
-      "Requires creative production at volume (15-30 variants is a lot). Less explainable to stakeholders ('why is this one winning? — because the algorithm says so'). Hard to attribute wins to specific creative decisions.",
+    pros: "Tests volume efficiently (12–75 vs 9). 2-phase saves budget. Built for AI creative pipelines. Matches how CBO allocates.",
+    cons: "Needs 12–75 creatives. Phase 1 metric choice is critical — wrong signal kills real winners. 6–12 day cycle.",
     pitfall:
-      "Loading 30 variants that are too similar. Andromeda needs real diversity (format + persona + angle), not 30 versions of the same Carousel.",
+      "Treating Phase 1 metrics as final. High install rate ≠ high purchase rate. Phase 2 exists to weed those out — don't skip it.",
     automation: [
-      "Template setup — Advantage+ campaign with broad targeting (no interest layers), single ad set, single objective.",
-      "Bulk launch (15-30 variants) — Drag full creative batch from Drive → all variants load into the one Advantage+ ad set in one workflow.",
-      "Auto-pause rule (low-performers) — Pause any variant below CPA target for 48 consecutive hours. Andromeda's natural spend allocation surfaces winners; rule kills tail.",
-      "Auto-swap rule (fresh creative) — When a variant gets paused, rule auto-pulls next-in-queue variant from Drive folder. Continuous creative refresh without manual intervention.",
-      "Weekly review — Scalemate reporting groups variants by performance tier so creative team knows which concepts to iterate on for next batch.",
+      "Template — CBO campaign, 4–5 ad sets, single objective.",
+      "Bulk launch — drag 12–75 Drive creatives; Scalemate spreads 3–15 per ad set.",
+      "Phase 1 auto-pause (Day 3) — kill bottom 50–70% on upper-funnel events.",
+      "Phase 2 auto-pause (Day 5–8) — kill survivors failing lower-funnel CPA.",
+      "Auto-promote — final winners clone to scaling at 2–3×; batch tagged 'winner library.'",
+    ],
+  },
+  {
+    id: "static-vs-video",
+    number: 7,
+    name: "Static vs Video Test",
+    flowImage: "/creative-testing/flows/static-vs-video.svg",
+    goal: "kill-losers",
+    bestFor: "New accounts · format transitions · vertical-specific calls (mobile UA, eCom Reels).",
+    budgetLevel: "medium",
+    platform: ["meta", "tiktok"],
+    timeToDecision: "1-2-weeks",
+    andromedaCompat: "strong",
+    summary:
+      "Stop guessing whether your offer wants video or static. 3 ad sets — static / video / mixed, same concept — tells you where to point production budget.",
+    method: [
+      "3 ad sets: static-only, video-only, mixed.",
+      "Same concept across all 3.",
+      "Same audience + budget ($100–200/day each).",
+      "Run 7–14 days.",
+      "Compare CPA, CTR, hook rate, watch-through by format.",
+    ],
+    pros: "Kills the 'video always wins' assumption. Data-backed format strategy.",
+    cons: "Needs both formats produced. Result varies by funnel stage (TOFU = video, BOFU = static).",
+    pitfall:
+      "Calling video the winner on engagement when static had better CPA. Optimize for the business metric, not engagement.",
+    automation: [
+      "Template — 3 ad sets (static / video / mixed), identical targeting + budget.",
+      "Bulk launch — drag 6 static + 6 video + 6 mixed; 6 per ad set in 1 click.",
+      "Auto-kill — pause anything under 0.5% CTR after 500 impressions.",
+      "Format reporting — dashboard shows aggregate CPA per format, not just per ad.",
+      "Auto-promote — winning format's top 2 clone to scaling; lock the format default.",
     ],
   },
   {
     id: "refresh-cadence",
     number: 8,
     name: "Creative Refresh Cadence",
+    flowImage: "/creative-testing/flows/refresh-cadence.svg",
     goal: "andromeda",
-    bestFor:
-      "All teams running winning creative for 30+ days. Especially important post-Andromeda (fatigue cycles compressed from 4-6 weeks to 7-14 days).",
+    bestFor: "Any team running winners 30+ days · critical post-Andromeda.",
     budgetLevel: "low",
     platform: ["meta", "tiktok"],
     timeToDecision: "3-days",
     andromedaCompat: "strong",
     summary:
-      "Watch frequency/CTR/CPA/hook-rate per creative. Auto-replace when fatigue thresholds breach. Maintains stable CPA — Andromeda compresses cycles to 7-14 days.",
+      "Catch fatigue before it eats your CPA. Watch frequency, CTR, CPA and hook-rate on every live creative and swap the moment one breaks. Mandatory post-Andromeda — cycles dropped to 7–14 days.",
     method: [
-      "Track per-creative metrics weekly: frequency, CPA, CTR, hook rate.",
-      "Trigger replacement when: Frequency exceeds 3.0 OR CTR drops 20% from peak OR CPA increases 30% from peak OR Hook rate drops 15% from peak (video only).",
-      "Replace fatiguing creative with fresh variant (ideally a variation of the same winner, not a brand-new concept).",
-      "Pause fatigued creative immediately — don't let it drag campaign CPA.",
+      "Track per-creative weekly: frequency, CPA, CTR, hook rate.",
+      "Replace when frequency > 3.0, CTR −20% from peak, CPA +30%, or hook-rate −15% (video).",
+      "Swap in a variation of the winner, not a brand-new concept.",
+      "Pause the fatigued creative immediately.",
     ],
-    pros:
-      "Prevents budget waste on dying creative. Maintains campaign-level CPA stability. Forces production team into a refresh cadence rhythm.",
-    cons:
-      "Requires consistent creative pipeline (if you can't produce replacements, this method causes campaign holes). Not a discovery method — only maintenance.",
+    pros: "Stops budget waste on dying creative. Holds campaign CPA. Forces a refresh rhythm.",
+    cons: "Needs a steady creative pipeline. Maintenance, not discovery.",
     pitfall:
-      "Replacing fatiguing creative with a totally new concept instead of variation. Fresh concepts need their own testing cycle; variation-of-winner usually inherits 70-80% of the original's performance.",
+      "Replacing with a new concept instead of a variation — fresh concepts need their own test; a variation inherits 70–80% of the winner.",
     automation: [
-      "Always-on monitoring rule — Scalemate rule watches every running creative for fatigue triggers: frequency > 3.0, CTR drop > 20% from peak, CPA increase > 30% from peak, hook-rate drop > 15% (video).",
-      "Slack alert — When any creative breaches threshold, immediate Slack DM to media buyer with the creative ID + which metric broke.",
-      "Auto-pause — Same rule simultaneously pauses the fatiguing creative (don't wait for human — every hour at fatigued spend = wasted budget).",
-      "Auto-swap from Drive queue — Pulls next-in-queue variant from a tagged Drive folder ('creative-refresh-queue') + launches it into the same ad set automatically. Zero campaign holes.",
-      "Refresh cadence reporting — Weekly summary: which creatives fatigued, replacement performance, cycle time per creative. Surfaces if production team isn't keeping up.",
+      "Always-on monitor — watches every creative for fatigue triggers.",
+      "Slack — instant DM with creative ID + which metric broke.",
+      "Auto-pause — kills the fatiguing creative the same hour.",
+      "Auto-swap — pulls the next variant from a tagged Drive queue. Zero campaign holes.",
+      "Weekly — which creatives fatigued, replacement performance, cycle time.",
     ],
   },
   {
     id: "control-ad-test",
     number: 9,
     name: "Control Ad Test (Equal Impressions vs Winner)",
+    flowImage: "/creative-testing/flows/control-ad-test.svg",
     goal: "controlled",
-    bestFor:
-      "Teams with an established winner creative, iterating to find a next-gen replacement, mobile UA teams measuring by IPM, web teams measuring by CVR.",
+    bestFor: "Teams with an established winner · iterating a replacement · app teams (IPM), web teams (CVR).",
     budgetLevel: "medium",
     platform: ["meta", "tiktok"],
     timeToDecision: "5-days",
     andromedaCompat: "mixed",
     summary:
-      "New creative vs proven winner. Equal impressions for both, then stop. Wait 48h for conversion attribution. Compare by IPM (app) or CVR (web).",
+      "The cleanest yes/no on whether a challenger should replace your champion. Equal impressions, then stop — no time or audience bias. Compare by IPM (app) or CVR (web).",
     method: [
-      "Pick the proven winner as your control ad.",
-      "Set up the test in one of two ways: Option A (separate ad sets) — 2 ad sets, identical audience and targeting, one ad each (control vs challenger). Same budget, same start time. Option B (single ad set, 2 ads) — Both ads in one ad set under standard delivery (not Dynamic Creative — you want isolated metrics per ad).",
-      "Run until both reach the same impression count (typical targets: 5K, 10K, or 20K impressions per ad depending on conversion volume).",
-      "Manually pause both when target impressions hit. Don't let one keep running past the other — that's the whole point of equal exposure.",
-      "Wait 24-48 hours for conversion attribution to settle.",
-      "Compare by primary KPI: App promotion = IPM (installs per 1,000 impressions). Web products = CVR (conversion rate per impression or click). Lead gen = lead CPA or lead rate.",
+      "Use your proven winner as control.",
+      "2 ad sets (identical audience) OR 1 ad set with 2 ads, standard delivery (not Dynamic Creative).",
+      "Run until both hit the same impressions (5K / 10K / 20K).",
+      "Pause both at target — don't let the leader run on.",
+      "Wait 24–48h for attribution, compare by IPM / CVR / lead CPA.",
     ],
-    pros:
-      "Cleanest possible head-to-head comparison. Controls for time-of-day, day-of-week, and audience drift. Forces statistical fairness (equal sample sizes). Best for 'should this creative replace my winner' yes/no decisions.",
-    cons:
-      "Requires manual monitoring of impressions across both ads. Attribution lag means you can't make a decision the same day you stop the test. Not parallelizable — testing 5 challengers means 5 separate control-vs-X runs (or one battery test, see Method 7).",
+    pros: "Cleanest head-to-head. Controls time-of-day, day-of-week, audience drift. Equal sample sizes.",
+    cons: "Needs manual impression monitoring. Attribution lag delays the call. Not parallelizable (5 challengers = 5 runs).",
     pitfall:
-      "Stopping the test when one ad reaches the target but letting the other keep running for 'a bit longer.' That re-introduces time bias and breaks the equal-exposure premise. If one ad lags, raise budget on that ad set to catch up — don't let the leader pull further ahead.",
+      "Stopping one at target but letting the other run 'a bit longer' — re-introduces time bias. If one lags, raise its budget to catch up.",
     automation: [
-      "Template setup — Either 2-ad-set template (control vs challenger) OR single ad set with 2 ads (no Dynamic Creative — need isolated metrics).",
-      "Equal-impressions auto-pause — Rule: pause each ad when its impression count reaches X (5K/10K/20K depending on conversion volume). Critical — both ads pause within minutes of each other instead of relying on manual monitoring.",
-      "Conversion attribution lag — Auto-disable test reporting for 48h after pause so delayed conversions get credited (no premature winner call).",
-      "Decision metric per vertical — App promotion: rule reports IPM per ad. Web product: CVR per ad. Lead gen: lead CPA per ad.",
-      "Winner replacement — If challenger wins (≥1.1× control performance on primary KPI), auto-clone winner into BAU + auto-pause old control.",
+      "Template — 2 ad sets, or 1 ad set with 2 ads (no Dynamic Creative).",
+      "Equal-impressions auto-pause — both pause within minutes of the target, no manual watching.",
+      "Attribution lag — reporting holds 48h post-pause so late conversions count.",
+      "Decision metric — IPM (app) / CVR (web) / lead CPA per ad.",
+      "Winner — at ≥1.1× control, clone to BAU + auto-pause the old control.",
     ],
   },
   {
     id: "meta-ab-test",
     number: 10,
     name: "Meta Native A/B Test",
+    flowImage: "/creative-testing/flows/meta-ab-test.svg",
     goal: "controlled",
-    bestFor:
-      "Teams who want platform-native attribution + Meta-handled audience splitting + clear winner output without manual setup.",
+    bestFor: "Teams wanting native attribution + Meta-handled splitting + a clear verdict, no manual setup.",
     budgetLevel: "medium",
     platform: ["meta"],
     timeToDecision: "1-2-weeks",
     andromedaCompat: "strong",
     summary:
-      "Meta's built-in A/B Test feature (Experiments menu). Self-serve, splits audience automatically, declares winner with statistical confidence.",
+      "Let Meta do the stats. The native Experiments tool splits the audience, runs the test and declares a winner with confidence. For teams without a data analyst.",
     method: [
-      "In Ads Manager → Experiments → A/B Test.",
-      "Select 2-4 ads, ad sets, or campaigns to compare.",
-      "Set test duration (Meta recommends 7-14 days minimum) or set cap on spend per variant.",
-      "Meta automatically splits the audience so each variant reaches a non-overlapping group — eliminating audience overlap as a variable.",
-      "Wait for the test to complete (Meta won't declare a winner until statistical confidence is reached or duration ends).",
-      "Evaluate the result by higher-funnel metric Meta surfaces: hook rate (3-second video views/impressions), CTR (clicks/impressions), CVR (conversions/impressions or clicks), CPA (cost per primary conversion).",
+      "Ads Manager → Experiments → A/B Test.",
+      "Pick 2–4 ads / ad sets / campaigns.",
+      "Set duration (7–14d min) or a spend cap per variant.",
+      "Meta splits the audience — no overlap.",
+      "Judge by your chosen metric: hook rate, CTR, CVR, or CPA.",
     ],
-    pros:
-      "Meta handles the statistical math (no manual sample-size calculations). Auto-splits audience to eliminate overlap bias. Outputs a clear 'Variant X won with Y% confidence' verdict. Best for teams without dedicated data analysts.",
-    cons:
-      "Minimum 7-day duration even for small variants (slower than Control Ad Test). Limited to 2-4 variants per test (not for high-volume battery testing). Meta's 'winner' verdict optimizes for statistical confidence, not always for the metric you actually care about (set primary KPI carefully).",
+    pros: "Meta handles the math. Auto-splits to remove overlap bias. Clear 'Variant X won, Y% confidence.'",
+    cons: "7-day min even for small tests. Only 2–4 variants. Meta optimizes for confidence, not always your metric.",
     pitfall:
-      "Picking the wrong primary metric in the A/B Test config. If your business cares about CPA but you set the test primary metric to CTR, Meta will declare the high-CTR variant the winner even if its CPA is worse. Set primary metric = the metric you'll act on.",
+      "Setting the wrong primary metric — pick CTR and Meta crowns the high-CTR variant even if its CPA is worse. Set primary = the metric you'll act on.",
     automation: [
-      "Parallel monitoring rule — While Meta A/B Test runs natively, Scalemate rules track CPA + ROAS + hook rate per variant in parallel (Meta's UI doesn't show all this granularly).",
-      "Slack alert on Meta verdict — When Meta declares winner, Slack notification fires with side-by-side: Meta's verdict + Scalemate's full metric breakdown.",
-      "Disagreement check — If Meta's 'winner' disagrees with your business KPI (e.g., Meta picks high-CTR variant but it has worse CPA) — Slack alert flags this for human review before any action.",
-      "Auto-promote winning variant — If both metrics agree on winner, Scalemate auto-clones it to scaling campaign with budget bump.",
-      "Loser archive — Losing variants tagged + archived in Drive for future iteration learning (don't lose institutional knowledge per test).",
+      "Parallel monitor — Scalemate tracks CPA + ROAS + hook rate per variant alongside Meta.",
+      "Slack on verdict — Meta's call + Scalemate's full breakdown, side by side.",
+      "Disagreement check — flags when Meta's winner conflicts with your business KPI.",
+      "Auto-promote — if both agree, clone the winner to scaling.",
+      "Loser archive — losing variants tagged in Drive for future learning.",
     ],
   },
   {
     id: "cheap-geo-ww",
     number: 11,
     name: "Cheap Geo / WW Testing",
+    flowImage: "/creative-testing/flows/cheap-geo-ww.svg",
     goal: "mobile-ua",
-    bestFor:
-      "Mobile UA teams running $1K+/day per geo, accounts with high creative volume needing cheap iteration cycles, apps with proven cheap-geo-to-T1 correlation.",
+    bestFor: "Mobile UA · $1K+/day per geo · high creative volume · proven cheap-geo→T1 correlation.",
     budgetLevel: "medium",
-    platform: ["meta"],
+    platform: ["meta", "tiktok"],
     timeToDecision: "3-days",
     andromedaCompat: "mixed",
     summary:
-      "Test in T3 geos (Indonesia, Brazil) or WW MAI campaigns where CPI is 4-10× lower. Promote winners to T1. Works only when correlation validated.",
+      "Test 4–10× more creatives per dollar. Run early tests in T3 geos or WW MAI where CPI is a fraction of T1, then promote winners home. Mobile UA only — and only after correlation is proven.",
     method: [
-      "Build a test campaign with MAI (Mobile App Installs) objective in T3 geos (e.g., Indonesia, Philippines, Brazil, Vietnam) OR a WW (worldwide) MAI campaign that's algorithmically biased toward cheap inventory.",
-      "Run creatives at 4-10× lower CPI than T1 — same creative volume costs a fraction.",
-      "Evaluate winners by IPM (installs per 1,000 impressions) and CPI.",
-      "Promote winners to a dedicated T1 campaign on AEO or ROAS objective.",
-      "For smaller accounts (<$1-2K/day): move winners directly into BAU instead of separate T1 testing campaign.",
+      "MAI campaign in T3 geos (Indonesia, Philippines, Brazil, Vietnam) or a WW MAI biased to cheap inventory.",
+      "Run creatives at 4–10× lower CPI than T1.",
+      "Judge by IPM + CPI.",
+      "Promote winners to a T1 AEO/ROAS campaign.",
+      "Small accounts (<$1–2K/day): move winners straight to BAU.",
     ],
-    pros:
-      "Dramatically cheaper testing — 4-10× lower CPI in T3 vs T1. Test more creatives per dollar. Fast install volume = faster signal.",
-    cons:
-      "Works only when cheap-geo winners reliably correlate with T1 winners. Some apps have strong correlation (utilities, casual games), others have weak (premium subscription, payment-heavy apps). Must validate correlation before relying on it.",
+    pros: "4–10× cheaper testing. More creatives per dollar. Fast install volume = fast signal.",
+    cons: "Only works when cheap-geo winners correlate with T1. Strong for utilities/casual games, weak for premium/payment-heavy apps.",
     pitfall:
-      "Promoting T3 winners to T1 without validating correlation first. Some creatives win cheap because they appeal to low-intent T3 audiences and flop in T1 where intent is higher. Run a small validation batch first — top 5 T3 winners → T1 BAU for 5-7 days → does correlation hold?",
+      "Promoting T3 winners to T1 without validating correlation. Some win cheap on low-intent T3 audiences and flop in T1. Validate the top 5 first.",
     automation: [
-      "Template setup — Two templates: T3/WW MAI test campaign + T1 AEO/ROAS scaling campaign. Reusable across test cycles.",
-      "Bulk launch in T3 — Drag creative batch from Drive → T3 campaign launched in 1 click. Cheap impressions start flowing immediately.",
-      "Auto-pause rule (Day 2) — Pause any creative below threshold IPM. T3 traffic is fast, you'll have signal within 48 hours.",
-      "Correlation validation gate — Manual step: validate top 5 T3 winners against existing T1 baseline before mass promotion (one-time per app).",
-      "Auto-promote to T1 — Validated winners auto-clone from T3 template into T1 AEO/ROAS template with proper budget scaling. Saves 30-45 min per promotion cycle.",
+      "Templates — T3/WW MAI test + T1 AEO/ROAS scaling, reusable.",
+      "Bulk launch in T3 — drag the batch; cheap impressions start flowing.",
+      "Auto-pause (Day 2) — kill creatives under IPM threshold; T3 signal is fast.",
+      "Correlation gate — one-time manual check: top 5 T3 winners vs T1 baseline.",
+      "Auto-promote — validated winners clone T3 → T1 with budget scaling.",
     ],
   },
   {
     id: "cheap-geo-aeo",
     number: 12,
     name: "Cheap Geo + AEO (Combined)",
+    flowImage: "/creative-testing/flows/cheap-geo-aeo.svg",
     goal: "mobile-ua",
-    bestFor:
-      "Mobile UA teams that have validated cheap-geo correlation works for AEO outcomes specifically (not just installs), apps with high enough conversion volume to support AEO learning in cheap geos.",
+    bestFor: "Mobile UA w/ proven cheap-geo AEO correlation · enough conversion volume for AEO learning.",
     budgetLevel: "high",
-    platform: ["meta"],
+    platform: ["meta", "tiktok"],
     timeToDecision: "1-2-weeks",
     andromedaCompat: "mixed",
     summary:
-      "Hybrid: AEO-optimized campaigns in cheap geos. Cost savings + signal quality. AEO needs ~50 events/week minimum for learning phase to close.",
+      "Cheap-geo prices, AEO-quality signal. Filter creatives on the event that actually matters (d3 retention, first purchase, level-5) without paying T1 CPIs. Needs 50+ AEO events/week.",
     method: [
-      "Build AEO-optimized campaign in T3 cheap geos.",
-      "Choose AEO event aligned with monetization: d3 retention, 1st purchase, level-5 completion, 1st top-up.",
-      "Run creative testing inside this campaign — winners scored on AEO event rate, not just IPM.",
-      "Promote winners to T1 AEO campaign with same event optimization.",
+      "AEO campaign in T3 cheap geos.",
+      "Pick an AEO event tied to monetization (d3 retention, 1st purchase, level-5, 1st top-up).",
+      "Test creatives; score on AEO event rate, not just IPM.",
+      "Promote winners to a T1 AEO campaign, same event.",
     ],
-    pros:
-      "Combines cost savings + signal quality. AEO outcomes carry more meaning than raw installs — you're filtering on creative + user-fit alignment, not just install efficiency.",
-    cons:
-      "AEO learning phase needs conversion volume — if your cheap geos produce 5 AEO events/day per campaign, learning phase never closes. Best only when cheap geos generate enough event volume. Validate event throughput before committing.",
+    pros: "Cost savings + signal quality. AEO outcomes mean more than raw installs.",
+    cons: "AEO needs volume — under ~50 events/week the learning phase never closes. Validate event throughput first.",
     pitfall:
-      "Using AEO with thin conversion volume. AEO learning phase requires ~50 events per week minimum. If cheap-geo campaign generates 10 events/week, you're getting random allocation, not optimized delivery.",
+      "Running AEO on thin volume. ~50 events/week minimum; at 10/week you get random delivery, not optimization.",
     automation: [
-      "Template setup — Cheap-geo AEO campaign template tied to your monetization event (d3 retention, first purchase, level-5 completion).",
-      "Bulk launch (AEO objective) — Creative batch loaded from Drive into AEO campaign in cheap geos.",
-      "Event-volume safety rule — Auto-pause entire campaign if AEO event volume < 50 events/week (signals learning phase can't complete here — switch to MAI Method 11 instead).",
-      "Auto-pause low AEO performers — Pause creatives below event-rate threshold per ad after 5-7 days.",
-      "Auto-promote to T1 AEO — Validated winners cloned into T1 AEO template with same event objective. Direct path from cheap-validated → T1 scaling.",
+      "Template — cheap-geo AEO campaign tied to your monetization event.",
+      "Bulk launch — load the batch into the AEO campaign in cheap geos.",
+      "Event-volume safety — auto-pause the campaign if AEO events < 50/week (switch to MAI Method 11).",
+      "Auto-pause — kill creatives under event-rate threshold after 5–7 days.",
+      "Auto-promote — validated winners clone to T1 AEO, same objective.",
     ],
   },
   {
@@ -432,33 +409,61 @@ export const METHODS = [
     number: 13,
     name: "Mirror-BAU Testing",
     goal: "mobile-ua",
-    bestFor:
-      "Mature mobile UA accounts where cheap-geo correlation has failed, conservative testing on stable BAU campaigns, validating creatives that MUST work in production environment.",
+    bestFor: "Mature mobile UA where cheap-geo correlation failed · creatives that must work in production.",
     budgetLevel: "high",
     platform: ["meta", "tiktok"],
     timeToDecision: "5-days",
     andromedaCompat: "strong",
     summary:
-      "Duplicate BAU campaign settings exactly. Drop new creatives in for 5-7 days. Most expensive per creative but most reliable signal — conditions are identical to scaling environment.",
+      "Test creatives in the exact conditions they'll have to survive. Clone your BAU campaign, swap in 2–4 new creatives, run 5–7 days in parallel. Priciest per test, most reliable signal — no T3→T1 gap.",
     method: [
-      "Duplicate your main BAU campaign settings exactly: same optimization (AEO event, ROAS target), same audience, same placements, same geos.",
-      "Drop in the new creatives only — everything else identical.",
-      "Run 5-7 days alongside BAU (same time window = same external conditions).",
-      "Compare by primary BAU metric (IPM, CPI, AEO event rate, ROAS).",
+      "Duplicate your BAU campaign exactly — optimization, audience, placements, geos.",
+      "Swap in the new creatives only.",
+      "Run 5–7 days alongside BAU.",
+      "Compare by BAU metric (IPM, CPI, AEO event rate, ROAS).",
       "Winners replace fatiguing BAU creatives.",
     ],
-    pros:
-      "Most reliable signal of all UA testing methods. Winners behave the same when scaled because conditions are identical. No correlation gap, no T3→T1 translation problem.",
-    cons:
-      "Most expensive approach per creative tested — you're testing in T1 / BAU geos at full CPI. Not viable for high-volume creative iteration (50+ ads/week) because cost scales linearly with volume.",
+    pros: "Most reliable signal of any UA method. Winners behave the same when scaled. No correlation gap.",
+    cons: "Priciest per creative — full T1/BAU CPI. Not for high-volume iteration (cost scales linearly).",
     pitfall:
-      "Testing too many new creatives at once — dilutes BAU performance and Andromeda spreads spend thin. Limit to 2-4 new creatives per mirror cycle so BAU's existing winners still get majority of budget.",
+      "Testing too many at once dilutes BAU and spreads spend thin. Limit to 2–4 per mirror cycle.",
     automation: [
-      "One-click BAU clone — Scalemate clones the entire BAU campaign template — exact same optimization, audience, placements, geos — in 1 click. No manual rebuild = no config drift.",
-      "Bulk swap creatives — From Drive, drag 2-4 new creatives → replace only the creatives in cloned campaign. Everything else stays identical.",
-      "Auto-pause weak performers (Day 3) — Rule pauses any new creative that falls below BAU baseline × 1.3 CPI. Don't let losers drag down the mirror campaign.",
-      "Day 5-7 winner declaration — Scalemate reports per-creative CPA + AEO event rate against BAU baseline. Winners clearly identified vs reference performance.",
-      "Auto-replace BAU creative — Winners auto-cloned into BAU + fatigued BAU creative auto-paused. Mirror test transitions directly into production swap.",
+      "One-click BAU clone — exact optimization, audience, placements, geos. No config drift.",
+      "Bulk swap — drag 2–4 new Drive creatives, replace only the creatives.",
+      "Auto-pause (Day 3) — kill new creatives under BAU baseline × 1.3 CPI.",
+      "Day 5–7 — per-creative CPA + AEO rate vs BAU baseline.",
+      "Auto-replace — winners clone into BAU; fatigued BAU creative auto-paused.",
+    ],
+  },
+  {
+    id: "cbo-spend-gated",
+    number: 14,
+    name: "CBO Spend-Gated Test (1 Ad/Set)",
+    goal: "find-winners",
+    bestFor: "Teams wanting isolated $-gated reads · clean per-variant signal · no in-adset competition.",
+    budgetLevel: "medium",
+    budgetLabel: "$10K+/mo",
+    platform: ["meta", "tiktok"],
+    timeToDecision: "5-days",
+    andromedaCompat: "mixed",
+    summary:
+      "Isolate every variant in its own ad set. CBO allocates spend; kill-gates fire at $60 (CPI check) and $150 (CPA check). Survivors scale 1.5× and push as new ads into every BAU campaign.",
+    method: [
+      "1 CBO campaign · 1 ad set per variant · 1 ad each.",
+      "Phase 1 — at $60 ad-set spend, kill if CPI > 1.5× target.",
+      "Phase 2 — at $150 ad-set spend, kill if CPA > 1.5× target.",
+      "Survivors: scale 1.5× budget + clone as new ad into every active BAU campaign.",
+    ],
+    pros: "Clean per-variant read — no ads competing inside an ad set. Spend-based gates adapt to account pace. Survivors land in BAU as proven, not theoretical.",
+    cons: "More ad sets = more learning phases to feed. CBO may underspend low-CTR variants before they hit Phase 1 gate. Fights Andromeda's 'feed many in one' instinct.",
+    pitfall:
+      "Setting CPI/CPA targets too tight. Use the BAU running average × 1.5, not an aspirational target — otherwise you kill variants that just needed a wider audience pocket.",
+    automation: [
+      "Template — CBO campaign, 1 ad set per variant, 1 ad each.",
+      "Bulk launch — drag N creatives from Drive; Scalemate auto-creates N ad sets + 1 ad per set.",
+      "Phase 1 auto-kill — pause when adset spend ≥ $60 AND CPI > 1.5× target.",
+      "Phase 2 auto-kill — pause when adset spend ≥ $150 AND CPA > 1.5× target.",
+      "Auto-promote — survivor clones at 1.5× budget + adds as new ad to every active BAU campaign.",
     ],
   },
 ]
@@ -494,4 +499,206 @@ export const ANDROMEDA_LABELS = {
   strong: { label: "Strong", emoji: "✅", color: "green" },
   mixed: { label: "Mixed", emoji: "⚠️", color: "amber" },
   weak: { label: "Weak", emoji: "❌", color: "red" },
+}
+
+// Catalog-grid data per method (keyed by id).
+//   duration, creos, setup — stat-row values
+//   flow.caption — one-line "how it tests creatives"
+//   flow.steps — compact node flow. Step shapes:
+//     { l, s, q?, t? }            single node (q = decision/gate, t = "win"|"kill" tone)
+//     { group: [{l,s}], note? }   parallel chips
+//     { branch: [{l,s,t}, {l,s,t}] }  two outcomes (t = "win"|"kill"|"neutral")
+export const CATALOG = {
+  "three-three-three": {
+    duration: "3d", creos: "9", setup: "10 min",
+    flow: {
+      caption: "3 concepts · 72h · CPA gate",
+      steps: [
+        { l: "Bulk launch", s: "3 ad sets" },
+        { group: [{ l: "Concept A", s: "1 ad" }, { l: "Concept B", s: "1 ad" }, { l: "Concept C", s: "1 ad" }] },
+        { l: "Run 72 hours", s: "no edits" },
+        { l: "CPA ≤ 1.5× target?", s: "evaluated day 4", q: true },
+        { branch: [{ l: "Pause set", s: "loser", t: "kill" }, { l: "Scale 2×", s: "winner", t: "win" }] },
+        { l: "Slack the team", s: "winner ID + scale plan" },
+        { l: "Log to Google Sheets", s: "assign test status · build the library" },
+      ],
+    },
+  },
+  "three-two-two-sprint": {
+    duration: "5d", creos: "6", setup: "15 min",
+    flow: {
+      caption: "5-day verdict · outlier kill · top 2",
+      steps: [
+        { l: "Bulk launch", s: "3 ad sets · 6 ads" },
+        { group: [{ l: "Ad set A", s: "2 ads" }, { l: "Ad set B", s: "2 ads" }, { l: "Ad set C", s: "2 ads" }] },
+        { l: "Day 3 — outlier kill", s: "pause if CPA > 2× target", q: true },
+        { branch: [{ l: "Outlier paused", s: "removed day 3", t: "kill" }, { l: "Survivors run on", s: "to day 5", t: "neutral" }] },
+        { l: "Day 5 — rank top 2", s: "best CPA per ad set", q: true },
+        { branch: [{ l: "Scale best ad", s: "own ad set · 2–3×", t: "win" }, { l: "Keep 2nd best", s: "fallback if leader tires", t: "neutral" }] },
+        { l: "Add top 2 → BAU", s: "into all active campaigns" },
+      ],
+    },
+  },
+  "hooks-test": {
+    duration: "7d", creos: "5", setup: "20 min",
+    flow: {
+      caption: "1 body · 5 hook variants",
+      steps: [
+        { l: "Winning concept", s: "keep body, swap hook" },
+        { framedGroup: { header: "5 hook variants · same body", items: [{ l: "Hook A" }, { l: "Hook B" }, { l: "Hook C" }, { l: "Hook D" }, { l: "Hook E" }] } },
+        { l: "Advantage+ campaign · CBO", s: "1 ad set · 1 ad per hook" },
+        { l: "Auto-kill rule", s: "hook-rate > 1.2× control · CPA ≤ target", q: true },
+        { branch: [{ l: "Variant paused", s: "weak hook killed", t: "kill" }, { l: "Scale winner", s: "≥1.5× control by hook-rate", t: "win" }] },
+      ],
+    },
+  },
+  "meta-conversion-lift": {
+    duration: "28d", creos: "—", setup: "Rep-gated",
+    flow: {
+      caption: "Hold-out study · 4 weeks · incrementality",
+      steps: [
+        { l: "Meta rep request", s: "Lift study via your rep" },
+        { group: [{ l: "Test group", s: "sees ads" }, { l: "Hold-out", s: "no ads — control" }] },
+        { l: "Run 4+ weeks", s: "for valid sample" },
+        { l: "Define event", s: "incremental conversions", q: true },
+        { branch: [{ l: "No lift", s: "do not scale", t: "kill" }, { l: "Lift confirmed", s: "scale 2–3×", t: "win" }] },
+      ],
+    },
+  },
+  "bulk-cbo-2-phase": {
+    duration: "12d", creos: "44", setup: "30 min",
+    flow: {
+      caption: "CBO · 12–75 ads · 2-phase funnel",
+      steps: [
+        { l: "CBO campaign", s: "auto-budget · 4–5 ad sets" },
+        { group: [{ l: "Adset 1", s: "3–15 ads" }, { l: "Adset 2", s: "3–15 ads" }, { l: "Adset 3", s: "3–15 ads" }, { l: "Adset 4", s: "3–15 ads" }] },
+        { l: "Phase 1 · day 3", s: "upper-funnel signal", q: true },
+        { branch: [{ l: "Kill 50–70%", s: "weak upper-funnel", t: "kill" }, { l: "Top 30–40%", s: "advance to P2", t: "neutral" }] },
+        { l: "Phase 2 · day 5–8", s: "revenue signal", q: true },
+        { branch: [{ l: "Kill on revenue", s: "no purchases", t: "kill" }, { l: "Scale 2–3×", s: "5–10 final winners", t: "win" }] },
+      ],
+    },
+  },
+  "static-vs-video": {
+    duration: "5d", creos: "18", setup: "20 min",
+    flow: {
+      caption: "Same concept · 3 formats · CTR + CPA gate",
+      steps: [
+        { l: "Launch — same concept", s: "3 formats · equal budget" },
+        { group: [{ l: "Static only", s: "6 ads" }, { l: "Video only", s: "6 ads" }, { l: "Mixed", s: "6 ads" }] },
+        { l: "Auto-kill ads", s: "CTR < 0.5% · 500 impr", t: "kill" },
+        { l: "Format reporting", s: "aggregate CPA per format" },
+        { l: "Scale top 2", s: "clone winning format", t: "win" },
+        { l: "Lock format", s: "as default" },
+      ],
+    },
+  },
+  "multi-variant-battery": {
+    duration: "3d", creos: "14", setup: "15 min",
+    flow: {
+      caption: "Broad campaign · 7–20 creatives · 2-phase CPA gates",
+      steps: [
+        { l: "Broad campaign", s: "1 ad set · single objective" },
+        { l: "Load 7–20 creatives", s: "different formats × concepts" },
+        { l: "Andromeda allocates", s: "finds the pockets" },
+        { l: "Phase 1 · 48h", s: "CPA check", q: true },
+        { branch: [{ l: "Pause creative", s: "CPA > 1.5× target", t: "kill" }, { l: "Continue → P2", s: "CPA in range", t: "neutral" }] },
+        { l: "Phase 2 · 72h", s: "winner check", q: true },
+        { branch: [{ l: "Pause", s: "CPA > target", t: "kill" }, { l: "Scale 2× + BAU", s: "Slack: new winner ✓", t: "win" }] },
+      ],
+    },
+  },
+  "refresh-cadence": {
+    duration: "14d", creos: "—", setup: "Once",
+    flow: {
+      caption: "Always-on monitor · 4 fatigue triggers",
+      steps: [
+        { l: "Always-on monitor", s: "every live winner · 24/7" },
+        { group: [{ l: "Freq > 3.0" }, { l: "CTR −20%" }, { l: "CPA +30%" }, { l: "Hook −15%" }], note: "any one fires" },
+        { l: "Slack DM", s: "creative ID + metric" },
+        { l: "Auto-pause", s: "kills fatiguing creative", t: "kill" },
+        { l: "Auto-swap variation", s: "next from tagged queue", t: "win" },
+        { l: "Weekly report", s: "fatigued · repl · cycle time" },
+      ],
+    },
+  },
+  "control-ad-test": {
+    duration: "4d", creos: "2", setup: "15 min",
+    flow: {
+      caption: "Champion vs Challenger · equal impressions",
+      steps: [
+        { group: [{ l: "Champion", s: "proven control" }, { l: "Challenger", s: "new variation" }] },
+        { l: "Equal impressions", s: "both stop at 5K / 20K" },
+        { l: "Hold 48h", s: "attribution lag" },
+        { l: "Challenger ≥ 1.1× control?", s: "on decision metric", q: true },
+        { branch: [{ l: "Champion stays", s: "challenger dropped", t: "neutral" }, { l: "Challenger wins", s: "clone to BAU · retire control", t: "win" }] },
+      ],
+    },
+  },
+  "meta-ab-test": {
+    duration: "10d", creos: "4", setup: "10 min",
+    flow: {
+      caption: "Meta Experiments · native split · 7–14d",
+      steps: [
+        { l: "Ads Manager → Experiments", s: "A/B Test" },
+        { group: [{ l: "Variant A" }, { l: "Variant B" }, { l: "Variant C" }, { l: "Variant D" }], note: "2–4 ads / ad sets" },
+        { l: "Meta splits audience", s: "no overlap · 7–14 days" },
+        { l: "Scalemate parallel", s: "CPA · ROAS · hook rate", q: true },
+        { branch: [{ l: "Disagreement", s: "Meta winner ≠ your KPI", t: "kill" }, { l: "Both agree", s: "auto-promote winner", t: "win" }] },
+      ],
+    },
+  },
+  "cheap-geo-ww": {
+    duration: "6d", creos: "40", setup: "30 min",
+    flow: {
+      caption: "T3/WW MAI · IPM gate · validate to T1",
+      steps: [
+        { l: "T3 / WW MAI campaign", s: "Indonesia · Philippines · Brazil" },
+        { l: "Day 2 auto-pause", s: "kill below IPM threshold" },
+        { l: "Correlation gate", s: "manual: top 5 T3 vs T1 baseline" },
+        { l: "T3 ↔ T1 correlation OK?", s: "before mass promotion", q: true },
+        { branch: [{ l: "Reject T3 win", s: "cheap-geo only", t: "kill" }, { l: "Promote → T1", s: "AEO/ROAS scaling", t: "win" }] },
+      ],
+    },
+  },
+  "cheap-geo-aeo": {
+    duration: "7d", creos: "25", setup: "45 min",
+    flow: {
+      caption: "T3 AEO · event-volume safety · promote",
+      steps: [
+        { l: "T3 AEO campaign", s: "tied to monetization event" },
+        { l: "AEO events ≥ 50/wk?", s: "learning-phase safety", q: true },
+        { branch: [{ l: "Auto-pause campaign", s: "switch to MAI (method 11)", t: "kill" }, { l: "Volume OK", s: "continue testing", t: "neutral" }] },
+        { l: "Day 5–7 kill", s: "below event-rate threshold", t: "kill" },
+        { l: "Promote → T1 AEO", s: "same monetization event", t: "win" },
+      ],
+    },
+  },
+  "mirror-bau": {
+    duration: "7d", creos: "4", setup: "20 min",
+    flow: {
+      caption: "Clone BAU · swap creos · run parallel",
+      steps: [
+        { l: "Clone BAU campaign", s: "same audience · same placements" },
+        { l: "Swap 2–4 creatives", s: "fresh challengers only" },
+        { l: "Run 5–7 days parallel", s: "vs. live BAU" },
+        { l: "Beats BAU CPA?", s: "side-by-side compare", q: true },
+        { branch: [{ l: "Discard challenger", s: "BAU continues", t: "kill" }, { l: "Promote to BAU", s: "swap into live", t: "win" }] },
+      ],
+    },
+  },
+  "cbo-spend-gated": {
+    duration: "5-7d", creos: "8", setup: "15 min",
+    flow: {
+      caption: "1 ad/set · $60 + $150 spend gates · BAU sync",
+      steps: [
+        { l: "CBO campaign", s: "1 ad set per variant · 1 ad each" },
+        { group: [{ l: "Adset 1", s: "1 ad" }, { l: "Adset 2", s: "1 ad" }, { l: "Adset 3", s: "1 ad" }, { l: "Adset 4", s: "1 ad" }] },
+        { l: "Phase 1 · $60 spend", s: "CPI check", q: true },
+        { branch: [{ l: "Pause adset", s: "CPI > 1.5× target", t: "kill" }, { l: "Continue → P2", s: "CPI in range", t: "neutral" }] },
+        { l: "Phase 2 · $150 spend", s: "CPA check", q: true },
+        { branch: [{ l: "Pause adset", s: "CPA > 1.5× target", t: "kill" }, { l: "Scale 1.5× + BAU", s: "clone as new ad to all BAU", t: "win" }] },
+      ],
+    },
+  },
 }
