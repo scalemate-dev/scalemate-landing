@@ -26,7 +26,8 @@ export const METHODS = [
     name: "The 3-3-3 Method",
     flowImage: "/creative-testing/flows/3-3-3.svg",
     goal: "find-winners",
-    bestFor: "Meta & TikTok · subscription apps, e-commerce, gaming · $40K+/mo accounts.",
+    bestFor:
+      "Meta & TikTok · subscription apps, e-commerce, gaming · $40K+/mo accounts.",
     budgetLevel: "high",
     platform: ["meta", "tiktok"],
     timeToDecision: "3-days",
@@ -89,7 +90,8 @@ export const METHODS = [
     name: "The 3-2-2 Method (5-Day Sprint)",
     flowImage: "/creative-testing/flows/3-2-2-sprint.svg",
     goal: "find-winners",
-    bestFor: "Testing creative communication hypotheses · 3 angles × 2 variations · a primary + backup winner in 5 days · $40K+/mo accounts.",
+    bestFor:
+      "Testing creative communication hypotheses · 3 angles × 2 variations · a primary + backup winner in 5 days · $40K+/mo accounts.",
     budgetLevel: "high",
     platform: ["meta", "tiktok"],
     timeToDecision: "5-days",
@@ -120,7 +122,8 @@ export const METHODS = [
     name: "Hooks Test",
     flowImage: "/creative-testing/flows/hooks-test.svg",
     goal: "find-winners",
-    bestFor: "Video-heavy teams (mobile UA, DTC) · refining a proven concept · $5K+/mo accounts.",
+    bestFor:
+      "Video-heavy teams (mobile UA, DTC) · refining a proven concept · $5K+/mo accounts.",
     budgetLevel: "medium",
     budgetLabel: "$5K+/mo",
     platform: ["meta", "tiktok"],
@@ -154,7 +157,8 @@ export const METHODS = [
     goal: "validate",
     accessCaveat:
       "Not self-serve for most accounts — needs a Meta rep or Business Partner access. If you've never seen 'Conversion Lift' in your Experiments menu, you don't have it — use Meta Native A/B Test (Method 10) instead.",
-    bestFor: "Enterprise w/ Meta rep · $75K+/mo accounts · validating a big change before scaling 2–3×.",
+    bestFor:
+      "Enterprise w/ Meta rep · $75K+/mo accounts · validating a big change before scaling 2–3×.",
     budgetLevel: "high",
     budgetLabel: "$75K+/mo",
     platform: ["meta"],
@@ -187,7 +191,8 @@ export const METHODS = [
     name: "Bulk Creative Test in CBO (2-Phase Funnel Progression)",
     flowImage: "/creative-testing/flows/bulk-cbo-2-phase.svg",
     goal: "validate",
-    bestFor: "High-volume R&D teams · 30+ creatives/cycle · AI-generation pipelines · $10K+/mo accounts.",
+    bestFor:
+      "High-volume R&D teams · 30+ creatives/cycle · AI-generation pipelines · $10K+/mo accounts.",
     budgetLevel: "medium",
     budgetLabel: "$10K+/mo",
     platform: ["meta", "tiktok"],
@@ -220,7 +225,8 @@ export const METHODS = [
     name: "Static vs Video Test",
     flowImage: "/creative-testing/flows/static-vs-video.svg",
     goal: "kill-losers",
-    bestFor: "New accounts · format transitions · vertical-specific calls (mobile UA, eCom Reels).",
+    bestFor:
+      "New accounts · format transitions · vertical-specific calls (mobile UA, eCom Reels).",
     budgetLevel: "medium",
     platform: ["meta", "tiktok"],
     timeToDecision: "1-2-weeks",
@@ -283,7 +289,8 @@ export const METHODS = [
     name: "Control Ad Test (Equal Impressions vs Winner)",
     flowImage: "/creative-testing/flows/control-ad-test.svg",
     goal: "controlled",
-    bestFor: "Teams with an established winner · iterating a replacement · app teams (IPM), web teams (CVR).",
+    bestFor:
+      "Teams with an established winner · iterating a replacement · app teams (IPM), web teams (CVR).",
     budgetLevel: "medium",
     platform: ["meta", "tiktok"],
     timeToDecision: "5-days",
@@ -315,7 +322,8 @@ export const METHODS = [
     name: "Meta Native A/B Test",
     flowImage: "/creative-testing/flows/meta-ab-test.svg",
     goal: "controlled",
-    bestFor: "Teams wanting native attribution + Meta-handled splitting + a clear verdict, no manual setup.",
+    bestFor:
+      "Teams wanting native attribution + Meta-handled splitting + a clear verdict, no manual setup.",
     budgetLevel: "medium",
     platform: ["meta"],
     timeToDecision: "1-2-weeks",
@@ -347,7 +355,8 @@ export const METHODS = [
     name: "Cheap Geo / WW Testing",
     flowImage: "/creative-testing/flows/cheap-geo-ww.svg",
     goal: "mobile-ua",
-    bestFor: "Mobile UA · $1K+/day per geo · high creative volume · proven cheap-geo→T1 correlation.",
+    bestFor:
+      "Mobile UA · $1K+/day per geo · high creative volume · proven cheap-geo→T1 correlation.",
     budgetLevel: "medium",
     platform: ["meta", "tiktok"],
     timeToDecision: "3-days",
@@ -379,7 +388,8 @@ export const METHODS = [
     name: "Cheap Geo + AEO (Combined)",
     flowImage: "/creative-testing/flows/cheap-geo-aeo.svg",
     goal: "mobile-ua",
-    bestFor: "Mobile UA w/ proven cheap-geo AEO correlation · enough conversion volume for AEO learning.",
+    bestFor:
+      "Mobile UA w/ proven cheap-geo AEO correlation · enough conversion volume for AEO learning.",
     budgetLevel: "high",
     platform: ["meta", "tiktok"],
     timeToDecision: "1-2-weeks",
@@ -409,7 +419,8 @@ export const METHODS = [
     number: 13,
     name: "Mirror-BAU Testing",
     goal: "mobile-ua",
-    bestFor: "Mature mobile UA where cheap-geo correlation failed · creatives that must work in production.",
+    bestFor:
+      "Mature mobile UA where cheap-geo correlation failed · creatives that must work in production.",
     budgetLevel: "high",
     platform: ["meta", "tiktok"],
     timeToDecision: "5-days",
@@ -440,7 +451,8 @@ export const METHODS = [
     number: 14,
     name: "CBO Spend-Gated Test (1 Ad/Set)",
     goal: "find-winners",
-    bestFor: "Teams wanting isolated $-gated reads · clean per-variant signal · no in-adset competition.",
+    bestFor:
+      "Teams wanting isolated $-gated reads · clean per-variant signal · no in-adset competition.",
     budgetLevel: "medium",
     budgetLabel: "$10K+/mo",
     platform: ["meta", "tiktok"],
@@ -511,82 +523,181 @@ export const ANDROMEDA_LABELS = {
 //     { branch: [{l,s,t}, {l,s,t}] }  two outcomes (t = "win"|"kill"|"neutral")
 export const CATALOG = {
   "three-three-three": {
-    duration: "3d", creos: "9", setup: "10 min",
+    duration: "3d",
+    creos: "9",
+    setup: "10 min",
     flow: {
       caption: "3 concepts · 72h · CPA gate",
       steps: [
         { l: "Bulk launch", s: "3 ad sets" },
-        { group: [{ l: "Concept A", s: "1 ad" }, { l: "Concept B", s: "1 ad" }, { l: "Concept C", s: "1 ad" }] },
+        {
+          group: [
+            { l: "Concept A", s: "1 ad" },
+            { l: "Concept B", s: "1 ad" },
+            { l: "Concept C", s: "1 ad" },
+          ],
+        },
         { l: "Run 72 hours", s: "no edits" },
         { l: "CPA ≤ 1.5× target?", s: "evaluated day 4", q: true },
-        { branch: [{ l: "Pause set", s: "loser", t: "kill" }, { l: "Scale 2×", s: "winner", t: "win" }] },
+        {
+          branch: [
+            { l: "Pause set", s: "loser", t: "kill" },
+            { l: "Scale 2×", s: "winner", t: "win" },
+          ],
+        },
         { l: "Slack the team", s: "winner ID + scale plan" },
-        { l: "Log to Google Sheets", s: "assign test status · build the library" },
+        {
+          l: "Log to Google Sheets",
+          s: "assign test status · build the library",
+        },
       ],
     },
   },
   "three-two-two-sprint": {
-    duration: "5d", creos: "6", setup: "15 min",
+    duration: "5d",
+    creos: "6",
+    setup: "15 min",
     flow: {
       caption: "5-day verdict · worst-performer pause · top 2",
       steps: [
         { l: "Bulk launch", s: "3 ad sets · 6 ads" },
-        { group: [{ l: "Ad set A", s: "2 ads" }, { l: "Ad set B", s: "2 ads" }, { l: "Ad set C", s: "2 ads" }] },
-        { l: "Day 3 — worst-performer pause", s: "pause if CPA > 2× target", q: true },
-        { branch: [{ l: "Worst paused", s: "removed day 3", t: "kill" }, { l: "Survivors run on", s: "to day 5", t: "neutral" }] },
+        {
+          group: [
+            { l: "Ad set A", s: "2 ads" },
+            { l: "Ad set B", s: "2 ads" },
+            { l: "Ad set C", s: "2 ads" },
+          ],
+        },
+        {
+          l: "Day 3 — worst-performer pause",
+          s: "pause if CPA > 2× target",
+          q: true,
+        },
+        {
+          branch: [
+            { l: "Worst paused", s: "removed day 3", t: "kill" },
+            { l: "Survivors run on", s: "to day 5", t: "neutral" },
+          ],
+        },
         { l: "Day 5 — rank top 2", s: "best CPA per ad set", q: true },
-        { branch: [{ l: "Scale best ad", s: "own ad set · 2–3×", t: "win" }, { l: "Keep 2nd best", s: "fallback if leader tires", t: "neutral" }] },
+        {
+          branch: [
+            { l: "Scale best ad", s: "own ad set · 2–3×", t: "win" },
+            { l: "Keep 2nd best", s: "fallback if leader tires", t: "neutral" },
+          ],
+        },
         { l: "Add top 2 → BAU", s: "into all active campaigns" },
       ],
     },
   },
   "hooks-test": {
-    duration: "7d", creos: "5", setup: "20 min",
+    duration: "7d",
+    creos: "5",
+    setup: "20 min",
     flow: {
       caption: "1 body · 5 hook variants",
       steps: [
         { l: "Winning concept", s: "keep body, swap hook" },
-        { framedGroup: { header: "5 hook variants · same body", items: [{ l: "Hook A" }, { l: "Hook B" }, { l: "Hook C" }, { l: "Hook D" }, { l: "Hook E" }] } },
+        {
+          framedGroup: {
+            header: "5 hook variants · same body",
+            items: [
+              { l: "Hook A" },
+              { l: "Hook B" },
+              { l: "Hook C" },
+              { l: "Hook D" },
+              { l: "Hook E" },
+            ],
+          },
+        },
         { l: "Advantage+ campaign · CBO", s: "1 ad set · 1 ad per hook" },
-        { l: "Auto-pause rule", s: "hook-rate > 1.2× control · CPA ≤ target", q: true },
-        { branch: [{ l: "Variant paused", s: "weak hook cut", t: "kill" }, { l: "Scale winner", s: "≥1.5× control by hook-rate", t: "win" }] },
+        {
+          l: "Auto-pause rule",
+          s: "hook-rate > 1.2× control · CPA ≤ target",
+          q: true,
+        },
+        {
+          branch: [
+            { l: "Variant paused", s: "weak hook cut", t: "kill" },
+            { l: "Scale winner", s: "≥1.5× control by hook-rate", t: "win" },
+          ],
+        },
       ],
     },
   },
   "meta-conversion-lift": {
-    duration: "28d", creos: "—", setup: "Rep-gated",
+    duration: "28d",
+    creos: "∞",
+    setup: "By Request",
     flow: {
       caption: "Hold-out study · 4 weeks · incrementality",
       steps: [
         { l: "Meta rep request", s: "Lift study via your rep" },
-        { group: [{ l: "Test group", s: "sees ads" }, { l: "Hold-out", s: "no ads — control" }] },
+        {
+          group: [
+            { l: "Test group", s: "sees ads" },
+            { l: "Hold-out", s: "no ads — control" },
+          ],
+        },
         { l: "Run 4+ weeks", s: "for valid sample" },
         { l: "Define event", s: "incremental conversions", q: true },
-        { branch: [{ l: "No lift", s: "do not scale", t: "kill" }, { l: "Lift confirmed", s: "scale 2–3×", t: "win" }] },
+        {
+          branch: [
+            { l: "No lift", s: "do not scale", t: "kill" },
+            { l: "Lift confirmed", s: "scale 2–3×", t: "win" },
+          ],
+        },
       ],
     },
   },
   "bulk-cbo-2-phase": {
-    duration: "12d", creos: "44", setup: "30 min",
+    duration: "12d",
+    creos: "44",
+    setup: "30 min",
     flow: {
       caption: "CBO · 12–75 ads · 2-phase funnel",
       steps: [
         { l: "CBO campaign", s: "auto-budget · 4–5 ad sets" },
-        { group: [{ l: "Adset 1", s: "3–15 ads" }, { l: "Adset 2", s: "3–15 ads" }, { l: "Adset 3", s: "3–15 ads" }, { l: "Adset 4", s: "3–15 ads" }] },
+        {
+          group: [
+            { l: "Adset 1", s: "3–15 ads" },
+            { l: "Adset 2", s: "3–15 ads" },
+            { l: "Adset 3", s: "3–15 ads" },
+            { l: "Adset 4", s: "3–15 ads" },
+          ],
+        },
         { l: "Phase 1 · day 3", s: "upper-funnel signal", q: true },
-        { branch: [{ l: "Cut 50–70%", s: "weak upper-funnel", t: "kill" }, { l: "Top 30–40%", s: "advance to P2", t: "neutral" }] },
+        {
+          branch: [
+            { l: "Cut 50–70%", s: "weak upper-funnel", t: "kill" },
+            { l: "Top 30–40%", s: "advance to P2", t: "neutral" },
+          ],
+        },
         { l: "Phase 2 · day 5–8", s: "revenue signal", q: true },
-        { branch: [{ l: "Cut on revenue", s: "no purchases", t: "kill" }, { l: "Scale 2–3×", s: "5–10 final winners", t: "win" }] },
+        {
+          branch: [
+            { l: "Cut on revenue", s: "no purchases", t: "kill" },
+            { l: "Scale 2–3×", s: "5–10 final winners", t: "win" },
+          ],
+        },
       ],
     },
   },
   "static-vs-video": {
-    duration: "5d", creos: "18", setup: "20 min",
+    duration: "5d",
+    creos: "18",
+    setup: "20 min",
     flow: {
       caption: "Same concept · 3 formats · CTR + CPA gate",
       steps: [
         { l: "Launch — same concept", s: "3 formats · equal budget" },
-        { group: [{ l: "Static only", s: "6 ads" }, { l: "Video only", s: "6 ads" }, { l: "Mixed", s: "6 ads" }] },
+        {
+          group: [
+            { l: "Static only", s: "6 ads" },
+            { l: "Video only", s: "6 ads" },
+            { l: "Mixed", s: "6 ads" },
+          ],
+        },
         { l: "Auto-pause ads", s: "CTR < 0.5% · 500 impr", t: "kill" },
         { l: "Format reporting", s: "aggregate CPA per format" },
         { l: "Scale top 2", s: "clone winning format", t: "win" },
@@ -595,7 +706,9 @@ export const CATALOG = {
     },
   },
   "multi-variant-battery": {
-    duration: "3d", creos: "14", setup: "15 min",
+    duration: "3d",
+    creos: "14",
+    setup: "15 min",
     flow: {
       caption: "Broad campaign · 7–20 creatives · 2-phase CPA gates",
       steps: [
@@ -603,19 +716,39 @@ export const CATALOG = {
         { l: "Load 7–20 creatives", s: "different formats × concepts" },
         { l: "Andromeda allocates", s: "finds the pockets" },
         { l: "Phase 1 · 48h", s: "CPA check", q: true },
-        { branch: [{ l: "Pause creative", s: "CPA > 1.5× target", t: "kill" }, { l: "Continue → P2", s: "CPA in range", t: "neutral" }] },
+        {
+          branch: [
+            { l: "Pause creative", s: "CPA > 1.5× target", t: "kill" },
+            { l: "Continue → P2", s: "CPA in range", t: "neutral" },
+          ],
+        },
         { l: "Phase 2 · 72h", s: "winner check", q: true },
-        { branch: [{ l: "Pause", s: "CPA > target", t: "kill" }, { l: "Scale 2× + BAU", s: "Slack: new winner ✓", t: "win" }] },
+        {
+          branch: [
+            { l: "Pause", s: "CPA > target", t: "kill" },
+            { l: "Scale 2× + BAU", s: "Slack: new winner ✓", t: "win" },
+          ],
+        },
       ],
     },
   },
   "refresh-cadence": {
-    duration: "14d", creos: "—", setup: "Once",
+    duration: "14d",
+    creos: "—",
+    setup: "Once",
     flow: {
       caption: "Always-on monitor · 4 fatigue triggers",
       steps: [
         { l: "Always-on monitor", s: "every live winner · 24/7" },
-        { group: [{ l: "Freq > 3.0" }, { l: "CTR −20%" }, { l: "CPA +30%" }, { l: "Hook −15%" }], note: "any one fires" },
+        {
+          group: [
+            { l: "Freq > 3.0" },
+            { l: "CTR −20%" },
+            { l: "CPA +30%" },
+            { l: "Hook −15%" },
+          ],
+          note: "any one fires",
+        },
         { l: "Slack DM", s: "creative ID + metric" },
         { l: "Auto-pause", s: "cuts fatiguing creative", t: "kill" },
         { l: "Auto-swap variation", s: "next from tagged queue", t: "win" },
@@ -624,33 +757,66 @@ export const CATALOG = {
     },
   },
   "control-ad-test": {
-    duration: "4d", creos: "2", setup: "15 min",
+    duration: "4d",
+    creos: "2",
+    setup: "15 min",
     flow: {
       caption: "Champion vs Challenger · equal impressions",
       steps: [
-        { group: [{ l: "Champion", s: "proven control" }, { l: "Challenger", s: "new variation" }] },
+        {
+          group: [
+            { l: "Champion", s: "proven control" },
+            { l: "Challenger", s: "new variation" },
+          ],
+        },
         { l: "Equal impressions", s: "both stop at 5K / 20K" },
         { l: "Hold 48h", s: "attribution lag" },
         { l: "Challenger ≥ 1.1× control?", s: "on decision metric", q: true },
-        { branch: [{ l: "Champion stays", s: "challenger dropped", t: "neutral" }, { l: "Challenger wins", s: "clone to BAU · retire control", t: "win" }] },
+        {
+          branch: [
+            { l: "Champion stays", s: "challenger dropped", t: "neutral" },
+            {
+              l: "Challenger wins",
+              s: "clone to BAU · retire control",
+              t: "win",
+            },
+          ],
+        },
       ],
     },
   },
   "meta-ab-test": {
-    duration: "10d", creos: "4", setup: "10 min",
+    duration: "10d",
+    creos: "4",
+    setup: "10 min",
     flow: {
       caption: "Meta Experiments · native split · 7–14d",
       steps: [
         { l: "Ads Manager → Experiments", s: "A/B Test" },
-        { group: [{ l: "Variant A" }, { l: "Variant B" }, { l: "Variant C" }, { l: "Variant D" }], note: "2–4 ads / ad sets" },
+        {
+          group: [
+            { l: "Variant A" },
+            { l: "Variant B" },
+            { l: "Variant C" },
+            { l: "Variant D" },
+          ],
+          note: "2–4 ads / ad sets",
+        },
         { l: "Meta splits audience", s: "no overlap · 7–14 days" },
         { l: "Scalemate parallel", s: "CPA · ROAS · hook rate", q: true },
-        { branch: [{ l: "Disagreement", s: "Meta winner ≠ your KPI", t: "kill" }, { l: "Both agree", s: "auto-promote winner", t: "win" }] },
+        {
+          branch: [
+            { l: "Disagreement", s: "Meta winner ≠ your KPI", t: "kill" },
+            { l: "Both agree", s: "auto-promote winner", t: "win" },
+          ],
+        },
       ],
     },
   },
   "cheap-geo-ww": {
-    duration: "6d", creos: "40", setup: "30 min",
+    duration: "6d",
+    creos: "40",
+    setup: "30 min",
     flow: {
       caption: "T3/WW MAI · IPM gate · validate to T1",
       steps: [
@@ -658,47 +824,93 @@ export const CATALOG = {
         { l: "Day 2 auto-pause", s: "cut below IPM threshold" },
         { l: "Correlation gate", s: "manual: top 5 T3 vs T1 baseline" },
         { l: "T3 ↔ T1 correlation OK?", s: "before mass promotion", q: true },
-        { branch: [{ l: "Reject T3 win", s: "cheap-geo only", t: "kill" }, { l: "Promote → T1", s: "AEO/ROAS scaling", t: "win" }] },
+        {
+          branch: [
+            { l: "Reject T3 win", s: "cheap-geo only", t: "kill" },
+            { l: "Promote → T1", s: "AEO/ROAS scaling", t: "win" },
+          ],
+        },
       ],
     },
   },
   "cheap-geo-aeo": {
-    duration: "7d", creos: "25", setup: "45 min",
+    duration: "7d",
+    creos: "25",
+    setup: "45 min",
     flow: {
       caption: "T3 AEO · event-volume safety · promote",
       steps: [
         { l: "T3 AEO campaign", s: "tied to monetization event" },
         { l: "AEO events ≥ 50/wk?", s: "learning-phase safety", q: true },
-        { branch: [{ l: "Auto-pause campaign", s: "switch to MAI (method 11)", t: "kill" }, { l: "Volume OK", s: "continue testing", t: "neutral" }] },
+        {
+          branch: [
+            {
+              l: "Auto-pause campaign",
+              s: "switch to MAI (method 11)",
+              t: "kill",
+            },
+            { l: "Volume OK", s: "continue testing", t: "neutral" },
+          ],
+        },
         { l: "Day 5–7 cut", s: "below event-rate threshold", t: "kill" },
         { l: "Promote → T1 AEO", s: "same monetization event", t: "win" },
       ],
     },
   },
   "mirror-bau": {
-    duration: "7d", creos: "4", setup: "20 min",
+    duration: "7d",
+    creos: "4",
+    setup: "20 min",
     flow: {
-      caption: "Clone BAU · swap creos · run parallel",
+      caption: "Clone BAU · swap creatives · run parallel",
       steps: [
         { l: "Clone BAU campaign", s: "same audience · same placements" },
         { l: "Swap 2–4 creatives", s: "fresh challengers only" },
         { l: "Run 5–7 days parallel", s: "vs. live BAU" },
         { l: "Beats BAU CPA?", s: "side-by-side compare", q: true },
-        { branch: [{ l: "Discard challenger", s: "BAU continues", t: "kill" }, { l: "Promote to BAU", s: "swap into live", t: "win" }] },
+        {
+          branch: [
+            { l: "Discard challenger", s: "BAU continues", t: "kill" },
+            { l: "Promote to BAU", s: "swap into live", t: "win" },
+          ],
+        },
       ],
     },
   },
   "cbo-spend-gated": {
-    duration: "5-7d", creos: "8", setup: "15 min",
+    duration: "5-7d",
+    creos: "8",
+    setup: "15 min",
     flow: {
       caption: "1 ad/set · $60 + $150 spend gates · BAU sync",
       steps: [
         { l: "CBO campaign", s: "1 ad set per variant · 1 ad each" },
-        { group: [{ l: "Adset 1", s: "1 ad" }, { l: "Adset 2", s: "1 ad" }, { l: "Adset 3", s: "1 ad" }, { l: "Adset 4", s: "1 ad" }] },
+        {
+          group: [
+            { l: "Adset 1", s: "1 ad" },
+            { l: "Adset 2", s: "1 ad" },
+            { l: "Adset 3", s: "1 ad" },
+            { l: "Adset 4", s: "1 ad" },
+          ],
+        },
         { l: "Phase 1 · $60 spend", s: "CPI check", q: true },
-        { branch: [{ l: "Pause adset", s: "CPI > 1.5× target", t: "kill" }, { l: "Continue → P2", s: "CPI in range", t: "neutral" }] },
+        {
+          branch: [
+            { l: "Pause adset", s: "CPI > 1.5× target", t: "kill" },
+            { l: "Continue → P2", s: "CPI in range", t: "neutral" },
+          ],
+        },
         { l: "Phase 2 · $150 spend", s: "CPA check", q: true },
-        { branch: [{ l: "Pause adset", s: "CPA > 1.5× target", t: "kill" }, { l: "Scale 1.5× + BAU", s: "clone as new ad to all BAU", t: "win" }] },
+        {
+          branch: [
+            { l: "Pause adset", s: "CPA > 1.5× target", t: "kill" },
+            {
+              l: "Scale 1.5× + BAU",
+              s: "clone as new ad to all BAU",
+              t: "win",
+            },
+          ],
+        },
       ],
     },
   },
