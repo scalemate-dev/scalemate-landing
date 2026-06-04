@@ -132,7 +132,7 @@ export default function AppflameCaseStudy() {
   const quotationSchema = {
     "@context": "https://schema.org",
     "@type": "Quotation",
-    text: "Standard Meta automated rules were too rigid for us. We needed custom logic, multi-level checks, and our own events from the way we score traffic. That is what cascade rules unlocked.",
+    text: "The biggest practical impact for us is the ability to test more hypotheses on the same budget. With automation rules we can cut weak variants quickly and test more creatives inside one ad set, even when Meta tries to over-push a single creative.",
     spokenByCharacter: {
       "@type": "Person",
       name: "Dmytro Hannoshenko",
@@ -206,19 +206,21 @@ export default function AppflameCaseStudy() {
               Testing is the job. Standard Meta rules ran out of room.
             </h2>
             <p>
-              User Acquisition operates within R&D. Finding new working
-              mechanics is the mandate, so constant testing is the work, and
-              control means stopping losers before they burn budget.
+              User Acquisition operates within R&D — testing is the work.
+              Most of the budget validates new creative hypotheses, so the
+              team needs tight spend control and fast reaction to bad funnel
+              signals.
             </p>
             <p>
-              Standard Meta rules check one condition at a time. A real kill
-              decision is several signals failing together, plus checks on
-              specific events from the team's traffic-scoring system, at both
-              ad and ad-set layers.
+              Meta's algorithm tends to over-push one creative once it starts
+              learning, even when results miss KPIs. And standard Meta rules
+              can't catch it: one condition or one action at a time, no
+              multi-signal cascade, no custom events from a traffic-scoring
+              system.
             </p>
             <p>
-              US market, team in Europe. Without automated kill logic, losing
-              ads burn budget for hours overnight.
+              US market, team in Europe. Without automated pause logic,
+              losing ads burn budget overnight.
             </p>
           </div>
         </div>
@@ -240,14 +242,13 @@ export default function AppflameCaseStudy() {
               </li>
               <li>
                 Each rule reads several metrics and events at the same time;
-                when all conditions match, the ad or ad-set is paused
+                when all conditions match, the ad or ad-set is paused,
+                scaled, or decreased
               </li>
               <li>
                 All rules live in one place: centralized management, with
                 check logic that scales across new campaigns or whole
-                accounts. The{" "}
-                <a href="/automation-rules-library">rule template library</a>{" "}
-                gives starting patterns to adapt
+                accounts
               </li>
               <li>
                 Every trigger logs to a dedicated Slack channel with the
@@ -263,48 +264,36 @@ export default function AppflameCaseStudy() {
           <div className={richTextStyles.richText}>
             <h2>More creative tests on the same budget</h2>
             <p>
-              The cascade replaces "let Meta keep over-pushing one creative"
-              with "rotate through more variants on the same test budget."
-              Losing ads are pulled out of the ad set fast, freeing room in
-              the budget and in the algorithm's attention for the next
-              hypothesis.
+              The cascade pulls losing ads out of the ad set fast, freeing
+              room in the budget and in the algorithm's attention for the
+              next hypothesis — instead of letting Meta keep over-pushing one
+              creative.
             </p>
-            <p>
-              For an account running cascade rules at this volume of test
-              cycles, the dashboard shows the following per month on average:
-            </p>
+            <p>Per month on average:</p>
             <ul>
               <li>
-                <strong>~20 hours of overnight monitoring replaced</strong>
-                {" "}— derived from 754 pause decisions per month × ~1.5 min
-                average manual review time (conservative; excludes
-                continuous-watching time between decisions)
+                <strong>20 hours of overnight monitoring replaced</strong> —
+                derived from 754 pause decisions × ~1.5 min average manual
+                review (conservative; excludes continuous-watching time)
               </li>
               <li>
                 <strong>754 losing ads stopped from burning budget</strong>
                 {" "}(~175 per week) — pulled out of the ad set before Meta's
-                algorithm over-allocates to them
-              </li>
-              <li>
-                <strong>8 late conversions auto-recovered</strong> — when
-                attribution arrived after the pause, the rule reverted
-                instead of writing off a working ad-set
+                algorithm over-allocates
               </li>
             </ul>
-            <p>
-              Behind those decisions, the cascade ran 574 evaluation cycles
-              per month, each checking thousands of ads — continuous funnel
-              coverage without eyes-on-screen.
-            </p>
             <p>Same budget. More test cycles. No manual monitoring.</p>
 
             <CaseQuote>
               <p>
-                Standard Meta automated rules were too rigid for us. We needed
-                custom logic, multi-level checks, and our own events from the
-                way we score traffic.
+                The biggest practical impact for us is the ability to test
+                more hypotheses on the same budget.
               </p>
-              <p>That is what cascade rules unlocked.</p>
+              <p>
+                With automation rules we can cut weak variants quickly and
+                test more creatives inside one ad set — even when Meta tries
+                to over-push a single creative.
+              </p>
             </CaseQuote>
           </div>
         </div>
@@ -335,7 +324,7 @@ export default function AppflameCaseStudy() {
               conditions defined in its own logic.
             </p>
 
-            <h2>What the cadence delivers</h2>
+            <h2>What cascade rules deliver</h2>
             <ul>
               <li>
                 <strong>More hypotheses tested on the same budget.</strong>{" "}
@@ -344,9 +333,9 @@ export default function AppflameCaseStudy() {
                 ad set faster, freeing room for the next hypothesis.
               </li>
               <li>
-                <strong>Earlier kill on multi-signal failures.</strong> A bad
-                ad rarely fails on a single metric. Cascades catch the moment
-                when several signals agree.
+                <strong>Earlier pause on multi-signal failures.</strong> A
+                bad ad rarely fails on a single metric. Cascades catch the
+                moment when several signals agree.
               </li>
               <li>
                 <strong>Re-activates ad-sets when results arrive late.</strong>
@@ -369,30 +358,43 @@ export default function AppflameCaseStudy() {
 
             <h2>Where this fits</h2>
             <p>
-              Cascade automation rules of this shape suit performance teams
-              that operate in a testing mode rather than a maintenance mode.
-              If the next quarter's plan reads like a hypothesis backlog with
-              new creative angles, new geos, and custom funnel events your
-              MMP or scoring system emits, the{" "}
+              Cascade automation rules adapt to whatever rhythm your account
+              runs on:
+            </p>
+            <ul>
+              <li>
+                <strong>Testing creatives and audiences</strong> — pause weak
+                variants by multi-signal cascade, free room for the next
+                hypothesis
+              </li>
+              <li>
+                <strong>Seasonality</strong> — throttle budgets when results
+                dip, scale them when they compound
+              </li>
+              <li>
+                <strong>Account-wide automation</strong> — auto-pause
+                underperformers, auto-scale winners, no eyes-on-screen
+              </li>
+              <li>
+                <strong>Late-attribution recovery</strong> — re-activate
+                paused ad-sets when conversions arrive after the pause
+              </li>
+              <li>
+                <strong>Agencies</strong> — clone a working rule library
+                across multiple accounts rather than rebuilding per brand
+              </li>
+            </ul>
+            <p>
+              Wherever the volume of decisions rises beyond what
+              single-condition rules can keep up with, the cascade structure
+              travels. Browse the{" "}
+              <a href="/automation-rules-library">automation rules library</a>
+              {" "}for example rules that lift paid-acquisition efficiency on
+              Meta and beyond, or see the{" "}
               <a href="/use-cases/ad-campaign-automation-rules">
                 campaign automation use case
               </a>{" "}
-              is built for that workload. Adjacent surfaces:{" "}
-              <a href="/use-cases/bulk-ad-launch">
-                scale launches without manual setup
-              </a>{" "}
-              and <a href="/solutions/media-buyers">tooling for media buyers</a>.
-            </p>
-            <p>
-              If your account is firmly in BAU mode and your priority is
-              squeezing a few more points of ROAS out of a stable winner,
-              single-condition rules can carry most of the load. The case for
-              the cascade structure rises sharply once the test volume rises.
-            </p>
-            <p>
-              Agencies running multiple R&D-style clients can clone a working
-              rule library across accounts rather than rebuilding it per
-              brand — the cascade pattern travels.
+              for the broader picture.
             </p>
 
             <CaseQuote>
@@ -403,8 +405,8 @@ export default function AppflameCaseStudy() {
                 and how the team structures its buying.
               </p>
               <p>
-                The subscription model is also reasonable — you can build
-                fairly complex logic even on the basic tier.
+                Scalemate's subscription model is also reasonable — you can
+                build fairly complex logic even on the basic tier.
               </p>
             </CaseQuote>
 
