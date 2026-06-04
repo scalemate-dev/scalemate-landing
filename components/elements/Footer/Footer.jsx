@@ -58,6 +58,12 @@ const Footer = () => {
             <Link className={styles.footerColLink} href="/automation-rules-library">
               Rules Library
             </Link>
+            <Link
+              className={styles.footerColLink}
+              href="/creative-testing-library"
+            >
+              Creative Testing Library
+            </Link>
             <Link className={styles.footerColLink} href="/blog">
               Blog
             </Link>
