@@ -3,7 +3,6 @@ import Container from "@/components/elements/Container/Container"
 import Button from "@/components/elements/Button/Button"
 import FAQ from "@/components/FAQ/FAQ"
 import {
-  IconRocket,
   IconBolt,
   IconClockHour4,
   IconRefresh,
@@ -14,6 +13,7 @@ import {
   IconChecks,
 } from "@tabler/icons-react"
 import LibraryClient from "./LibraryClient"
+import ScrollToButton from "./ScrollToButton"
 import { METHODS } from "./methods-data"
 import styles from "./page.module.scss"
 
@@ -326,7 +326,7 @@ export default function CreativeTestingLibraryPage() {
           <div className={styles.heroLayout}>
             <div className={styles.heroContent}>
               <span className={styles.eyebrow}>
-                Free library &middot; Meta + TikTok &middot; Creative testing
+                Meta Ads &middot; TikTok Ads &middot; Creative testing
                 frameworks
               </span>
               <h1 className={styles.heroTitle}>
@@ -337,9 +337,8 @@ export default function CreativeTestingLibraryPage() {
               </h1>
               <p className={styles.tagline}>
                 The creative testing methods media buyers actually use across
-                apps, e-commerce and games — 3-3-3, Hooks Test, Bulk CBO,
-                Mirror-BAU — filtered by your budget, platform and goal.
-                Automate the one you pick and find more winners, faster.
+                apps, e-commerce and mobile games. Automate the one you pick and
+                make your ads perform better.
               </p>
               <ul className={styles.heroFeatures}>
                 <li>
@@ -353,22 +352,21 @@ export default function CreativeTestingLibraryPage() {
               </ul>
               <div className={styles.heroActions}>
                 <Button
-                  href="#library"
-                  color="accent"
-                  trackEvent="hero_find_method"
-                  trackProps={{ page: "creative-testing-library" }}
-                >
-                  Find your method ↓
-                </Button>
-                <Button
                   href="https://app.scalemate.co"
-                  outline
+                  color="accent"
                   trackEvent="hero_start_trial"
                   trackProps={{ page: "creative-testing-library" }}
                 >
-                  <IconRocket size={18} />
-                  Try Scalemate free
+                  Start for free
                 </Button>
+                <ScrollToButton
+                  targetId="library"
+                  outline
+                  trackEvent="hero_find_method"
+                  trackProps={{ page: "creative-testing-library" }}
+                >
+                  Find your method
+                </ScrollToButton>
               </div>
 
               <dl className={styles.heroStats}>
@@ -517,7 +515,7 @@ export default function CreativeTestingLibraryPage() {
             <span
               className={`${styles.sectionEyebrow} ${styles.sectionEyebrowCenter}`}
             >
-              After the pain — the playbook
+              The playbook
             </span>
             <h2 className={styles.libraryIntroHeading}>
               14 frameworks that ship winners.{" "}
@@ -545,14 +543,14 @@ export default function CreativeTestingLibraryPage() {
           </div>
 
           <div className={styles.libraryIntroCta}>
-            <Button
-              href="#library"
+            <ScrollToButton
+              targetId="library"
               color="accent"
               trackEvent="library_intro_explore"
               trackProps={{ page: "creative-testing-library" }}
             >
-              Explore the library ↓
-            </Button>
+              Explore the library
+            </ScrollToButton>
           </div>
         </Container>
       </section>
@@ -605,8 +603,7 @@ export default function CreativeTestingLibraryPage() {
                     trackEvent="autopilot_try_free"
                     trackProps={{ page: "creative-testing-library" }}
                   >
-                    <IconRocket size={18} />
-                    Try it free
+                    Try it now
                   </Button>
                   <Button
                     href="/book-a-demo"
@@ -804,7 +801,6 @@ export default function CreativeTestingLibraryPage() {
               trackEvent="footer_start_trial"
               trackProps={{ page: "creative-testing-library" }}
             >
-              <IconRocket size={18} />
               Try Scalemate free
             </Button>
           </div>

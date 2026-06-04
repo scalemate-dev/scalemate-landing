@@ -55,7 +55,9 @@ function MiniFlow({ flow }) {
         if (step.framedGroup) {
           return (
             <div key={i} className={styles.flowFramedGroup}>
-              <span className={styles.flowFramedGroupHeader}>{step.framedGroup.header}</span>
+              <span className={styles.flowFramedGroupHeader}>
+                {step.framedGroup.header}
+              </span>
               <div className={styles.flowFramedGroupItems}>
                 {step.framedGroup.items.map((g, j) => (
                   <div key={j} className={styles.flowFramedGroupRow}>
@@ -74,11 +76,15 @@ function MiniFlow({ flow }) {
                 {step.group.map((g, j) => (
                   <div key={j} className={styles.flowGroupChip}>
                     <span className={styles.flowGroupChipL}>{g.l}</span>
-                    {g.s && <span className={styles.flowGroupChipS}>{g.s}</span>}
+                    {g.s && (
+                      <span className={styles.flowGroupChipS}>{g.s}</span>
+                    )}
                   </div>
                 ))}
               </div>
-              {step.note && <span className={styles.flowNote}>{step.note}</span>}
+              {step.note && (
+                <span className={styles.flowNote}>{step.note}</span>
+              )}
             </div>
           )
         }
@@ -128,7 +134,9 @@ function CatalogCard({ method }) {
         <div className={styles.statRow}>
           <div className={styles.stat}>
             <span className={styles.statK}>Budget</span>
-            <span className={styles.statV}>{method.budgetLabel ?? BUDGET_LABEL[method.budgetLevel]}</span>
+            <span className={styles.statV}>
+              {method.budgetLabel ?? BUDGET_LABEL[method.budgetLevel]}
+            </span>
           </div>
           <div className={styles.stat}>
             <span className={styles.statK}>Duration</span>
@@ -151,7 +159,7 @@ function CatalogCard({ method }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Build this flow in Scalemate →
+            Apply this method
           </a>
         </div>
       </div>
@@ -223,7 +231,9 @@ export default function LibraryClient() {
                         {GoalIcon && <GoalIcon size={15} stroke={1.8} />}
                         {g.label}
                       </span>
-                      <span className={styles.filterItemCount}>{counts[g.id]}</span>
+                      <span className={styles.filterItemCount}>
+                        {counts[g.id]}
+                      </span>
                     </button>
                   </li>
                 )
