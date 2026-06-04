@@ -50,12 +50,12 @@ const nextConfig = {
       },
       {
         source: "/blog/creative-testing-framework",
-        destination: "/creative-testing-library",
+        destination: "/creative-testing-framework-library",
         permanent: true,
       },
       {
         source: "/blog/creative-testing-methods",
-        destination: "/creative-testing-library",
+        destination: "/creative-testing-framework-library",
         permanent: true,
       },
     ]
