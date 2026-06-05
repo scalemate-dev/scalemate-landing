@@ -11,19 +11,22 @@ import styles from "./page.module.scss"
 const SLUG = "appflame-automation-rules"
 const URL = `https://www.scalemate.co/customers/${SLUG}`
 const CLIENT_NAME = "Appflame"
-const INDUSTRY = "Mobile Apps — Lifestyle / Dating"
-const USE_CASE = "Cascade automation rules for User Acquisition within an R&D function"
+const INDUSTRY = "App Publisher"
+const USE_CASE = "Creative testing automation"
 const LOGO = "/client-appflame.svg"
 const OG_IMAGE = "https://www.scalemate.co/og-image.png"
 
 const TITLE = "How Appflame tests more creative hypotheses per dollar on Meta"
 const DESCRIPTION =
-  "How Appflame automatically pauses 754 losing ads on Meta per month with cascade rules — testing more creative hypotheses per dollar, no overnight Ads Manager monitoring."
+  "How Appflame automatically pauses 754 losing ads on Meta per month with automation rules — testing more creative hypotheses per dollar, no overnight Ads Manager monitoring."
 
 const METRICS = [
   { value: "20", label: "Hours of overnight monitoring replaced per month" },
-  { value: "754", label: "Losing ads stopped from burning budget per month" },
-  { value: "574", label: "Times rules fired per month (each checks thousands of ads)" },
+  { value: "750", label: "Losing ads stopped from burning budget per month" },
+  {
+    value: "575",
+    label: "Times rules fired per month (each checks thousands of ads)",
+  },
 ]
 
 const DMYTRO_PHOTO = "/dmytro-hannoshenko.jpg"
@@ -200,59 +203,55 @@ export default function AppflameCaseStudy() {
 
         {/* Problem */}
         <div className={styles.section}>
-          <span className={styles.sectionLabel}>Problem</span>
           <div className={richTextStyles.richText}>
-            <h2>
-              Testing is the job. Standard Meta rules ran out of room.
-            </h2>
+            <h2>Challange</h2>
             <p>
-              User Acquisition operates within R&D — testing is the work.
-              Most of the budget validates new creative hypotheses, so the
-              team needs tight spend control and fast reaction to bad funnel
-              signals.
+              Standard Meta rules ran out of room. User Acquisition operates
+              within R&D — testing is the work. Most of the budget validates new
+              creative hypotheses, so the team needs tight spend control and
+              fast reaction to bad funnel signals.
             </p>
             <p>
-              Meta's algorithm tends to over-push one creative once it starts
-              learning, even when results miss KPIs. And standard Meta rules
-              can't catch it: one condition or one action at a time, no
-              multi-signal cascade, no custom events from a traffic-scoring
+              Meta's algorithm in 2026 tends to over-push one creative once it
+              starts learning, even when results miss KPIs. And standard Meta
+              rules can't catch it: one condition or one action at a time, no
+              multi-signal conditions, no custom events from a traffic-scoring
               system.
             </p>
             <p>
-              US market, team in Europe. Without automated pause logic,
-              losing ads burn budget overnight.
+              US market, team in Europe. Without automated pause logic, losing
+              ads burn budget overnight.
             </p>
           </div>
         </div>
 
         {/* Solution */}
         <div className={styles.section}>
-          <span className={styles.sectionLabel}>Solution</span>
           <div className={richTextStyles.richText}>
-            <h2>Cover the funnel in one rule library, with a Slack trail</h2>
+            <h2>Solution</h2>
+            <p>
+              Scalemate covers the funnel in one rule library, with a Slack
+              trail.
+            </p>
             <ul>
               <li>
                 A library of{" "}
-                <a href="/features/automation-rules">
-                  cascade automation rules
-                </a>{" "}
-                in Scalemate, covering click through purchase — and reading
-                the specific events the team uses in their traffic-scoring
-                system
+                <a href="/features/automation-rules">automation rules</a> in
+                Scalemate, covering click through purchase — and reading the
+                specific events the team uses in their traffic-scoring system
               </li>
               <li>
                 Each rule reads several metrics and events at the same time;
-                when all conditions match, the ad or ad-set is paused,
-                scaled, or decreased
+                when all conditions match, the ad or ad-set is paused, scaled,
+                or decreased
               </li>
               <li>
-                All rules live in one place: centralized management, with
-                check logic that scales across new campaigns or whole
-                accounts
+                All rules live in one place: centralized management, with check
+                logic that scales across new campaigns or whole accounts
               </li>
               <li>
-                Every trigger logs to a dedicated Slack channel with the
-                reason — searchable record of what fired, where, and why
+                Every trigger logs to a dedicated Slack channel with the reason
+                — searchable record of what fired, where, and why
               </li>
             </ul>
           </div>
@@ -260,39 +259,41 @@ export default function AppflameCaseStudy() {
 
         {/* Outcome */}
         <div className={styles.section}>
-          <span className={styles.sectionLabel}>Outcome</span>
           <div className={richTextStyles.richText}>
-            <h2>More creative tests on the same budget</h2>
+            <h2>Results</h2>
+            <p>It allows to test more creative ideas on the same budget.</p>
             <p>
-              The cascade pulls losing ads out of the ad set fast, freeing
-              room in the budget and in the algorithm's attention for the
-              next hypothesis — instead of letting Meta keep over-pushing one
-              creative.
+              Scalemate automation pulls losing ads out of the ad set fast,
+              freeing room in the budget and in the algorithm's attention for
+              the next hypothesis — instead of letting Meta keep over-pushing
+              one creative.
             </p>
             <p>Per month on average:</p>
             <ul>
               <li>
                 <strong>20 hours of overnight monitoring replaced</strong> —
-                derived from 754 pause decisions × ~1.5 min average manual
+                derived from 755 decisions per month × ~1.5 min average manual
                 review (conservative; excludes continuous-watching time)
               </li>
               <li>
-                <strong>754 losing ads stopped from burning budget</strong>
-                {" "}(~175 per week) — pulled out of the ad set before Meta's
-                algorithm over-allocates
+                <strong>
+                  175 losing ads stopped from burning budget weekly
+                </strong>{" "}
+                — pulled out of the ad set before Meta's algorithm
+                over-allocates
               </li>
             </ul>
             <p>Same budget. More test cycles. No manual monitoring.</p>
 
             <CaseQuote>
               <p>
-                The biggest practical impact for us is the ability to test
-                more hypotheses on the same budget.
+                The biggest practical impact for us is the ability to test more
+                hypotheses on the same budget.
               </p>
               <p>
-                With automation rules we can cut weak variants quickly and
-                test more creatives inside one ad set — even when Meta tries
-                to over-push a single creative.
+                With automation rules we can cut weak variants quickly and test
+                more creatives inside one ad set — even when Meta tries to
+                over-push a single creative.
               </p>
             </CaseQuote>
           </div>
@@ -300,52 +301,50 @@ export default function AppflameCaseStudy() {
 
         {/* Detail */}
         <div className={styles.section}>
-          <span className={styles.sectionLabel}>How it works in detail</span>
           <div className={richTextStyles.richText}>
-            <h2>How a single rule reads several signals at once</h2>
+            <h3>How a single rule reads several signals at once</h3>
             <p>
-              A typical{" "}
-              <a href="/features/automation-rules">cascade rule</a> reads
-              several metrics and events at the same time and only fires when
-              the full pattern matches. The team treats each rule as a small
-              policy document: if all of these conditions are true together,
-              the variant is not worth the next dollar. Single-condition
-              rules in Meta's UI cannot express that idea.
+              A typical <a href="/features/automation-rules">automation rule</a>{" "}
+              reads several metrics and events at the same time and only fires
+              when the full pattern matches. The team treats each rule as a
+              small policy document: if all of these conditions are true
+              together, the variant is not worth the next dollar.
+              Single-condition rules in Meta's UI cannot express that idea.
             </p>
 
-            <h2>Late-attribution workflow</h2>
+            <h3>Late-attribution workflow</h3>
             <p>
               When data on a paused ad set arrives late — for example, a
-              purchase that attributes a few hours after the pause — the
-              Slack thread tells the team which rule fired and on what
-              evidence. From there they decide whether to tune the rule,
-              re-enable the ad set manually, or leave the pause in place.
-              The ad-set re-activation rule also executes automatically under
-              conditions defined in its own logic.
+              purchase that attributes a few hours after the pause — the Slack
+              thread tells the team which rule fired and on what evidence. From
+              there they decide whether to tune the rule, re-enable the ad set
+              manually, or leave the pause in place. The ad-set re-activation
+              rule also executes automatically under conditions defined in its
+              own logic.
             </p>
 
-            <h2>What cascade rules deliver</h2>
+            <h3>What automation rules deliver</h3>
             <ul>
               <li>
-                <strong>More hypotheses tested on the same budget.</strong>{" "}
-                Meta tends to over-allocate to a single creative once it
-                starts learning. The cascade pulls losing variants out of the
+                <strong>More hypotheses tested on the same budget.</strong> Meta
+                tends to over-allocate to a single creative once it starts
+                learning. The automation rules pull losing variants out of the
                 ad set faster, freeing room for the next hypothesis.
               </li>
               <li>
-                <strong>Earlier pause on multi-signal failures.</strong> A
-                bad ad rarely fails on a single metric. Cascades catch the
+                <strong>Earlier pause on multi-signal failures.</strong> A bad
+                ad rarely fails on a single metric. Automation rules catch the
                 moment when several signals agree.
               </li>
               <li>
-                <strong>Re-activates ad-sets when results arrive late.</strong>
-                {" "}If a purchase attributes after the pause, the rule
-                reverts it instead of writing off a working ad-set.
+                <strong>Re-activates ad-sets when results arrive late.</strong>{" "}
+                If a purchase attributes after the pause, the rule reverts it
+                instead of writing off a working ad-set.
               </li>
               <li>
-                <strong>Operations load down to near zero overnight.</strong>{" "}
-                No overnight Ads Manager monitoring. The team checks the
-                Slack trigger feed in the morning and reads what happened.
+                <strong>Operations load down to near zero overnight.</strong> No
+                overnight Ads Manager monitoring. The team checks the Slack
+                trigger feed in the morning and reads what happened.
               </li>
             </ul>
 
@@ -358,13 +357,12 @@ export default function AppflameCaseStudy() {
 
             <h2>Where this fits</h2>
             <p>
-              Cascade automation rules adapt to whatever rhythm your account
-              runs on:
+              Automation rules adapt to whatever rhythm your account runs on:
             </p>
             <ul>
               <li>
                 <strong>Testing creatives and audiences</strong> — pause weak
-                variants by multi-signal cascade, free room for the next
+                variants by multi-signal automation, free room for the next
                 hypothesis
               </li>
               <li>
@@ -376,21 +374,21 @@ export default function AppflameCaseStudy() {
                 underperformers, auto-scale winners, no eyes-on-screen
               </li>
               <li>
-                <strong>Late-attribution recovery</strong> — re-activate
-                paused ad-sets when conversions arrive after the pause
+                <strong>Late-attribution recovery</strong> — re-activate paused
+                ad-sets when conversions arrive after the pause
               </li>
               <li>
-                <strong>Agencies</strong> — clone a working rule library
-                across multiple accounts rather than rebuilding per brand
+                <strong>Agencies</strong> — clone a working rule library across
+                multiple accounts rather than rebuilding per brand
               </li>
             </ul>
             <p>
               Wherever the volume of decisions rises beyond what
               single-condition rules can keep up with, the cascade structure
               travels. Browse the{" "}
-              <a href="/automation-rules-library">automation rules library</a>
-              {" "}for example rules that lift paid-acquisition efficiency on
-              Meta and beyond, or see the{" "}
+              <a href="/automation-rules-library">automation rules library</a>{" "}
+              for example rules that lift paid-acquisition efficiency on Meta
+              and beyond, or see the{" "}
               <a href="/use-cases/ad-campaign-automation-rules">
                 campaign automation use case
               </a>{" "}
@@ -399,10 +397,10 @@ export default function AppflameCaseStudy() {
 
             <CaseQuote>
               <p>
-                I'd recommend this approach to essentially any performance
-                team. For some it's test and spend control. For others, ROI
-                control or scaling automation. It depends on the product KPI
-                and how the team structures its buying.
+                I'd recommend this approach to essentially any performance team.
+                For some it's test and spend control. For others, ROI control or
+                scaling automation. It depends on the product KPI and how the
+                team structures its buying.
               </p>
               <p>
                 Scalemate's subscription model is also reasonable — you can
@@ -412,7 +410,7 @@ export default function AppflameCaseStudy() {
 
             <p>
               If that sounds like your account, start a Scalemate trial and
-              rebuild one cascade rule from this case study in your own
+              rebuild one automation rule from this case study in your own
               funnel. Or read <a href="/customers">more case studies</a> for
               adjacent setups.
             </p>
