@@ -2,7 +2,7 @@ import React from "react"
 import Image from "next/image"
 import styles from "./CompanyCard.module.scss"
 
-const CompanyCard = ({ logo, companyName, useCase, industry }) => {
+const CompanyCard = ({ logo, companyName, useCase, industry, darkLogo }) => {
   const imageUrl = logo.startsWith("//") ? `https:${logo}` : logo
 
   return (
@@ -10,7 +10,7 @@ const CompanyCard = ({ logo, companyName, useCase, industry }) => {
       <Image
         src={imageUrl}
         alt={companyName ? `${companyName} logo` : "Company logo"}
-        className={styles.logo}
+        className={`${styles.logo} ${darkLogo ? styles.logoDark : ""}`}
         height={128}
         width={128}
       />
