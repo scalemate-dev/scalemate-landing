@@ -1,0 +1,120 @@
+@use '@/app/home-v2/night' as *;
+
+@keyframes videoBreathe {
+  0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+  50%      { opacity: 0.7; transform: translate(-50%, -50%) scale(1.06); }
+}
+
+.section {
+  position: relative;
+  padding: 120px 0 140px;
+  background: $night-bg;
+  overflow: hidden;
+
+  // Faint vertical hairline from the previous section
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.06) 50%,
+      transparent 100%
+    );
+  }
+}
+
+.header {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto 56px;
+  max-width: 720px;
+  text-align: center;
+}
+
+.eyebrow {
+  @include uc-eyebrow;
+  color: $night-stone;
+  margin-bottom: 18px;
+}
+
+.title {
+  @include uc-section-title;
+  color: $night-ink;
+}
+
+.titleAccent {
+  font-style: italic;
+  color: $uc-accent;
+  font-weight: 700;
+}
+
+// ─── Video container ────────────────────────────
+
+.videoWrap {
+  position: relative;
+  z-index: 1;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+// Ambient warm glow behind the video — same family as hero glow
+.videoGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(
+    ellipse,
+    rgba($uc-accent, 0.18) 0%,
+    rgba($uc-accent, 0.05) 45%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(20px);
+  animation: videoBreathe 14s ease-in-out infinite;
+}
+
+// Override VideoEmbed frame to fit the night palette
+.video {
+  position: relative;
+  z-index: 1;
+  border-radius: 20px;
+  border: 1px solid $night-line-strong;
+  background: $night-bg-panel;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 24px 56px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+// ─── Responsive ─────────────────────────────────
+
+@include desktop-s {
+  .section { padding: 100px 0 120px; }
+  .videoWrap { max-width: 880px; }
+}
+
+@include tablet-horizontal {
+  .section { padding: 88px 0 100px; }
+  .header { margin-bottom: 44px; }
+}
+
+@include tablet-vertical {
+  .section { padding: 72px 0 80px; }
+  .header { margin-bottom: 36px; }
+  .video { border-radius: 16px; }
+}
+
+@include mobile {
+  .section { padding: 56px 0 64px; }
+  .video { border-radius: 14px; }
+}

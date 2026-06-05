@@ -1,0 +1,59 @@
+@use '@/app/home-v2/night' as *;
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+// ─── Wisp flow ────────────────────────────────────────────
+// Each path has a small visible dash chunk. Animating dashoffset by the
+// full dash period (visible + gap) makes the wisp slide along the curve
+// and seamlessly wrap. Linear timing — feels like steady drift, the way
+// Apple animates ambient gradient washes.
+
+@keyframes wispFlow {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: calc(var(--len) * -1); }
+}
+
+.path,
+.pathAccent {
+  animation-name: wispFlow;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  // duration + delay set inline per-path
+}
+
+// ─── Accent wisps: same flow, but with a soft glow ────────
+
+.pathAccent {
+  filter: drop-shadow(0 0 6px rgba(249, 115, 22, 0.35));
+}
+
+// ─── Reduced motion ───────────────────────────────────────
+
+@media (prefers-reduced-motion: reduce) {
+  .path,
+  .pathAccent {
+    animation: none !important;
+  }
+}
+
+// ─── Mobile: gentler ──────────────────────────────────────
+
+@media (max-width: 768px) {
+  .backdrop {
+    opacity: 0.55;
+  }
+}

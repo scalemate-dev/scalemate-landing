@@ -1,0 +1,302 @@
+@use '@/app/use-cases/_components/uc' as *;
+
+.section {
+  position: relative;
+  padding: 140px 0 140px;
+  background: $uc-bg-warm;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at 80% 15%,
+      rgba(249, 115, 22, 0.02) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
+  }
+}
+
+// ─── Steps container ─────────────────────────
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+// ─── Step (alternating two-column) ───────────
+
+.step {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  padding: 88px 0;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: $uc-line;
+  }
+
+  // Ghost number watermark
+  &::after {
+    content: attr(data-index);
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 280px;
+    line-height: 0.8;
+    letter-spacing: -0.05em;
+    color: $uc-ink;
+    opacity: 0.035;
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    right: 0;
+    top: 40px;
+  }
+
+  &.stepReversed::after {
+    right: auto;
+    left: 0;
+  }
+
+  &:first-child {
+    padding-top: 16px;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  &:last-child {
+    border-bottom: 1px solid $uc-line;
+  }
+}
+
+.stepReversed {
+  .stepVisual {
+    order: -1;
+  }
+}
+
+// ─── Step info ───────────────────────────────
+
+.stepInfo {
+  position: relative;
+  z-index: 1;
+}
+
+.stepEyebrow {
+  display: inline-block;
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $uc-accent;
+  margin-bottom: 18px;
+  padding: 6px 12px;
+  background: rgba($uc-accent, 0.08);
+  border-radius: 100px;
+}
+
+.stepTitle {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: $uc-ink;
+  margin: 0 0 16px;
+}
+
+.stepDesc {
+  font-family: $font-body;
+  font-size: 16px;
+  line-height: 1.7;
+  color: $uc-body;
+  margin: 0;
+}
+
+// ─── Per-feature CTA link ────────────────────
+
+.stepLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  font-family: $font-body;
+  font-size: 15px;
+  font-weight: 600;
+  color: $uc-accent;
+  text-decoration: none;
+  transition: color 0.25s $uc-ease;
+
+  &:hover {
+    color: $uc-accent-deep;
+
+    .stepLinkArrow {
+      transform: translateX(4px);
+    }
+  }
+}
+
+.stepLinkArrow {
+  display: inline-block;
+  font-size: 16px;
+  line-height: 1;
+  transition: transform 0.25s $uc-ease;
+}
+
+// ─── Visual panel ────────────────────────────
+
+.stepVisual {
+  position: relative;
+  z-index: 1;
+}
+
+// The RuleEngine (second feature) ships with stacked cards + floater
+// notifications that read as larger than the PipelineFlow / SyncVisual
+// alongside. Scale it down inside FeaturesV2 only — keeps the rhythm
+// across the three rows consistent without touching the source component.
+.step:nth-child(2) .stepVisual {
+  transform: scale(0.86);
+  transform-origin: center;
+
+  @include tablet-vertical {
+    transform: none;
+  }
+}
+
+.visual {
+  background: $uc-panel-bg;
+  border-radius: 24px;
+  padding: 32px;
+  border: 1px solid rgba($uc-ink, 0.04);
+  box-shadow: $uc-shadow-panel;
+  transition: transform 0.6s $uc-ease, box-shadow 0.6s $uc-ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $uc-shadow-panel-hover;
+  }
+}
+
+.stepImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+}
+
+// ─── Responsive ──────────────────────────────
+
+@include desktop-s {
+  .step {
+    gap: 60px;
+    padding: 72px 0;
+  }
+
+  .stepTitle {
+    font-size: 30px;
+  }
+}
+
+@include tablet-horizontal {
+  .section {
+    padding: 104px 0;
+  }
+
+  .step {
+    gap: 44px;
+    padding: 60px 0;
+  }
+
+  .stepTitle {
+    font-size: 26px;
+  }
+
+  .stepDesc {
+    font-size: 15px;
+  }
+
+  .visual {
+    padding: 28px;
+  }
+}
+
+@include tablet-vertical {
+  .section {
+    padding: 80px 0;
+  }
+
+  .step {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 48px 0;
+
+    &::after {
+      font-size: 180px;
+      top: 12px;
+    }
+  }
+
+  .stepReversed .stepVisual {
+    order: 0;
+  }
+
+  .stepTitle {
+    font-size: 24px;
+    margin-bottom: 14px;
+  }
+
+  .visual {
+    padding: 24px;
+  }
+}
+
+@include mobile {
+  .section {
+    padding: 56px 0;
+  }
+
+  .step {
+    padding: 36px 0;
+    gap: 24px;
+
+    &::after {
+      font-size: 120px;
+      opacity: 0.04;
+    }
+  }
+
+  .stepEyebrow {
+    font-size: 10px;
+    margin-bottom: 14px;
+  }
+
+  .stepTitle {
+    font-size: 22px;
+    letter-spacing: -0.025em;
+  }
+
+  .stepDesc {
+    font-size: 14px;
+  }
+
+  .visual {
+    padding: 18px;
+    border-radius: 18px;
+  }
+}

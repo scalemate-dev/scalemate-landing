@@ -1,0 +1,29 @@
+@forward '@/app/use-cases/_components/uc';
+@use '@/app/use-cases/_components/uc' as *;
+
+// ── Night palette ──
+// Used across all /home-v2 sections so the page reads as one continuous
+// "midnight ops" surface. Built on top of $uc-* tokens — accent stays $uc-accent.
+
+$night-bg:           #0a0908;   // base canvas
+$night-bg-soft:      #110f0d;   // gentle section variation
+$night-bg-panel:     #17140f;   // panels / cards (warm-tinted black)
+$night-bg-elevated:  #1d1916;   // top elevation cards
+$night-ink:          #f5f2ee;   // primary text on dark
+$night-ink-soft:     rgba(255, 255, 255, 0.82);
+$night-body:         rgba(255, 255, 255, 0.62);
+$night-stone:        rgba(255, 255, 255, 0.42);
+$night-line:         rgba(255, 255, 255, 0.08);
+$night-line-strong:  rgba(255, 255, 255, 0.14);
+
+$night-panel-bg: linear-gradient(168deg, #1d1916 0%, #14110e 100%);
+
+$night-shadow-panel:
+  0 1px 2px rgba(0, 0, 0, 0.4),
+  0 8px 24px rgba(0, 0, 0, 0.28),
+  inset 0 1px 0 rgba(255, 255, 255, 0.03);
+
+$night-shadow-panel-hover:
+  0 2px 4px rgba(0, 0, 0, 0.5),
+  0 16px 40px rgba(0, 0, 0, 0.38),
+  inset 0 1px 0 rgba(255, 255, 255, 0.05);
