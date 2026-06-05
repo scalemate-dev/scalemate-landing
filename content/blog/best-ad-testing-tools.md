@@ -204,7 +204,7 @@ The best ad testing tool depends on where the workflow breaks down. Start with t
 
 ## How to Build a Creative Testing Framework
 
-Tools handle the execution, but they do not replace a testing process. A [creative testing framework](/creative-testing-library) defines what to test, how to structure campaigns, when to pause or scale, and how to feed learnings back into creative production. Without a framework, even the best tools produce noise instead of signal.
+Tools handle the execution, but they do not replace a testing process. A [creative testing framework](/creative-testing-framework-library) defines what to test, how to structure campaigns, when to pause or scale, and how to feed learnings back into creative production. Without a framework, even the best tools produce noise instead of signal.
 
 ![Creative testing framework: 70% budget to new concepts, 30% to winner iterations. Weekly cycle: analyze, produce, bulk launch, rules run overnight, report and iterate](/blog/images/best-ad-testing-tools/creative-testing-framework.svg)
 
@@ -215,4 +215,4 @@ The basics: define kill and scale thresholds before launch, not after. Allocate 
 ![Scalemate automated ad testing flow: bulk launch, auto-pause losers at 2x CPA, scale winners, with decision logic for kill and scale rules](/blog/images/best-ad-testing-tools/scalemate-testing-flow-rebrand.svg)
 *Scalemate's automated testing flow — from creative handoff to winner scaling.*
 
-For a complete walkthrough with checklists and campaign structures, read the [full framework guide](/creative-testing-library). Related reading: [what is ad fatigue](/blog/what-is-ad-fatigue) and [AdCreative.ai alternatives](/blog/adcreative-ai-alternative) for creative production options.
+For a complete walkthrough with checklists and campaign structures, read the [full framework guide](/creative-testing-framework-library). Related reading: [what is ad fatigue](/blog/what-is-ad-fatigue) and [AdCreative.ai alternatives](/blog/adcreative-ai-alternative) for creative production options.

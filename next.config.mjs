@@ -58,6 +58,11 @@ const nextConfig = {
         destination: "/creative-testing-framework-library",
         permanent: true,
       },
+      {
+        source: "/creative-testing-library",
+        destination: "/creative-testing-framework-library",
+        permanent: true,
+      },
     ]
   },
   async rewrites() {
