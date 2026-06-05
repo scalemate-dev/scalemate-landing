@@ -1159,6 +1159,35 @@ $mono: "SF Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, "Cascadia Code", 
   }
 }
 
+.libraryHead {
+  max-width: 720px;
+  margin: 0 0 28px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 20px;
+  }
+}
+
+.libraryHeading {
+  margin: 0 0 10px;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #0A0A0A;
+
+  @media (max-width: 768px) {
+    font-size: 23px;
+  }
+}
+
+.libraryLede {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.55;
+  color: #595650;
+}
+
 // ─── PROOF BLOCK ───────────────────────────────
 
 .proofBlock {

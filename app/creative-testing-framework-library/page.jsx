@@ -170,13 +170,20 @@ export const metadata = {
     type: "website",
     title: `Scalemate Creative Testing Framework Library: Methods by Goal`,
     description: `Production-tested creative testing methods curated by Scalemate. 3-3-3, Hooks Test, Bulk CBO, Cheap Geo, Mirror-BAU — filter by goal, platform, budget.`,
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    images: [
+      {
+        url: "/og-creative-testing.png",
+        width: 1792,
+        height: 936,
+        alt: "Scalemate Creative Testing Framework Library — 14 methods filterable by goal, budget and platform for Meta and TikTok",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `Scalemate Creative Testing Framework Library: Methods by Goal`,
     description: `Creative testing methods curated for Meta + TikTok teams. Filter by goal, platform, budget. Free.`,
-    images: ["/og-image.png"],
+    images: ["/og-creative-testing.png"],
   },
 }
 
@@ -207,7 +214,7 @@ const softwareSchema = {
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   url: "https://www.scalemate.co/creative-testing-framework-library",
-  image: "https://www.scalemate.co/og-image.png",
+  image: "https://www.scalemate.co/og-creative-testing.png",
   offers: {
     "@type": "Offer",
     price: "0",
@@ -247,6 +254,22 @@ const faqItems = [
     question: "How many creatives should I test per week in 2026?",
     answer:
       "For Meta ads creative testing in 2026, Andromeda changed the math. Under $5K/mo you can still run 5-10 across 2-3 ad sets; broad Advantage+ teams ship 10-30 per ad set, and above $50K/mo it's 50-100 a week as fatigue cycles compressed to 7-14 days.",
+  },
+  {
+    question: "How did Meta's Andromeda update change creative testing in 2026?",
+    answer:
+      "Andromeda rewards creative volume and diversity over narrow audience targeting — broad ad sets carrying 10-30 distinct creatives now beat fragmented, hyper-targeted setups. Two practical shifts: test whole concepts, not 3 cuts of one ad (Andromeda's Entity ID dedup collapses near-identical variants into a single delivery slot), and ship fresh creatives weekly because fatigue cycles compressed to 7-14 days. The Multi-Variant Battery and Creative Refresh Cadence methods above are built for exactly this.",
+  },
+  {
+    question:
+      "Is creative testing on TikTok different from creative testing on Meta?",
+    answer:
+      "The frameworks carry over, but the signals don't. TikTok burns through creative faster, rewards native-feeling hooks in the first 1-2 seconds, and early on you lean on hook rate and IPM more than Meta-style CPA windows. Most methods in this library run on both platforms — each card tags whether it applies to Meta, TikTok, or both.",
+  },
+  {
+    question: "How is creative testing for mobile UA and app campaigns different?",
+    answer:
+      "App-install UA judges creatives on IPM, CPI and downstream signals like d3 retention — not just front-end CPA — so cheap, high-volume testing matters even more than in e-commerce. That's why mobile UA teams run cost-optimized frameworks: Cheap Geo (validate in tier-3 / WW geos before spending tier-1 budget), Cheap Geo + AEO, and Mirror-BAU. All three are in the library above, filtered under Mobile UA.",
   },
   {
     question: "What's the 3-3-3 method in Facebook ads?",
@@ -344,22 +367,22 @@ export default function CreativeTestingLibraryPage() {
                 </li>
               </ul>
               <div className={styles.heroActions}>
-                <Button
-                  href="https://app.scalemate.co"
-                  color="accent"
-                  trackEvent="hero_start_trial"
-                  trackProps={{ page: "creative-testing-framework-library" }}
-                >
-                  Start for free
-                </Button>
                 <ScrollToButton
                   targetId="library"
-                  outline
+                  color="accent"
                   trackEvent="hero_find_method"
                   trackProps={{ page: "creative-testing-framework-library" }}
                 >
                   Find your method
                 </ScrollToButton>
+                <Button
+                  href="https://app.scalemate.co"
+                  outline
+                  trackEvent="hero_start_trial"
+                  trackProps={{ page: "creative-testing-framework-library" }}
+                >
+                  Start for free
+                </Button>
               </div>
 
               <dl className={styles.heroStats}>
@@ -620,6 +643,16 @@ export default function CreativeTestingLibraryPage() {
       {/* ─── LIBRARY ────────────────────────── */}
       <section id="library" className={styles.librarySection}>
         <Container>
+          <div className={styles.libraryHead}>
+            <h2 className={styles.libraryHeading}>
+              All {METHOD_COUNT} creative testing methods
+            </h2>
+            <p className={styles.libraryLede}>
+              Production-tested creative testing methods for Meta + TikTok —
+              sorted by goal, budget and platform. Pick one, run it by hand, or
+              put it on autopilot.
+            </p>
+          </div>
           <LibraryClient />
         </Container>
       </section>

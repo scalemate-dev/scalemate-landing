@@ -215,7 +215,13 @@
   background: #FFFFFF;
   border: 1px solid #E8E3DA;
   border-radius: 14px;
+  scroll-margin-top: 100px; // anchor jumps clear the sticky header
   transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+
+  &:target {
+    border-color: #F0CFB3;
+    box-shadow: 0 0 0 3px rgba(243, 107, 33, 0.12);
+  }
 
   &:hover {
     border-color: #D9D2C3;
@@ -285,6 +291,122 @@
   font-size: 14px;
   color: #3A3A45;
   line-height: 1.55;
+}
+
+.catalogCaveat {
+  display: flex;
+  gap: 6px;
+  margin: 10px 0 0 0;
+  padding: 8px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #9A5A12;
+  background: #FCF3E8;
+  border: 1px solid #F0D9BC;
+  border-radius: 8px;
+
+  &::before {
+    content: "⚠";
+    flex: none;
+    font-weight: 700;
+  }
+}
+
+// ─── Expandable playbook ─────────────────────────
+
+.playbook {
+  margin-top: 14px;
+  border: 1px solid #ECE6DB;
+  border-radius: 10px;
+  background: #FCFAF6;
+  overflow: hidden;
+}
+
+.playbookSummary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 11px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #2A2A33;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  transition: background 0.15s;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  &:hover {
+    background: #F7F2EA;
+  }
+}
+
+.playbookChevron {
+  flex: none;
+  color: #B07A45;
+  transition: transform 0.2s ease;
+}
+
+.playbook[open] .playbookChevron {
+  transform: rotate(180deg);
+}
+
+.playbookBody {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 4px 14px 16px;
+  border-top: 1px solid #F0EADF;
+}
+
+.playbookRow {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.playbookLabel {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #B07A45;
+}
+
+.playbookLabelWarn {
+  color: #C2410C;
+}
+
+.playbookText {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: #3A3A45;
+}
+
+.playbookSteps {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #3A3A45;
+
+  li {
+    padding-left: 2px;
+  }
+
+  li::marker {
+    color: #B07A45;
+    font-weight: 600;
+  }
 }
 
 // ─── Chips ───────────────────────────────────────

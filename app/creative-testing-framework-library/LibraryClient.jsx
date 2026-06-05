@@ -9,6 +9,7 @@ import {
   IconDna2,
   IconArrowsLeftRight,
   IconDeviceMobile,
+  IconChevronDown,
 } from "@tabler/icons-react"
 import { METHODS, GOALS, PLATFORMS, CATALOG } from "./methods-data"
 import styles from "./LibraryClient.module.scss"
@@ -110,9 +111,14 @@ function CatalogCard({ method }) {
   const platforms = method.platform
     .map((p) => PLATFORMS.find((pl) => pl.id === p)?.label)
     .filter(Boolean)
+  // Gated methods (e.g. Conversion Lift) run through Meta, not Scalemate —
+  // don't claim full automation on those.
+  const ctaLabel = method.cardCaveat
+    ? "Set it up in Scalemate"
+    : "Automate this method"
 
   return (
-    <article className={styles.catalogCard}>
+    <article id={method.id} className={styles.catalogCard}>
       <div className={styles.catalogMain}>
         <div className={styles.catalogHead}>
           <span className={styles.catalogGoal}>
@@ -130,6 +136,73 @@ function CatalogCard({ method }) {
 
         <h3 className={styles.catalogTitle}>{method.name}</h3>
         <p className={styles.catalogSummary}>{method.summary}</p>
+
+        {method.cardCaveat && (
+          <p className={styles.catalogCaveat}>{method.cardCaveat}</p>
+        )}
+
+        <details className={styles.playbook}>
+          <summary className={styles.playbookSummary}>
+            <span>Full playbook — setup, thresholds &amp; common mistake</span>
+            <IconChevronDown
+              size={15}
+              stroke={2}
+              className={styles.playbookChevron}
+            />
+          </summary>
+          <div className={styles.playbookBody}>
+            {method.bestFor && (
+              <div className={styles.playbookRow}>
+                <span className={styles.playbookLabel}>Best for</span>
+                <p className={styles.playbookText}>{method.bestFor}</p>
+              </div>
+            )}
+            {method.method?.length > 0 && (
+              <div className={styles.playbookRow}>
+                <span className={styles.playbookLabel}>Setup</span>
+                <ol className={styles.playbookSteps}>
+                  {method.method.map((s, i) => (
+                    <li key={i}>{s}</li>
+                  ))}
+                </ol>
+              </div>
+            )}
+            {method.pros && (
+              <div className={styles.playbookRow}>
+                <span className={styles.playbookLabel}>Strengths</span>
+                <p className={styles.playbookText}>{method.pros}</p>
+              </div>
+            )}
+            {method.cons && (
+              <div className={styles.playbookRow}>
+                <span className={styles.playbookLabel}>Trade-offs</span>
+                <p className={styles.playbookText}>{method.cons}</p>
+              </div>
+            )}
+            {method.pitfall && (
+              <div className={styles.playbookRow}>
+                <span
+                  className={`${styles.playbookLabel} ${styles.playbookLabelWarn}`}
+                >
+                  Common mistake
+                </span>
+                <p className={styles.playbookText}>{method.pitfall}</p>
+              </div>
+            )}
+            {method.automation?.length > 0 && (
+              <div className={styles.playbookRow}>
+                <span className={styles.playbookLabel}>
+                  On autopilot with Scalemate
+                </span>
+                <ol className={styles.playbookSteps}>
+                  {method.automation.map((s, i) => (
+                    <li key={i}>{s}</li>
+                  ))}
+                </ol>
+              </div>
+            )}
+          </div>
+        </details>
 
         <div className={styles.statRow}>
           <div className={styles.stat}>
@@ -159,7 +232,7 @@ function CatalogCard({ method }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Apply this method
+            {ctaLabel}
           </a>
         </div>
       </div>

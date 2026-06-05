@@ -17,6 +17,7 @@
 //   pitfall (string)
 //   automation (array of 5 step strings — Scalemate-specific)
 //   accessCaveat (optional — for gated features like Conversion Lift)
+//   cardCaveat (optional — short one-liner rendered on the collapsed card for gated/non-automated methods)
 //   flowImage (optional — path to per-method flow SVG in /public; rendered atop the expanded card, replaces the prose Method steps)
 
 export const METHODS = [
@@ -157,6 +158,8 @@ export const METHODS = [
     goal: "validate",
     accessCaveat:
       "Not self-serve for most accounts — needs a Meta rep or Business Partner access. If you've never seen 'Conversion Lift' in your Experiments menu, you don't have it — use Meta Native A/B Test (Method 10) instead.",
+    cardCaveat:
+      "Meta-gated · measurement-only — the Lift study runs through Meta, not Scalemate.",
     bestFor:
       "Enterprise w/ Meta rep · $75K+/mo accounts · validating a big change before scaling 2–3×.",
     budgetLevel: "high",
