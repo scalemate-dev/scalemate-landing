@@ -304,6 +304,12 @@ export const data = {
 
   faq: [
     {
+      question:
+        "How can media buyers import creative assets from Google Drive to Meta?",
+      answer:
+        "Media buyers import creative assets from Google Drive by connecting Drive to a verified Meta app like Scalemate, which syncs files directly into Meta's Media Library through the API — no downloading, no re-uploading. You select folders or specific files, and only new assets transfer thanks to built-in deduplication. The same one-click sync works for TikTok and YouTube, so multi-platform teams import everything from one screen instead of repeating the process per platform.",
+    },
+    {
       question: "What does bulk upload creatives mean for Meta Ads?",
       answer:
         "Bulk uploading creatives means sending multiple ad files from cloud storage (Google Drive, Dropbox, NextCloud) directly to Meta's Media Library in one batch, skipping the manual download-reupload cycle. Files transfer from storage to ad accounts without local downloads or browser-based drag-and-drop. The entire process runs from a single interface – select files, choose destination accounts, push.",

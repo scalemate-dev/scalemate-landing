@@ -11,7 +11,7 @@ coverImage: /blog/images/best-mcp-servers-meta-google-ads/mcp-servers-cover.svg
 coverAlt: "MCP servers for Meta and Google Ads — AI connection layer illustration"
 heroBg: /blog/images/best-mcp-servers-meta-google-ads/mcp-servers-hero.svg
 createdAt: "2026-03-30"
-updatedAt: "2026-05-05"
+updatedAt: "2026-06-05"
 faq:
   - question: "What is MCP for advertising?"
     answer: "MCP (Model Context Protocol) is a standard that lets AI assistants connect directly to advertising platforms like Meta Ads and Google Ads. Instead of copying data into prompts manually, MCP advertising tools pull live campaign data — spend, ROAS, impressions, creative performance — straight into an AI chat. This means marketers can ask questions about their campaigns and get answers based on real numbers, not guesswork."
@@ -33,7 +33,9 @@ For most of 2025, connecting Meta Ads to Claude meant pasting a personal access 
 
 On April 29, 2026, Meta did something the **meta ads MCP** community had been begging for since the protocol came out: it shipped its own official server. 29 tools. Read and write. No personal access token to paste, no developer app to register. That changes the shape of this article. Half the questions media buyers were asking about MCP for ads in March — "is it safe?", "will I get banned?", "do I have to clone a repo?" — now have a straight answer for the Meta side. Google had an official server already. Both major platforms now have one.
 
-This refresh covers every major option available in May 2026, including Meta's new launch, with honest comparisons so you can pick the right layer for your stack.
+This refresh covers every major option available as of June 2026, including Meta's new launch, with honest comparisons so you can pick the right layer for your stack.
+
+**Quick answer:** The best MCP server for **Meta Ads** is Meta's own **official Ads MCP** (launched April 29, 2026) — 29 tools, read + write, OAuth login, no API keys, free during open beta. For **Google Ads**, use **Google's official MCP server**. To cover **both platforms in one connection**, use **Pipeboard**. For an open-source, self-hosted option, use **GoMarble**. If you need a layer *above* MCP — automation rules running 24/7, bulk ad launch, and Meta + TikTok in one workflow — that's [Scalemate](/ai-assistant), a verified Meta app rather than an MCP server.
 
 **In this article:**
 - [Why Marketers Are Looking at MCP for Ads](#why-marketers-are-looking-at-mcp-for-ads)
@@ -138,7 +140,7 @@ If any of those three is a no, treat the tool as risky and weigh accordingly. We
 
 ## Best MCP Servers for Meta Ads
 
-The **meta ads MCP** landscape now has a first-party option leading it, with the existing third-party servers below. Ranked by trust + setup simplicity.
+The best MCP server for Meta Ads is **Meta's own official Ads MCP** — launched April 29, 2026, free during open beta, 29 tools, OAuth login with no API keys to manage. Below it are the third-party **meta ads MCP** servers worth knowing, ranked by trust + setup simplicity.
 
 ### 0. Meta Ads MCP (Official) — Launched April 29, 2026
 
@@ -147,7 +149,7 @@ Meta's first-party MCP server. 29 tools across campaign creation, performance in
 - **Setup:** OAuth via Meta Business → paste config block into `claude_desktop_config.json` → restart Claude Desktop. ~5 minutes
 - **CLI option:** `npm install -g @meta/ads-cli` (Node 18+) for terminal workflows
 - **Platforms:** Meta Ads only
-- **Pricing:** Free during open beta (no usage caps published as of May 2026)
+- **Pricing:** Free during open beta (no usage caps published as of June 2026)
 - **Verification:** First-party (Meta itself). No ban risk by design — this is Meta's own product
 - **Best for:** Solo media buyers and small teams who want chat-driven analysis and basic write actions on a single Meta ad account, without paying for or installing anything
 
@@ -211,7 +213,7 @@ See the ["When Meta's MCP is enough vs when you need a layer above"](#when-metas
 
 ## Best MCP Servers for Google Ads
 
-The **google ads MCP** ecosystem has one major advantage: an official server from Google. Here are the top options.
+The best MCP server for Google Ads is **Google's own official MCP server** — the deepest API coverage and most reliable data access, though it needs developer-level setup. For a simpler route, Pipeboard and Flyweel cover Google Ads too. Here's how the **google ads MCP** options compare.
 
 ### 1. Google Ads MCP (Official)
 

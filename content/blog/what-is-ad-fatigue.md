@@ -19,7 +19,7 @@ tags:
   - Meta Ads
   - performance marketing
 createdAt: "2026-04-07"
-updatedAt: "2026-05-05"
+updatedAt: "2026-06-05"
 faq:
   - question: "What is ad fatigue?"
     answer: "Ad fatigue is when the same audience sees the same ad too many times, causing performance metrics to decline. CTR drops, CPA rises, and ROAS falls — not because the ad was bad, but because the audience has seen it enough to stop responding. It affects every paid media platform, including Meta, TikTok, and Google."
@@ -40,6 +40,8 @@ faq:
 Every ad has an expiration date. It does not matter how strong the creative is, how precise the targeting is, or how well the funnel converts. At some point, performance starts to slide — CTR drops, CPA rises, ROAS compresses. This is ad fatigue, and it is not a bug in the system. It is a built-in feature of every paid media platform. The question is not whether it will happen. The question is whether the team has a system ready when it does.
 
 This article covers what ad fatigue actually means in practice, how to recognize it before the budget bleeds, what causes it at a structural level, and how to build a testing system that keeps performance steady instead of lurching from winner to burnout.
+
+**Quick answer:** Ad fatigue is when the same audience sees the same ad too many times, so CTR drops, CPA rises, and ROAS falls — even though the creative itself never changed. You fix it by refreshing creatives *before* current winners burn out: watch for a 20%+ CTR drop from peak and frequency above 3.0, test around 20 new creatives a week to find winners (roughly a 5% hit rate), and set automation rules that pause fatigued ads and scale fresh ones across Meta and TikTok.
 
 **In this article:**
 - [What Is Ad Fatigue?](#what-is-ad-fatigue)
