@@ -192,6 +192,7 @@ export const data = {
     clientApps: {
       label: "Apps powered by Scalemate",
       logos: [
+        { src: "/client-appflame.svg", alt: "Appflame" },
         { src: "/client-zeptolab.webp", alt: "ZeptoLab" },
         { src: "/client-kitup.webp", alt: "KitUp" },
         { src: "/client-cut-the-rope.webp", alt: "Cut the Rope" },

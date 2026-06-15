@@ -99,6 +99,10 @@ const faqItems = [
 
 const relatedLinks = [
   {
+    label: "Case study: How Appflame automates creative testing on Meta",
+    href: "/customers/appflame-automation-rules",
+  },
+  {
     label: "Browse production-tested Meta automation rules",
     href: "/automation-rules-library",
   },

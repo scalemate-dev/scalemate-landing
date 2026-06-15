@@ -15,6 +15,23 @@ const client = createClient({
 
 export const metadata = pageMetadata.customers
 
+// Static case study (hardcoded page, not in Contentful) — pinned to the top of the grid.
+const STATIC_CASE_STUDIES = [
+  {
+    id: "appflame-automation-rules",
+    title: "How Appflame automates creative testing on Meta",
+    clientName: "Appflame",
+    description: "",
+    metrics: [
+      { value: "750", description: "Losing ads stopped per month" },
+      { value: "20hr", description: "Overnight monitoring replaced / mo" },
+      { value: "575", description: "Rule firings per month" },
+    ],
+    logo: "/client-appflame.svg",
+    slug: "appflame-automation-rules",
+  },
+]
+
 export default async function CaseStudies() {
   const response = await client.getEntries({
     content_type: "caseStudy",
@@ -51,7 +68,7 @@ export default async function CaseStudies() {
 
       <Container>
         <div className={styles.grid}>
-          {caseStudies.map((study) => (
+          {[...STATIC_CASE_STUDIES, ...caseStudies].map((study) => (
             <CaseStudyCard key={study.id} caseStudy={study} />
           ))}
         </div>
@@ -62,8 +79,8 @@ export default async function CaseStudies() {
 }
 
 function CaseStudyCard({ caseStudy }) {
-  const { title, metrics, image, slug, clientName } = caseStudy
-  const imageUrl = image.startsWith("//") ? `https:${image}` : image
+  const { title, metrics, image, slug, clientName, logo } = caseStudy
+  const imageUrl = image?.startsWith("//") ? `https:${image}` : image
 
   return (
     <div className={styles.card}>
@@ -100,7 +117,14 @@ function CaseStudyCard({ caseStudy }) {
       </div>
 
       <div className={styles.imageContainer}>
-        <Image src={imageUrl} alt={title} fill className={styles.image} />
+        {logo ? (
+          <div className={styles.logoPanel}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={logo} alt={clientName} className={styles.logoImg} />
+          </div>
+        ) : (
+          <Image src={imageUrl} alt={title} fill className={styles.image} />
+        )}
       </div>
     </div>
   )

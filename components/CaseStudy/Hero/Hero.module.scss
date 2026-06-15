@@ -23,6 +23,9 @@
   text-align: center;
   letter-spacing: -0.02em;
   color: #121718;
+  max-width: 24ch;
+  margin-inline: auto;
+  text-wrap: balance;
 }
 
 .label {

@@ -210,10 +210,24 @@ export const data = {
           { value: "35hrs", label: "Freed monthly" },
         ],
       },
+      {
+        company: "Appflame",
+        vertical: "App publisher · Meta UA",
+        title: "More Creative Hypotheses Tested on the Same Budget",
+        description:
+          "Appflame's user-acquisition team replaced overnight Ads Manager monitoring with a multi-signal automation rule library on Meta, pulling weak variants before the algorithm over-allocates and freeing budget for the next test.",
+        href: "/customers/appflame-automation-rules",
+        metrics: [
+          { value: "750", label: "Losing ads stopped per month" },
+          { value: "20h", label: "Overnight monitoring replaced / month" },
+          { value: "575", label: "Rule firings per month" },
+        ],
+      },
     ],
     clientApps: {
       label: "Apps powered by Scalemate",
       logos: [
+        { src: "/client-appflame.svg", alt: "Appflame" },
         { src: "/client-zeptolab.webp", alt: "ZeptoLab" },
         { src: "/client-kitup.webp", alt: "KitUp" },
         { src: "/client-cut-the-rope.webp", alt: "Cut the Rope" },

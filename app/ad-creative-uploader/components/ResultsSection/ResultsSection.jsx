@@ -75,6 +75,7 @@ export default function ResultsSection() {
           <span className={styles.clientAppsLabel}>Apps powered by Scalemate</span>
           <div className={styles.clientAppsRow}>
             {/* eslint-disable @next/next/no-img-element */}
+            <img src="/client-appflame.svg" alt="Appflame" className={styles.clientAppIcon} />
             <img src="/client-zeptolab.webp" alt="ZeptoLab" className={styles.clientAppIcon} />
             <img src="/client-kitup.webp" alt="KitUp" className={styles.clientAppIcon} />
             <img src="/client-cut-the-rope.webp" alt="Cut the Rope" className={styles.clientAppIcon} />

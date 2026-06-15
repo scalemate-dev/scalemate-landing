@@ -16,9 +16,9 @@ const USE_CASE = "Creative testing automation"
 const LOGO = "/client-appflame.svg"
 const OG_IMAGE = "https://www.scalemate.co/og-image.png"
 
-const TITLE = "How Appflame tests more creative hypotheses per dollar on Meta"
+const TITLE = "How Appflame automates creative testing on Meta"
 const DESCRIPTION =
-  "How Appflame automatically pauses 754 losing ads on Meta per month with automation rules — testing more creative hypotheses per dollar, no overnight Ads Manager monitoring."
+  "How Appflame automatically pauses 754 losing ads on Meta per month with automation rules, testing more creative hypotheses per dollar, no overnight Ads Manager monitoring."
 
 const METRICS = [
   { value: "20", label: "Hours of overnight monitoring replaced per month" },
@@ -204,10 +204,10 @@ export default function AppflameCaseStudy() {
         {/* Problem */}
         <div className={styles.section}>
           <div className={richTextStyles.richText}>
-            <h2>Challange</h2>
+            <h2>Challenge</h2>
             <p>
               Standard Meta rules ran out of room. User Acquisition operates
-              within R&D — testing is the work. Most of the budget validates new
+              within R&D. Testing is the work. Most of the budget validates new
               creative hypotheses, so the team needs tight spend control and
               fast reaction to bad funnel signals.
             </p>
@@ -237,7 +237,7 @@ export default function AppflameCaseStudy() {
               <li>
                 A library of{" "}
                 <a href="/features/automation-rules">automation rules</a> in
-                Scalemate, covering click through purchase — and reading the
+                Scalemate, covering click through purchase, and reading the
                 specific events the team uses in their traffic-scoring system
               </li>
               <li>
@@ -250,8 +250,8 @@ export default function AppflameCaseStudy() {
                 logic that scales across new campaigns or whole accounts
               </li>
               <li>
-                Every trigger logs to a dedicated Slack channel with the reason
-                — searchable record of what fired, where, and why
+                Every trigger logs to a dedicated Slack channel with the reason:
+                a searchable record of what fired, where, and why
               </li>
             </ul>
           </div>
@@ -265,21 +265,21 @@ export default function AppflameCaseStudy() {
             <p>
               Scalemate automation pulls losing ads out of the ad set fast,
               freeing room in the budget and in the algorithm's attention for
-              the next hypothesis — instead of letting Meta keep over-pushing
+              the next hypothesis, instead of letting Meta keep over-pushing
               one creative.
             </p>
             <p>Per month on average:</p>
             <ul>
               <li>
-                <strong>20 hours of overnight monitoring replaced</strong> —
+                <strong>20 hours of overnight monitoring replaced</strong>,
                 derived from 755 decisions per month × ~1.5 min average manual
                 review (conservative; excludes continuous-watching time)
               </li>
               <li>
                 <strong>
                   175 losing ads stopped from burning budget weekly
-                </strong>{" "}
-                — pulled out of the ad set before Meta's algorithm
+                </strong>
+                , pulled out of the ad set before Meta's algorithm
                 over-allocates
               </li>
             </ul>
@@ -292,7 +292,7 @@ export default function AppflameCaseStudy() {
               </p>
               <p>
                 With automation rules we can cut weak variants quickly and test
-                more creatives inside one ad set — even when Meta tries to
+                more creatives inside one ad set, even when Meta tries to
                 over-push a single creative.
               </p>
             </CaseQuote>
@@ -314,8 +314,8 @@ export default function AppflameCaseStudy() {
 
             <h3>Late-attribution workflow</h3>
             <p>
-              When data on a paused ad set arrives late — for example, a
-              purchase that attributes a few hours after the pause — the Slack
+              When data on a paused ad set arrives late (for example, a
+              purchase that attributes a few hours after the pause), the Slack
               thread tells the team which rule fired and on what evidence. From
               there they decide whether to tune the rule, re-enable the ad set
               manually, or leave the pause in place. The ad-set re-activation
@@ -361,24 +361,24 @@ export default function AppflameCaseStudy() {
             </p>
             <ul>
               <li>
-                <strong>Testing creatives and audiences</strong> — pause weak
+                <strong>Testing creatives and audiences</strong>: pause weak
                 variants by multi-signal automation, free room for the next
                 hypothesis
               </li>
               <li>
-                <strong>Seasonality</strong> — throttle budgets when results
+                <strong>Seasonality</strong>: throttle budgets when results
                 dip, scale them when they compound
               </li>
               <li>
-                <strong>Account-wide automation</strong> — auto-pause
+                <strong>Account-wide automation</strong>: auto-pause
                 underperformers, auto-scale winners, no eyes-on-screen
               </li>
               <li>
-                <strong>Late-attribution recovery</strong> — re-activate paused
+                <strong>Late-attribution recovery</strong>: re-activate paused
                 ad-sets when conversions arrive after the pause
               </li>
               <li>
-                <strong>Agencies</strong> — clone a working rule library across
+                <strong>Agencies</strong>: clone a working rule library across
                 multiple accounts rather than rebuilding per brand
               </li>
             </ul>
@@ -403,7 +403,7 @@ export default function AppflameCaseStudy() {
                 team structures its buying.
               </p>
               <p>
-                Scalemate's subscription model is also reasonable — you can
+                Scalemate's subscription model is also reasonable. You can
                 build fairly complex logic even on the basic tier.
               </p>
             </CaseQuote>

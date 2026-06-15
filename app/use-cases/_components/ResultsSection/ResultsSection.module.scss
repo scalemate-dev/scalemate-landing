@@ -438,4 +438,15 @@
   &:hover {
     opacity: 1;
   }
+
+  // White Appflame wordmark needs a dark chip to read on the light strip —
+  // but it inherits the row's muted opacity (0.6, crisp on hover) so it sits
+  // recessed with the neighbors instead of popping.
+  &[alt="Appflame"] {
+    height: 34px;
+    padding: 6px 10px;
+    box-sizing: border-box;
+    background: #15181b;
+    border-radius: 6px;
+  }
 }
