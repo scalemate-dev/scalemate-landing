@@ -113,9 +113,9 @@ Here's the pattern that catches teams off guard: a static works, you push more b
 
 When a static is performing, the algorithm optimizes it toward the hottest, most likely-to-convert slice of your audience — the warm, product-aware people. That micro-audience is small. As you spend more, frequency climbs, incremental reach stalls, and you start re-showing the same ad to the same people who already converted (or already decided not to). You're not buying new customers anymore; you're re-burning a pocket of warm traffic at a rising price.
 
-The fatigue mechanism behind this is measurable. Analytics at Meta found that **at four exposures of the same creative, conversion likelihood drops roughly 45%**, following a monotonic decline — and that 19% of impressions in their data were seen five or more times in 30 days ([Analytics at Meta, 2023](https://medium.com/@AnalyticsAtMeta/creative-fatigue-how-advertisers-can-improve-performance-by-managing-repeated-exposures-e76a0ea1084d)). Note: that's *conversion likelihood*, not click-through rate — the two move on different clocks, and conflating them leads people to refresh creatives for the wrong reason.
+Statics hit that wall faster than video. Segwise's 2026 analysis puts the static refresh cycle at roughly 20-30 days versus 40-60 for video — statics fatigue **30-50% faster** ([Segwise, 2026](https://segwise.ai/blog/static-video-ratio-meta-ads)). Read it as a single-vendor signal, but it matches what we see: a static that's been carrying an ad set for three or four weeks is usually already past its peak, even if the headline ROAS still looks fine on a lagging week.
 
-So the plateau signal isn't one number. Read frequency and incremental reach together:
+The plateau signal isn't a single fatigue number, though — it's a frequency-and-reach read. Watch the two together:
 
 - **Frequency rising while reach flattens** = you've saturated the warm pocket. More budget just compounds the fatigue.
 - **CPA climbing with no funnel change** = the cheap conversions are gone; you're paying to re-reach.
@@ -182,7 +182,10 @@ To put hard numbers on the zombie problem, we analyzed our own account data — 
 **Finding 2 — zombie rate.** **70%+ of creatives** received less than 5% of ad-set spend and so never gathered evaluable data — the zombie rate. With deliberate structure (controlled creative counts, budget floors per creative, and rule-based redistribution), we see that fall to a **target of under 20-30%**.
 *Provenance: first-party (gaming / e-commerce / subscription), n ≈ 3,000 ad sets / 25 accounts, Dec 2025 – Jun 2026.*
 
-The takeaway lands harder when you put it next to the public benchmarks already cited above: Segwise shows statics are cheaper per acquisition, Meta shows the algorithm wants volume — but our data shows that volume only converts to results if you fix the distribution. Buy more statics, and 70% of them still go dark unless you intervene.
+We're not alone in seeing this. AppsFlyer's "State of Creative Optimization: 2025 edition" — built on 1.1 million video variations across 1,300+ apps and $2.4B in spend — found the **top 2% of gaming creatives captured 53% of all spend** (down slightly from 56% the year before), while non-gaming creative output grew **+18% year over year** as advertisers diversify to fight fatigue ([AppsFlyer, 2025 edition](https://www.appsflyer.com/resources/reports/creative-optimization-report/)). That's the same brutal concentration at the industry level. Our first-party numbers are the sharper, ad-set-level version of the same story: at the level where you actually allocate budget, the concentration is even more extreme — 87% into one or two creatives, not 53% into the top 2%.
+*Provenance: public (AppsFlyer, 2025 edition), 1.1M video variations / 1,300+ apps / $2.4B spend — external corroboration, not part of the first-party dataset above.*
+
+The takeaway lands harder when you stack it against the public benchmarks already cited: Segwise shows statics are cheaper per acquisition, Meta shows the algorithm wants volume, AppsFlyer shows the industry-wide concentration — but our data shows that volume only converts to results if you fix the distribution. Buy more statics, and 70% of them still go dark unless you intervene.
 
 **Cite this study:** *Scalemate, "Static-ad spend distribution across ~3,000 Meta ad sets" (2026). Finding: top 1-2 creatives capture an average of 87% of ad-set spend; 70%+ of creatives fall below 5% of ad-set spend and never gather evaluable data. First-party data across 25 accounts (gaming, e-commerce, subscription), mobile and web, Dec 2025 – Jun 2026.*
 
