@@ -242,3 +242,17 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
 | `/use-cases/ad-campaign-automation-rules` metadata | 2026-04-29 | 201 imp, 0 clk, 0.0% CTR, pos 7.8 | 78 imp, 0 clk, 0.0% CTR, pos 11.5 | 2026-05-13 (T+2wk) | title rewrite — Facebook + ROAS focus (0c3d863, PR #39) | monitoring (T+5d: pos -3.7 typical re-ranking after title change; reassess T+2wk. NOTE: row missed by detect-metadata-changes.py — added manually this review cycle) |
 | `/use-cases/bulk-ad-launch` body enrichment | 2026-05-04 | 456 imp, 5 clk, 1.10% CTR, pos 18.6 (28d pre-edit) | no data yet (just deployed) | 2026-05-18 (T+2wk) | **Body keyword enrichment** (not title/meta): added 5 striking-distance phrases × 1 mention each — `bulk ad launcher`, `Facebook campaign launcher`, `automated ad launch tool`, `launch ads faster`, `automate bulk ad creation for Meta Facebook Ads`. Each placed in natural body context (CTA, problem, before/after, how-it-works, FAQ). Verified via grep. Commit 0691cb2, PR #55. NOTE: row missed by detect-metadata-changes.py (script tracks frontmatter title/description only — body changes invisible). | monitoring (T+2wk: target pos 14-18 → top 10 on 5 enriched queries; if no movement, file under no-impact body edit and learn) |
 | Internal linking refresh — uploader cluster | 2026-05-04 | n/a (multi-page) | n/a (effects accumulate over weeks) | 2026-06-01 (T+4wk) | 3 new internal links added (PR #55, commit 0691cb2): `/ad-creative-uploader` → `/blog/bulk-upload-creatives-meta-tiktok` + `/blog/best-bulk-ad-launch-tools`; `/use-cases/bulk-ad-launch` → `/blog/best-bulk-ad-launch-tools`. Reverse links to `/ad-creative-uploader` and `/use-cases/bulk-ad-launch` already existed. | monitoring (cluster authority signal — measure aggregate impressions/clicks across 5 cluster URLs vs 28d-pre baseline at T+4wk) |
+
+---
+
+## 🔗 Off-page (backlinks / mentions / digital PR)
+
+> Паралельний трек до контенту. Заповнюється `off-page` агентом (команда `offpage`, місячна каденція).
+> Реальні зовнішні дії (outreach, listings, PR-відповіді) виконує Natalia — агент готує research + чернетки.
+>
+> **Статуси:** `prospect` → `outreach drafted` → `sent` (Natalia) → `won` / `declined`
+> **Type:** dofollow / nofollow / unlinked-mention / listing / pr-feature
+
+| Target | Tactic | Status | Type | Date | Source DR | Notes |
+|---|---|---|---|---|---|---|
+| _(порожньо — заповнить перший запуск `offpage`)_ | | | | | | |
