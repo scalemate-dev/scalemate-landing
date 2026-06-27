@@ -63,7 +63,7 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
 
 | Slug | Title | Notes |
 |---|---|---|
-| what-are-static-ads | What Are Static Ads? Types & How to Scale Them on Meta in 2026 | **APPROVED FOR WRITING 2026-06-27 (Natalia).** Brief: [`seo-system/topics/what-are-static-ads/brief.md`](../topics/what-are-static-ads/brief.md). Educational hub + Track H first-party data-study (87% spend concentration / 70%+ zombie across ~3,000 ad sets, gaming/ecommerce/subscription). Title locked; examples = Path 2 (text types only, no gallery); blended-ROAS wording approved. All data folded (first-party + public anchors Segwise/Singular/Meta + cost economics) with provenance tags. Draft mode: **LOCAL**. content-creator running. |
+| _empty_ | | |
 
 ---
 
@@ -71,7 +71,7 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
 
 > Draft готовий, чекає твого approve. Approve = рух у §6. Reject = назад у §4.
 
-- _empty_
+- **what-are-static-ads** — draft written 2026-06-27 (local run, Loose mode, main). Draft: [`seo-system/topics/what-are-static-ads/draft.md`](../topics/what-are-static-ads/draft.md). Brief: [`seo-system/topics/what-are-static-ads/brief.md`](../topics/what-are-static-ads/brief.md). Educational hub + Track H first-party data-study (87% avg spend concentration / 70%+ zombie rate across ~3,000 ad sets / 25 accounts, gaming/ecommerce/subscription, Dec 2025–Jun 2026). Title locked: "What Are Static Ads? Types & How to Scale Them on Meta in 2026" (`absoluteTitle: true`). ~3,000-word body, 6-FAQ FAQPage, PAA-verbatim H2s, two comparison tables (static vs video = Segwise-attributed; static vs dynamic). Provenance: 3 tiers, every public number attributed (Segwise/Singular/Meta with URLs) + first-party tagged; fatigue stat written as "conversion likelihood" NOT CTR. Internal links: bulk-ad-launch (BOFU primary), automated-creative-upload-meta, meta-andromeda-update, what-is-ad-fatigue, best-ad-testing-tools, creative-testing-framework-library. **Open items for review:** (1) Dataset JSON-LD is embedded as an HTML comment in the draft — blog template (`app/blog/[slug]/page.jsx`) only auto-emits Article+BreadcrumbList+FAQPage, so Dataset needs template wiring before publish; (2) cover/hero/OG image assets referenced but not yet created; (3) `<!-- EXTENSIBLE -->` markers left at modules 5/6/9/10 for Natalia's YouTube-video material. Next: Natalia review → QA.
 
 ---
 
