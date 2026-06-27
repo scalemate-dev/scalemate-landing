@@ -1,0 +1,36 @@
+# Scalemate
+
+> Scalemate is an ad operations platform for media buyers and user-acquisition teams running paid social at scale. It launches hundreds of Meta (Facebook/Instagram) and TikTok ads in minutes, automates campaign management with rules, and bulk-syncs creatives — cutting hours of daily manual ad ops.
+
+Scalemate focuses on Meta and TikTok. Core capabilities: bulk ad launch, bulk creative upload from Google Drive, automation rules (auto-pause low-ROAS ads, scale winners, protect daily budget), and faster campaign scaling. Built for UA managers, media buyers, and founders.
+
+## Product
+- [Bulk Ad Launch](https://www.scalemate.co/use-cases/bulk-ad-launch): Launch hundreds of Meta & TikTok ad sets from one campaign template.
+- [Automation Rules](https://www.scalemate.co/features/automation-rules): Rule engine to auto-pause low-ROAS ads, scale winners, and protect budgets across Meta & TikTok.
+- [Bulk Launch](https://www.scalemate.co/features/bulk-launch): Deploy ads at scale from a single template with creatives synced from Google Drive.
+- [Ad Creative Uploader](https://www.scalemate.co/ad-creative-uploader): Bulk upload and sync ad creatives from Google Drive to Meta & TikTok in seconds.
+- [Scale Ad Campaigns Faster](https://www.scalemate.co/use-cases/scale-ad-campaigns-faster): Workflow for scaling winning campaigns without growing manual workload.
+- [AI Assistant](https://www.scalemate.co/ai-assistant): AI helper for ad campaign management tasks.
+- [For Media Buyers](https://www.scalemate.co/solutions/media-buyers): How media-buying teams use Scalemate to cut routine ad ops.
+- [Pricing](https://www.scalemate.co/pricing): Plans and pricing.
+
+## Free Resources
+- [Automation Rules Library](https://www.scalemate.co/automation-rules-library): Filterable library of ready-to-use Meta & TikTok automation rules.
+- [Creative Testing Framework Library](https://www.scalemate.co/creative-testing-framework-library): Creative testing frameworks and methods for paid social.
+
+## Guides & Comparisons
+- [10 Best Ad Testing Tools for Meta + TikTok (2026)](https://www.scalemate.co/blog/best-ad-testing-tools)
+- [Best Bulk Ad Launch Tools for Meta & TikTok (2026)](https://www.scalemate.co/blog/best-bulk-ad-launch-tools)
+- [13 Best Facebook Ads Automation Tools 2026](https://www.scalemate.co/blog/best-facebook-ads-automation-tools)
+- [How to Bulk Upload Creatives to Meta & TikTok (5 Methods)](https://www.scalemate.co/blog/bulk-upload-creatives-meta-tiktok)
+- [Is There a Real Madgicx Alternative for TikTok + Meta?](https://www.scalemate.co/blog/madgicx-review-alternative)
+- [AdCreative.ai Alternative: Best Options for 2026](https://www.scalemate.co/blog/adcreative-ai-alternative)
+- [Meta Ads MCP vs Google Ads MCP: Official + Alternatives](https://www.scalemate.co/blog/best-mcp-servers-meta-google-ads)
+- [Meta Andromeda Explained: What Changed + 10 Fixes (2026)](https://www.scalemate.co/blog/meta-andromeda-update)
+- [What Is Ad Fatigue and How to Fix It (2026)](https://www.scalemate.co/blog/what-is-ad-fatigue)
+- [Blog index](https://www.scalemate.co/blog): All Scalemate guides and comparisons.
+
+## Company
+- [Customer Stories](https://www.scalemate.co/customers): Case studies from teams scaling ads with Scalemate.
+- [Book a Demo](https://www.scalemate.co/book-a-demo): Request a product demo.
+- [LinkedIn](https://www.linkedin.com/company/scalemate): Company updates.

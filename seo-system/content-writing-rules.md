@@ -134,7 +134,7 @@ SOLUTION (ICP identity — "I am a ...")
 
 ---
 
-### 2.3 Типи контенту (7 треків з плану системи)
+### 2.3 Типи контенту (8 треків)
 
 Кожен тип має свій шаблон. Шаблон — стартова точка, не тюрма. Можна адаптувати за контекстом.
 
@@ -286,6 +286,31 @@ Related content (блог-пости по темі)
 
 **Word count:** 400-800 (landing), сам ресурс — окремо
 **SEO-цінність:** люди лінкують на ресурси → organic backlinks → DR росте
+
+#### Трек H — Data Study / Original Research (link-bait + AEO)
+
+**Мета:** стати джерелом, яке цитують журналісти й LLM. Статистика/бенчмарки = автоматичні беклінки (journalists гуглять `[metric] benchmarks 2026`) + AI-цитування (March 2026 Core Update нагороджує Information Gain — нову інформацію).
+
+**Структура:**
+```
+H1: [Metric/topic] Benchmarks 2026 — outcome-oriented
+TL;DR з 3-5 ключовими цифрами (extractable для AIO/LLM)
+Methodology (як зібрані дані, обсяг вибірки, період)
+Findings — по секції на метрику, кожна з charts + конкретними числами
+"Cite this study" блок (готовий формат цитування + ембед-картинка)
+FAQ (питання, які журналісти/LLM ставлять)
+```
+
+**Source hierarchy (ЖОРСТКЕ правило — перевіряється в QA):**
+1. **First-party (пріоритет)** — наші реальні агрегати, анонімізовані: тільки vertical labels («gaming app, T1 geo»), **НІКОЛИ імена клієнтів**. «NDA» = захист особи клієнта при реальних наших даних.
+2. **Public sources (контекст / коли наших бракує)** — подавати **прозоро**: «зведено з N джерел» + URL кожної цифри. Approved: **MMP-звіти (AppsFlyer / Adjust / Singular / Kochava) — найсвіжіші**, галузеві benchmark-репорти. Можна перепитати Natalia джерело.
+3. **Найсильніший формат** — наші first-party + публічні поряд («наш бенчмарк по X vs індустрія»).
+
+**❌ ЗАБОРОНЕНО:** публічні середні під виглядом власних/«NDA» даних — нуль Information Gain, E-E-A-T ризик, проти `data-integrity.md`.
+
+**Per-number provenance:** кожна цифра має тег походження — `first-party (vertical label)` АБО `public (source URL)`. Без тегу = QA fail.
+
+**Schema:** Dataset + FAQPage. **Word count:** 1,200-2,500. **Не вигадувати дані** — якщо немає ні first-party, ні public source → Checkpoint 3 Input Request до Natalia.
 
 ### 2.4 Internal Linking Rules
 

@@ -149,6 +149,7 @@ mcp__serpapi__search: {"engine": "google", "q": "[keyword]", "location": "United
 - Чого їм БРАКУЄ (наш gap = наша differentiation)?
 - Word count estimate
 - Чи є real data / screenshots / case studies?
+- **На що вони internally лінкують** (які свої сторінки підтягують у статтю) — підказує IA-патерн і які internal links нам теж варто закласти.
 
 ### Step 5.5 — ICP Pain Research (ОБОВ'ЯЗКОВИЙ)
 
@@ -188,9 +189,11 @@ mcp__serpapi__search: {"engine": "google", "q": "site:reddit.com [topic keyword]
 ### Step 6 — Content Type Decision
 
 На базі steps 1-5 визначити:
-- **Який тип контенту** (blog / use-case / comparison / case-study / hub / resource)?
-- Маппінг до content-writing-rules.md section 2.2 (який template)
+- **Який тип контенту** (blog / use-case / comparison / case-study / hub / resource / **data-study**)?
+- Маппінг до content-writing-rules.md section 2.3 (Трек A-H)
 - Target word count
+
+**Data-study (Трек H)** обирати коли тема — статистика/бенчмарки (`[metric] benchmarks`, `average [X] cost`, `[niche] statistics`), де ми можемо дати **унікальні дані** (first-party агрегати) або чесне зведення MMP/публічних джерел. Це link-bait + AEO play. У brief зазначити **джерело даних**: first-party (які агрегати треба від Natalia) АБО public (які MMP/звіти). Деталі правил джерел — content-writing-rules §2.3 Трек H.
 
 ### Step 6.5 — Cooldown guard (title/meta re-suggestion)
 

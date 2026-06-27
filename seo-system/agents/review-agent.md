@@ -76,6 +76,27 @@ mcp__serpapi__search: {"engine": "google", "q": "site:scalemate.co/[path]"}
   - ❌ CTR < 1.5x → ESCALATE (architectural change needed)
   - ❌ Position dropped >3 → investigate
 
+### Step 4.5 — llms.txt freshness check (AEO maintenance)
+
+> Нові опубліковані сторінки мають потрапляти в `public/llms.txt` + `public/llms-full.txt`, інакше LLM їх не «бачать» у нашій карті.
+
+Для кожного item з §8 Published за цей цикл — перевірити чи його URL присутній у `public/llms.txt`:
+- Якщо ні → додати рядок у відповідну секцію (Product / Free Resources / Guides & Comparisons / Company) + повний запис у `llms-full.txt`.
+- Прибрати записи на сторінки, які стали 404 / задеплоїлись як removed.
+- Тримати канонічний домен `https://www.scalemate.co`.
+
+### Step 4.6 — Internal-linking backward pass (для свіжих publish)
+
+> Правило content-writing §2.4 #6: у старій статті додаємо зворотній лінк на нову. Зараз ми лінкуємо тільки вперед — цей крок це виправляє.
+
+Для кожного item з §8 Published, опублікованого за останні ~2 тижні:
+1. Знайти 3-5 **старих релевантних** сторінок (Grep по `content/blog/` + `app/` за темою/keyword нової сторінки).
+2. Для кожної — запропонувати контекстний лінк на нову сторінку з keyword-rich anchor (не «click here», не exact-match на всіх).
+3. Вивести як список правок для Natalia (файл + куди вставити anchor) АБО застосувати якщо запущено в режимі правок.
+4. Уникати over-linking: один природний лінк на сторінку, у релевантному контексті.
+
+Записати у звіт як секцію `## 🔗 Backward links added/proposed`.
+
 ### Step 5 — Overall Site Trend
 
 ```bash

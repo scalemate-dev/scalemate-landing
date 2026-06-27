@@ -77,14 +77,42 @@ site-explorer-organic-competitors(target=scalemate.co, mode=subdomains, country=
 
 Записати: top rising queries з breakout potential, що перетинаються з ICP інтересами.
 
-### Step 4 — Brand Radar (AI visibility)
+### Step 4 — AEO / AI Visibility Loop
+
+> Ми маємо **міряти**, чи нас цитує AI — це окремий канал, не органіка. Три частини.
+
+**4a. Brand Radar (Ahrefs) — трекінг цитувань**
 
 ```
-brand-radar-mentions-overview (якщо є project)
+brand-radar-mentions-overview
 brand-radar-sov-overview (vs competitors)
 ```
 
-Записати: чи згадують нас ChatGPT/Perplexity? Share of voice vs Madgicx/Birch.
+- Якщо у проєкті **0 промптів** — це блокер. Залити 25 готових промптів з `intelligence-briefs/2026-05-25-recon-parts/05-brand-radar.md` (15-хв сетап Natalia → escalate як task, не ігнорувати).
+- Записати: mentions trend, share of voice vs Madgicx / bir.ch.
+
+**4b. LLM brand blind-spot аудит (прямий)**
+
+Прогнати фіксований набір промптів через ChatGPT, Claude, Gemini з **вимкненим web search** (тестуємо параметричні знання моделей про нас):
+
+```
+- "What is Scalemate and who is it for?"
+- "Best tools to bulk launch Meta and TikTok ads"
+- "Madgicx alternatives for TikTok and Meta"
+- "How do I automate pausing low-ROAS Facebook ads?"
+```
+
+Для кожної моделі записати: чи згадує нас? що каже правильно / неправильно / пропускає? Розбіжності між моделями = наші **сліпі зони** (контент/llms.txt не доносить факт). → перетворити в контент-задачі.
+
+**4c. AI Overview трекінг на НАШИХ запитах**
+
+Для топ-10 GSC запитів (зі Step 1) перевірити чи SERP має AI Overview, що зрізає CTR:
+
+```
+mcp__serpapi__search: {"engine": "google_ai_overview", "q": "[наш топ запит]", "location": "United States"}
+```
+
+Записати: для яких наших запитів є AIO → органічний клік «з'їдено» → ці теми треба переводити в формат, який або **цитується в AIO**, або зміщувати фокус на запити без AIO. Флаг як 🤖 AIO threat.
 
 ### Step 5 — trend_scout.py (broad signals)
 
@@ -147,6 +175,18 @@ GSC_SITE_URL="sc-domain:scalemate.co" python3 gsc_client.py --raw '{"dimensions"
 - `ad uploader` → має вести на `/ad-creative-uploader`, не на homepage
 - `automation rules` → має вести на `/use-cases/ad-campaign-automation-rules` або `/features/automation-rules`
 - Якщо wrong page → internal linking fix або canonical signal
+
+**6e. Internal link gap audit (раз на місяць — site-wide):**
+
+> Internal linking = найнедооціненіший важіль. Сторінки з малою кількістю вхідних internal links застрягають, навіть із показами (напр. застряглі на 2-й сторінці гіганти).
+
+```
+site-explorer-pages-by-internal-links(target=scalemate.co, mode=subdomains, order_by=internal_links:asc, limit=30)
+```
+
+Знайти важливі сторінки (use-cases, листики з показами) з найменшою к-стю вхідних internal links → план долінковки зі старих релевантних постів. Пріоритет — сторінки з тоннами показів на pos 11-20 (вихід у топ-10 часто впирається саме в брак internal authority).
+
+Output: таблиця `target page | internal links in | impressions | from where to link`.
 
 **Output Step 6:**
 
@@ -442,8 +482,10 @@ Factors (0-10, 0-5, 1-5, 0-3, 1-10, 1-3, ×1/×1.5) — як описано у s
 ## ⚠️ Competitor Threats
 [New competitor activity, their new content]
 
-## 🤖 AI Visibility
-[Brand Radar — де нас згадують / не згадують]
+## 🤖 AI Visibility (AEO)
+[4a Brand Radar: mentions trend + SoV vs Madgicx/bir.ch]
+[4b LLM blind-spots: що ChatGPT/Claude/Gemini кажуть про нас / плутають / пропускають → контент-задачі]
+[4c AIO threats: наші запити з AI Overview, де клік з'їдено]
 
 ## 🔧 Technical Issues
 [Site audit findings if any]

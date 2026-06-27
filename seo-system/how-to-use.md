@@ -14,6 +14,7 @@
 | **`write [brief-file]`** | Пише draft по затвердженому brief'у | Після approve Topic Brief |
 | **`qa [draft-file]`** | Прогоняє через 4 етапи QA (expert panel → copy-editing → humanizer → SEO check) | Після написання draft'у |
 | **`review`** | Перевіряє CTR/позиції/індексацію опублікованого контенту | Раз на тиждень (п'ятниця) |
+| **`offpage`** | Off-page: беклінки, brand mentions, broken-link recovery, competitor link gap, listings audit, digital PR чернетки | Раз на місяць |
 
 ---
 
@@ -131,4 +132,4 @@ seo-system/
 ---
 
 *Створено: 2026-04-20*
-*Система: 5 agents, 5 commands, 4 checkpoints*
+*Система: 6 agents, 6 commands, 4 checkpoints*

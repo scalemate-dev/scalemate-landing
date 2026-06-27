@@ -85,6 +85,12 @@
 - [ ] GSC: немає 2+ наших сторінок на той самий primary keyword
 - [ ] Якщо existing page → це UPDATE, не duplicate
 
+**Data-study provenance check (тільки для Треку H — data-study):**
+- [ ] Кожна цифра має тег походження: `first-party (vertical label)` АБО `public (source URL)`. Цифра без тегу = FAIL.
+- [ ] Жодного імені клієнта (NDA) — тільки vertical labels.
+- [ ] ❌ Публічні середні НЕ подаються як наші/«NDA» дані. Якщо public — прозоро «зведено з N джерел». Порушення = critical FAIL.
+- [ ] Public sources — свіжі (MMP-звіти AppsFlyer/Adjust/Singular/Kochava беремо найновіші).
+
 **Google self-assessment (Section 10.9):**
 - Пройти 15 Helpful Content питань
 - Якщо 3+ "ні" → draft не готовий

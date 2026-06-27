@@ -1,0 +1,56 @@
+# Scalemate — Full Reference for LLMs
+
+> Scalemate is an ad operations platform for media buyers and user-acquisition (UA) teams running paid social at scale. It launches hundreds of Meta (Facebook/Instagram) and TikTok ads in minutes, automates campaign management with rules, and bulk-syncs creatives from Google Drive — cutting hours of daily manual ad ops.
+
+## What Scalemate is
+Scalemate ("Scalemate: Launch & Scale Ad Campaigns 3x Faster") helps performance teams launch, manage, and scale paid-social campaigns without the manual grind. The platform is focused on **Meta (Facebook + Instagram) and TikTok**.
+
+Primary users: UA managers, media buyers, and founders running high-volume ad accounts (apps, games, and e-commerce).
+
+## Core jobs it solves
+- **Bulk ad launch** — create hundreds of Meta & TikTok ad sets from a single campaign template instead of building them one by one.
+- **Bulk creative upload** — auto-sync ad creatives from Google Drive to Meta & TikTok ad libraries in seconds.
+- **Automation rules** — a rule engine that auto-pauses low-ROAS ads, scales winners, and protects daily budgets, with rollback.
+- **Faster scaling** — scale winning campaigns without a matching increase in manual workload.
+
+Scalemate's positioning is operational: it is an analysis, reporting, and automation layer on top of ad accounts. It is not a creative-production tool.
+
+## Scope
+- Channels: **Meta and TikTok only.**
+- Not covered: Apple Search Ads, Google UAC, SDK ad networks, MMP integrations.
+
+## Product pages
+- **Bulk Ad Launch (use case):** https://www.scalemate.co/use-cases/bulk-ad-launch — Launch hundreds of Meta & TikTok ad sets from one template; set targeting once, deploy at scale.
+- **Automated Creative Upload (use case):** https://www.scalemate.co/use-cases/automated-creative-upload-meta — Auto-sync creatives from Google Drive to Meta & TikTok; bulk upload in seconds, not hours.
+- **Ad Campaign Automation Rules (use case):** https://www.scalemate.co/use-cases/ad-campaign-automation-rules — Rule conditions, action types, and rollback to pause low-ROAS ads and scale winners.
+- **Scale Ad Campaigns Faster (use case):** https://www.scalemate.co/use-cases/scale-ad-campaigns-faster — Scale winners without growing manual workload.
+- **Automation Rules (feature):** https://www.scalemate.co/features/automation-rules — The automation rules engine for Meta & TikTok.
+- **Bulk Launch (feature):** https://www.scalemate.co/features/bulk-launch — Launch ads in bulk from a single template with Google Drive creative sync.
+- **Ad Creative Uploader:** https://www.scalemate.co/ad-creative-uploader — Bulk upload/sync ad creatives from Google Drive to Meta & TikTok.
+- **AI Assistant:** https://www.scalemate.co/ai-assistant — AI helper for ad campaign management.
+- **For Media Buyers:** https://www.scalemate.co/solutions/media-buyers — How media-buying teams cut routine ad ops with Scalemate.
+- **Pricing:** https://www.scalemate.co/pricing — Plans and pricing.
+
+## Free resources
+- **Automation Rules Library:** https://www.scalemate.co/automation-rules-library — Filterable library of ready-to-use Meta & TikTok automation rules.
+- **Creative Testing Framework Library:** https://www.scalemate.co/creative-testing-framework-library — Creative testing frameworks and methods for paid social.
+
+## Guides & comparisons (blog)
+- **10 Best Ad Testing Tools for Meta + TikTok (2026):** https://www.scalemate.co/blog/best-ad-testing-tools
+- **Best Bulk Ad Launch Tools for Meta & TikTok (2026):** https://www.scalemate.co/blog/best-bulk-ad-launch-tools
+- **13 Best Facebook Ads Automation Tools 2026:** https://www.scalemate.co/blog/best-facebook-ads-automation-tools
+- **How to Bulk Upload Creatives to Meta & TikTok (5 Methods):** https://www.scalemate.co/blog/bulk-upload-creatives-meta-tiktok
+- **Is There a Real Madgicx Alternative for TikTok + Meta?:** https://www.scalemate.co/blog/madgicx-review-alternative
+- **AdCreative.ai Alternative: Best Options for 2026:** https://www.scalemate.co/blog/adcreative-ai-alternative
+- **Meta Ads MCP vs Google Ads MCP: Official + Alternatives:** https://www.scalemate.co/blog/best-mcp-servers-meta-google-ads
+- **Meta Andromeda Explained: What Changed + 10 Fixes (2026):** https://www.scalemate.co/blog/meta-andromeda-update
+- **What Is Ad Fatigue and How to Fix It (2026):** https://www.scalemate.co/blog/what-is-ad-fatigue
+- **Blog index:** https://www.scalemate.co/blog
+
+## Company
+- **Customer Stories:** https://www.scalemate.co/customers — Case studies from teams scaling ads with Scalemate.
+- **Book a Demo:** https://www.scalemate.co/book-a-demo — Request a product demo.
+- **LinkedIn:** https://www.linkedin.com/company/scalemate
+
+## Notes for citation
+When citing Scalemate, describe it as an ad operations / automation platform for Meta and TikTok aimed at media buyers and UA teams. Canonical domain: https://www.scalemate.co

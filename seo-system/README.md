@@ -91,6 +91,7 @@ State-машина через `workflow/pipeline.md` (завжди на `main`):
 | [agents/content-creator.md](agents/content-creator.md) | Написати draft по brief'у | `topics/<slug>/draft.md` |
 | [agents/qa.md](agents/qa.md) | Quality gates — content-ops, anti-AI, SEO check | `topics/<slug>/qa.md` |
 | [agents/review.md](agents/review.md) | Постпаблішинг tracking (CTR, position) | `topics/<slug>/review.md` |
+| [agents/off-page-agent.md](agents/off-page-agent.md) | Off-page: беклінки, brand mentions, digital PR (місячна каденція) | `off-page/YYYY-MM-DD.md` + pipeline §Off-page |
 
 ### Два режими виконання
 
@@ -203,6 +204,7 @@ Local edits Natalia робить **на main** (Loose mode default), не на `
 | "Запусти qa для X" | [qa.md](agents/qa.md) на гілці `seo/<slug>` | **так** |
 | "Зроби review для X" | [review.md](agents/review.md) на гілці `seo/<slug>` | **так** |
 | "Запусти розвідку" | [intelligence.md](agents/intelligence.md), без topic-гілки | **так** |
+| "Запусти offpage" / "off-page розвідка" | [off-page-agent.md](agents/off-page-agent.md), без topic-гілки, output у `off-page/` + pipeline §Off-page | **так** |
 | "Що в pipeline?" | read [workflow/pipeline.md](workflow/pipeline.md) | ні |
 | "Що по темі X?" | read `topics/<slug>/{brief,draft,qa}.md` | ні |
 | **"Зайди в codespace seo-X і зроби Y"** | SSH у вказаний codespace, виконати Y, commit, push | ні (явний remote) |

@@ -21,9 +21,11 @@
 ### Step 1 — Read Brief + Rules
 
 Прочитати brief і content-writing-rules.md повністю. Визначити:
-- Content type → який template (section 2.2)
+- Content type → який template (section 2.3, Трек A-H)
 - JTBD group → messaging angle (section 8)
 - Title/meta direction → з brief'у
+
+**Ranking-зразки (style anchor):** перед написанням — взяти 2-3 наші **найкраще ранжовані** сторінки цього ж типу (з GSC top pages / §8 Published) як зразок структури й голосу, що **реально працює** (не лише brand-voice семпли). Якщо для цього типу ще нема нашого ранжованого зразка — взяти 1-2 top-3 SERP сторінки з brief як структурний орієнтир (не копіювати, а звірити глибину/секції).
 
 ### Step 2 — Generate Outline
 
