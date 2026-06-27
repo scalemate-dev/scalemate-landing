@@ -178,6 +178,36 @@ export default async function ArticlePage({ params }) {
         }
       : null
 
+  // Dataset schema — emitted only when an article declares first-party study data
+  // in frontmatter (`dataset:`). Powers AEO / LLM citation of original data.
+  const datasetSchema = article.dataset
+    ? {
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        name: article.dataset.name,
+        description: article.dataset.description,
+        url: `${articleUrl}#data-study`,
+        isAccessibleForFree: true,
+        creator: {
+          "@type": "Organization",
+          name: "Scalemate",
+          url: "https://www.scalemate.co",
+        },
+        datePublished: article.dataset.datePublished
+          ? new Date(article.dataset.datePublished).toISOString()
+          : article.createdAt,
+        ...(article.dataset.variableMeasured && {
+          variableMeasured: article.dataset.variableMeasured,
+        }),
+        ...(article.dataset.measurementTechnique && {
+          measurementTechnique: article.dataset.measurementTechnique,
+        }),
+        ...(article.dataset.keywords && { keywords: article.dataset.keywords }),
+        ...(article.dataset.license && { license: article.dataset.license }),
+        isPartOf: { "@type": "Article", "@id": articleUrl },
+      }
+    : null
+
   return (
     <div>
       <BlogArticleTracker slug={slug} title={article.title} author={article.author} />
@@ -193,6 +223,12 @@ export default async function ArticlePage({ params }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
+      {datasetSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetSchema) }}
         />
       )}
 
