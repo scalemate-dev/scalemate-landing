@@ -71,7 +71,7 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
 
 > Draft готовий, чекає твого approve. Approve = рух у §6. Reject = назад у §4.
 
-- **what-are-static-ads** — draft written 2026-06-27 (local run, Loose mode, main). Draft: [`seo-system/topics/what-are-static-ads/draft.md`](../topics/what-are-static-ads/draft.md). Brief: [`seo-system/topics/what-are-static-ads/brief.md`](../topics/what-are-static-ads/brief.md). Educational hub + Track H first-party data-study (87% avg spend concentration / 70%+ zombie rate across ~3,000 ad sets / 25 accounts, gaming/ecommerce/subscription, Dec 2025–Jun 2026). Title locked: "What Are Static Ads? Types & How to Scale Them on Meta in 2026" (`absoluteTitle: true`). ~3,000-word body, 6-FAQ FAQPage, PAA-verbatim H2s, two comparison tables (static vs video = Segwise-attributed; static vs dynamic). Provenance: 3 tiers, every public number attributed (Segwise/Singular/Meta/AppsFlyer with URLs) + first-party tagged. **Fatigue sourcing refreshed 2026-06-27** — dropped the 2023 Analytics-at-Meta "45% at 4 exposures" stat (too old; no 2025-26 tier-1 quantified replacement exists). Module 4 plateau now anchored on Segwise 2026 (statics fatigue 30-50% faster, ~20-30d static refresh vs ~40-60d video) + first-party operator voice; mechanism = frequency/incremental-reach diagnosis, no fatigue %. Added AppsFlyer 2025-edition corroboration in the data-study section (top 2% gaming creatives = 53% of spend; +18% YoY non-gaming output) as a SEPARATE external anchor supporting — not part of — the first-party 87%/70%+ Dataset. Internal links: bulk-ad-launch (BOFU primary), automated-creative-upload-meta, meta-andromeda-update, what-is-ad-fatigue, best-ad-testing-tools, creative-testing-framework-library. **Open items for review:** (1) Dataset JSON-LD is embedded as an HTML comment in the draft — blog template (`app/blog/[slug]/page.jsx`) only auto-emits Article+BreadcrumbList+FAQPage, so Dataset needs template wiring before publish; (2) cover/hero/OG image assets referenced but not yet created; (3) `<!-- EXTENSIBLE -->` markers left at modules 5/6/9/10 for Natalia's YouTube-video material. Next: Natalia review → QA.
+- **what-are-static-ads** — ✅ PUBLISHED 2026-06-29 → moved to §8 (see entry there for post-publish TODOs). Full QA history in `seo-system/topics/what-are-static-ads/qa.md`.
 
 ---
 
@@ -104,6 +104,15 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
 >   - milestone: T+Xwk
 >   - decision: [✅ keep / ⚠️ iterate / ❌ escalate]
 > ```
+
+- [https://www.scalemate.co/blog/what-are-static-ads](https://www.scalemate.co/blog/what-are-static-ads) — what-are-static-ads
+  - deployed: 2026-06-29
+  - artifact: content/blog/what-are-static-ads.md (+ seo-system/topics/what-are-static-ads/)
+  - type: educational hub + Track H first-party data-study (87% spend concentration / 70%+ zombie, ~3,000 ad sets). 3 rule-card SVGs + launch-structures diagram. ~4,089w.
+  - position-current: — (new launch; review agent tracks T+7d / T+2wk / T+4wk)
+  - milestone: T+1wk (review ~2026-07-06)
+  - decision: ✅ keep
+  - **post-publish TODO (new 2026 rules, do now that URL is live):** (D) add to `public/llms.txt` + `llms-full.txt`; (E) backward internal links from `meta-andromeda-update`, `what-is-ad-fatigue`, `best-ad-testing-tools`, `best-bulk-ad-launch-tools`; (A) off-page pitch the data study (87% stat) for mentions/backlinks; (C) add a Brand Radar prompt to track AI citation of our static-ads data.
 
 - [https://www.scalemate.co/blog/adcreative-ai-alternative](https://www.scalemate.co/blog/adcreative-ai-alternative) — adcreative-ai-alternative
   - deployed: 2026-04-07

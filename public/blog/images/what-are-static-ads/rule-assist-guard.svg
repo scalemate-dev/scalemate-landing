@@ -1,0 +1,54 @@
+<svg width="1160" height="520" viewBox="0 0 1160 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="panelG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#FEFCFA"/>
+    </linearGradient>
+    <filter id="cardShadowG" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="18" stdDeviation="30" flood-color="#1a1614" flood-opacity="0.08"/>
+    </filter>
+    <style>
+      .ttlG  { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 30px; font-weight: 800; fill: #1a1614; }
+      .labG  { font-family: 'JetBrains Mono','SF Mono',ui-monospace,monospace; font-size: 15px; font-weight: 700; letter-spacing: 1.5px; }
+      .monoG { font-family: 'JetBrains Mono','SF Mono',ui-monospace,monospace; font-size: 22px; font-weight: 600; fill: #1a1614; }
+      .monosG{ font-family: 'JetBrains Mono','SF Mono',ui-monospace,monospace; font-size: 15px; font-weight: 600; }
+      .chipG { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 14px; font-weight: 600; }
+      .footG { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 14px; font-weight: 500; fill: #9C9890; }
+      .opG   { fill: #ea580c; }
+    </style>
+  </defs>
+
+  <!-- Card -->
+  <rect x="40" y="36" width="1080" height="448" rx="18" fill="url(#panelG)" stroke="#1a1614" stroke-opacity="0.09" stroke-width="1.5" filter="url(#cardShadowG)"/>
+
+  <!-- Header chips -->
+  <rect x="72" y="72" width="148" height="30" rx="8" fill="#f97316" fill-opacity="0.10"/>
+  <text x="146" y="92" class="labG" fill="#ea580c" text-anchor="middle">ASSIST GUARD</text>
+
+  <rect x="232" y="72" width="74" height="30" rx="8" fill="#1a1614" fill-opacity="0.05"/>
+  <text x="269" y="92" class="chipG" fill="#475467" text-anchor="middle">Meta</text>
+
+  <rect x="318" y="72" width="80" height="30" rx="8" fill="#1a1614" fill-opacity="0.05"/>
+  <text x="358" y="92" class="chipG" fill="#475467" text-anchor="middle">Ad level</text>
+
+  <text x="1088" y="92" class="monosG" fill="#9C9890" text-anchor="end">checks daily</text>
+
+  <!-- Title -->
+  <text x="72" y="162" class="ttlG">Don&#8217;t kill a cold assist by mistake</text>
+
+  <!-- IF block -->
+  <text x="72" y="244" class="labG" fill="#9C9890">IF</text>
+  <rect x="72" y="262" width="1016" height="64" rx="12" fill="#1a1614" fill-opacity="0.025" stroke="#1a1614" stroke-opacity="0.06" stroke-width="1"/>
+  <text x="96" y="302" class="monoG">in-platform ROAS <tspan class="opG">&#60;</tspan> target   <tspan class="opG">AND</tspan>   7-day frequency <tspan class="opG">&#60;</tspan> 1.5</text>
+  <text x="1064" y="300" class="monosG" fill="#9C9890" text-anchor="end">last 7 days</text>
+
+  <!-- arrow -->
+  <path d="M580 338 L580 372 M580 372 l-8 -10 M580 372 l8 -10" stroke="#9C9890" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- THEN block (protective / ghost pill) -->
+  <text x="72" y="404" class="labG" fill="#ea580c">THEN</text>
+  <rect x="72" y="422" width="372" height="44" rx="10" fill="#f97316" fill-opacity="0.08" stroke="#f97316" stroke-opacity="0.35" stroke-width="1.5"/>
+  <text x="258" y="450" class="chipG" fill="#ea580c" text-anchor="middle" style="font-size:16px;font-weight:700;">Keep running — exclude from auto-pause</text>
+
+  <text x="1088" y="452" class="footG" text-anchor="end">A low-frequency ad hasn&#8217;t had its shot yet</text>
+</svg>

@@ -141,3 +141,36 @@ Panel (7 experts; humanizer weighted 1.5×):
 Draft is **production-ready after M1 (title/meta length) is fixed**; M2 (em dashes) and M3 (length/spine balance) strongly recommended in the same pass to lock anti-AI "Low" and protect the definitional ranking intent. S1 (Dataset schema wiring) is a separate eng/publish dependency, not a content blocker. S4 (verify AppsFlyer figures) before publish.
 
 Pipeline state intentionally NOT advanced (§5→§6) — awaiting Natalia's formal approval.
+
+---
+
+## Re-QA — 2026-06-29 (post-edit pass, local on main)
+
+> The draft changed substantially after the 2026-06-27 QA. This addendum re-checks the current state. Verdict: **still PASS** — original M1/M2/S1/S4 all resolved; new content checked clean.
+
+**What changed since 2026-06-27 QA:**
+- Intro + Quick answer reframed (format = entry, lever = volume+distribution; two-halves framing; dropped strawman).
+- Types section: added a "job / pain it speaks to" JTBD-lens column + 6 plain-text **static ad examples** (captures `static ad examples` / `best static ads` adjacent intent ~250/mo; strengthens definitional spine).
+- Trimmed redundancy in modules 9–12 + compressed the "Why static ads plateau" section (it duplicated the linked ad-fatigue article). Fixed a "Three things"→"Four" count bug.
+- Added **3 rule-card visuals** (loss-cap / assist-guard / winner-scale) as on-brand SVGs mirroring the rules-library card, each a clickable internal link to `/automation-rules-library`; concrete thresholds also stated in prose for AEO extractability.
+- Added a **launch-structures diagram** (isolate-angles vs consolidate-volume) answering "how to fix the 87% concentration," clickable to `/creative-testing-framework-library`.
+- Rebalanced internal links: `/automation-rules-library` 7→4 (removed duplicate CTAs), `/use-cases/bulk-ad-launch` 1→2 (commercial rebalance).
+
+**Keyword/intent research (Ahrefs US, 2026-06-29):** confirmed the operational/strategic cluster the content drifted toward is ~0 volume (`scale static ads`, `static ads strategy`, `static ads not spending` = 0; `meta creative testing` 30; `meta static ads` 20 KD7). Decision: **keep the definitional target** (where the KD-0 volume is) and treat the ops depth as the differentiator, not a re-target. Spine reinforced via examples instead.
+
+**Fresh technical checks (current draft):**
+- Title 57 / meta 147 — within caps ✅
+- Em-dash: 23 (down from 62; ~budget) ✅
+- AI stock-phrase / banned-vocab grep: 0 (the one "unlock" hit is inside a Meta URL, not prose) ✅
+- Audience/editor-jargon leak (DR/SERP/KD/we pulled/WebFetch): 0 ✅
+- Curly quotes 0, emoji 0 (the one `★` glyph replaced with "stars") ✅
+- NDA client-name leak: 0 (Appflame only = approved) ✅
+- All 8 internal-link targets resolve (use-case routes render 200 via `_data`) ✅
+- All 6 image assets present; image alt coverage 100% (rule text carried in alt) ✅
+- Schema: Article + BreadcrumbList + FAQPage + Dataset all wired ✅
+
+**Open / known:**
+- **Length: ~4,089 words** vs brief target 2,800–3,200. Deliberately accepted (see keyword research above): the data-study + rule cards + launch structures are the differentiator and have no separate search demand; definitional intent is front-loaded and the spine was reinforced with examples. Spine ratio ~19%.
+- AppsFlyer figures are **video** creative variations cited generically as "creative variations" (concentration phenomenon holds cross-format; flagged for optional precision, not a blocker).
+- Draft also lives in untracked `content/blog/what-are-static-ads.md` (local preview only — not committed/pushed).
+- Full content-ops 7-expert panel NOT re-run this pass (focused technical re-QA only). Run `content-ops` before publish if a fresh scored gate is wanted.

@@ -1,0 +1,54 @@
+<svg width="1160" height="520" viewBox="0 0 1160 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#FEFCFA"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="18" stdDeviation="30" flood-color="#1a1614" flood-opacity="0.08"/>
+    </filter>
+    <style>
+      .ttl  { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 30px; font-weight: 800; fill: #1a1614; }
+      .lab  { font-family: 'JetBrains Mono','SF Mono',ui-monospace,monospace; font-size: 15px; font-weight: 700; letter-spacing: 1.5px; }
+      .mono { font-family: 'JetBrains Mono','SF Mono',ui-monospace,monospace; font-size: 22px; font-weight: 600; fill: #1a1614; }
+      .monos{ font-family: 'JetBrains Mono','SF Mono',ui-monospace,monospace; font-size: 15px; font-weight: 600; }
+      .chip { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 14px; font-weight: 600; }
+      .foot { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 14px; font-weight: 500; fill: #9C9890; }
+      .op   { fill: #ea580c; }
+    </style>
+  </defs>
+
+  <!-- Card -->
+  <rect x="40" y="36" width="1080" height="448" rx="18" fill="url(#panel)" stroke="#1a1614" stroke-opacity="0.09" stroke-width="1.5" filter="url(#cardShadow)"/>
+
+  <!-- Header chips -->
+  <rect x="72" y="72" width="124" height="30" rx="8" fill="#f97316" fill-opacity="0.10"/>
+  <text x="134" y="92" class="lab" fill="#ea580c" text-anchor="middle">STOP LOSS</text>
+
+  <rect x="208" y="72" width="74" height="30" rx="8" fill="#1a1614" fill-opacity="0.05"/>
+  <text x="245" y="92" class="chip" fill="#475467" text-anchor="middle">Meta</text>
+
+  <rect x="294" y="72" width="92" height="30" rx="8" fill="#1a1614" fill-opacity="0.05"/>
+  <text x="340" y="92" class="chip" fill="#475467" text-anchor="middle">Ad level</text>
+
+  <text x="1088" y="92" class="monos" fill="#9C9890" text-anchor="end">checks every 3h</text>
+
+  <!-- Title -->
+  <text x="72" y="162" class="ttl">Loss-cap — cut creatives that burn budget without converting</text>
+
+  <!-- IF block -->
+  <text x="72" y="244" class="lab" fill="#9C9890">IF</text>
+  <rect x="72" y="262" width="1016" height="64" rx="12" fill="#1a1614" fill-opacity="0.025" stroke="#1a1614" stroke-opacity="0.06" stroke-width="1"/>
+  <text x="96" y="302" class="mono">ad spend  <tspan class="op">&#8805;</tspan>  1.5 <tspan class="op">&#215;</tspan> target CPA   <tspan class="op">AND</tspan>   purchases <tspan class="op">=</tspan> 0</text>
+  <text x="1064" y="300" class="monos" fill="#9C9890" text-anchor="end">last 3 days</text>
+
+  <!-- arrow -->
+  <path d="M580 338 L580 372 M580 372 l-8 -10 M580 372 l8 -10" stroke="#9C9890" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- THEN block -->
+  <text x="72" y="404" class="lab" fill="#ea580c">THEN</text>
+  <rect x="72" y="422" width="280" height="44" rx="10" fill="#f97316"/>
+  <text x="212" y="450" class="chip" fill="#FFFFFF" text-anchor="middle" style="font-size:16px;font-weight:700;">Pause the ad</text>
+
+  <text x="1088" y="452" class="foot" text-anchor="end">Production-tested across live Meta accounts</text>
+</svg>

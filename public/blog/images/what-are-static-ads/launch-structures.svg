@@ -1,0 +1,117 @@
+<svg width="1160" height="560" viewBox="0 0 1160 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="panelLS" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#FEFCFA"/>
+    </linearGradient>
+    <filter id="shLS" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="14" stdDeviation="26" flood-color="#1a1614" flood-opacity="0.07"/>
+    </filter>
+    <style>
+      .hLS  { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 25px; font-weight: 800; fill: #1a1614; }
+      .badge{ font-family: 'JetBrains Mono','SF Mono',ui-monospace,monospace; font-size: 13px; font-weight: 700; letter-spacing: 1.2px; }
+      .row  { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 16px; font-weight: 600; fill: #1a1614; }
+      .pct  { font-family: 'JetBrains Mono','SF Mono',ui-monospace,monospace; font-size: 14px; font-weight: 700; fill: #ea580c; }
+      .cap  { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 14.5px; font-weight: 500; fill: #475467; }
+      .tiny { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 13px; font-weight: 600; fill: #9C9890; }
+    </style>
+  </defs>
+
+  <!-- ============ LEFT PANEL — ISOLATE ============ -->
+  <rect x="32" y="32" width="544" height="496" rx="18" fill="url(#panelLS)" stroke="#1a1614" stroke-opacity="0.09" stroke-width="1.5" filter="url(#shLS)"/>
+
+  <rect x="64" y="64" width="208" height="28" rx="8" fill="#f97316" fill-opacity="0.10"/>
+  <text x="168" y="83" class="badge" fill="#ea580c" text-anchor="middle">ISOLATE · BIG BUDGET</text>
+
+  <text x="64" y="134" class="hLS">One angle per ad set</text>
+  <text x="64" y="166" class="cap">No "offer" leader in the same ad set, so nothing can starve it.</text>
+
+  <!-- three isolated ad sets -->
+  <g>
+    <rect x="64" y="196" width="448" height="80" rx="12" fill="#1a1614" fill-opacity="0.025" stroke="#1a1614" stroke-opacity="0.08"/>
+    <rect x="84" y="216" width="40" height="40" rx="7" fill="#f97316"/>
+    <text x="144" y="232" class="row">Unaware angle</text>
+    <text x="144" y="256" class="tiny">its own ad set</text>
+    <rect x="392" y="226" width="100" height="30" rx="8" fill="#f97316" fill-opacity="0.10"/>
+    <text x="442" y="246" class="pct" text-anchor="middle">100% budget</text>
+  </g>
+  <g>
+    <rect x="64" y="288" width="448" height="80" rx="12" fill="#1a1614" fill-opacity="0.025" stroke="#1a1614" stroke-opacity="0.08"/>
+    <rect x="84" y="308" width="40" height="40" rx="7" fill="#f97316"/>
+    <text x="144" y="324" class="row">Problem-aware angle</text>
+    <text x="144" y="348" class="tiny">its own ad set</text>
+    <rect x="392" y="318" width="100" height="30" rx="8" fill="#f97316" fill-opacity="0.10"/>
+    <text x="442" y="338" class="pct" text-anchor="middle">100% budget</text>
+  </g>
+  <g>
+    <rect x="64" y="380" width="448" height="80" rx="12" fill="#1a1614" fill-opacity="0.025" stroke="#1a1614" stroke-opacity="0.08"/>
+    <rect x="84" y="400" width="40" height="40" rx="7" fill="#f97316"/>
+    <text x="144" y="416" class="row">Offer angle</text>
+    <text x="144" y="440" class="tiny">its own ad set</text>
+    <rect x="392" y="410" width="100" height="30" rx="8" fill="#f97316" fill-opacity="0.10"/>
+    <text x="442" y="430" class="pct" text-anchor="middle">100% budget</text>
+  </g>
+
+  <text x="64" y="500" class="tiny">Each angle gets a fair, full-budget read.</text>
+
+  <!-- ============ RIGHT PANEL — CONSOLIDATE ============ -->
+  <rect x="584" y="32" width="544" height="496" rx="18" fill="url(#panelLS)" stroke="#1a1614" stroke-opacity="0.09" stroke-width="1.5" filter="url(#shLS)"/>
+
+  <rect x="616" y="64" width="244" height="28" rx="8" fill="#1a1614" fill-opacity="0.05"/>
+  <text x="738" y="83" class="badge" fill="#475467" text-anchor="middle">CONSOLIDATE · SMALL BUDGET</text>
+
+  <text x="616" y="134" class="hLS">50+ creatives, one ad set</text>
+  <text x="616" y="166" class="cap">Accept that most go zombie — the data mass earns its keep.</text>
+
+  <!-- one big ad set with a grid of creatives -->
+  <rect x="616" y="196" width="480" height="232" rx="12" fill="#1a1614" fill-opacity="0.025" stroke="#1a1614" stroke-opacity="0.08"/>
+  <text x="636" y="224" class="tiny">1 ad set · 50+ statics</text>
+
+  <!-- grid 8 cols x 4 rows = 32 cells; ~6 accent winners, rest grey zombies -->
+  <g>
+    <!-- row 1 -->
+    <rect x="636" y="240" width="40" height="34" rx="5" fill="#1a1614" fill-opacity="0.10"/>
+    <rect x="688" y="240" width="40" height="34" rx="5" fill="#f97316"/>
+    <rect x="740" y="240" width="40" height="34" rx="5" fill="#1a1614" fill-opacity="0.10"/>
+    <rect x="792" y="240" width="40" height="34" rx="5" fill="#1a1614" fill-opacity="0.10"/>
+    <rect x="844" y="240" width="40" height="34" rx="5" fill="#1a1614" fill-opacity="0.10"/>
+    <rect x="896" y="240" width="40" height="34" rx="5" fill="#f97316"/>
+    <rect x="948" y="240" width="40" height="34" rx="5" fill="#1a1614" fill-opacity="0.10"/>
+    <rect x="1000" y="240" width="40" height="34" rx="5" fill="#1a1614" fill-opacity="0.10"/>
+    <!-- row 2 -->
+    <rect x="636" y="284" width="40" height="34" rx="5" fill="#1a1614" fill-opacity="0.10"/>
+    <rect x="688" y="284" width="40" height="34" rx="5" fill="#1a1614" fill-opacity="0.10"/>
+    <rect x="740" y="284" width="40" height="34" rx="5" fill="#1a1614" fill-opacity="0.10"/>
+    <rect x="792" y="284" width="40" height="34" rx="5" fill="#f97316"/>
+    <rect x="844" y="284" width="40" height="34" rx="5" fill="#1a1614" fill-opacity="0.10"/>
+    <rect x="896" y="284" width="40" height="34" rx="5" fill="#1a1614" fill-opacity="0.10"/>
+    <rect x="948" y="284" width="40" height="34" rx="5" fill="#1a1614" fill-opacity="0.10"/>
+    <rect x="1000" y="284" width="40" height="34" rx="5" fill="#1a1614" fill-opacity="0.10"/>
+    <!-- row 3 -->
+    <rect x="636" y="328" width="40" height="34" rx="5" fill="#f97316"/>
+    <rect x="688" y="328" width="40" height="34" rx="5" fill="#1a1614" fill-opacity="0.10"/>
+    <rect x="740" y="328" width="40" height="34" rx="5" fill="#1a1614" fill-opacity="0.10"/>
+    <rect x="792" y="328" width="40" height="34" rx="5" fill="#1a1614" fill-opacity="0.10"/>
+    <rect x="844" y="328" width="40" height="34" rx="5" fill="#1a1614" fill-opacity="0.10"/>
+    <rect x="896" y="328" width="40" height="34" rx="5" fill="#1a1614" fill-opacity="0.10"/>
+    <rect x="948" y="328" width="40" height="34" rx="5" fill="#f97316"/>
+    <rect x="1000" y="328" width="40" height="34" rx="5" fill="#1a1614" fill-opacity="0.10"/>
+    <!-- row 4 -->
+    <rect x="636" y="372" width="40" height="34" rx="5" fill="#1a1614" fill-opacity="0.10"/>
+    <rect x="688" y="372" width="40" height="34" rx="5" fill="#1a1614" fill-opacity="0.10"/>
+    <rect x="740" y="372" width="40" height="34" rx="5" fill="#f97316"/>
+    <rect x="792" y="372" width="40" height="34" rx="5" fill="#1a1614" fill-opacity="0.10"/>
+    <rect x="844" y="372" width="40" height="34" rx="5" fill="#1a1614" fill-opacity="0.10"/>
+    <rect x="896" y="372" width="40" height="34" rx="5" fill="#1a1614" fill-opacity="0.10"/>
+    <rect x="948" y="372" width="40" height="34" rx="5" fill="#1a1614" fill-opacity="0.10"/>
+    <rect x="1000" y="372" width="40" height="34" rx="5" fill="#1a1614" fill-opacity="0.10"/>
+  </g>
+
+  <!-- legend -->
+  <rect x="616" y="448" width="16" height="16" rx="4" fill="#f97316"/>
+  <text x="642" y="461" class="tiny">~20% find micro-segments → incremental ROAS</text>
+  <rect x="616" y="476" width="16" height="16" rx="4" fill="#1a1614" fill-opacity="0.10"/>
+  <text x="642" y="489" class="tiny">~80% go zombie — the accepted cost of the data mass</text>
+
+  <text x="616" y="500" class="tiny"></text>
+</svg>
