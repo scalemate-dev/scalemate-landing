@@ -19,68 +19,68 @@
   <text x="120" y="556" class="sub">them on Meta in 2026</text>
 
   <!-- Right side: 2x3 grid of static-ad type cards -->
-  <!-- card geometry: 200w x 240h, gap 36 -->
-  <!-- column x: 1010, 1246, 1482 ; row y: 180, 456 -->
+  <!-- card geometry: 200w x 230h. column x: 1010, 1246, 1482 -->
+  <!-- row 1 y=160 (label baseline 416) ; row 2 y=486 (ring top 480) -> ~64px clear gap -->
 
   <!-- Row 1 -->
   <!-- Story-native -->
-  <g transform="translate(1010, 180)">
-    <rect width="200" height="240" rx="14" fill="#fff" stroke="#E8E0D5" stroke-width="2"/>
+  <g transform="translate(1010, 160)">
+    <rect width="200" height="230" rx="14" fill="#fff" stroke="#E8E0D5" stroke-width="2"/>
     <circle cx="34" cy="34" r="14" fill="#E8E0D5"/>
     <rect x="58" y="26" width="90" height="9" rx="4" fill="#E8E0D5"/>
     <rect x="58" y="44" width="60" height="8" rx="4" fill="#efe9e0"/>
-    <rect x="22" y="70" width="156" height="110" rx="8" fill="#efe9e0"/>
-    <rect x="22" y="196" width="120" height="11" rx="5" fill="#E8E0D5"/>
-    <rect x="22" y="216" width="80" height="11" rx="5" fill="#efe9e0"/>
-    <text x="100" y="270" class="card-label">Story-native</text>
+    <rect x="22" y="70" width="156" height="104" rx="8" fill="#efe9e0"/>
+    <rect x="22" y="190" width="120" height="11" rx="5" fill="#E8E0D5"/>
+    <rect x="22" y="210" width="80" height="11" rx="5" fill="#efe9e0"/>
+    <text x="100" y="256" class="card-label">Story-native</text>
   </g>
 
   <!-- Meme / scroll-stopper -->
-  <g transform="translate(1246, 180)">
-    <rect width="200" height="240" rx="14" fill="#fff" stroke="#E8E0D5" stroke-width="2"/>
-    <rect x="22" y="22" width="156" height="158" rx="8" fill="#efe9e0"/>
-    <rect x="40" y="60" width="120" height="16" rx="6" fill="#E8E0D5"/>
-    <rect x="40" y="124" width="120" height="16" rx="6" fill="#E8E0D5"/>
-    <text x="100" y="270" class="card-label">Meme</text>
+  <g transform="translate(1246, 160)">
+    <rect width="200" height="230" rx="14" fill="#fff" stroke="#E8E0D5" stroke-width="2"/>
+    <rect x="22" y="22" width="156" height="150" rx="8" fill="#efe9e0"/>
+    <rect x="40" y="56" width="120" height="16" rx="6" fill="#E8E0D5"/>
+    <rect x="40" y="118" width="120" height="16" rx="6" fill="#E8E0D5"/>
+    <text x="100" y="256" class="card-label">Meme</text>
   </g>
 
   <!-- Editorial -->
-  <g transform="translate(1482, 180)">
-    <rect width="200" height="240" rx="14" fill="#fff" stroke="#E8E0D5" stroke-width="2"/>
-    <rect x="22" y="22" width="156" height="96" rx="8" fill="#efe9e0"/>
-    <rect x="22" y="134" width="156" height="13" rx="6" fill="#E8E0D5"/>
-    <rect x="22" y="156" width="130" height="9" rx="4" fill="#efe9e0"/>
-    <rect x="22" y="172" width="140" height="9" rx="4" fill="#efe9e0"/>
-    <text x="100" y="270" class="card-label">Editorial</text>
+  <g transform="translate(1482, 160)">
+    <rect width="200" height="230" rx="14" fill="#fff" stroke="#E8E0D5" stroke-width="2"/>
+    <rect x="22" y="22" width="156" height="92" rx="8" fill="#efe9e0"/>
+    <rect x="22" y="128" width="156" height="13" rx="6" fill="#E8E0D5"/>
+    <rect x="22" y="150" width="130" height="9" rx="4" fill="#efe9e0"/>
+    <rect x="22" y="166" width="140" height="9" rx="4" fill="#efe9e0"/>
+    <text x="100" y="256" class="card-label">Editorial</text>
   </g>
 
   <!-- Row 2 -->
   <!-- Simple-sale: THE WINNER (orange) -->
-  <g transform="translate(1010, 456)">
-    <rect x="-6" y="-6" width="212" height="252" rx="18" fill="#FFF3EE" stroke="#E8591A" stroke-width="3"/>
-    <rect width="200" height="240" rx="14" fill="#fff" stroke="#E8591A" stroke-width="2"/>
-    <rect x="44" y="26" width="112" height="92" rx="8" fill="#FFE0CE"/>
-    <rect x="40" y="134" width="120" height="14" rx="6" fill="#E8591A"/>
-    <rect x="56" y="160" width="88" height="9" rx="4" fill="#f3c3a8"/>
-    <rect x="44" y="186" width="112" height="34" rx="10" fill="#E8591A"/>
-    <text x="100" y="270" class="winner-label">Simple-sale</text>
+  <g transform="translate(1010, 486)">
+    <rect x="-6" y="-6" width="212" height="242" rx="18" fill="#FFF3EE" stroke="#E8591A" stroke-width="3"/>
+    <rect width="200" height="230" rx="14" fill="#fff" stroke="#E8591A" stroke-width="2"/>
+    <rect x="44" y="24" width="112" height="88" rx="8" fill="#FFE0CE"/>
+    <rect x="40" y="128" width="120" height="14" rx="6" fill="#E8591A"/>
+    <rect x="56" y="154" width="88" height="9" rx="4" fill="#f3c3a8"/>
+    <rect x="44" y="180" width="112" height="34" rx="10" fill="#E8591A"/>
+    <text x="100" y="262" class="winner-label">Simple-sale</text>
   </g>
 
   <!-- Simple-headline / results -->
-  <g transform="translate(1246, 456)">
-    <rect width="200" height="240" rx="14" fill="#fff" stroke="#E8E0D5" stroke-width="2"/>
-    <rect x="28" y="84" width="144" height="20" rx="8" fill="#E8E0D5"/>
-    <rect x="48" y="116" width="104" height="20" rx="8" fill="#E8E0D5"/>
-    <text x="100" y="270" class="card-label">Headline</text>
+  <g transform="translate(1246, 486)">
+    <rect width="200" height="230" rx="14" fill="#fff" stroke="#E8E0D5" stroke-width="2"/>
+    <rect x="28" y="80" width="144" height="20" rx="8" fill="#E8E0D5"/>
+    <rect x="48" y="112" width="104" height="20" rx="8" fill="#E8E0D5"/>
+    <text x="100" y="256" class="card-label">Headline</text>
   </g>
 
   <!-- Stats / comparison -->
-  <g transform="translate(1482, 456)">
-    <rect width="200" height="240" rx="14" fill="#fff" stroke="#E8E0D5" stroke-width="2"/>
-    <rect x="30" y="120" width="36" height="60" rx="4" fill="#efe9e0"/>
-    <rect x="82" y="92" width="36" height="88" rx="4" fill="#E8E0D5"/>
-    <rect x="134" y="60" width="36" height="120" rx="4" fill="#efe9e0"/>
-    <text x="100" y="270" class="card-label">Stats</text>
+  <g transform="translate(1482, 486)">
+    <rect width="200" height="230" rx="14" fill="#fff" stroke="#E8E0D5" stroke-width="2"/>
+    <rect x="30" y="114" width="36" height="58" rx="4" fill="#efe9e0"/>
+    <rect x="82" y="86" width="36" height="86" rx="4" fill="#E8E0D5"/>
+    <rect x="134" y="56" width="36" height="116" rx="4" fill="#efe9e0"/>
+    <text x="100" y="256" class="card-label">Stats</text>
   </g>
 
   <!-- Data hook -->
