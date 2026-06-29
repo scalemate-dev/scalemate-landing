@@ -1,32 +1,58 @@
-<svg width="1400" height="400" viewBox="0 0 1400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="1400" height="400" viewBox="0 0 1400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <rect width="1400" height="400" fill="#fefdfb"/>
 
-  <!-- Decorative spend-concentration motif: one bold orange card, then a fading tail of faint cards -->
-  <!-- All low-opacity, purely decorative -->
-  <g opacity="0.9">
-    <!-- Winner card (orange) -->
-    <rect x="120" y="120" width="150" height="180" rx="14" fill="#fff" stroke="#E8591A" stroke-width="2.5"/>
-    <rect x="138" y="140" width="114" height="74" rx="8" fill="#FFE0CE"/>
-    <rect x="138" y="226" width="100" height="12" rx="6" fill="#E8591A"/>
-    <rect x="150" y="252" width="90" height="26" rx="9" fill="#E8591A"/>
-  </g>
+  <!-- =========================================================
+       Symmetric creative-tile motif: an accented card + faint
+       trailing cards on each flank, fading toward the center.
+       Center third (≈ x 480–920) kept clear for the H1 title.
+       ========================================================= -->
 
-  <!-- Fading tail of zombie cards, decreasing opacity -->
+  <!-- faint baseline running the full width -->
+  <line x1="90" y1="300" x2="1310" y2="300" stroke="#E8E0D5" stroke-width="1.5" opacity="0.45"/>
+
+  <!-- ============ LEFT FLANK (accent outermost, fading inward) ============ -->
   <g>
-    <rect x="320" y="150" width="110" height="130" rx="11" fill="#fff" stroke="#E8E0D5" stroke-width="2" opacity="0.85"/>
-    <rect x="470" y="165" width="92" height="100" rx="10" fill="#fff" stroke="#E8E0D5" stroke-width="2" opacity="0.6"/>
-    <rect x="600" y="178" width="78" height="74" rx="9" fill="#fff" stroke="#E8E0D5" stroke-width="2" opacity="0.45"/>
-    <rect x="716" y="188" width="64" height="54" rx="8" fill="#fff" stroke="#E8E0D5" stroke-width="1.6" opacity="0.34"/>
-    <rect x="818" y="196" width="52" height="40" rx="7" fill="#fff" stroke="#E8E0D5" stroke-width="1.4" opacity="0.26"/>
-    <rect x="908" y="202" width="42" height="30" rx="6" fill="#fff" stroke="#E8E0D5" stroke-width="1.2" opacity="0.2"/>
-    <rect x="986" y="207" width="34" height="22" rx="5" fill="#fff" stroke="#E8E0D5" stroke-width="1.1" opacity="0.15"/>
-    <rect x="1054" y="211" width="26" height="16" rx="4" fill="#fff" stroke="#E8E0D5" stroke-width="1" opacity="0.11"/>
-    <rect x="1112" y="214" width="20" height="11" rx="3" fill="#fff" stroke="#E8E0D5" stroke-width="1" opacity="0.08"/>
+    <rect x="96" y="120" width="138" height="166" rx="13" fill="#fff" stroke="#E8591A" stroke-width="2.5"/>
+    <rect x="112" y="138" width="106" height="68" rx="8" fill="#FFE0CE"/>
+    <rect x="112" y="216" width="92" height="11" rx="5" fill="#E8591A"/>
+    <rect x="124" y="240" width="82" height="24" rx="9" fill="#E8591A"/>
+  </g>
+  <rect x="262" y="148" width="104" height="124" rx="11" fill="#fff" stroke="#E8E0D5" stroke-width="2" opacity="0.6"/>
+  <rect x="392" y="166" width="78" height="92" rx="9" fill="#fff" stroke="#E8E0D5" stroke-width="1.6" opacity="0.38"/>
+
+  <!-- ============ RIGHT FLANK (mirror of the left) ============ -->
+  <g>
+    <rect x="1166" y="120" width="138" height="166" rx="13" fill="#fff" stroke="#E8591A" stroke-width="2.5"/>
+    <rect x="1182" y="138" width="106" height="68" rx="8" fill="#FFE0CE"/>
+    <rect x="1182" y="216" width="92" height="11" rx="5" fill="#E8591A"/>
+    <rect x="1194" y="240" width="82" height="24" rx="9" fill="#E8591A"/>
+  </g>
+  <rect x="1034" y="148" width="104" height="124" rx="11" fill="#fff" stroke="#E8E0D5" stroke-width="2" opacity="0.6"/>
+  <rect x="930" y="166" width="78" height="92" rx="9" fill="#fff" stroke="#E8E0D5" stroke-width="1.6" opacity="0.38"/>
+
+  <!-- ============ Platform marks: understated, low-contrast ============ -->
+  <!-- LEFT cluster: Meta-style infinity mark, above the left accent card -->
+  <g transform="translate(139, 80)" opacity="0.5">
+    <path d="M0 13
+             C0 5, 5 0, 11 0
+             C19 0, 23 6, 27 13
+             C31 6, 35 0, 43 0
+             C49 0, 54 5, 54 13
+             C54 21, 49 26, 43 26
+             C35 26, 31 20, 27 13
+             C23 20, 19 26, 11 26
+             C5 26, 0 21, 0 13 Z"
+          fill="none" stroke="#888780" stroke-width="2.6" stroke-linejoin="round"/>
   </g>
 
-  <!-- faint connecting baseline -->
-  <line x1="120" y1="320" x2="1240" y2="320" stroke="#E8E0D5" stroke-width="1.5" opacity="0.5"/>
+  <!-- RIGHT cluster: TikTok-style music-note glyph, above the right accent card -->
+  <g transform="translate(1212, 78)" opacity="0.5">
+    <path d="M9 30 V7 C9 7, 20 8, 28 18"
+          fill="none" stroke="#888780" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="6.5" cy="30" r="6.5" fill="none" stroke="#888780" stroke-width="2.6"/>
+  </g>
 
-  <!-- soft dotted flow line over the tail -->
-  <path d="M270 200 H1132" stroke="#E8591A" stroke-width="1.4" stroke-dasharray="3 8" opacity="0.2"/>
+  <!-- soft dotted flow lines on each flank, trailing toward the (empty) center -->
+  <path d="M234 203 H470" stroke="#E8591A" stroke-width="1.4" stroke-dasharray="3 8" opacity="0.18"/>
+  <path d="M930 203 H1166" stroke="#E8591A" stroke-width="1.4" stroke-dasharray="3 8" opacity="0.18"/>
 </svg>
