@@ -146,7 +146,7 @@ The replacement structure: one Advantage+ campaign, 1-2 ad sets, 10-20+ creative
 
 **Workflow rule that matters:** when you ship new creatives, drop them into the **existing** ad set. Do not spin up a new ad set per batch. Spinning up new ad sets fragments learning and resets the data Andromeda was using to pick winners. From the accounts we work with, this single rule — "new creatives go into the existing winning ad set, not a new test cell" — is the highest-impact structural fix on most accounts.
 
-This is exactly the workflow [bulk ad launch](/use-cases/bulk-ad-launch) was built for: launch 10-20+ creatives per ad set in one go, across both Meta and TikTok, without copy-pasting in Ads Manager for two hours. POV: bulk launch is not a nice-to-have under Andromeda — at this creative volume per ad set, manual per-ad upload is the bottleneck.
+This is exactly the workflow [bulk ad launch](/use-cases/bulk-ad-launch) was built for: launch 10-20+ creatives per ad set in one go, across both Meta and TikTok, without copy-pasting in Ads Manager for two hours. The cheapest unit of that volume is the [static ad](/blog/what-are-static-ads) — which is why statics are back as the default way to feed Andromeda the variation it wants. POV: bulk launch is not a nice-to-have under Andromeda — at this creative volume per ad set, manual per-ad upload is the bottleneck.
 
 ### 2. Build creative "worlds," not micro-tweaks (Creative Diversity Score)
 

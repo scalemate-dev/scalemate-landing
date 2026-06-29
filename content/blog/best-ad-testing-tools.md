@@ -27,7 +27,7 @@ faq:
     answer: "The fastest way is using bulk ad launch tools that support reusable templates. Instead of building each ad set manually in Ads Manager, template-based tools let you select creatives, audiences, and placements, then launch all combinations at once. Scalemate and Birch both offer bulk launch capabilities that can push dozens of ad variations live in minutes."
 ---
 
-Ad testing is how performance teams find winners. But "testing" means different things depending on the bottleneck — some teams need more creative variations, some need faster launches, some need automated decisions on live ads. This guide covers the best tools by what part of the testing workflow they actually solve.
+Ad testing is how performance teams find winners. But "testing" means different things depending on the bottleneck — some teams need more creative variations (more [static ads](/blog/what-are-static-ads) to test), some need faster launches, some need automated decisions on live ads. This guide covers the best tools by what part of the testing workflow they actually solve.
 
 **In this article:**
 - [Why Ad Testing Matters (and Why Most Teams Do It Too Slowly)](#why-ad-testing-matters-and-why-most-teams-do-it-too-slowly)
