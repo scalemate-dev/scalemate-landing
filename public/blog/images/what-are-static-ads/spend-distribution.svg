@@ -1,0 +1,89 @@
+<svg width="1440" height="810" viewBox="0 0 1440 810" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .h1 { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 30px; font-weight: 800; fill: #1a1a1a; }
+    .sub { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 17px; font-weight: 500; fill: #888; }
+    .axis-label { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 14px; fill: #999; }
+    .bar-val { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 22px; font-weight: 800; }
+    .bar-cap { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 14px; font-weight: 600; fill: #555; text-anchor: middle; }
+    .small { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 13px; fill: #999; text-anchor: middle; }
+    .pill-txt { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 15px; font-weight: 700; }
+    .threshold { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 13px; font-weight: 600; fill: #DC2626; }
+  </style>
+
+  <!-- Title -->
+  <text x="90" y="78" class="h1">How Meta spreads ad-set spend across your creatives</text>
+  <text x="90" y="110" class="sub">Aggregate of ~3,000 Meta ad sets / 25 accounts — gaming, e-commerce, subscription (Dec 2025–Jun 2026)</text>
+
+  <!-- Plot frame -->
+  <!-- baseline -->
+  <line x1="120" y1="620" x2="1360" y2="620" stroke="#e5e5e5" stroke-width="1.5"/>
+  <!-- 5% spend threshold line -->
+  <line x1="120" y1="560" x2="1360" y2="560" stroke="#DC2626" stroke-width="1.2" stroke-dasharray="6 5" opacity="0.55"/>
+  <text x="1352" y="552" class="threshold" text-anchor="end">5% of ad-set spend — the "evaluable" floor</text>
+
+  <!-- Y axis hint -->
+  <text x="64" y="200" class="axis-label" text-anchor="middle" transform="rotate(-90, 64, 200)">Share of ad-set spend</text>
+
+  <!-- BAR 1: winner ~62% -->
+  <rect x="150" y="150" width="150" height="470" rx="6" fill="#F97316"/>
+  <text x="225" y="138" class="bar-val" fill="#F97316" text-anchor="middle">62%</text>
+  <text x="225" y="646" class="bar-cap">Creative 1</text>
+  <text x="225" y="666" class="small">the winner</text>
+
+  <!-- BAR 2: runner-up ~25% -->
+  <rect x="330" y="430" width="150" height="190" rx="6" fill="#FB923C"/>
+  <text x="405" y="418" class="bar-val" fill="#FB923C" text-anchor="middle">25%</text>
+  <text x="405" y="646" class="bar-cap">Creative 2</text>
+  <text x="405" y="666" class="small">runner-up</text>
+
+  <!-- Brace under top-two bar values + 87% pill to the right -->
+  <path d="M150 175 q0 -14 14 -14 H466 q14 0 14 14" fill="none" stroke="#F97316" stroke-width="2" opacity="0.55"/>
+  <line x1="315" y1="175" x2="315" y2="200" stroke="#F97316" stroke-width="2" opacity="0.55"/>
+  <g transform="translate(530, 196)">
+    <path d="M0 26 H-30" stroke="#E8591A" stroke-width="2" opacity="0.55"/>
+    <rect x="0" y="0" width="216" height="52" rx="14" fill="#FFF3EE" stroke="#E8591A" stroke-width="2"/>
+    <text x="20" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="26" font-weight="800" fill="#E8591A">87%</text>
+    <text x="92" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="13" font-weight="600" fill="#b8542c">of ad-set spend goes</text>
+    <text x="92" y="40" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="13" font-weight="600" fill="#b8542c">to the top 1–2 creatives</text>
+  </g>
+
+  <!-- divider -->
+  <line x1="520" y1="170" x2="520" y2="600" stroke="#ededed" stroke-width="1.5" stroke-dasharray="3 4"/>
+
+  <!-- ZOMBIE TAIL: ~18 tiny bars below the 5% line -->
+  <g>
+    <!-- bars sit on baseline 620, tops between y=600 and y=617 -->
+    <rect x="560" y="604" width="36" height="16" rx="3" fill="#d4d4d4"/>
+    <rect x="606" y="607" width="36" height="13" rx="3" fill="#d4d4d4"/>
+    <rect x="652" y="609" width="36" height="11" rx="3" fill="#dadada"/>
+    <rect x="698" y="610" width="36" height="10" rx="3" fill="#dadada"/>
+    <rect x="744" y="611" width="36" height="9"  rx="3" fill="#dfdfdf"/>
+    <rect x="790" y="612" width="36" height="8"  rx="3" fill="#dfdfdf"/>
+    <rect x="836" y="613" width="36" height="7"  rx="3" fill="#e3e3e3"/>
+    <rect x="882" y="613" width="36" height="7"  rx="3" fill="#e3e3e3"/>
+    <rect x="928" y="614" width="36" height="6"  rx="3" fill="#e6e6e6"/>
+    <rect x="974" y="615" width="36" height="5"  rx="3" fill="#e6e6e6"/>
+    <rect x="1020" y="615" width="36" height="5" rx="3" fill="#e9e9e9"/>
+    <rect x="1066" y="616" width="36" height="4" rx="3" fill="#e9e9e9"/>
+    <rect x="1112" y="616" width="36" height="4" rx="3" fill="#ececec"/>
+    <rect x="1158" y="617" width="36" height="3" rx="3" fill="#ececec"/>
+    <rect x="1204" y="617" width="36" height="3" rx="3" fill="#efefef"/>
+    <rect x="1250" y="618" width="36" height="2" rx="3" fill="#efefef"/>
+    <rect x="1296" y="618" width="36" height="2" rx="3" fill="#f2f2f2"/>
+    <rect x="1342" y="619" width="18" height="1.5" rx="1" fill="#f2f2f2"/>
+  </g>
+
+  <!-- Tail bracket + zombie label -->
+  <path d="M560 700 q0 12 14 12 H1346 q14 0 14 -12" fill="none" stroke="#bdbdbd" stroke-width="1.6"/>
+  <line x1="960" y1="712" x2="960" y2="728" stroke="#bdbdbd" stroke-width="1.6"/>
+  <g transform="translate(770, 728)">
+    <rect x="0" y="0" width="380" height="44" rx="10" fill="#f4f4f4" stroke="#d4d4d4" stroke-width="1.5"/>
+    <text x="190" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="16" font-weight="800" fill="#666" text-anchor="middle">70%+ are "zombie" creatives</text>
+    <text x="190" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="13" fill="#999" text-anchor="middle">below 5% spend — live, but never gather evaluable data</text>
+  </g>
+
+  <text x="960" y="668" class="small">~18 remaining creatives in the ad set</text>
+
+  <!-- Takeaway footer -->
+  <text x="90" y="790" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="15" font-style="italic" fill="#888">No matter how many statics you launch, the algorithm bets almost everything on one or two — the rest go dark.</text>
+</svg>

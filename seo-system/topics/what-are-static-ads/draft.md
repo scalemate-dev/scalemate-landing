@@ -15,10 +15,10 @@ cta:
   title: "Launch 20+ statics per ad set without the copy-paste"
   description: "Bulk-launch statics across Meta and TikTok, then see exactly where spend lands so the algorithm stops starving 70% of your creatives."
 author: "Nataliia Bondar"
-coverImage: /blog/images/what-are-static-ads/cover.svg
-coverAlt: "What are static ads — types, examples by category, and how to scale them on Meta in 2026"
+coverImage: /blog/images/what-are-static-ads/blog-card.svg
+coverAlt: "Static ad types — story-native, meme, editorial, simple-sale, stats — with one winner capturing 87% of ad-set spend"
 heroBg: /blog/images/what-are-static-ads/hero-bg.svg
-ogImage: "/og/what-are-static-ads.png"
+ogImage: "/blog/images/what-are-static-ads/og.png"
 section: "Performance Marketing"
 tags:
   - static ads
@@ -43,7 +43,7 @@ faq:
     answer: "Judge contribution at the account level — blended ROAS or net cash — not the in-platform ROAS percentage on a single ad. Meta credits the final click, so cold and top-of-funnel statics that assist a sale often show a fake-low ROAS. A multi-touch analysis by Singular found that re-crediting assists can lift Meta's measured ROAS by up to 50% versus last-touch. Kill an ad on its in-platform number alone and you can dry up the funnel that was feeding your winners."
 ---
 
-![What are static ads: a grid of static ad types — story-native, meme, editorial, simple-sale, stats — with one creative pulling most of the spend](/blog/images/what-are-static-ads/hero.svg)
+![What are static ads: a grid of static ad types — story-native, meme, editorial, simple-sale, stats — with one creative pulling most of the spend](/blog/images/what-are-static-ads/blog-card.svg)
 
 Most teams that ask "should we run statics or video?" are asking the wrong question. You can launch 20 statics into one ad set on Monday and by Wednesday the algorithm has quietly funneled almost all the budget into one or two of them, leaving the rest to spend pennies and never gather enough data to prove anything. That happens whether the creative is a static, a video, or a carousel. The format is not the lever. Volume and spend distribution are.
 
@@ -110,6 +110,10 @@ Statics are the cheapest, fastest way to supply that volume. Here's the rough ec
 | UGC video (US creator + agency) | $250+ |
 
 A cheap video costs 2-10x a static; a good UGC video, 20-50x. So if the algorithm wants 15-20 creatives per ad set, statics are the format that makes that volume affordable for everyone, not just teams with a video budget. (That 15-20 figure is **practitioner consensus**, not a Meta rule; Meta retired its old 6-ads-per-ad-set cap in early 2025 and doesn't publish a target count.)
+
+![Cost per creative comparison: static AI $5-15, video AI $20-50, self-sourced UGC from $100, US creator plus agency $250+](/blog/images/what-are-static-ads/cost-ladder.svg)
+
+*A static is 2–50× cheaper than video — the only format that makes 15–20 creatives per ad set affordable*
 
 This is where the popular narrative stops, and it's exactly the wrong place to stop. "Statics are cheap, so make a lot of them" is only half the story. Production was never really the bottleneck; even at $10 a static, you can afford the volume. The real bottleneck is that the algorithm funds only one or two of those statics and starves the rest. For the full mechanics of why Andromeda made creative volume the #1 lever, see our [Meta Andromeda breakdown](/blog/meta-andromeda-update).
 
@@ -191,6 +195,10 @@ To put hard numbers on the zombie problem, we analyzed our own account data, the
 
 **Finding 2, zombie rate.** **70%+ of creatives** received less than 5% of ad-set spend and so never gathered evaluable data. With deliberate structure (controlled creative counts, budget floors per creative, and rule-based redistribution), we see that fall to a **target of under 20-30%**.
 *Provenance: first-party (gaming / e-commerce / subscription), n ≈ 3,000 ad sets / 25 accounts, Dec 2025 – Jun 2026.*
+
+![Spend distribution across a Meta ad set: top 1-2 creatives take 87% of spend, while 70%+ are zombie creatives below the 5% evaluable floor](/blog/images/what-are-static-ads/spend-distribution.svg)
+
+*Launch 20 statics and the algorithm bets 87% on one or two — the other 70%+ go dark before they can be judged*
 
 We're not alone in seeing this. AppsFlyer's "State of Creative Optimization: 2025 edition" (1.1 million creative variations across 1,300+ apps and $2.4B in spend) found the **top 2% of gaming creatives drive 53% of spend**, down from 56% the year before, while the biggest non-gaming advertisers keep pushing out more variations to fight fatigue (variation volume up 18% year over year among $7M+ apps) ([AppsFlyer, 2025 edition](https://www.appsflyer.com/resources/reports/creative-optimization-report/)). Same concentration at the industry level. Our first-party numbers are the sharper, ad-set-level version: where you actually allocate budget, it's even more extreme, 87% into one or two creatives versus 53% into the top 2%.
 *Provenance: public (AppsFlyer, 2025 edition), 1.1M creative variations / 1,300+ apps / $2.4B spend — external corroboration, not part of the first-party dataset above.*

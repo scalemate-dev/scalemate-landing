@@ -1,0 +1,32 @@
+<svg width="1400" height="400" viewBox="0 0 1400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1400" height="400" fill="#fefdfb"/>
+
+  <!-- Decorative spend-concentration motif: one bold orange card, then a fading tail of faint cards -->
+  <!-- All low-opacity, purely decorative -->
+  <g opacity="0.9">
+    <!-- Winner card (orange) -->
+    <rect x="120" y="120" width="150" height="180" rx="14" fill="#fff" stroke="#E8591A" stroke-width="2.5"/>
+    <rect x="138" y="140" width="114" height="74" rx="8" fill="#FFE0CE"/>
+    <rect x="138" y="226" width="100" height="12" rx="6" fill="#E8591A"/>
+    <rect x="150" y="252" width="90" height="26" rx="9" fill="#E8591A"/>
+  </g>
+
+  <!-- Fading tail of zombie cards, decreasing opacity -->
+  <g>
+    <rect x="320" y="150" width="110" height="130" rx="11" fill="#fff" stroke="#E8E0D5" stroke-width="2" opacity="0.85"/>
+    <rect x="470" y="165" width="92" height="100" rx="10" fill="#fff" stroke="#E8E0D5" stroke-width="2" opacity="0.6"/>
+    <rect x="600" y="178" width="78" height="74" rx="9" fill="#fff" stroke="#E8E0D5" stroke-width="2" opacity="0.45"/>
+    <rect x="716" y="188" width="64" height="54" rx="8" fill="#fff" stroke="#E8E0D5" stroke-width="1.6" opacity="0.34"/>
+    <rect x="818" y="196" width="52" height="40" rx="7" fill="#fff" stroke="#E8E0D5" stroke-width="1.4" opacity="0.26"/>
+    <rect x="908" y="202" width="42" height="30" rx="6" fill="#fff" stroke="#E8E0D5" stroke-width="1.2" opacity="0.2"/>
+    <rect x="986" y="207" width="34" height="22" rx="5" fill="#fff" stroke="#E8E0D5" stroke-width="1.1" opacity="0.15"/>
+    <rect x="1054" y="211" width="26" height="16" rx="4" fill="#fff" stroke="#E8E0D5" stroke-width="1" opacity="0.11"/>
+    <rect x="1112" y="214" width="20" height="11" rx="3" fill="#fff" stroke="#E8E0D5" stroke-width="1" opacity="0.08"/>
+  </g>
+
+  <!-- faint connecting baseline -->
+  <line x1="120" y1="320" x2="1240" y2="320" stroke="#E8E0D5" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- soft dotted flow line over the tail -->
+  <path d="M270 200 H1132" stroke="#E8591A" stroke-width="1.4" stroke-dasharray="3 8" opacity="0.2"/>
+</svg>

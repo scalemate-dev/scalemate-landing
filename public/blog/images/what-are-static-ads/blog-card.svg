@@ -1,0 +1,96 @@
+<svg width="1720" height="860" viewBox="0 0 1720 860" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .kicker { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 24px; font-weight: 700; letter-spacing: 2px; fill: #E8591A; }
+    .title { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 64px; font-weight: 800; fill: #1a1a1a; }
+    .sub { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 26px; font-weight: 500; fill: #888780; }
+    .card-label { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 18px; font-weight: 600; fill: #888780; text-anchor: middle; }
+    .winner-label { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 18px; font-weight: 700; fill: #E8591A; text-anchor: middle; }
+    .pct { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 22px; font-weight: 800; fill: #E8591A; text-anchor: middle; }
+  </style>
+
+  <!-- Beige background -->
+  <rect width="1720" height="860" fill="#F5F0EA"/>
+
+  <!-- Left text block -->
+  <text x="120" y="290" class="kicker">STATIC ADS</text>
+  <text x="120" y="370" class="title">What are static</text>
+  <text x="120" y="446" class="title">ads?</text>
+  <text x="120" y="520" class="sub">Types, examples, and how to scale</text>
+  <text x="120" y="556" class="sub">them on Meta in 2026</text>
+
+  <!-- Right side: 2x3 grid of static-ad type cards -->
+  <!-- card geometry: 200w x 240h, gap 36 -->
+  <!-- column x: 1010, 1246, 1482 ; row y: 180, 456 -->
+
+  <!-- Row 1 -->
+  <!-- Story-native -->
+  <g transform="translate(1010, 180)">
+    <rect width="200" height="240" rx="14" fill="#fff" stroke="#E8E0D5" stroke-width="2"/>
+    <circle cx="34" cy="34" r="14" fill="#E8E0D5"/>
+    <rect x="58" y="26" width="90" height="9" rx="4" fill="#E8E0D5"/>
+    <rect x="58" y="44" width="60" height="8" rx="4" fill="#efe9e0"/>
+    <rect x="22" y="70" width="156" height="110" rx="8" fill="#efe9e0"/>
+    <rect x="22" y="196" width="120" height="11" rx="5" fill="#E8E0D5"/>
+    <rect x="22" y="216" width="80" height="11" rx="5" fill="#efe9e0"/>
+    <text x="100" y="270" class="card-label">Story-native</text>
+  </g>
+
+  <!-- Meme / scroll-stopper -->
+  <g transform="translate(1246, 180)">
+    <rect width="200" height="240" rx="14" fill="#fff" stroke="#E8E0D5" stroke-width="2"/>
+    <rect x="22" y="22" width="156" height="158" rx="8" fill="#efe9e0"/>
+    <rect x="40" y="60" width="120" height="16" rx="6" fill="#E8E0D5"/>
+    <rect x="40" y="124" width="120" height="16" rx="6" fill="#E8E0D5"/>
+    <text x="100" y="270" class="card-label">Meme</text>
+  </g>
+
+  <!-- Editorial -->
+  <g transform="translate(1482, 180)">
+    <rect width="200" height="240" rx="14" fill="#fff" stroke="#E8E0D5" stroke-width="2"/>
+    <rect x="22" y="22" width="156" height="96" rx="8" fill="#efe9e0"/>
+    <rect x="22" y="134" width="156" height="13" rx="6" fill="#E8E0D5"/>
+    <rect x="22" y="156" width="130" height="9" rx="4" fill="#efe9e0"/>
+    <rect x="22" y="172" width="140" height="9" rx="4" fill="#efe9e0"/>
+    <text x="100" y="270" class="card-label">Editorial</text>
+  </g>
+
+  <!-- Row 2 -->
+  <!-- Simple-sale: THE WINNER (orange) -->
+  <g transform="translate(1010, 456)">
+    <rect x="-6" y="-6" width="212" height="252" rx="18" fill="#FFF3EE" stroke="#E8591A" stroke-width="3"/>
+    <rect width="200" height="240" rx="14" fill="#fff" stroke="#E8591A" stroke-width="2"/>
+    <rect x="44" y="26" width="112" height="92" rx="8" fill="#FFE0CE"/>
+    <rect x="40" y="134" width="120" height="14" rx="6" fill="#E8591A"/>
+    <rect x="56" y="160" width="88" height="9" rx="4" fill="#f3c3a8"/>
+    <rect x="44" y="186" width="112" height="34" rx="10" fill="#E8591A"/>
+    <text x="100" y="270" class="winner-label">Simple-sale</text>
+  </g>
+
+  <!-- Simple-headline / results -->
+  <g transform="translate(1246, 456)">
+    <rect width="200" height="240" rx="14" fill="#fff" stroke="#E8E0D5" stroke-width="2"/>
+    <rect x="28" y="84" width="144" height="20" rx="8" fill="#E8E0D5"/>
+    <rect x="48" y="116" width="104" height="20" rx="8" fill="#E8E0D5"/>
+    <text x="100" y="270" class="card-label">Headline</text>
+  </g>
+
+  <!-- Stats / comparison -->
+  <g transform="translate(1482, 456)">
+    <rect width="200" height="240" rx="14" fill="#fff" stroke="#E8E0D5" stroke-width="2"/>
+    <rect x="30" y="120" width="36" height="60" rx="4" fill="#efe9e0"/>
+    <rect x="82" y="92" width="36" height="88" rx="4" fill="#E8E0D5"/>
+    <rect x="134" y="60" width="36" height="120" rx="4" fill="#efe9e0"/>
+    <text x="100" y="270" class="card-label">Stats</text>
+  </g>
+
+  <!-- Data hook -->
+  <g transform="translate(120, 636)">
+    <rect x="0" y="0" width="430" height="56" rx="14" fill="#FFF3EE" stroke="#E8591A" stroke-width="2"/>
+    <text x="22" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="24" font-weight="800" fill="#E8591A">87%</text>
+    <text x="92" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="15" font-weight="600" fill="#8a4a30">of ad-set spend lands on</text>
+    <text x="92" y="44" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="15" font-weight="600" fill="#8a4a30">just 1–2 creatives</text>
+  </g>
+
+  <!-- author / brand footer -->
+  <text x="120" y="744" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="22" font-weight="600" fill="#888780">Scalemate</text>
+</svg>
