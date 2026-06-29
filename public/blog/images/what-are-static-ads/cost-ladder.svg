@@ -38,10 +38,11 @@
 
   <!-- STEP 3: UGC self-sourced from $100 -->
   <g>
-    <rect x="780" y="270" width="220" height="370" rx="8" fill="#9a9a9a"/>
+    <rect x="780" y="270" width="220" height="370" rx="8" fill="#8f8f8f"/>
     <text x="890" y="255" class="price" fill="#737373" text-anchor="middle">$100+</text>
-    <text x="890" y="430" class="name" fill="#ffffff">UGC (self-sourced)</text>
-    <text x="890" y="454" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="14" fill="#f0f0f0" text-anchor="middle">region-dependent</text>
+    <text x="890" y="424" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle">UGC</text>
+    <text x="890" y="448" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle">(self-sourced)</text>
+    <text x="890" y="474" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="14" fill="#f0f0f0" text-anchor="middle">region-dependent</text>
     <text x="890" y="668" class="desc">~10× a static</text>
   </g>
 
@@ -49,8 +50,10 @@
   <g>
     <rect x="1080" y="160" width="220" height="480" rx="8" fill="#3f3f3f"/>
     <text x="1190" y="145" class="price" fill="#3f3f3f" text-anchor="middle">$250+</text>
-    <text x="1190" y="380" class="name" fill="#ffffff">UGC (US creator + agency)</text>
-    <text x="1190" y="404" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="14" fill="#cfcfcf" text-anchor="middle">premium production</text>
+    <text x="1190" y="372" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle">UGC</text>
+    <text x="1190" y="396" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle">(US creator</text>
+    <text x="1190" y="420" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle">+ agency)</text>
+    <text x="1190" y="446" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="14" fill="#dcdcdc" text-anchor="middle">premium production</text>
     <text x="1190" y="668" class="desc">20–50× a static</text>
   </g>
 
