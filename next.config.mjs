@@ -74,6 +74,10 @@ const nextConfig = {
         source: "/api/v1/:path*",
         destination: `${apiBaseUrl}/api/v1/:path*`,
       },
+      {
+        source: "/api/external/:path*",
+        destination: `${apiBaseUrl}/api/external/:path*`,
+      },
       // Docs proxy
       {
         source: "/docs",

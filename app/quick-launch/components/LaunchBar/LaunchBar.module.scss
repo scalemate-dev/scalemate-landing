@@ -1,0 +1,225 @@
+// LaunchBar — bottom bar with status toggle + launch button + result banners
+
+.bar {
+  border-top: 1px solid #f1f1f1;
+  padding: 16px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+// ── Status switch ──
+
+.switchLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.switch {
+  position: relative;
+  width: 36px;
+  height: 20px;
+  border-radius: 10px;
+  background: #e5e7eb;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease;
+  flex-shrink: 0;
+
+  &.switchOn {
+    background: #22c55e;
+  }
+}
+
+.switchThumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+
+  .switchOn & {
+    transform: translateX(16px);
+  }
+}
+
+.switchText {
+  font-family: $font-body;
+  font-size: 13px;
+  font-weight: 600;
+  color: #9ca3af;
+  letter-spacing: 0.02em;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+.switchTextActive {
+  color: #22c55e;
+}
+
+// ── Launch button ──
+
+.launchBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 28px;
+  background: #1A1A1A;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-family: $font-body;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  min-width: 160px;
+
+  &:hover:not(:disabled) {
+    background: #000000;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  &:disabled {
+    background: #e5e7eb;
+    color: #9ca3af;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+// ── Guest limits ──
+
+.guestLimits {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-family: $font-body;
+  font-size: 12px;
+  color: #9ca3af;
+
+  svg {
+    flex-shrink: 0;
+    color: #d1d5db;
+  }
+}
+
+.infoTooltip {
+  position: relative;
+  display: inline-flex;
+  cursor: pointer;
+
+  &:hover .infoTooltipText {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.infoTooltipText {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  padding: 8px 10px;
+  background: #1f2937;
+  color: #e5e7eb;
+  font-size: 11px;
+  line-height: 1.4;
+  border-radius: 6px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+  pointer-events: none;
+  z-index: 10;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #1f2937;
+  }
+}
+
+.guestLimitsLink {
+  color: #F97316;
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #ea580c;
+    text-decoration: underline;
+  }
+}
+
+// ── Banners ──
+
+.errorBanner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  color: #dc2626;
+  font-family: $font-body;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+// ── Spinner ──
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+// ── Responsive ──
+
+@include tablet-vertical {
+  .bar {
+    padding: 16px 20px 20px;
+  }
+
+  .controls {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .launchBtn {
+    width: 100%;
+  }
+
+  .toggle {
+    align-self: flex-end;
+  }
+}
