@@ -1,0 +1,149 @@
+// Quick Launch Widget
+// Two-column layout: selection (left) + creatives (right) + launch bar (bottom)
+
+.widget {
+  color-scheme: light;
+  background: #ffffff;
+  color: #1A1A1A;
+  border-radius: 24px;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 10px 15px -3px rgba(0, 0, 0, 0.05),
+    0 20px 25px -5px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  width: 100%;
+}
+
+.header {
+  padding: 24px 24px 18px;
+  border-bottom: 1px solid #f1f1f1;
+
+  h2 {
+    font-family: $font-heading;
+    font-size: 26px;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin: 0 0 6px;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    font-family: $font-body;
+    font-size: 14px;
+    color: #667085;
+    margin: 0;
+  }
+}
+
+.errorBanner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: #fef2f2;
+  border-bottom: 1px solid #fecaca;
+  color: #dc2626;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0;
+  min-height: 400px;
+}
+
+.restoring {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  color: #667085;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+// Responsive
+@include tablet-horizontal {
+  .content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@include tablet-vertical {
+  .header {
+    padding: 24px 20px 16px;
+
+    h2 {
+      font-size: 22px;
+    }
+  }
+}
+
+@include mobile {
+  .header {
+    h2 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 13px;
+    }
+  }
+}
+
+// Error Boundary
+.errorBoundary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  text-align: center;
+  color: #667085;
+
+  svg {
+    color: #f59e0b;
+    margin-bottom: 16px;
+  }
+
+  h3 {
+    font-family: $font-heading;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin: 0 0 8px;
+  }
+
+  p {
+    font-size: 14px;
+    margin: 0 0 24px;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: #1A1A1A;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: #000000;
+    }
+  }
+}

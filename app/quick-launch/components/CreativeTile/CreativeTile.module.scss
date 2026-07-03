@@ -1,0 +1,139 @@
+// CreativeTile — compact tile in the creatives grid
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  background: #ffffff;
+  transition: border-color 0.2s ease;
+  position: relative;
+
+  &:hover {
+    border-color: #d1d5db;
+
+    .removeBtn {
+      opacity: 1;
+    }
+  }
+
+  &.uploaded {
+    border-color: #bbf7d0;
+  }
+
+  &.failed {
+    border-color: #fca5a5;
+    background: #fef2f2;
+  }
+}
+
+// ── Thumbnail ──
+
+.thumbWrap {
+  position: relative;
+  aspect-ratio: 1;
+  background: #f9fafb;
+  overflow: hidden;
+}
+
+.thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d1d5db;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(1px);
+}
+
+// ── Info ──
+
+.info {
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.name {
+  font-family: $font-body;
+  font-size: 11px;
+  color: #374151;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: $font-body;
+  font-size: 10px;
+  color: #9ca3af;
+}
+
+.statusUploaded {
+  color: #22c55e;
+}
+
+.statusFailed {
+  color: #ef4444;
+}
+
+.statusUploading {
+  color: #F97316;
+}
+
+// ── Remove ──
+
+.removeBtn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  border: none;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease, background 0.2s ease;
+  backdrop-filter: blur(4px);
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.7);
+  }
+}
+
+// ── Spinner ──
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
