@@ -1,0 +1,110 @@
+// Selection Panel — left column of Quick Launch widget
+
+.panel {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-right: 1px solid #f1f1f1;
+  color-scheme: light;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.label {
+  font-family: $font-heading;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1A1A1A;
+}
+
+.hint {
+  font-family: $font-body;
+  font-size: 12px;
+  color: #9ca3af;
+  margin: -4px 0 0;
+  line-height: 1.4;
+}
+
+// ── Connect button ──
+
+.connectBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: #ffffff;
+  color: #1877f2;
+  border: 1px solid #1877f2;
+  border-radius: 10px;
+  font-family: $font-body;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+
+  &:hover:not(:disabled) {
+    background: #eff6ff;
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+.disconnectLink {
+  background: none;
+  border: none;
+  font-family: $font-body;
+  font-size: 12px;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 0;
+
+  &:hover {
+    color: #ef4444;
+    text-decoration: underline;
+  }
+}
+
+// ── Spinner ──
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+// ── Responsive ──
+
+@include tablet-horizontal {
+  .panel {
+    border-right: none;
+    border-bottom: 1px solid #f1f1f1;
+  }
+}
+
+@include tablet-vertical {
+  .panel {
+    padding: 20px;
+    gap: 16px;
+  }
+}

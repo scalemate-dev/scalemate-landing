@@ -32,6 +32,17 @@ export const EVENTS = {
   NAV_ITEM_CLICKED: 'nav_item_clicked',
   NAV_DROPDOWN_OPENED: 'nav_dropdown_opened',
 
+  // ── Quick Launch ──
+  QUICK_LAUNCH_CAMPAIGN_SELECTED: 'quick_launch_campaign_selected',
+  QUICK_LAUNCH_ADSET_SELECTED: 'quick_launch_adset_selected',
+  QUICK_LAUNCH_SOURCE_AD_SELECTED: 'quick_launch_source_ad_selected',
+  QUICK_LAUNCH_FILES_ADDED: 'quick_launch_files_added',
+  QUICK_LAUNCH_UPLOAD_STARTED: 'quick_launch_upload_started',
+  QUICK_LAUNCH_UPLOAD_COMPLETED: 'quick_launch_upload_completed',
+  QUICK_LAUNCH_LAUNCHED: 'quick_launch_launched',
+  QUICK_LAUNCH_LAUNCH_RESULT: 'quick_launch_launch_result',
+  QUICK_LAUNCH_ERROR_OCCURRED: 'quick_launch_error_occurred',
+
   // ── Blog ──
   BLOG_ARTICLE_VIEWED: 'blog_article_viewed',
   BLOG_ARTICLE_CARD_CLICKED: 'blog_article_card_clicked',
