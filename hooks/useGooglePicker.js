@@ -23,15 +23,6 @@ export function useGooglePicker({ onFilesSelected } = {}) {
     document.body.style.top = `-${scrollPositionRef.current}px`
     document.body.style.width = "100%"
 
-    console.log(
-      "NEXT_PUBLIC_GOOGLE_CLIENT_ID :: ",
-      process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
-    )
-    console.log(
-      "process.env.NEXT_PUBLIC_GOOGLE_PICKER_API_KEY :: ",
-      process.env.NEXT_PUBLIC_GOOGLE_PICKER_API_KEY,
-    )
-
     const GOOGLE_PROJECT_NUMBER =
       process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID?.split("-")[0]
 
