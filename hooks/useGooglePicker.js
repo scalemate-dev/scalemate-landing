@@ -25,15 +25,20 @@ export function useGooglePicker({ onFilesSelected } = {}) {
 
     console.log(
       "NEXT_PUBLIC_GOOGLE_CLIENT_ID :: ",
-      NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+      process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
     )
     console.log(
       "process.env.NEXT_PUBLIC_GOOGLE_PICKER_API_KEY :: ",
       process.env.NEXT_PUBLIC_GOOGLE_PICKER_API_KEY,
     )
+
+    const GOOGLE_PROJECT_NUMBER =
+      process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID?.split("-")[0]
+
     const pickerConfig = {
       clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
       viewId: "DOCS_IMAGES_AND_VIDEOS",
+      appId: GOOGLE_PROJECT_NUMBER,
       developerKey: process.env.NEXT_PUBLIC_GOOGLE_PICKER_API_KEY,
       showUploadView: false,
       showUploadFolders: false,
