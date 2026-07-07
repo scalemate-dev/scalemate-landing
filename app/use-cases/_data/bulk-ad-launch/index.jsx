@@ -4,7 +4,7 @@ import { SyncVisual, ConfigVisual, LaunchVisual } from "./HowItWorksVisuals"
 export const data = {
   metadata: {
     title:
-      "Bulk Launch Hundreds of Meta & TikTok Ads in Minutes | Scalemate",
+      "Bulk Launch Hundreds of Meta & TikTok Ads in Minutes",
     description:
       "Deploy hundreds of ad sets from one template. Define budget, targeting, and naming once \u2014 Scalemate generates every combination. Used by mobile publishers, marketing agencies and e-commerce teams.",
     alternates: {
@@ -12,7 +12,7 @@ export const data = {
     },
     openGraph: {
       title:
-        "Bulk Ad Launch Tool — Launch Hundreds of Ads in Minutes | Scalemate",
+        "Bulk Ad Launch Tool — Launch Hundreds of Ads in Minutes",
       description:
         "A bulk ad launch tool that removes the manual grind from campaign deployment. Bulk-create hundreds of ad sets and launch at scale.",
       url: "https://www.scalemate.co/use-cases/bulk-ad-launch",
@@ -21,7 +21,7 @@ export const data = {
     twitter: {
       card: "summary_large_image",
       title:
-        "Bulk Ad Launch Tool — Launch Hundreds of Ads in Minutes | Scalemate",
+        "Bulk Ad Launch Tool — Launch Hundreds of Ads in Minutes",
       description:
         "Bulk-create hundreds of ad sets, sync creatives from cloud storage, and launch at scale with Scalemate.",
     },

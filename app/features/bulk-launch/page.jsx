@@ -16,7 +16,7 @@ import styles from "./page.module.scss"
 
 export const metadata = {
   title:
-    "Bulk Ad Creation Tool \u2014 Launch Hundreds of Ads in Minutes | Scalemate",
+    "Bulk Ad Creation Tool \u2014 Build Meta & TikTok Ads at Once",
   description:
     "Create multiple ads at once on Meta and TikTok. Scalemate\u2019s bulk campaign builder deploys hundreds of ad variations from templates \u2014 no manual setup, no duplicate campaign creation.",
   alternates: {
@@ -25,7 +25,7 @@ export const metadata = {
   openGraph: {
     url: "https://www.scalemate.co/features/bulk-launch",
     title:
-      "Bulk Ad Creation Tool \u2014 Launch Hundreds of Ads in Minutes | Scalemate",
+      "Bulk Ad Creation Tool \u2014 Build Meta & TikTok Ads at Once",
     description:
       "Create multiple ads at once on Meta and TikTok. Scalemate\u2019s bulk campaign builder deploys hundreds of ad variations from templates \u2014 no manual setup, no duplicate campaign creation.",
     type: "website",
@@ -34,7 +34,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Bulk Ad Creation Tool \u2014 Launch Hundreds of Ads in Minutes | Scalemate",
+      "Bulk Ad Creation Tool \u2014 Build Meta & TikTok Ads at Once",
     description:
       "Create multiple ads at once on Meta and TikTok. Scalemate\u2019s bulk campaign builder deploys hundreds of ad variations from templates \u2014 no manual setup, no duplicate campaign creation.",
     images: ["/og-bulk-ad-launch.png"],
