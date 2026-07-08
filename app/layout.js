@@ -1,5 +1,5 @@
-import { GoogleTagManager } from "@next/third-parties/google"
 import { Inter, Poppins } from "next/font/google"
+import AnalyticsGate from "@/components/AnalyticsGate"
 import styles from "./page.module.scss"
 import Footer from "@/components/elements/Footer/Footer"
 import Header from "@/components/elements/Header/Header"
@@ -52,9 +52,7 @@ export default function RootLayout({ children }) {
           content="xen4h4jqm1szk6rn5dl14g5eeqhg1o"
         />
       </head>
-      {process.env.NEXT_PUBLIC_GTM_ID && (
-        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
-      )}
+      <AnalyticsGate />
 
       <body className={`${inter.variable} ${poppins.variable}`}>
         <MixpanelProvider />

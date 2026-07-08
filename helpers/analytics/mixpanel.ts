@@ -3,6 +3,10 @@ import mixpanel from 'mixpanel-browser'
 const MIXPANEL_TOKEN = process.env.NEXT_PUBLIC_MIXPANEL_TOKEN
 const isDev = process.env.NODE_ENV === 'development'
 
+// Only track on real production hosts — keeps localhost and Vercel preview
+// (*.vercel.app) traffic out of Mixpanel so the data stays clean.
+const PROD_HOSTS = ['scalemate.co', 'www.scalemate.co']
+
 let isInitialized = false
 
 const log = (action: string, data?: unknown) => {
@@ -17,6 +21,7 @@ const log = (action: string, data?: unknown) => {
 
 export const initMixpanel = (): boolean => {
   if (typeof window === 'undefined') return false
+  if (!PROD_HOSTS.includes(window.location.hostname)) return false
   if (isInitialized) return true
   if (!MIXPANEL_TOKEN) {
     console.warn('Mixpanel token not configured')

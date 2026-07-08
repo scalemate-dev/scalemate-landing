@@ -18,6 +18,7 @@ import {
   IconCode,
   IconBook2,
   IconArticle,
+  IconFlask,
 } from "@tabler/icons-react"
 import { usePathname } from "next/navigation"
 import { trackMixpanelEvent } from "@/helpers/analytics/mixpanel"
@@ -130,6 +131,17 @@ const RESOURCES = [
       </Icon>
     ),
     path: "/automation-rules-library",
+    new: true,
+  },
+  {
+    label: "Creative Testing Frameworks",
+    description: "14 production-tested creative testing methods, filterable by goal",
+    icon: (
+      <Icon style={{ backgroundColor: "#FDECE0" }}>
+        <IconFlask color="#DE5810" size={16} />
+      </Icon>
+    ),
+    path: "/creative-testing-framework-library",
     new: true,
   },
   {

@@ -23,9 +23,13 @@ export function useGooglePicker({ onFilesSelected } = {}) {
     document.body.style.top = `-${scrollPositionRef.current}px`
     document.body.style.width = "100%"
 
+    const GOOGLE_PROJECT_NUMBER =
+      process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID?.split("-")[0]
+
     const pickerConfig = {
       clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
       viewId: "DOCS_IMAGES_AND_VIDEOS",
+      appId: GOOGLE_PROJECT_NUMBER,
       developerKey: process.env.NEXT_PUBLIC_GOOGLE_PICKER_API_KEY,
       showUploadView: false,
       showUploadFolders: false,
@@ -43,11 +47,7 @@ export function useGooglePicker({ onFilesSelected } = {}) {
         if (data.action === "cancel") return
 
         if (data.action === "picked" && data.docs) {
-          const ALLOWED_MIME_TYPES = [
-            "image/jpeg",
-            "image/png",
-            "video/mp4",
-          ]
+          const ALLOWED_MIME_TYPES = ["image/jpeg", "image/png", "video/mp4"]
 
           const files = data.docs.map((doc) => ({
             id: doc.id,
