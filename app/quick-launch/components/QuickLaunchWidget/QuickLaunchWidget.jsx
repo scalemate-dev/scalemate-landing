@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useCallback, useEffect, useRef } from "react"
-import { IconLoader2 } from "@tabler/icons-react"
+import { IconLoader2, IconInfoCircle } from "@tabler/icons-react"
 import cn from "classnames"
 import { useFacebookAuth } from "@/hooks/useFacebookAuth"
 import { useGooglePicker } from "@/hooks/useGooglePicker"
@@ -20,6 +20,9 @@ import SelectionPanel from "../SelectionPanel/SelectionPanel"
 import CreativesPanel from "../CreativesPanel/CreativesPanel"
 import LaunchBar from "../LaunchBar/LaunchBar"
 import styles from "./QuickLaunchWidget.module.scss"
+
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://app.scalemate.co"
+const signupUrl = `${APP_URL}/create-account`
 
 // Backend signals exhausted guest limits with 429 or a 4xx "limit" message
 const isLimitError = (status, msg) =>
@@ -338,8 +341,23 @@ const QuickLaunchWidget = () => {
   return (
     <div className={styles.widget}>
       <div className={styles.header}>
-        <h2>Quick Launch</h2>
-        <p>Launch new ads with your creatives in seconds.</p>
+        <div className={styles.headerText}>
+          <h2>Quick Launch</h2>
+          <p>Launch new ads with your creatives in seconds.</p>
+        </div>
+
+        {!session.isRestoring && (
+          <LaunchBar
+            creativeCount={upload.uploadedCreatives.length}
+            pendingCount={upload.pendingCreatives.length}
+            isActive={launchStatus === "ACTIVE"}
+            onToggleActive={(active) => setLaunchStatus(active ? "ACTIVE" : "PAUSED")}
+            canLaunch={canLaunch}
+            isLaunching={isLaunching}
+            isUploading={upload.isUploading}
+            onLaunch={handleLaunch}
+          />
+        )}
       </div>
 
       {error && !session.isRestoring && (
@@ -397,17 +415,24 @@ const QuickLaunchWidget = () => {
         />
       </div>
 
-      <LaunchBar
-        creativeCount={upload.uploadedCreatives.length}
-        pendingCount={upload.pendingCreatives.length}
-        isActive={launchStatus === "ACTIVE"}
-        onToggleActive={(active) => setLaunchStatus(active ? "ACTIVE" : "PAUSED")}
-        canLaunch={canLaunch}
-        isLaunching={isLaunching}
-        isUploading={upload.isUploading}
-        onLaunch={handleLaunch}
-        launchError={launchError}
-      />
+      <div className={styles.footer}>
+        <span className={styles.infoTooltip}>
+          <IconInfoCircle size={14} />
+          <span className={styles.infoTooltipText}>
+            Free mode lets you use Quick Launch without creating an account.
+            Sign up to unlock all features.
+          </span>
+        </span>
+        <span>Free mode: 10 ads/day · 1 account ·</span>
+        <a
+          href={signupUrl}
+          className={styles.footerLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Sign up for more
+        </a>
+      </div>
       </>
       )}
 
