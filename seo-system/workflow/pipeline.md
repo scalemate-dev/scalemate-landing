@@ -266,6 +266,15 @@ Approval = ти редагуєш цей файл і рухаєш item у нас�
 > **Статуси:** `prospect` → `outreach drafted` → `sent` (Natalia) → `won` / `declined`
 > **Type:** dofollow / nofollow / unlinked-mention / listing / pr-feature
 
+> **Baseline 2026-07-17:** DR 2.1. Backlink-профіль ~80% спам (PBN `*.shop` ферми). Заслужених доменів ~10, майже всі nofollow. Broken backlinks: 0. Повний звіт: `off-page/2026-07-17.md`.
+
 | Target | Tactic | Status | Type | Date | Source DR | Notes |
 |---|---|---|---|---|---|---|
-| _(порожньо — заповнить перший запуск `offpage`)_ | | | | | | |
+| g2.com | claim + правильна категорія (Advertising) | prospect | listing | 2026-07-17 | DR 91 | ⚠️ плутанина з чужим scalemate.io; є профіль у «Outsourced Sales» |
+| producthunt.com | launch | prospect | dofollow | 2026-07-17 | DR 91 | madgicx має 549 лінків звідти; найбільший single-source магніт |
+| capterra.com | listing (правильна категорія) | prospect | listing | 2026-07-17 | — | немає лістингу |
+| crunchbase.com | company profile | prospect | listing | 2026-07-17 | DR 91 | немає профілю |
+| alternativeto.net / saashub.com | listing + «Madgicx/Bïrch alternatives» | prospect | listing | 2026-07-17 | — | — |
+| wordstream.com / neilpatel.com | data-study PR pitch (static-ads 87%) | prospect | pr-feature | 2026-07-17 | DR 90/91 | earn, don't ask |
+| entrepreneur.com / techcrunch.com | digital PR (data-study) | prospect | pr-feature | 2026-07-17 | DR 91/92 | link-bait coordination |
+| toxic PBN links | GSC manual-action check → disavow за потреби | prospect | hygiene | 2026-07-17 | — | disavow у ОБИДВІ url-prefix проперті; не терміново якщо чисто |
