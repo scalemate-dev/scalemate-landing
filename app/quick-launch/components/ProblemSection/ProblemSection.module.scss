@@ -1,0 +1,359 @@
+@use '../uc' as *;
+
+// ─── Section ───
+
+.problem {
+  position: relative;
+  padding: 148px 0 80px;
+  background: $uc-bg-warm;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at 12% 55%,
+      rgba($uc-accent, 0.025) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
+  }
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+}
+
+// ─── Header ───
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+.headerMain {
+  flex: 0 0 55%;
+}
+
+.label {
+  @include uc-eyebrow;
+  margin-bottom: 28px;
+}
+
+.headerMain h2 {
+  @include uc-section-title;
+}
+
+.accent {
+  font-style: italic;
+  color: $uc-accent;
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: $uc-accent;
+  background-clip: initial;
+}
+
+.subtitle {
+  font-family: $font-body;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.7;
+  color: $uc-body;
+  margin: 0;
+  max-width: 380px;
+  padding-bottom: 8px;
+}
+
+// ─── Divider ───
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: $uc-line;
+  margin: 56px 0;
+}
+
+// ─── Grid ───
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+
+// ─── Item ───
+
+.item {
+  position: relative;
+  padding: 36px;
+  overflow: hidden;
+
+  &:nth-child(2) {
+    margin-top: 36px;
+  }
+
+  &:nth-child(3) {
+    margin-top: 72px;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  // Geometric background shapes
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    transition: opacity 0.5s $uc-ease;
+  }
+
+  // Oval
+  &:nth-child(1)::after {
+    width: 160px;
+    height: 160px;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(-15deg);
+    background: $uc-shape;
+    border-radius: 50%;
+    opacity: 0.4;
+  }
+
+  // Triangle
+  &:nth-child(2)::after {
+    width: 0;
+    height: 0;
+    right: 8px;
+    top: 70%;
+    transform: translateY(-50%) rotate(-10deg);
+    border-left: 70px solid transparent;
+    border-right: 70px solid transparent;
+    border-bottom: 120px solid $uc-shape;
+    background: none;
+    opacity: 0.4;
+  }
+
+  // Square (rotated)
+  &:nth-child(3)::after {
+    width: 130px;
+    height: 130px;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(12deg);
+    background: $uc-shape;
+    opacity: 0.4;
+  }
+
+  &:hover {
+    &::after {
+      opacity: 0.55;
+    }
+
+    .dash {
+      width: 48px;
+      background: $uc-accent;
+    }
+  }
+
+  h3 {
+    font-family: $font-heading;
+    font-weight: 600;
+    font-size: 20px;
+    color: $uc-ink;
+    margin: 0 0 16px;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+  }
+
+  p {
+    font-family: $font-body;
+    font-size: 15px;
+    line-height: 1.7;
+    color: $uc-body;
+    margin: 0;
+  }
+}
+
+.dash {
+  display: block;
+  width: 36px;
+  height: 2px;
+  background: $uc-dash;
+  margin-bottom: 24px;
+  transition: width 0.5s $uc-ease,
+    background 0.5s $uc-ease;
+}
+
+// ─── Responsive ───
+
+@include desktop-s {
+  .headerMain h2 {
+    font-size: 46px;
+  }
+
+  .item {
+    padding: 32px;
+  }
+
+  .item:nth-child(2) {
+    margin-top: 28px;
+  }
+
+  .item:nth-child(3) {
+    margin-top: 56px;
+  }
+}
+
+@include tablet-horizontal {
+  .problem {
+    padding: 100px 0 72px;
+  }
+
+  .header {
+    gap: 48px;
+  }
+
+  .headerMain {
+    flex: 0 0 50%;
+  }
+
+  .headerMain h2 {
+    font-size: 38px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    max-width: 320px;
+  }
+
+  .divider {
+    margin: 48px 0;
+  }
+
+  .grid {
+    gap: 32px;
+  }
+
+  .item {
+    padding: 28px;
+  }
+
+  .dash {
+    margin-bottom: 20px;
+  }
+
+  .item:nth-child(2) {
+    margin-top: 24px;
+  }
+
+  .item:nth-child(3) {
+    margin-top: 48px;
+  }
+
+  .item h3 {
+    font-size: 18px;
+  }
+
+  .item p {
+    font-size: 14px;
+  }
+}
+
+@include tablet-vertical {
+  .problem {
+    padding: 80px 0;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .headerMain {
+    flex: unset;
+  }
+
+  .headerMain h2 {
+    font-size: 34px;
+  }
+
+  .subtitle {
+    max-width: 480px;
+    font-size: 16px;
+    padding-bottom: 0;
+  }
+
+  .divider {
+    margin: 40px 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .item {
+    padding: 32px 0;
+    border-top: 1px solid $uc-line;
+    overflow: visible;
+
+    &::after {
+      display: none;
+    }
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      margin-top: 0;
+    }
+  }
+
+  .dash {
+    display: none;
+  }
+}
+
+@include mobile {
+  .problem {
+    padding: 56px 0;
+  }
+
+  .label {
+    margin-bottom: 20px;
+    font-size: 10px;
+  }
+
+  .headerMain h2 {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .divider {
+    margin: 28px 0;
+  }
+
+  .item {
+    padding: 24px 0;
+  }
+
+  .item h3 {
+    font-size: 17px;
+    margin-bottom: 14px;
+  }
+
+  .item p {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+}

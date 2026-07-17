@@ -338,7 +338,7 @@ const QuickLaunchWidget = () => {
   return (
     <div className={styles.widget}>
       <div className={styles.header}>
-        <h2>Quick Launch</h2>
+        <h2>Ad Uploader</h2>
         <p>Launch new ads with your creatives in seconds.</p>
       </div>
 

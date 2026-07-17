@@ -1,0 +1,749 @@
+@use '../uc' as *;
+
+// ─── Section ───
+
+.howItWorks {
+  position: relative;
+  padding: 148px 0 160px;
+  background: $uc-bg-warm;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at 80% 15%,
+      rgba($uc-accent, 0.018) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
+  }
+}
+
+// ─── Header ───
+
+.sectionHeader {
+  text-align: left;
+  margin-bottom: 72px;
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  @include uc-eyebrow;
+}
+
+.sectionHeader h2 {
+  @include uc-section-title;
+  margin: 0 0 20px;
+}
+
+.sectionHeader p {
+  @include uc-body-text;
+  max-width: 564px;
+}
+
+// ─── Scroll container ───
+
+.scrollContainer {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 60px;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+// ─── Left column - Steps ───
+
+.stepsColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.stepCard {
+  position: relative;
+  background: $uc-panel-bg;
+  border: 1px solid rgba($uc-ink, 0.06);
+  border-radius: 20px;
+  padding: 28px;
+  cursor: pointer;
+  transition: all 0.4s $uc-ease;
+  box-shadow: $uc-shadow-card;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 24px;
+    bottom: 24px;
+    width: 3px;
+    background: $uc-accent;
+    border-radius: 0 2px 2px 0;
+    opacity: 0;
+    transform: scaleY(0);
+    transition: all 0.4s $uc-ease;
+  }
+
+  &:hover {
+    border-color: $uc-line;
+    box-shadow: $uc-shadow-panel;
+  }
+
+  &.active {
+    border-color: rgba($uc-accent, 0.2);
+    box-shadow: 0 8px 24px rgba($uc-accent, 0.1);
+
+    &::before {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+
+    .stepIcon {
+      background: $uc-accent;
+      border-color: transparent;
+      color: #ffffff;
+    }
+
+    .stepNumber {
+      color: $uc-accent;
+    }
+
+    .stepTitle {
+      color: $uc-ink;
+    }
+
+    .stepDesc {
+      color: $uc-body;
+    }
+  }
+}
+
+.stepHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.stepIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba($uc-accent, 0.08);
+  border: 1px solid rgba($uc-accent, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $uc-accent;
+  transition: all 0.35s $uc-ease;
+}
+
+.stepNumber {
+  font-family: $font-heading;
+  font-size: 14px;
+  font-weight: 600;
+  color: $uc-stone;
+  transition: color 0.3s ease;
+}
+
+.stepTitle {
+  font-family: $font-heading;
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: $uc-body-faded;
+  margin: 0 0 10px;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.stepDesc {
+  font-family: $font-body;
+  font-size: 15px;
+  line-height: 1.6;
+  color: $uc-body-faded;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+// ─── Right column - Screens ───
+
+.screensColumn {
+  position: relative;
+  height: 100%;
+}
+
+.screensSticky {
+  position: relative;
+  height: 500px;
+}
+
+.screen {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(20px) scale(0.98);
+  transition: all 0.5s $uc-ease;
+  pointer-events: none;
+
+  &.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+}
+
+// ─── Window mockup ───
+
+.screenWindow {
+  background: #ffffff;
+  border: 1px solid rgba($uc-ink, 0.06);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: $uc-shadow-panel;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.windowHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: $uc-bg-warm;
+  border-bottom: 1px solid $uc-line;
+}
+
+.windowDots {
+  display: flex;
+  gap: 8px;
+}
+
+.dotRed,
+.dotYellow,
+.dotGreen {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dotRed {
+  background: #ff5f57;
+}
+
+.dotYellow {
+  background: #febc2e;
+}
+
+.dotGreen {
+  background: #28c840;
+}
+
+.windowTitle {
+  font-family: $font-body;
+  font-size: 13px;
+  color: $uc-body;
+  font-weight: 500;
+}
+
+.windowActions {
+  width: 52px;
+}
+
+.windowIcon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background: $uc-line;
+  margin-left: auto;
+}
+
+.windowContent {
+  flex: 1;
+  padding: 20px;
+  overflow: hidden;
+  background: #fefdfb;
+}
+
+// ─── Select Screen Content ───
+
+.selectScreen {
+  height: 100%;
+}
+
+.fileGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.fileItem {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid rgba($uc-ink, 0.06);
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: $uc-line;
+    box-shadow: $uc-shadow-card;
+  }
+
+  &.selected {
+    border-color: $uc-accent;
+    background: rgba($uc-accent, 0.03);
+  }
+
+  span {
+    display: block;
+    font-family: $font-body;
+    font-size: 11px;
+    color: $uc-body;
+    margin-top: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.fileThumbnail {
+  aspect-ratio: 16/10;
+  border-radius: 8px;
+  background: $uc-bg-sand;
+  overflow: hidden;
+}
+
+.videoThumb {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, $uc-card-dark 0%, #374151 100%);
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.imageThumb {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, $uc-accent 0%, $uc-accent-hover 100%);
+}
+
+.checkmark {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: $uc-accent;
+  color: #ffffff;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// ─── Connect Screen Content ───
+
+.connectScreen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.connectHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  h4 {
+    font-family: $font-heading;
+    font-size: 16px;
+    font-weight: 600;
+    color: $uc-ink;
+    margin: 0;
+  }
+}
+
+.addBtn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid $uc-line;
+  color: $uc-body;
+  font-family: $font-body;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: $uc-bg-warm;
+    border-color: $uc-stone;
+    color: $uc-ink;
+  }
+}
+
+.accountsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.accountCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  background: #ffffff;
+  border: 1px solid rgba($uc-ink, 0.06);
+  border-radius: 12px;
+  transition: all 0.2s ease;
+
+  &.connected {
+    border-color: $uc-line;
+  }
+}
+
+.accountIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-family: $font-heading;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.accountInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.accountName {
+  font-family: $font-heading;
+  font-size: 14px;
+  font-weight: 600;
+  color: $uc-ink;
+}
+
+.accountStatus {
+  font-family: $font-body;
+  font-size: 12px;
+  color: $uc-body;
+}
+
+.accountCheck {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: $uc-success;
+  color: #ffffff;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// ─── Upload Screen Content ───
+
+.uploadScreen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 20px;
+}
+
+.uploadProgress {
+  background: #ffffff;
+  border: 1px solid rgba($uc-ink, 0.06);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.uploadHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.uploadTitle {
+  font-family: $font-heading;
+  font-size: 14px;
+  font-weight: 600;
+  color: $uc-ink;
+}
+
+.uploadCount {
+  font-family: $font-body;
+  font-size: 13px;
+  color: $uc-success;
+}
+
+.progressBar {
+  height: 6px;
+  background: $uc-bg-sand;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, $uc-accent 0%, $uc-accent-hover 100%);
+  border-radius: 3px;
+  transition: width 0.5s ease;
+
+  &.animated {
+    width: 75%;
+    animation: progressPulse 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes progressPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.uploadList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.uploadItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #ffffff;
+  border: 1px solid rgba($uc-ink, 0.06);
+  border-radius: 8px;
+
+  &.complete .uploadStatus {
+    color: $uc-success;
+  }
+
+  &.uploading {
+    background: rgba($uc-accent, 0.03);
+    border-color: rgba($uc-accent, 0.15);
+  }
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba($uc-accent, 0.25);
+  border-top-color: $uc-accent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fileName {
+  font-family: $font-body;
+  font-size: 13px;
+  color: $uc-body;
+}
+
+.uploadStatus {
+  font-size: 14px;
+  color: $uc-line;
+}
+
+.successMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px;
+  background: rgba($uc-success, 0.06);
+  border: 1px solid rgba($uc-success, 0.2);
+  border-radius: 12px;
+  margin-top: auto;
+
+  span {
+    font-family: $font-body;
+    font-size: 14px;
+    color: $uc-success;
+    font-weight: 500;
+  }
+}
+
+.successIcon {
+  font-size: 18px;
+}
+
+// ─── Responsive ───
+
+@include tablet-horizontal {
+  .howItWorks {
+    padding: 104px 0 120px;
+  }
+
+  .sectionHeader {
+    margin-bottom: 56px;
+
+    h2 {
+      font-size: 40px;
+    }
+  }
+
+  .scrollContainer {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+  }
+
+  .screensSticky {
+    height: 420px;
+  }
+}
+
+@include tablet-vertical {
+  .howItWorks {
+    padding: 80px 0 100px;
+  }
+
+  .sectionHeader {
+    margin-bottom: 48px;
+
+    h2 {
+      font-size: 34px;
+
+      br {
+        display: none;
+      }
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+
+  .scrollContainer {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .screensColumn {
+    order: -1;
+  }
+
+  .screensSticky {
+    position: relative;
+    top: 0;
+    height: 360px;
+  }
+
+  .stepsColumn {
+    gap: 16px;
+  }
+
+  .stepCard {
+    padding: 20px;
+
+    &::before {
+      display: none;
+    }
+
+    &.active {
+      border-color: $uc-accent;
+    }
+  }
+
+  .stepTitle {
+    font-size: 18px;
+  }
+
+  .stepDesc {
+    font-size: 14px;
+  }
+}
+
+@include mobile {
+  .howItWorks {
+    padding: 56px 0 80px;
+  }
+
+  .sectionHeader {
+    margin-bottom: 36px;
+
+    h2 {
+      font-size: 28px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+  }
+
+  .eyebrow {
+    font-size: 10px;
+  }
+
+  .screensSticky {
+    height: 300px;
+  }
+
+  .windowContent {
+    padding: 12px;
+  }
+
+  .stepCard {
+    padding: 16px;
+  }
+
+  .stepIcon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .stepTitle {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .stepDesc {
+    font-size: 13px;
+  }
+
+  .fileGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .fileItem span {
+    font-size: 10px;
+  }
+}
+
+// Ready-made mockup images for steps 1 & 3
+.screenImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(16, 24, 40, 0.10);
+}

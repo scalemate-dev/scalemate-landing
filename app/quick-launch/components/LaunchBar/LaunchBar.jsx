@@ -70,7 +70,7 @@ const LaunchBar = ({
         <span className={styles.infoTooltip}>
           <IconInfoCircle size={14} />
           <span className={styles.infoTooltipText}>
-            Free mode lets you use Quick Launch without creating an account.
+            Free mode lets you use the ad uploader without creating an account.
             Sign up to unlock all features.
           </span>
         </span>
