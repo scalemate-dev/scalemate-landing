@@ -25,10 +25,67 @@
 // ─── New sections (trust / compare / tier / need-more) ───
 
 .trust {
-  padding: 20px 0;
+  padding: 22px 0;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   background: #fff;
+}
+
+.trustInner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px 28px;
+}
+
+.trustBadge {
+  height: 54px;
+  width: auto;
+
+  @include mobile {
+    height: 44px;
+  }
+}
+
+.trustDivider {
+  width: 1px;
+  height: 30px;
+  background: rgba(0, 0, 0, 0.1);
+
+  @include tablet-vertical {
+    display: none;
+  }
+}
+
+.g2Rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba($uc-accent, 0.06);
+  border: 1px solid rgba($uc-accent, 0.18);
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    background: rgba($uc-accent, 0.11);
+    border-color: rgba($uc-accent, 0.32);
+  }
+}
+
+.g2Stars {
+  color: $uc-accent;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+}
+
+.g2Label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #344054;
+  white-space: nowrap;
 }
 
 .trustList {
@@ -36,7 +93,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 12px 36px;
+  gap: 12px 28px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -90,7 +147,7 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #F63D68;
+  color: $uc-accent;
 }
 
 .bandNote {
@@ -100,7 +157,7 @@
   margin: 22px auto 0;
   max-width: 640px;
 
-  a { color: #F63D68; font-weight: 600; }
+  a { color: $uc-accent; font-weight: 600; }
 }
 
 // comparison
@@ -142,7 +199,7 @@
 .cmpLabel { text-align: left !important; color: #344054; }
 .cmpMuted { color: #98A2B3; }
 .cmpHi {
-  background: rgba(#F63D68, 0.04);
+  background: rgba($uc-accent, 0.04);
   color: #1A1A1A;
   font-weight: 600;
   height: 100%;
@@ -179,7 +236,7 @@
 .tierHead { background: #fafafa; font-weight: 600; color: #1A1A1A; }
 .tierLabel { text-align: left; color: #344054; }
 .tierHi {
-  background: rgba(#F63D68, 0.04);
+  background: rgba($uc-accent, 0.04);
   color: #1A1A1A;
   font-weight: 600;
   height: 100%;
@@ -202,7 +259,7 @@
   padding: 30px 34px;
   border-radius: 18px;
   background: linear-gradient(160deg, #fff6f2 0%, #fff 100%);
-  border: 1px solid rgba(#F63D68, 0.14);
+  border: 1px solid rgba($uc-accent, 0.14);
 
   h3 {
     font-family: $font-heading;
@@ -229,7 +286,7 @@
   align-items: center;
   padding: 13px 24px;
   border-radius: 12px;
-  background: #F63D68;
+  background: $uc-accent;
   color: #fff;
   font-weight: 600;
   font-size: 15px;
@@ -245,7 +302,7 @@
   margin: 0 auto;
   aspect-ratio: 16 / 9;
   border-radius: 18px;
-  border: 2px dashed rgba(#F63D68, 0.3);
+  border: 2px dashed rgba($uc-accent, 0.3);
   background: linear-gradient(160deg, #fff6f2 0%, #fff 100%);
   display: flex;
   align-items: center;
@@ -255,7 +312,7 @@
     font-family: $font-body;
     font-size: 15px;
     font-weight: 500;
-    color: #F63D68;
+    color: $uc-accent;
     letter-spacing: 0.02em;
   }
 }
@@ -305,7 +362,7 @@
     margin-top: 20px;
 
     a {
-      color: #F63D68;
+      color: $uc-accent;
       font-weight: 600;
       white-space: nowrap;
     }
@@ -315,7 +372,7 @@
 }
 
 .quoteStars {
-  color: #F63D68;
+  color: $uc-accent;
   font-size: 18px;
   letter-spacing: 3px;
 }

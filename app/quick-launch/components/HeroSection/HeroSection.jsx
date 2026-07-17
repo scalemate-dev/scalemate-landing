@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Container from "@/components/elements/Container/Container"
 import QuickLaunchErrorBoundary from "../QuickLaunchWidget/QuickLaunchErrorBoundary"
 import QuickLaunchWidget from "../QuickLaunchWidget/QuickLaunchWidget"
@@ -34,15 +33,6 @@ export default function HeroSection() {
             <QuickLaunchErrorBoundary>
               <QuickLaunchWidget />
             </QuickLaunchErrorBoundary>
-          </div>
-
-          <div className={styles.verified}>
-            <Image
-              src="/meta-verified-app-badge.png"
-              alt="Meta Verified app"
-              width={168}
-              height={53}
-            />
           </div>
         </div>
       </Container>

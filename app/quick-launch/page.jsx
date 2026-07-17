@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import Container from "@/components/elements/Container/Container"
 import FAQ from "@/components/FAQ/FAQ"
 import VideoEmbed from "@/components/elements/VideoEmbed/VideoEmbed"
@@ -36,9 +37,24 @@ export const metadata = {
 }
 
 const COMPARE = [
-  { label: "Free / no login", free: "✓", signup: "✓", paid: "✗ 7-day trial, then $39–370/mo" },
-  { label: "Multi-account", free: "1 account", signup: "Multiple", paid: "Multiple" },
-  { label: "Platforms", free: "Meta (FB + IG)", signup: "Meta + TikTok", paid: "Meta only" },
+  {
+    label: "Free / no login",
+    free: "✓",
+    signup: "✓",
+    paid: "✗ 7-day trial, then $39–370/mo",
+  },
+  {
+    label: "Multi-account",
+    free: "1 account",
+    signup: "Multiple",
+    paid: "Multiple",
+  },
+  {
+    label: "Platforms",
+    free: "Meta (FB + IG)",
+    signup: "Meta + TikTok",
+    paid: "Meta only",
+  },
   { label: "Reusable templates", free: "✗", signup: "✓", paid: "✓" },
   { label: "CSV / Sheets per ad", free: "✗", signup: "✓", paid: "✓" },
   { label: "Analytics", free: "✗", signup: "✗", paid: "✓" },
@@ -81,13 +97,13 @@ const faqItems = [
   {
     question: "How is this different from Meta's native bulk upload?",
     answerText:
-      "No spreadsheet and no Ads Manager. Meta's native bulk import makes you download an XLSX template, fill it in offline, and re-upload through Ads Manager. Media buyers call it \"half broken.\" Here you pick a proven ad, drop a Drive folder, and the ads go live. No login required. For the full walkthrough, see how to bulk upload creatives to Meta and TikTok.",
+      'No spreadsheet and no Ads Manager. Meta\'s native bulk import makes you download an XLSX template, fill it in offline, and re-upload through Ads Manager. Media buyers call it "half broken." Here you pick a proven ad, drop a Drive folder, and the ads go live. No login required. For the full walkthrough, see how to bulk upload creatives to Meta and TikTok.',
     answer: (
       <>
         No spreadsheet and no Ads Manager. Meta&apos;s native bulk import makes
         you download an XLSX template, fill it in offline, and re-upload through
-        Ads Manager. Media buyers call it &ldquo;half broken.&rdquo; Here
-        you pick a proven ad, drop a Drive folder, and the ads go live. No login
+        Ads Manager. Media buyers call it &ldquo;half broken.&rdquo; Here you
+        pick a proven ad, drop a Drive folder, and the ads go live. No login
         required. For the full walkthrough, see{" "}
         <Link href="/blog/bulk-upload-creatives-meta-tiktok">
           how to bulk upload creatives to Meta &amp; TikTok
@@ -113,7 +129,7 @@ const faqItems = [
   {
     question: "What's the difference between bulk upload and bulk launch?",
     answerText:
-      "They're the same job described two ways. \"Bulk upload\" is how people search for it; \"bulk launch\" is what actually happens: the ads don't sit as drafts, they go live in your campaign. This tool does both in one step.",
+      'They\'re the same job described two ways. "Bulk upload" is how people search for it; "bulk launch" is what actually happens: the ads don\'t sit as drafts, they go live in your campaign. This tool does both in one step.',
     answer:
       "They're the same job described two ways. “Bulk upload” is how people search for it; “bulk launch” is what actually happens: the ads don't sit as drafts, they go live in your campaign. This tool does both in one step.",
   },
@@ -164,19 +180,49 @@ function renderCell(v) {
 export default function QuickLaunchPage() {
   return (
     <div className={styles.main}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
 
       <HeroSection />
 
       {/* Trust strip */}
       <div className={styles.trust}>
         <Container>
-          <ul className={styles.trustList}>
-            <li>Verified Meta app — official Meta Marketing API</li>
-            <li>2M+ ads launched</li>
-            <li>Your files are never stored</li>
-          </ul>
+          <div className={styles.trustInner}>
+            <Image
+              src="/meta-verified-app-badge.png"
+              alt="Meta Verified app"
+              width={170}
+              height={54}
+              className={styles.trustBadge}
+            />
+            <span className={styles.trustDivider} aria-hidden="true" />
+            <ul className={styles.trustList}>
+              <li>Verified Meta Partner</li>
+              <li>2M+ ads launched</li>
+            </ul>
+            <span className={styles.trustDivider} aria-hidden="true" />
+            <a
+              href="https://www.g2.com/products/scalemate/reviews"
+              target="_blank"
+              rel="nofollow noopener"
+              className={styles.g2Rating}
+            >
+              <span
+                className={styles.g2Stars}
+                aria-label="Rated 5 out of 5 on G2"
+              >
+                ★★★★★
+              </span>
+              <span className={styles.g2Label}>5/5 on G2</span>
+            </a>
+          </div>
         </Container>
       </div>
 
@@ -271,16 +317,31 @@ export default function QuickLaunchPage() {
 
           <div className={styles.needMore}>
             <div>
-              <h3>Need new campaigns, more accounts, or a unique link per ad?</h3>
+              <h3>
+                Need new campaigns, more accounts, or a unique link per ad?
+              </h3>
               <p>Sign up (still free) and the ceiling lifts:</p>
               <ul>
                 <li>TikTok too: upload ads to TikTok as well as Meta.</li>
-                <li>Reusable templates: set a new campaign up once, launch into it again and again.</li>
-                <li>CSV / Google Sheets import: a unique link, headline and settings for every ad. Built for ecommerce catalogs and web-to-app funnels.</li>
-                <li>Multiple ad accounts: switch between clients without re-connecting.</li>
+                <li>
+                  Reusable templates: set a new campaign up once, launch into it
+                  again and again.
+                </li>
+                <li>
+                  CSV / Google Sheets import: a unique link, headline and
+                  settings for every ad. Built for ecommerce catalogs and
+                  web-to-app funnels.
+                </li>
+                <li>
+                  Multiple ad accounts: switch between clients without
+                  re-connecting.
+                </li>
               </ul>
             </div>
-            <a href="https://app.scalemate.co/create-account" className={styles.needMoreBtn}>
+            <a
+              href="https://app.scalemate.co/create-account"
+              className={styles.needMoreBtn}
+            >
               Sign up for more
             </a>
           </div>
@@ -300,8 +361,8 @@ export default function QuickLaunchPage() {
               &ldquo;…push at least 40 new creatives a day into it with
               Scalemate, straight from Drive, across different products and 4
               accounts. I used to lose half my week just launching creatives
-              instead of doing creative strategy. Now it&apos;s 20 minutes at the
-              end of the day instead of a couple of days.&rdquo;
+              instead of doing creative strategy. Now it&apos;s 20 minutes at
+              the end of the day instead of a couple of days.&rdquo;
             </blockquote>
             <figcaption>
               Creative Marketing Specialist, Small-Business ·{" "}
@@ -321,7 +382,13 @@ export default function QuickLaunchPage() {
 
       <section className={styles.faq}>
         <Container>
-          <FAQ faqItems={faqItems} title="Ad uploader — quick answers" subtitle="Everything about the free tool" theme="light" multiOpen />
+          <FAQ
+            faqItems={faqItems}
+            title="Ad uploader — quick answers"
+            subtitle="Everything about the free tool"
+            theme="light"
+            multiOpen
+          />
         </Container>
       </section>
 
