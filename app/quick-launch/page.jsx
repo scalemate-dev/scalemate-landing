@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import Container from "@/components/elements/Container/Container"
+import g2Logo from "@/assets/icons/g2-logo.svg"
 import FAQ from "@/components/FAQ/FAQ"
 import VideoEmbed from "@/components/elements/VideoEmbed/VideoEmbed"
 import VideoObjectSchema from "@/components/elements/VideoEmbed/VideoObjectSchema"
@@ -214,13 +215,19 @@ export default function QuickLaunchPage() {
               rel="nofollow noopener"
               className={styles.g2Rating}
             >
+              <Image
+                src={g2Logo}
+                alt="G2"
+                width={20}
+                height={20}
+                className={styles.g2Logo}
+              />
               <span
                 className={styles.g2Stars}
                 aria-label="Rated 5 out of 5 on G2"
               >
                 ★★★★★
               </span>
-              <span className={styles.g2Label}>5/5 on G2</span>
             </a>
           </div>
         </Container>
@@ -266,15 +273,15 @@ export default function QuickLaunchPage() {
           <div className={styles.compare}>
             <div className={`${styles.cmpRow} ${styles.cmpHead}`}>
               <span />
-              <span className={styles.cmpHi}>This tool (free)</span>
-              <span>Sign up</span>
+              <span>This tool (free)</span>
+              <span className={styles.cmpHi}>Free account</span>
               <span>Typical paid tool</span>
             </div>
             {COMPARE.map((r) => (
               <div key={r.label} className={styles.cmpRow}>
                 <span className={styles.cmpLabel}>{r.label}</span>
-                <span className={styles.cmpHi}>{renderCell(r.free)}</span>
-                <span>{renderCell(r.signup)}</span>
+                <span>{renderCell(r.free)}</span>
+                <span className={styles.cmpHi}>{renderCell(r.signup)}</span>
                 <span className={styles.cmpMuted}>{renderCell(r.paid)}</span>
               </div>
             ))}
@@ -303,14 +310,14 @@ export default function QuickLaunchPage() {
           <div className={styles.tier}>
             <div className={`${styles.tierRow} ${styles.tierHead}`}>
               <span />
-              <span className={styles.tierHi}>Free · no login</span>
-              <span>Sign up</span>
+              <span>Free · no login</span>
+              <span className={styles.tierHi}>Free account</span>
             </div>
             {TIERS.map((r) => (
               <div key={r.label} className={styles.tierRow}>
                 <span className={styles.tierLabel}>{r.label}</span>
-                <span className={styles.tierHi}>{renderCell(r.free)}</span>
-                <span>{renderCell(r.signup)}</span>
+                <span>{renderCell(r.free)}</span>
+                <span className={styles.tierHi}>{renderCell(r.signup)}</span>
               </div>
             ))}
           </div>
@@ -354,8 +361,17 @@ export default function QuickLaunchPage() {
       <section className={styles.testimonial}>
         <Container>
           <figure className={styles.quoteCard}>
-            <div className={styles.quoteStars} aria-label="Rated 5 out of 5">
-              ★★★★★
+            <div className={styles.quoteTop}>
+              <Image
+                src={g2Logo}
+                alt="G2"
+                width={26}
+                height={26}
+                className={styles.quoteG2}
+              />
+              <div className={styles.quoteStars} aria-label="Rated 5 out of 5">
+                ★★★★★
+              </div>
             </div>
             <blockquote>
               &ldquo;…push at least 40 new creatives a day into it with
@@ -371,7 +387,7 @@ export default function QuickLaunchPage() {
                 target="_blank"
                 rel="nofollow noopener"
               >
-                Verified G2 review · 5/5
+                Verified G2 review
               </a>
             </figcaption>
           </figure>
