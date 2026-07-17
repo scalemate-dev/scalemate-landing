@@ -1,6 +1,8 @@
 import Link from "next/link"
 import Container from "@/components/elements/Container/Container"
 import FAQ from "@/components/FAQ/FAQ"
+import VideoEmbed from "@/components/elements/VideoEmbed/VideoEmbed"
+import VideoObjectSchema from "@/components/elements/VideoEmbed/VideoObjectSchema"
 import HeroSection from "./components/HeroSection/HeroSection"
 import ProblemSection from "./components/ProblemSection/ProblemSection"
 import HowItWorksSection from "./components/HowItWorksSection/HowItWorksSection"
@@ -54,9 +56,9 @@ const faqItems = [
   {
     question: "What is an ad uploader?",
     answerText:
-      "An ad uploader is a tool that creates many Meta ads at once instead of building each one by hand (campaign, ad set and ad) in Ads Manager. This one clones a reference ad, swaps in creatives from your Google Drive, and launches the new ads into your existing campaign. Free, no login, up to 10 a day.",
+      "An ad uploader (or ads uploader) is a tool that creates many Meta ads at once instead of building each one by hand (campaign, ad set and ad) in Ads Manager. This one clones a reference ad, swaps in creatives from your Google Drive, and launches the new ads into your existing campaign. It's the fastest way to bulk upload ads to Meta. Free, no login, up to 10 a day.",
     answer:
-      "An ad uploader is a tool that creates many Meta ads at once instead of building each one by hand (campaign, ad set and ad) in Ads Manager. This one clones a reference ad, swaps in creatives from your Google Drive, and launches the new ads into your existing campaign. Free, no login, up to 10 a day.",
+      "An ad uploader (or ads uploader) is a tool that creates many Meta ads at once instead of building each one by hand (campaign, ad set and ad) in Ads Manager. This one clones a reference ad, swaps in creatives from your Google Drive, and launches the new ads into your existing campaign. It's the fastest way to bulk upload ads to Meta. Free, no login, up to 10 a day.",
   },
   {
     question: "Does this actually create the ads, or just upload files?",
@@ -181,12 +183,39 @@ export default function QuickLaunchPage() {
       <ProblemSection />
       <HowItWorksSection />
 
+      {/* See it in action — VIDEO
+          TODO(Natalia): confirm exact uploadDate + duration for the schema below. */}
+      <section className={styles.band}>
+        <VideoObjectSchema
+          videoId="bxqfoXlMdEU"
+          name="How to Bulk-Launch Meta & TikTok Ads From Google Drive (100 Ads/Min)"
+          description="See the free ad uploader in action: clone a reference ad, drop your creatives from Google Drive, and launch new ads live into your existing Meta campaign — no Ads Manager, no spreadsheet."
+          uploadDate="2026-07-17"
+          duration="PT21S"
+        />
+        <Container>
+          <div className={styles.bandHead}>
+            <span className={styles.eyebrow}>See it in action</span>
+            <h2>Watch a batch go live in seconds</h2>
+          </div>
+          <VideoEmbed
+            videoId="bxqfoXlMdEU"
+            title="How to Bulk-Launch Meta Ads From Google Drive"
+            className={styles.videoEmbed}
+          />
+        </Container>
+      </section>
+
       {/* How we compare */}
       <section className={styles.band}>
         <Container>
           <div className={styles.bandHead}>
             <span className={styles.eyebrow}>How we compare</span>
             <h2>What you get free — and what the paid tools charge for</h2>
+            <p className={styles.bandSub}>
+              Here&apos;s how the free tool stacks up against a free account and
+              the typical paid uploader.
+            </p>
           </div>
           <div className={styles.compare}>
             <div className={`${styles.cmpRow} ${styles.cmpHead}`}>
@@ -219,7 +248,11 @@ export default function QuickLaunchPage() {
         <Container>
           <div className={styles.bandHead}>
             <span className={styles.eyebrow}>Free vs. sign up</span>
-            <h2>Free forever at 10 a day. Sign up when you outgrow it.</h2>
+            <h2>Free at 10 ads a day. Sign up when you outgrow it.</h2>
+            <p className={styles.bandSub}>
+              The no-login tool launches 10 ads a day into your existing
+              campaigns. A free account unlocks the rest.
+            </p>
           </div>
           <div className={styles.tier}>
             <div className={`${styles.tierRow} ${styles.tierHead}`}>
@@ -255,6 +288,35 @@ export default function QuickLaunchPage() {
       </section>
 
       <AudienceSection />
+
+      {/* Testimonial — verified G2 review (verbatim) */}
+      <section className={styles.testimonial}>
+        <Container>
+          <figure className={styles.quoteCard}>
+            <div className={styles.quoteStars} aria-label="Rated 5 out of 5">
+              ★★★★★
+            </div>
+            <blockquote>
+              &ldquo;…push at least 40 new creatives a day into it with
+              Scalemate, straight from Drive, across different products and 4
+              accounts. I used to lose half my week just launching creatives
+              instead of doing creative strategy. Now it&apos;s 20 minutes at the
+              end of the day instead of a couple of days.&rdquo;
+            </blockquote>
+            <figcaption>
+              Creative Marketing Specialist, Small-Business ·{" "}
+              <a
+                href="https://www.g2.com/products/scalemate/reviews#reviews"
+                target="_blank"
+                rel="nofollow noopener"
+              >
+                Verified G2 review · 5/5
+              </a>
+            </figcaption>
+          </figure>
+        </Container>
+      </section>
+
       <ResultsSection />
 
       <section className={styles.faq}>

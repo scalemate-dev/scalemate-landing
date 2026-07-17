@@ -294,12 +294,16 @@
 
 // ─── Meta Verified badge (replaces "Works with") ───
 .verified {
-  margin-top: 22px;
+  margin-top: 24px;
   display: flex;
   align-items: center;
 
   img {
-    height: 46px;
+    height: 64px;
     width: auto;
+
+    @include mobile {
+      height: 52px;
+    }
   }
 }

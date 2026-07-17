@@ -17,9 +17,9 @@ export default function HeroSection() {
               Drive
             </h1>
             <p>
-              The free ad uploader that clones a proven ad, swaps in your Drive
+              The free ads uploader that clones a proven ad, swaps in your Drive
               creatives, and pushes new ads live into your existing Meta
-              campaigns. No XLSX. No Ads Manager. No login.
+              campaigns. No XLSX, no Ads Manager, no manual busywork.
             </p>
             <div className={styles.chips}>
               <span>Free</span>

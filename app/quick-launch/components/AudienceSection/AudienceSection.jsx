@@ -46,8 +46,8 @@ export default function AudienceSection() {
             Built for people who launch a lot of ads
           </h2>
           <p className={styles.subtitle}>
-            If you push a lot of ads live on <strong>Meta</strong>, this free ad
-            uploader was built for you
+            If you push a lot of ads live on <strong>Meta</strong>, this free
+            ads uploader was built for you
           </p>
         </div>
 

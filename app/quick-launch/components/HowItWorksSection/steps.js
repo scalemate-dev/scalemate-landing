@@ -11,9 +11,9 @@ export const steps = [
     id: "select",
     number: "02",
     iconType: "google-drive",
-    title: "Drop your Drive creatives",
+    title: "Add your creatives",
     description:
-      "Point us at a Google Drive folder: image, video or carousel. No downloads, no spreadsheet, no naming gymnastics.",
+      "Pull them from a Google Drive folder, or drag and drop straight from your computer: image, video or carousel. No spreadsheet, no naming gymnastics.",
   },
   {
     id: "live",
@@ -21,6 +21,6 @@ export const steps = [
     title: "Your ads go live",
     iconType: "check",
     description:
-      "New ads land in that same campaign, ready to run. Up to 10 a day, free. No login required.",
+      "New ads land in that same campaign, ready to run. Up to 10 a day on the free tier.",
   },
 ]
