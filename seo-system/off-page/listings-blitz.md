@@ -55,6 +55,23 @@ Bulk creative upload · Google Drive / NextCloud → Meta & TikTok sync · Creat
 - Audience vocab: «automate», «bulk-launch», «creative testing», «stop doing X manually». Not «rules / auto-revert / compound conditions».
 - NDA: no paying-client names anywhere. Approved public logos only: KitUp, ZeptoLab.
 
+## 🏢 Agency directories + dofollow track (martech-team positioning)
+
+> Positioning: **martech team** (performance marketing / media buying on Meta & TikTok). Reuse the agency copy (Clutch "Our Story" + What Sets Us Apart). This track **earns dofollow → raises DR**, unlike the nofollow product directories above. Mined from competitor **applica.agency** (DR 51) backlink profile.
+
+- [x] **Clutch** — profile is ours (clutch.co/profile/scalemate). Added martech-team desc + Our Story + What Sets Us Apart + portfolio (Appflame, ZeptoLab) 2026-07-21. **Fixed category Application Testing → PPC/Social/Advertising** (brand-collision fix vs Kyiv QA namesake). Free plan (skip $499 Verified). TODO: 1-2 client reviews to rank + maximize dofollow.
+- [ ] **DesignRush** (DR90) — agency dir, same martech copy
+- [ ] **The Manifest** (DR80) · **TopDesignFirms / VisualObjects / GoodFirms** — agency dirs
+- [ ] **SoftwareWorld** (DR73) — SaaS dir (product framing)
+- [ ] **BusinessOfApps** (DR86) — app/martech media; guest post / tool dir (mobile UA angle)
+- [ ] **MobiHunter partners** — tool/platform listing (product framing); description sent 2026-07-21
+- [ ] **Featured.com / Connectively / HARO** (DR73/80) — digital PR, dofollow via expert quotes (Nataliia, 8+ yrs)
+- [ ] **Webinar** (Artem Kuzmych collab) → unlocks Luma/Livestorm/Swapcard dofollow + co-marketing
+- [ ] **applica.agency guest post** (DR51, Artem's offer) — ⚠️ confirm dofollow + in-content + topically relevant + not a guest-post mill before doing
+
+> **Supports:** build a lean **/services** (or /agency) page on scalemate.co (martech-team positioning) — verifies the agency directories + is its own SEO asset (can rank "Meta ads agency" / "TikTok media buying").
+> ⛔ Skip all PBN spam in applica's profile (itxoft-*, *seo*.agency, fiverr-*-seo, buybacklinks…) — same toxic junk already in our profile.
+
 ## 💰 Paid options — evaluate later (do NOT buy now)
 
 > At DR 2.1 with few users, free listings come first. Only buy a paid listing if: high DR **+** real relevant traffic **+** dofollow **+** our stage warrants it. Revisit once DR grows / users grow.
