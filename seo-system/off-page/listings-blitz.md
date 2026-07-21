@@ -69,20 +69,37 @@ Bulk creative upload · Google Drive / NextCloud → Meta & TikTok sync · Creat
 > 📅 **2026-07-27 check** (when AlternativeTo reminder fires): verify Capterra, SaaSworthy, SourceForge went live in public search (moderation should be done by then).
 
 ## Done log
-- [x] Crunchbase — submitted 2026-07-20 (infrastructure framing)
-- [x] Capterra (Gartner network) — ✅ Capterra LIVE 2026-07-21. GetApp + Software Advice profiles completed → Under review (auto-publish in 1-2 days). Skipped PPC upsell. 3 sites from 1 account.
-- [ ] AlternativeTo — ⏳ BLOCKED until **2026-07-27 15:21 Stockholm** (new accounts need 7-day age). Account created 2026-07-20. Copy ready above (tag alternatives: Madgicx, Revealbot, Kitchn.io).
-- [x] SaaSHub — submitted 2026-07-20. ⚠️ FIX: remove "Open Source" tag (we're not OSS); verify ownership; confirm $149/mo price.
-- [x] SourceForge — "Software Page Request Received" 2026-07-20, under review (free, no payment)
-- [x] SaaSworthy — vendor profile created 2026-07-20 (free), vendor portal access active. TODO: click Update → fill description/categories/logo + Company Profile.
-- [ ] Tekpon — ⏸️ PAID only ($249), skip for now (see Paid options)
-- [x] Crozdesk — submitted for review 2026-07-20 (free). Skipped PPC upsell. Email when live.
-- [✗] TrustRadius (DR84) — DECLINED 2026-07-20. Requires 100+ customers + ≥1 review to index, AND explicitly gives NO backlink. Low value at our stage. Revisit when we have 100+ customers + reviews.
-- [ ] ProvenExpert (DR91) — review/rating profile
-- [ ] Indie Hackers (DR81) — community + build-in-public (feeds X strategy)
-- [ ] Medium (DR94) — republish articles w/ backlink (content play)
-- [ ] (opt) BetaList / PeerPush / Uneed — launch directories, minor value
+
+**Legend:** ✅ live · ⏳ pending moderation (no action) · 🔧 needs action · ⏸️ skipped/paid · ✗ declined · ⬜ not started
+
+### ✅ Live (public)
+- **Crunchbase** — live 2026-07-20 (infrastructure framing)
+- **Capterra** — LIVE 2026-07-21 (Gartner network, 3 sites from 1 account; skipped PPC upsell)
+- **SourceForge** — page live at sourceforge.net/software/product/Scalemate/ (public, DR92)
+
+### ⏳ Pending moderation (emails will come, no action)
+- **GetApp + Software Advice** (Capterra network) — under review, auto-publish ~1-2 days
+- **Crozdesk** — submitted 2026-07-20, under review
+- **SaaSHub** — verified 2026-07-21, pending approval (up to 32 days — longest queue)
+- **SaaSworthy** — vendor profile filled, pending publish
+- **Capterra category requests** (Campaign Mgmt / Digital Advertising) — pending review
+- **SourceForge claim** — submitted 2026-07-21, being evaluated (for edit access)
+
+### 🔧 Needs action (small finishes)
+- **G2** — claimed + category requested. TODO: upload logo; collect reviews → ~20 = ranking gate (see g2-listing-assets.md)
+- **SourceForge** — after claim approved: remove wrong category "AI Ad Creative Generators" (we don't generate creatives), fix Support to "Online" only, ensure Website = scalemate.co
+- **SaaSHub** — confirm "Open Source" tag removed (we're not OSS)
+- **Screenshots** — add product screenshots where flagged (Capterra network, SaaSHub, SaaSworthy)
+- **All profiles** — verify Website field = https://scalemate.co (most directory links are nofollow/redirect; value = brand mention + AI-citation + referral, not raw dofollow)
+
+### ⏳ Blocked / scheduled
+- **AlternativeTo** — blocked until 2026-07-27 15:21 Stockholm (7-day account age). Reminder email set. Tag alternatives: Madgicx, Revealbot, Kitchn.io.
+
+### ⏸️ Skipped
+- **Tekpon** — paid only ($249), skip for now (see Paid options)
+- **TrustRadius** — DECLINED 2026-07-20: needs 100+ customers + ≥1 review to index AND gives NO backlink. Revisit when we have 100+ customers.
+
+### ⬜ Not started (optional, later)
+- ProvenExpert (DR91) · Indie Hackers (DR81, build-in-public) · Medium (DR94, republish) · «Madgicx alternatives» roundup outreach · BetaList / PeerPush / Uneed (minor)
 
 > ⚠️ Skip the DR-chasing X lists (Imgur/Flickr/Pixabay/Pinterest/Gumroad/OSS Gallery/Privacy Tools/etc.) — low relevance for a B2B ad SaaS. Relevance + real traffic > raw DR. Forbes/YourStory = earned PR, not self-serve directories.
-- [ ] «Madgicx alternatives» roundup outreach
-- [x] G2 — claimed, category requested, reviews in progress (see g2-listing-assets.md)
