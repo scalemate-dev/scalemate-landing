@@ -55,14 +55,29 @@ Bulk creative upload · Google Drive / NextCloud → Meta & TikTok sync · Creat
 - Audience vocab: «automate», «bulk-launch», «creative testing», «stop doing X manually». Not «rules / auto-revert / compound conditions».
 - NDA: no paying-client names anywhere. Approved public logos only: KitUp, ZeptoLab.
 
+## 💰 Paid options — evaluate later (do NOT buy now)
+
+> At DR 2.1 with few users, free listings come first. Only buy a paid listing if: high DR **+** real relevant traffic **+** dofollow **+** our stage warrants it. Revisit once DR grows / users grow.
+
+| Platform | Cost | Verdict |
+|---|---|---|
+| Tekpon | $249 one-time | ⏸️ skip for now — DR ~55, not worth $249 at this stage |
+| G2 Starter | $299/mo | ⏸️ skip until reviews grow (~20) — free plan covers our SEO needs |
+| G2 / Capterra PPC Ads | variable | ❌ lead-gen, not SEO — not our goal |
+| SaaSworthy / Crozdesk premium | varies | ⏸️ check if free tier exists first; paid = later |
+
+> 📅 **2026-07-27 check** (when AlternativeTo reminder fires): verify Capterra, SaaSworthy, SourceForge went live in public search (moderation should be done by then).
+
 ## Done log
 - [x] Crunchbase — submitted 2026-07-20 (infrastructure framing)
-- [x] Capterra (→ GetApp, Software Advice) — submitted 2026-07-17, under review 1-2 days
+- [x] Capterra (Gartner network) — ✅ Capterra LIVE 2026-07-21. GetApp + Software Advice profiles completed → Under review (auto-publish in 1-2 days). Skipped PPC upsell. 3 sites from 1 account.
 - [ ] AlternativeTo — ⏳ BLOCKED until **2026-07-27 15:21 Stockholm** (new accounts need 7-day age). Account created 2026-07-20. Copy ready above (tag alternatives: Madgicx, Revealbot, Kitchn.io).
 - [x] SaaSHub — submitted 2026-07-20. ⚠️ FIX: remove "Open Source" tag (we're not OSS); verify ownership; confirm $149/mo price.
 - [x] SourceForge — "Software Page Request Received" 2026-07-20, under review (free, no payment)
-- [ ] Tekpon / SaaSworthy / Crozdesk
-- [ ] TrustRadius (DR84) — B2B review, same class as G2/Capterra — HIGH priority add
+- [x] SaaSworthy — vendor profile created 2026-07-20 (free), vendor portal access active. TODO: click Update → fill description/categories/logo + Company Profile.
+- [ ] Tekpon — ⏸️ PAID only ($249), skip for now (see Paid options)
+- [x] Crozdesk — submitted for review 2026-07-20 (free). Skipped PPC upsell. Email when live.
+- [✗] TrustRadius (DR84) — DECLINED 2026-07-20. Requires 100+ customers + ≥1 review to index, AND explicitly gives NO backlink. Low value at our stage. Revisit when we have 100+ customers + reviews.
 - [ ] ProvenExpert (DR91) — review/rating profile
 - [ ] Indie Hackers (DR81) — community + build-in-public (feeds X strategy)
 - [ ] Medium (DR94) — republish articles w/ backlink (content play)
