@@ -52,11 +52,11 @@ Tracking gaps also tend to resurface after platform changes. Following [Meta's r
 
 ### Confirm the official listing
 
-Before installing anything, check the extension ID in the Chrome Web Store URL, not just the name. The [official Meta Pixel Helper listing](https://chromewebstore.google.com/detail/meta-pixel-helper/fdgfkebogiimcoedlicjlajpkdmockpc)'s ID is `fdgfkebogiimcoedlicjlajpkdmockpc`. A separate listing, "Pixel Helper for Meta" at ID `pbidfgcngaghdobpeppgnfgpefengdaj`, ranks alongside it in search results under a near-identical name. It may be entirely benign, but there's no reason to grant browser permissions to an unverified copy when the real one is one click away. This matters more for a team whose own pixel and ad-account access is worth protecting, not less.
+Before installing anything, make sure you're on the [official Meta Pixel Helper listing](https://chromewebstore.google.com/detail/meta-pixel-helper/fdgfkebogiimcoedlicjlajpkdmockpc), published by Meta. A separate listing, "Pixel Helper for Meta," ranks alongside it in search results under a near-identical name and isn't published by Meta. It may be entirely benign, but there's no reason to grant browser permissions to an unverified copy when the real one is one click away. This matters more for a team whose own pixel and ad-account access is worth protecting, not less.
 
 ### Install steps
 
-1. Go to the Chrome Web Store and open the official listing (verify the ID above).
+1. Go to the Chrome Web Store and open the official listing linked above (published by Meta).
 2. Click "Add to Chrome" and confirm the permissions prompt.
 3. Log in with your Facebook account when prompted. This has been required since a February 2026 update, and the popup won't open without it.
 4. Pin the extension so its icon stays visible in the toolbar while you test.
