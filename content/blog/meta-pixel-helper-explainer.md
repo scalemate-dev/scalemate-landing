@@ -108,21 +108,4 @@ Longer term, the Conversions API sends events server-to-server, alongside or ins
 
 If you're managing both platforms, TikTok has its own equivalent extension (TikTok Pixel Helper) for checking TikTok Pixel installs the same way. This piece focuses on the Meta side in depth; if your team runs [bulk creative uploads to Meta](/use-cases/automated-creative-upload-meta) and TikTok side by side, treat pixel verification as a per-platform checklist item, not a one-and-done step, since each platform's tool only reports on its own tracking.
 
-## FAQ
-
-**What is Meta Pixel Helper?**
-A free Chrome extension built by Meta that checks whether a Meta Pixel is installed on a page and firing standard events correctly, based on what happens in your browser.
-
-**Is Meta Pixel Helper free?**
-Yes, free on the Chrome Web Store, with over 3,000,000 users and a 3.9/5 rating as of July 25, 2026.
-
-**Why is Meta Pixel Helper not detecting my pixel?**
-Usually an ad blocker, a loading-order issue in a tag-manager setup, or a duplicate/conflicting pixel snippet. Test with ad blockers off first.
-
-**Does Meta Pixel Helper require a login now?**
-Yes, since a February 2026 update. It requires a Facebook login before the popup will open.
-
-**Is Meta Pixel necessary?**
-If you run Meta ads and want conversion data, retargeting audiences, or ROAS-based automation, yes. Without it, Meta has no signal to optimize delivery or measure outcomes beyond clicks.
-
 Verify your pixel signal before you lean on it for automated decisions. If your rules are already live, [confirm your pixel signal is accurate first](/features/automation-rules), then let them run on data you actually trust.
