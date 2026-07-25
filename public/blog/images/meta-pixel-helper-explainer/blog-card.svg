@@ -1,0 +1,38 @@
+<svg width="1720" height="860" viewBox="0 0 1720 860" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1720" height="860" fill="#fcfcfb"/>
+
+  <!-- diagnostic panel -->
+  <rect x="260" y="150" width="1200" height="560" rx="24" fill="#ffffff" stroke="#e1e0d9" stroke-width="2"/>
+
+  <!-- panel header bar -->
+  <rect x="260" y="150" width="1200" height="88" rx="24" fill="#f9f9f7"/>
+  <rect x="260" y="190" width="1200" height="48" fill="#f9f9f7"/>
+  <circle cx="320" cy="194" r="10" fill="#e1e0d9"/>
+  <circle cx="356" cy="194" r="10" fill="#e1e0d9"/>
+  <circle cx="392" cy="194" r="10" fill="#e1e0d9"/>
+
+  <!-- status badge: good -->
+  <circle cx="1360" cy="194" r="16" fill="#0ca30c"/>
+  <path d="M1352 194 l6 7 l12 -15" stroke="#ffffff" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- signal lines (pixel activity waveform) -->
+  <polyline points="330,440 400,440 430,350 470,530 510,390 550,470 590,440 900,440"
+            fill="none" stroke="#2a78d6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="900,440 940,390 980,490 1020,420 1060,440 1360,440"
+            fill="none" stroke="#2a78d6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+
+  <!-- detection marker on the waveform -->
+  <circle cx="900" cy="440" r="10" fill="#eb6834"/>
+
+  <!-- three status rows below the waveform, echoing the article's message table -->
+  <rect x="330" y="570" width="1060" height="2" fill="#e1e0d9"/>
+
+  <circle cx="350" cy="616" r="9" fill="#0ca30c"/>
+  <rect x="380" y="608" width="360" height="16" rx="8" fill="#e1e0d9"/>
+
+  <circle cx="350" cy="656" r="9" fill="#fab219"/>
+  <rect x="380" y="648" width="460" height="16" rx="8" fill="#e1e0d9"/>
+
+  <circle cx="350" cy="696" r="9" fill="#d03b3b"/>
+  <rect x="380" y="688" width="300" height="16" rx="8" fill="#e1e0d9"/>
+</svg>
