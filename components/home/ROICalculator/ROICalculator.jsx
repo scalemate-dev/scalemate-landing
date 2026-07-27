@@ -161,7 +161,7 @@ const ROICalculator = () => {
             </div>
             <div className={styles.selectWrapper}>
               <div className={styles.selectLabel}>
-                Number of creatives per month
+                Number of ads per month
               </div>
               <div className={styles.selectRange}>
                 <ReactSlider
