@@ -102,7 +102,7 @@ For the "did Meta actually get this" question, Meta's own Events Manager include
 ![Three verification layers: Pixel Helper in-browser, Test Events in Events Manager, Conversions API server-to-server](/blog/images/meta-pixel-helper-explainer/three-layer-verification.svg)
 *Each layer confirms something the one before it can't.*
 
-Longer term, the Conversions API sends events server-to-server, alongside or instead of the browser pixel, which sidesteps ad-blocker interference since it doesn't depend on a browser request firing at all. If tracking gaps keep resurfacing despite a clean Pixel Helper read, that's usually the sign it's time to add it rather than debug the browser pixel further. This is also worth revisiting as part of [automating your Facebook ad operations](/blog/facebook-ads-automation) more broadly, since reliable server-side signal is what makes automation worth trusting in the first place.
+Longer term, the Conversions API sends events server-to-server, alongside or instead of the browser pixel, which sidesteps ad-blocker interference since it doesn't depend on a browser request firing at all. If tracking gaps keep resurfacing despite a clean Pixel Helper read, that's usually the sign it's time to add it rather than debug the browser pixel further. This is also worth revisiting as part of [automating your Facebook ad operations](/automation-rules-library) more broadly, since reliable server-side signal is what makes automation worth trusting in the first place.
 
 ## Running Meta and TikTok Together
 
