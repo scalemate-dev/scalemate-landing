@@ -1,0 +1,54 @@
+<svg width="1440" height="810" viewBox="0 0 1440 810" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <rect width="1440" height="810" fill="#fcfcfb"/>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#898781"/>
+    </marker>
+  </defs>
+
+  <text x="720" y="72" text-anchor="middle" font-size="34" font-weight="600" fill="#0b0b0b">Two ways to scale one winning ad group</text>
+  <text x="720" y="112" text-anchor="middle" font-size="20" fill="#52514e">Same goal, different amount of work</text>
+
+  <!-- the winner -->
+  <rect x="70" y="350" width="230" height="110" rx="18" fill="#2a78d6"/>
+  <text x="185" y="396" text-anchor="middle" font-size="19" font-weight="600" fill="#ffffff">Winning ad group</text>
+  <text x="185" y="424" text-anchor="middle" font-size="16" fill="#ffffff" opacity="0.85">50+ conversions / week</text>
+
+  <line x1="304" y1="405" x2="380" y2="405" stroke="#898781" stroke-width="3"/>
+  <path d="M380 405 C 440 405, 440 250, 500 250" stroke="#898781" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <path d="M380 405 C 440 405, 440 570, 500 570" stroke="#898781" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- VERTICAL -->
+  <rect x="516" y="160" width="860" height="220" rx="20" fill="#e8f1fc"/>
+  <text x="556" y="206" font-size="24" font-weight="600" fill="#1c5cab">Vertical: raise the budget</text>
+  <text x="556" y="238" font-size="17" fill="#52514e">Same ad group. Budget up 20-30% per step. Delivery re-settles in 2-3 days.</text>
+
+  <rect x="560" y="316" width="70" height="34" rx="8" fill="#86b6ef"/>
+  <rect x="660" y="300" width="70" height="50" rx="8" fill="#5798e0"/>
+  <rect x="760" y="278" width="70" height="72" rx="8" fill="#2a78d6"/>
+  <rect x="860" y="270" width="70" height="80" rx="8" fill="#1c5cab"/>
+  <text x="1000" y="300" font-size="17" font-weight="600" fill="#0b0b0b">One decision, on a timer</text>
+  <text x="1000" y="328" font-size="17" fill="#52514e">A rules engine can run this</text>
+
+  <!-- HORIZONTAL -->
+  <rect x="516" y="440" width="860" height="260" rx="20" fill="#fdefe8"/>
+  <text x="556" y="486" font-size="24" font-weight="600" fill="#a8420f">Horizontal: duplicate the winner</text>
+  <text x="556" y="518" font-size="17" fill="#52514e">New ad groups, audiences, geos. Floor of $20/day each, so wide means many.</text>
+
+  <rect x="560" y="558" width="52" height="52" rx="10" fill="#eb6834"/>
+  <rect x="626" y="558" width="52" height="52" rx="10" fill="#eb6834" opacity="0.85"/>
+  <rect x="692" y="558" width="52" height="52" rx="10" fill="#eb6834" opacity="0.7"/>
+  <rect x="758" y="558" width="52" height="52" rx="10" fill="#eb6834" opacity="0.55"/>
+  <rect x="824" y="558" width="52" height="52" rx="10" fill="#eb6834" opacity="0.4"/>
+  <rect x="560" y="624" width="52" height="52" rx="10" fill="#eb6834" opacity="0.85"/>
+  <rect x="626" y="624" width="52" height="52" rx="10" fill="#eb6834" opacity="0.7"/>
+  <rect x="692" y="624" width="52" height="52" rx="10" fill="#eb6834" opacity="0.55"/>
+  <rect x="758" y="624" width="52" height="52" rx="10" fill="#eb6834" opacity="0.4"/>
+  <rect x="824" y="624" width="52" height="52" rx="10" fill="#eb6834" opacity="0.28"/>
+
+  <text x="1000" y="590" font-size="17" font-weight="600" fill="#0b0b0b">One decision, then building</text>
+  <text x="1000" y="618" font-size="17" fill="#52514e">Manual unless you bulk-launch</text>
+
+  <text x="720" y="766" text-anchor="middle" font-size="17" fill="#52514e">Sources: TikTok Ads Manager help (budget minimums, scaling guidance); admetrics.io (increment and recovery window). Checked 28 July 2026.</text>
+</svg>
