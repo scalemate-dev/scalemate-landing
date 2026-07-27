@@ -54,7 +54,7 @@ The word people reach for is "banned", and that muddies the diagnosis. **Restric
 
 *Find the level first. The fix is different for each.*
 
-### What a restriction actually takes away
+### What a restriction takes away
 
 Meta lists the limitations rather than leaving them vague. Per the same page, restrictions can include limited advertising spending or a lower payment threshold, loss of access to some payment features, and loss of the ability to add admins, partners or users.
 
@@ -132,14 +132,14 @@ Our position: the connection method is not an implementation detail. It changes 
 
 *How a tool reaches your account changes your risk.*
 
-### What "verified" actually means in Meta's terms
+### What "verified" means in Meta's terms
 
 The word gets used loosely in marketing copy, so here is Meta's own vocabulary.
 
 - **App Review.** Meta describes it as the process that lets it verify that your app uses its products and APIs in an approved manner, and says it tests apps to confirm they actually use the permissions requested ([developer docs](https://developers.facebook.com/documentation/resp-plat-initiatives/individual-processes/app-review)).
 - **Standard vs Advanced Access.** Standard Access permissions can only be requested from users with a role on the app. Advanced Access can be requested from any user, and must be approved per permission through App Review ([access levels documentation](https://developers.facebook.com/docs/graph-api/overview/access-levels/)).
-- **Business Verification.** Meta's documentation is unambiguous: business verification is required to get Advanced Access, a requirement introduced on 1 February 2023. Apps holding it must also complete an annual Data Use Checkup.
-- **The tier names just changed.** On 4 May 2026 Meta [renamed Ads Management Standard Access to the Marketing API Access Tier](https://developers.meta.com/blog/updates-to-ads-management-standard-access-feature/), relabelling Standard Access to Limited Access and Advanced Access to Full Access, and lowered the qualifying requirement from 1,500 to 500 calls in 15 days with an error rate under 15%.
+- **Business Verification.** No ambiguity here: Advanced Access requires business verification, in force since 1 February 2023. Apps holding it must also complete an annual Data Use Checkup.
+- **The tier names changed in May 2026.** On 4 May 2026 Meta [renamed Ads Management Standard Access to the Marketing API Access Tier](https://developers.meta.com/blog/updates-to-ads-management-standard-access-feature/), relabelling Standard Access to Limited Access and Advanced Access to Full Access, and lowered the qualifying requirement from 1,500 to 500 calls in 15 days with an error rate under 15%.
 
 A vendor that has been through App Review and business verification has handed Meta a reviewable identity. One that scrapes your session has not. The vendor-by-vendor picture sits in our guide to [verified vs unverified Meta apps](/blog/best-mcp-servers-meta-google-ads#verified-vs-unverified-why-it-matters-for-your-ad-account).
 
