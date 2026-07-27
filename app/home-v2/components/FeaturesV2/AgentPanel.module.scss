@@ -1,0 +1,388 @@
+@use '@/app/use-cases/_components/uc' as *;
+
+@keyframes panelIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bubbleIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes insightIn {
+  from { opacity: 0; transform: translateX(-6px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes codeChipIn {
+  from { opacity: 0; transform: translateX(-12px) translateY(8px) rotate(-3deg); }
+  to   { opacity: 0.7; transform: translateX(-24px) translateY(12px) rotate(-4deg); }
+}
+
+@keyframes slackFloaterIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes actionPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba($uc-accent, 0); }
+  50%      { box-shadow: 0 0 0 6px rgba($uc-accent, 0.08); }
+}
+
+// ─── Layout shell ────────────────────────────
+
+.panel {
+  position: relative;
+  width: 100%;
+  padding: 30px 0 36px;
+}
+
+// ─── Code chip — behind, peeks bottom-left ──
+
+.codeChip {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: $uc-ink;
+  border-radius: 12px;
+  box-shadow: $uc-shadow-card;
+  animation: codeChipIn 0.8s $uc-ease 0.45s both;
+}
+
+.codeDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $uc-accent;
+  box-shadow: 0 0 0 3px rgba($uc-accent, 0.18);
+  flex-shrink: 0;
+}
+
+.codeBody {
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 12px;
+  line-height: 1;
+  color: #fff;
+  letter-spacing: 0;
+}
+
+.codeKey {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.codeMethod {
+  color: $uc-accent-light;
+}
+
+.codeParen {
+  color: rgba(255, 255, 255, 0.45);
+  margin-left: 1px;
+}
+
+// ─── Chat card — main visual ─────────────────
+
+.chat {
+  position: relative;
+  z-index: 2;
+  background: $uc-panel-bg;
+  border: 1px solid rgba($uc-ink, 0.06);
+  border-radius: 20px;
+  box-shadow: $uc-shadow-panel;
+  padding: 28px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: panelIn 0.7s $uc-ease both;
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  animation: bubbleIn 0.6s $uc-ease both;
+}
+
+.rowUser {
+  animation-delay: 0.2s;
+}
+
+.rowAi {
+  animation-delay: 0.55s;
+}
+
+// ─── Avatars ─────────────────────────────────
+
+.avatarUser,
+.avatarAi {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.avatarUser {
+  background: $uc-shape;
+  color: $uc-ink;
+}
+
+.avatarAi {
+  background: $uc-ink;
+  color: $uc-accent;
+}
+
+// ─── Bubbles ─────────────────────────────────
+
+.bubbleUser {
+  background: rgba($uc-ink, 0.04);
+  border-radius: 14px 14px 14px 4px;
+  padding: 10px 14px;
+  font-family: $font-body;
+  font-size: 14px;
+  line-height: 1.5;
+  color: $uc-ink;
+  font-weight: 500;
+  max-width: 90%;
+}
+
+.bubbleAi {
+  flex: 1;
+  min-width: 0;
+}
+
+.bubbleLead {
+  font-family: $font-body;
+  font-size: 13px;
+  font-weight: 600;
+  color: $uc-stone;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 12px;
+}
+
+// ─── Insight list ────────────────────────────
+
+.insightList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.insight {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: rgba($uc-ink, 0.025);
+  border: 1px solid rgba($uc-ink, 0.04);
+  border-radius: 10px;
+  animation: insightIn 0.45s $uc-ease both;
+}
+
+.insightMetric {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: $uc-ink;
+  font-variant-numeric: tabular-nums;
+}
+
+.insightLabel {
+  font-family: $font-body;
+  font-size: 13px;
+  line-height: 1.4;
+  color: $uc-body;
+}
+
+// ─── Action chip ─────────────────────────────
+
+.actionChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  background: rgba($uc-accent, 0.08);
+  border: 1px solid rgba($uc-accent, 0.18);
+  border-radius: 100px;
+  font-family: $font-body;
+  font-size: 13px;
+  font-weight: 600;
+  color: $uc-accent-deep;
+  animation: actionPulse 2.6s ease-in-out infinite 2s;
+}
+
+.actionDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $uc-accent;
+  flex-shrink: 0;
+}
+
+// ─── Slack origin floater ────────────────────
+
+.slackFloater {
+  position: absolute;
+  top: 6px;
+  right: -18px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: $uc-panel-bg;
+  border: 1px solid rgba($uc-ink, 0.07);
+  border-radius: 12px;
+  box-shadow: $uc-shadow-card;
+  animation: slackFloaterIn 0.6s $uc-ease 0.85s both;
+}
+
+.slackIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+}
+
+.slackBody {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.slackChannel {
+  font-family: $font-body;
+  font-weight: 700;
+  font-size: 13px;
+  color: $uc-ink;
+  letter-spacing: -0.005em;
+}
+
+.slackTime {
+  font-family: $font-body;
+  font-size: 11px;
+  color: $uc-stone;
+}
+
+// ─── Responsive ──────────────────────────────
+
+@include tablet-horizontal {
+  .chat {
+    padding: 24px 22px 22px;
+  }
+
+  .slackFloater {
+    right: 0;
+    top: 0;
+  }
+
+  .codeChip {
+    left: -8px;
+    bottom: 4px;
+    padding: 10px 14px;
+  }
+
+  .codeBody {
+    font-size: 11.5px;
+  }
+}
+
+@include tablet-vertical {
+  .panel {
+    padding: 18px 0 22px;
+  }
+
+  .chat {
+    padding: 22px 20px 20px;
+    border-radius: 18px;
+  }
+
+  .slackFloater {
+    right: 0;
+    top: -8px;
+    padding: 8px 12px;
+  }
+
+  .codeChip {
+    bottom: -4px;
+    left: 0;
+  }
+}
+
+@include mobile {
+  .chat {
+    padding: 18px 16px 16px;
+    border-radius: 16px;
+  }
+
+  .bubbleUser {
+    font-size: 13px;
+  }
+
+  .bubbleLead {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .insightMetric {
+    font-size: 14px;
+  }
+
+  .insightLabel {
+    font-size: 12.5px;
+  }
+
+  .insight {
+    grid-template-columns: 52px 1fr;
+    padding: 9px 10px;
+    gap: 10px;
+  }
+
+  .actionChip {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  .slackFloater {
+    right: 0;
+    top: -14px;
+    padding: 7px 10px;
+  }
+
+  .slackChannel {
+    font-size: 12px;
+  }
+
+  .slackTime {
+    font-size: 10px;
+  }
+
+  .codeChip {
+    bottom: -6px;
+    left: 0;
+    padding: 8px 12px;
+  }
+
+  .codeBody {
+    font-size: 11px;
+  }
+}

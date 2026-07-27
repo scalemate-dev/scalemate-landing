@@ -1,0 +1,397 @@
+@use '@/app/use-cases/_components/uc' as *;
+
+.section {
+  position: relative;
+  padding: 140px 0 140px;
+  background: $uc-bg-warm;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at 20% 30%,
+      rgba(249, 115, 22, 0.025) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
+  }
+}
+
+// ─── Header ──────────────────────────────────
+
+.header {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 64px;
+  max-width: 760px;
+}
+
+.eyebrow {
+  @include uc-eyebrow;
+}
+
+.title {
+  @include uc-section-title;
+  margin: 0 0 20px;
+}
+
+.titleAccent {
+  font-style: italic;
+  color: $uc-accent;
+  font-weight: 700;
+}
+
+.subtitle {
+  @include uc-body-text;
+  max-width: 600px;
+}
+
+// ─── Row layout ──────────────────────────────
+
+.row {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+// ─── Form panel ──────────────────────────────
+
+.form {
+  background: $uc-panel-bg;
+  border: 1px solid rgba($uc-ink, 0.05);
+  border-radius: 24px;
+  box-shadow: $uc-shadow-panel;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.selectWrapper {
+  width: 100%;
+}
+
+.selectLabel {
+  font-family: $font-body;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $uc-stone;
+  margin-bottom: 12px;
+}
+
+.selectRange {
+  background: $uc-bg-warm;
+  border: 1px solid $uc-line;
+  border-radius: 12px;
+  padding: 32px 40px 44px;
+  width: 100%;
+}
+
+// ─── Slider ──────────────────────────────────
+
+.slider {
+  height: 6px;
+  width: 100%;
+  margin-top: 28px;
+  position: relative;
+
+  .track {
+    height: 6px;
+    background: $uc-line;
+    border-radius: 100px;
+    top: 0;
+
+    &-0 {
+      background: $uc-accent;
+    }
+  }
+
+  .thumb {
+    height: 22px;
+    width: 22px;
+    background: #fff;
+    border: 1.5px solid $uc-accent;
+    box-shadow:
+      0 1px 3px rgba(42, 39, 36, 0.06),
+      0 4px 12px rgba(249, 115, 22, 0.18);
+    border-radius: 50%;
+    cursor: pointer;
+    top: -8px;
+    transform: translateX(-50%);
+    transition: box-shadow 0.25s $uc-ease, transform 0.25s $uc-ease;
+
+    &:hover,
+    &:active {
+      box-shadow:
+        0 2px 4px rgba(42, 39, 36, 0.08),
+        0 6px 18px rgba(249, 115, 22, 0.28);
+    }
+
+    span {
+      font-family: $font-heading;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 1;
+      background: $uc-ink;
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 6px;
+      position: absolute;
+      top: -32px;
+      transform: translateX(-50%);
+      left: 50%;
+      white-space: nowrap;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  :global(.mark) {
+    width: 1px;
+    height: 8px;
+    background: rgba($uc-ink, 0.18);
+    cursor: pointer;
+    top: 6px;
+  }
+
+  :global(.mark-label) {
+    font-family: $font-body;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.4;
+    color: $uc-stone;
+    position: absolute;
+    top: 12px;
+    transform: translateX(-50%);
+  }
+}
+
+// ─── Results panel — dark contained card on light section ───
+
+.results {
+  background: $uc-card-dark;
+  border-radius: 24px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.resultItem {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  &:first-child {
+    padding-top: 0;
+  }
+}
+
+.resultLabel {
+  font-family: $font-body;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+
+  :global(span) {
+    color: $uc-accent;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+}
+
+.resultValue {
+  font-variant-numeric: slashed-zero;
+  font-family: $font-heading;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: #fff;
+  text-align: right;
+}
+
+// Highlight "Saved with Scalemate" row
+.resultItem:nth-last-child(2) {
+  .resultLabel {
+    color: $uc-accent-light;
+  }
+
+  .resultValue {
+    color: $uc-accent-light;
+    font-size: 22px;
+  }
+}
+
+// ─── CTA inside results ──────────────────────
+
+.cta {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ctaTitle {
+  font-family: $font-body;
+  font-size: 15px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 18px;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  background: $uc-accent;
+  color: #fff;
+  border-radius: 10px;
+  font-family: $font-body;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s $uc-ease;
+
+  &:hover {
+    background: $uc-accent-hover;
+    transform: translateY(-2px);
+  }
+}
+
+// ─── Disclaimer ──────────────────────────────
+
+.disclaimer {
+  position: relative;
+  z-index: 1;
+  display: block;
+  color: $uc-stone;
+  font-family: $font-body;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 32px 0 0;
+  text-align: left;
+}
+
+// ─── Responsive ──────────────────────────────
+
+@include desktop-s {
+  .title {
+    font-size: 46px;
+  }
+}
+
+@include tablet-horizontal {
+  .section {
+    padding: 104px 0;
+  }
+
+  .header {
+    margin-bottom: 48px;
+  }
+
+  .title {
+    font-size: 38px;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .form,
+  .results {
+    padding: 32px;
+  }
+
+  .resultValue {
+    font-size: 17px;
+  }
+
+  .resultItem:nth-last-child(2) .resultValue {
+    font-size: 20px;
+  }
+}
+
+@include tablet-vertical {
+  .section {
+    padding: 80px 0;
+  }
+
+  .header {
+    margin-bottom: 40px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .form,
+  .results {
+    padding: 28px;
+    border-radius: 20px;
+  }
+
+  .ctaButton {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@include mobile {
+  .section {
+    padding: 56px 0;
+  }
+
+  .header {
+    margin-bottom: 36px;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .form,
+  .results {
+    padding: 22px;
+    border-radius: 16px;
+  }
+
+  .resultItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 16px 0;
+  }
+
+  .resultValue {
+    text-align: left;
+    font-size: 18px;
+  }
+
+  .resultItem:nth-last-child(2) .resultValue {
+    font-size: 20px;
+  }
+
+  .selectRange {
+    padding: 28px 28px 36px;
+  }
+}

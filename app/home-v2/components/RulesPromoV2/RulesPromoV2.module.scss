@@ -1,0 +1,346 @@
+@use '@/app/home-v2/night' as *;
+
+@keyframes promoCopyIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes promoCardIn {
+  from { opacity: 0; transform: var(--card-rest) translateY(28px); }
+  to   { opacity: 1; transform: var(--card-rest) translateY(0); }
+}
+
+// ─── Section shell ──────────────────────────────
+
+.section {
+  position: relative;
+  padding: 120px 0;
+  background: $night-bg-soft;
+  border-top: 1px solid $night-line;
+  border-bottom: 1px solid $night-line;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px
+    );
+    background-size: 32px 32px;
+    mask-image: radial-gradient(
+      ellipse 60% 60% at 28% 50%,
+      rgba(0, 0, 0, 0.55) 0%,
+      transparent 70%
+    );
+    -webkit-mask-image: radial-gradient(
+      ellipse 60% 60% at 28% 50%,
+      rgba(0, 0, 0, 0.55) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+.layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+// ─── Left: copy ─────────────────────────────────
+
+.copy {
+  max-width: 520px;
+  animation: promoCopyIn 0.7s $uc-ease both;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: $night-stone;
+  margin-bottom: 24px;
+}
+
+.eyebrowDash {
+  display: inline-block;
+  width: 22px;
+  height: 2px;
+  background: $uc-accent;
+  border-radius: 2px;
+}
+
+.title {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  color: $night-ink;
+  margin: 0 0 18px;
+}
+
+.titleAccent {
+  font-style: italic;
+  font-weight: 600;
+  color: $night-ink;
+}
+
+.subhead {
+  font-family: $font-body;
+  font-size: 17px;
+  line-height: 1.65;
+  color: $night-body;
+  margin: 0 0 32px;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  background: $uc-accent;
+  color: #fff;
+  border-radius: 100px;
+  font-family: $font-body;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  text-decoration: none;
+  transition: background 0.25s $uc-ease, transform 0.25s $uc-ease;
+
+  &:hover {
+    background: $uc-accent-hover;
+    transform: translateY(-1px);
+  }
+}
+
+.ctaArrow {
+  font-size: 17px;
+  transition: transform 0.25s $uc-ease;
+
+  .cta:hover & {
+    transform: translateX(4px);
+  }
+}
+
+// ─── Right: 3-card stack (dark adaptation of library hero) ──
+
+.indexStack {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  margin-left: auto;
+  // Vertical room for stacked layered cards (back + mid peek + front overhang)
+  min-height: 420px;
+}
+
+.indexCard {
+  --card-rest: rotate(0deg);
+  position: absolute;
+  width: 100%;
+  max-width: 420px;
+  background: $night-panel-bg;
+  border: 1px solid $night-line-strong;
+  border-radius: 18px;
+  padding: 22px 24px 20px;
+  box-shadow: $night-shadow-panel;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transform: var(--card-rest);
+  animation: promoCardIn 0.75s $uc-ease both;
+  transition: transform 0.5s $uc-ease, box-shadow 0.5s $uc-ease;
+}
+
+// Back card — rolled back, peeks top-left
+.indexCardBack {
+  --card-rest: rotate(-4deg);
+  top: 0;
+  left: -8px;
+  z-index: 1;
+  animation-delay: 0.20s;
+  opacity: 0.86;
+}
+
+// Middle card — slight clockwise tilt, behind front
+.indexCardMid {
+  --card-rest: rotate(2.5deg);
+  top: 78px;
+  left: 36px;
+  z-index: 2;
+  animation-delay: 0.32s;
+  opacity: 0.94;
+}
+
+// Front card — most upright, foreground, strongest shadow
+.indexCardFront {
+  --card-rest: rotate(-1deg);
+  top: 162px;
+  left: 8px;
+  z-index: 3;
+  animation-delay: 0.44s;
+  box-shadow: $night-shadow-panel-hover;
+}
+
+// Lift on hover — whole deck reacts
+.indexStack:hover {
+  .indexCardFront {
+    transform: rotate(-1deg) translateY(-6px);
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.55),
+      0 18px 44px rgba(0, 0, 0, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+  .indexCardMid {
+    transform: rotate(2.5deg) translateY(-3px);
+  }
+  .indexCardBack {
+    transform: rotate(-4deg) translateY(-2px);
+  }
+}
+
+.indexCardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.indexCardId {
+  font-family: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: $uc-accent-light;
+  background: rgba($uc-accent, 0.12);
+  border: 1px solid rgba($uc-accent, 0.32);
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+
+.indexCardSchedule {
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: 500;
+  color: $night-body;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  &::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: $uc-success;
+    box-shadow: 0 0 0 3px rgba($uc-success, 0.22);
+  }
+}
+
+.indexCardTitle {
+  font-family: $font-heading;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.32;
+  letter-spacing: -0.015em;
+  color: $night-ink;
+  margin: 0;
+}
+
+.indexCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid $night-line;
+}
+
+.indexTag {
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+
+.tagScale {
+  color: #8FE2A4;
+  background: rgba($uc-success, 0.14);
+  border-color: rgba($uc-success, 0.32);
+}
+
+.tagFatigue {
+  color: #E8A98E;
+  background: rgba($uc-pain, 0.16);
+  border-color: rgba($uc-pain, 0.32);
+}
+
+.tagReactivate {
+  color: $uc-accent-light;
+  background: rgba($uc-accent, 0.12);
+  border-color: rgba($uc-accent, 0.32);
+}
+
+.indexLevel {
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $night-stone;
+}
+
+// ─── Responsive ─────────────────────────────────
+
+@include desktop-s {
+  .title { font-size: 44px; }
+  .indexStack { max-width: 420px; min-height: 380px; }
+  .indexCard { max-width: 380px; padding: 20px 22px 18px; }
+  .indexCardTitle { font-size: 16px; }
+}
+
+@include tablet-horizontal {
+  .layout { grid-template-columns: 1fr; gap: 48px; }
+  .copy { max-width: 100%; }
+  .indexStack { margin-left: 0; max-width: 520px; min-height: 360px; }
+}
+
+@include tablet-vertical {
+  .section { padding: 80px 0; }
+  .title { font-size: 36px; }
+  .subhead { font-size: 16px; }
+  .indexStack { min-height: 320px; }
+  .indexCard { max-width: 360px; padding: 18px 20px 16px; gap: 12px; }
+  .indexCardTitle { font-size: 15px; }
+  .indexCardBack { top: 0; left: -4px; }
+  .indexCardMid { top: 64px; left: 24px; }
+  .indexCardFront { top: 132px; left: 6px; }
+}
+
+@include mobile {
+  .section { padding: 56px 0; }
+  .title { font-size: 28px; letter-spacing: -0.025em; }
+  .indexStack { min-height: 300px; }
+  .indexCard { max-width: 100%; padding: 16px 18px 14px; }
+  .indexCardTitle { font-size: 14.5px; }
+  .indexCardBack { display: none; }
+  .indexCardMid { top: 0; left: 12px; }
+  .indexCardFront { top: 96px; left: 0; }
+  .cta { padding: 12px 18px; font-size: 14px; }
+}

@@ -1,0 +1,141 @@
+@use '@/app/use-cases/_components/uc' as *;
+
+.ctaWrapper {
+  background: $color-jet-black;
+}
+
+.cta {
+  padding: 100px 0;
+  background: linear-gradient(
+      45deg,
+      rgba(50, 45, 47, 0.2) 50%,
+      rgba(251, 214, 119, 0.2) 100%
+    ),
+    $color-jet-black;
+  border-radius: 0 0 60px 60px;
+}
+
+.ctaContent {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+
+  h2 {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.22;
+    color: #fff;
+    margin: 0 0 36px;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    font-family: $font-body;
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0 0 36px;
+    line-height: 1.6;
+  }
+}
+
+.accent {
+  font-style: italic;
+  color: #fff;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  background: $uc-accent;
+  color: #fff;
+  border-radius: 10px;
+  font-family: $font-body;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s $uc-ease;
+
+  &:hover {
+    background: $uc-accent-hover;
+    transform: translateY(-2px);
+  }
+}
+
+.ctaButtonOutline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  font-family: $font-body;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s $uc-ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+  }
+}
+
+@include desktop-s {
+  .ctaContent h2 {
+    font-size: 38px;
+  }
+}
+
+@include tablet-horizontal {
+  .cta {
+    padding: 80px 0;
+    border-radius: 0 0 30px 30px;
+  }
+
+  .ctaContent h2 {
+    font-size: 34px;
+  }
+}
+
+@include tablet-vertical {
+  .cta {
+    padding: 64px 0;
+  }
+
+  .ctaContent h2 {
+    font-size: 26px;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+  }
+
+  .ctaButton,
+  .ctaButtonOutline {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@include mobile {
+  .cta {
+    padding: 56px 0;
+  }
+
+  .ctaContent h2 {
+    font-size: 24px;
+  }
+}

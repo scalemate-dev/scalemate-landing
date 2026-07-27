@@ -17,6 +17,7 @@
     "classnames": "^2.5.1",
     "company-email-validator": "^1.1.0",
     "contentful": "^11.4.5",
+    "framer-motion": "^12.38.0",
     "gray-matter": "^4.0.3",
     "marked": "^17.0.5",
     "mixpanel-browser": "^2.74.0",

@@ -1,0 +1,200 @@
+@use '@/app/home-v2/night' as *;
+
+.section {
+  position: relative;
+  padding: 140px 0 140px;
+  background: $night-bg;
+  overflow: hidden;
+
+  // Faint vertical hairline from the previous section
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.06) 50%,
+      transparent 100%
+    );
+  }
+}
+
+.header {
+  margin-bottom: 72px;
+  max-width: 880px;
+}
+
+.eyebrow {
+  @include uc-eyebrow;
+  color: $night-stone;
+}
+
+.title {
+  @include uc-section-title;
+  color: $night-ink;
+}
+
+.titleAccent {
+  font-style: italic;
+  color: $night-ink;
+  font-weight: 700;
+}
+
+// ─── Grid of metric cards ───────────────────
+
+.grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 56px 64px;
+}
+
+.metric {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 28px;
+  border-top: 2px solid $uc-accent;
+  transition: transform 0.5s $uc-ease;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+
+  &:hover .metricValue {
+    color: #fff;
+  }
+}
+
+.metricValue {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 76px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: $night-ink;
+  transition: color 0.4s $uc-ease;
+}
+
+.metricLabel {
+  font-family: $font-body;
+  font-size: 16px;
+  line-height: 1.55;
+  color: $night-body;
+  max-width: 260px;
+}
+
+// ─── Responsive ─────────────────────────────
+
+@include desktop-s {
+  .title {
+    font-size: 46px;
+  }
+
+  .metricValue {
+    font-size: 62px;
+  }
+
+  .grid {
+    gap: 48px 48px;
+  }
+}
+
+@include tablet-horizontal {
+  .section {
+    padding: 104px 0;
+  }
+
+  .header {
+    margin-bottom: 56px;
+  }
+
+  .title {
+    font-size: 40px;
+  }
+
+  .grid {
+    gap: 40px 36px;
+  }
+
+  .metricValue {
+    font-size: 54px;
+  }
+
+  .metricLabel {
+    font-size: 15px;
+  }
+}
+
+@include tablet-vertical {
+  .section {
+    padding: 80px 0;
+  }
+
+  .header {
+    margin-bottom: 48px;
+  }
+
+  .title {
+    font-size: 34px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px 32px;
+  }
+
+  .metricValue {
+    font-size: 44px;
+  }
+}
+
+@include mobile {
+  .section {
+    padding: 64px 0;
+  }
+
+  .header {
+    margin-bottom: 40px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .metric {
+    border-top: 1.5px solid $night-line;
+    padding: 24px 0;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 24px;
+
+    &:last-child {
+      border-bottom: 1.5px solid $night-line;
+    }
+  }
+
+  .metricValue {
+    font-size: 34px;
+    color: $night-ink;
+    min-width: 90px;
+    flex-shrink: 0;
+  }
+
+  .metricLabel {
+    font-size: 14px;
+    max-width: none;
+  }
+}

@@ -1,0 +1,335 @@
+@use '@/app/home-v2/night' as *;
+
+@keyframes shimmer {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50%      { opacity: 0.6; transform: scale(1.06); }
+}
+
+.hero {
+  position: relative;
+  padding: 200px 0 140px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(249, 115, 22, 0.05) 0%, transparent 55%),
+    linear-gradient(180deg, $night-bg 0%, $night-bg-soft 100%);
+  overflow: hidden;
+
+  // Ambient warm glow
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 600px;
+    background: radial-gradient(
+      ellipse,
+      rgba($uc-accent, 0.06) 0%,
+      rgba($uc-accent, 0.02) 40%,
+      transparent 70%
+    );
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    animation: breathe 14s ease-in-out infinite;
+  }
+}
+
+// ─── Content (centered) ─────────────────────
+
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+// ─── Badge ──────────────────────────────────
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px 6px 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  text-decoration: none;
+  margin-bottom: 32px;
+  backdrop-filter: blur(8px);
+  transition: background 0.25s $uc-ease, transform 0.25s $uc-ease,
+    border-color 0.25s $uc-ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.16);
+    transform: translateY(-1px);
+  }
+}
+
+.badgePill {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 10px;
+  background: $uc-accent;
+  color: #fff;
+  border-radius: 100px;
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.badgeText {
+  font-family: $font-body;
+  font-size: 13px;
+  font-weight: 600;
+  color: $night-ink;
+  letter-spacing: 0.01em;
+}
+
+.badgeChevron {
+  color: $night-stone;
+  margin-left: -4px;
+  transition: transform 0.25s $uc-ease;
+
+  .badge:hover & {
+    transform: translateX(3px);
+  }
+}
+
+// ─── Title ──────────────────────────────────
+
+.title {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  color: $night-ink;
+  margin: 0 0 28px;
+  max-width: 980px;
+  text-wrap: balance;
+}
+
+.titleQualifier {
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.accent {
+  background: linear-gradient(
+    90deg,
+    $uc-accent-deep 0%,
+    $uc-accent 25%,
+    $uc-accent-light 50%,
+    $uc-accent 75%,
+    $uc-accent-deep 100%
+  );
+  background-size: 300% 100%;
+  background-position: 200% center;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 5s ease-in-out infinite alternate;
+}
+
+// ─── Description ────────────────────────────
+
+.description {
+  font-family: $font-body;
+  font-size: 18px;
+  line-height: 1.7;
+  color: $night-body;
+  margin: 0 0 44px;
+  max-width: 720px;
+  text-wrap: pretty;
+}
+
+// ─── CTA ────────────────────────────────────
+
+.cta {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 80px;
+
+  a[class*="outline"] {
+    padding: 15px 32px;
+    font-size: 16px;
+  }
+}
+
+// ─── Feature grid ───────────────────────────
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  width: 100%;
+  max-width: 920px;
+  text-align: left;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 22px;
+  border-top: 1.5px solid rgba(255, 255, 255, 0.1);
+}
+
+.featureEyebrow {
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.featureLabel {
+  font-family: $font-heading;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+  color: $night-ink;
+  text-wrap: balance;
+}
+
+// ─── Responsive ─────────────────────────────
+
+@include desktop-s {
+  .hero {
+    padding: 170px 0 110px;
+  }
+
+  .title {
+    font-size: 58px;
+  }
+}
+
+@include tablet-horizontal {
+  .hero {
+    padding: 150px 0 90px;
+  }
+
+  .title {
+    font-size: 48px;
+  }
+
+  .description {
+    font-size: 17px;
+    margin-bottom: 40px;
+  }
+
+  .cta {
+    margin-bottom: 64px;
+  }
+
+  .features {
+    gap: 28px;
+  }
+
+  .featureLabel {
+    font-size: 16px;
+  }
+}
+
+@include tablet-vertical {
+  .hero {
+    padding: 130px 0 80px;
+
+    &::after {
+      width: 500px;
+      height: 400px;
+    }
+  }
+
+  .title {
+    font-size: 42px;
+    max-width: 100%;
+
+    br {
+      display: none;
+    }
+  }
+
+  .description {
+    max-width: 100%;
+    margin-bottom: 36px;
+    font-size: 16px;
+  }
+
+  .cta {
+    flex-direction: column;
+    width: 100%;
+    max-width: 360px;
+    margin-bottom: 56px;
+
+    a {
+      width: 100%;
+    }
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 480px;
+  }
+
+  .feature {
+    padding: 18px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    flex-direction: row;
+    align-items: baseline;
+    gap: 20px;
+  }
+
+  .featureEyebrow {
+    flex-shrink: 0;
+    min-width: 110px;
+  }
+}
+
+@include mobile {
+  .hero {
+    padding: 110px 0 56px;
+  }
+
+  .badge {
+    margin-bottom: 24px;
+  }
+
+  .badgeText {
+    font-size: 12px;
+  }
+
+  .title {
+    font-size: 34px;
+    letter-spacing: -0.025em;
+  }
+
+  .description {
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+
+  .featureLabel {
+    font-size: 15px;
+  }
+}
