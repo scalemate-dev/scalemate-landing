@@ -1,0 +1,34 @@
+<svg width="1720" height="860" viewBox="0 0 1720 860" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <rect width="1720" height="860" fill="#fcfcfb"/>
+
+  <!-- delivery panel -->
+  <rect x="200" y="120" width="1320" height="620" rx="24" fill="#ffffff" stroke="#e1e0d9" stroke-width="2"/>
+  <rect x="200" y="120" width="1320" height="88" rx="24" fill="#f9f9f7"/>
+  <rect x="200" y="160" width="1320" height="48" fill="#f9f9f7"/>
+  <circle cx="256" cy="164" r="10" fill="#e1e0d9"/>
+  <circle cx="292" cy="164" r="10" fill="#e1e0d9"/>
+  <circle cx="328" cy="164" r="10" fill="#e1e0d9"/>
+
+  <!-- baseline + target line -->
+  <line x1="280" y1="640" x2="1440" y2="640" stroke="#e1e0d9" stroke-width="3"/>
+  <line x1="280" y1="320" x2="1440" y2="320" stroke="#e1e0d9" stroke-width="2" stroke-dasharray="10 12"/>
+  <text x="1440" y="312" text-anchor="end" font-size="20" fill="#898781">50 optimization events</text>
+
+  <!-- accumulated learning signal, climbing -->
+  <polyline points="300,640 380,570 460,505 540,450 620,405 700,370 780,345"
+            fill="none" stroke="#2a78d6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- the significant edit -->
+  <line x1="800" y1="250" x2="800" y2="660" stroke="#eb6834" stroke-width="3" stroke-dasharray="10 10"/>
+  <circle cx="800" cy="345" r="13" fill="#eb6834"/>
+  <text x="820" y="262" font-size="24" font-weight="600" fill="#eb6834">significant edit</text>
+
+  <!-- signal discarded, relearning from the baseline -->
+  <polyline points="800,640 880,590 960,540 1040,495 1120,455 1200,420 1280,392 1360,370"
+            fill="none" stroke="#2a78d6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.45"/>
+  <path d="M800 345 L800 620" stroke="#898781" stroke-width="3" stroke-dasharray="6 8" opacity="0.7"/>
+  <path d="M792 606 L800 626 L808 606" fill="none" stroke="#898781" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <text x="300" y="700" font-size="22" fill="#52514e">learning accumulated</text>
+  <text x="880" y="700" font-size="22" fill="#52514e">relearning from zero</text>
+</svg>

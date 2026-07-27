@@ -1,0 +1,54 @@
+<svg width="1440" height="810" viewBox="0 0 1440 810" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <rect width="1440" height="810" fill="#fcfcfb"/>
+
+  <text x="720" y="70" text-anchor="middle" font-size="34" font-weight="600" fill="#0b0b0b">Six edits across a day vs one edit window</text>
+  <text x="720" y="108" text-anchor="middle" font-size="19" fill="#52514e">The same changes, a different number of relearning periods</text>
+
+  <!-- TOP: drip editing -->
+  <text x="90" y="182" font-size="23" font-weight="600" fill="#b8471c">Drip-editing</text>
+  <text x="90" y="212" font-size="17" fill="#52514e">Each change restarts the event count</text>
+
+  <line x1="90" y1="330" x2="1350" y2="330" stroke="#e1e0d9" stroke-width="3"/>
+  <polyline points="90,330 170,300 190,330 270,298 290,330 370,296 390,330 470,299 490,330 570,297 590,330 670,300 690,330 900,238 1350,214"
+            fill="none" stroke="#2a78d6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g fill="#eb6834">
+    <circle cx="190" cy="330" r="9"/>
+    <circle cx="290" cy="330" r="9"/>
+    <circle cx="390" cy="330" r="9"/>
+    <circle cx="490" cy="330" r="9"/>
+    <circle cx="590" cy="330" r="9"/>
+    <circle cx="690" cy="330" r="9"/>
+  </g>
+
+  <text x="90" y="378" font-size="17" fill="#898781">09:40</text>
+  <text x="190" y="378" font-size="17" fill="#898781">11:15</text>
+  <text x="290" y="378" font-size="17" fill="#898781">12:30</text>
+  <text x="390" y="378" font-size="17" fill="#898781">14:05</text>
+  <text x="490" y="378" font-size="17" fill="#898781">16:20</text>
+  <text x="590" y="378" font-size="17" fill="#898781">18:45</text>
+
+  <rect x="1060" y="150" width="290" height="120" rx="16" fill="#fdf0ea"/>
+  <text x="1205" y="200" text-anchor="middle" font-size="44" font-weight="600" fill="#b8471c">6</text>
+  <text x="1205" y="238" text-anchor="middle" font-size="19" fill="#b8471c">relearning periods</text>
+
+  <line x1="90" y1="440" x2="1350" y2="440" stroke="#e1e0d9" stroke-width="2" stroke-dasharray="10 12"/>
+
+  <!-- BOTTOM: batched window -->
+  <text x="90" y="512" font-size="23" font-weight="600" fill="#12724f">One batched window</text>
+  <text x="90" y="542" font-size="17" fill="#52514e">All six changes applied in a single sitting</text>
+
+  <rect x="150" y="600" width="90" height="120" rx="12" fill="#eef7f2" stroke="#1baf7a" stroke-width="2"/>
+  <text x="195" y="590" text-anchor="middle" font-size="17" fill="#12724f">09:40</text>
+
+  <line x1="90" y1="660" x2="1350" y2="660" stroke="#e1e0d9" stroke-width="3"/>
+  <polyline points="90,660 150,632 240,660 400,594 560,552 720,522 900,500 1100,486 1350,478"
+            fill="none" stroke="#2a78d6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="240" cy="660" r="9" fill="#eb6834"/>
+
+  <rect x="1060" y="480" width="290" height="120" rx="16" fill="#eef7f2"/>
+  <text x="1205" y="530" text-anchor="middle" font-size="44" font-weight="600" fill="#12724f">1</text>
+  <text x="1205" y="568" text-anchor="middle" font-size="19" fill="#12724f">relearning period</text>
+
+  <text x="720" y="778" text-anchor="middle" font-size="17" fill="#52514e">The ad set only starts accumulating again once you stop editing it.</text>
+</svg>

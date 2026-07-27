@@ -1,0 +1,66 @@
+<svg width="1440" height="810" viewBox="0 0 1440 810" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <rect width="1440" height="810" fill="#fcfcfb"/>
+
+  <text x="720" y="70" text-anchor="middle" font-size="34" font-weight="600" fill="#0b0b0b">What resets learning, and who says so</text>
+  <text x="720" y="108" text-anchor="middle" font-size="19" fill="#52514e">Each row carries the type of source behind the answer</text>
+
+  <!-- legend -->
+  <rect x="330" y="136" width="14" height="14" rx="3" fill="#1c5cab"/>
+  <text x="354" y="148" font-size="16" fill="#52514e">Meta doc</text>
+  <rect x="470" y="136" width="14" height="14" rx="3" fill="#fab219"/>
+  <text x="494" y="148" font-size="16" fill="#52514e">Third-party</text>
+  <rect x="622" y="136" width="14" height="14" rx="3" fill="#898781"/>
+  <text x="646" y="148" font-size="16" fill="#52514e">Community</text>
+  <rect x="782" y="136" width="14" height="14" rx="3" fill="#1baf7a"/>
+  <text x="806" y="148" font-size="16" fill="#52514e">Our own product docs</text>
+
+  <!-- RESETS column -->
+  <rect x="70" y="186" width="640" height="560" rx="20" fill="#ffffff" stroke="#e1e0d9" stroke-width="2"/>
+  <rect x="70" y="186" width="640" height="62" rx="20" fill="#fdf0ea"/>
+  <rect x="70" y="226" width="640" height="22" fill="#fdf0ea"/>
+  <text x="102" y="226" font-size="24" font-weight="600" fill="#b8471c">Resets learning</text>
+
+  <circle cx="112" cy="304" r="7" fill="#1c5cab"/>
+  <text x="136" y="298" font-size="21" fill="#0b0b0b">Changing the optimization event</text>
+  <text x="136" y="326" font-size="16" fill="#52514e">On Meta's published significant-edits list</text>
+
+  <circle cx="112" cy="392" r="7" fill="#1c5cab"/>
+  <text x="136" y="386" font-size="21" fill="#0b0b0b">Targeting, audience or ad creative</text>
+  <text x="136" y="414" font-size="16" fill="#52514e">All three named by Meta as significant edits</text>
+
+  <circle cx="112" cy="480" r="7" fill="#1c5cab"/>
+  <text x="136" y="474" font-size="21" fill="#0b0b0b">Adding a new ad to a winner</text>
+  <text x="136" y="502" font-size="16" fill="#52514e">On Meta's list. Documented, not contested</text>
+
+  <circle cx="112" cy="568" r="7" fill="#1c5cab"/>
+  <text x="136" y="562" font-size="21" fill="#0b0b0b">Pausing the ad set</text>
+  <text x="136" y="590" font-size="16" fill="#52514e">Named by Meta. No duration published</text>
+
+  <circle cx="112" cy="656" r="7" fill="#fab219"/>
+  <text x="136" y="650" font-size="21" fill="#0b0b0b">Large budget or bid change</text>
+  <text x="136" y="678" font-size="16" fill="#52514e">Meta: depends on magnitude. No % given</text>
+
+  <!-- DOESN'T RESET column -->
+  <rect x="730" y="186" width="640" height="560" rx="20" fill="#ffffff" stroke="#e1e0d9" stroke-width="2"/>
+  <rect x="730" y="186" width="640" height="62" rx="20" fill="#eef7f2"/>
+  <rect x="730" y="226" width="640" height="22" fill="#eef7f2"/>
+  <text x="762" y="226" font-size="24" font-weight="600" fill="#12724f">Reported not to reset</text>
+
+  <circle cx="772" cy="304" r="7" fill="#898781"/>
+  <text x="796" y="298" font-size="21" fill="#0b0b0b">Pausing one weak ad in a stable set</text>
+  <text x="796" y="326" font-size="16" fill="#52514e">Refines the ad set rather than restarting it</text>
+
+  <circle cx="772" cy="392" r="7" fill="#898781"/>
+  <text x="796" y="386" font-size="21" fill="#0b0b0b">Small budget nudges</text>
+  <text x="796" y="414" font-size="16" fill="#52514e">Below the unsourced threshold everyone quotes</text>
+
+  <circle cx="772" cy="480" r="7" fill="#1baf7a"/>
+  <text x="796" y="474" font-size="21" fill="#0b0b0b">Scheduled 10% budget steps</text>
+  <text x="796" y="502" font-size="16" fill="#52514e">Our autoscaler is built to avoid the reset</text>
+
+  <circle cx="772" cy="568" r="7" fill="#1c5cab"/>
+  <text x="796" y="562" font-size="21" fill="#0b0b0b">Waiting</text>
+  <text x="796" y="590" font-size="16" fill="#52514e">Events accrue since the last significant edit</text>
+
+  <text x="720" y="784" text-anchor="middle" font-size="17" fill="#52514e">Most of this list is documented by Meta. The 20% budget threshold is the part that never was.</text>
+</svg>
