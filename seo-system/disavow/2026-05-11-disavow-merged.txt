@@ -1,0 +1,127 @@
+# scalemate.co — disavow file (Google Search Console) — MERGED
+# Generated: 2026-05-11
+# Sources merged:
+#   1) Previous GSC disavow (scalemate-co_20260511T105130Z_DisavowLinks.txt, 2026-03-23): 37 domains
+#   2) Fresh Ahrefs scan (2026-05-11, all 82 live refdomains): +59 new
+# Overlap: 20 domains caught twice
+# Total unique: 96 domains
+#
+# Pattern: April-May 2026 wave = SEOExpress.org PBN + .shop link-selling + DR-inflated zero-traffic PBN
+# Upload at: https://search.google.com/search-console/disavow-links (replaces existing file entirely)
+#
+# KEPT (legit refdomains, do NOT disavow):
+# - awesomeagents.ai (DR50, T20, bylined Madgicx review citing /blog/madgicx-review-alternative)
+# - techbehemoths.com (DR76, T109k, B2B agency directory /companies/advertising/poland)
+# - insightplatforms.com (DR56, T17k, analytics directory /platforms/scalemate/)
+
+# === Historical entries inherited from 2026-03-23 disavow (lost from Ahrefs index but kept as safety net) ===
+domain:2x9.co
+domain:athens-escorts.info
+domain:australianwebdirectory.shop
+domain:bmwyng.com
+domain:boost-your-site-with-homepage-backlinks.us
+domain:einzerce.eu
+domain:katmoviehd.wf
+domain:kgzxkf.com
+domain:musweb.org
+domain:optimizeflow.top
+domain:qa-animals.info
+domain:qhtycw.com
+domain:seolexo.com
+domain:seolink.info
+domain:sovereignmedia.co.za
+domain:sport-life.club
+domain:you-found-the-hidden-link.xyz
+
+# === SEOExpress.org PBN (anchor template "Before I found SEOExpress.org...") ===
+domain:mysky-shop.shop
+domain:theseomasterhigh.shop
+domain:seoexpress.shop
+domain:therankingseohigh.shop
+domain:kawaiishop.shop
+domain:thehighrankseo.shop
+domain:theseohighranking.shop
+domain:seo-high-ranking.shop
+domain:ekenkoshop.shop
+domain:activeshop.shop
+domain:seoexpress.space
+domain:rankingseohigh.shop
+domain:seoexpress.online
+domain:highseoranking.shop
+domain:rent-a-shop.shop
+domain:shop-inframe.shop
+domain:lixil-reformshop.shop
+domain:shopbetreiber-blog.shop
+domain:theseorankinghigh.shop
+domain:seoexpress.website
+domain:seoexpress.store
+domain:highseo.shop
+domain:seohighranking.shop
+domain:thehighseo.shop
+domain:kmoshops.shop
+domain:theguestposts.shop
+domain:therankinghighseo.shop
+domain:simplywebshop.shop
+domain:123webshop.shop
+domain:thebacklinks.shop
+domain:seoexpress.site
+
+# === SEO link-selling shops / agencies (advertise guest posts + backlinks for scalemate.co) ===
+domain:toplinkranker.shop
+domain:authoritybacklinks.shop
+domain:premiumseolinks.shop
+domain:linkseopro.shop
+domain:pbnseolinks.shop
+domain:linkrankpro.shop
+domain:seogeko.shop
+domain:rankxlinks.shop
+domain:backlinker.shop
+domain:rankpilot.shop
+domain:buybacklinks.agency
+domain:nexusnext.agency
+domain:rankongoogle.agency
+domain:seoagency.sale
+
+# === DR-inflated zero-traffic PBN (.top / .icu / .website / .click / .xyz / .wiki / .eu / .lc) ===
+domain:analyticshaven.top
+domain:metamagic.top
+domain:creativeposts.top
+domain:atomizelink.icu
+domain:rank-top.click
+domain:rankyour.website
+domain:byteshort.xyz
+domain:screenshots.wiki
+domain:jake.eu
+domain:domain.com.lc
+
+# === Hash-URL PBN cluster (identical /page-0c86b49bc7bf299d25802c42d4aa7cf2.html template) ===
+domain:indians.cc
+domain:pudhe.com
+domain:booksreadr.org
+domain:domainsc.com
+domain:way2check.cv
+
+# === Fake business directory listings (/company/scalemate/, auto-generated, no editorial) ===
+domain:metatalks.uk
+domain:knowledgeflowlab.com
+
+# === Auto-generated tool / IP listings ===
+domain:bounceme.net
+domain:tntcode.com
+domain:bestwebstats.com
+domain:getwebsiteworth.com
+domain:nettools.guru
+
+# === Other Ahrefs-flagged spam (is_spam=true, zero or near-zero traffic) ===
+domain:linksnatcher.com
+domain:indexaward.com
+domain:newsblogsports.site
+domain:globalecommerce.org
+domain:ready.pro
+domain:alljobs.info
+domain:egyptiandirectory.com
+domain:dsnylu.com
+domain:hzdlpq.com
+domain:uatechecosystem.com
+domain:sitescooponline.com
+domain:thegrowthpros.io

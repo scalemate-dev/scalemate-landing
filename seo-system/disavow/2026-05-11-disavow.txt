@@ -1,0 +1,106 @@
+# scalemate.co — disavow file (Google Search Console)
+# Generated: 2026-05-11
+# Source: Ahrefs site-explorer-referring-domains (subdomains mode, live, order_by first_seen:desc)
+# Scope: ALL live refdomains (82 total) — kept 3 legit, disavowing 79
+# Refdomains spike: 26 (2026-03-23) -> 79+ (2026-05-11), ~3x in 3 weeks = negative-SEO wave
+# Patterns: SEOExpress.org PBN | .shop link-selling | hash-URL PBN | fake directories | DR-inflated empty-traffic domains
+# Upload at: https://search.google.com/search-console/disavow-links-tool (property: scalemate.co)
+# MERGE with existing GSC disavow file before uploading (Google replaces, not appends)
+#
+# KEPT (legit, do NOT disavow):
+# - awesomeagents.ai (DR50, T20, bylined Madgicx review citing /blog/madgicx-review-alternative)
+# - techbehemoths.com (DR76, T109k, legit B2B agency directory, /companies/advertising/poland)
+# - insightplatforms.com (DR56, T17k, niche analytics platforms directory, /platforms/scalemate/)
+
+# === SEOExpress.org PBN (single anchor template "Before I found SEOExpress.org...") ===
+domain:mysky-shop.shop
+domain:theseomasterhigh.shop
+domain:seoexpress.shop
+domain:therankingseohigh.shop
+domain:kawaiishop.shop
+domain:thehighrankseo.shop
+domain:theseohighranking.shop
+domain:seo-high-ranking.shop
+domain:ekenkoshop.shop
+domain:activeshop.shop
+domain:seoexpress.space
+domain:rankingseohigh.shop
+domain:seoexpress.online
+domain:highseoranking.shop
+domain:rent-a-shop.shop
+domain:shop-inframe.shop
+domain:lixil-reformshop.shop
+domain:shopbetreiber-blog.shop
+domain:theseorankinghigh.shop
+domain:seoexpress.website
+domain:seoexpress.store
+domain:highseo.shop
+domain:seohighranking.shop
+domain:thehighseo.shop
+domain:kmoshops.shop
+domain:theguestposts.shop
+domain:therankinghighseo.shop
+domain:simplywebshop.shop
+domain:123webshop.shop
+domain:thebacklinks.shop
+domain:seoexpress.site
+
+# === SEO link-selling shops / agencies (advertise guest posts + backlinks targeting scalemate.co) ===
+domain:toplinkranker.shop
+domain:authoritybacklinks.shop
+domain:premiumseolinks.shop
+domain:linkseopro.shop
+domain:pbnseolinks.shop
+domain:linkrankpro.shop
+domain:seogeko.shop
+domain:rankxlinks.shop
+domain:backlinker.shop
+domain:rankpilot.shop
+domain:buybacklinks.agency
+domain:nexusnext.agency
+domain:rankongoogle.agency
+domain:seoagency.sale
+
+# === DR-inflated zero-traffic PBN (.top / .icu / .website / .click / .xyz / .wiki / .eu / .lc) ===
+domain:analyticshaven.top
+domain:metamagic.top
+domain:creativeposts.top
+domain:atomizelink.icu
+domain:rank-top.click
+domain:rankyour.website
+domain:byteshort.xyz
+domain:screenshots.wiki
+domain:jake.eu
+domain:domain.com.lc
+
+# === Hash-URL PBN cluster (identical /page-0c86b49bc7bf299d25802c42d4aa7cf2.html pattern) ===
+domain:indians.cc
+domain:pudhe.com
+domain:booksreadr.org
+domain:domainsc.com
+domain:way2check.cv
+
+# === Fake business directory listings (/company/scalemate/, auto-generated, no editorial) ===
+domain:metatalks.uk
+domain:knowledgeflowlab.com
+
+# === Auto-generated tool/IP listings ===
+domain:bounceme.net
+domain:tntcode.com
+domain:bestwebstats.com
+domain:getwebsiteworth.com
+domain:nettools.guru
+
+# === Other Ahrefs-flagged spam (is_spam=true, zero or near-zero traffic) ===
+domain:linksnatcher.com
+domain:indexaward.com
+domain:newsblogsports.site
+domain:globalecommerce.org
+domain:ready.pro
+domain:alljobs.info
+domain:egyptiandirectory.com
+domain:dsnylu.com
+domain:hzdlpq.com
+domain:uatechecosystem.com
+domain:sitescooponline.com
+domain:thegrowthpros.io
