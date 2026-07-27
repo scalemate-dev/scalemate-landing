@@ -49,14 +49,23 @@ const VIDEO_ENTRIES = [
   },
 ]
 
+function escapeXml(str) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;")
+}
+
 function videosForUrl(url) {
   const entry = VIDEO_ENTRIES.find((v) => v.url === url)
   if (!entry) return undefined
   return [
     {
-      title: entry.title,
+      title: escapeXml(entry.title),
       thumbnail_loc: `https://i.ytimg.com/vi/${entry.videoId}/hqdefault.jpg`,
-      description: entry.description,
+      description: escapeXml(entry.description),
       player_loc: `https://www.youtube.com/embed/${entry.videoId}`,
       duration: entry.duration,
       publication_date: entry.publicationDate,
