@@ -1,0 +1,69 @@
+<svg width="1440" height="810" viewBox="0 0 1440 810" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+
+  <text x="60" y="64" font-size="34" font-weight="600" fill="#3b3a33">Three levels a Meta restriction can land on</text>
+  <text x="60" y="104" font-size="20" fill="#6b6a62">Find your level first. The route back is different for each one.</text>
+
+  <!-- LEVEL 1 — personal account -->
+  <rect x="60" y="150" width="420" height="470" rx="18" fill="#fdf6f2" stroke="#eb6834" stroke-width="2"/>
+  <rect x="60" y="150" width="420" height="76" rx="18" fill="#eb6834"/>
+  <rect x="60" y="196" width="420" height="30" fill="#eb6834"/>
+  <text x="92" y="198" font-size="22" font-weight="600" fill="#ffffff">1. Personal Facebook account</text>
+
+  <text x="92" y="272" font-size="17" font-weight="600" fill="#3b3a33">Who you are on the platform</text>
+  <text x="92" y="316" font-size="17" fill="#4a4942">The person, not the business.</text>
+  <text x="92" y="344" font-size="17" fill="#4a4942">Blocks you from advertising</text>
+  <text x="92" y="372" font-size="17" fill="#4a4942">anywhere, on every asset you</text>
+  <text x="92" y="400" font-size="17" fill="#4a4942">touch.</text>
+
+  <rect x="92" y="432" width="356" height="1" fill="#f0d9cc"/>
+  <text x="92" y="472" font-size="16" font-weight="600" fill="#a34a1e">Appeal window</text>
+  <text x="92" y="502" font-size="17" fill="#4a4942">180 days to appeal a suspended</text>
+  <text x="92" y="530" font-size="17" fill="#4a4942">account, per Meta's Help Center.</text>
+  <text x="92" y="580" font-size="15" fill="#8a8980">Source: facebook.com/help/103873106370583</text>
+
+  <!-- LEVEL 2 — business portfolio -->
+  <rect x="510" y="150" width="420" height="470" rx="18" fill="#f2f7fd" stroke="#2a78d6" stroke-width="2"/>
+  <rect x="510" y="150" width="420" height="76" rx="18" fill="#2a78d6"/>
+  <rect x="510" y="196" width="420" height="30" fill="#2a78d6"/>
+  <text x="542" y="198" font-size="22" font-weight="600" fill="#ffffff">2. Business portfolio</text>
+
+  <text x="542" y="272" font-size="17" font-weight="600" fill="#3b3a33">The container (ex-Business Manager)</text>
+  <text x="542" y="316" font-size="17" fill="#4a4942">Holds your ad accounts, Pages,</text>
+  <text x="542" y="344" font-size="17" fill="#4a4942">pixels and people.</text>
+  <text x="542" y="372" font-size="17" fill="#4a4942">Restrict it and every ad account</text>
+  <text x="542" y="400" font-size="17" fill="#4a4942">inside stops with it.</text>
+
+  <rect x="542" y="432" width="356" height="1" fill="#d3e2f5"/>
+  <text x="542" y="472" font-size="16" font-weight="600" fill="#1c5698">Named in Meta's own wording</text>
+  <text x="542" y="502" font-size="17" fill="#4a4942">Meta restricts when it suspects a</text>
+  <text x="542" y="530" font-size="17" fill="#4a4942">portfolio was compromised or hacked.</text>
+  <text x="542" y="580" font-size="15" fill="#8a8980">Source: facebook.com/business/help/975570072950669</text>
+
+  <!-- LEVEL 3 — ad account -->
+  <rect x="960" y="150" width="420" height="470" rx="18" fill="#f1faf6" stroke="#1baf7a" stroke-width="2"/>
+  <rect x="960" y="150" width="420" height="76" rx="18" fill="#1baf7a"/>
+  <rect x="960" y="196" width="420" height="30" fill="#1baf7a"/>
+  <text x="992" y="198" font-size="22" font-weight="600" fill="#ffffff">3. Individual ad account</text>
+
+  <text x="992" y="272" font-size="17" font-weight="600" fill="#3b3a33">One spending account</text>
+  <text x="992" y="316" font-size="17" fill="#4a4942">The narrowest hit. Other accounts</text>
+  <text x="992" y="344" font-size="17" fill="#4a4942">in the same portfolio can keep</text>
+  <text x="992" y="372" font-size="17" fill="#4a4942">running while this one is under</text>
+  <text x="992" y="400" font-size="17" fill="#4a4942">review.</text>
+
+  <rect x="992" y="432" width="356" height="1" fill="#cdeade"/>
+  <text x="992" y="472" font-size="16" font-weight="600" fill="#117a55">Reinstatement clock</text>
+  <text x="992" y="502" font-size="17" fill="#4a4942">Disabled for a policy violation and</text>
+  <text x="992" y="530" font-size="17" fill="#4a4942">ineligible 6 months: no reinstatement.</text>
+  <text x="992" y="580" font-size="15" fill="#8a8980">Source: facebook.com/business/help/422289316306981</text>
+
+  <!-- containment rail -->
+  <path d="M270 660 h900" stroke="#d9d8d0" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="270" cy="660" r="9" fill="#eb6834"/>
+  <circle cx="720" cy="660" r="9" fill="#2a78d6"/>
+  <circle cx="1170" cy="660" r="9" fill="#1baf7a"/>
+  <text x="270" y="702" font-size="17" fill="#6b6a62" text-anchor="middle">widest blast radius</text>
+  <text x="1170" y="702" font-size="17" fill="#6b6a62" text-anchor="middle">narrowest</text>
+
+  <text x="60" y="768" font-size="16" fill="#8a8980">Meta Business Help Center and Facebook Help Center pages, checked 27 July 2026.</text>
+</svg>

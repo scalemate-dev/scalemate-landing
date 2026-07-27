@@ -1,0 +1,66 @@
+<svg width="1720" height="860" viewBox="0 0 1720 860" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1720" height="860" fill="#fcfcfb"/>
+
+  <!-- notice panel -->
+  <rect x="180" y="120" width="1360" height="620" rx="24" fill="#ffffff" stroke="#e1e0d9" stroke-width="2"/>
+
+  <!-- panel header bar -->
+  <rect x="180" y="120" width="1360" height="88" rx="24" fill="#f9f9f7"/>
+  <rect x="180" y="160" width="1360" height="48" fill="#f9f9f7"/>
+  <circle cx="240" cy="164" r="10" fill="#e1e0d9"/>
+  <circle cx="276" cy="164" r="10" fill="#e1e0d9"/>
+  <circle cx="312" cy="164" r="10" fill="#e1e0d9"/>
+
+  <!-- restriction badge -->
+  <g transform="translate(1400 140)">
+    <circle cx="24" cy="24" r="22" fill="#eb6834"/>
+    <rect x="21" y="12" width="6" height="16" rx="3" fill="#ffffff"/>
+    <circle cx="24" cy="34" r="3.4" fill="#ffffff"/>
+  </g>
+
+  <!-- notice headline bars -->
+  <rect x="240" y="256" width="700" height="26" rx="13" fill="#3b3a33"/>
+  <rect x="240" y="304" width="1040" height="14" rx="7" fill="#d9d8d0"/>
+  <rect x="240" y="332" width="880" height="14" rx="7" fill="#d9d8d0"/>
+
+  <!-- three levels a restriction can hit -->
+  <g transform="translate(240 400)">
+    <!-- level 1: personal account -->
+    <rect x="0" y="0" width="400" height="150" rx="16" fill="#fdf6f2" stroke="#eb6834" stroke-width="2"/>
+    <circle cx="46" cy="48" r="20" fill="none" stroke="#eb6834" stroke-width="4"/>
+    <path d="M26 84 a20 20 0 0 1 40 0" fill="none" stroke="#eb6834" stroke-width="4" stroke-linecap="round"/>
+    <rect x="92" y="36" width="240" height="16" rx="8" fill="#3b3a33"/>
+    <rect x="92" y="66" width="180" height="12" rx="6" fill="#c9c8c0"/>
+    <rect x="92" y="92" width="210" height="12" rx="6" fill="#c9c8c0"/>
+
+    <!-- level 2: business portfolio -->
+    <rect x="430" y="0" width="400" height="150" rx="16" fill="#f2f7fd" stroke="#2a78d6" stroke-width="2"/>
+    <rect x="456" y="32" width="52" height="56" rx="6" fill="none" stroke="#2a78d6" stroke-width="4"/>
+    <rect x="470" y="46" width="10" height="10" fill="#2a78d6"/>
+    <rect x="488" y="46" width="10" height="10" fill="#2a78d6"/>
+    <rect x="470" y="66" width="10" height="10" fill="#2a78d6"/>
+    <rect x="522" y="36" width="240" height="16" rx="8" fill="#3b3a33"/>
+    <rect x="522" y="66" width="176" height="12" rx="6" fill="#c9c8c0"/>
+    <rect x="522" y="92" width="214" height="12" rx="6" fill="#c9c8c0"/>
+
+    <!-- level 3: ad account -->
+    <rect x="860" y="0" width="400" height="150" rx="16" fill="#f1faf6" stroke="#1baf7a" stroke-width="2"/>
+    <rect x="886" y="34" width="56" height="52" rx="8" fill="none" stroke="#1baf7a" stroke-width="4"/>
+    <path d="M886 52 h56" stroke="#1baf7a" stroke-width="4"/>
+    <rect x="952" y="36" width="240" height="16" rx="8" fill="#3b3a33"/>
+    <rect x="952" y="66" width="196" height="12" rx="6" fill="#c9c8c0"/>
+    <rect x="952" y="92" width="164" height="12" rx="6" fill="#c9c8c0"/>
+  </g>
+
+  <!-- connector rail under the three levels -->
+  <path d="M300 600 h1160" stroke="#e1e0d9" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="300" cy="600" r="8" fill="#eb6834"/>
+  <circle cx="880" cy="600" r="8" fill="#2a78d6"/>
+  <circle cx="1460" cy="600" r="8" fill="#1baf7a"/>
+
+  <!-- footer emphasis: 7 documented reasons -->
+  <rect x="240" y="646" width="72" height="52" rx="12" fill="#3b3a33"/>
+  <path d="M258 662 h36 l-20 26" stroke="#ffffff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="330" y="660" width="330" height="16" rx="8" fill="#3b3a33"/>
+  <rect x="330" y="686" width="240" height="12" rx="6" fill="#c9c8c0"/>
+</svg>
