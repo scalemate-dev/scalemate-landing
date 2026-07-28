@@ -55,7 +55,12 @@ The community heuristic is looser: 7-14 days of consistent profitability ([admet
 
 ## Vertical vs horizontal scaling on TikTok
 
-**Vertical scaling** raises the budget on the ad group that already works. **Horizontal scaling** copies that winner into new ad groups, audiences or geos, so spend rises without any single ad group taking a large step. Vertical is one decision on a timer. Horizontal is one decision followed by a lot of building.
+Scaling a winning TikTok ad group works two ways:
+
+- **Vertical scaling:** raise the daily budget on the ad group that already works, in 20-30% steps ([admetrics.io](https://www.admetrics.io/en/post/how-to-scale-tiktok-ads)).
+- **Horizontal scaling:** copy that winner into new ad groups, audiences or geos, so spend rises without any single ad group taking a large step.
+
+Vertical is one decision on a timer. Horizontal is one decision followed by a lot of building.
 
 ![Two scaling paths from a winning TikTok ad group: vertical budget increases versus horizontal duplication at the $20 floor](/blog/images/tiktok-winner-scaling-automation/vertical-vs-horizontal-scaling.svg)
 
