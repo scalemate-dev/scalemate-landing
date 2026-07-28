@@ -135,6 +135,8 @@ Here's the workflow in action:
 
 The difference from a pure upload tool: you can launch ads directly from those creatives into campaigns. Upload the files, set your campaign structure, go live. The full workflow from creative asset to running ad happens in one interface.
 
+That matters most after a creative wins, because [scaling a winning TikTok ad group](/blog/tiktok-winner-scaling-automation) horizontally means rebuilding it across new ad groups, audiences and geos — the building half of scaling, not the budget half.
+
 The free tier includes unlimited uploads, 100 ad launches per month, and 2 active automation rules. No credit card required. If your volume fits one ad account, it costs nothing. And because Scalemate is a verified Meta app with official API access, scoped permissions, and rate limiting, there's zero ban risk. Across all users, zero accounts banned.
 
 **Beyond Google Drive.** Some teams don't keep creatives in Drive. Designers hand off assets through Airtable, an internal platform, or a shared Excel sheet with links. Scalemate connects to these sources too. Creatives flow automatically from wherever your design team puts them into Meta and TikTok's ad libraries. If your pipeline runs through a tool we don't support natively, the team builds the integration on request. Wherever your creatives live, they shouldn't require manual downloading and re-uploading to reach an ad platform.
