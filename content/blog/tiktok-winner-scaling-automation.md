@@ -20,7 +20,7 @@ faq:
   - question: "What is the minimum daily budget for a TikTok ad group?"
     answer: "TikTok requires a daily budget above $20 at the ad group level and above $50 at the campaign level. Lifetime budgets at ad group level are calculated as the minimum daily budget ($20) multiplied by the number of scheduled days."
   - question: "Can you automate TikTok ad scaling with rules?"
-    answer: "The budget half, yes. TikTok Ads Manager has native Automated Rules that check conditions and take actions at campaign, ad group or ad level, including budget increases based on ROAS or cost per purchase. Third-party rules engines are largely Meta-only today, Scalemate's included. The duplication half of scaling stays manual unless you use a bulk-launch tool."
+    answer: "The budget half, yes. TikTok Ads Manager has native Automated Rules that check conditions and take actions at campaign, ad group or ad level, including budget increases based on ROAS or cost per purchase. Third-party rules engines mostly ship their rule templates for Meta, Scalemate's included, though TikTok rules are built on request. The duplication half of scaling stays manual unless you use a bulk-launch tool."
 ---
 
 To scale TikTok ads is to spend more on a winner without breaking the delivery that made it win. The job splits in two: **vertical scaling** (spend more through the ad group that already works) and **horizontal scaling** (rebuild that winner across new ad groups, audiences and geos). A rules engine can run the first one. The second is ad-building at volume, by hand, and it is where the afternoons go.
@@ -30,7 +30,7 @@ To scale TikTok ads is to spend more on a winner without breaking the delivery t
 - **The gate:** scale a conversion ad group once it has "at least 50 conversions within a week" and the campaign meets or exceeds your performance metrics ([TikTok Ads Manager help](https://ads.tiktok.com/help/article/scaling-auction-ad-spend-solutions?lang=en), checked 28 July 2026).
 - **Vertical moves in 20-30% steps**, and delivery typically needs 2-3 days to settle after each one ([admetrics.io](https://www.admetrics.io/en/post/how-to-scale-tiktok-ads)).
 - **Horizontal hits a hard floor:** TikTok requires a daily budget above **$20 per ad group** and above **$50 per campaign** ([TikTok Ads Manager help](https://ads.tiktok.com/help/article/budget)). Scaling wide means building many small units.
-- **TikTok's native Automated Rules** run the budget half for you ([TikTok Ads Manager help](https://ads.tiktok.com/help/article/automated-rules?lang=en)). Third-party rules engines, ours included, are Meta-only today.
+- **TikTok's native Automated Rules** run the budget half for you ([TikTok Ads Manager help](https://ads.tiktok.com/help/article/automated-rules?lang=en)). Third-party rules engines, ours included, are Meta-first today (we build TikTok rules on request).
 - **First-hand:** I took a casual gaming app from roughly **$200/day to $15,000-20,000/day on TikTok in one quarter**. Creative supply and localization made that survivable, not the size of the budget steps.
 
 ## Your TikTok ad is finally working. Now the babysitting starts
@@ -118,9 +118,9 @@ That last one is the whole vertical-scaling loop, running without you. If you st
 
 ### Where third-party tools fit, and where they don't
 
-Plenty of third-party platforms sell rules engines on top of the ad platforms. Ours is one of them, and the boundary is this: **Scalemate's [rule-based campaign automation](/use-cases/ad-campaign-automation-rules) runs on Meta today, not TikTok.** Every one of our [ready-made scaling rule templates](/automation-rules-library) is a Meta rule. For TikTok budget rules, use TikTok's native ones.
+Plenty of third-party platforms sell rules engines on top of the ad platforms. Ours is one of them, and the boundary is worth stating plainly: **Scalemate's [rule-based campaign automation](/use-cases/ad-campaign-automation-rules) is built out on Meta.** That is where this class of optimisation runs deepest — pausing low-ROAS ads, scaling winners and protecting daily budget on a schedule — and every one of our [ready-made scaling rule templates](/automation-rules-library) is a Meta rule. TikTok rules we build on request rather than ship as templates. If you want something running on TikTok this afternoon, TikTok's native rules are the shorter path.
 
-What the Meta side buys is volume rather than convenience. Appflame, an app publisher running Meta UA, reports **750 losing ads stopped per month** and **575 rule firings per month** through our rules engine ([Scalemate case study](/use-cases/scale-ad-campaigns-faster), figures live on the page 28 July 2026, Meta-side). Nobody makes 575 correct decisions a month by hand. A rules engine that quietly skips the platform you are scaling on is worse than none, which is why we name ours.
+What the Meta side buys is volume rather than convenience. Appflame, an app publisher running Meta UA, reports **750 losing ads stopped per month** and **575 rule firings per month** through our rules engine ([Scalemate case study](/use-cases/scale-ad-campaigns-faster), figures live on the page 28 July 2026, Meta-side). Nobody makes 575 correct decisions a month by hand. A rules engine that quietly leaves the platform you are scaling on to a support ticket is worse than none, which is why we say where ours is built out and where it is not.
 
 ## The half nobody automates: rebuilding the winner 30 times
 
@@ -128,7 +128,7 @@ Vertical scaling is solved on TikTok. Horizontal is not, and it is the half that
 
 Work the arithmetic. One winning concept, six audiences, three geos, two formats. That is 36 ad groups, each needing its own creative assignment, targeting, and budget above the $20 floor. None of it is a decision. All of it is typing.
 
-This is the part a bulk-launch tool removes, and it covers TikTok in a way rules engines currently don't. Scalemate can [launch ad sets in bulk from one template](/features/bulk-launch) on both Meta and TikTok: one template producing **150 ad sets on Meta and 75 on TikTok**, and **225 ads created in 3 minutes**, against a manual baseline of 3-5 days per launch (figures live on the page 28 July 2026).
+This is the part a bulk-launch tool removes, and it covers TikTok out of the box rather than on request. Scalemate can [launch ad sets in bulk from one template](/features/bulk-launch) on both Meta and TikTok: one template producing **150 ad sets on Meta and 75 on TikTok**, and **225 ads created in 3 minutes**, against a manual baseline of 3-5 days per launch (figures live on the page 28 July 2026).
 
 Note what that does not claim. It decides nothing. It builds what you already decided.
 
@@ -190,7 +190,7 @@ Above $20 at ad group level and above $50 at campaign level ([TikTok Ads Manager
 
 **Can you automate TikTok ad scaling with rules?**
 
-The budget half, yes — TikTok's native Automated Rules run conditions and actions at campaign, ad group or ad level, including budget increases based on ROAS ([TikTok Ads Manager help](https://ads.tiktok.com/help/article/automated-rules?lang=en)). Third-party rules engines are largely Meta-only today, ours included. The duplication half stays manual without a bulk-launch tool.
+The budget half, yes — TikTok's native Automated Rules run conditions and actions at campaign, ad group or ad level, including budget increases based on ROAS ([TikTok Ads Manager help](https://ads.tiktok.com/help/article/automated-rules?lang=en)). Third-party rules engines mostly ship their rule templates for Meta, ours included; we build TikTok rules on request. The duplication half stays manual without a bulk-launch tool.
 
 ## Scale the decisions and the building separately
 
