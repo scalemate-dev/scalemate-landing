@@ -25,9 +25,9 @@
   <text x="640" y="336" text-anchor="middle" font-size="18" font-weight="600" fill="#ffffff">Yes, on TikTok</text>
   <text x="640" y="364" text-anchor="middle" font-size="15" fill="#ffffff" opacity="0.9">ROAS / CPA / spend rules</text>
 
-  <rect x="800" y="286" width="220" height="110" rx="16" fill="#fdefe8" stroke="#eb6834" stroke-width="2"/>
-  <text x="910" y="330" text-anchor="middle" font-size="18" font-weight="600" fill="#a8420f">Meta only</text>
-  <text x="910" y="358" text-anchor="middle" font-size="15" fill="#52514e">not TikTok today</text>
+  <rect x="800" y="286" width="220" height="110" rx="16" fill="#0ca30c"/>
+  <text x="910" y="330" text-anchor="middle" font-size="18" font-weight="600" fill="#ffffff">Yes, both</text>
+  <text x="910" y="358" text-anchor="middle" font-size="15" fill="#ffffff" opacity="0.9">OR-logic, rollback</text>
 
   <rect x="1040" y="286" width="280" height="110" rx="16" fill="#f9f9f7" stroke="#e1e0d9" stroke-width="2"/>
   <text x="1180" y="348" text-anchor="middle" font-size="17" fill="#52514e">Not their job</text>
@@ -52,7 +52,7 @@
 
   <line x1="80" y1="632" x2="1360" y2="632" stroke="#e1e0d9" stroke-width="2"/>
 
-  <text x="100" y="700" font-size="18" font-weight="600" fill="#0b0b0b">The honest line:</text>
-  <text x="100" y="732" font-size="17" fill="#52514e">Scalemate's rules engine runs on Meta today, not TikTok. On TikTok we cover creative uploads and bulk launch.</text>
-  <text x="100" y="762" font-size="17" fill="#52514e">For TikTok budget rules, use TikTok's native Automated Rules.</text>
+  <text x="100" y="700" font-size="18" font-weight="600" fill="#0b0b0b">The split that matters:</text>
+  <text x="100" y="732" font-size="17" fill="#52514e">Rules automate the budget half — TikTok's native ones for free, third-party engines with OR-logic, rollback and multi-account.</text>
+  <text x="100" y="762" font-size="17" fill="#52514e">Neither builds ad groups. The horizontal half needs a bulk-launch tool, and that is where the week actually goes.</text>
 </svg>
