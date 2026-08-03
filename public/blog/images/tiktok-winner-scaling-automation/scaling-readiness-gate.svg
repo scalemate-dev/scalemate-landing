@@ -1,0 +1,48 @@
+<svg width="1440" height="810" viewBox="0 0 1440 810" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <rect width="1440" height="810" fill="#fcfcfb"/>
+
+  <defs>
+    <marker id="arrowg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#898781"/>
+    </marker>
+  </defs>
+
+  <text x="720" y="72" text-anchor="middle" font-size="34" font-weight="600" fill="#0b0b0b">The gate before you scale a TikTok ad group</text>
+  <text x="720" y="112" text-anchor="middle" font-size="20" fill="#52514e">Both conditions, or keep testing</text>
+
+  <!-- condition boxes -->
+  <rect x="120" y="200" width="440" height="150" rx="18" fill="#ffffff" stroke="#e1e0d9" stroke-width="2"/>
+  <text x="340" y="252" text-anchor="middle" font-size="21" font-weight="600" fill="#0b0b0b">Conversion campaigns</text>
+  <text x="340" y="290" text-anchor="middle" font-size="30" font-weight="600" fill="#2a78d6">50+ conversions</text>
+  <text x="340" y="322" text-anchor="middle" font-size="17" fill="#52514e">within one week</text>
+
+  <rect x="120" y="390" width="440" height="150" rx="18" fill="#ffffff" stroke="#e1e0d9" stroke-width="2"/>
+  <text x="340" y="442" text-anchor="middle" font-size="21" font-weight="600" fill="#0b0b0b">Non-conversion campaigns</text>
+  <text x="340" y="480" text-anchor="middle" font-size="30" font-weight="600" fill="#2a78d6">90-100% budget spent</text>
+  <text x="340" y="512" text-anchor="middle" font-size="17" fill="#52514e">at or below target cost per action</text>
+
+  <!-- AND performance -->
+  <rect x="120" y="580" width="440" height="120" rx="18" fill="#f9f9f7" stroke="#e1e0d9" stroke-width="2"/>
+  <text x="340" y="628" text-anchor="middle" font-size="21" font-weight="600" fill="#0b0b0b">And, in both cases</text>
+  <text x="340" y="662" text-anchor="middle" font-size="17" fill="#52514e">campaign meets or exceeds your targets</text>
+
+  <!-- gate -->
+  <line x1="580" y1="440" x2="700" y2="440" stroke="#898781" stroke-width="3" marker-end="url(#arrowg)"/>
+  <rect x="712" y="360" width="180" height="160" rx="18" fill="#52514e"/>
+  <text x="802" y="430" text-anchor="middle" font-size="22" font-weight="600" fill="#ffffff">Gate</text>
+  <text x="802" y="462" text-anchor="middle" font-size="16" fill="#ffffff" opacity="0.8">cleared?</text>
+
+  <!-- yes branch -->
+  <path d="M896 400 C 960 400, 960 300, 1024 300" stroke="#898781" stroke-width="3" fill="none" marker-end="url(#arrowg)"/>
+  <rect x="1040" y="240" width="300" height="120" rx="18" fill="#0ca30c"/>
+  <text x="1190" y="292" text-anchor="middle" font-size="22" font-weight="600" fill="#ffffff">Scale</text>
+  <text x="1190" y="326" text-anchor="middle" font-size="16" fill="#ffffff" opacity="0.9">vertical steps, horizontal builds</text>
+
+  <!-- no branch -->
+  <path d="M896 480 C 960 480, 960 580, 1024 580" stroke="#898781" stroke-width="3" fill="none" marker-end="url(#arrowg)"/>
+  <rect x="1040" y="520" width="300" height="120" rx="18" fill="#fab219"/>
+  <text x="1190" y="572" text-anchor="middle" font-size="22" font-weight="600" fill="#0b0b0b">Keep testing</text>
+  <text x="1190" y="606" text-anchor="middle" font-size="16" fill="#0b0b0b" opacity="0.8">more spend just buys the loss faster</text>
+
+  <text x="720" y="766" text-anchor="middle" font-size="17" fill="#52514e">Source: TikTok Ads Manager help, "Scaling Auction Ad Spend". Checked 28 July 2026.</text>
+</svg>

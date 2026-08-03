@@ -30,6 +30,8 @@ Scalemate focuses on Meta and TikTok. Core capabilities: bulk ad launch, bulk cr
 - [What Is Ad Fatigue and How to Fix It (2026)](https://www.scalemate.co/blog/what-is-ad-fatigue)
 - [What Are Static Ads? Types & How to Scale on Meta in 2026](https://www.scalemate.co/blog/what-are-static-ads): Definition, 6 types with examples, static vs video/dynamic, and a first-party data study — across ~3,000 Meta ad sets the top 1-2 creatives capture 87% of ad-set spend and 70%+ of creatives go zombie.
 - [Meta Pixel Helper: Fix False Negatives Before You Scale](https://www.scalemate.co/blog/meta-pixel-helper-explainer): What each Pixel Helper message actually means, and why a clean read doesn't guarantee Meta's servers received the event.
+- [How to Scale TikTok Ads Without Resetting the Algorithm](https://www.scalemate.co/blog/tiktok-winner-scaling-automation): TikTok's own scaling gate (50 conversions in a week), 20-30% budget steps, the $20/ad group and $50/campaign daily minimums, and which half of scaling TikTok's native Automated Rules can run for you.
+- [Facebook Ad Account Restricted? 7 Reasons](https://www.scalemate.co/blog/facebook-ad-account-restricted-prevention): The 7 reasons Meta flags ad accounts, Meta's official 4-step review path, and the tool-access risk most guides omit.
 - [Blog index](https://www.scalemate.co/blog): All Scalemate guides and comparisons.
 
 ## Company

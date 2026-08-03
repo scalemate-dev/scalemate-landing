@@ -1,0 +1,58 @@
+<svg width="1440" height="810" viewBox="0 0 1440 810" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <rect width="1440" height="810" fill="#fcfcfb"/>
+
+  <text x="720" y="68" text-anchor="middle" font-size="34" font-weight="600" fill="#0b0b0b">Which scaling work is automated, and by what</text>
+  <text x="720" y="108" text-anchor="middle" font-size="20" fill="#52514e">TikTok vs Meta, checked 28 July 2026</text>
+
+  <!-- column headers -->
+  <text x="640" y="192" text-anchor="middle" font-size="19" font-weight="600" fill="#0b0b0b">TikTok native</text>
+  <text x="640" y="216" text-anchor="middle" font-size="15" fill="#52514e">Automated Rules</text>
+
+  <text x="900" y="192" text-anchor="middle" font-size="19" font-weight="600" fill="#0b0b0b">Third-party rules</text>
+  <text x="900" y="216" text-anchor="middle" font-size="15" fill="#52514e">engines (incl. ours)</text>
+
+  <text x="1170" y="192" text-anchor="middle" font-size="19" font-weight="600" fill="#0b0b0b">Bulk launch tools</text>
+  <text x="1170" y="216" text-anchor="middle" font-size="15" fill="#52514e">(incl. ours)</text>
+
+  <line x1="80" y1="248" x2="1360" y2="248" stroke="#e1e0d9" stroke-width="2"/>
+
+  <!-- row 1: vertical -->
+  <text x="100" y="322" font-size="22" font-weight="600" fill="#0b0b0b">Vertical</text>
+  <text x="100" y="352" font-size="16" fill="#52514e">Raise the budget on</text>
+  <text x="100" y="374" font-size="16" fill="#52514e">the winner</text>
+
+  <rect x="500" y="286" width="280" height="110" rx="16" fill="#0ca30c"/>
+  <text x="640" y="336" text-anchor="middle" font-size="18" font-weight="600" fill="#ffffff">Yes, on TikTok</text>
+  <text x="640" y="364" text-anchor="middle" font-size="15" fill="#ffffff" opacity="0.9">ROAS / CPA / spend rules</text>
+
+  <rect x="800" y="286" width="220" height="110" rx="16" fill="#0ca30c"/>
+  <text x="910" y="330" text-anchor="middle" font-size="18" font-weight="600" fill="#ffffff">Yes, both</text>
+  <text x="910" y="358" text-anchor="middle" font-size="15" fill="#ffffff" opacity="0.9">OR-logic, rollback</text>
+
+  <rect x="1040" y="286" width="280" height="110" rx="16" fill="#f9f9f7" stroke="#e1e0d9" stroke-width="2"/>
+  <text x="1180" y="348" text-anchor="middle" font-size="17" fill="#52514e">Not their job</text>
+
+  <line x1="80" y1="440" x2="1360" y2="440" stroke="#e1e0d9" stroke-width="2"/>
+
+  <!-- row 2: horizontal -->
+  <text x="100" y="514" font-size="22" font-weight="600" fill="#0b0b0b">Horizontal</text>
+  <text x="100" y="544" font-size="16" fill="#52514e">Rebuild the winner across</text>
+  <text x="100" y="566" font-size="16" fill="#52514e">new ad groups and geos</text>
+
+  <rect x="500" y="478" width="280" height="110" rx="16" fill="#f9f9f7" stroke="#e1e0d9" stroke-width="2"/>
+  <text x="640" y="528" text-anchor="middle" font-size="17" fill="#52514e">No, rules don't</text>
+  <text x="640" y="554" text-anchor="middle" font-size="17" fill="#52514e">build ad groups</text>
+
+  <rect x="800" y="478" width="220" height="110" rx="16" fill="#f9f9f7" stroke="#e1e0d9" stroke-width="2"/>
+  <text x="910" y="540" text-anchor="middle" font-size="17" fill="#52514e">No</text>
+
+  <rect x="1040" y="478" width="280" height="110" rx="16" fill="#0ca30c"/>
+  <text x="1180" y="528" text-anchor="middle" font-size="18" font-weight="600" fill="#ffffff">Yes, Meta + TikTok</text>
+  <text x="1180" y="556" text-anchor="middle" font-size="15" fill="#ffffff" opacity="0.9">one template, many ad sets</text>
+
+  <line x1="80" y1="632" x2="1360" y2="632" stroke="#e1e0d9" stroke-width="2"/>
+
+  <text x="100" y="700" font-size="18" font-weight="600" fill="#0b0b0b">The split that matters:</text>
+  <text x="100" y="732" font-size="17" fill="#52514e">Rules automate the budget half — TikTok's native ones for free, third-party engines with OR-logic, rollback and multi-account.</text>
+  <text x="100" y="762" font-size="17" fill="#52514e">Neither builds ad groups. The horizontal half needs a bulk-launch tool, and that is where the week actually goes.</text>
+</svg>
