@@ -11,7 +11,7 @@ export default function CtaSection() {
             <h2>Stop hand-building your ads</h2>
             <p>
               Clone a proven ad, drop your Drive creatives, and watch the batch
-              go live. Free, no login, 10 ads a day.
+              go live. Free, no login, 5 ads a day.
             </p>
             <a href="#top" className={styles.ctaButton}>
               <IconCloudUpload size={20} />

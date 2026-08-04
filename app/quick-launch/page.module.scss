@@ -156,15 +156,12 @@
   a { color: $uc-accent; font-weight: 600; }
 }
 
-// comparison — editorial spec-sheet on the section surface
-.compare {
-  max-width: 960px;
-  margin: 0 auto;
-}
+// ─── Spec-sheet tables (compare / tier) ───
+// Continuous hairlines through every column; the featured column is a square
+// warm tint that hugs the rows exactly, capped by an accent rule on top.
 
-.cmpRow {
+@mixin uc-spec-row {
   display: grid;
-  grid-template-columns: 1.7fr 1fr 1.1fr 1.4fr;
   align-items: stretch;
 
   > span {
@@ -173,83 +170,91 @@
     justify-content: center;
     padding: 15px 18px;
     font-size: 14.5px;
+    line-height: 1.45;
     color: $uc-body;
     text-align: center;
     border-bottom: 1px solid $uc-line;
   }
+}
 
-  @include mobile {
-    grid-template-columns: 1.3fr 0.8fr 0.9fr 1fr;
-
-    > span { padding: 12px 8px; font-size: 12px; }
+@mixin uc-spec-head {
+  > span {
+    align-items: flex-end;
+    padding-top: 18px;
+    padding-bottom: 14px;
+    font-family: $font-body;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $uc-stone;
   }
 }
 
-.cmpHead > span {
-  padding-top: 16px;
-  padding-bottom: 16px;
-  font-family: $font-body;
-  font-size: 11.5px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: $uc-stone;
-}
-
-.cmpLabel {
+@mixin uc-spec-label {
   justify-content: flex-start !important;
   text-align: left !important;
   color: $uc-ink-soft !important;
   font-weight: 500;
 }
 
-.cmpMuted { color: $uc-stone !important; }
-
-// Featured column — lifted, continuous tint capped with an accent line
-.cmpHi {
-  background: rgba($uc-accent, 0.05);
+@mixin uc-spec-hi {
+  background: rgba($uc-accent, 0.045);
   color: $uc-ink !important;
   font-weight: 600;
-  border-bottom: none !important;
 
   .check { color: $uc-accent; }
 }
 
+.compare {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.cmpRow {
+  @include uc-spec-row;
+  grid-template-columns: 1.45fr 1.1fr 1.1fr 1.35fr;
+
+  @include mobile {
+    grid-template-columns: 1.2fr 0.9fr 0.9fr 1fr;
+
+    > span { padding: 12px 8px; font-size: 12px; }
+  }
+}
+
+.cmpHead {
+  @include uc-spec-head;
+}
+
+.cmpLabel {
+  @include uc-spec-label;
+}
+
+.cmpMuted {
+  color: $uc-stone !important;
+
+  .check { color: $uc-stone; }
+}
+
+.cmpHi {
+  @include uc-spec-hi;
+}
+
 .cmpHead .cmpHi {
-  border-radius: 16px 16px 0 0;
-  box-shadow: inset 0 2px 0 $uc-accent;
+  box-shadow: inset 0 2.5px 0 $uc-accent;
   color: $uc-accent !important;
-  font-weight: 700;
-  font-size: 13px !important;
-  letter-spacing: 0 !important;
-  text-transform: none !important;
 }
 
-.cmpRow:last-child .cmpHi {
-  border-radius: 0 0 16px 16px;
-}
-
-// tier
 .tier {
   max-width: 960px;
   margin: 0 auto;
 }
 
 .tierRow {
-  display: grid;
+  @include uc-spec-row;
   grid-template-columns: 1.8fr 1fr 1fr;
-  align-items: stretch;
 
-  > span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px 22px;
-    font-size: 15px;
-    color: $uc-body;
-    text-align: center;
-    border-bottom: 1px solid $uc-line;
-  }
+  > span { padding: 16px 22px; font-size: 15px; }
 
   @include mobile {
     grid-template-columns: 1.5fr 0.9fr 0.9fr;
@@ -258,110 +263,121 @@
   }
 }
 
-.tierHead > span {
-  padding-top: 16px;
-  padding-bottom: 16px;
-  font-family: $font-body;
-  font-size: 11.5px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: $uc-stone;
+.tierHead {
+  @include uc-spec-head;
 }
 
 .tierLabel {
-  justify-content: flex-start !important;
-  text-align: left !important;
-  color: $uc-ink-soft !important;
-  font-weight: 500;
+  @include uc-spec-label;
 }
 
 .tierHi {
-  background: rgba($uc-accent, 0.05);
-  color: $uc-ink !important;
-  font-weight: 600;
-  border-bottom: none !important;
-
-  .check { color: $uc-accent; }
+  @include uc-spec-hi;
 }
 
 .tierHead .tierHi {
-  border-radius: 16px 16px 0 0;
-  box-shadow: inset 0 2px 0 $uc-accent;
+  box-shadow: inset 0 2.5px 0 $uc-accent;
   color: $uc-accent !important;
-  font-weight: 700;
-  font-size: 13px !important;
-  letter-spacing: 0 !important;
-  text-transform: none !important;
 }
 
-.tierRow:last-child .tierHi {
-  border-radius: 0 0 16px 16px;
-}
+.check { color: $uc-ink-soft; font-weight: 600; font-size: 15px; }
+.dash { color: $uc-dash; font-weight: 500; }
 
-.check { color: $uc-success; font-weight: 700; font-size: 15px; }
-.dash { color: $uc-dash; font-weight: 600; }
-
-// need more
+// need more — editorial upsell: pitch left, unlocks right
 .needMore {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 28px;
+  display: grid;
+  grid-template-columns: 0.95fr 1.3fr;
+  gap: 40px 64px;
+  align-items: center;
   max-width: 960px;
   margin: 56px auto 0;
-  padding: 40px 44px;
+  padding: 44px 48px;
   border-radius: 22px;
   background: $uc-panel-bg;
   border: 1px solid $uc-line;
   box-shadow: $uc-shadow-card;
 
-  > div { width: 100%; }
+  &:hover .needMoreDash {
+    width: 56px;
+  }
+
+  @include tablet-vertical {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 28px;
+  }
+}
+
+.needMorePitch {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
   h3 {
     font-family: $font-heading;
-    font-size: 22px;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.25;
     color: $uc-ink;
-    margin: 0 0 6px;
-    max-width: 560px;
-  }
-  p { font-size: 15px; color: $uc-body; margin: 0 0 24px; }
+    margin: 0 0 10px;
 
-  ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px 40px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    @include mobile { font-size: 21px; }
   }
-  li {
-    position: relative;
-    padding-left: 20px;
-    font-size: 14.5px;
-    color: $uc-body;
+
+  p {
+    font-size: 15px;
     line-height: 1.6;
+    color: $uc-body;
+    margin: 0 0 28px;
+  }
+}
 
-    &::before {
-      content: "";
-      position: absolute;
-      left: 2px;
-      top: 8px;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: $uc-accent;
+.needMoreDash {
+  @include uc-accent-dash;
+  margin-bottom: 22px;
+}
+
+.needMoreNote {
+  margin-top: 12px;
+  font-size: 13px;
+  color: $uc-stone;
+}
+
+.needMoreList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 36px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    padding-top: 16px;
+    border-top: 1px solid $uc-line;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: $uc-body;
+
+    strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 600;
+      color: $uc-ink;
+      margin-bottom: 4px;
+
+      &::before {
+        content: "+";
+        margin-right: 8px;
+        color: $uc-accent;
+        font-weight: 700;
+      }
     }
   }
 
   @include tablet-vertical {
-    padding: 28px;
-    gap: 24px;
-
-    ul { grid-template-columns: 1fr; gap: 12px; }
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
 }
 

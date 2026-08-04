@@ -1,14 +1,9 @@
-"use client"
-import { useState } from "react"
+import Image from "next/image"
 import Container from "@/components/elements/Container/Container"
-import StepCard from "./StepCard"
-import StepScreen from "./StepScreen"
 import { steps } from "./steps"
 import styles from "./HowItWorksSection.module.scss"
 
 export default function HowItWorksSection() {
-  const [activeStep, setActiveStep] = useState(0)
-
   return (
     <section className={styles.howItWorks}>
       <Container>
@@ -20,30 +15,31 @@ export default function HowItWorksSection() {
           </p>
         </div>
 
-        <div className={styles.scrollContainer}>
-          <div className={styles.stepsColumn}>
-            {steps.map((step, index) => (
-              <StepCard
-                key={step.id}
-                step={step}
-                isActive={index === activeStep}
-                onClick={() => setActiveStep(index)}
-              />
-            ))}
-          </div>
+        <ol className={styles.steps}>
+          {steps.map((step, index) => (
+            <li
+              key={step.id}
+              className={styles.step}
+              data-side={index % 2 === 0 ? "right" : "left"}
+            >
+              <div className={styles.stepBody}>
+                <h3 className={styles.stepTitle}>{step.title}</h3>
+                <p className={styles.stepDesc}>{step.description}</p>
+              </div>
 
-          <div className={styles.screensColumn}>
-            <div className={styles.screensSticky}>
-              {steps.map((step, index) => (
-                <StepScreen
-                  key={step.id}
-                  stepId={step.id}
-                  isActive={index === activeStep}
+              <figure className={styles.stepShot}>
+                <Image
+                  src={step.image.src}
+                  alt={step.image.alt}
+                  width={1080}
+                  height={1080}
+                  sizes="(max-width: 768px) 92vw, (max-width: 1024px) 42vw, 480px"
+                  className={styles.shotImage}
                 />
-              ))}
-            </div>
-          </div>
-        </div>
+              </figure>
+            </li>
+          ))}
+        </ol>
       </Container>
     </section>
   )

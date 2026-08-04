@@ -19,30 +19,30 @@ import styles from "./page.module.scss"
 export const metadata = {
   title: "Free Ad Uploader — Bulk Upload Ads to Meta from Drive",
   description:
-    "Free ad uploader for Meta — clone a proven ad, drop your Google Drive creatives, and new ads go live in your campaigns. No login, 10 a day. No Ads Manager.",
+    "Free ad uploader for Meta — clone a proven ad, drop your Google Drive creatives, and new ads go live in your campaigns. No login, 5 a day. No Ads Manager.",
   robots: { index: false, follow: false },
   alternates: { canonical: "https://www.scalemate.co/quick-launch" },
   openGraph: {
     url: "https://www.scalemate.co/quick-launch",
     title: "Free Ad Uploader — Bulk Upload Ads to Meta from Drive",
     description:
-      "A free, no-login ad uploader for Meta. Clone a proven ad, drop Drive creatives, and your new ads go live — 10 a day, no Ads Manager.",
+      "A free, no-login ad uploader for Meta. Clone a proven ad, drop Drive creatives, and your new ads go live — 5 a day, no Ads Manager.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Free Ad Uploader — Bulk Upload Ads to Meta from Drive",
     description:
-      "A free, no-login ad uploader for Meta. Clone a proven ad, drop Drive creatives, and your new ads go live — 10 a day, no Ads Manager.",
+      "A free, no-login ad uploader for Meta. Clone a proven ad, drop Drive creatives, and your new ads go live — 5 a day, no Ads Manager.",
   },
 }
 
 const COMPARE = [
   {
-    label: "Free / no login",
+    label: "Free forever",
     free: "✓",
     signup: "✓",
-    paid: "✗ 7-day trial, then $39–370/mo",
+    paid: "7-day trial, then $39–370/mo",
   },
   {
     label: "Multi-account",
@@ -52,30 +52,30 @@ const COMPARE = [
   },
   {
     label: "Platforms",
-    free: "Meta (FB + IG)",
-    signup: "Meta + TikTok",
+    free: "Meta (Facebook, Instagram, Threads)",
+    signup: "Meta, TikTok",
     paid: "Meta only",
   },
   { label: "Reusable templates", free: "✗", signup: "✓", paid: "✓" },
   { label: "CSV / Sheets per ad", free: "✗", signup: "✓", paid: "✓" },
-  { label: "Analytics", free: "✗", signup: "✗", paid: "✓" },
 ]
 
 const TIERS = [
   { label: "Ads into your existing Meta campaigns", free: "✓", signup: "✓" },
-  { label: "Ads per day", free: "10", signup: "More" },
-  { label: "Ad accounts", free: "1", signup: "Multiple" },
-  { label: "New campaigns via templates", free: "✗", signup: "✓" },
-  { label: "CSV / Google Sheets per ad", free: "✗", signup: "✓" },
+  { label: "Ad launches", free: "5 per day", signup: "100 per month" },
+  { label: "Ad Platforms", free: "Meta", signup: "Meta, TikTok" },
+  { label: "Launch new campaigns", free: "✗", signup: "✓" },
+  { label: "CSV / XLSX ad launcher", free: "✗", signup: "✓" },
+  { label: "Auto-scale / Stop-loss", free: "✗", signup: "✓" },
 ]
 
 const faqItems = [
   {
     question: "What is an ad uploader?",
     answerText:
-      "An ad uploader (or ads uploader) is a tool that creates many Meta ads at once instead of building each one by hand (campaign, ad set and ad) in Ads Manager. This one clones a reference ad, swaps in creatives from your Google Drive, and launches the new ads into your existing campaign. It's the fastest way to bulk upload ads to Meta. Free, no login, up to 10 a day.",
+      "An ad uploader (or ads uploader) is a tool that creates many Meta ads at once instead of building each one by hand (campaign, ad set and ad) in Ads Manager. This one clones a reference ad, swaps in creatives from your Google Drive, and launches the new ads into your existing campaign. It's the fastest way to bulk upload ads to Meta. Free, no login, up to 5 a day.",
     answer:
-      "An ad uploader (or ads uploader) is a tool that creates many Meta ads at once instead of building each one by hand (campaign, ad set and ad) in Ads Manager. This one clones a reference ad, swaps in creatives from your Google Drive, and launches the new ads into your existing campaign. It's the fastest way to bulk upload ads to Meta. Free, no login, up to 10 a day.",
+      "An ad uploader (or ads uploader) is a tool that creates many Meta ads at once instead of building each one by hand (campaign, ad set and ad) in Ads Manager. This one clones a reference ad, swaps in creatives from your Google Drive, and launches the new ads into your existing campaign. It's the fastest way to bulk upload ads to Meta. Free, no login, up to 5 a day.",
   },
   {
     question: "Does this actually create the ads, or just upload files?",
@@ -116,9 +116,9 @@ const faqItems = [
   {
     question: "Is it really free? Do I need to sign up?",
     answerText:
-      "Yes, genuinely free: no card, no login, no trial timer. You get 10 ads a day into one ad account. Sign up (still free) only when you want more per day, multiple accounts, new campaigns via templates, or CSV/Sheets per-ad control.",
+      "Yes, genuinely free: no card, no login, no trial timer. You get 5 ads a day into one ad account. Sign up (still free) only when you want more per day, multiple accounts, new campaigns via templates, or CSV/Sheets per-ad control.",
     answer:
-      "Yes, genuinely free: no card, no login, no trial timer. You get 10 ads a day into one ad account. Sign up (still free) only when you want more per day, multiple accounts, new campaigns via templates, or CSV/Sheets per-ad control.",
+      "Yes, genuinely free: no card, no login, no trial timer. You get 5 ads a day into one ad account. Sign up (still free) only when you want more per day, multiple accounts, new campaigns via templates, or CSV/Sheets per-ad control.",
   },
   {
     question: "Is my account at risk? Are you an official Meta partner?",
@@ -156,10 +156,10 @@ const softwareSchema = {
     "Clone a reference ad and create new live ads",
     "Add ads into existing campaigns",
     "No login required",
-    "10 ads per day free",
+    "5 ads per day free",
   ],
   description:
-    "Free ad uploader for Meta. Clone a reference ad, drop creatives from Google Drive, and launch new ads into your existing campaigns. No signup, 10 ads a day.",
+    "Free ad uploader for Meta. Clone a reference ad, drop creatives from Google Drive, and launch new ads into your existing campaigns. No signup, 5 ads a day.",
 }
 
 const faqSchema = {
@@ -174,7 +174,7 @@ const faqSchema = {
 
 function renderCell(v) {
   if (v === "✓") return <span className={styles.check}>✓</span>
-  if (v === "✗") return <span className={styles.dash}>✗</span>
+  if (v === "✗") return <span className={styles.dash}>—</span>
   return v
 }
 
@@ -286,13 +286,6 @@ export default function QuickLaunchPage() {
               </div>
             ))}
           </div>
-          <p className={styles.bandNote}>
-            We&apos;re the launch step, not an analytics suite, so we don&apos;t
-            do reporting.{" "}
-            <Link href="/use-cases/bulk-ad-launch">
-              See how ScaleMate handles the whole workflow →
-            </Link>
-          </p>
         </Container>
       </section>
 
@@ -301,9 +294,9 @@ export default function QuickLaunchPage() {
         <Container>
           <div className={styles.bandHead}>
             <span className={styles.eyebrow}>Free vs. sign up</span>
-            <h2>Free at 10 ads a day. Sign up when you outgrow it.</h2>
+            <h2>Free at 5 ads a day. Sign up when you outgrow it.</h2>
             <p className={styles.bandSub}>
-              The no-login tool launches 10 ads a day into your existing
+              The no-login tool launches 5 ads a day into your existing
               campaigns. A free account unlocks the rest.
             </p>
           </div>
@@ -320,37 +313,49 @@ export default function QuickLaunchPage() {
                 <span className={styles.tierHi}>{renderCell(r.signup)}</span>
               </div>
             ))}
+            <p className={styles.bandNote}>
+              <Link href="/use-cases/bulk-ad-launch">
+                See how Scalemate handles the whole workflow →
+              </Link>
+            </p>
           </div>
 
           <div className={styles.needMore}>
-            <div>
+            <div className={styles.needMorePitch}>
+              <span className={styles.needMoreDash} aria-hidden="true" />
               <h3>
                 Need new campaigns, more accounts, or a unique link per ad?
               </h3>
-              <p>Sign up (still free) and the ceiling lifts:</p>
-              <ul>
-                <li>TikTok too: upload ads to TikTok as well as Meta.</li>
-                <li>
-                  Reusable templates: set a new campaign up once, launch into it
-                  again and again.
-                </li>
-                <li>
-                  CSV / Google Sheets import: a unique link, headline and
-                  settings for every ad. Built for ecommerce catalogs and
-                  web-to-app funnels.
-                </li>
-                <li>
-                  Multiple ad accounts: switch between clients without
-                  re-connecting.
-                </li>
-              </ul>
+              <p>Sign up (still free) and the ceiling lifts.</p>
+              <a
+                href="https://app.scalemate.co/create-account"
+                className={styles.needMoreBtn}
+              >
+                Sign up for more
+              </a>
+              <span className={styles.needMoreNote}>
+                Free account · no credit card
+              </span>
             </div>
-            <a
-              href="https://app.scalemate.co/create-account"
-              className={styles.needMoreBtn}
-            >
-              Sign up for more
-            </a>
+            <ul className={styles.needMoreList}>
+              <li>
+                <strong>TikTok too</strong>
+                Upload ads to TikTok as well as Meta.
+              </li>
+              <li>
+                <strong>Reusable templates</strong>
+                Set a new campaign up once, launch into it again and again.
+              </li>
+              <li>
+                <strong>CSV / Google Sheets import</strong>A unique link,
+                headline and settings for every ad. Built for ecommerce catalogs
+                and web-to-app funnels.
+              </li>
+              <li>
+                <strong>Multiple ad accounts</strong>
+                Switch between clients without re-connecting.
+              </li>
+            </ul>
           </div>
         </Container>
       </section>

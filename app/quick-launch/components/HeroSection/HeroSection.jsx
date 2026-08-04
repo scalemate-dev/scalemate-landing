@@ -24,7 +24,7 @@ export default function HeroSection() {
               <span>Free</span>
               <span>No login</span>
               <span>Meta</span>
-              <span>10 ads/day</span>
+              <span>5 ads/day</span>
               <span>1 account</span>
             </div>
           </div>

@@ -40,7 +40,7 @@ const LimitModal = ({ open, message, onClose }) => {
 
         <h3 className={styles.title}>You&apos;ve hit the free limit</h3>
         <p className={styles.description}>
-          {message || "Free mode is limited to 10 ads per day."} Create a free
+          {message || "Free mode is limited to 5 ads per day."} Create a free
           Scalemate account.
         </p>
 

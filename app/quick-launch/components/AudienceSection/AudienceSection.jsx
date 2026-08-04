@@ -20,7 +20,7 @@ const audiences = [
   {
     role: "Freelancers",
     description:
-      "A real free tool: no trial timer, no card, no login. Launch 10 ads a day and only sign up when you scale.",
+      "A real free tool: no trial timer, no card, no login. Launch 5 ads a day and only sign up when you scale.",
   },
 ]
 

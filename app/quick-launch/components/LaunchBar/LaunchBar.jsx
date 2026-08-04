@@ -74,7 +74,7 @@ const LaunchBar = ({
             Sign up to unlock all features.
           </span>
         </span>
-        <span>Free mode: 10 ads/day · 1 account ·</span>
+        <span>Free mode: 5 ads/day · 1 account ·</span>
         <a
           href={signupUrl}
           className={styles.guestLimitsLink}
