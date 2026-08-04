@@ -37,36 +37,57 @@ export const metadata = {
   },
 }
 
+// TODO(Ruslan): "Varies by tool" = we have no researched figure for the paid
+// column on these two rows. Replace with real numbers when we have them.
 const COMPARE = [
   {
-    label: "Free forever",
+    label: "Ads into your existing campaigns",
     free: "✓",
     signup: "✓",
-    paid: "7-day trial, then $39–370/mo",
+    paid: "✓",
   },
   {
-    label: "Multi-account",
-    free: "1 account",
-    signup: "Multiple",
-    paid: "Multiple",
+    label: "Price",
+    free: "Free",
+    signup: "Free",
+    paid: "starts at $99/month",
   },
   {
-    label: "Platforms",
+    label: "Ad launches",
+    free: "5 ads/day",
+    signup: "100 ads/month",
+    paid: "Varies by tool",
+  },
+  {
+    label: "Ad networks",
     free: "Meta (Facebook, Instagram, Threads)",
     signup: "Meta, TikTok",
     paid: "Meta only",
   },
-  { label: "Reusable templates", free: "✗", signup: "✓", paid: "✓" },
-  { label: "CSV / Sheets per ad", free: "✗", signup: "✓", paid: "✓" },
-]
-
-const TIERS = [
-  { label: "Ads into your existing Meta campaigns", free: "✓", signup: "✓" },
-  { label: "Ad launches", free: "5 per day", signup: "100 per month" },
-  { label: "Ad Platforms", free: "Meta", signup: "Meta, TikTok" },
-  { label: "Launch new campaigns", free: "✗", signup: "✓" },
-  { label: "CSV / XLSX ad launcher", free: "✗", signup: "✓" },
-  { label: "Auto-scale / Stop-loss", free: "✗", signup: "✓" },
+  {
+    label: "Launch new campaigns from templates",
+    free: "✗",
+    signup: "✓",
+    paid: "✓",
+  },
+  {
+    label: "Auto-scale / Stop-loss",
+    free: "✗",
+    signup: "✓",
+    paid: "✓",
+  },
+  {
+    label: "Multi-Format Grouping",
+    free: "✗",
+    signup: "✓",
+    paid: "✓",
+  },
+  {
+    label: "Launch from CSV / Sheets / XLSX",
+    free: "✗",
+    signup: "✓",
+    paid: "✓",
+  },
 ]
 
 const faqItems = [
@@ -259,23 +280,24 @@ export default function QuickLaunchPage() {
         </Container>
       </section>
 
-      {/* How we compare */}
+      {/* How we compare — free tool vs free account vs paid uploader */}
       <section className={styles.band}>
         <Container>
           <div className={styles.bandHead}>
             <span className={styles.eyebrow}>How we compare</span>
-            <h2>What you get free — and what the paid tools charge for</h2>
+            <h2>Free at 5 ads a day. Sign up when you outgrow it.</h2>
             <p className={styles.bandSub}>
-              Here&apos;s how the free tool stacks up against a free account and
-              the typical paid uploader.
+              The no-login tool launches 5 ads a day into your existing
+              campaigns. Here&apos;s what a free account adds — and what the
+              typical paid uploader charges for.
             </p>
           </div>
           <div className={styles.compare}>
             <div className={`${styles.cmpRow} ${styles.cmpHead}`}>
               <span />
-              <span>This tool (free)</span>
-              <span className={styles.cmpHi}>Free account</span>
-              <span>Typical paid tool</span>
+              <span>Free</span>
+              <span className={styles.cmpHi}>Signed up</span>
+              <span>Other tools</span>
             </div>
             {COMPARE.map((r) => (
               <div key={r.label} className={styles.cmpRow}>
@@ -283,34 +305,6 @@ export default function QuickLaunchPage() {
                 <span>{renderCell(r.free)}</span>
                 <span className={styles.cmpHi}>{renderCell(r.signup)}</span>
                 <span className={styles.cmpMuted}>{renderCell(r.paid)}</span>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* Free vs Sign up + Need more */}
-      <section className={styles.band}>
-        <Container>
-          <div className={styles.bandHead}>
-            <span className={styles.eyebrow}>Free vs. sign up</span>
-            <h2>Free at 5 ads a day. Sign up when you outgrow it.</h2>
-            <p className={styles.bandSub}>
-              The no-login tool launches 5 ads a day into your existing
-              campaigns. A free account unlocks the rest.
-            </p>
-          </div>
-          <div className={styles.tier}>
-            <div className={`${styles.tierRow} ${styles.tierHead}`}>
-              <span />
-              <span>Free · no login</span>
-              <span className={styles.tierHi}>Free account</span>
-            </div>
-            {TIERS.map((r) => (
-              <div key={r.label} className={styles.tierRow}>
-                <span className={styles.tierLabel}>{r.label}</span>
-                <span>{renderCell(r.free)}</span>
-                <span className={styles.tierHi}>{renderCell(r.signup)}</span>
               </div>
             ))}
             <p className={styles.bandNote}>
@@ -326,7 +320,8 @@ export default function QuickLaunchPage() {
               <h3>
                 Need new campaigns, more accounts, or a unique link per ad?
               </h3>
-              <p>Sign up (still free) and the ceiling lifts.</p>
+            </div>
+            <div className={styles.needMoreAction}>
               <a
                 href="https://app.scalemate.co/create-account"
                 className={styles.needMoreBtn}
@@ -337,25 +332,6 @@ export default function QuickLaunchPage() {
                 Free account · no credit card
               </span>
             </div>
-            <ul className={styles.needMoreList}>
-              <li>
-                <strong>TikTok too</strong>
-                Upload ads to TikTok as well as Meta.
-              </li>
-              <li>
-                <strong>Reusable templates</strong>
-                Set a new campaign up once, launch into it again and again.
-              </li>
-              <li>
-                <strong>CSV / Google Sheets import</strong>A unique link,
-                headline and settings for every ad. Built for ecommerce catalogs
-                and web-to-app funnels.
-              </li>
-              <li>
-                <strong>Multiple ad accounts</strong>
-                Switch between clients without re-connecting.
-              </li>
-            </ul>
           </div>
         </Container>
       </section>

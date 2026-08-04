@@ -1,6 +1,5 @@
 import Container from "@/components/elements/Container/Container"
 import styles from "./CtaSection.module.scss"
-import { IconCloudUpload } from "@tabler/icons-react"
 
 export default function CtaSection() {
   return (
@@ -14,8 +13,7 @@ export default function CtaSection() {
               go live. Free, no login, 5 ads a day.
             </p>
             <a href="#top" className={styles.ctaButton}>
-              <IconCloudUpload size={20} />
-              Create your first ads free
+              Upload ads for free
             </a>
           </div>
         </Container>

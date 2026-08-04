@@ -11,9 +11,8 @@ export default function HeroSection() {
           <div className={styles.heroHeader}>
             <span className={styles.label}>Free ad uploader · no login</span>
             <h1>
-              Bulk upload ads to{" "}
-              <span className={styles.accent}>Meta</span> straight from Google
-              Drive
+              Bulk upload ads to <span className={styles.accent}>Meta</span>{" "}
+              straight from Google Drive
             </h1>
             <p>
               The free ads uploader that clones a proven ad, swaps in your Drive
@@ -22,8 +21,8 @@ export default function HeroSection() {
             </p>
             <div className={styles.chips}>
               <span>Free</span>
-              <span>No login</span>
-              <span>Meta</span>
+              <span>No Login</span>
+              <span>Meta Ads</span>
               <span>5 ads/day</span>
               <span>1 account</span>
             </div>
