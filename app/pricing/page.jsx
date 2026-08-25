@@ -1,4 +1,5 @@
 import Script from "next/script"
+import Link from "next/link"
 import Container from "@/components/elements/Container/Container"
 import FAQ from "@/components/FAQ/FAQ"
 import PricingContent from "./PricingContent"
@@ -6,65 +7,100 @@ import CtaSection from "./CtaSection"
 import styles from "./page.module.scss"
 
 export const metadata = {
-  title: "Free Ad Automation Tool for Meta & TikTok – Scalemate Pricing",
+  title:
+    "Pricing — Scalemate | Flat-fee ad automation for Meta & TikTok",
   description:
-    "Automate Meta and TikTok ad campaigns for free – 1 ad account, 2 rules, 100 launches/month, unlimited creative uploads. No credit card. Custom plans with API access and dedicated support for teams at scale.",
+    "Modular flat-fee pricing for Scalemate. Rules from $349/mo, Launches from $279/mo. Bundle both for 30% off. Free tier with 1 ad account and 100 launches/mo. No ad-spend percentage, 12-month price lock.",
   alternates: {
     canonical: "https://www.scalemate.co/pricing",
   },
   openGraph: {
-    title: "Free Ad Automation for Meta & TikTok – Scalemate Pricing",
+    title:
+      "Pricing — Scalemate | Flat-fee ad automation for Meta & TikTok",
     description:
-      "Automate Meta and TikTok ad campaigns for free – 1 ad account, 2 rules, 100 launches/month, unlimited creative uploads. No credit card. Custom plans with API access and dedicated support for teams at scale.",
+      "Modular flat-fee pricing for Scalemate. Rules from $349/mo, Launches from $279/mo. Bundle both for 30% off. Free tier with 1 ad account and 100 launches/mo. No ad-spend percentage, 12-month price lock.",
     url: "https://www.scalemate.co/pricing",
     type: "website",
     images: [{ url: "/og-pricing.png" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Ad Automation for Meta & TikTok – Scalemate Pricing",
+    title:
+      "Pricing — Scalemate | Flat-fee ad automation for Meta & TikTok",
     description:
-      "Automate Meta and TikTok ad campaigns for free – 1 ad account, 2 rules, 100 launches/month, unlimited creative uploads. No credit card. Custom plans with API access and dedicated support for teams at scale.",
+      "Modular flat-fee pricing for Scalemate. Rules from $349/mo, Launches from $279/mo. Bundle both for 30% off. Free tier with 1 ad account and 100 launches/mo. No ad-spend percentage, 12-month price lock.",
     images: ["/og-pricing.png"],
   },
 }
 
 const FAQ_ITEMS = [
   {
-    question: "Is the Free plan really free – no credit card, no catch?",
+    question: "How does Scalemate's pricing actually work?",
     answer:
-      "Yes. 1 ad account, 2 active rules, 100 ad launches per month, 50 AI messages, and unlimited uploads – $0/month, no credit card required. There's no trial period counting down and no features that quietly disappear after 14 days.\n\nYou keep access for as long as you need it. If you outgrow the free tier, upgrading is straightforward – but we won't nudge you toward it until it actually makes sense for your volume.",
+      "Scalemate uses modular flat-fee pricing. There are two paid modules, each available in three tiers (Scale, Pro, or Advanced) sized by capacity. Rules runs $349 / $699 / $1,099 per month per tier. Launches is 20% lower across the board: $279 / $559 / $879 per month per tier.\n\nYou pay only for the modules you use. Buy both and you get an automatic 30% bundle discount. Your price never moves with ad spend — same rate whether you're running $50K/month or $5M/month.",
   },
   {
-    question: "Which ad platforms does Scalemate support?",
+    question: "Is the Free plan really free — no credit card, no catch?",
     answer:
-      "Scalemate currently supports Meta (Facebook and Instagram) and TikTok. From one dashboard, you can bulk-launch ads, upload creatives, and automate campaign operations across both platforms simultaneously.\n\nThis means you're not toggling between Ads Manager and TikTok Ads Manager to run the same workflow twice. Additional platform support is on the roadmap – book a demo if you want to discuss specific requirements.",
+      "Yes. 1 ad account, 2 active rules, 100 ad launches per month, Facebook only, and unlimited Uploader access — $0/month, no credit card required. There's no trial period counting down and no features that quietly disappear after 14 days.\n\nYou keep access for as long as you need it. If you outgrow the free tier, upgrading is straightforward — but we won't nudge you toward it until it actually makes sense for your volume.",
   },
   {
-    question:
-      "What can I actually do with 100 ad launches and 2 rules per month?",
+    question: "What's included in the Rules vs. Launches modules?",
     answer:
-      "Quite a lot for a single account. 100 launches lets you bulk-deploy new creative sets, test multiple audiences, and rotate winners on a weekly cadence without touching Ads Manager manually each time.\n\nTwo active rules cover your highest-leverage automations – pausing underperformers below a ROAS threshold, scaling top ads when they hit targets, or controlling spend during off-peak hours. For most single-account performance teams, this is enough to run a structured testing operation without any of the repetitive manual work.",
+      "Rules handles ad operations automation — pausing underperformers, scaling winners, controlling spend during off-peak hours, alerting your team in Slack or email. Tiers are sized by ad accounts (3 / 10 / unlimited) and active rules (10 / 50 / unlimited).\n\nLaunches handles bulk ad creation — deploying creative sets, audiences, and configurations across hundreds of ad sets in one pass. Tiers are sized by ad accounts (3 / 10 / unlimited), ads per month (500 / 2,000 / unlimited), and platforms (Meta + TikTok on Scale and Pro, all platforms on Advanced).\n\nUploader is included in every tier — including Free.",
   },
   {
-    question: "When does it make sense to move to a Custom plan?",
+    question: "How does the 30% bundle discount work?",
     answer:
-      "The Free plan works well for a focused single-account operation. Once you're managing multiple ad accounts, consistently hitting the 100-launch ceiling, or need more than two automation rules running in parallel, a Custom plan removes those constraints entirely.\n\nCustom plans also include API access for teams that want to integrate Scalemate into existing workflows, priority feature requests, and dedicated support – which matters when ad operations are a core part of how your business scales. Most teams make the switch when manual workarounds start costing more time than the upgrade is worth.",
+      "Pick any Rules tier and any Launches tier — the moment both are active on your account, you pay 30% less on the combined price. Tiers can be mixed freely (e.g., Rules Pro at $699 + Launches Scale at $279 = $978 → $685 with bundle applied).\n\nIf you start with one module and add the second later, the discount applies from the next billing cycle. The configurator on this page shows the bundle math live as you toggle tiers.",
   },
   {
-    question: "How much time does Scalemate actually save?",
+    question: "Will my price change as I scale ad spend?",
     answer:
-      "Based on data from active users, teams see 260% faster campaign launches, 7x faster creative uploads, and 35+ hours saved per month on average. The difference comes from eliminating the per-ad setup process: instead of configuring each ad individually in Ads Manager, you set parameters once and deploy across hundreds of ad sets in a single action.\n\nAutomation rules remove another layer of daily monitoring – you're not logging in to pause spend on poor performers or manually scale what's working. The cumulative effect is that your team spends less time on ad operations and more time on decisions that actually require judgment.",
+      "No. Scalemate's flat-fee pricing is the core difference from spend-based tools. A team running $240K/month and a team running $2M/month pay the same tier rate — your bill is determined by capacity (accounts, rules, ad volume), not by what you spend on Meta or TikTok.\n\nSpend-based competitors typically take a percentage of ad spend, so the bigger you get, the more they charge. With Scalemate, growth doesn't punish your tooling budget.",
   },
   {
-    question: "Is my ad account data safe?",
+    question: "Can I prepay annually to save more?",
     answer:
-      "Scalemate connects to Meta and TikTok through their official APIs using only the permissions you explicitly grant. All data is anonymized before processing and is never sold or shared with third parties.\n\nYou remain in control: permissions can be revoked at any time through your connected platforms, and you can request full data deletion if you close your account. If you have specific security or compliance requirements, raise them during your demo and we'll walk through how Scalemate handles them.",
+      "Yes. Annual prepayment gets you an additional 15% off your monthly rate and locks the price for the full 12-month term. The configurator's Annual toggle shows the discounted total in real time.\n\nNote that annual subscriptions don't qualify for refunds on early cancellation. If you want flexibility month-to-month, the monthly billing option remains fully cancel-anytime.",
   },
   {
-    question: "How do I get started with a Custom plan?",
+    question: "What happens to my price at renewal?",
     answer:
-      "Book a demo and we'll start with a review of your current ad operations – volume, platforms, team structure, and where the biggest time costs are. From there, we'll recommend a setup that fits your workflow rather than asking you to adapt to ours.\n\nMost teams are live within a week of that first call. If you have existing processes or integrations you need to preserve, we account for those from the start.",
+      "Your subscription rate is locked for 12 months from activation. Any pricing changes can only take effect at the next renewal after that 12-month period — and Scalemate sends written notice at least 30 days before any change, with the current rate, the new rate, and the effective date.\n\nIf you don't like the new rate, you can cancel before it takes effect without penalty.",
+  },
+  {
+    question: "Can I upgrade, downgrade, or cancel mid-cycle?",
+    answer:
+      "Upgrades take effect immediately — you're charged the prorated difference for the remainder of the current billing period. Downgrades take effect at the start of the next billing period (no refunds for the current one). Cancellation works the same way: cancel anytime, access remains through the end of your current period.\n\nAdding a second module mid-cycle qualifies you for the 30% bundle discount, which applies from the next billing cycle.",
+  },
+  {
+    question: "Is there a design-partner or discount program?",
+    answer:
+      "Yes, but it's invite-based rather than publicly listed. Early adopters and design partners can receive up to 60% off standard pricing in exchange for product feedback, case-study participation, or referral commitments — terms are agreed individually.\n\nIf you're running a high-volume operation or are open to a case study, book a demo and we can walk through whether design-partner terms make sense for your team.",
+  },
+  {
+    question: "How do I get started?",
+    answer:
+      "Two paths. Start free at app.scalemate.co — 1 ad account, 2 rules, 100 launches/month, no credit card, no time limit. Use it as long as you need it.\n\nFor a paid tier or a bundle, book a demo. We'll review your current ad operations — volume, platforms, team structure — and recommend a tier that fits how your team actually works. Most teams are live within a week of that first call.",
+  },
+  {
+    question: "How does Scalemate compare to other Facebook ads automation tools?",
+    answerText:
+      "Scalemate is one of 13 Facebook ads automation tools on the market in 2026 — alongside Birch (Revealbot), Madgicx, Kitchn.io, AdManage, AdNova, AdEspresso, Smartly, Trapica, and others. We cover the head-to-head comparison — rules engine depth, auto-revert, bulk launch, creative sync, pricing — in the 13 best Facebook ads automation tools roundup.",
+    answer: (
+      <>
+        Scalemate is one of 13 Facebook ads automation tools on the market in
+        2026 — alongside Birch (Revealbot), Madgicx, Kitchn.io, AdManage,
+        AdNova, AdEspresso, Smartly, Trapica, and others. We cover the
+        head-to-head comparison — rules engine depth, auto-revert, bulk launch,
+        creative sync, pricing — in the{" "}
+        <Link href="/blog/best-facebook-ads-automation-tools">
+          13 best Facebook ads automation tools roundup
+        </Link>
+        .
+      </>
+    ),
   },
 ]
 
